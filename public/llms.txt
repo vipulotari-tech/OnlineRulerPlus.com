@@ -7,7 +7,7 @@
 - **W3C CSS Reference Pixel**: Under W3C CSS Values and Units Module Level 4, `1 CSS inch = 96 CSS pixels` (`3.779528 CSS px/mm`), which does not match physical display PPI on most laptops, monitors, or smartphones without calibration (typical uncalibrated error: 10% to 35%).
 - **Primary Calibration Reference**: ISO/IEC 7810:2019 ID-1 standard payment/ID card measuring `85.60 × 53.98 mm` (`3.370 × 2.125 inches`, corner radius `3.18 mm`).
 - **Secondary Calibration Methods**: Visible screen diagonal calculation (`Physical PPI = sqrt(W^2 + H^2) / diagonalInches`) and device density database (`window.devicePixelRatio` + viewport geometry).
-- **Privacy Architecture**: 100% client-side execution (`localStorage` keys: `orp:calibration:v1`, `orp:preferences:v1`, `orp:history:v1`, `orp:theme`). Zero server uploads, zero camera permissions, zero ad trackers.
+- **Privacy Architecture**: Client-side measurement and calibration execution (`localStorage` keys: `orp:calibration:v1`, `orp:preferences:v1`, `orp:history:v1`, `orp:theme`). Zero server uploads of measurements and zero camera/sensor permissions; see `/privacy` for cookie and advertising disclosures.
 
 ## Interactive Ruler Tools
 - [Actual-Size Online Ruler Workspace (cm, mm, in, px)](https://onlinerulerplus.com/): Multi-edge (Top, Bottom, Left, Right) calibrated HTML5 canvas ruler with draggable guide lines, cursor crosshair, floating ruler, and 180-degree protractor.

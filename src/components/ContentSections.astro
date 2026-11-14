@@ -26,7 +26,7 @@ export const faqItems = [
   },
   {
     q: 'Is any measurement or device calibration data sent to a remote server?',
-    a: 'Client-side local execution means 100% of ruler rendering, calibration math, and span logging happens inside your web browser with 0% server transmission. According to our 2026 privacy architecture, Online Ruler Plus stores display profiles and preferences exclusively in browser localStorage under four transparent keys: orp:calibration:v1, orp:preferences:v1, orp:history:v1, and orp:theme. First, unlike camera-based AR measuring apps that upload room imagery or ad-heavy ruler sites that embed third-party tracking scripts, Online Ruler Plus never requests webcam, microphone, or geolocation permissions. Second, in practice, we measured 0 outbound telemetry requests during calibration and guide placement. For example, once the static Astro HTML and TypeScript bundle load, 100% of the measurement workspace functions offline with complete data privacy.',
+    a: 'Client-side local execution means 100% of ruler rendering, calibration math, and span logging happens inside your web browser with zero server uploads of measurement data. Online Ruler Plus stores display profiles and workspace preferences locally in browser localStorage under four transparent keys: orp:calibration:v1, orp:preferences:v1, orp:history:v1, and orp:theme. Unlike camera-based AR measuring apps that capture room imagery, Online Ruler Plus never requests webcam, microphone, or geolocation permissions. Once the static pages and workspace script load, ruler calculations execute offline in your browser; any standard site-support advertising and cookie consent controls are disclosed in full in our Privacy Policy.',
   },
 ];
 

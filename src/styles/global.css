@@ -1,5 +1,6 @@
 @import "tailwindcss" source("../");
-@import "@fontsource-variable/geist";
+@import "@fontsource-variable/plus-jakarta-sans";
+@import "@fontsource-variable/inter";
 @import "@fontsource-variable/geist-mono";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -117,9 +118,9 @@
 }
 
 @theme inline {
-  --font-display: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Geist Variable", "Geist", "Inter", system-ui, sans-serif;
-  --font-sans: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Geist Variable", "Geist", "Inter", system-ui, sans-serif;
-  --font-mono: "SF Mono", ui-monospace, SFMono-Regular, "Geist Mono Variable", "Geist Mono", Menlo, Consolas, monospace;
+  --font-display: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Inter Variable", sans-serif;
+  --font-sans: "Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans Variable", system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", "Geist Mono", "SF Mono", SFMono-Regular, ui-monospace, Menlo, Consolas, monospace;
 
   --color-canvas: var(--surface-canvas);
   --color-canvas-parchment: var(--surface-parchment);
@@ -162,24 +163,25 @@
     background-color: var(--surface-canvas);
     color: var(--text-ink);
     font-family: var(--font-sans);
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 1.47;
-    letter-spacing: -0.25px;
+    line-height: 1.62;
+    letter-spacing: -0.008em;
     scroll-behavior: smooth;
     scroll-padding-top: 104px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-optical-sizing: auto;
   }
 
   body {
     background-color: var(--surface-canvas);
     color: var(--text-body);
     font-family: var(--font-sans);
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 1.47;
-    letter-spacing: -0.25px;
+    line-height: 1.62;
+    letter-spacing: -0.008em;
     overflow-x: hidden;
   }
 
@@ -195,6 +197,18 @@
 
   p, li, dd {
     text-wrap: pretty;
+  }
+
+  p code,
+  li code,
+  dd code {
+    font-family: var(--font-mono);
+    font-size: 0.84em;
+    font-weight: 500;
+    padding: 0.1em 0.42em;
+    border-radius: 5px;
+    background-color: color-mix(in srgb, currentColor 6%, transparent);
+    border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
   }
 
   .font-mono, code, kbd, table {
@@ -259,9 +273,9 @@
   .type-hero-display {
     font-family: var(--font-display);
     font-size: 28px;
-    font-weight: 600;
-    line-height: 1.07;
-    letter-spacing: -0.28px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
   }
 
   @media (min-width: 420px) {
@@ -278,16 +292,16 @@
 
   @media (min-width: 1069px) {
     .type-hero-display {
-      font-size: 56px;
+      font-size: 54px;
     }
   }
 
   .type-display-lg {
     font-family: var(--font-display);
     font-size: 28px;
-    font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: 0;
+    font-weight: 700;
+    line-height: 1.14;
+    letter-spacing: -0.022em;
   }
 
   @media (min-width: 641px) {
@@ -298,7 +312,7 @@
 
   @media (min-width: 1069px) {
     .type-display-lg {
-      font-size: 40px;
+      font-size: 38px;
     }
   }
 
@@ -306,148 +320,149 @@
     font-family: var(--font-display);
     font-size: 26px;
     font-weight: 600;
-    line-height: 1.16;
-    letter-spacing: -0.32px;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
   }
 
   @media (min-width: 641px) {
     .type-display-md {
       font-size: 32px;
-      line-height: 1.14;
+      line-height: 1.15;
     }
   }
 
   @media (min-width: 1069px) {
     .type-display-md {
       font-size: 36px;
-      line-height: 1.12;
+      line-height: 1.13;
     }
   }
 
   .type-kicker {
-    font-family: var(--font-mono);
-    font-size: 12px;
+    font-family: var(--font-display);
+    font-size: 11px;
     font-weight: 600;
     line-height: 1.35;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.085em;
+    text-transform: uppercase;
     color: var(--accent-link);
   }
 
   .type-lead {
     font-family: var(--font-display);
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 400;
-    line-height: 1.19;
-    letter-spacing: 0.196px;
+    line-height: 1.32;
+    letter-spacing: -0.01em;
   }
 
   @media (min-width: 641px) {
     .type-lead {
-      font-size: 28px;
-      line-height: 1.14;
+      font-size: 26px;
+      line-height: 1.24;
     }
   }
 
   .type-lead-airy {
     font-family: var(--font-sans);
-    font-size: 19px;
-    font-weight: 300;
-    line-height: 1.5;
-    letter-spacing: 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.008em;
   }
 
   @media (min-width: 641px) {
     .type-lead-airy {
-      font-size: 24px;
+      font-size: 21px;
     }
   }
 
   .type-tagline {
     font-family: var(--font-display);
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 600;
-    line-height: 1.19;
-    letter-spacing: 0.231px;
+    line-height: 1.28;
+    letter-spacing: -0.015em;
   }
 
   .type-body-strong {
     font-family: var(--font-sans);
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
-    line-height: 1.24;
-    letter-spacing: -0.374px;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
   }
 
   .type-body {
     font-family: var(--font-sans);
-    font-size: 17px;
+    font-size: 15.5px;
     font-weight: 400;
-    line-height: 1.47;
-    letter-spacing: -0.374px;
+    line-height: 1.65;
+    letter-spacing: -0.006em;
   }
 
   .type-dense-link {
     font-family: var(--font-sans);
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 2.41;
-    letter-spacing: 0;
+    line-height: 2.3;
+    letter-spacing: -0.006em;
   }
 
   .type-caption {
     font-family: var(--font-sans);
     font-size: 14px;
     font-weight: 400;
-    line-height: 1.43;
-    letter-spacing: -0.224px;
+    line-height: 1.56;
+    letter-spacing: -0.004em;
   }
 
   .type-caption-strong {
-    font-family: var(--font-sans);
-    font-size: 14px;
+    font-family: var(--font-display);
+    font-size: 13px;
     font-weight: 600;
-    line-height: 1.29;
-    letter-spacing: -0.224px;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
   }
 
   .type-button-large {
-    font-family: var(--font-sans);
-    font-size: 18px;
-    font-weight: 300;
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 500;
     line-height: 1.0;
-    letter-spacing: 0;
+    letter-spacing: -0.006em;
   }
 
   .type-button-utility {
     font-family: var(--font-sans);
     font-size: 14px;
-    font-weight: 400;
-    line-height: 1.29;
-    letter-spacing: -0.224px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.004em;
   }
 
   .type-fine-print {
     font-family: var(--font-sans);
     font-size: 12px;
     font-weight: 400;
-    line-height: 1.33;
-    letter-spacing: -0.12px;
+    line-height: 1.45;
+    letter-spacing: 0;
   }
 
   .type-micro-legal {
     font-family: var(--font-sans);
     font-size: 10px;
     font-weight: 400;
-    line-height: 1.3;
-    letter-spacing: -0.08px;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
   }
 
   .type-nav-link {
     font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 12.5px;
+    font-weight: 450;
     line-height: 1.0;
-    letter-spacing: -0.12px;
+    letter-spacing: -0.004em;
   }
 
   /* ==========================================================================
@@ -461,15 +476,15 @@
     justify-content: center;
     gap: 8px;
     min-height: 44px;
-    padding: 11px 22px;
+    padding: 11px 24px;
     border-radius: var(--radius-pill);
     background-color: var(--action-primary);
     color: var(--action-on-primary);
-    font-family: var(--font-sans);
-    font-size: 17px;
-    font-weight: 400;
+    font-family: var(--font-display);
+    font-size: 15.5px;
+    font-weight: 500;
     line-height: 1.24;
-    letter-spacing: -0.374px;
+    letter-spacing: -0.006em;
     text-decoration: none;
     cursor: pointer;
   }
@@ -481,16 +496,16 @@
     justify-content: center;
     gap: 8px;
     min-height: 44px;
-    padding: 11px 22px;
+    padding: 11px 24px;
     border-radius: var(--radius-pill);
     border: 1px solid var(--action-primary);
     background-color: transparent;
     color: var(--accent-link);
-    font-family: var(--font-sans);
-    font-size: 17px;
-    font-weight: 400;
+    font-family: var(--font-display);
+    font-size: 15.5px;
+    font-weight: 500;
     line-height: 1.24;
-    letter-spacing: -0.374px;
+    letter-spacing: -0.006em;
     text-decoration: none;
     cursor: pointer;
   }
@@ -506,11 +521,11 @@
     border-radius: var(--radius-pill);
     background-color: var(--action-primary);
     color: var(--action-on-primary);
-    font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 400;
+    font-family: var(--font-display);
+    font-size: 13.5px;
+    font-weight: 500;
     line-height: 1.29;
-    letter-spacing: -0.224px;
+    letter-spacing: -0.004em;
     text-decoration: none;
     cursor: pointer;
   }
@@ -527,10 +542,10 @@
     background-color: #1d1d1f;
     color: #ffffff;
     font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 13.5px;
+    font-weight: 500;
     line-height: 1.29;
-    letter-spacing: -0.224px;
+    letter-spacing: -0.004em;
     cursor: pointer;
   }
 
@@ -672,10 +687,10 @@
     background-color: var(--surface-canvas);
     color: var(--text-ink);
     font-family: var(--font-sans);
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.24;
-    letter-spacing: -0.374px;
+    letter-spacing: -0.006em;
   }
 
   /* Full-bleed tiles: 0 corner radius, 80px desktop vertical padding (48px on mobile <=735px) */

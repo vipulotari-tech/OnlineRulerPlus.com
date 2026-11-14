@@ -395,7 +395,7 @@ export function renderProtractorOverlay(
     ctx.stroke();
 
     // Degree ticks
-    ctx.font = '600 10px "SF Mono", ui-monospace, SFMono-Regular, "Geist Mono Variable", "Geist Mono", monospace';
+    ctx.font = '600 10px "Geist Mono Variable", "Geist Mono", "SF Mono", ui-monospace, monospace';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
 
