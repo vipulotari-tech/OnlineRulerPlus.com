@@ -67,3 +67,20 @@ Removed templated boilerplate phrasing from homepage prose (`"According to 2026.
 | `npx playwright test --reporter=list` | **PASS** | `8/8` tests passed across Chromium & Edge (`375px` to `1600px` viewports, calibration, shortcuts, zero console errors) |
 | `claude-seo` `page_checks.py` | **PASS** | `findings=0` across all 13 `dist/` HTML files (`H1=1`, `skips=0`, `jsonld_invalid=0`) |
 | `adsense-site-auditor` (`check_completeness.py` & `analyze_text_depth.py`) | **PASS** | Completeness `5/5 PASS`; `/` = `2,776` main words (`>= 450`); `/faq` = `1,951` main words (`>= 1,800`) |
+
+---
+
+## 6. Google Search & AdSense Policy Compliance Observations
+
+- **Helpful Primary Utility Preserved:** `#ruler-workspace` loads above the fold untouched; supporting copy and FAQs live below `#calibration` with zero interstitial obstruction.
+- **No Spam or Deceptive Practices:** Zero hidden text/links, zero keyword stuffing, zero doorway pages created, no synthetic accuracy benchmarks or fabricated author profiles, and zero `noindex` directives on indexable routes (`meta name="robots" content="index, follow"` verified across all 13 built routes).
+- **AdSense Readiness & UX Safety:** Interactive workspace controls (`#ruler-workspace`, calibration buttons/inputs) remain isolated from promotional placements; honest disclosure of physical screen limits, optical parallax, and camera/Microsoft Office boundaries complies with Google Publisher and Search Spam policies.
+
+---
+
+## 7. Remaining SEO & Deployment Issues
+
+1. **Live Domain DNS Not Yet Active Locally:** `https://onlinerulerplus.com/` did not resolve in DNS checks (`NameResolutionError`), blocking live Google Search Console verification, TLS header validation (`ADS-CRAWL-06`), and live sitemap fetch (`ADS-CRAWL-07`) until production DNS and hosting are live.
+2. **Inline Raster Images (`<img>`):** Currently all 13 pages use HTML5 `<canvas>` and inline `<svg>` icons (`0` rendered `<img>` elements), with `og-image.png` (`1200×630` PNG) serving social previews. If future instructional diagrams or device calibration photos are added, serve WebP/AVIF with explicit `width`/`height`, concise `alt`, and `loading="lazy"` below the fold.
+3. **GEO Passage Length vs. Scannability Trade-off:** `citability_scorer.py` scored `/`'s concise cards at `40.5` average citability (`1` optimal 120–160 word passage) because Section 1 intentionally prioritizes tight ~70-word blocks to hit the ~600-word budget cleanly across 8 topics.
+4. **Raw HTML Markup Tokenization Artifact:** Running `claude-seo` `content_quality.py` on unstripped `dist/index.html` reports `repetition_score: 38` due to repeating Tailwind CSS classes/attributes, whereas stripped visible prose scores `repetition_score: 14`, `overall_quality: 98`, `flags: []`.

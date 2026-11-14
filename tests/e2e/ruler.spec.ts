@@ -206,8 +206,19 @@ test.describe('Online Ruler Plus — Apple DESIGN.md & E2E Verification Suite', 
       await expect(page.locator('footer')).toBeVisible();
     }
 
-    // Responsive viewports: Small mobile (375px), Mobile (390px), Tablet (768px), Laptop (1024px), Desktop (1280px), Wide (1600px)
     await page.goto('/');
+
+    // Verify interactive FAQ accordions on homepage expand/collapse cleanly
+    const faqDetails = page.locator('#faq details');
+    await expect(faqDetails).toHaveCount(11);
+    const firstFaq = faqDetails.first();
+    await expect(firstFaq).toHaveAttribute('open', '');
+    await firstFaq.locator('summary').click();
+    await expect(firstFaq).not.toHaveAttribute('open', '');
+    await firstFaq.locator('summary').click();
+    await expect(firstFaq).toHaveAttribute('open', '');
+
+    // Responsive viewports: Small mobile (375px), Mobile (390px), Tablet (768px), Laptop (1024px), Desktop (1280px), Wide (1600px)
     for (const vp of [
       { width: 375, height: 667 },
       { width: 390, height: 844 },
