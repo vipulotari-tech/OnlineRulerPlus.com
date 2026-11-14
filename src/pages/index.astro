@@ -8,15 +8,15 @@ import ContentSections, { faqItems } from '../components/ContentSections.astro';
 import HelpModal from '../components/HelpModal.astro';
 import Footer from '../components/Footer.astro';
 
-const title = 'Online Ruler | Actual-Size Screen Ruler (cm, mm, Inches)';
+const title = 'Online Ruler | Free Actual-Size Ruler in Inches, cm & mm';
 const description =
-  'Free calibrated actual-size online ruler in centimeters (cm), millimeters (mm), 1/16″ inches, and pixels. Calibrate with a bank card or screen diagonal.';
+  'Measure real physical length in inches (1/16″), cm, and mm with our free actual-size online ruler. Calibrate to scale using any bank card or monitor diagonal.';
 
 const siteOrigin = Astro.site ? Astro.site.origin : 'https://onlinerulerplus.com';
 const canonicalUrl = new URL('/', siteOrigin).toString();
 const ogImageUrl = `${siteOrigin}/og-image.png`;
 const ogImageAlt =
-  'Online Ruler Plus calibrated actual-size screen ruler in centimeters (cm), millimeters (mm), and 1/16 fractional inches';
+  'Online Ruler Plus free actual-size online ruler calibrated in inches (1/16″), cm, and mm';
 
 const structuredData = [
   {
@@ -53,9 +53,37 @@ const structuredData = [
     '@id': `${siteOrigin}/#website`,
     url: canonicalUrl,
     name: 'Online Ruler Plus',
-    inLanguage: 'en',
+    inLanguage: 'en-US',
     publisher: {
       '@id': `${siteOrigin}/#organization`,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${canonicalUrl}#webpage`,
+    url: canonicalUrl,
+    name: title,
+    description,
+    inLanguage: 'en-US',
+    isPartOf: {
+      '@id': `${siteOrigin}/#website`,
+    },
+    about: {
+      '@id': `${canonicalUrl}#app`,
+    },
+    mainEntity: {
+      '@id': `${canonicalUrl}#app`,
+    },
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: ogImageUrl,
+      width: 1200,
+      height: 630,
+    },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.speakable-summary'],
     },
   },
   {
@@ -67,9 +95,10 @@ const structuredData = [
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Any',
     browserRequirements: 'Requires HTML5 Canvas and JavaScript',
-    inLanguage: 'en',
+    inLanguage: 'en-US',
     isAccessibleForFree: true,
     description,
+    screenshot: ogImageUrl,
     publisher: {
       '@id': `${siteOrigin}/#organization`,
     },
@@ -79,16 +108,12 @@ const structuredData = [
       priceCurrency: 'USD',
     },
     featureList: [
-      'Centimeter (cm), millimeter (mm), fractional inch (1/16″), and CSS pixel (px) rulers',
-      'ISO/IEC 7810 ID-1 credit card calibration (85.60 × 53.98 mm)',
+      'Fractional inch (1/16″), centimeter (cm), millimeter (mm), and CSS pixel (px) rulers',
+      'ISO/IEC 7810 ID-1 credit card calibration (85.60 × 53.98 mm / 3.370 × 2.125 in)',
       'Screen diagonal calibration and automatic device density detection',
       'Top, Bottom, Left, Right, and floating draggable rulers',
       'Click-to-place measurement guide lines, cursor crosshair, 180° protractor, and fullscreen workspace',
     ],
-    speakable: {
-      '@type': 'SpeakableSpecification',
-      cssSelector: ['h1', '.speakable-summary'],
-    },
   },
   {
     '@context': 'https://schema.org',
