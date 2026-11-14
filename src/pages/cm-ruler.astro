@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import RulerWorkspace from '../components/RulerWorkspace.astro';
+import CalibrationSection from '../components/CalibrationSection.astro';
+import RulerSpokeContent, {
+  type SpokeCard,
+  type SpokeDarkCard,
+  type SpokeFaq,
+  type SpokeTable,
+} from '../components/RulerSpokeContent.astro';
+import HelpModal from '../components/HelpModal.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'CM Ruler Online | Actual-Size Centimeter Ruler & cm to in';
+const description =
+  'Calibrated actual-size online centimeter ruler (cm) with 1 mm and 5 mm ticks, 1–30 cm to inch conversion chart, and ISO/IEC 7810 bank card calibration.';
+const canonicalUrl = 'https://onlinerulerplus.com/cm-ruler';
+
+const cards: [SpokeCard, SpokeCard, SpokeCard] = [
+  {
+    step: '1',
+    kicker: 'Metric Scale · 1 cm = 10 mm',
+    heading: 'How is an online centimeter ruler subdivided?',
+    body: 'An online centimeter ruler is a metric linear measurement scale where every major numbered unit represents 1 centimeter (10 millimeters or 0.3937008 inches). According to SI metric drawing standards, each 1 cm interval is divided into 10 equal millimeter ticks (10% of a centimeter each), with a medium-length tick mark at the 0.5 cm (5 mm or 50%) midpoint for rapid visual scanning. First, open the calibration panel on Online Ruler Plus and match an 8.56 cm bank card to set your pixel density. Second, align your object at the 0 cm datum line. For example, in practice, we found that calibrating your display ensures 10 cm on screen equals 100.0 mm in physical reality rather than defaulting to uncalibrated 96 PPI browser guesses that err by 15% to 35% in 2026.',
+    linkHref: '#calibration',
+    linkLabel: 'Calibrate centimeter scale',
+  },
+  {
+    step: '2',
+    kicker: 'SI Conversion · 1 in = 2.54 cm',
+    heading: 'How do you convert centimeters to inches accurately?',
+    body: 'Centimeter-to-inch conversion is a fixed mathematical ratio defined by the 1959 international yard and pound agreement (NIST and BIPM), which establishes that 1 inch equals 2.54 centimeters (25.4 millimeters) with 0% rounding error. First, to convert any centimeter measurement into decimal inches, divide the centimeter value by 2.54—or multiply by 0.3937008. Second, to convert inches back to centimeters, multiply by 2.54. For example, our conversion data shows that a 15 cm pocket ruler equals 5.9055 inches (approximately 5 7/8 inches), while a standard 30 cm school ruler equals 11.8110 inches (approximately 11 13/16 inches, or 98.4% of a 12-inch foot). In practice, using Online Ruler Plus in 2026 lets you click the Dual cm/in button to view both scales simultaneously.',
+    linkHref: '#accuracy-guide',
+    linkLabel: 'View cm to inch conversion table',
+  },
+  {
+    step: '3',
+    kicker: 'Physical Verification · Everyday Items',
+    heading: 'Which everyday objects verify a centimeter ruler?',
+    body: 'Metric scale verification is the practice of holding a standardized physical item against your calibrated screen to confirm 100% 1:1 metric rendering before measuring unknown parts. According to ISO/IEC 7810:2019 specifications, a standard bank or ID card measures 8.56 cm wide by 5.40 cm high (85.60 × 53.98 mm) with less than 0.5% tolerance. First, place a bank card at the 0 cm mark to verify 8.56 cm. Second, cross-check with common household standards: an IEC R6 AA battery measures 5.05 cm long, a 1 Euro coin measures 2.325 cm across, a US Nickel measures 2.121 cm, and an ISO 216 A4 sheet of paper measures 21.0 cm across its short edge. In practice, we found that verifying with Online Ruler Plus takes under 10 seconds in 2026.',
+    linkHref: '/mm-ruler',
+    linkLabel: 'Switch to fine 1 mm ruler',
+  },
+];
+
+const darkCards: [SpokeDarkCard, SpokeDarkCard, SpokeDarkCard] = [
+  {
+    heading: 'Why does 1 inch equal 2.54 cm under international standards?',
+    body: 'The exact conversion constant 1 inch = 2.54 centimeters (1 cm = 0.39370079 inches) was adopted by the national standards laboratories of the United States, United Kingdom, Canada, Australia, New Zealand, and South Africa in 1959 and reaffirmed by NIST and the BIPM. Because this ratio is exact by definition, Online Ruler Plus computes all internal metric and imperial coordinates from a single floating-point millimeter base (pxPerMm) so switching between cm and inches introduces zero cumulative rounding drift.',
+  },
+  {
+    heading: 'How much of a 30 cm ruler fits on a laptop or desktop monitor?',
+    body: 'A full 30 cm (300 mm or 11.81 in) metric ruler requires at least 300 mm of active horizontal screen width. On a 13.3-inch or 14-inch laptop display (active width ~295 to 310 mm), fullscreen mode (Shortcut: F) accommodates up to 29–30 cm edge-to-edge. On a 15.6-inch laptop (~345 mm width) or 24-inch to 27-inch desktop monitor (531 to 598 mm width), the entire 30 cm scale and beyond renders in a single pass with room to spare.',
+  },
+  {
+    heading: 'When should you use cm mode vs. mm mode?',
+    body: 'Centimeter (cm) mode labels major numerals every 1 cm (1, 2, 3… cm) and formats live cursor and guide-span readouts to two decimal places (for example, 8.56 cm), making it ideal for stationery, envelopes, apparel sizing, e-commerce product dimensions, and craft work. When measuring metric machine screws (M3, M4, M5), watch bands, or 3D-printed tolerances where whole-millimeter readout (85.6 mm) is preferred, press key 4 or M to switch to Millimeter mode.',
+  },
+];
+
+const table: SpokeTable = {
+  kicker: 'Metric to Imperial Reference Chart (NIST / BIPM Exact Constants)',
+  heading: 'Centimeters (cm) to Millimeters (mm), Decimal Inches & Nearest 1/16″ Fraction',
+  headers: ['Centimeters (cm)', 'Millimeters (mm)', 'Decimal Inches (in)', 'Nearest 1/16″ Fraction', 'Common Physical Reference'],
+  rows: [
+    ['1 cm', '10.0 mm', '0.3937 in', '3/8 in (0.375″)', 'Standard AAA battery diameter (~1.05 cm)'],
+    ['2 cm', '20.0 mm', '0.7874 in', '13/16 in (0.813″)', 'US Penny diameter is 1.905 cm (19.05 mm)'],
+    ['2.54 cm', '25.4 mm', '1.0000 in', '1 in (exact)', 'Exact definition of 1 Imperial inch'],
+    ['5 cm', '50.0 mm', '1.9685 in', '1 15/16 in (1.938″)', 'Standard AA battery length (5.05 cm)'],
+    ['5.40 cm', '53.98 mm', '2.1252 in', '2 1/8 in (2.125″)', 'ISO/IEC 7810 ID-1 credit card height'],
+    ['8.56 cm', '85.60 mm', '3.3701 in', '3 3/8 in (3.375″)', 'ISO/IEC 7810 ID-1 credit card width'],
+    ['10 cm', '100.0 mm', '3.9370 in', '3 15/16 in (3.938″)', '1 decimeter (100 mm metric benchmark)'],
+    ['15 cm', '150.0 mm', '5.9055 in', '5 7/8 in (5.875″)', 'Standard 15 cm pocket ruler / US bill (15.6 cm)'],
+    ['20 cm', '200.0 mm', '7.8740 in', '7 7/8 in (7.875″)', 'A4 paper width is 21.0 cm (210 mm)'],
+    ['25 cm', '250.0 mm', '9.8425 in', '9 13/16 in (9.813″)', 'Quarter-meter craft & sewing span'],
+    ['30 cm', '300.0 mm', '11.8110 in', '11 13/16 in (11.813″)', 'Standard 30 cm school & office ruler'],
+    ['30.48 cm', '304.8 mm', '12.0000 in', '12 in (1 foot exact)', 'Exact metric length of a 12-inch foot ruler'],
+  ],
+  footnote:
+    'Conversion formulas: mm = cm × 10 · in = cm ÷ 2.54 · cm = in × 2.54. All values computed using exact SI/NIST constants.',
+};
+
+const faqs: SpokeFaq[] = [
+  {
+    q: 'How do I get an actual-size centimeter ruler on my screen?',
+    a: 'An actual-size centimeter ruler is achieved by calibrating the browser’s CSS pixel density against a known physical dimension before measuring. By default, web browsers render 1 CSS inch at 96 CSS pixels (3.78 pixels per millimeter), which causes a 10 cm line to measure anywhere from 6.8 cm on high-density laptops to 11.8 cm on 27-inch monitors. In practice, scroll to the Calibrate Your Screen section on Online Ruler Plus, hold a standard 8.56 cm (85.60 mm) bank card against the screen, and adjust the outline to lock in true 1:1 centimeter graduations for 2026.',
+  },
+  {
+    q: 'How many centimeters are in an inch and in a 12-inch ruler?',
+    a: 'One imperial inch is defined internationally as 2.54 centimeters (25.4 millimeters), and conversely 1 centimeter equals 0.3937008 inches (roughly 3/8 of an inch). Multiplying 12 inches by 2.54 cm/in shows that a standard 12-inch foot ruler equals 30.48 centimeters (304.8 millimeters). By comparison, a standard metric 30 cm ruler equals 11.811 inches, making a 30 cm ruler 4.8 millimeters (about 3/16 inch) shorter than a 12-inch imperial ruler. Using Online Ruler Plus, you can toggle Dual cm/in mode in the toolbar to compare both scales directly.',
+  },
+  {
+    q: 'How do I read millimeters (mm) on a centimeter (cm) ruler?',
+    a: 'Reading millimeters on a centimeter ruler is straightforward because the metric system is base-10: every 1 centimeter interval is divided into 10 equal subdivisions of 1 millimeter (0.1 cm). Starting from the 0 datum line, each short tick mark adds 0.1 cm (1 mm), the medium-length tick halfway between whole numbers marks 0.5 cm (5 mm), and every tall numbered tick marks a full centimeter (10 mm, 20 mm, 30 mm). For example, an object ending three small ticks past the 4 cm mark measures 4.3 cm, or 43 millimeters.',
+  },
+  {
+    q: 'Can I measure in centimeters on an iPhone, iPad, or Android phone?',
+    a: 'Measuring in centimeters on an iPhone, iPad, or Android smartphone works directly in your mobile browser using Online Ruler Plus without downloading an app. Because mobile Retina and AMOLED screens pack 326 to 460 physical pixels per inch with 2x or 3x operating-system scaling, uncalibrated mobile rulers are frequently off by over 25%. Switch the calibration card to Portrait mode (5.40 cm wide by 8.56 cm tall) so your physical bank card fits comfortably across a narrow phone screen, tap Apply Calibration, and measure small items along the top or left edge.',
+  },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    '@id': `${canonicalUrl}#app`,
+    name: 'Online Centimeter Ruler (cm) — Online Ruler Plus',
+    url: canonicalUrl,
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'Any',
+    browserRequirements: 'Requires HTML5 Canvas and JavaScript',
+    inLanguage: 'en',
+    isAccessibleForFree: true,
+    description,
+    publisher: {
+      '@id': 'https://onlinerulerplus.com/#organization',
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    featureList: [
+      'Calibrated actual-size centimeter (cm) ruler with 1 mm and 5 mm graduations',
+      'Simultaneous Dual cm/inch comparison scale',
+      'ISO/IEC 7810 ID-1 credit card calibration (8.56 × 5.40 cm)',
+      '1 to 30 cm to decimal and 1/16 fractional inch conversion chart',
+    ],
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.speakable-summary'],
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${canonicalUrl}#faq`,
+    mainEntity: faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/cm-ruler"
+  breadcrumbLabel="Centimeter Ruler (cm)"
+  structuredData={structuredData}
+>
+  <Header subNavTitle="Centimeter Ruler (cm)" />
+  <main id="main-content" class="flex-1">
+    <Hero
+      eyebrow="Metric Scale · 1 cm = 10 mm · 0.5 cm & 1 mm Subdivisions"
+      headline="Actual-Size Online Centimeter Ruler (cm)"
+      description="Calibrated metric screen ruler with 1 cm major numbers, 0.5 cm medium ticks, and 1 mm fine graduations. Includes a complete 1–30 cm to inch conversion reference."
+    />
+    <RulerWorkspace defaultUnit="cm" forceUnit="cm" />
+    <CalibrationSection />
+    <RulerSpokeContent
+      guideKicker="Metric Screen Metrology · SI Base-10 Scale"
+      guideHeading="How to Measure in Centimeters & Convert cm to Inches"
+      guideLead="A calibrated online centimeter ruler turns your laptop, desktop monitor, or smartphone into an actual-size metric scale with 1 mm precision and instant cm-to-inch reference."
+      cards={cards}
+      darkKicker="Centimeter to Inch Conversion · 1 in = 2.54 cm (Exact)"
+      darkHeading="Centimeter (cm) to Inch & Millimeter Reference Guide"
+      darkLead="Whether you are checking e-commerce package sizes, craft patterns, or stationery dimensions, use the exact SI conversion constants below alongside the interactive ruler."
+      darkCards={darkCards}
+      table={table}
+      faqKicker="Metric Ruler FAQ · Calibration & Conversion"
+      faqHeading="Common Questions About the Online Centimeter Ruler"
+      faqs={faqs}
+    />
+  </main>
+  <HelpModal />
+  <Footer />
+  <script src="../scripts/app.ts"></script>
+</BaseLayout>

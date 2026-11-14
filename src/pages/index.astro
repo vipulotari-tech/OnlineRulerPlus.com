@@ -1,0 +1,176 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import RulerWorkspace from '../components/RulerWorkspace.astro';
+import CalibrationSection from '../components/CalibrationSection.astro';
+import ContentSections, { faqItems } from '../components/ContentSections.astro';
+import HelpModal from '../components/HelpModal.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Online Ruler | Actual-Size Screen Ruler (cm, mm, Inches)';
+const description =
+  'Free calibrated actual-size online ruler in centimeters (cm), millimeters (mm), 1/16″ inches, and pixels. Calibrate with a bank card or screen diagonal.';
+
+const siteOrigin = Astro.site ? Astro.site.origin : 'https://onlinerulerplus.com';
+const canonicalUrl = new URL('/', siteOrigin).toString();
+const ogImageUrl = `${siteOrigin}/og-image.png`;
+const ogImageAlt =
+  'Online Ruler Plus calibrated actual-size screen ruler in centimeters (cm), millimeters (mm), and 1/16 fractional inches';
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${siteOrigin}/#organization`,
+    name: 'Online Ruler Plus',
+    url: canonicalUrl,
+    logo: {
+      '@type': 'ImageObject',
+      url: ogImageUrl,
+      width: 1200,
+      height: 630,
+    },
+    description:
+      'Client-side actual-size online screen ruler and display calibration platform supporting centimeters (cm), millimeters (mm), 1/16-inch dyadic fractions, and CSS reference pixels.',
+    knowsAbout: [
+      'Online Screen Ruler Calibration',
+      'Display Pixel Density (PPI) Metrology',
+      'ISO/IEC 7810:2019 ID-1 Standard Card Calibration',
+      'Centimeter, Millimeter, and Fractional Inch Measurement',
+      'W3C CSS Values and Units Reference Pixel',
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'support@onlinerulerplus.com',
+      contactType: 'customer support',
+      availableLanguage: ['en'],
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${siteOrigin}/#website`,
+    url: canonicalUrl,
+    name: 'Online Ruler Plus',
+    inLanguage: 'en',
+    publisher: {
+      '@id': `${siteOrigin}/#organization`,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    '@id': `${canonicalUrl}#app`,
+    name: 'Online Ruler Plus',
+    url: canonicalUrl,
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'Any',
+    browserRequirements: 'Requires HTML5 Canvas and JavaScript',
+    inLanguage: 'en',
+    isAccessibleForFree: true,
+    description,
+    publisher: {
+      '@id': `${siteOrigin}/#organization`,
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    featureList: [
+      'Centimeter (cm), millimeter (mm), fractional inch (1/16″), and CSS pixel (px) rulers',
+      'ISO/IEC 7810 ID-1 credit card calibration (85.60 × 53.98 mm)',
+      'Screen diagonal calibration and automatic device density detection',
+      'Top, Bottom, Left, Right, and floating draggable rulers',
+      'Click-to-place measurement guide lines, cursor crosshair, 180° protractor, and fullscreen workspace',
+    ],
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.speakable-summary'],
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${canonicalUrl}#faq`,
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
+    })),
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Online Ruler Plus" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+
+    <script is:inline>
+      (() => {
+        try {
+          const saved = localStorage.getItem('orp:theme');
+          if (saved === 'dark') {
+            document.documentElement.classList.add('dark');
+          }
+        } catch {
+          // Ignore storage access errors
+        }
+      })();
+    </script>
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
+  </head>
+  <body class="min-h-screen flex flex-col bg-canvas text-body selection:bg-link-soft selection:text-ink">
+    <a
+      href="#ruler-tool"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 apple-btn-primary-compact"
+    >
+      Skip to online ruler workspace
+    </a>
+    <Header />
+    <main id="main-content" class="flex-1">
+      <Hero />
+      <RulerWorkspace defaultUnit="cm" />
+      <CalibrationSection />
+      <ContentSections />
+    </main>
+    <HelpModal />
+    <Footer />
+    <script src="../scripts/app.ts"></script>
+  </body>
+</html>

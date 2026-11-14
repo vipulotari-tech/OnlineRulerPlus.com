@@ -1,0 +1,29 @@
+# Online Ruler Plus (OnlineRulerPlus.com)
+
+> Online Ruler Plus is a free, privacy-first, client-side actual-size online screen ruler and display calibration workspace for measuring physical objects in centimeters (cm), millimeters (mm), 1/16-inch dyadic fractions (in), and CSS reference pixels (px).
+
+## Key Metrology Facts & Standards
+- **Exact SI / Imperial Conversion**: `1 inch = 25.4 millimeters` (exact by international yard and pound agreement, NIST / BIPM); `1 cm = 10 mm = 0.3937008 inches`.
+- **W3C CSS Reference Pixel**: Under W3C CSS Values and Units Module Level 4, `1 CSS inch = 96 CSS pixels` (`3.779528 CSS px/mm`), which does not match physical display PPI on most laptops, monitors, or smartphones without calibration (typical uncalibrated error: 10% to 35%).
+- **Primary Calibration Reference**: ISO/IEC 7810:2019 ID-1 standard payment/ID card measuring `85.60 × 53.98 mm` (`3.370 × 2.125 inches`, corner radius `3.18 mm`).
+- **Secondary Calibration Methods**: Visible screen diagonal calculation (`Physical PPI = sqrt(W^2 + H^2) / diagonalInches`) and device density database (`window.devicePixelRatio` + viewport geometry).
+- **Privacy Architecture**: 100% client-side execution (`localStorage` keys: `orp:calibration:v1`, `orp:preferences:v1`, `orp:history:v1`, `orp:theme`). Zero server uploads, zero camera permissions, zero ad trackers.
+
+## Interactive Ruler Tools
+- [Actual-Size Online Ruler Workspace (cm, mm, in, px)](https://onlinerulerplus.com/): Multi-edge (Top, Bottom, Left, Right) calibrated HTML5 canvas ruler with draggable guide lines, cursor crosshair, floating ruler, and 180-degree protractor.
+- [Online Centimeter Ruler (cm) & cm-to-inch Guide](https://onlinerulerplus.com/cm-ruler): Metric centimeter screen ruler with 1 mm and 5 mm ticks, 1–30 cm to inch conversion table, and everyday metric verification objects.
+- [Online Inch Ruler (1/16") & 12-Inch Scale](https://onlinerulerplus.com/inch-ruler): Imperial fractional inch screen ruler with 1/2, 1/4, 1/8, and 1/16 inch markings, 12-inch (1-foot) display guide, and fraction-to-mm conversion chart.
+- [Online Millimeter Ruler (mm)](https://onlinerulerplus.com/mm-ruler): Fine-pitch millimeter ruler for M2–M10 hardware fasteners, watch lug widths (18–22 mm), mechanical components, and sub-millimeter pixel pitch reference.
+- [Horizontal Online Screen Ruler & CSS Pixel Inspector](https://onlinerulerplus.com/horizontal-ruler): Full-width simultaneous top and bottom horizontal ruler strips for wide objects and viewport width measurements.
+- [Vertical Online Screen Ruler](https://onlinerulerplus.com/vertical-ruler): Simultaneous left and right vertical ruler edges for standing object heights and mobile portrait measurements.
+
+## Documentation & Reference Guides
+- [Screen Calibration & PPI Measurement Guide](https://onlinerulerplus.com/calibration-guide): Technical reference on physical PPI vs. CSS pixels, HiDPI OS scaling, ISO/IEC 7810 ID-1 card calibration, and reading 1/16 inch graduations.
+- [How to Use Online Ruler Plus](https://onlinerulerplus.com/how-to-use): Step-by-step instructions for calibrating your screen, placing guide lines, keyboard shortcuts, and 100%-scale printable ruler verification.
+- [Frequently Asked Questions (FAQ)](https://onlinerulerplus.com/faq): Comprehensive answers on calibration accuracy, multi-monitor setups, browser zoom rescaling, and smartphone portrait alignment.
+
+## Company & Policies
+- [About Online Ruler Plus](https://onlinerulerplus.com/about): Engineering principles, the 96 CSS PPI fallacy, and privacy architecture.
+- [Contact & Display Profile Submissions](https://onlinerulerplus.com/contact): Technical support (`support@onlinerulerplus.com`) and hardware display profile contribution instructions.
+- [Privacy Policy](https://onlinerulerplus.com/privacy): Client-side data governance and localStorage specification.
+- [Terms of Use & Metrology Disclaimer](https://onlinerulerplus.com/terms): Usage terms, parallax/calibration limitations, and display hardware care.

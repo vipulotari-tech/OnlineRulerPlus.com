@@ -1,0 +1,6 @@
+{
+  "name": "ruflo",
+  "displayName": "Ruflo Multi-Agent Orchestration",
+  "version": "3.77.1",
+  "description": "Multi-agent swarm coordination, persistent vector memory, and specialist agent routing for Antigravity."
+}

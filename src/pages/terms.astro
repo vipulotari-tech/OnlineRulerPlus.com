@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import HelpModal from '../components/HelpModal.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Terms of Use & Metrology Disclaimer | Online Ruler Plus';
+const description =
+  'Terms of Use and metrology accuracy disclaimer for Online Ruler Plus. Review display calibration limitations, optical parallax factors, and hardware care.';
+const canonicalUrl = 'https://onlinerulerplus.com/terms';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${canonicalUrl}#webpage`,
+  name: 'Terms of Use & Metrology Disclaimer — Online Ruler Plus',
+  description,
+  url: canonicalUrl,
+  inLanguage: 'en',
+  lastReviewed: '2026-11-14',
+  publisher: {
+    '@id': 'https://onlinerulerplus.com/#organization',
+  },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/terms"
+  breadcrumbLabel="Terms of Use"
+  structuredData={structuredData}
+>
+  <Header subNavTitle="Terms of Use" subNavCtaHref="/#ruler-tool" subNavCtaLabel="Open Ruler" />
+  <main id="main-content" class="flex-1">
+    <section class="apple-page-hero border-b border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <p class="type-kicker">Service Terms &amp; Metrology Accuracy Disclaimer</p>
+        <h1 class="mt-2 type-hero-display text-ink">
+          Terms of Use &amp; Metrology Disclaimer
+        </h1>
+        <p class="speakable-summary mt-3 max-w-[62ch] type-lead-airy text-ink-muted-80">
+          Review the service terms, display calibration responsibilities, optical parallax limitations, and screen care guidelines for using OnlineRulerPlus.com.
+        </p>
+        <p class="mt-3 font-mono text-xs text-ink-muted-48">Last Updated: November 14, 2026</p>
+      </div>
+    </section>
+
+    <section class="apple-tile-parchment">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <section class="apple-utility-card">
+            <p class="type-kicker">01 · General Terms</p>
+            <h2 class="mt-2 type-tagline text-ink">What are the terms of access for Online Ruler Plus?</h2>
+            <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+              By accessing and using OnlineRulerPlus.com, you agree to be bound by these Terms of Use. Online Ruler Plus is provided free of charge as a browser-based utility for personal, educational, design, and general reference measurement. The software, user interface design tokens, and documentation are provided on an "as is" and "as available" basis without warranties of any kind, whether express or implied, including implied warranties of merchantability or fitness for a specialized industrial or clinical purpose.
+            </p>
+          </section>
+
+          <section class="apple-utility-card">
+            <p class="type-kicker">02 · Metrology Scope</p>
+            <h2 class="mt-2 type-tagline text-ink">What are the accuracy limitations of an online screen ruler?</h2>
+            <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+              The physical accuracy of any on-screen ruler depends on user-performed display calibration, operating-system HiDPI scaling, browser page zoom, and viewing angle (cover-glass parallax). While Online Ruler Plus uses exact mathematical constants (<code class="font-mono text-ink">1 in = 25.4 mm</code> per NIST/BIPM and <code class="font-mono text-ink">ISO/IEC 7810 ID-1 = 85.60 × 53.98 mm</code>), web browsers cannot independently read physical monitor dimensions without user calibration. Never rely on a browser screen ruler for medical dosing, structural engineering, legal trade metrology, or safety-critical machining where certified NIST-traceable physical calipers or micrometers are required.
+            </p>
+          </section>
+
+          <section class="apple-utility-card">
+            <p class="type-kicker">03 · Display Safety</p>
+            <h2 class="mt-2 type-tagline text-ink">How should you protect your screen when measuring objects?</h2>
+            <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+              LCD, OLED, Mini-LED, and anti-reflective coated glass panels on laptops, desktop monitors, tablets, and smartphones can be scratched or damaged by excessive pressure or sharp metallic burrs. When holding physical objects—such as machine screws, metal hardware, jewelry, coins, or tools—against your display to align with the <a href="/#ruler-tool" class="text-link underline">online ruler workspace</a>, hold the item lightly without pressing into the panel, or place a thin sheet of clear protective film between sharp metal edges and the display glass. Online Ruler Plus assumes no liability for physical hardware damage resulting from improper object handling.
+            </p>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <HelpModal />
+  <Footer />
+  <script src="../scripts/app.ts"></script>
+</BaseLayout>

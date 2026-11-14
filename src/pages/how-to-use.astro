@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import HelpModal from '../components/HelpModal.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'How to Use an Online Ruler | Screen Measurement Manual';
+const description =
+  'Step-by-step instructions for calibrating your screen with a credit card or diagonal, placing guide lines, reading 1/16″ fractions, and printing at 100%.';
+const canonicalUrl = 'https://onlinerulerplus.com/how-to-use';
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    '@id': `${canonicalUrl}#article`,
+    headline: 'How to Use Online Ruler Plus: Step-by-Step Screen Measurement Manual',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-11-14',
+    dateModified: '2026-11-14',
+    inLanguage: 'en',
+    author: {
+      '@id': 'https://onlinerulerplus.com/#organization',
+    },
+    publisher: {
+      '@id': 'https://onlinerulerplus.com/#organization',
+    },
+    mainEntityOfPage: canonicalUrl,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.speakable-summary'],
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    '@id': `${canonicalUrl}#howto`,
+    name: 'How to Measure Physical Objects Using Online Ruler Plus',
+    description,
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: 'Calibrate your display density',
+        text: 'Hold a standard ISO/IEC 7810 ID-1 bank or ID card (85.60 × 53.98 mm) against the calibration box and adjust the slider until the border matches your card, or enter your visible screen diagonal in inches at 100% browser zoom.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: 'Select your measurement unit and active ruler edges',
+        text: 'Choose Centimeters (cm), Millimeters (mm), Inches (in), or CSS Pixels (px), and toggle Top, Bottom, Left, Right, or Dual cm/in ruler scales.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: 'Align at the 0 datum and drop parallel guide lines',
+        text: 'Align one edge of your physical object with the 0 datum line (16px inset from the bezel) and click the ruler or gridded stage to place draggable guide lines for automatic ΔX/ΔY span calculation.',
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/how-to-use"
+  breadcrumbLabel="How to Use"
+  ogType="article"
+  structuredData={structuredData}
+>
+  <Header subNavTitle="How to Use" subNavCtaHref="/#ruler-tool" subNavCtaLabel="Open Ruler" />
+  <main id="main-content" class="flex-1">
+    <!-- Compact Page Hero -->
+    <section class="apple-page-hero border-b border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div class="max-w-3xl">
+            <p class="type-kicker">
+              User Manual · Precision Screen Metrology · Updated November 2026
+            </p>
+            <h1 class="mt-2 type-hero-display text-ink">
+              How to Use Online Ruler Plus
+            </h1>
+            <p class="speakable-summary mt-3 max-w-[62ch] type-lead-airy text-ink-muted-80">
+              Online Ruler Plus is a client-side physical measurement workspace that converts your screen into a 1:1 calibrated ruler. Follow these steps to calibrate once and measure in centimeters, millimeters, and 1/16″ inches.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-3 shrink-0">
+            <a href="/#ruler-tool" class="apple-btn-primary">Open Online Ruler</a>
+            <a href="/#calibration" class="apple-btn-secondary-pill">Go to Calibration</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core 3-Step Workflow -->
+    <section class="apple-tile-parchment">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <article class="apple-utility-card flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary font-mono text-xs font-semibold text-on-primary">1</span>
+                <span class="type-kicker">Step 01 · Calibration</span>
+              </div>
+              <h2 class="mt-4 type-tagline text-ink">How do you calibrate your screen density first?</h2>
+              <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+                Screen density calibration is the mandatory first step that replaces your browser’s 96 CSS PPI default with your display’s true millimeter pitch. First, scroll to the Calibrate Your Screen section on any ruler page. Second, choose your preferred reference method: hold a standard ISO/IEC 7810 ID-1 payment or ID card (85.60 × 53.98 mm) flat against the screen and adjust the slider or arrow keys until the box matches your card width; enter your display panel’s visible diagonal in inches (such as 14, 15.6, 24, or 27 inches) at 100% browser zoom; or run Auto-Detect Device. Third, click Apply Calibration to save the profile in localStorage for 2026.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-hairline">
+              <a href="/#calibration" class="type-caption font-semibold text-link hover:underline">
+                Open Credit Card Calibration →
+              </a>
+            </div>
+          </article>
+
+          <article class="apple-utility-card flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary font-mono text-xs font-semibold text-on-primary">2</span>
+                <span class="type-kicker">Step 02 · Units &amp; Edges</span>
+              </div>
+              <h2 class="mt-4 type-tagline text-ink">How do you choose measurement units and active edges?</h2>
+              <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+                Unit and edge configuration is controlled via the segmented instrument pods at the top of the workspace or via single-key shortcuts. First, select your linear unit: press key 1 for Centimeters (cm) with 0.5 cm and 1 mm subdivisions, key 2 for Inches (in) with 1/2, 1/4, 1/8, and 1/16 inch dyadic fractions, key 3 for W3C CSS Pixels (px), or key 4 / M for Millimeters (mm). You can also enable Dual cm/in mode to display metric and imperial graduations side by side. Second, toggle Top, Bottom, Left, Right, or All Edges depending on where you want to hold your object against the screen.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-hairline">
+              <div class="flex flex-wrap gap-3 type-caption font-semibold text-link">
+                <a href="/cm-ruler" class="hover:underline">cm Ruler</a>
+                <span>·</span>
+                <a href="/inch-ruler" class="hover:underline">Inch Ruler</a>
+                <span>·</span>
+                <a href="/mm-ruler" class="hover:underline">mm Ruler</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="apple-utility-card flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary font-mono text-xs font-semibold text-on-primary">3</span>
+                <span class="type-kicker">Step 03 · Alignment &amp; Guides</span>
+              </div>
+              <h2 class="mt-4 type-tagline text-ink">How do you align at zero and measure spans with guides?</h2>
+              <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+                Zero-datum alignment means placing the starting edge of your physical object directly over the 0 graduation line inside the ruler strip (inset 16 CSS pixels from the corner) rather than pressing against the raised plastic monitor bezel. First, align the left or top end of your item with the 0 dashed datum hairline. Second, click any ruler strip or inside the gridded stage to drop a draggable blue guide line at the opposite end of your object. When two parallel guides are placed on screen, Online Ruler Plus automatically computes the exact point-to-point delta span (ΔX or ΔY) and lets you save it to Measurement History.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-hairline">
+              <a href="/calibration-guide" class="type-caption font-semibold text-link hover:underline">
+                Read Calibration &amp; PPI Guide →
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advanced Tools & Printable Scale Verification (Light Tile #ffffff) -->
+    <section class="apple-tile-light border-t border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <article class="apple-utility-card">
+            <p class="type-kicker">Overlay Instruments · Floating Ruler &amp; Protractor</p>
+            <h2 class="mt-2 type-tagline text-ink">
+              How do you use the floating ruler and 180° angle protractor?
+            </h2>
+            <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+              Interactive overlay instruments let you measure diagonal features and angles directly inside the workspace without moving your physical item. First, click the + Floating Ruler button in the toolbar to spawn a movable, 360-degree rotatable ruler bar that you can drag over any part of the stage. Second, press keyboard shortcut P (or click Protractor) to activate the 180-degree optical angle protractor overlay. Drag the protractor vertex to the corner of your object and align the ray handle to read angles from 0° to 180° with 0.1° precision. Press C to toggle the cursor-following X/Y coordinate crosshair or Esc to clear active guides.
+            </p>
+          </article>
+
+          <article class="apple-utility-card">
+            <p class="type-kicker">Printable Actual-Size Ruler · 100% Scale Check</p>
+            <h2 class="mt-2 type-tagline text-ink">
+              How do you print an actual-size ruler at 100% scale?
+            </h2>
+            <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+              Printing an actual-size ruler requires disabling automatic page scaling in your browser’s print dialog so the printer preserves 1:1 physical dimensions. According to ISO 216 (A4: 210 × 297 mm) and ANSI Letter (8.5 × 11.0 in / 215.9 × 279.4 mm) paper standards, default printer settings like Fit to Printable Area or Shrink to Fit reduce printed rulers by 3% to 8%. When printing Online Ruler Plus (via Ctrl+P or Cmd+P) or any PDF ruler template in 2026, set Scale to Actual Size or Custom 100%, set margins to Default or None, and verify the printed output against an 85.60 mm ISO/IEC 7810 ID-1 bank card before measuring.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <HelpModal />
+  <Footer />
+  <script src="../scripts/app.ts"></script>
+</BaseLayout>

@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import HelpModal from '../components/HelpModal.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Screen Calibration & PPI Guide | Online Ruler Plus';
+const description =
+  'Technical guide to screen pixel density (PPI), W3C CSS reference pixels, ISO/IEC 7810 credit card calibration, and reading metric and 1/16″ inch rulers.';
+const canonicalUrl = 'https://onlinerulerplus.com/calibration-guide';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  '@id': `${canonicalUrl}#article`,
+  headline: 'Complete Screen Calibration & PPI Measurement Guide',
+  description,
+  url: canonicalUrl,
+  datePublished: '2026-11-14',
+  dateModified: '2026-11-14',
+  inLanguage: 'en',
+  author: {
+    '@id': 'https://onlinerulerplus.com/#organization',
+  },
+  publisher: {
+    '@id': 'https://onlinerulerplus.com/#organization',
+  },
+  mainEntityOfPage: canonicalUrl,
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['h1', '.speakable-summary'],
+  },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/calibration-guide"
+  breadcrumbLabel="Calibration Guide"
+  ogType="article"
+  structuredData={structuredData}
+>
+  <Header subNavTitle="Calibration Guide" subNavCtaHref="/#calibration" subNavCtaLabel="Calibrate Now" />
+  <main id="main-content" class="flex-1">
+    <section class="apple-page-hero border-b border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div class="max-w-3xl">
+            <p class="type-kicker">Technical Reference · Display Optics &amp; W3C CSS Units · Updated November 2026</p>
+            <h1 class="mt-2 type-hero-display text-ink">
+              Complete Screen Calibration &amp; PPI Measurement Guide
+            </h1>
+            <p class="speakable-summary mt-3 max-w-[62ch] type-lead-airy text-ink-muted-80">
+              Display calibration bridges the gap between abstract W3C 96-PPI CSS reference pixels and the physical millimeter pixel pitch of your hardware panel.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-3 shrink-0">
+            <a href="/#calibration" class="apple-btn-primary">Calibrate Your Screen</a>
+            <a href="/#ruler-tool" class="apple-btn-secondary-pill">Open Online Ruler</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="apple-tile-parchment">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <article class="apple-utility-card flex flex-col justify-between">
+            <div>
+              <p class="type-kicker">Section 01 · Pixel Pitch Math</p>
+              <h2 class="mt-2 type-tagline text-ink">What is the difference between physical PPI and CSS pixels?</h2>
+              <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+                Physical Pixels Per Inch (PPI) is a fixed hardware property determined by a display panel’s native pixel resolution and diagonal size in inches, calculated as <code class="font-mono text-ink">Physical PPI = √(W² + H²) / diagonalInches</code>. By contrast, a CSS pixel is an abstract angular unit defined by the W3C CSS Values and Units Module Level 4 specification at exactly 1/96 of a CSS inch (3.7795 CSS pixels per millimeter). When an operating system applies HiDPI scaling—such as <code class="font-mono text-ink">devicePixelRatio = 2</code> on Retina Macs or <code class="font-mono text-ink">1.25</code> to <code class="font-mono text-ink">1.5</code> on Windows laptops in 2026—each CSS pixel spans multiple physical pixels. Online Ruler Plus calibrates in CSS pixels per millimeter (<code class="font-mono text-ink">pxPerMm</code>) and stores physical density (<code class="font-mono text-ink">devicePxPerMm = pxPerMm × dpr</code>) so your ruler remains accurate across browser zoom changes.
+              </p>
+            </div>
+          </article>
+
+          <article class="apple-utility-card flex flex-col justify-between">
+            <div>
+              <p class="type-kicker">Section 02 · Physical Standard</p>
+              <h2 class="mt-2 type-tagline text-ink">Why is the ISO/IEC 7810 ID-1 card standard ideal for calibration?</h2>
+              <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+                The ISO/IEC 7810:2019 ID-1 standard is the international dimensional specification governing bank cards, credit cards, driver licenses, and national identity cards worldwide. According to ISO/IEC 7810, every ID-1 card measures exactly 85.60 mm (3.370 in) in width, 53.98 mm (2.125 in) in height, and 0.76 mm in thickness, with a 3.18 mm (0.125 in) corner radius. Because card blanks are die-cut to sub-millimeter tolerances globally, matching an on-screen rectangle to a physical ID-1 card directly measures <code class="font-mono text-ink">pxPerMm = cardWidthPx / 85.60</code> on your screen. In practice, this optical alignment bypasses OS scaling distortion, multi-monitor EDID errors, and browser privacy restrictions without requiring hardware lookups.
+              </p>
+            </div>
+          </article>
+
+          <article class="apple-utility-card flex flex-col justify-between">
+            <div>
+              <p class="type-kicker">Section 03 · Scale Subdivisions</p>
+              <h2 class="mt-2 type-tagline text-ink">
+                How are metric millimeter and 1/16″ fractional graduations calculated?
+              </h2>
+              <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+                Ruler graduation rendering is governed by the international yard and pound agreement (NIST / BIPM), which defines 1 imperial inch as exactly 25.4 millimeters and 1 centimeter as 10 millimeters. In Centimeter (<a href="/cm-ruler" class="text-link underline">cm</a>) and Millimeter (<a href="/mm-ruler" class="text-link underline">mm</a>) modes, Online Ruler Plus generates minor ticks every 1.0 mm, medium ticks every 5.0 mm (0.5 cm), and labeled major ticks every 10.0 mm (1 cm). In Inch (<a href="/inch-ruler" class="text-link underline">in</a>) mode, every 25.4 mm inch interval is divided into 16 dyadic fractions of 1/16 inch (1.5875 mm): Level 1 marks 1/2 in (12.70 mm), Level 2 marks 1/4 and 3/4 in, Level 3 marks odd eighths, and Level 4 marks odd sixteenths.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 04: Everyday Verification Objects & Multi-Monitor Zoom Persistence -->
+    <section class="apple-tile-light border-t border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <article class="apple-utility-card">
+            <p class="type-kicker">Section 04 · Secondary Verification Standards</p>
+            <h2 class="mt-2 type-tagline text-ink">
+              Which everyday coins, bills, and paper sizes verify screen calibration?
+            </h2>
+            <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+              After calibrating via credit card or display diagonal, you can cross-check physical scale accuracy using regulated everyday items. According to United States Mint specifications, a US One-Cent Penny measures 19.05 mm (exactly 0.750 in or 3/4 in) in diameter, a US Nickel measures 21.21 mm (0.835 in), and a US Quarter Dollar measures 24.26 mm (0.955 in). According to European Central Bank specifications, a 1 Euro coin measures 23.25 mm (0.915 in) and a 2 Euro coin measures 25.75 mm (1.014 in). For longer spans on desktop monitors, a US Federal Reserve Note measures 155.96 mm (6.14 in) wide, an IEC R6 AA battery measures 50.50 mm long, and an ISO 216 A4 sheet measures 210.0 mm across its short edge.
+            </p>
+          </article>
+
+          <article class="apple-utility-card">
+            <p class="type-kicker">Section 05 · Zoom &amp; Multi-Monitor Persistence</p>
+            <h2 class="mt-2 type-tagline text-ink">
+              How does Online Ruler Plus handle browser zoom and external monitors?
+            </h2>
+            <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+              Browser zoom and multi-monitor window movement alter <code class="font-mono text-ink">window.devicePixelRatio</code> and <code class="font-mono text-ink">window.screen</code> dimensions in real time. To prevent silent measurement drift, Online Ruler Plus converts your calibrated CSS scale (<code class="font-mono text-ink">pxPerMm</code>) into an invariant physical hardware density (<code class="font-mono text-ink">devicePxPerMm = pxPerMm × dpr</code>) keyed by display resolution signature in <code class="font-mono text-ink">localStorage</code>. When you zoom your browser on the same monitor in 2026, the display observer detects that the physical panel signature matches and automatically divides <code class="font-mono text-ink">devicePxPerMm</code> by the new zoom ratio. If you drag the window onto a different external monitor, a status banner prompts you to verify calibration for that panel.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <HelpModal />
+  <Footer />
+  <script src="../scripts/app.ts"></script>
+</BaseLayout>

@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import HelpModal from '../components/HelpModal.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'About Online Ruler Plus | Precision Screen Metrology';
+const description =
+  'Learn how Online Ruler Plus turns laptops, desktop monitors, tablets, and phones into calibrated physical measuring rulers with zero tracking or camera prompts.';
+const canonicalUrl = 'https://onlinerulerplus.com/about';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  '@id': `${canonicalUrl}#about`,
+  name: 'About Online Ruler Plus',
+  description,
+  url: canonicalUrl,
+  inLanguage: 'en',
+  mainEntity: {
+    '@id': 'https://onlinerulerplus.com/#organization',
+  },
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['h1', '.speakable-summary'],
+  },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/about"
+  breadcrumbLabel="About"
+  structuredData={structuredData}
+>
+  <Header subNavTitle="About" subNavCtaHref="/#ruler-tool" subNavCtaLabel="Open Ruler" />
+  <main id="main-content" class="flex-1">
+    <section class="apple-page-hero border-b border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div class="max-w-3xl">
+            <p class="type-kicker">About the Platform · Metrology Methodology &amp; Standards</p>
+            <h1 class="mt-2 type-hero-display text-ink">
+              About Online Ruler Plus
+            </h1>
+            <p class="speakable-summary mt-3 max-w-[62ch] type-lead-airy text-ink-muted-80">
+              Online Ruler Plus is an open, client-side screen metrology web application engineered to turn any desktop, laptop, tablet, or smartphone display into a calibrated physical measuring instrument.
+            </p>
+          </div>
+          <div class="shrink-0">
+            <a href="/#ruler-tool" class="apple-btn-primary">
+              Return to Online Ruler
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="apple-tile-parchment">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <article class="apple-utility-card flex flex-col justify-between">
+            <div>
+              <p class="type-kicker">01 · Why We Built It</p>
+              <h2 class="mt-2 type-tagline text-ink">What is the 96 CSS PPI fallacy in online rulers?</h2>
+              <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+                The 96 CSS PPI fallacy is the widespread engineering mistake of assuming that 96 browser CSS pixels equal 1.00 physical inch on a user’s screen. Under the W3C CSS Values and Units Module Level 4 specification, 1 CSS inch is permanently locked to 96 CSS pixels (3.7795 CSS pixels per millimeter) so typography scales legibly at viewing distance. However, consumer hardware panels in 2026 range from 81.6 CSS PPI on 27-inch desktop monitors to over 150 CSS PPI on smartphones and Retina laptops, causing uncalibrated web rulers to err by 10% to 35%. Online Ruler Plus was built to solve this flaw by placing ISO/IEC 7810 physical calibration at the core of the rendering engine.
+              </p>
+            </div>
+          </article>
+
+          <article class="apple-utility-card flex flex-col justify-between">
+            <div>
+              <p class="type-kicker">02 · Metrology Standards</p>
+              <h2 class="mt-2 type-tagline text-ink">Which international standards govern our calculations?</h2>
+              <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+                Online Ruler Plus derives every tick coordinate and conversion readout from published international standards rather than heuristic approximations. First, metric-to-imperial conversion follows the 1959 international yard and pound agreement maintained by NIST and the BIPM, where 1 inch equals 25.4 millimeters exactly and 1 centimeter equals 10 millimeters. Second, physical card calibration conforms to ISO/IEC 7810:2019 ID-1 (85.60 × 53.98 mm, corner radius 3.18 mm). Third, secondary coin verification benchmarks follow United States Mint (US Quarter: 24.26 mm, US Penny: 19.05 mm) and European Central Bank (1 Euro: 23.25 mm) specifications.
+              </p>
+            </div>
+          </article>
+
+          <article class="apple-utility-card flex flex-col justify-between">
+            <div>
+              <p class="type-kicker">03 · Engineering Principles</p>
+              <h2 class="mt-2 type-tagline text-ink">How does Online Ruler Plus protect accuracy and privacy?</h2>
+              <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+                Our architecture enforces three strict engineering invariants across all 12 routes. First, mathematical honesty: status badges explicitly distinguish between uncalibrated 96 PPI estimates, detected hardware profiles, and user-verified manual calibrations—never claiming physical certainty from browser detection alone. Second, zero-tracking local execution: all calibration profiles (<code class="font-mono text-ink">orp:calibration:v1</code>) and measurement history (<code class="font-mono text-ink">orp:history:v1</code>) remain 100% inside your browser’s <code class="font-mono text-ink">localStorage</code> with zero camera prompts or network uploads. Third, high-contrast HTML5 canvas rendering scaled by <code class="font-mono text-ink">window.devicePixelRatio</code> ensures razor-sharp 1 mm and 1/16″ graduations.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <HelpModal />
+  <Footer />
+  <script src="../scripts/app.ts"></script>
+</BaseLayout>

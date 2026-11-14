@@ -1,0 +1,78 @@
+---
+const shortcuts = [
+  { key: 'G', action: 'Toggle click-to-place guide lines' },
+  { key: 'C', action: 'Toggle cursor-following crosshair' },
+  { key: 'P', action: 'Toggle 180° angle protractor overlay' },
+  { key: 'F', action: 'Toggle fullscreen measurement workspace' },
+  { key: '1', action: 'Switch unit to Centimeters (cm)' },
+  { key: '2', action: 'Switch unit to Inches (in)' },
+  { key: '3', action: 'Switch unit to CSS Pixels (px)' },
+  { key: '4 / M', action: 'Switch unit to Millimeters (mm)' },
+  { key: 'D', action: 'Toggle light and dark mode' },
+  { key: 'H', action: 'Open or close this keyboard shortcuts dialog' },
+  { key: 'Esc', action: 'Clear placed guide lines or close active dialogs' },
+  { key: '← / →', action: 'Fine-tune credit card calibration size by 1px (Shift for 5px)' },
+];
+---
+
+<div
+  id="help-shortcuts-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="help-modal-title"
+  aria-hidden="true"
+  class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-xs"
+>
+  <div class="apple-utility-card w-full max-w-lg">
+    <div class="flex items-start justify-between gap-4">
+      <div>
+        <p class="type-kicker">
+          Quick Reference
+        </p>
+        <h2 id="help-modal-title" class="mt-1 type-tagline text-ink">
+          Keyboard Shortcuts &amp; Ruler Controls
+        </h2>
+      </div>
+      <button
+        type="button"
+        data-help-close
+        aria-label="Close shortcuts dialog"
+        class="apple-btn-pearl font-mono text-xs"
+      >
+        Esc
+      </button>
+    </div>
+
+    <div class="mt-4 divide-y divide-hairline border-t border-b border-hairline">
+      {
+        shortcuts.map((s) => (
+          <div class="flex items-center justify-between py-2.5 type-caption">
+            <span class="text-ink-muted-80">{s.action}</span>
+            <kbd class="rounded-[5px] border border-hairline bg-canvas-parchment px-2 py-0.5 font-mono text-xs font-semibold text-ink">
+              {s.key}
+            </kbd>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-5 flex flex-wrap items-center justify-between gap-3 type-caption">
+      <label class="inline-flex cursor-pointer items-center gap-2 text-ink">
+        <input
+          id="toggle-shortcuts-enabled"
+          type="checkbox"
+          checked
+          class="h-4 w-4 rounded-[5px] accent-primary"
+        />
+        <span>Enable single-key shortcuts (G, C, P, F, 1–4, D, H)</span>
+      </label>
+      <button
+        type="button"
+        data-help-close
+        class="apple-btn-primary-compact"
+      >
+        Got it
+      </button>
+    </div>
+  </div>
+</div>

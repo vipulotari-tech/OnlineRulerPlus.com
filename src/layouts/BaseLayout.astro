@@ -1,0 +1,171 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  breadcrumbLabel?: string;
+  ogType?: 'website' | 'article';
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  canonicalPath = Astro.url.pathname,
+  breadcrumbLabel,
+  ogType = 'website',
+  structuredData,
+} = Astro.props;
+
+const siteOrigin = Astro.site ? Astro.site.origin : 'https://onlinerulerplus.com';
+const normalizedPath =
+  !canonicalPath || canonicalPath === '/' ? '/' : canonicalPath.replace(/\/+$/, '');
+const canonicalUrl =
+  normalizedPath === '/' ? `${siteOrigin}/` : `${siteOrigin}${normalizedPath}`;
+const ogImageUrl = `${siteOrigin}/og-image.png`;
+const ogImageAlt =
+  'Online Ruler Plus calibrated actual-size screen ruler in centimeters (cm), millimeters (mm), and 1/16 fractional inches';
+
+const organizationSchema: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${siteOrigin}/#organization`,
+  name: 'Online Ruler Plus',
+  url: `${siteOrigin}/`,
+  logo: {
+    '@type': 'ImageObject',
+    url: ogImageUrl,
+    width: 1200,
+    height: 630,
+  },
+  description:
+    'Client-side actual-size online screen ruler and display calibration platform supporting centimeters (cm), millimeters (mm), 1/16-inch dyadic fractions, and CSS reference pixels.',
+  knowsAbout: [
+    'Online Screen Ruler Calibration',
+    'Display Pixel Density (PPI) Metrology',
+    'ISO/IEC 7810:2019 ID-1 Standard Card Calibration',
+    'Centimeter, Millimeter, and Fractional Inch Measurement',
+    'W3C CSS Values and Units Reference Pixel',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'support@onlinerulerplus.com',
+    contactType: 'customer support',
+    availableLanguage: ['en'],
+  },
+};
+
+const websiteSchema: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteOrigin}/#website`,
+  url: `${siteOrigin}/`,
+  name: 'Online Ruler Plus',
+  inLanguage: 'en',
+  publisher: {
+    '@id': `${siteOrigin}/#organization`,
+  },
+};
+
+const extraSchemas: Record<string, unknown>[] = Array.isArray(structuredData)
+  ? structuredData
+  : structuredData
+    ? [structuredData]
+    : [];
+
+const hasExplicitBreadcrumb = extraSchemas.some(
+  (item) => item['@type'] === 'BreadcrumbList',
+);
+
+const breadcrumbSchema: Record<string, unknown> | null =
+  normalizedPath !== '/' && !hasExplicitBreadcrumb
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        '@id': `${canonicalUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Online Ruler Plus',
+            item: `${siteOrigin}/`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: breadcrumbLabel || title.split(/[|—:]/)[0].trim(),
+            item: canonicalUrl,
+          },
+        ],
+      }
+    : null;
+
+const fullStructuredData: Record<string, unknown>[] = [
+  organizationSchema,
+  websiteSchema,
+  ...(breadcrumbSchema ? [breadcrumbSchema] : []),
+  ...extraSchemas,
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Online Ruler Plus" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+
+    <script is:inline>
+      (() => {
+        try {
+          const saved = localStorage.getItem('orp:theme');
+          if (saved === 'dark') {
+            document.documentElement.classList.add('dark');
+          }
+        } catch {
+          // Ignore storage access errors
+        }
+      })();
+    </script>
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(fullStructuredData)}
+    />
+  </head>
+  <body class="min-h-screen flex flex-col bg-canvas text-body selection:bg-link-soft selection:text-ink">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 apple-btn-primary-compact"
+    >
+      Skip to main content
+    </a>
+    <slot />
+  </body>
+</html>

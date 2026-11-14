@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import HelpModal from '../components/HelpModal.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Contact & Display Profile Submissions | Online Ruler Plus';
+const description =
+  'Contact the Online Ruler Plus team to submit a hardware display profile, report a calibration issue, or ask technical screen measurement questions.';
+const canonicalUrl = 'https://onlinerulerplus.com/contact';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  '@id': `${canonicalUrl}#contact`,
+  name: 'Contact Online Ruler Plus & Submit Display Profiles',
+  description,
+  url: canonicalUrl,
+  inLanguage: 'en',
+  mainEntity: {
+    '@id': 'https://onlinerulerplus.com/#organization',
+  },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/contact"
+  breadcrumbLabel="Contact"
+  structuredData={structuredData}
+>
+  <Header subNavTitle="Contact" subNavCtaHref="/#ruler-tool" subNavCtaLabel="Open Ruler" />
+  <main id="main-content" class="flex-1">
+    <section class="apple-page-hero border-b border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div class="max-w-3xl">
+            <p class="type-kicker">Contact &amp; Hardware Database Contributions</p>
+            <h1 class="mt-2 type-hero-display text-ink">
+              Contact Online Ruler Plus
+            </h1>
+            <p class="speakable-summary mt-3 max-w-[62ch] type-lead-airy text-ink-muted-80">
+              Reach out to our engineering team to contribute a verified display density profile, report a browser calibration issue, or request a screen metrology feature.
+            </p>
+          </div>
+          <div class="shrink-0">
+            <a href="/#ruler-tool" class="apple-btn-primary">
+              Open Online Ruler
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="apple-tile-parchment">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <article class="apple-utility-card flex flex-col justify-between">
+            <div>
+              <p class="type-kicker">01 · Technical Support</p>
+              <h2 class="mt-2 type-tagline text-ink">How do you contact Online Ruler Plus support?</h2>
+              <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+                Technical support for Online Ruler Plus handles calibration questions, WCAG 2.2 accessibility feedback, and cross-browser rendering reports across Chrome, Safari, Edge, and Firefox. When reporting a ruler rendering or zoom rescaling issue in 2026, please include your operating system version, browser name and zoom percentage, and whether you calibrated via ISO/IEC 7810 ID-1 credit card or visible screen diagonal. Because Online Ruler Plus operates 100% client-side with zero telemetry, we never automatically collect device logs unless you email them to us directly.
+              </p>
+            </div>
+            <p class="mt-5 pt-4 border-t border-hairline font-mono text-sm font-semibold text-link">
+              <a href="mailto:support@onlinerulerplus.com" class="hover:underline">
+                support@onlinerulerplus.com
+              </a>
+            </p>
+          </article>
+
+          <article class="apple-utility-card flex flex-col justify-between">
+            <div>
+              <p class="type-kicker">02 · Hardware Database</p>
+              <h2 class="mt-2 type-tagline text-ink">How do you submit a new device display profile?</h2>
+              <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+                Display profile submission is our community-verified process for expanding the Auto-Detect Device lookup table in Online Ruler Plus. To submit a laptop, desktop monitor, tablet, or smartphone panel, first calibrate your display using a physical 85.60 × 53.98 mm ISO/IEC 7810 ID-1 bank card at 100% browser zoom. Second, open the 3. Auto-Detect Device tab in the calibration section and copy the four hardware telemetry values reported by your browser: <code class="font-mono text-ink">screen.width × screen.height</code>, <code class="font-mono text-ink">devicePixelRatio</code>, platform family, and your verified CSS PPI / <code class="font-mono text-ink">pxPerMm</code> reading.
+              </p>
+            </div>
+            <p class="mt-5 pt-4 border-t border-hairline type-caption font-semibold text-link">
+              <a href="/#calibration" class="hover:underline">
+                Inspect your device telemetry in Auto-Detect →
+              </a>
+            </p>
+          </article>
+
+          <article class="apple-utility-card flex flex-col justify-between">
+            <div>
+              <p class="type-kicker">03 · Self-Service Troubleshooting</p>
+              <h2 class="mt-2 type-tagline text-ink">Where can you solve common calibration issues immediately?</h2>
+              <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+                Over 95% of on-screen measurement discrepancies are caused by non-100% browser zoom during diagonal entry, Windows or macOS HiDPI display scaling overrides, or dragging a browser window from a laptop screen onto an external monitor without switching calibration profiles. Before emailing support, review our <a href="/calibration-guide" class="text-link underline">Screen Calibration &amp; PPI Guide</a>, check the 16-question <a href="/faq" class="text-link underline">Frequently Asked Questions</a> knowledge base, or follow the 3-step <a href="/how-to-use" class="text-link underline">How to Use manual</a> to verify your ruler with a US Quarter (24.26 mm) or 1 Euro coin (23.25 mm).
+              </p>
+            </div>
+            <p class="mt-5 pt-4 border-t border-hairline type-caption font-semibold text-link">
+              <a href="/faq" class="hover:underline">
+                Browse 16 Calibration &amp; PPI FAQs →
+              </a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <HelpModal />
+  <Footer />
+  <script src="../scripts/app.ts"></script>
+</BaseLayout>

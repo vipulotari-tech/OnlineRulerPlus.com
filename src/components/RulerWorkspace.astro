@@ -1,0 +1,449 @@
+---
+interface Props {
+  defaultUnit?: 'cm' | 'mm' | 'in' | 'px';
+  forceUnit?: 'cm' | 'mm' | 'in' | 'px';
+  forceEdges?: 'horizontal' | 'vertical' | 'all' | 'top-left';
+}
+
+const {
+  defaultUnit = 'cm',
+  forceUnit,
+  forceEdges,
+} = Astro.props;
+---
+
+<section
+  id="ruler-tool"
+  tabindex="-1"
+  aria-labelledby="workspace-sr-heading"
+  class="mx-auto w-full max-w-[1440px] px-4 pt-1 pb-10 sm:px-6 lg:px-8 focus:outline-none"
+>
+  <h2 id="workspace-sr-heading" class="sr-only">
+    Interactive Online Screen Ruler Workspace
+  </h2>
+
+  <!-- Display / Zoom Warning Banner -->
+  <div
+    id="display-change-banner"
+    role="status"
+    aria-live="polite"
+    data-tone="info"
+    class="mb-3 hidden flex items-center justify-between gap-3 rounded-[14px] border border-hairline bg-canvas-parchment px-4 py-2.5 type-caption text-ink data-[tone=warning]:border-warning data-[tone=warning]:bg-warning-soft data-[tone=warning]:text-warning-deep"
+  >
+    <div class="flex items-center gap-2">
+      <span class="inline-block h-2 w-2 rounded-full bg-link shrink-0"></span>
+      <span id="display-change-text" class="font-semibold"></span>
+    </div>
+    <div class="flex items-center gap-3 shrink-0">
+      <a href="#calibration" class="font-semibold text-link underline">Verify Calibration</a>
+      <button
+        id="btn-dismiss-banner"
+        type="button"
+        aria-label="Dismiss notification"
+        class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-surface-pearl text-ink cursor-pointer"
+      >
+        ×
+      </button>
+    </div>
+  </div>
+
+  <!-- Workspace Control Bar (Grouped Segmented Instrument Pods) -->
+  <div class="rounded-t-[18px] border border-b-0 border-hairline bg-canvas-parchment px-3 py-2.5 sm:px-4">
+    <div class="flex flex-wrap items-center justify-between gap-2">
+      <!-- Pod 1: Unit Selector -->
+      <div class="apple-segmented-pod" role="group" aria-label="Measurement units">
+        <span class="px-1.5 font-mono text-[11px] font-semibold text-ink-muted-48">Unit</span>
+        <button
+          type="button"
+          data-unit-btn="cm"
+          aria-pressed="true"
+          data-active="true"
+          class="apple-option-chip"
+          title="Centimeters with millimeter ticks (Shortcut: 1)"
+        >
+          cm
+        </button>
+        <button
+          type="button"
+          data-unit-btn="mm"
+          aria-pressed="false"
+          data-active="false"
+          class="apple-option-chip"
+          title="Millimeters (Shortcut: 4 or M)"
+        >
+          mm
+        </button>
+        <button
+          type="button"
+          data-unit-btn="in"
+          aria-pressed="false"
+          data-active="false"
+          class="apple-option-chip"
+          title="Inches with 1/16 fractional divisions (Shortcut: 2)"
+        >
+          in
+        </button>
+        <button
+          type="button"
+          data-unit-btn="px"
+          aria-pressed="false"
+          data-active="false"
+          class="apple-option-chip"
+          title="CSS Pixels (Shortcut: 3)"
+        >
+          px
+        </button>
+        <button
+          id="btn-dual-unit"
+          type="button"
+          aria-pressed="false"
+          data-active="false"
+          class="apple-option-chip"
+          title="Show dual cm + inch scales simultaneously"
+        >
+          Dual cm/in
+        </button>
+      </div>
+
+      <!-- Pod 2: Edge Selector -->
+      <div class="apple-segmented-pod" role="group" aria-label="Ruler edge placement">
+        <span class="px-1.5 font-mono text-[11px] font-semibold text-ink-muted-48">Edges</span>
+        <button
+          type="button"
+          data-edge-btn="top"
+          aria-pressed="true"
+          data-active="true"
+          class="apple-option-chip"
+        >
+          Top
+        </button>
+        <button
+          type="button"
+          data-edge-btn="bottom"
+          aria-pressed="false"
+          data-active="false"
+          class="apple-option-chip"
+        >
+          Bottom
+        </button>
+        <button
+          type="button"
+          data-edge-btn="left"
+          aria-pressed="true"
+          data-active="true"
+          class="apple-option-chip"
+        >
+          Left
+        </button>
+        <button
+          type="button"
+          data-edge-btn="right"
+          aria-pressed="false"
+          data-active="false"
+          class="apple-option-chip"
+        >
+          Right
+        </button>
+        <button
+          type="button"
+          data-edge-btn="all"
+          aria-pressed="false"
+          data-active="false"
+          class="apple-option-chip"
+        >
+          All Edges
+        </button>
+      </div>
+
+      <!-- Pod 3: Precision Overlay Tools -->
+      <div class="apple-segmented-pod" role="group" aria-label="Precision overlay tools">
+        <button
+          id="btn-toggle-guides"
+          type="button"
+          aria-pressed="true"
+          data-active="true"
+          class="apple-option-chip"
+          title="Toggle click-to-place guide lines (Shortcut: G)"
+        >
+          <span>Guides</span>
+          <kbd class="hidden sm:inline font-mono text-[10px] text-ink-muted-48">G</kbd>
+        </button>
+        <button
+          id="btn-toggle-crosshair"
+          type="button"
+          aria-pressed="false"
+          data-active="false"
+          class="apple-option-chip"
+          title="Toggle cursor crosshair (Shortcut: C)"
+        >
+          <span>Crosshair</span>
+          <kbd class="hidden sm:inline font-mono text-[10px] text-ink-muted-48">C</kbd>
+        </button>
+        <button
+          id="btn-add-floating-ruler"
+          type="button"
+          class="apple-btn-pearl"
+          title="Add a draggable floating ruler inside the workspace"
+        >
+          + Floating Ruler
+        </button>
+        <button
+          id="btn-toggle-protractor"
+          type="button"
+          aria-pressed="false"
+          data-active="false"
+          class="apple-option-chip"
+          title="Toggle 180° angle protractor overlay (Shortcut: P)"
+        >
+          <span>Protractor</span>
+          <kbd class="hidden sm:inline font-mono text-[10px] text-ink-muted-48">P</kbd>
+        </button>
+        <button
+          id="btn-fullscreen"
+          type="button"
+          aria-pressed="false"
+          class="apple-btn-pearl"
+          title="Toggle fullscreen measurement workspace (Shortcut: F)"
+        >
+          <span>Fullscreen</span>
+          <kbd class="hidden sm:inline font-mono text-[10px] text-ink-muted-48">F</kbd>
+        </button>
+        <button
+          id="btn-clear-guides"
+          type="button"
+          class="hidden apple-btn-pearl text-error border-error"
+          title="Clear all guide lines (Shortcut: Esc)"
+        >
+          Clear Guides
+        </button>
+      </div>
+    </div>
+
+    <!-- Secondary Row: Calibration Telemetry, Guide Axis, Thickness & Opacity -->
+    <div class="mt-2.5 flex flex-wrap items-center justify-between gap-2 border-t border-hairline pt-2 type-caption">
+      <div class="flex flex-wrap items-center gap-2">
+        <span
+          data-cal-status-label
+          data-status="estimated"
+          class="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-canvas px-2.5 py-0.5 font-mono text-[11px] font-semibold text-ink data-[status=manual]:border-primary-focus data-[status=manual]:text-link"
+        >
+          Estimated calibration
+        </span>
+        <span class="font-mono text-xs text-ink-muted-80">
+          <strong data-cal-ppi class="font-semibold text-ink">96.0 PPI</strong>
+          <span class="mx-1 text-ink-muted-48">·</span>
+          <span data-cal-device-label class="text-ink-muted-48">Desktop display</span>
+        </span>
+        <a
+          href="#calibration"
+          data-open-calibration="card"
+          class="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-link-soft px-2.5 py-0.5 font-mono text-[11px] font-semibold text-link hover:border-primary-focus transition-colors"
+        >
+          <span>Calibrate</span>
+          <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3 text-ink-muted-80">
+        <!-- Guide placement axis -->
+        <div class="flex items-center gap-1" role="group" aria-label="Guide click axis">
+          <span class="font-mono text-[11px] text-ink-muted-48">Guide Axis:</span>
+          <button
+            type="button"
+            data-guide-axis-btn="x"
+            aria-pressed="true"
+            data-active="true"
+            class="rounded-full border border-hairline bg-canvas px-2.5 py-0.5 font-mono text-[11px] text-ink cursor-pointer data-[active=true]:border-primary-focus data-[active=true]:bg-link-soft data-[active=true]:text-link data-[active=true]:font-semibold"
+          >
+            Vertical
+          </button>
+          <button
+            type="button"
+            data-guide-axis-btn="y"
+            aria-pressed="false"
+            data-active="false"
+            class="rounded-full border border-hairline bg-canvas px-2.5 py-0.5 font-mono text-[11px] text-ink cursor-pointer data-[active=true]:border-primary-focus data-[active=true]:bg-link-soft data-[active=true]:text-link data-[active=true]:font-semibold"
+          >
+            Horizontal
+          </button>
+          <button
+            type="button"
+            data-guide-axis-btn="both"
+            aria-pressed="false"
+            data-active="false"
+            class="rounded-full border border-hairline bg-canvas px-2.5 py-0.5 font-mono text-[11px] text-ink cursor-pointer data-[active=true]:border-primary-focus data-[active=true]:bg-link-soft data-[active=true]:text-link data-[active=true]:font-semibold"
+          >
+            Both
+          </button>
+        </div>
+
+        <!-- Ruler thickness -->
+        <label class="flex items-center gap-1.5 font-mono text-[11px]">
+          <span class="text-ink-muted-48">Thickness</span>
+          <select
+            id="select-thickness"
+            aria-label="Ruler thickness"
+            class="rounded-[8px] border border-hairline bg-canvas px-2 py-0.5 font-mono text-[11px] text-ink cursor-pointer"
+          >
+            <option value="36">36px</option>
+            <option value="48" selected>48px</option>
+            <option value="64">64px</option>
+          </select>
+        </label>
+
+        <!-- Ruler opacity -->
+        <label class="hidden sm:flex items-center gap-1.5 font-mono text-[11px]">
+          <span class="text-ink-muted-48">Opacity</span>
+          <input
+            id="slider-opacity"
+            type="range"
+            min="40"
+            max="100"
+            value="96"
+            aria-label="Ruler opacity percentage"
+            class="w-16 accent-primary cursor-pointer"
+          />
+          <span id="label-opacity" class="w-8 text-right font-semibold text-ink">96%</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Ruler Surface Container -->
+  <div
+    id="ruler-workspace"
+    data-default-unit={defaultUnit}
+    data-force-unit={forceUnit}
+    data-force-edges={forceEdges}
+    data-unit={defaultUnit}
+    class="relative h-[440px] sm:h-[520px] lg:h-[540px] w-full overflow-hidden rounded-b-[18px] border border-hairline bg-canvas select-none"
+  >
+    <!-- 4 Corner Origin Cells -->
+    <div
+      id="corner-top-left"
+      class="absolute left-0 top-0 z-20 flex items-center justify-center border-r border-b border-hairline bg-canvas-parchment font-mono text-[11px] font-semibold uppercase text-ink-muted-80"
+    >
+      cm
+    </div>
+    <div
+      id="corner-top-right"
+      class="hidden absolute right-0 top-0 z-20 border-l border-b border-hairline bg-canvas-parchment"
+    ></div>
+    <div
+      id="corner-bottom-left"
+      class="hidden absolute left-0 bottom-0 z-20 border-r border-t border-hairline bg-canvas-parchment"
+    ></div>
+    <div
+      id="corner-bottom-right"
+      class="hidden absolute right-0 bottom-0 z-20 border-l border-t border-hairline bg-canvas-parchment"
+    ></div>
+
+    <!-- 4 Calibrated Edge Ruler Canvases -->
+    <canvas
+      id="ruler-canvas-top"
+      data-edge="top"
+      aria-label="Top horizontal ruler — click to drop a vertical guide line"
+      class="absolute z-10 border-b border-hairline cursor-crosshair"
+    ></canvas>
+    <canvas
+      id="ruler-canvas-bottom"
+      data-edge="bottom"
+      aria-label="Bottom horizontal ruler — click to drop a vertical guide line"
+      class="hidden absolute z-10 border-t border-hairline cursor-crosshair"
+    ></canvas>
+    <canvas
+      id="ruler-canvas-left"
+      data-edge="left"
+      aria-label="Left vertical ruler — click to drop a horizontal guide line"
+      class="absolute z-10 border-r border-hairline cursor-crosshair"
+    ></canvas>
+    <canvas
+      id="ruler-canvas-right"
+      data-edge="right"
+      aria-label="Right vertical ruler — click to drop a horizontal guide line"
+      class="hidden absolute z-10 border-l border-hairline cursor-crosshair"
+    ></canvas>
+
+    <!-- Inner Measurement Stage -->
+    <div
+      id="ruler-stage"
+      class="workspace-grid-bg absolute overflow-hidden cursor-crosshair"
+    >
+      <!-- Zero Origin Datum Hairlines (16px inset matching ruler 0 ticks) -->
+      <div
+        class="pointer-events-none absolute top-0 bottom-0 left-[16px] border-l border-dashed border-ink/25"
+        aria-hidden="true"
+      ></div>
+      <div
+        class="pointer-events-none absolute left-0 right-0 top-[16px] border-t border-dashed border-ink/25"
+        aria-hidden="true"
+      ></div>
+
+      <!-- Placed Guide Lines Layer -->
+      <div id="guides-layer" class="absolute inset-0 pointer-events-auto"></div>
+
+      <!-- Draggable Floating Rulers Layer -->
+      <div id="floating-rulers-layer" class="absolute inset-0 pointer-events-auto"></div>
+
+      <!-- Optional 180° Protractor Layer -->
+      <div id="protractor-layer" class="hidden absolute inset-0 pointer-events-auto"></div>
+
+      <!-- Cursor-Following Crosshair -->
+      <div
+        id="crosshair-x"
+        class="pointer-events-none hidden absolute top-0 bottom-0 w-px bg-link/75 z-20"
+      ></div>
+      <div
+        id="crosshair-y"
+        class="pointer-events-none hidden absolute left-0 right-0 h-px bg-link/75 z-20"
+      ></div>
+      <div
+        id="crosshair-badge"
+        class="pointer-events-none hidden absolute z-30 rounded-full bg-primary px-2.5 py-0.5 font-mono text-[11px] font-semibold text-on-primary whitespace-nowrap"
+      ></div>
+
+      <!-- Center Instrument Datum Callout (automatically fades when overlays/guides are placed) -->
+      <div
+        id="stage-datum-hint"
+        class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center p-4 text-center transition-opacity duration-200"
+      >
+        <div class="max-w-sm rounded-[14px] border border-hairline bg-canvas-parchment/90 backdrop-blur-xs px-4 py-3">
+          <p class="font-mono text-[11px] font-semibold text-link">
+            Origin (0, 0) · Top-Left Dashed Datum
+          </p>
+          <p class="mt-1 type-fine-print text-ink-muted-80">
+            Align your object with the <strong class="font-semibold text-ink">0</strong> tick mark. Click any ruler or grid to drop draggable measurement guides.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bottom Floating Sticky Readout Bar (Apple floating-sticky-bar grammar) -->
+      <div
+        data-stage-interactive
+        class="apple-subnav-frosted absolute bottom-3 left-3 right-3 z-30 flex flex-wrap items-center justify-between gap-2 rounded-full border border-hairline px-4 py-2 type-caption"
+      >
+        <div class="flex items-center gap-3 min-w-0">
+          <span class="inline-flex items-center gap-2 font-mono text-xs font-semibold text-ink truncate">
+            <span class="h-2 w-2 rounded-full bg-link shrink-0"></span>
+            <span id="live-cursor-readout">X: 0.00 cm · Y: 0.00 cm</span>
+          </span>
+
+          <div id="guide-span-readout" class="hidden flex items-center gap-2 border-l border-hairline pl-3 shrink-0">
+            <span id="guide-span-value" class="font-mono text-xs font-semibold text-link"></span>
+            <button
+              id="btn-save-span"
+              type="button"
+              class="rounded-full bg-primary px-3 py-0.5 font-sans text-xs text-on-primary cursor-pointer"
+            >
+              Save to History
+            </button>
+          </div>
+        </div>
+
+        <div class="hidden md:flex items-center gap-2 font-mono text-[11px] text-ink-muted-48 shrink-0">
+          <span>Keys: <kbd class="font-semibold text-ink">1</kbd> cm · <kbd class="font-semibold text-ink">2</kbd> in · <kbd class="font-semibold text-ink">3</kbd> px · <kbd class="font-semibold text-ink">G</kbd> guides · <kbd class="font-semibold text-ink">C</kbd> crosshair · <kbd class="font-semibold text-ink">F</kbd> fullscreen</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

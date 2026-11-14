@@ -1,0 +1,45 @@
+---
+interface Props {
+  eyebrow?: string;
+  headline?: string;
+  description?: string;
+}
+
+const {
+  eyebrow = 'ISO/IEC 7810 ID-1 Reference · 1 in = 25.4 mm',
+  headline = 'Actual-Size Online Ruler in cm, mm & Inches',
+  description = 'Calibrated physical measurement workspace for laptops, desktop monitors, tablets, and phones. Align a standard bank card or enter your display diagonal for 1:1 scale.',
+} = Astro.props;
+---
+
+<section class="bg-canvas pt-3 pb-2 sm:pt-5 sm:pb-3">
+  <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 rounded-full border border-hairline bg-canvas-parchment px-3 py-0.5 font-mono text-[11px] font-medium text-ink-muted-80">
+          <span class="h-1.5 w-1.5 rounded-full bg-link" aria-hidden="true"></span>
+          <span>{eyebrow}</span>
+        </div>
+        <h1 class="mt-1.5 type-display-md text-ink">
+          {headline}
+        </h1>
+        <p class="speakable-summary mt-1 max-w-2xl text-xs sm:text-sm leading-snug text-ink-muted-80">
+          {description}
+        </p>
+      </div>
+
+      <div class="hidden sm:flex flex-wrap items-center gap-2.5 shrink-0">
+        <a
+          href="#calibration"
+          data-open-calibration="card"
+          class="apple-btn-primary"
+        >
+          Calibrate Your Screen
+        </a>
+        <a href="#how-it-works" class="apple-btn-secondary-pill">
+          How to Measure
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

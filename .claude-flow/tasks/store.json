@@ -1,0 +1,20 @@
+{
+  "tasks": {
+    "task-1794648481877-e1qyl1": {
+      "taskId": "task-1794648481877-e1qyl1",
+      "type": "review",
+      "description": "Audit project architecture and security for Ruflo integration",
+      "priority": "normal",
+      "status": "in_progress",
+      "progress": 0,
+      "assignedTo": [
+        "agent-1794648188118-z50fsx"
+      ],
+      "tags": [],
+      "createdAt": "2026-11-14T09:28:01.877Z",
+      "startedAt": "2026-11-14T09:28:40.036Z",
+      "completedAt": null
+    }
+  },
+  "version": "3.0.0"
+}

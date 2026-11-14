@@ -1,0 +1,301 @@
+---
+export interface SpokeCard {
+  step: string;
+  kicker: string;
+  heading: string;
+  body: string;
+  linkHref: string;
+  linkLabel: string;
+}
+
+export interface SpokeDarkCard {
+  heading: string;
+  body: string;
+}
+
+export interface SpokeTable {
+  kicker: string;
+  heading: string;
+  headers: string[];
+  rows: string[][];
+  footnote: string;
+}
+
+export interface SpokeFaq {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  guideKicker: string;
+  guideHeading: string;
+  guideLead: string;
+  cards: [SpokeCard, SpokeCard, SpokeCard];
+  darkKicker: string;
+  darkHeading: string;
+  darkLead: string;
+  darkCards: [SpokeDarkCard, SpokeDarkCard, SpokeDarkCard];
+  table: SpokeTable;
+  faqKicker: string;
+  faqHeading: string;
+  faqs: SpokeFaq[];
+}
+
+const {
+  guideKicker,
+  guideHeading,
+  guideLead,
+  cards,
+  darkKicker,
+  darkHeading,
+  darkLead,
+  darkCards,
+  table,
+  faqKicker,
+  faqHeading,
+  faqs,
+} = Astro.props;
+---
+
+<!-- SECTION 1: INTENT-SPECIFIC MEASUREMENT GUIDE (Light White Tile #ffffff) -->
+<section
+  id="how-it-works"
+  aria-labelledby="spoke-guide-heading"
+  class="apple-tile-light border-t border-hairline"
+>
+  <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+      <div class="max-w-3xl">
+        <p class="type-kicker">{guideKicker}</p>
+        <h2 id="spoke-guide-heading" class="mt-1.5 type-display-lg text-ink">
+          {guideHeading}
+        </h2>
+        <p class="mt-3 max-w-2xl type-body text-ink-muted-80">
+          {guideLead}
+        </p>
+      </div>
+      <div class="shrink-0">
+        <a href="/how-to-use" class="apple-btn-secondary-pill">
+          Step-by-Step Manual
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
+      {
+        cards.map((card) => (
+          <article class="apple-utility-card flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary font-mono text-xs font-semibold text-on-primary">
+                  {card.step}
+                </span>
+                <span class="type-kicker">{card.kicker}</span>
+              </div>
+              <h3 class="mt-4 type-tagline text-ink">{card.heading}</h3>
+              <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+                {card.body}
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-hairline">
+              <a href={card.linkHref} class="type-caption font-semibold text-link hover:underline">
+                {card.linkLabel} →
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: CONVERSION & REFERENCE BENCHMARK TABLE (Dark Charcoal Tile #272729) -->
+<section
+  id="accuracy-guide"
+  aria-labelledby="spoke-dark-heading"
+  class="apple-tile-dark"
+>
+  <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+      <div class="max-w-3xl">
+        <p class="font-mono text-xs font-semibold text-primary-on-dark">
+          {darkKicker}
+        </p>
+        <h2 id="spoke-dark-heading" class="mt-1.5 type-display-lg text-on-dark">
+          {darkHeading}
+        </h2>
+        <p class="mt-3 max-w-2xl type-body text-body-muted">
+          {darkLead}
+        </p>
+      </div>
+      <div class="shrink-0">
+        <a href="/calibration-guide" class="apple-btn-primary">
+          Calibration &amp; PPI Guide
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-12">
+      <div class="space-y-6 lg:col-span-5">
+        {
+          darkCards.map((dc) => (
+            <div class="rounded-[18px] border border-white/12 bg-surface-tile-2 p-6">
+              <h3 class="type-tagline text-on-dark">{dc.heading}</h3>
+              <p class="mt-2.5 max-w-[65ch] type-caption text-body-muted">
+                {dc.body}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="rounded-[18px] border border-white/12 bg-surface-tile-2 p-6 lg:col-span-7 flex flex-col justify-between">
+        <div>
+          <span class="font-mono text-xs font-semibold text-primary-on-dark">
+            {table.kicker}
+          </span>
+          <h3 class="mt-1 type-tagline text-on-dark">
+            {table.heading}
+          </h3>
+
+          <div class="mt-5 overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-white/15 font-mono text-[11px] text-body-muted">
+                  {
+                    table.headers.map((h, idx) => (
+                      <th
+                        class:list={[
+                          'py-2.5 font-semibold',
+                          idx === 0 ? 'pr-3' : idx === table.headers.length - 1 ? 'pl-3' : 'px-3',
+                        ]}
+                      >
+                        {h}
+                      </th>
+                    ))
+                  }
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-white/10 font-mono text-xs">
+                {
+                  table.rows.map((row) => (
+                    <tr>
+                      {row.map((cell, idx) => (
+                        <td
+                          class:list={[
+                            'py-2.5',
+                            idx === 0
+                              ? 'pr-3 font-sans font-medium text-on-dark'
+                              : idx === 1
+                                ? 'px-3 font-semibold text-primary-on-dark'
+                                : idx === row.length - 1
+                                  ? 'pl-3 text-body-muted'
+                                  : 'px-3 text-on-dark',
+                          ]}
+                        >
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <p class="mt-5 border-t border-white/12 pt-4 type-fine-print text-body-muted">
+          {table.footnote}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: RELATED RULER MODES CROSS-NAVIGATION (Parchment Tile #f5f5f7) -->
+<section
+  id="ruler-modes"
+  aria-labelledby="spoke-modes-heading"
+  class="apple-tile-parchment border-t border-hairline"
+>
+  <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+      <div class="max-w-3xl">
+        <p class="type-kicker">Switch Ruler Axis or Unit Scale</p>
+        <h2 id="spoke-modes-heading" class="mt-1.5 type-display-lg text-ink">
+          Explore Other Calibrated Online Ruler Modes
+        </h2>
+      </div>
+      <a href="/" class="apple-btn-secondary-pill shrink-0">
+        All-Edge Workspace
+      </a>
+    </div>
+
+    <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      <a href="/cm-ruler" class="apple-utility-card hover:border-primary-focus transition-colors">
+        <p class="type-kicker">Metric · cm</p>
+        <h3 class="mt-1 type-body-strong text-ink">Centimeter Ruler</h3>
+        <p class="mt-1 type-fine-print text-ink-muted-80">1 cm &amp; 0.5 cm scale + cm-to-inch chart</p>
+      </a>
+      <a href="/inch-ruler" class="apple-utility-card hover:border-primary-focus transition-colors">
+        <p class="type-kicker">Imperial · 1/16″</p>
+        <h3 class="mt-1 type-body-strong text-ink">Inch Ruler (12″)</h3>
+        <p class="mt-1 type-fine-print text-ink-muted-80">1/2, 1/4, 1/8, 1/16″ fractions</p>
+      </a>
+      <a href="/mm-ruler" class="apple-utility-card hover:border-primary-focus transition-colors">
+        <p class="type-kicker">Fine Pitch · mm</p>
+        <h3 class="mt-1 type-body-strong text-ink">Millimeter Ruler</h3>
+        <p class="mt-1 type-fine-print text-ink-muted-80">1 mm &amp; 5 mm hardware scale</p>
+      </a>
+      <a href="/horizontal-ruler" class="apple-utility-card hover:border-primary-focus transition-colors">
+        <p class="type-kicker">Top &amp; Bottom</p>
+        <h3 class="mt-1 type-body-strong text-ink">Horizontal Ruler</h3>
+        <p class="mt-1 type-fine-print text-ink-muted-80">Wide spans &amp; CSS pixel (px) scale</p>
+      </a>
+      <a href="/vertical-ruler" class="apple-utility-card hover:border-primary-focus transition-colors">
+        <p class="type-kicker">Left &amp; Right</p>
+        <h3 class="mt-1 type-body-strong text-ink">Vertical Ruler</h3>
+        <p class="mt-1 type-fine-print text-ink-muted-80">Upright height &amp; mobile portrait</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: PAGE-SPECIFIC FAQS (Light White Tile #ffffff) -->
+<section
+  id="faq"
+  aria-labelledby="spoke-faq-heading"
+  class="apple-tile-light border-t border-hairline"
+>
+  <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+      <div class="max-w-3xl">
+        <p class="type-kicker">{faqKicker}</p>
+        <h2 id="spoke-faq-heading" class="mt-1.5 type-display-lg text-ink">
+          {faqHeading}
+        </h2>
+      </div>
+      <a href="/faq" class="apple-btn-secondary-pill shrink-0">
+        All Frequently Asked Questions
+      </a>
+    </div>
+
+    <div class="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
+      {
+        faqs.map((item) => (
+          <details open class="group apple-utility-card">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-ink">
+              <h3 class="type-body-strong text-ink">{item.q}</h3>
+              <span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-canvas-parchment font-mono text-base text-link group-open:rotate-45 transition-transform">
+                +
+              </span>
+            </summary>
+            <p class="mt-3 max-w-[65ch] type-caption text-ink-muted-80 border-t border-hairline pt-3">
+              {item.a}
+            </p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

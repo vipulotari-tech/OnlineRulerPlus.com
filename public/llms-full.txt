@@ -1,0 +1,102 @@
+# Online Ruler Plus (OnlineRulerPlus.com) — Full Technical & Metrology Reference
+
+> Online Ruler Plus (https://onlinerulerplus.com) is an actual-size online screen ruler and display calibration platform engineered to convert laptops, desktop monitors, tablets, and smartphones into calibrated physical measuring instruments.
+
+---
+
+## 1. Core Metrology Problem: Why Uncalibrated Online Rulers Are Inaccurate
+
+Under the **W3C CSS Values and Units Module Level 4** specification, one CSS reference inch is permanently fixed at `96 CSS pixels` (`1 CSS px = 1/96 in ≈ 0.264583 mm`, or `3.779528 CSS px/mm`). Web browsers do not expose physical monitor EDID millimeter dimensions to JavaScript for privacy and fingerprinting reasons.
+
+However, real display panels vary widely in physical pixel density (PPI) and operating-system HiDPI scaling (`window.devicePixelRatio`):
+- **27-inch 1080p Desktop Monitor** (`1920 × 1080`, `DPR 1`): `81.6 Physical PPI` (`81.6 CSS PPI`, `3.212 px/mm`). An uncalibrated 96 PPI ruler draws a "10 cm" line that is physically **11.76 cm** (+17.6% error).
+- **24-inch 1080p Desktop Monitor** (`1920 × 1080`, `DPR 1`): `91.8 Physical PPI` (`91.8 CSS PPI`, `3.614 px/mm`). An uncalibrated 96 PPI ruler is off by **+4.6%**.
+- **27-inch 4K UHD Monitor** (`3840 × 2160` at 200% scaling, `1920 × 1080 CSS px`, `DPR 2`): `163.2 Physical PPI` (`81.6 CSS PPI`, `3.212 px/mm`).
+- **15.6-inch 1080p Laptop** (`1920 × 1080` at 125% Windows scaling, `1536 × 864 CSS px`, `DPR 1.25`): `141.2 Physical PPI` (`113.0 CSS PPI`, `4.448 px/mm`). An uncalibrated 96 PPI ruler draws a "10 cm" line that is physically **8.50 cm** (-15.0% error).
+- **14.2-inch MacBook Pro Liquid Retina XDR** (`1512 × 982 CSS px`, `DPR 2`): `254 Physical PPI` (`127.0 CSS PPI`, `5.000 px/mm`).
+- **Modern Smartphones (iPhone 15/16, Galaxy S24)** (`~390–412 CSS px width`, `DPR 3`): `460 Physical PPI` (`~153 CSS PPI`, `~6.02 px/mm`). An uncalibrated 96 PPI ruler is off by **-37%**.
+
+---
+
+## 2. Three Display Calibration Methods
+
+### Method 1: ISO/IEC 7810:2019 ID-1 Credit / Bank Card Calibration (Recommended)
+Every standard payment card, driver's license, and national ID card conforms to the **ISO/IEC 7810 ID-1** international specification:
+- **Width**: `85.60 mm` (`8.56 cm` / `3.370 in`)
+- **Height**: `53.98 mm` (`5.398 cm` / `2.125 in`)
+- **Corner Radius**: `3.18 mm` (`0.125 in`)
+- **Formula**: `pxPerMm = cardWidthCssPx / 85.60` (Landscape) or `pxPerMm = cardHeightCssPx / 85.60` (Portrait on narrow smartphone screens).
+
+### Method 2: Visible Screen Diagonal Calibration
+If the user knows their monitor or laptop panel's active diagonal in inches (`D_in`) and keeps browser page zoom at `100%`:
+- **Diagonal CSS Pixels**: `D_px = sqrt(screen.width^2 + screen.height^2)`
+- **Effective CSS PPI**: `CSS_PPI = D_px / D_in`
+- **CSS Pixels per Millimeter**: `pxPerMm = CSS_PPI / 25.4`
+
+### Method 3: Automatic Device Density Detection & Zoom Persistence
+Online Ruler Plus stores calibrated density in physical device pixels per millimeter (`devicePxPerMm = pxPerMm * window.devicePixelRatio`) keyed by display geometry signature (`min(W,H) x max(W,H) @ platform`). When a user zooms their browser (e.g., from 100% to 125%), `devicePixelRatio` changes proportionally and the ruler automatically rescales `pxPerMm = devicePxPerMm / currentDpr` to preserve physical accuracy.
+
+---
+
+## 3. Standard Physical Verification Objects
+
+Users can verify ruler calibration against standardized everyday physical items:
+- **ISO/IEC 7810 ID-1 Bank / ID Card**: `85.60 mm` width × `53.98 mm` height (`3.370 × 2.125 in`)
+- **US Quarter Dollar Coin** (United States Mint specification): `24.26 mm` diameter (`0.955 in`)
+- **US One-Cent Penny** (United States Mint specification): `19.05 mm` diameter (`0.750 in` = `3/4 in`)
+- **US Nickel (5 Cents)**: `21.21 mm` diameter (`0.835 in`)
+- **1 Euro Coin** (European Central Bank specification): `23.25 mm` diameter (`0.915 in`)
+- **Standard AA Battery (IEC R6)**: `50.50 mm` length × `14.50 mm` diameter (`1.988 × 0.571 in`)
+- **US Dollar Bill (Federal Reserve Note)**: `155.96 × 66.29 mm` (`6.14 × 2.61 in`)
+- **ISO 216 A4 Paper Short Edge**: `210.00 mm` (`21.0 cm` / `8.268 in`)
+- **ANSI Letter Paper Width**: `215.90 mm` (`21.59 cm` / `8.500 in`)
+
+---
+
+## 4. Quick Conversion Tables
+
+### Fractional Inch (1/16") to Decimal Inch and Millimeter Table
+| Fraction (in) | Reduced Fraction | Decimal (in) | Millimeters (mm) | Centimeters (cm) |
+| :--- | :--- | :--- | :--- | :--- |
+| 1/16" | 1/16 in | 0.0625 in | 1.588 mm | 0.159 cm |
+| 2/16" | 1/8 in | 0.1250 in | 3.175 mm | 0.318 cm |
+| 3/16" | 3/16 in | 0.1875 in | 4.763 mm | 0.476 cm |
+| 4/16" | 1/4 in | 0.2500 in | 6.350 mm | 0.635 cm |
+| 5/16" | 5/16 in | 0.3125 in | 7.938 mm | 0.794 cm |
+| 6/16" | 3/8 in | 0.3750 in | 9.525 mm | 0.953 cm |
+| 7/16" | 7/16 in | 0.4375 in | 11.113 mm | 1.111 cm |
+| 8/16" | 1/2 in | 0.5000 in | 12.700 mm | 1.270 cm |
+| 9/16" | 9/16 in | 0.5625 in | 14.288 mm | 1.429 cm |
+| 10/16" | 5/8 in | 0.6250 in | 15.875 mm | 1.588 cm |
+| 11/16" | 11/16 in | 0.6875 in | 17.463 mm | 1.746 cm |
+| 12/16" | 3/4 in | 0.7500 in | 19.050 mm | 1.905 cm |
+| 13/16" | 13/16 in | 0.8125 in | 20.638 mm | 2.064 cm |
+| 14/16" | 7/8 in | 0.8750 in | 22.225 mm | 2.223 cm |
+| 15/16" | 15/16 in | 0.9375 in | 23.813 mm | 2.381 cm |
+| 16/16" | 1 in | 1.0000 in | 25.400 mm | 2.540 cm |
+
+### Centimeter (cm) to Millimeter and Inch Reference
+- `1 cm = 10 mm = 0.3937 in` (approx. `3/8 in` = `0.375 in`)
+- `2.54 cm = 25.4 mm = 1.0000 in` (exact)
+- `5 cm = 50 mm = 1.9685 in` (approx. `1 15/16 in`)
+- `10 cm = 100 mm = 3.9370 in` (approx. `3 15/16 in`)
+- `15 cm = 150 mm = 5.9055 in` (approx. `5 7/8 in`, standard 6-inch pocket ruler scale)
+- `30 cm = 300 mm = 11.8110 in` (approx. `11 13/16 in`, standard 30 cm / 12-inch school ruler scale)
+- `30.48 cm = 304.8 mm = 12.0000 in` (`1 foot` exact)
+
+---
+
+## 5. Canonical Site Structure
+- `https://onlinerulerplus.com/` — Main Calibrated Online Ruler Workspace (cm, mm, in, px)
+- `https://onlinerulerplus.com/cm-ruler` — Online Centimeter Ruler (cm) & Metric Conversion Guide
+- `https://onlinerulerplus.com/inch-ruler` — Online Inch Ruler (1/16") & 12-Inch Foot Ruler Scale
+- `https://onlinerulerplus.com/mm-ruler` — Online Millimeter Ruler (mm) & Hardware Pitch Scale
+- `https://onlinerulerplus.com/horizontal-ruler` — Full-Width Horizontal Online Screen Ruler (Top & Bottom)
+- `https://onlinerulerplus.com/vertical-ruler` — Calibrated Vertical Online Screen Ruler (Left & Right)
+- `https://onlinerulerplus.com/how-to-use` — How to Use Online Ruler Plus (3-Step Manual & Printable Scale Guide)
+- `https://onlinerulerplus.com/calibration-guide` — Screen Calibration & PPI Measurement Guide
+- `https://onlinerulerplus.com/faq` — Frequently Asked Questions (16 Metrology & Calibration Q&As)
+- `https://onlinerulerplus.com/about` — About Online Ruler Plus & Engineering Principles
+- `https://onlinerulerplus.com/contact` — Contact & Hardware Display Profile Submissions
+- `https://onlinerulerplus.com/privacy` — Privacy Policy (100% Client-Side LocalStorage)
+- `https://onlinerulerplus.com/terms` — Terms of Use & Metrology Accuracy Disclaimer
