@@ -473,6 +473,17 @@ test('Technical SEO: single sitemap.xml, compliant robots.txt, _headers, branded
     }
   }
 
+  // Verify Google tag (GTM-WWSX4NXH) appears once in <head> across core & localized routes
+  for (const rel of ['index.html', 'blog.html', 'es/cm-ruler.html', '404.html']) {
+    const pageHtml = fs.readFileSync(path.join(distDir, rel), 'utf-8');
+    const headEnd = pageHtml.indexOf('</head>');
+    assert.ok(headEnd > 0, `Expected </head> in ${rel}`);
+    const headSlice = pageHtml.slice(0, headEnd);
+    const gtmMatches = headSlice.match(/googletagmanager\.com\/gtm\.js\?id=GTM-WWSX4NXH/g) || [];
+    assert.strictEqual(gtmMatches.length, 1, `Expected exactly 1 GTM-WWSX4NXH script in <head> of ${rel}`);
+    assert.ok(headSlice.includes("gtag('js', new Date());"), `Expected gtag init in <head> of ${rel}`);
+  }
+
   for (const loc of sitemapLocs) {
     const pathOnly = new URL(loc).pathname;
     assert.ok(visited.has(pathOnly), `Orphaned sitemap URL not reachable from internal HTML links: ${pathOnly}`);

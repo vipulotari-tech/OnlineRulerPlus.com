@@ -157,6 +157,12 @@ const skipLabel = skipHref === '#ruler-tool' ? dict.nav.skipToWorkspace : dict.n
 <!doctype html>
 <html lang={meta.bcp47}>
   <head>
+    <script is:inline async src="https://www.googletagmanager.com/gtm.js?id=GTM-WWSX4NXH"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preload" as="font" type="font/woff2" crossorigin href={interLatinWoff2} />
