@@ -1,8 +1,6 @@
-const CANONICAL_HOST = 'onlinerulerplus.com';
-
 /**
- * Permanently redirect *.pages.dev and www.onlinerulerplus.com requests to https://onlinerulerplus.com.
- * Preserves path and query string, and keeps X-Robots-Tag: noindex on *.pages.dev responses.
+ * Block all page requests on *.pages.dev with 410 Gone and X-Robots-Tag: noindex, nofollow.
+ * Leaves the custom domain (onlinerulerplus.com) unaffected with zero redirects.
  */
 export async function onRequest(context) {
   const url = new URL(context.request.url);
@@ -11,24 +9,15 @@ export async function onRequest(context) {
   const isPagesDev =
     host === 'onlinerulerplus.pages.dev' ||
     host.endsWith('.onlinerulerplus.pages.dev');
-  const isWww = host === `www.${CANONICAL_HOST}`;
 
-  if (isPagesDev || isWww) {
-    url.hostname = CANONICAL_HOST;
-    url.protocol = 'https:';
-    url.port = '';
-
-    const headers = {
-      Location: url.toString(),
-      'Cache-Control': 'public, max-age=3600',
-    };
-    if (isPagesDev) {
-      headers['X-Robots-Tag'] = 'noindex';
-    }
-
-    return new Response(null, {
-      status: 301,
-      headers,
+  if (isPagesDev) {
+    return new Response('410 Gone', {
+      status: 410,
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'X-Robots-Tag': 'noindex, nofollow',
+        'Cache-Control': 'public, max-age=3600',
+      },
     });
   }
 

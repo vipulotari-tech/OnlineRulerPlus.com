@@ -479,38 +479,42 @@ test('Technical SEO: single sitemap.xml, compliant robots.txt, _headers, branded
   }
 });
 
-test('Cloudflare Pages middleware permanently redirects *.pages.dev and www to canonical apex domain', async () => {
+test('Cloudflare Pages middleware disables *.pages.dev with 410 Gone and leaves custom domain live', async () => {
   const { onRequest } = await import('../functions/_middleware.js');
   const nextSentinel = new Response('ok', { status: 200 });
 
-  for (const [inputUrl, expectedLocation, expectNoIndex] of [
-    ['https://onlinerulerplus.pages.dev/', 'https://onlinerulerplus.com/', true],
-    ['https://onlinerulerplus.pages.dev/cm-ruler?u=mm', 'https://onlinerulerplus.com/cm-ruler?u=mm', true],
-    ['https://eea1dcc0.onlinerulerplus.pages.dev/blog', 'https://onlinerulerplus.com/blog', true],
-    ['https://www.onlinerulerplus.com/inch-ruler', 'https://onlinerulerplus.com/inch-ruler', false],
+  for (const blockedUrl of [
+    'https://onlinerulerplus.pages.dev/',
+    'https://onlinerulerplus.pages.dev/cm-ruler?u=mm',
+    'https://408b072f.onlinerulerplus.pages.dev/blog',
   ]) {
     let calledNext = false;
     const res = await onRequest({
-      request: new Request(inputUrl),
+      request: new Request(blockedUrl),
       next: async () => {
         calledNext = true;
         return nextSentinel;
       },
     });
-    assert.strictEqual(calledNext, false, `Expected middleware to short-circuit ${inputUrl}`);
-    assert.strictEqual(res.status, 301, `Expected 301 redirect for ${inputUrl}`);
-    assert.strictEqual(res.headers.get('location'), expectedLocation);
-    assert.strictEqual(res.headers.get('x-robots-tag'), expectNoIndex ? 'noindex' : null);
+    assert.strictEqual(calledNext, false, `Expected middleware to block ${blockedUrl}`);
+    assert.strictEqual(res.status, 410, `Expected 410 Gone for ${blockedUrl}`);
+    assert.strictEqual(res.headers.get('location'), null, `Must not redirect ${blockedUrl}`);
+    assert.strictEqual(res.headers.get('x-robots-tag'), 'noindex, nofollow');
   }
 
-  let canonicalCalledNext = false;
-  const canonicalRes = await onRequest({
-    request: new Request('https://onlinerulerplus.com/cm-ruler'),
-    next: async () => {
-      canonicalCalledNext = true;
-      return nextSentinel;
-    },
-  });
-  assert.strictEqual(canonicalCalledNext, true, 'Canonical apex host must pass through to static assets');
-  assert.strictEqual(canonicalRes.status, 200);
+  for (const liveUrl of [
+    'https://onlinerulerplus.com/cm-ruler',
+    'https://www.onlinerulerplus.com/cm-ruler',
+  ]) {
+    let liveCalledNext = false;
+    const liveRes = await onRequest({
+      request: new Request(liveUrl),
+      next: async () => {
+        liveCalledNext = true;
+        return nextSentinel;
+      },
+    });
+    assert.strictEqual(liveCalledNext, true, `Custom domain ${liveUrl} must pass through to static assets`);
+    assert.strictEqual(liveRes.status, 200);
+  }
 });
