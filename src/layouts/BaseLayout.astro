@@ -182,11 +182,18 @@ const skipLabel = skipHref === '#ruler-tool' ? dict.nav.skipToWorkspace : dict.n
           if (savedTheme === 'dark') {
             document.documentElement.classList.add('dark');
           }
+          const rawPrefs = localStorage.getItem('orp:preferences:v1');
+          if (rawPrefs) {
+            const parsedPrefs = JSON.parse(rawPrefs);
+            if (parsedPrefs && parsedPrefs.focusMode === true) {
+              document.documentElement.dataset.focusMode = 'true';
+            }
+          }
         } catch {
           // Ignore storage access errors
         }
 
-        // First-visit browser locale auto-redirect on bare root (/) only
+        // First-visit browser locale detection on bare root (/): suggest non-intrusively without hijacking URL
         try {
           const path = window.location.pathname.replace(/\/+$/, '') || '/';
           if (path === '/') {
@@ -206,10 +213,8 @@ const skipLabel = skipHref === '#ruler-tool' ? dict.nav.skipToWorkspace : dict.n
                   break;
                 }
               }
-              localStorage.setItem(LOCALE_STORAGE_KEY, matched);
-              localStorage.setItem(LOCALE_SOURCE_STORAGE_KEY, 'auto');
               if (matched !== 'en') {
-                window.location.replace('/' + matched + window.location.search + window.location.hash);
+                document.documentElement.dataset.suggestedLocale = matched;
               }
             }
           }

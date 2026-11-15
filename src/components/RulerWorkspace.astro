@@ -37,7 +37,7 @@ const offRight = initEdges.right ? initThickness : 0;
   id="ruler-tool"
   tabindex="-1"
   aria-labelledby="workspace-sr-heading"
-  class="mx-auto w-full max-w-[1440px] px-4 pt-1 pb-10 sm:px-6 lg:px-8 focus:outline-none"
+  class="order-1 sm:order-2 mx-auto w-full max-w-[1440px] px-2 pt-2 pb-6 sm:px-6 sm:pt-1 sm:pb-10 lg:px-8 focus:outline-none"
 >
   <h2 id="workspace-sr-heading" class="sr-only">
     {w.srHeading}
@@ -69,11 +69,11 @@ const offRight = initEdges.right ? initThickness : 0;
   </div>
 
   <!-- Workspace Control Bar (Grouped Segmented Instrument Pods) -->
-  <div class="rounded-t-[18px] border border-b-0 border-hairline bg-canvas-parchment px-3 py-2.5 sm:px-4">
-    <div class="flex flex-wrap items-center justify-between gap-2">
+  <div class="rounded-t-[18px] border border-b-0 border-hairline bg-canvas-parchment px-2 py-1.5 sm:px-4 sm:py-2.5">
+    <div class="flex flex-nowrap sm:flex-wrap items-center justify-start sm:justify-between gap-1.5 sm:gap-2 overflow-x-auto sm:overflow-visible pb-0.5 sm:pb-0">
       <!-- Pod 1: Unit Selector -->
-      <div class="apple-segmented-pod" role="group" aria-label={w.unitGroupAria}>
-        <span class="px-1.5 font-mono text-[11px] font-semibold text-ink-muted-48">{w.unitLabel}</span>
+      <div class="apple-segmented-pod flex-nowrap! shrink-0 sm:flex-wrap!" role="group" aria-label={w.unitGroupAria}>
+        <span class="hidden sm:inline px-1.5 font-mono text-[11px] font-semibold text-ink-muted-48">{w.unitLabel}</span>
         <button
           type="button"
           data-unit-btn="cm"
@@ -124,11 +124,46 @@ const offRight = initEdges.right ? initThickness : 0;
         >
           {w.dualUnit}
         </button>
+        <button
+          id="btn-dual-cm-px"
+          type="button"
+          data-dual-preset="cm-px"
+          aria-pressed="false"
+          data-active="false"
+          class="apple-option-chip font-mono"
+          title={w.dualCmPxTitle ?? 'Dual cm + px scale'}
+        >
+          cm+px
+        </button>
+        <button
+          id="btn-dual-in-px"
+          type="button"
+          data-dual-preset="in-px"
+          aria-pressed="false"
+          data-active="false"
+          class="apple-option-chip font-mono"
+          title={w.dualInPxTitle ?? 'Dual inch + px scale'}
+        >
+          in+px
+        </button>
+        <span
+          id="inch-divisor-group"
+          role="group"
+          aria-label={w.inchPrecisionAria ?? 'Inch fraction precision'}
+          class:list={[
+            'items-center gap-0.5 pl-1 border-l border-hairline',
+            initUnit === 'in' ? 'inline-flex' : 'hidden',
+          ]}
+        >
+          <button type="button" data-inch-divisor="8" data-active="false" aria-pressed="false" class="apple-option-chip font-mono text-[11px] px-2">1/8</button>
+          <button type="button" data-inch-divisor="16" data-active="true" aria-pressed="true" class="apple-option-chip font-mono text-[11px] px-2">1/16</button>
+          <button type="button" data-inch-divisor="32" data-active="false" aria-pressed="false" class="apple-option-chip font-mono text-[11px] px-2">1/32</button>
+        </span>
       </div>
 
       <!-- Pod 2: Edge Selector -->
-      <div class="apple-segmented-pod" role="group" aria-label={w.edgesGroupAria}>
-        <span class="px-1.5 font-mono text-[11px] font-semibold text-ink-muted-48">{w.edgesLabel}</span>
+      <div class="apple-segmented-pod flex-nowrap! shrink-0 sm:flex-wrap!" role="group" aria-label={w.edgesGroupAria}>
+        <span class="hidden sm:inline px-1.5 font-mono text-[11px] font-semibold text-ink-muted-48">{w.edgesLabel}</span>
         <button
           type="button"
           data-edge-btn="top"
@@ -177,7 +212,7 @@ const offRight = initEdges.right ? initThickness : 0;
       </div>
 
       <!-- Pod 3: Precision Overlay Tools -->
-      <div class="apple-segmented-pod" role="group" aria-label={w.toolsGroupAria}>
+      <div class="apple-segmented-pod flex-nowrap! shrink-0 sm:flex-wrap!" role="group" aria-label={w.toolsGroupAria}>
         <button
           id="btn-toggle-guides"
           type="button"
@@ -220,6 +255,28 @@ const offRight = initEdges.right ? initThickness : 0;
           <kbd class="hidden sm:inline font-mono text-[10px] text-ink-muted-48">P</kbd>
         </button>
         <button
+          id="btn-photo-mode"
+          type="button"
+          aria-pressed="false"
+          data-active="false"
+          class="apple-option-chip"
+          title={w.photoModeTitle ?? 'Measure any photo or pasted Ctrl+V screenshot offline'}
+        >
+          <span>{w.photoMode ?? 'Photo / Ctrl+V'}</span>
+        </button>
+        <button
+          id="btn-focus-mode"
+          type="button"
+          aria-pressed="false"
+          data-active="false"
+          data-label-enter={w.focusMode}
+          data-label-exit={w.focusModeExit}
+          class="hidden sm:inline-flex apple-option-chip"
+          title={w.focusModeTitle}
+        >
+          <span>{w.focusMode}</span>
+        </button>
+        <button
           id="btn-fullscreen"
           type="button"
           aria-pressed="false"
@@ -243,31 +300,31 @@ const offRight = initEdges.right ? initThickness : 0;
     </div>
 
     <!-- Secondary Row: Calibration Telemetry, Guide Axis, Thickness & Opacity -->
-    <div class="mt-2.5 flex flex-wrap items-center justify-between gap-2 border-t border-hairline pt-2 type-caption">
-      <div class="flex flex-wrap items-center gap-2">
+    <div class="mt-1.5 sm:mt-2.5 flex flex-nowrap sm:flex-wrap items-center justify-between gap-2 border-t border-hairline pt-1.5 sm:pt-2 type-caption overflow-x-auto sm:overflow-visible">
+      <div class="flex flex-nowrap sm:flex-wrap items-center gap-2 shrink-0">
         <span
           data-cal-status-label
           data-status="estimated"
-          class="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-canvas px-2.5 py-0.5 font-mono text-[11px] font-semibold text-ink data-[status=manual]:border-primary-focus data-[status=manual]:text-link"
+          class="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border border-hairline bg-canvas px-2.5 py-0.5 font-mono text-[11px] font-semibold text-ink data-[status=manual]:border-primary-focus data-[status=manual]:text-link"
         >
           {w.calDefaultStatus}
         </span>
-        <span class="font-mono text-xs text-ink-muted-80">
+        <span class="font-mono text-xs text-ink-muted-80 whitespace-nowrap">
           <strong data-cal-ppi class="font-semibold text-ink">96.0 PPI</strong>
-          <span class="mx-1 text-ink-muted-48">·</span>
-          <span data-cal-device-label class="text-ink-muted-48">{w.calDefaultDevice}</span>
+          <span class="hidden sm:inline mx-1 text-ink-muted-48">·</span>
+          <span data-cal-device-label class="hidden sm:inline text-ink-muted-48">{w.calDefaultDevice}</span>
         </span>
         <a
           href="#calibration"
           data-open-calibration="card"
-          class="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-link-soft px-2.5 py-0.5 font-mono text-[11px] font-semibold text-link hover:border-primary-focus transition-colors"
+          class="inline-flex items-center gap-1 whitespace-nowrap rounded-full border border-primary/30 bg-link-soft px-2.5 py-0.5 font-mono text-[11px] font-semibold text-link hover:border-primary-focus transition-colors"
         >
           <span>{w.calibrateBtn}</span>
           <span aria-hidden="true">↓</span>
         </a>
       </div>
 
-      <div class="flex flex-wrap items-center gap-3 text-ink-muted-80">
+      <div class="flex flex-nowrap sm:flex-wrap items-center gap-2 sm:gap-3 text-ink-muted-80 shrink-0">
         <!-- Guide placement axis -->
         <div class="flex flex-wrap items-center gap-1" role="group" aria-label={w.guideAxisAria}>
           <span class="font-mono text-[11px] text-ink-muted-48">{w.guideAxisLabel}</span>
@@ -339,7 +396,7 @@ const offRight = initEdges.right ? initThickness : 0;
     data-force-unit={forceUnit}
     data-force-edges={forceEdges}
     data-unit={defaultUnit}
-    class="relative h-[440px] sm:h-[520px] lg:h-[540px] w-full overflow-hidden rounded-b-[18px] border border-hairline bg-canvas select-none"
+    class="relative h-[380px] sm:h-[520px] lg:h-[540px] w-full overflow-hidden rounded-b-[18px] border border-hairline bg-canvas select-none"
   >
     <!-- 4 Corner Origin Cells -->
     <div
@@ -500,6 +557,123 @@ const offRight = initEdges.right ? initThickness : 0;
         <div class="hidden md:flex items-center gap-2 font-mono text-[11px] text-ink-muted-48 shrink-0">
           <span set:html={renderInlineMarkup(w.keysHint, locale)} />
         </div>
+      </div>
+    </div>
+
+    <!-- Client-Side Photo & Clipboard (Ctrl+V) Measurement Studio Overlay -->
+    <div
+      id="photo-measure-panel"
+      role="region"
+      aria-label={w.photoPanelAria ?? 'Client-side photo and clipboard measurement tool'}
+      class="hidden absolute inset-0 z-40 flex flex-col bg-canvas"
+    >
+      <div class="flex flex-nowrap sm:flex-wrap items-center justify-between gap-1.5 sm:gap-2 border-b border-hairline bg-canvas-parchment px-2 py-1.5 sm:px-3 sm:py-2 overflow-x-auto sm:overflow-visible shrink-0">
+        <div class="flex flex-nowrap sm:flex-wrap items-center gap-1.5 shrink-0">
+          <input
+            id="photo-file-input"
+            type="file"
+            accept="image/*"
+            aria-label={w.photoChooseBtn}
+            class="sr-only"
+          />
+          <button id="btn-photo-choose" type="button" class="apple-btn-pearl font-mono text-xs">
+            {w.photoChooseBtn ?? 'Upload Photo'}
+          </button>
+          <button id="btn-photo-paste" type="button" class="apple-btn-pearl font-mono text-xs">
+            {w.photoPasteBtn ?? 'Paste (Ctrl+V)'}
+          </button>
+
+          <span class="mx-1 h-4 w-px bg-hairline hidden sm:inline-block" aria-hidden="true"></span>
+
+          <button
+            type="button"
+            data-photo-tool="calibrate"
+            data-active="true"
+            aria-pressed="true"
+            class="apple-option-chip font-mono text-xs"
+          >
+            {w.photoToolCal ?? '1. Calibrate 2-pt'}
+          </button>
+          <button
+            type="button"
+            data-photo-tool="line"
+            data-active="false"
+            aria-pressed="false"
+            class="apple-option-chip font-mono text-xs"
+          >
+            {w.photoToolLine ?? '2. Line'}
+          </button>
+          <button
+            type="button"
+            data-photo-tool="rect"
+            data-active="false"
+            aria-pressed="false"
+            class="apple-option-chip font-mono text-xs"
+          >
+            {w.photoToolRect ?? '3. ΔX / ΔY Box'}
+          </button>
+        </div>
+
+        <div class="flex flex-nowrap sm:flex-wrap items-center gap-1.5 shrink-0">
+          <label class="inline-flex items-center gap-1 font-mono text-xs text-ink">
+            <span class="sr-only">{w.photoRefLenAria ?? 'Known reference length'}</span>
+            <input
+              id="photo-cal-length"
+              type="number"
+              min="0.1"
+              max="100000"
+              step="0.1"
+              value="85.6"
+              class="h-[32px] w-20 rounded-full border border-hairline bg-canvas px-2.5 text-center font-mono text-xs font-semibold text-ink"
+            />
+          </label>
+          <select
+            id="photo-cal-unit"
+            aria-label={w.photoRefUnitAria ?? 'Reference unit'}
+            class="h-[32px] rounded-full border border-hairline bg-canvas px-2 font-mono text-xs text-ink cursor-pointer"
+          >
+            <option value="mm" selected>mm</option>
+            <option value="cm">cm</option>
+            <option value="in">in</option>
+          </select>
+          <button id="btn-photo-apply-cal" type="button" class="apple-btn-primary h-[32px] px-3 text-xs">
+            {w.photoApplyCalBtn ?? 'Apply Scale'}
+          </button>
+          <button id="btn-photo-card-preset" type="button" class="apple-btn-pearl font-mono text-xs" title="ISO ID-1 Card (85.6 mm)">
+            ID-1
+          </button>
+          <button id="btn-photo-zoom-in" type="button" class="apple-btn-pearl font-mono text-xs px-2" aria-label="Zoom in photo">+</button>
+          <button id="btn-photo-zoom-out" type="button" class="apple-btn-pearl font-mono text-xs px-2" aria-label="Zoom out photo">−</button>
+          <button id="btn-photo-zoom-fit" type="button" class="apple-btn-pearl font-mono text-xs px-2">Fit</button>
+          <button id="btn-photo-undo" type="button" class="apple-btn-pearl font-mono text-xs">{w.photoUndoBtn ?? 'Undo'}</button>
+          <button id="btn-photo-clear" type="button" class="apple-btn-pearl font-mono text-xs">{w.photoClearBtn ?? 'Clear'}</button>
+          <button id="btn-photo-export" type="button" disabled class="apple-btn-pearl font-mono text-xs text-link border-primary/30 disabled:opacity-40">
+            {w.photoExportBtn ?? 'Export PNG'}
+          </button>
+          <button id="btn-photo-close" type="button" class="apple-btn-pearl font-mono text-xs">
+            {w.photoCloseBtn ?? 'Exit'}
+          </button>
+        </div>
+      </div>
+
+      <div class="workspace-grid-bg relative flex-1 min-h-0 overflow-hidden">
+        <canvas id="photo-measure-canvas" class="block h-full w-full cursor-crosshair touch-none"></canvas>
+        <div
+          id="photo-empty-state"
+          class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center p-6 text-center"
+        >
+          <div class="max-w-md rounded-[16px] border border-dashed border-primary-focus/50 bg-canvas-parchment/95 px-6 py-5">
+            <p class="font-mono text-xs font-semibold text-link">{w.photoEmptyTitle ?? '100% Client-Side Photo & Clipboard Ruler'}</p>
+            <p class="mt-1.5 type-caption text-ink-muted-80">
+              {w.photoEmptyDesc ?? 'Press Ctrl+V to paste a screenshot, drop an image here, or choose a file. Nothing is ever uploaded.'}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-between gap-2 border-t border-hairline bg-canvas-parchment px-3 py-1.5 font-mono text-[11px]">
+        <span id="photo-measure-readout" class="font-semibold text-ink truncate"></span>
+        <span id="photo-cal-status" class="text-ink-muted-80 truncate"></span>
       </div>
     </div>
   </div>

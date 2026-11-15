@@ -9,29 +9,38 @@ import {
   EMPTY_CALIBRATION_STORE,
   MM_PER_CM,
   MM_PER_INCH,
+  REFERENCE_PRESETS,
   STATUS_LABELS,
   appendHistoryRecord,
+  calibrateScaleFromTwoPoints,
   cardHeightForWidth,
   cardWidthPx,
   classifyDisplayChange,
   createManualProfile,
   cssPpi,
+  deltaStatsPx,
   detectCalibration,
   detectPlatform,
   displaySignature,
+  distancePx,
   findProfileForDisplay,
+  fitContainRect,
   formatInchFraction,
+  formatPhotoLength,
   formatValue,
   fromDevicePxPerMm,
   generateTicks,
+  getReferencePreset,
   parseCalibrationStore,
   parseDiagonal,
   parseHistory,
   parsePreferences,
+  photoPxToUnit,
   pointToProtractorAngle,
   pxPerMmFromCardHeight,
   pxPerMmFromCardWidth,
   pxPerMmFromDiagonal,
+  pxPerMmFromReference,
   pxPerUnit,
   pxToUnit,
   removeProfileForDisplay,
@@ -314,4 +323,86 @@ test('Boundary invariants: 1/32 dyadic fractions, zero tick drift over 3000px, a
   // Below-baseline protractor pointer clamping
   assert.strictEqual(pointToProtractorAngle(100, 100, 200, 150), 0);
   assert.strictEqual(pointToProtractorAngle(100, 100, 0, 150), 180);
+
+  // P0.4 Touchscreen fallback labeling & fractional scaling tolerance
+  const genericTouch = {
+    screenWidth: 412,
+    screenHeight: 915,
+    dpr: 2.625,
+    platform: 'other',
+    touch: true,
+    visualViewportScale: 1,
+  };
+  const touchAuto = detectCalibration(genericTouch);
+  assert.strictEqual(touchAuto.kind, 'estimated');
+  assert.strictEqual(touchAuto.label, 'Touchscreen device (uncalibrated)');
+
+  // Firefox fractional zoom rounding (1920x1080 @ 1 -> 1444x812 @ 1.33, devW = 1921)
+  const baseMonitor = { screenWidth: 1920, screenHeight: 1080, dpr: 1, platform: 'windows', touch: false };
+  const firefoxFracZoom = { screenWidth: 1444, screenHeight: 812, dpr: 1.33, platform: 'windows', touch: false };
+  assert.strictEqual(classifyDisplayChange(baseMonitor, firefoxFracZoom), 'zoom');
+  const storedStore = saveProfileToStore(
+    EMPTY_CALIBRATION_STORE,
+    createManualProfile(baseMonitor, 4.0, 'card', 'ID-1 Card'),
+  );
+  const rescaledFrac = findProfileForDisplay(storedStore, firefoxFracZoom);
+  assert.ok(rescaledFrac !== null && rescaledFrac.rescaledForZoom === true);
+
+  // focusMode preference parsing
+  assert.strictEqual(parsePreferences('{"unit":"cm","focusMode":true}').focusMode, true);
+  assert.strictEqual(parsePreferences('{"unit":"cm","focusMode":"yes"}').focusMode, false);
+});
+
+test('P1 reference calibration presets, inch divisors (1/8-1/32), and client-side photo math', () => {
+  // Reference presets (A4, US Letter, 2x/3x Cards, Coins)
+  assert.ok(REFERENCE_PRESETS.length >= 9);
+  const a4 = getReferencePreset('a4-width');
+  assert.strictEqual(a4.widthMm, 210);
+  const a4Cal = pxPerMmFromReference(840, a4.widthMm);
+  assert.strictEqual(a4Cal.ok, true);
+  assert.strictEqual(a4Cal.value, 4);
+
+  const card3x = getReferencePreset('card-3x');
+  assert.strictEqual(card3x.widthMm, 256.8);
+  const qtr = getReferencePreset('us-quarter');
+  assert.strictEqual(qtr.widthMm, 24.26);
+  assert.strictEqual(pxPerMmFromReference(0, 100).ok, false);
+  assert.strictEqual(pxPerMmFromReference(100, -5).ok, false);
+
+  // Inch divisors 1/8, 1/16, 1/32 at high density (6 px/mm -> 152.4 px/in)
+  const ticks8 = generateTicks(153, 'in', 6, undefined, { inchDivisor: 8 });
+  const ticks16 = generateTicks(153, 'in', 6, undefined, { inchDivisor: 16 });
+  const ticks32 = generateTicks(153, 'in', 6, undefined, { inchDivisor: 32 });
+  assert.strictEqual(ticks8.length, 9);
+  assert.strictEqual(ticks16.length, 17);
+  assert.strictEqual(ticks32.length, 33);
+
+  // Preferences dualPair & inchDivisor round-trip
+  const prefParsed = parsePreferences('{"unit":"in","dualUnit":true,"dualPair":"px","inchDivisor":32}');
+  assert.strictEqual(prefParsed.dualPair, 'px');
+  assert.strictEqual(prefParsed.inchDivisor, 32);
+
+  // Client-side photo calibration & measurements
+  const pA = { x: 100, y: 200 };
+  const pB = { x: 500, y: 200 };
+  assert.strictEqual(distancePx(pA, pB), 400);
+  const cal = calibrateScaleFromTwoPoints(pA, pB, 10, 'cm');
+  assert.strictEqual(cal.ok, true);
+  assert.ok(cal.value && Math.abs(cal.value.pxPerMm - 4) < 1e-9); // 400 px / 100 mm = 4 px/mm
+
+  const measuredPx = distancePx({ x: 10, y: 10 }, { x: 10, y: 210 });
+  assert.strictEqual(photoPxToUnit(measuredPx, 'cm', cal.value), 5);
+  assert.ok(formatPhotoLength(measuredPx, 'cm', cal.value).includes('5.00 cm'));
+
+  const stats = deltaStatsPx({ x: 50, y: 60 }, { x: 250, y: 210 });
+  assert.strictEqual(stats.dxPx, 200);
+  assert.strictEqual(stats.dyPx, 150);
+  assert.strictEqual(stats.diagPx, 250);
+
+  // Rejection on degenerate points / <=0 length
+  assert.strictEqual(calibrateScaleFromTwoPoints({ x: 5, y: 5 }, { x: 5.5, y: 5.5 }, 10, 'mm').ok, false);
+  assert.strictEqual(calibrateScaleFromTwoPoints(pA, pB, 0, 'cm').ok, false);
+
+  const fit = fitContainRect(2000, 1000, 800, 500, 20);
+  assert.ok(fit.scale > 0 && fit.drawW <= 760 && fit.drawH <= 460);
 });

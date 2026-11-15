@@ -105,6 +105,58 @@ export function fromDevicePxPerMm(devicePxPerMm: number, dpr: number): number {
   return devicePxPerMm / dpr;
 }
 
+/** Reference calibration target identifiers supported in the calibration studio. */
+export type ReferencePresetId =
+  | 'card-1x'
+  | 'card-2x'
+  | 'card-3x'
+  | 'a4-width'
+  | 'letter-width'
+  | 'cd-dvd'
+  | 'us-quarter'
+  | 'euro-1'
+  | 'us-penny'
+  | 'custom';
+
+export interface ReferencePreset {
+  readonly id: ReferencePresetId;
+  readonly widthMm: number;
+  readonly aspectRatio: number; // height / width (1 for circle/custom bar)
+  readonly circular?: boolean;
+  readonly multiplierLabel: string;
+}
+
+export const REFERENCE_PRESETS: readonly ReferencePreset[] = [
+  { id: 'card-1x', widthMm: 85.6, aspectRatio: CARD_HEIGHT_MM / CARD_WIDTH_MM, multiplierLabel: '1× ID-1 (85.6 mm)' },
+  { id: 'card-2x', widthMm: 171.2, aspectRatio: CARD_HEIGHT_MM / 171.2, multiplierLabel: '2× Cards (171.2 mm)' },
+  { id: 'card-3x', widthMm: 256.8, aspectRatio: CARD_HEIGHT_MM / 256.8, multiplierLabel: '3× Cards (256.8 mm)' },
+  { id: 'a4-width', widthMm: 210.0, aspectRatio: 0.25, multiplierLabel: 'A4 Width (210.0 mm)' },
+  { id: 'letter-width', widthMm: 215.9, aspectRatio: 0.25, multiplierLabel: 'US Letter (215.9 mm)' },
+  { id: 'cd-dvd', widthMm: 120.0, aspectRatio: 1, circular: true, multiplierLabel: 'CD/DVD (120.0 mm)' },
+  { id: 'us-quarter', widthMm: 24.26, aspectRatio: 1, circular: true, multiplierLabel: 'US Quarter (24.26 mm)' },
+  { id: 'euro-1', widthMm: 23.25, aspectRatio: 1, circular: true, multiplierLabel: '€1 Coin (23.25 mm)' },
+  { id: 'us-penny', widthMm: 19.05, aspectRatio: 1, circular: true, multiplierLabel: 'US Penny (19.05 mm)' },
+];
+
+export function getReferencePreset(id: ReferencePresetId): ReferencePreset {
+  return REFERENCE_PRESETS.find((p) => p.id === id) ?? REFERENCE_PRESETS[0];
+}
+
+/** CSS px per mm from any physical reference target length in millimeters. */
+export function pxPerMmFromReference(measuredPx: number, referenceMm: number): Result<number> {
+  if (!Number.isFinite(measuredPx) || measuredPx <= 0) {
+    return fail('Measured pixels must be greater than zero.');
+  }
+  if (!Number.isFinite(referenceMm) || referenceMm <= 0) {
+    return fail('Reference length must be greater than zero.');
+  }
+  const pxPerMm = measuredPx / referenceMm;
+  if (!isPlausiblePxPerMm(pxPerMm)) {
+    return fail('That reference size is outside the plausible range.');
+  }
+  return ok(pxPerMm);
+}
+
 /** Signed relative error in percent of a measured length against its true value. */
 export function relativeErrorPercent(measured: number, expected: number): number {
   return ((measured - expected) / expected) * 100;

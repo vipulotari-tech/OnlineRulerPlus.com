@@ -143,8 +143,8 @@ const homeHref = localizedPath(locale, '/');
     </div>
   </div>
 
-  <!-- Row 2: Apple sub-nav-frosted (52px height, Parchment 80% + backdrop blur) -->
-  <div class="apple-subnav-frosted h-[48px] sm:h-[52px] w-full">
+  <!-- Row 2: Apple sub-nav-frosted (hidden on <640px mobile so ruler fits in initial fold) -->
+  <div class="hidden sm:block apple-subnav-frosted h-[48px] sm:h-[52px] w-full">
     <div class="mx-auto flex h-full max-w-[1440px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 min-w-0">
         <a href={rawBasePath === '/' ? '#ruler-tool' : homeHref} class="type-tagline text-[17px] sm:text-[21px] text-ink truncate">
@@ -216,3 +216,32 @@ const homeHref = localizedPath(locale, '/');
     </nav>
   </div>
 </header>
+
+<!-- Non-intrusive first-visit locale suggestion pill (zero URL hijack, zero CLS) -->
+<div
+  id="locale-suggestion-banner"
+  role="status"
+  aria-live="polite"
+  data-text-template={dict.nav.localeSuggestionText}
+  data-switch-label={dict.nav.localeSuggestionSwitch}
+  class="hidden fixed bottom-3 inset-x-3 sm:inset-x-auto sm:right-4 sm:bottom-4 z-50 flex items-center justify-between gap-3 rounded-full border border-hairline bg-surface-black/95 px-4 py-2 text-xs text-on-dark backdrop-blur-md shadow-[0_12px_32px_rgba(0,0,0,0.35)]"
+>
+  <span id="locale-suggestion-text" class="truncate font-medium"></span>
+  <div class="flex items-center gap-2 shrink-0">
+    <a
+      id="locale-suggestion-link"
+      href="/es"
+      class="rounded-full bg-primary px-3 py-1 font-semibold text-on-primary whitespace-nowrap"
+    >
+      {dict.nav.localeSuggestionSwitch}
+    </a>
+    <button
+      id="locale-suggestion-dismiss"
+      type="button"
+      aria-label={dict.nav.localeSuggestionDismiss}
+      class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#2a2a2c] text-on-dark cursor-pointer"
+    >
+      ×
+    </button>
+  </div>
+</div>

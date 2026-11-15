@@ -47,7 +47,10 @@
       "calibration": "Kalibrasyon",
       "howItWorks": "Nasıl Çalışır",
       "ppiTable": "PPI Tablosu"
-    }
+    },
+    "localeSuggestionText": "Bu sayfayı {language} dilinde görüntüle?",
+    "localeSuggestionSwitch": "Değiştir",
+    "localeSuggestionDismiss": "Dil önerisini kapat"
   },
   "footer": {
     "footnote": "1. Gerçek fiziksel doğruluk için %100 tarayıcı yakınlaştırmasında standart bir ISO/IEC 7810 ID-1 kartı (85,60 × 53,98 mm) veya bilinen ekran köşegeni ile ekran kalibrasyonu gerekir. Kalibrasyonsuz tarayıcılar varsayılan olarak inç başına 96 CSS pikseli kullanır.",
@@ -85,18 +88,54 @@
     "enableShortcuts": "Tek tuş kısayollarını etkinleştir (G, C, P, F, 1–4, D, H)",
     "gotIt": "Anladım",
     "shortcuts": [
-      { "key": "G", "action": "Tıklamayla kılavuz çizgisi yerleştirmeyi aç/kapat" },
-      { "key": "C", "action": "İmleç takipli artı işaretini aç/kapat" },
-      { "key": "P", "action": "180° açıölçer katmanını aç/kapat" },
-      { "key": "F", "action": "Tam ekran ölçüm alanını aç/kapat" },
-      { "key": "1", "action": "Birimi Santimetre (cm) yap" },
-      { "key": "2", "action": "Birimi İnç (in) yap" },
-      { "key": "3", "action": "Birimi CSS Piksel (px) yap" },
-      { "key": "4 / M", "action": "Birimi Milimetre (mm) yap" },
-      { "key": "D", "action": "Açık ve koyu tema arasında geçiş yap" },
-      { "key": "H", "action": "Bu klavye kısayolları penceresini aç/kapat" },
-      { "key": "Esc", "action": "Eklenen kılavuz çizgilerini temizle veya pencereleri kapat" },
-      { "key": "← / →", "action": "Kart kalibrasyon boyutunu 1px ayarla (5px için Shift)" }
+      {
+        "key": "G",
+        "action": "Tıklamayla kılavuz çizgisi yerleştirmeyi aç/kapat"
+      },
+      {
+        "key": "C",
+        "action": "İmleç takipli artı işaretini aç/kapat"
+      },
+      {
+        "key": "P",
+        "action": "180° açıölçer katmanını aç/kapat"
+      },
+      {
+        "key": "F",
+        "action": "Tam ekran ölçüm alanını aç/kapat"
+      },
+      {
+        "key": "1",
+        "action": "Birimi Santimetre (cm) yap"
+      },
+      {
+        "key": "2",
+        "action": "Birimi İnç (in) yap"
+      },
+      {
+        "key": "3",
+        "action": "Birimi CSS Piksel (px) yap"
+      },
+      {
+        "key": "4 / M",
+        "action": "Birimi Milimetre (mm) yap"
+      },
+      {
+        "key": "D",
+        "action": "Açık ve koyu tema arasında geçiş yap"
+      },
+      {
+        "key": "H",
+        "action": "Bu klavye kısayolları penceresini aç/kapat"
+      },
+      {
+        "key": "Esc",
+        "action": "Eklenen kılavuz çizgilerini temizle veya pencereleri kapat"
+      },
+      {
+        "key": "← / →",
+        "action": "Kart kalibrasyon boyutunu 1px ayarla (5px için Shift)"
+      }
     ]
   },
   "hero": {
@@ -159,7 +198,30 @@
     "datumBody": "Nesnenizi [[strong:0]] çizgisiyle hizalayın. Sürüklenebilir ölçüm kılavuzları eklemek için herhangi bir cetvele veya ızgaraya tıklayın.",
     "liveCursorInit": "X: 0.00 cm · Y: 0.00 cm",
     "saveToHistory": "Geçmişe Kaydet",
-    "keysHint": "Tuşlar: [[kbd:1]] cm · [[kbd:2]] in · [[kbd:3]] px · [[kbd:G]] kılavuz · [[kbd:C]] artı · [[kbd:F]] tam ekran"
+    "keysHint": "Tuşlar: [[kbd:1]] cm · [[kbd:2]] in · [[kbd:3]] px · [[kbd:G]] kılavuz · [[kbd:C]] artı · [[kbd:F]] tam ekran",
+    "focusMode": "Odak",
+    "focusModeExit": "Bilgiyi Göster",
+    "focusModeTitle": "Kompakt odak modunu aç/kapat (girişi gizle)",
+    "dualCmPxTitle": "Çift cm + px ölçeği",
+    "dualInPxTitle": "Çift inç + px ölçeği",
+    "inchPrecisionAria": "İnç kesir hassasiyeti",
+    "photoMode": "Fotoğraf / Ctrl+V",
+    "photoModeTitle": "Fotoğraf veya Ctrl+V ekran görüntüsünü çevrimdışı ölçün",
+    "photoPanelAria": "Yerel fotoğraf ve pano ölçüm aracı",
+    "photoChooseBtn": "Fotoğraf seç",
+    "photoPasteBtn": "Yapıştır (Ctrl+V)",
+    "photoToolCal": "1. 2 Nokta Kalibre",
+    "photoToolLine": "2. Çizgi",
+    "photoToolRect": "3. ΔX / ΔY Kutu",
+    "photoRefLenAria": "Bilinen referans uzunluğu",
+    "photoRefUnitAria": "Referans birimi",
+    "photoApplyCalBtn": "Ölçeği Uygula",
+    "photoUndoBtn": "Geri Al",
+    "photoClearBtn": "Temizle",
+    "photoExportBtn": "PNG Dışa Aktar",
+    "photoCloseBtn": "Çıkış",
+    "photoEmptyTitle": "%100 Yerel Fotoğraf ve Pano Cetveli",
+    "photoEmptyDesc": "Ekran görüntüsü yapıştırmak için Ctrl+V tuşlarına basın veya dosya seçin. Sunucuya yüklenmez."
   },
   "calibration": {
     "kicker": "Ekran Yoğunluğu Kalibrasyonu · Ekran Başına Yerel Kaydedilir",
@@ -235,7 +297,23 @@
     "historyClearBtn": "Temizle",
     "historyEmpty": "Cetvel alanına iki paralel kılavuz çizgisi yerleştirin ve noktalar arası mesafeyi ([[code:ΔX]] / [[code:ΔY]]) cihazınıza kaydetmek için [[strong:Geçmişe Kaydet]] düğmesine tıklayın.",
     "historyFooterLeft": "Depolama: yalnızca localStorage",
-    "historyFooterRight": "Ağ aktarımı yok"
+    "historyFooterRight": "Ağ aktarımı yok",
+    "refPresetGroupAria": "Kalibrasyon referans nesnesi",
+    "refTargetLabel": "Hedef:",
+    "refCard1x": "1× Kart (85.6 mm)",
+    "refCard2x": "2× Kart (171.2 mm)",
+    "refCard3x": "3× Kart (256.8 mm)",
+    "refA4": "A4 (210 mm)",
+    "refLetter": "US Letter (215.9 mm)",
+    "refCd": "CD/DVD (120 mm)",
+    "refQuarter": "US Quarter (24.26 mm)",
+    "refEuro": "1 € Madeni (23.25 mm)",
+    "refCustom": "Özel",
+    "refCustomLengthLabel": "Nesne boyu:",
+    "refCustomUnitAria": "Özel nesne birimi",
+    "refDragHint": "Mavi köşe tutamacını sürükleyerek eşleştirin",
+    "cardDragHandleAria": "Boyutu eşleştirmek için köşeyi sürükleyin",
+    "cardDragHandleTitle": "Köşeyi sürükleyerek boyutlandır"
   },
   "runtime": {
     "statusLabels": {
@@ -276,7 +354,8 @@
       "Typical density at default OS scaling": "Varsayılan OS ölçeğinde tipik yoğunluk",
       "Manual calibration adjusted for current zoom or scaling": "Mevcut yakınlaştırma veya ölçeğe uyarlanmış manuel kalibrasyon",
       "Calibrated against an ISO/IEC 7810 ID-1 card (85.60 × 53.98 mm)": "ISO/IEC 7810 ID-1 kartıyla (85,60 × 53,98 mm) kalibre edildi",
-      "Calibrated from entered display diagonal": "Girilen ekran köşegeninden kalibre edildi"
+      "Calibrated from entered display diagonal": "Girilen ekran köşegeninden kalibre edildi",
+      "Nominal mobile screen density": "Tahmini mobil ekran yoğunluğu"
     },
     "deviceLabelMap": {
       "Desktop display": "Masaüstü ekran",
@@ -285,7 +364,8 @@
       "Android device": "Android cihaz",
       "Mac with Retina display": "Retina ekranlı Mac",
       "Scaled laptop or desktop display": "Ölçeklenmiş dizüstü veya masaüstü ekran",
-      "Credit card calibration": "Kredi kartı kalibrasyonu"
+      "Credit card calibration": "Kredi kartı kalibrasyonu",
+      "Touchscreen device (uncalibrated)": "Dokunmatik cihaz (kalibresiz)"
     },
     "errorMap": {
       "Enter your screen diagonal in inches.": "Ekran köşegeninizi inç olarak girin.",
@@ -300,7 +380,8 @@
     },
     "displaySizeSuffix": "{long}×{short} ekran",
     "typMonitorBasis": "Bu çözünürlükte tipik {diag}″ ekran varsayılır",
-    "manualDiagBasis": "{diag}″ Ekran Köşegeni"
+    "manualDiagBasis": "{diag}″ Ekran Köşegeni",
+    "pinchZoomBanner": "Kıstırma yakınlaştırması etkin ({scale}×). Doğru fiziksel ölçüm için %100 yapın."
   },
   "home": {
     "title": "Çevrimiçi Cetvel | İnç, cm ve mm Gerçek Boyutlu Ücretsiz Cetvel",
@@ -390,14 +471,62 @@
       "Kalibrasyonsuz 96 PPI Hatası"
     ],
     "ppiRows": [
-      { "device": "13,3\" MacBook Air / Pro (Retina)", "res": "1440 × 900 CSS (2×)", "ppi": "127,7 PPI", "pxMm": "5,027 px/mm", "err": "−%24,8 (7,52 cm çizer)" },
-      { "device": "14,2\" MacBook Pro (Liquid Retina XDR)", "res": "1512 × 982 CSS (2×)", "ppi": "127,0 PPI", "pxMm": "5,000 px/mm", "err": "−%24,4 (7,56 cm çizer)" },
-      { "device": "15,6\" Full HD Dizüstü (%100 Windows)", "res": "1920 × 1080 CSS (1×)", "ppi": "141,2 PPI", "pxMm": "5,559 px/mm", "err": "−%32,0 (6,80 cm çizer)" },
-      { "device": "15,6\" Full HD Dizüstü (%125 Windows)", "res": "1536 × 864 CSS (1,25×)", "ppi": "113,0 PPI", "pxMm": "4,448 px/mm", "err": "−%15,0 (8,50 cm çizer)" },
-      { "device": "24\" Full HD Masaüstü Monitör (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "91,8 PPI", "pxMm": "3,614 px/mm", "err": "+%4,6 (10,46 cm çizer)" },
-      { "device": "27\" Full HD Masaüstü Monitör (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "81,6 PPI", "pxMm": "3,212 px/mm", "err": "+%17,6 (11,76 cm çizer)" },
-      { "device": "27\" QHD Monitör (2560 × 1440, %100)", "res": "2560 × 1440 CSS (1×)", "ppi": "108,8 PPI", "pxMm": "4,283 px/mm", "err": "−%11,8 (8,82 cm çizer)" },
-      { "device": "27\" 4K UHD Monitör (%200 HiDPI)", "res": "1920 × 1080 CSS (2×)", "ppi": "81,6 CSS PPI", "pxMm": "3,212 px/mm", "err": "+%17,6 (11,76 cm çizer)" }
+      {
+        "device": "13,3\" MacBook Air / Pro (Retina)",
+        "res": "1440 × 900 CSS (2×)",
+        "ppi": "127,7 PPI",
+        "pxMm": "5,027 px/mm",
+        "err": "−%24,8 (7,52 cm çizer)"
+      },
+      {
+        "device": "14,2\" MacBook Pro (Liquid Retina XDR)",
+        "res": "1512 × 982 CSS (2×)",
+        "ppi": "127,0 PPI",
+        "pxMm": "5,000 px/mm",
+        "err": "−%24,4 (7,56 cm çizer)"
+      },
+      {
+        "device": "15,6\" Full HD Dizüstü (%100 Windows)",
+        "res": "1920 × 1080 CSS (1×)",
+        "ppi": "141,2 PPI",
+        "pxMm": "5,559 px/mm",
+        "err": "−%32,0 (6,80 cm çizer)"
+      },
+      {
+        "device": "15,6\" Full HD Dizüstü (%125 Windows)",
+        "res": "1536 × 864 CSS (1,25×)",
+        "ppi": "113,0 PPI",
+        "pxMm": "4,448 px/mm",
+        "err": "−%15,0 (8,50 cm çizer)"
+      },
+      {
+        "device": "24\" Full HD Masaüstü Monitör (1080p)",
+        "res": "1920 × 1080 CSS (1×)",
+        "ppi": "91,8 PPI",
+        "pxMm": "3,614 px/mm",
+        "err": "+%4,6 (10,46 cm çizer)"
+      },
+      {
+        "device": "27\" Full HD Masaüstü Monitör (1080p)",
+        "res": "1920 × 1080 CSS (1×)",
+        "ppi": "81,6 PPI",
+        "pxMm": "3,212 px/mm",
+        "err": "+%17,6 (11,76 cm çizer)"
+      },
+      {
+        "device": "27\" QHD Monitör (2560 × 1440, %100)",
+        "res": "2560 × 1440 CSS (1×)",
+        "ppi": "108,8 PPI",
+        "pxMm": "4,283 px/mm",
+        "err": "−%11,8 (8,82 cm çizer)"
+      },
+      {
+        "device": "27\" 4K UHD Monitör (%200 HiDPI)",
+        "res": "1920 × 1080 CSS (2×)",
+        "ppi": "81,6 CSS PPI",
+        "pxMm": "3,212 px/mm",
+        "err": "+%17,6 (11,76 cm çizer)"
+      }
     ],
     "ppiFormula": "Formül: [[code:Etkin CSS PPI = √(W_css² + H_css²) / köşegenİnç]] · [[code:pxPerMm = CSS_PPI / 25.4]]. Uluslararası NIST / BIPM standardına göre 1 inç tam olarak 25,4 mm'dir.",
     "modesKicker": "Özel Ölçüm Görünümleri · Metrik, İnç ve Piksel Ölçekleri",
@@ -503,11 +632,36 @@
     "modesHeading": "Diğer Kalibre Edilmiş Çevrimiçi Cetvel Modlarını Keşfedin",
     "modesAllEdgeBtn": "Tüm Kenarlar Alanı",
     "modeTiles": [
-      { "href": "/cm-ruler", "kicker": "Metrik · cm", "title": "Santimetre Cetveli", "desc": "1 cm ve 0,5 cm ölçeği + cm-inç tablosu" },
-      { "href": "/inch-ruler", "kicker": "İnç · 1/16″", "title": "İnç Cetveli (12″)", "desc": "1/2, 1/4, 1/8, 1/16″ kesirler" },
-      { "href": "/mm-ruler", "kicker": "İnce Adım · mm", "title": "Milimetre Cetveli", "desc": "1 mm ve 5 mm donanım ölçeği" },
-      { "href": "/horizontal-ruler", "kicker": "Üst ve Alt", "title": "Yatay Cetvel", "desc": "Geniş ölçüm ve CSS piksel (px)" },
-      { "href": "/vertical-ruler", "kicker": "Sol ve Sağ", "title": "Dikey Cetvel", "desc": "Dikey yükseklik ve dikey mobil" }
+      {
+        "href": "/cm-ruler",
+        "kicker": "Metrik · cm",
+        "title": "Santimetre Cetveli",
+        "desc": "1 cm ve 0,5 cm ölçeği + cm-inç tablosu"
+      },
+      {
+        "href": "/inch-ruler",
+        "kicker": "İnç · 1/16″",
+        "title": "İnç Cetveli (12″)",
+        "desc": "1/2, 1/4, 1/8, 1/16″ kesirler"
+      },
+      {
+        "href": "/mm-ruler",
+        "kicker": "İnce Adım · mm",
+        "title": "Milimetre Cetveli",
+        "desc": "1 mm ve 5 mm donanım ölçeği"
+      },
+      {
+        "href": "/horizontal-ruler",
+        "kicker": "Üst ve Alt",
+        "title": "Yatay Cetvel",
+        "desc": "Geniş ölçüm ve CSS piksel (px)"
+      },
+      {
+        "href": "/vertical-ruler",
+        "kicker": "Sol ve Sağ",
+        "title": "Dikey Cetvel",
+        "desc": "Dikey yükseklik ve dikey mobil"
+      }
     ],
     "allFaqsBtn": "Tüm Sıkça Sorulan Sorular"
   },
@@ -578,20 +732,98 @@
       "table": {
         "kicker": "Metrik-İnç Başvuru Tablosu (NIST / BIPM Kesin Sabitleri)",
         "heading": "Santimetre (cm) → Milimetre (mm), Ondalık İnç ve En Yakın 1/16″ Kesir",
-        "headers": ["Santimetre (cm)", "Milimetre (mm)", "Ondalık İnç (in)", "En Yakın 1/16″ Kesir", "Yaygın Fiziksel Referans"],
+        "headers": [
+          "Santimetre (cm)",
+          "Milimetre (mm)",
+          "Ondalık İnç (in)",
+          "En Yakın 1/16″ Kesir",
+          "Yaygın Fiziksel Referans"
+        ],
         "rows": [
-          ["1 cm", "10,0 mm", "0,3937 in", "3/8 in (0,375″)", "Standart AAA pil çapı (~1,05 cm)"],
-          ["2 cm", "20,0 mm", "0,7874 in", "13/16 in (0,813″)", "ABD Penny çapı 1,905 cm (19,05 mm)"],
-          ["2,54 cm", "25,4 mm", "1,0000 in", "1 in (tam)", "1 İmperyal inçin kesin tanımı"],
-          ["5 cm", "50,0 mm", "1,9685 in", "1 15/16 in (1,938″)", "Standart AA pil uzunluğu (5,05 cm)"],
-          ["5,40 cm", "53,98 mm", "2,1252 in", "2 1/8 in (2,125″)", "ISO/IEC 7810 ID-1 kredi kartı yüksekliği"],
-          ["8,56 cm", "85,60 mm", "3,3701 in", "3 3/8 in (3,375″)", "ISO/IEC 7810 ID-1 kredi kartı genişliği"],
-          ["10 cm", "100,0 mm", "3,9370 in", "3 15/16 in (3,938″)", "1 desimetre (100 mm metrik ölçüt)"],
-          ["15 cm", "150,0 mm", "5,9055 in", "5 7/8 in (5,875″)", "Standart 15 cm cep cetveli / ABD banknotu (15,6 cm)"],
-          ["20 cm", "200,0 mm", "7,8740 in", "7 7/8 in (7,875″)", "A4 kağıt genişliği 21,0 cm (210 mm)"],
-          ["25 cm", "250,0 mm", "9,8425 in", "9 13/16 in (9,813″)", "Çeyrek metre dikiş ve el işi ölçüsü"],
-          ["30 cm", "300,0 mm", "11,8110 in", "11 13/16 in (11,813″)", "Standart 30 cm okul ve ofis cetveli"],
-          ["30,48 cm", "304,8 mm", "12,0000 in", "12 in (tam 1 fit)", "12 inçlik cetvelin kesin metrik karşılığı"]
+          [
+            "1 cm",
+            "10,0 mm",
+            "0,3937 in",
+            "3/8 in (0,375″)",
+            "Standart AAA pil çapı (~1,05 cm)"
+          ],
+          [
+            "2 cm",
+            "20,0 mm",
+            "0,7874 in",
+            "13/16 in (0,813″)",
+            "ABD Penny çapı 1,905 cm (19,05 mm)"
+          ],
+          [
+            "2,54 cm",
+            "25,4 mm",
+            "1,0000 in",
+            "1 in (tam)",
+            "1 İmperyal inçin kesin tanımı"
+          ],
+          [
+            "5 cm",
+            "50,0 mm",
+            "1,9685 in",
+            "1 15/16 in (1,938″)",
+            "Standart AA pil uzunluğu (5,05 cm)"
+          ],
+          [
+            "5,40 cm",
+            "53,98 mm",
+            "2,1252 in",
+            "2 1/8 in (2,125″)",
+            "ISO/IEC 7810 ID-1 kredi kartı yüksekliği"
+          ],
+          [
+            "8,56 cm",
+            "85,60 mm",
+            "3,3701 in",
+            "3 3/8 in (3,375″)",
+            "ISO/IEC 7810 ID-1 kredi kartı genişliği"
+          ],
+          [
+            "10 cm",
+            "100,0 mm",
+            "3,9370 in",
+            "3 15/16 in (3,938″)",
+            "1 desimetre (100 mm metrik ölçüt)"
+          ],
+          [
+            "15 cm",
+            "150,0 mm",
+            "5,9055 in",
+            "5 7/8 in (5,875″)",
+            "Standart 15 cm cep cetveli / ABD banknotu (15,6 cm)"
+          ],
+          [
+            "20 cm",
+            "200,0 mm",
+            "7,8740 in",
+            "7 7/8 in (7,875″)",
+            "A4 kağıt genişliği 21,0 cm (210 mm)"
+          ],
+          [
+            "25 cm",
+            "250,0 mm",
+            "9,8425 in",
+            "9 13/16 in (9,813″)",
+            "Çeyrek metre dikiş ve el işi ölçüsü"
+          ],
+          [
+            "30 cm",
+            "300,0 mm",
+            "11,8110 in",
+            "11 13/16 in (11,813″)",
+            "Standart 30 cm okul ve ofis cetveli"
+          ],
+          [
+            "30,48 cm",
+            "304,8 mm",
+            "12,0000 in",
+            "12 in (tam 1 fit)",
+            "12 inçlik cetvelin kesin metrik karşılığı"
+          ]
         ],
         "footnote": "Dönüşüm formülleri: mm = cm × 10 · in = cm ÷ 2,54 · cm = in × 2,54."
       },
@@ -682,24 +914,126 @@
       "table": {
         "kicker": "Mühendislik, Saatçilik ve Bağlantı Elemanı Tablosu (mm)",
         "heading": "Yaygın Milimetre (mm) Ölçüleri, Santimetre, İnç ve Standartlar",
-        "headers": ["Milimetre (mm)", "Santimetre (cm)", "Ondalık İnç", "En Yakın 1/16″", "Standart Donanım / Nesne Referansı"],
+        "headers": [
+          "Milimetre (mm)",
+          "Santimetre (cm)",
+          "Ondalık İnç",
+          "En Yakın 1/16″",
+          "Standart Donanım / Nesne Referansı"
+        ],
         "rows": [
-          ["1,00 mm", "0,10 cm", "0,0394 in", "1/16 in (1,59 mm)", "18 AWG tek damar kablo çapı (~1,02 mm)"],
-          ["1,59 mm", "0,16 cm", "0,0625 in", "1/16 in (tam)", "1/16 inçin tam metrik karşılığı"],
-          ["2,00 mm", "0,20 cm", "0,0787 in", "1/16 in", "ISO M2 makine vidası anma çapı"],
-          ["2,54 mm", "0,254 cm", "0,1000 in", "3/32 in", "Standart 0,100″ PCB pin başlığı adımı"],
-          ["3,00 mm", "0,30 cm", "0,1181 in", "1/8 in (3,18 mm)", "ISO M3 vida / PC kasa yükseltme dişi"],
-          ["4,00 mm", "0,40 cm", "0,1575 in", "5/32 in", "ISO M4 vida / 4 mm hassas tornavida ucu"],
-          ["5,00 mm", "0,50 cm", "0,1969 in", "3/16 in (4,76 mm)", "ISO M5 cıvata / standart 5 mm LED"],
-          ["6,00 mm", "0,60 cm", "0,2362 in", "1/4 in (6,35 mm)", "ISO M6 cıvata; 1/4″ altıgen uç 6,35 mm"],
-          ["8,00 mm", "0,80 cm", "0,3150 in", "5/16 in (7,94 mm)", "ISO M8 cıvata / 608 rulman iç çapı"],
-          ["10,00 mm", "1,00 cm", "0,3937 in", "3/8 in (9,53 mm)", "ISO M10 cıvata / 1 santimetre ölçütü"],
-          ["18,00 mm", "1,80 cm", "0,7087 in", "11/16 in", "Klasik saat kayışı aralığı (18 mm)"],
-          ["20,00 mm", "2,00 cm", "0,7874 in", "13/16 in", "Standart kol saati kayışı aralığı (20 mm)"],
-          ["22,00 mm", "2,20 cm", "0,8661 in", "7/8 in (22,23 mm)", "Dalgıç saati aralığı / 608 rulman dış çapı"],
-          ["25,40 mm", "2,54 cm", "1,0000 in", "1 in (tam)", "1 İmperyal inçin kesin SI tanımı"],
-          ["53,98 mm", "5,40 cm", "2,1252 in", "2 1/8 in", "ISO/IEC 7810 ID-1 banka kartı kısa kenarı"],
-          ["85,60 mm", "8,56 cm", "3,3701 in", "3 3/8 in", "ISO/IEC 7810 ID-1 banka kartı uzun kenarı"]
+          [
+            "1,00 mm",
+            "0,10 cm",
+            "0,0394 in",
+            "1/16 in (1,59 mm)",
+            "18 AWG tek damar kablo çapı (~1,02 mm)"
+          ],
+          [
+            "1,59 mm",
+            "0,16 cm",
+            "0,0625 in",
+            "1/16 in (tam)",
+            "1/16 inçin tam metrik karşılığı"
+          ],
+          [
+            "2,00 mm",
+            "0,20 cm",
+            "0,0787 in",
+            "1/16 in",
+            "ISO M2 makine vidası anma çapı"
+          ],
+          [
+            "2,54 mm",
+            "0,254 cm",
+            "0,1000 in",
+            "3/32 in",
+            "Standart 0,100″ PCB pin başlığı adımı"
+          ],
+          [
+            "3,00 mm",
+            "0,30 cm",
+            "0,1181 in",
+            "1/8 in (3,18 mm)",
+            "ISO M3 vida / PC kasa yükseltme dişi"
+          ],
+          [
+            "4,00 mm",
+            "0,40 cm",
+            "0,1575 in",
+            "5/32 in",
+            "ISO M4 vida / 4 mm hassas tornavida ucu"
+          ],
+          [
+            "5,00 mm",
+            "0,50 cm",
+            "0,1969 in",
+            "3/16 in (4,76 mm)",
+            "ISO M5 cıvata / standart 5 mm LED"
+          ],
+          [
+            "6,00 mm",
+            "0,60 cm",
+            "0,2362 in",
+            "1/4 in (6,35 mm)",
+            "ISO M6 cıvata; 1/4″ altıgen uç 6,35 mm"
+          ],
+          [
+            "8,00 mm",
+            "0,80 cm",
+            "0,3150 in",
+            "5/16 in (7,94 mm)",
+            "ISO M8 cıvata / 608 rulman iç çapı"
+          ],
+          [
+            "10,00 mm",
+            "1,00 cm",
+            "0,3937 in",
+            "3/8 in (9,53 mm)",
+            "ISO M10 cıvata / 1 santimetre ölçütü"
+          ],
+          [
+            "18,00 mm",
+            "1,80 cm",
+            "0,7087 in",
+            "11/16 in",
+            "Klasik saat kayışı aralığı (18 mm)"
+          ],
+          [
+            "20,00 mm",
+            "2,00 cm",
+            "0,7874 in",
+            "13/16 in",
+            "Standart kol saati kayışı aralığı (20 mm)"
+          ],
+          [
+            "22,00 mm",
+            "2,20 cm",
+            "0,8661 in",
+            "7/8 in (22,23 mm)",
+            "Dalgıç saati aralığı / 608 rulman dış çapı"
+          ],
+          [
+            "25,40 mm",
+            "2,54 cm",
+            "1,0000 in",
+            "1 in (tam)",
+            "1 İmperyal inçin kesin SI tanımı"
+          ],
+          [
+            "53,98 mm",
+            "5,40 cm",
+            "2,1252 in",
+            "2 1/8 in",
+            "ISO/IEC 7810 ID-1 banka kartı kısa kenarı"
+          ],
+          [
+            "85,60 mm",
+            "8,56 cm",
+            "3,3701 in",
+            "3 3/8 in",
+            "ISO/IEC 7810 ID-1 banka kartı uzun kenarı"
+          ]
         ],
         "footnote": "Formüller: in = mm ÷ 25,4 · cm = mm ÷ 10 · 1/16″ = 1,5875 mm."
       },
@@ -790,24 +1124,126 @@
       "table": {
         "kicker": "İmperyal Kesir Tablosu (1/16″ – 1″ · 1 in = 25,4 mm)",
         "heading": "İnç Onaltılıkları (1/16″) → Sadeleşmiş Kesir, Ondalık, mm ve cm",
-        "headers": ["Onaltılık", "Sadeleşmiş Kesir", "Ondalık (in)", "Milimetre (mm)", "Santimetre (cm)"],
+        "headers": [
+          "Onaltılık",
+          "Sadeleşmiş Kesir",
+          "Ondalık (in)",
+          "Milimetre (mm)",
+          "Santimetre (cm)"
+        ],
         "rows": [
-          ["1/16″", "1/16 in", "0,0625 in", "1,588 mm", "0,159 cm"],
-          ["2/16″", "1/8 in", "0,1250 in", "3,175 mm", "0,318 cm"],
-          ["3/16″", "3/16 in", "0,1875 in", "4,763 mm", "0,476 cm"],
-          ["4/16″", "1/4 in", "0,2500 in", "6,350 mm", "0,635 cm"],
-          ["5/16″", "5/16 in", "0,3125 in", "7,938 mm", "0,794 cm"],
-          ["6/16″", "3/8 in", "0,3750 in", "9,525 mm", "0,953 cm"],
-          ["7/16″", "7/16 in", "0,4375 in", "11,113 mm", "1,111 cm"],
-          ["8/16″", "1/2 in", "0,5000 in", "12,700 mm", "1,270 cm"],
-          ["9/16″", "9/16 in", "0,5625 in", "14,288 mm", "1,429 cm"],
-          ["10/16″", "5/8 in", "0,6250 in", "15,875 mm", "1,588 cm"],
-          ["11/16″", "11/16 in", "0,6875 in", "17,463 mm", "1,746 cm"],
-          ["12/16″", "3/4 in (ABD Penny)", "0,7500 in", "19,050 mm", "1,905 cm"],
-          ["13/16″", "13/16 in", "0,8125 in", "20,638 mm", "2,064 cm"],
-          ["14/16″", "7/8 in", "0,8750 in", "22,225 mm", "2,223 cm"],
-          ["15/16″", "15/16 in (~ABD Çeyrek)", "0,9375 in", "23,813 mm", "2,381 cm"],
-          ["16/16″", "1 in (Tam İnç)", "1,0000 in", "25,400 mm", "2,540 cm"]
+          [
+            "1/16″",
+            "1/16 in",
+            "0,0625 in",
+            "1,588 mm",
+            "0,159 cm"
+          ],
+          [
+            "2/16″",
+            "1/8 in",
+            "0,1250 in",
+            "3,175 mm",
+            "0,318 cm"
+          ],
+          [
+            "3/16″",
+            "3/16 in",
+            "0,1875 in",
+            "4,763 mm",
+            "0,476 cm"
+          ],
+          [
+            "4/16″",
+            "1/4 in",
+            "0,2500 in",
+            "6,350 mm",
+            "0,635 cm"
+          ],
+          [
+            "5/16″",
+            "5/16 in",
+            "0,3125 in",
+            "7,938 mm",
+            "0,794 cm"
+          ],
+          [
+            "6/16″",
+            "3/8 in",
+            "0,3750 in",
+            "9,525 mm",
+            "0,953 cm"
+          ],
+          [
+            "7/16″",
+            "7/16 in",
+            "0,4375 in",
+            "11,113 mm",
+            "1,111 cm"
+          ],
+          [
+            "8/16″",
+            "1/2 in",
+            "0,5000 in",
+            "12,700 mm",
+            "1,270 cm"
+          ],
+          [
+            "9/16″",
+            "9/16 in",
+            "0,5625 in",
+            "14,288 mm",
+            "1,429 cm"
+          ],
+          [
+            "10/16″",
+            "5/8 in",
+            "0,6250 in",
+            "15,875 mm",
+            "1,588 cm"
+          ],
+          [
+            "11/16″",
+            "11/16 in",
+            "0,6875 in",
+            "17,463 mm",
+            "1,746 cm"
+          ],
+          [
+            "12/16″",
+            "3/4 in (ABD Penny)",
+            "0,7500 in",
+            "19,050 mm",
+            "1,905 cm"
+          ],
+          [
+            "13/16″",
+            "13/16 in",
+            "0,8125 in",
+            "20,638 mm",
+            "2,064 cm"
+          ],
+          [
+            "14/16″",
+            "7/8 in",
+            "0,8750 in",
+            "22,225 mm",
+            "2,223 cm"
+          ],
+          [
+            "15/16″",
+            "15/16 in (~ABD Çeyrek)",
+            "0,9375 in",
+            "23,813 mm",
+            "2,381 cm"
+          ],
+          [
+            "16/16″",
+            "1 in (Tam İnç)",
+            "1,0000 in",
+            "25,400 mm",
+            "2,540 cm"
+          ]
         ],
         "footnote": "Kesin sabitler: 1 in = 25,4 mm · 1/2 in = 12,7 mm · 1/4 in = 6,35 mm · 1/8 in = 3,175 mm · 1/16 in = 1,5875 mm."
       },
@@ -898,16 +1334,70 @@
       "table": {
         "kicker": "Ekran Panel Geometrisi Referansı (16:9, 16:10 ve 21:9)",
         "heading": "Ekran Köşegenine Göre Maksimum Yatay Genişlik",
-        "headers": ["Ekran ve En-Boy Oranı", "Genişlik (in)", "Genişlik (cm / mm)", "Tipik CSS Genişliği", "Sığan Standart Cetvel"],
+        "headers": [
+          "Ekran ve En-Boy Oranı",
+          "Genişlik (in)",
+          "Genişlik (cm / mm)",
+          "Tipik CSS Genişliği",
+          "Sığan Standart Cetvel"
+        ],
         "rows": [
-          ["6,1\" Telefon (19,5:9 Yatay)", "5,55 in", "14,1 cm (141 mm)", "844 – 852 CSS px", "13 cm / 5 in'e kadar"],
-          ["11,0\" Tablet (4:3)", "8,80 in", "22,4 cm (224 mm)", "1024 – 1194 CSS px", "15 cm / 6 in cep cetveli"],
-          ["13,3\" Dizüstü (16:10 Retina)", "11,28 in", "28,6 cm (286 mm)", "1440 CSS px", "27 cm / 10,5 in'e kadar"],
-          ["14,2\" MacBook Pro (16:10)", "11,97 in", "30,4 cm (304 mm)", "1512 CSS px", "Tam 30 cm / 11,5 in"],
-          ["15,6\" Full HD Dizüstü (16:9)", "13,60 in", "34,5 cm (345 mm)", "1536 – 1920 CSS px", "Tam 30 cm ve 12 inç"],
-          ["24,0\" Monitör (16:9 1080p)", "20,92 in", "53,1 cm (531 mm)", "1920 CSS px", "50 cm / 18 inç cetvel"],
-          ["27,0\" Monitör (16:9 QHD/4K)", "23,53 in", "59,8 cm (598 mm)", "1920 – 2560 CSS px", "58 cm / 22 inç cetvel"],
-          ["34,0\" Ultrawide (21:9)", "31,36 in", "79,7 cm (797 mm)", "3440 CSS px", "75 cm / 30 inç cetvel"]
+          [
+            "6,1\" Telefon (19,5:9 Yatay)",
+            "5,55 in",
+            "14,1 cm (141 mm)",
+            "844 – 852 CSS px",
+            "13 cm / 5 in'e kadar"
+          ],
+          [
+            "11,0\" Tablet (4:3)",
+            "8,80 in",
+            "22,4 cm (224 mm)",
+            "1024 – 1194 CSS px",
+            "15 cm / 6 in cep cetveli"
+          ],
+          [
+            "13,3\" Dizüstü (16:10 Retina)",
+            "11,28 in",
+            "28,6 cm (286 mm)",
+            "1440 CSS px",
+            "27 cm / 10,5 in'e kadar"
+          ],
+          [
+            "14,2\" MacBook Pro (16:10)",
+            "11,97 in",
+            "30,4 cm (304 mm)",
+            "1512 CSS px",
+            "Tam 30 cm / 11,5 in"
+          ],
+          [
+            "15,6\" Full HD Dizüstü (16:9)",
+            "13,60 in",
+            "34,5 cm (345 mm)",
+            "1536 – 1920 CSS px",
+            "Tam 30 cm ve 12 inç"
+          ],
+          [
+            "24,0\" Monitör (16:9 1080p)",
+            "20,92 in",
+            "53,1 cm (531 mm)",
+            "1920 CSS px",
+            "50 cm / 18 inç cetvel"
+          ],
+          [
+            "27,0\" Monitör (16:9 QHD/4K)",
+            "23,53 in",
+            "59,8 cm (598 mm)",
+            "1920 – 2560 CSS px",
+            "58 cm / 22 inç cetvel"
+          ],
+          [
+            "34,0\" Ultrawide (21:9)",
+            "31,36 in",
+            "79,7 cm (797 mm)",
+            "3440 CSS px",
+            "75 cm / 30 inç cetvel"
+          ]
         ],
         "footnote": "Genişlik formülleri: 16:9 = Köşegen × 0,87158 · 16:10 = Köşegen × 0,84800 · 21:9 = Köşegen × 0,92246."
       },
@@ -998,16 +1488,70 @@
       "table": {
         "kicker": "Dikey Ekran Yüksekliği ve Nesne Referans Tablosu",
         "heading": "Cihazlara Göre Etkin Dikey Ekran Yüksekliği",
-        "headers": ["Cihaz / Yön", "Yükseklik (cm / mm)", "Yükseklik (in)", "CSS Yüksekliği", "Sığan Yaygın Dik Nesneler"],
+        "headers": [
+          "Cihaz / Yön",
+          "Yükseklik (cm / mm)",
+          "Yükseklik (in)",
+          "CSS Yüksekliği",
+          "Sığan Yaygın Dik Nesneler"
+        ],
         "rows": [
-          ["6,1\" Telefon (Dikey)", "14,1 cm (141 mm)", "5,55 in", "844 – 852 CSS px", "AA/AAA piller, banka kartı (85,6 mm), içecek kutusu (122 mm)"],
-          ["6,7\" Pro Max / Ultra (Dikey)", "15,5 cm (155 mm)", "6,10 in", "926 – 932 CSS px", "Pasaport (125 mm), tükenmez kalem (~140 mm), 15 cm cetvel"],
-          ["11,0\" Tablet (Dikey 4:3)", "22,4 cm (224 mm)", "8,80 in", "1024 – 1194 CSS px", "A5 defter (210 mm), su şişesi, cep kitabı"],
-          ["14,2\" MacBook Pro (16:10)", "19,0 cm (190 mm)", "7,48 in", "982 CSS px", "Telefon boyu, 15 cm cetvel"],
-          ["15,6\" Dizüstü (16:9)", "19,4 cm (194 mm)", "7,65 in", "864 – 1080 CSS px", "DVD kutusu (190 mm), kahve kupası"],
-          ["24,0\" Monitör (16:9)", "29,9 cm (299 mm)", "11,77 in", "1080 CSS px", "A4 kağıt yüksekliği (297 mm)"],
-          ["27,0\" Monitör (16:9)", "33,6 cm (336 mm)", "13,24 in", "1080 – 1440 CSS px", "Tam 30 cm / 12 inç dikey boy, şarap şişesi (300 mm)"],
-          ["24–27\" Monitör (90° Dikey)", "53,1 – 59,8 cm", "20,9 – 23,5 in", "1920 – 2560 CSS px", "Hoparlör, kasa yüksekliği, 50 cm dikey ölçek"]
+          [
+            "6,1\" Telefon (Dikey)",
+            "14,1 cm (141 mm)",
+            "5,55 in",
+            "844 – 852 CSS px",
+            "AA/AAA piller, banka kartı (85,6 mm), içecek kutusu (122 mm)"
+          ],
+          [
+            "6,7\" Pro Max / Ultra (Dikey)",
+            "15,5 cm (155 mm)",
+            "6,10 in",
+            "926 – 932 CSS px",
+            "Pasaport (125 mm), tükenmez kalem (~140 mm), 15 cm cetvel"
+          ],
+          [
+            "11,0\" Tablet (Dikey 4:3)",
+            "22,4 cm (224 mm)",
+            "8,80 in",
+            "1024 – 1194 CSS px",
+            "A5 defter (210 mm), su şişesi, cep kitabı"
+          ],
+          [
+            "14,2\" MacBook Pro (16:10)",
+            "19,0 cm (190 mm)",
+            "7,48 in",
+            "982 CSS px",
+            "Telefon boyu, 15 cm cetvel"
+          ],
+          [
+            "15,6\" Dizüstü (16:9)",
+            "19,4 cm (194 mm)",
+            "7,65 in",
+            "864 – 1080 CSS px",
+            "DVD kutusu (190 mm), kahve kupası"
+          ],
+          [
+            "24,0\" Monitör (16:9)",
+            "29,9 cm (299 mm)",
+            "11,77 in",
+            "1080 CSS px",
+            "A4 kağıt yüksekliği (297 mm)"
+          ],
+          [
+            "27,0\" Monitör (16:9)",
+            "33,6 cm (336 mm)",
+            "13,24 in",
+            "1080 – 1440 CSS px",
+            "Tam 30 cm / 12 inç dikey boy, şarap şişesi (300 mm)"
+          ],
+          [
+            "24–27\" Monitör (90° Dikey)",
+            "53,1 – 59,8 cm",
+            "20,9 – 23,5 in",
+            "1920 – 2560 CSS px",
+            "Hoparlör, kasa yüksekliği, 50 cm dikey ölçek"
+          ]
         ],
         "footnote": "Yükseklik formülleri: 16:9 = Köşegen × 0,49026 · 16:10 = Köşegen × 0,53000."
       },
@@ -1050,7 +1594,10 @@
           "heading": "Önce ekran piksel yoğunluğunu kalibre edin",
           "body": "Ekranınızı Kalibre Edin bölümünde ISO/IEC 7810 ID-1 banka kartını (85,60 × 53,98 mm) eşleştirin veya %100 yakınlaştırmada ekran köşegeninizi girip Kalibrasyonu Uygula düğmesine basın.",
           "links": [
-            { "href": "/#calibration", "label": "Kredi Kartı Kalibrasyonunu Aç →" }
+            {
+              "href": "/#calibration",
+              "label": "Kredi Kartı Kalibrasyonunu Aç →"
+            }
           ]
         },
         {
@@ -1059,9 +1606,18 @@
           "heading": "Ölçü birimini ve etkin kenarları seçin",
           "body": "1 (cm), 2 (inç), 3 (CSS px), 4/M (mm) veya Çift cm/in ile biriminizi, ardından Üst, Alt, Sol, Sağ ya da Tüm Kenarlar seçeneğini belirleyin.",
           "links": [
-            { "href": "/cm-ruler", "label": "cm Cetveli" },
-            { "href": "/inch-ruler", "label": "İnç Cetveli" },
-            { "href": "/mm-ruler", "label": "mm Cetveli" }
+            {
+              "href": "/cm-ruler",
+              "label": "cm Cetveli"
+            },
+            {
+              "href": "/inch-ruler",
+              "label": "İnç Cetveli"
+            },
+            {
+              "href": "/mm-ruler",
+              "label": "mm Cetveli"
+            }
           ]
         },
         {
@@ -1070,7 +1626,10 @@
           "heading": "Sıfıra hizalayın ve kılavuzlarla mesafe ölçün",
           "body": "Nesneyi çerçeveden 16 px içerideki kesikli 0 çizgisine dayayın veya paralel iki mavi kılavuz çizgisi bırakarak ΔX/ΔY ölçüsünü Geçmişe Kaydet düğmesiyle saklayın.",
           "links": [
-            { "href": "/calibration-guide", "label": "Kalibrasyon & PPI Rehberini Oku →" }
+            {
+              "href": "/calibration-guide",
+              "label": "Kalibrasyon & PPI Rehberini Oku →"
+            }
           ]
         }
       ],
@@ -1114,18 +1673,62 @@
       "shortcutsKicker": "Çalışma Alanı Kontrolleri · Klavye Kısayolları",
       "shortcutsHeading": "Tam Klavye Kısayolları Tablosu",
       "shortcutsLead": "Bir elinizle nesneyi sabit tutarken diğer elinizle tek tuşla birim ve araç değiştirin:",
-      "shortcutsHeaders": ["Kısayol Tuşu", "İşlem", "Kullanım Durumu"],
+      "shortcutsHeaders": [
+        "Kısayol Tuşu",
+        "İşlem",
+        "Kullanım Durumu"
+      ],
       "shortcuts": [
-        { "key": "1", "action": "Santimetreye (cm) geç", "useCase": "1 mm ve 0,5 cm bölmeli günlük ölçümler" },
-        { "key": "2", "action": "Kesirli İnce (in) geç", "useCase": "Ahşap işleri ve 1/16″ kesir okuması" },
-        { "key": "3", "action": "CSS Pikseline (px) geç", "useCase": "Arayüz tasarımı ve kırılma noktası kontrolü" },
-        { "key": "4 / M", "action": "Milimetreye (mm) geç", "useCase": "M2–M10 vidalar, saatler, hassas boşluklar" },
-        { "key": "D", "action": "Açık / Koyu Tema Değiştir", "useCase": "Ekran parlamasını azaltma" },
-        { "key": "G", "action": "Kılavuz Çizgisi Modunu Aç/Kapat", "useCase": "ΔX / ΔY sınır çizgileri yerleştirme" },
-        { "key": "C", "action": "Artı İşaretini Aç/Kapat", "useCase": "Canlı X/Y koordinatlarını izleme" },
-        { "key": "P", "action": "180° Açıölçeri Aç/Kapat", "useCase": "0,1° hassasiyetle açı ölçme" },
-        { "key": "F", "action": "Tam Ekrana Gir / Çık", "useCase": "Kullanılabilir ölçüm uzunluğunu maksimize etme" },
-        { "key": "Esc", "action": "Kılavuzları ve Pencereleri Temizle", "useCase": "Sonraki ölçüm için hızlı sıfırlama" }
+        {
+          "key": "1",
+          "action": "Santimetreye (cm) geç",
+          "useCase": "1 mm ve 0,5 cm bölmeli günlük ölçümler"
+        },
+        {
+          "key": "2",
+          "action": "Kesirli İnce (in) geç",
+          "useCase": "Ahşap işleri ve 1/16″ kesir okuması"
+        },
+        {
+          "key": "3",
+          "action": "CSS Pikseline (px) geç",
+          "useCase": "Arayüz tasarımı ve kırılma noktası kontrolü"
+        },
+        {
+          "key": "4 / M",
+          "action": "Milimetreye (mm) geç",
+          "useCase": "M2–M10 vidalar, saatler, hassas boşluklar"
+        },
+        {
+          "key": "D",
+          "action": "Açık / Koyu Tema Değiştir",
+          "useCase": "Ekran parlamasını azaltma"
+        },
+        {
+          "key": "G",
+          "action": "Kılavuz Çizgisi Modunu Aç/Kapat",
+          "useCase": "ΔX / ΔY sınır çizgileri yerleştirme"
+        },
+        {
+          "key": "C",
+          "action": "Artı İşaretini Aç/Kapat",
+          "useCase": "Canlı X/Y koordinatlarını izleme"
+        },
+        {
+          "key": "P",
+          "action": "180° Açıölçeri Aç/Kapat",
+          "useCase": "0,1° hassasiyetle açı ölçme"
+        },
+        {
+          "key": "F",
+          "action": "Tam Ekrana Gir / Çık",
+          "useCase": "Kullanılabilir ölçüm uzunluğunu maksimize etme"
+        },
+        {
+          "key": "Esc",
+          "action": "Kılavuzları ve Pencereleri Temizle",
+          "useCase": "Sonraki ölçüm için hızlı sıfırlama"
+        }
       ],
       "checklistKicker": "Ölçüm Öncesi Kontrol · 6 Madde",
       "checklistHeading": "Kritik Bir Ölçüme Güvenmeden Önce 6 Kontrol",
@@ -1184,13 +1787,49 @@
       "s6Heading": "Ekranlarda CSS PPI, Fiziksel PPI ve devicePxPerMm İlişkisi",
       "s6Lead": "%100 yakınlaştırmadaki CSS piksellerine Pisagor formülü uygulanınca [[code:CSS px/mm]], [[code:window.devicePixelRatio]] ile çarpılınca da sabit [[code:devicePxPerMm]] bulunur.",
       "s6TableHeading": "Ekran ve OS Ölçeğine Göre Yoğunluk Tablosu",
-      "s6Headers": ["Ekran Yapılandırması", "CSS Çözünürlüğü", "Etkin CSS PPI", "CSS px/mm", "devicePxPerMm"],
+      "s6Headers": [
+        "Ekran Yapılandırması",
+        "CSS Çözünürlüğü",
+        "Etkin CSS PPI",
+        "CSS px/mm",
+        "devicePxPerMm"
+      ],
       "workedExamples": [
-        { "panel": "14,2\" Dizüstü (Mac Retina / 2× DPR)", "cssRes": "1512 × 982 CSS px (DPR 2,0)", "cssPpi": "127,0 CSS PPI", "pxPerMm": "5,000 CSS px/mm", "devicePxPerMm": "10,000 device px/mm" },
-        { "panel": "15,6\" Windows Dizüstü (%125 Ölçek)", "cssRes": "1536 × 864 CSS px (DPR 1,25)", "cssPpi": "113,0 CSS PPI", "pxPerMm": "4,448 CSS px/mm", "devicePxPerMm": "5,560 device px/mm" },
-        { "panel": "24\" 1080p Masaüstü Monitör (%100)", "cssRes": "1920 × 1080 CSS px (DPR 1,0)", "cssPpi": "91,8 CSS PPI", "pxPerMm": "3,614 CSS px/mm", "devicePxPerMm": "3,614 device px/mm" },
-        { "panel": "27\" 4K UHD Monitör (%150 Ölçek)", "cssRes": "2560 × 1440 CSS px (DPR 1,5)", "cssPpi": "108,8 CSS PPI", "pxPerMm": "4,283 CSS px/mm", "devicePxPerMm": "6,425 device px/mm" },
-        { "panel": "6,1\" OLED Akıllı Telefon (3× DPR)", "cssRes": "390 × 844 CSS px (DPR 3,0)", "cssPpi": "152,4 CSS PPI", "pxPerMm": "6,000 CSS px/mm", "devicePxPerMm": "18,000 device px/mm" }
+        {
+          "panel": "14,2\" Dizüstü (Mac Retina / 2× DPR)",
+          "cssRes": "1512 × 982 CSS px (DPR 2,0)",
+          "cssPpi": "127,0 CSS PPI",
+          "pxPerMm": "5,000 CSS px/mm",
+          "devicePxPerMm": "10,000 device px/mm"
+        },
+        {
+          "panel": "15,6\" Windows Dizüstü (%125 Ölçek)",
+          "cssRes": "1536 × 864 CSS px (DPR 1,25)",
+          "cssPpi": "113,0 CSS PPI",
+          "pxPerMm": "4,448 CSS px/mm",
+          "devicePxPerMm": "5,560 device px/mm"
+        },
+        {
+          "panel": "24\" 1080p Masaüstü Monitör (%100)",
+          "cssRes": "1920 × 1080 CSS px (DPR 1,0)",
+          "cssPpi": "91,8 CSS PPI",
+          "pxPerMm": "3,614 CSS px/mm",
+          "devicePxPerMm": "3,614 device px/mm"
+        },
+        {
+          "panel": "27\" 4K UHD Monitör (%150 Ölçek)",
+          "cssRes": "2560 × 1440 CSS px (DPR 1,5)",
+          "cssPpi": "108,8 CSS PPI",
+          "pxPerMm": "4,283 CSS px/mm",
+          "devicePxPerMm": "6,425 device px/mm"
+        },
+        {
+          "panel": "6,1\" OLED Akıllı Telefon (3× DPR)",
+          "cssRes": "390 × 844 CSS px (DPR 3,0)",
+          "cssPpi": "152,4 CSS PPI",
+          "pxPerMm": "6,000 CSS px/mm",
+          "devicePxPerMm": "18,000 device px/mm"
+        }
       ],
       "caveats": [
         {
@@ -1210,18 +1849,73 @@
       "s7Body2": "Çizgilerin tam tepesinden (90°) bakın; ±0,25 mm'den dar mühendislik toleransları için sertifikalı kumpas kullanın.",
       "s7TableHeading": "Resmi Fiziksel Doğrulama Nesneleri Referans Tablosu",
       "s7TableLead": "Kalibrasyon sonrası ölçeği onaylamak için aşağıdaki nesnelerden birini hafifçe ekrana tutun:",
-      "s7Headers": ["Referans Nesne", "Metrik (mm)", "İnç (in)", "Yönetici Standart"],
+      "s7Headers": [
+        "Referans Nesne",
+        "Metrik (mm)",
+        "İnç (in)",
+        "Yönetici Standart"
+      ],
       "referenceItems": [
-        { "item": "ISO/IEC 7810 ID-1 Banka / Kredi Kartı (Genişlik)", "mm": "85,60 mm", "inches": "3,370 in", "standard": "ISO/IEC 7810:2019 ID-1" },
-        { "item": "ISO/IEC 7810 ID-1 Kart (Yükseklik)", "mm": "53,98 mm", "inches": "2,125 in", "standard": "ISO/IEC 7810:2019 ID-1" },
-        { "item": "ABD 1 Sent Penny (Çap)", "mm": "19,05 mm", "inches": "0,750 in (3/4″)", "standard": "ABD Darphanesi" },
-        { "item": "ABD 5 Sent Nikel (Çap)", "mm": "21,21 mm", "inches": "0,835 in", "standard": "ABD Darphanesi" },
-        { "item": "1 Euro Madeni Para (Çap)", "mm": "23,25 mm", "inches": "0,915 in", "standard": "Avrupa Merkez Bankası" },
-        { "item": "ABD Çeyrek Dolar (Çap)", "mm": "24,26 mm", "inches": "0,955 in", "standard": "ABD Darphanesi" },
-        { "item": "2 Euro Madeni Para (Çap)", "mm": "25,75 mm", "inches": "1,014 in", "standard": "Avrupa Merkez Bankası" },
-        { "item": "Standart AA Pil (Uzunluk)", "mm": "50,50 mm", "inches": "1,988 in", "standard": "IEC R6 / ANSI 15" },
-        { "item": "ABD Dolar Banknotu (Genişlik)", "mm": "155,96 mm", "inches": "6,140 in", "standard": "Gravür ve Baskı Bürosu" },
-        { "item": "ISO 216 A4 Kağıt (Kısa Kenar)", "mm": "210,00 mm", "inches": "8,268 in", "standard": "ISO 216 Kağıt Serisi" }
+        {
+          "item": "ISO/IEC 7810 ID-1 Banka / Kredi Kartı (Genişlik)",
+          "mm": "85,60 mm",
+          "inches": "3,370 in",
+          "standard": "ISO/IEC 7810:2019 ID-1"
+        },
+        {
+          "item": "ISO/IEC 7810 ID-1 Kart (Yükseklik)",
+          "mm": "53,98 mm",
+          "inches": "2,125 in",
+          "standard": "ISO/IEC 7810:2019 ID-1"
+        },
+        {
+          "item": "ABD 1 Sent Penny (Çap)",
+          "mm": "19,05 mm",
+          "inches": "0,750 in (3/4″)",
+          "standard": "ABD Darphanesi"
+        },
+        {
+          "item": "ABD 5 Sent Nikel (Çap)",
+          "mm": "21,21 mm",
+          "inches": "0,835 in",
+          "standard": "ABD Darphanesi"
+        },
+        {
+          "item": "1 Euro Madeni Para (Çap)",
+          "mm": "23,25 mm",
+          "inches": "0,915 in",
+          "standard": "Avrupa Merkez Bankası"
+        },
+        {
+          "item": "ABD Çeyrek Dolar (Çap)",
+          "mm": "24,26 mm",
+          "inches": "0,955 in",
+          "standard": "ABD Darphanesi"
+        },
+        {
+          "item": "2 Euro Madeni Para (Çap)",
+          "mm": "25,75 mm",
+          "inches": "1,014 in",
+          "standard": "Avrupa Merkez Bankası"
+        },
+        {
+          "item": "Standart AA Pil (Uzunluk)",
+          "mm": "50,50 mm",
+          "inches": "1,988 in",
+          "standard": "IEC R6 / ANSI 15"
+        },
+        {
+          "item": "ABD Dolar Banknotu (Genişlik)",
+          "mm": "155,96 mm",
+          "inches": "6,140 in",
+          "standard": "Gravür ve Baskı Bürosu"
+        },
+        {
+          "item": "ISO 216 A4 Kağıt (Kısa Kenar)",
+          "mm": "210,00 mm",
+          "inches": "8,268 in",
+          "standard": "ISO 216 Kağıt Serisi"
+        }
       ]
     },
     "faq": {

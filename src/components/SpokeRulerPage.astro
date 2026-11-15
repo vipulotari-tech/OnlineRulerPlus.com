@@ -82,7 +82,7 @@ const structuredData = [
   structuredData={structuredData}
 >
   <Header locale={locale} subNavTitle={page.subNavTitle} />
-  <main id="main-content" class="flex-1">
+  <main id="main-content" class="flex-1 flex flex-col">
     <Hero
       locale={locale}
       eyebrow={page.hero.eyebrow}
@@ -95,22 +95,24 @@ const structuredData = [
       forceUnit={forceUnit}
       forceEdges={forceEdges}
     />
-    <CalibrationSection locale={locale} />
-    <RulerSpokeContent
-      locale={locale}
-      guideKicker={page.guideKicker}
-      guideHeading={page.guideHeading}
-      guideLead={page.guideLead}
-      cards={page.cards}
-      darkKicker={page.darkKicker}
-      darkHeading={page.darkHeading}
-      darkLead={page.darkLead}
-      darkCards={page.darkCards}
-      table={page.table}
-      faqKicker={page.faqKicker}
-      faqHeading={page.faqHeading}
-      faqs={page.faqs}
-    />
+    <div class="order-3">
+      <CalibrationSection locale={locale} />
+      <RulerSpokeContent
+        locale={locale}
+        guideKicker={page.guideKicker}
+        guideHeading={page.guideHeading}
+        guideLead={page.guideLead}
+        cards={page.cards}
+        darkKicker={page.darkKicker}
+        darkHeading={page.darkHeading}
+        darkLead={page.darkLead}
+        darkCards={page.darkCards}
+        table={page.table}
+        faqKicker={page.faqKicker}
+        faqHeading={page.faqHeading}
+        faqs={page.faqs}
+      />
+    </div>
   </main>
   <HelpModal locale={locale} />
   <Footer locale={locale} />

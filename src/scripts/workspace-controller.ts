@@ -17,11 +17,13 @@ import {
   type ActiveCalibration,
   type CalibrationStore,
   type DisplayInfo,
+  type InchDivisor,
   type MeasurementRecord,
   type RulerPreferences,
   type RulerThickness,
   type Unit,
 } from '../lib/ruler/index.ts';
+import type { PhotoMeasureController } from './photo-measure-controller.ts';
 import { formatTemplate, getRuntimeDict } from '../i18n/runtime.ts';
 import {
   renderFloatingRulersLayer,
@@ -49,6 +51,10 @@ export class WorkspaceController {
   private guidePlacementAxis: 'both' | 'x' | 'y' = 'x';
   private pseudoFullscreen = false;
   private protractor: ProtractorState = { enabled: false, angleDeg: 45 };
+  private cursorRafId: number | null = null;
+  private cursorRedrawQueued = false;
+  private photoCtrl: PhotoMeasureController | null = null;
+  private photoModeActive = false;
 
   private readonly workspaceEl: HTMLElement;
   private readonly stageEl: HTMLElement;
@@ -86,6 +92,12 @@ export class WorkspaceController {
     this.bindKeyboardShortcuts();
     this.observeWorkspaceResize();
     this.syncAll();
+    if (typeof document !== 'undefined' && document.fonts?.ready) {
+      void document.fonts.ready.then(() => {
+        const dark = document.documentElement.classList.contains('dark');
+        this.renderEdgeCanvases(this.computeEdgeLayout(), dark);
+      });
+    }
   }
 
   public getCalibration(): ActiveCalibration {
@@ -159,6 +171,61 @@ export class WorkspaceController {
     this.prefs = { ...this.prefs, unit };
     if (persist) this.savePreferences();
     this.syncAll();
+    this.photoCtrl?.refreshUnit();
+  }
+
+  public setDualPreset(preset: 'cm-px' | 'in-px'): void {
+    const nextUnit: Unit = preset === 'cm-px' ? 'cm' : 'in';
+    const isAlreadySame =
+      this.prefs.unit === nextUnit &&
+      this.prefs.dualUnit &&
+      this.prefs.dualPair === 'px';
+    this.prefs = {
+      ...this.prefs,
+      unit: nextUnit,
+      dualUnit: !isAlreadySame,
+      dualPair: isAlreadySame ? 'unit' : 'px',
+    };
+    this.savePreferences();
+    this.syncAll();
+    this.photoCtrl?.refreshUnit();
+  }
+
+  public setInchDivisor(divisor: InchDivisor): void {
+    this.prefs = { ...this.prefs, inchDivisor: divisor };
+    this.savePreferences();
+    this.syncAll();
+    this.photoCtrl?.refreshUnit();
+  }
+
+  private async ensurePhotoController(): Promise<PhotoMeasureController> {
+    if (this.photoCtrl) return this.photoCtrl;
+    const mod = await import('./photo-measure-controller.ts');
+    this.photoCtrl = new mod.PhotoMeasureController({
+      getUnit: () => this.prefs.unit,
+      getInchDivisor: () => this.prefs.inchDivisor ?? 16,
+      onClose: () => {
+        this.photoModeActive = false;
+        this.syncPhotoButton();
+      },
+    });
+    return this.photoCtrl;
+  }
+
+  private syncPhotoButton(): void {
+    const btn = document.getElementById('btn-photo-mode');
+    if (btn) {
+      btn.setAttribute('aria-pressed', String(this.photoModeActive));
+      btn.dataset.active = String(this.photoModeActive);
+    }
+  }
+
+  public async togglePhotoMode(forceOpen?: boolean): Promise<void> {
+    const next = forceOpen !== undefined ? forceOpen : !this.photoModeActive;
+    const ctrl = await this.ensurePhotoController();
+    this.photoModeActive = next;
+    ctrl.setOpen(next);
+    this.syncPhotoButton();
   }
 
   public toggleEdge(edge: RulerEdge): void {
@@ -201,7 +268,12 @@ export class WorkspaceController {
   }
 
   public toggleDualUnit(): void {
-    this.prefs = { ...this.prefs, dualUnit: !this.prefs.dualUnit };
+    const turningOn = !this.prefs.dualUnit || this.prefs.dualPair === 'px';
+    this.prefs = {
+      ...this.prefs,
+      dualUnit: turningOn,
+      dualPair: 'unit',
+    };
     this.savePreferences();
     this.syncAll();
   }
@@ -372,10 +444,34 @@ export class WorkspaceController {
     }
 
     const dualBtn = document.getElementById('btn-dual-unit');
+    const isUnitDual = dualUnit && this.prefs.dualPair !== 'px';
     if (dualBtn) {
-      dualBtn.setAttribute('aria-pressed', String(dualUnit));
-      dualBtn.dataset.active = String(dualUnit);
+      dualBtn.setAttribute('aria-pressed', String(isUnitDual));
+      dualBtn.dataset.active = String(isUnitDual);
     }
+
+    document.querySelectorAll<HTMLButtonElement>('[data-dual-preset]').forEach((btn) => {
+      const preset = btn.dataset.dualPreset;
+      const active =
+        dualUnit &&
+        this.prefs.dualPair === 'px' &&
+        ((preset === 'cm-px' && unit === 'cm') || (preset === 'in-px' && unit === 'in'));
+      btn.setAttribute('aria-pressed', String(active));
+      btn.dataset.active = String(active);
+    });
+
+    const inchGroup = document.getElementById('inch-divisor-group');
+    if (inchGroup) {
+      inchGroup.classList.toggle('hidden', unit !== 'in');
+      inchGroup.classList.toggle('inline-flex', unit === 'in');
+    }
+    const activeDivisor = this.prefs.inchDivisor ?? 16;
+    document.querySelectorAll<HTMLButtonElement>('[data-inch-divisor]').forEach((btn) => {
+      const active = Number(btn.dataset.inchDivisor) === activeDivisor;
+      btn.setAttribute('aria-pressed', String(active));
+      btn.dataset.active = String(active);
+    });
+    this.syncPhotoButton();
 
     const guidesBtn = document.getElementById('btn-toggle-guides');
     if (guidesBtn) {
@@ -388,6 +484,19 @@ export class WorkspaceController {
       crossBtn.setAttribute('aria-pressed', String(crosshairEnabled));
       crossBtn.dataset.active = String(crosshairEnabled);
     }
+
+    const focusBtn = document.getElementById('btn-focus-mode');
+    const isFocus = Boolean(this.prefs.focusMode);
+    if (focusBtn) {
+      focusBtn.setAttribute('aria-pressed', String(isFocus));
+      focusBtn.dataset.active = String(isFocus);
+      const labelSpan = focusBtn.querySelector('span');
+      if (labelSpan) {
+        const nextText = isFocus ? focusBtn.dataset.labelExit : focusBtn.dataset.labelEnter;
+        if (nextText) labelSpan.textContent = nextText;
+      }
+    }
+    document.documentElement.dataset.focusMode = isFocus ? 'true' : 'false';
 
     const protBtn = document.getElementById('btn-toggle-protractor');
     if (protBtn) {
@@ -410,64 +519,14 @@ export class WorkspaceController {
     const opacityLabel = document.getElementById('label-opacity');
     if (opacityLabel) opacityLabel.textContent = `${Math.round(opacity * 100)}%`;
 
-    const rect = this.workspaceEl.getBoundingClientRect();
-    const totalW = Math.max(280, Math.floor(rect.width));
-    const totalH = Math.max(260, Math.floor(rect.height));
-
-    const leftOffset = edges.left ? thickness : 0;
-    const rightOffset = edges.right ? thickness : 0;
-    const topOffset = edges.top ? thickness : 0;
-    const bottomOffset = edges.bottom ? thickness : 0;
-
+    const layout = this.computeEdgeLayout();
     this.syncCornerBadges(edges, thickness, unit);
+    this.renderEdgeCanvases(layout, dark);
 
-    const horizLength = Math.max(60, totalW - leftOffset - rightOffset);
-    const vertLength = Math.max(60, totalH - topOffset - bottomOffset);
-
-    this.configureEdgeCanvas('top', edges.top, {
-      left: `${leftOffset}px`,
-      top: '0px',
-      width: `${horizLength}px`,
-      height: `${thickness}px`,
-      lengthPx: horizLength,
-      cursorPosPx: this.cursorX,
-      dark,
-    });
-
-    this.configureEdgeCanvas('bottom', edges.bottom, {
-      left: `${leftOffset}px`,
-      bottom: '0px',
-      width: `${horizLength}px`,
-      height: `${thickness}px`,
-      lengthPx: horizLength,
-      cursorPosPx: this.cursorX,
-      dark,
-    });
-
-    this.configureEdgeCanvas('left', edges.left, {
-      left: '0px',
-      top: `${topOffset}px`,
-      width: `${thickness}px`,
-      height: `${vertLength}px`,
-      lengthPx: vertLength,
-      cursorPosPx: this.cursorY,
-      dark,
-    });
-
-    this.configureEdgeCanvas('right', edges.right, {
-      right: '0px',
-      top: `${topOffset}px`,
-      width: `${thickness}px`,
-      height: `${vertLength}px`,
-      lengthPx: vertLength,
-      cursorPosPx: this.cursorY,
-      dark,
-    });
-
-    this.stageEl.style.left = `${leftOffset}px`;
-    this.stageEl.style.right = `${rightOffset}px`;
-    this.stageEl.style.top = `${topOffset}px`;
-    this.stageEl.style.bottom = `${bottomOffset}px`;
+    this.stageEl.style.left = `${layout.leftOffset}px`;
+    this.stageEl.style.right = `${layout.rightOffset}px`;
+    this.stageEl.style.top = `${layout.topOffset}px`;
+    this.stageEl.style.bottom = `${layout.bottomOffset}px`;
 
     this.workspaceEl.dataset.unit = unit;
     this.workspaceEl.dataset.pxPerMm = this.activeCal.pxPerMm.toFixed(4);
@@ -585,6 +644,96 @@ export class WorkspaceController {
     }
   }
 
+  private computeEdgeLayout() {
+    const { edges, thickness } = this.prefs;
+    const rect = this.workspaceEl.getBoundingClientRect();
+    const totalW = Math.max(280, Math.floor(rect.width));
+    const totalH = Math.max(260, Math.floor(rect.height));
+    const leftOffset = edges.left ? thickness : 0;
+    const rightOffset = edges.right ? thickness : 0;
+    const topOffset = edges.top ? thickness : 0;
+    const bottomOffset = edges.bottom ? thickness : 0;
+    return {
+      leftOffset,
+      rightOffset,
+      topOffset,
+      bottomOffset,
+      horizLength: Math.max(60, totalW - leftOffset - rightOffset),
+      vertLength: Math.max(60, totalH - topOffset - bottomOffset),
+    };
+  }
+
+  private renderEdgeCanvases(layout: ReturnType<WorkspaceController['computeEdgeLayout']>, dark: boolean): void {
+    const { edges, thickness } = this.prefs;
+    const { leftOffset, topOffset, horizLength, vertLength } = layout;
+
+    this.configureEdgeCanvas('top', edges.top, {
+      left: `${leftOffset}px`,
+      top: '0px',
+      width: `${horizLength}px`,
+      height: `${thickness}px`,
+      lengthPx: horizLength,
+      cursorPosPx: this.cursorX,
+      dark,
+    });
+
+    this.configureEdgeCanvas('bottom', edges.bottom, {
+      left: `${leftOffset}px`,
+      bottom: '0px',
+      width: `${horizLength}px`,
+      height: `${thickness}px`,
+      lengthPx: horizLength,
+      cursorPosPx: this.cursorX,
+      dark,
+    });
+
+    this.configureEdgeCanvas('left', edges.left, {
+      left: '0px',
+      top: `${topOffset}px`,
+      width: `${thickness}px`,
+      height: `${vertLength}px`,
+      lengthPx: vertLength,
+      cursorPosPx: this.cursorY,
+      dark,
+    });
+
+    this.configureEdgeCanvas('right', edges.right, {
+      right: '0px',
+      top: `${topOffset}px`,
+      width: `${thickness}px`,
+      height: `${vertLength}px`,
+      lengthPx: vertLength,
+      cursorPosPx: this.cursorY,
+      dark,
+    });
+  }
+
+  private scheduleCursorEdgeRedraw(): void {
+    const redraw = () => {
+      if (!this.workspaceEl) return;
+      const dark = document.documentElement.classList.contains('dark');
+      this.renderEdgeCanvases(this.computeEdgeLayout(), dark);
+    };
+    if (this.cursorRafId !== null) {
+      this.cursorRedrawQueued = true;
+      return;
+    }
+    redraw();
+    this.cursorRafId = window.requestAnimationFrame(() => {
+      this.cursorRafId = null;
+      if (this.cursorRedrawQueued) {
+        this.cursorRedrawQueued = false;
+        redraw();
+      }
+    });
+  }
+
+  private toggleFocusMode(): void {
+    this.prefs = { ...this.prefs, focusMode: !this.prefs.focusMode };
+    this.savePreferences();
+    this.syncAll();
+  }
+
   private configureEdgeCanvas(
     edge: RulerEdge,
     visible: boolean,
@@ -620,6 +769,8 @@ export class WorkspaceController {
       originInsetPx: ORIGIN_INSET_PX,
       unit: this.prefs.unit,
       dualUnit: this.prefs.dualUnit,
+      dualPair: this.prefs.dualPair,
+      inchDivisor: this.prefs.inchDivisor,
       pxPerMm: this.activeCal.pxPerMm,
       dpr: window.devicePixelRatio || 1,
       dark: geom.dark,
@@ -634,14 +785,21 @@ export class WorkspaceController {
   }
 
   private formatCoord(px: number): string {
+    const divisor = this.prefs.inchDivisor ?? 16;
     const val = pxToUnit(px, this.prefs.unit, this.activeCal.pxPerMm);
     const primary = formatValue(val, this.prefs.unit);
     if (this.prefs.unit === 'in') {
-      return `${primary} (${formatInchFraction(val, 16)})`;
+      const base = `${primary} (${formatInchFraction(val, divisor)})`;
+      return this.prefs.dualUnit && this.prefs.dualPair === 'px'
+        ? `${base} · ${Math.round(px)} px`
+        : base;
     }
     if (this.prefs.dualUnit) {
+      if (this.prefs.dualPair === 'px' && this.prefs.unit !== 'px') {
+        return `${primary} · ${Math.round(px)} px`;
+      }
       const inches = pxToUnit(px, 'in', this.activeCal.pxPerMm);
-      return `${primary} · ${formatInchFraction(inches, 16)}`;
+      return `${primary} · ${formatInchFraction(inches, divisor)}`;
     }
     return primary;
   }
@@ -649,6 +807,7 @@ export class WorkspaceController {
   private updateReadoutDOM(): void {
     const readoutEl = document.getElementById('live-cursor-readout');
     if (!readoutEl) return;
+    const divisor = this.prefs.inchDivisor ?? 16;
 
     if (this.cursorX === null || this.cursorY === null) {
       const maxW = Math.max(0, this.stageEl.clientWidth - ORIGIN_INSET_PX - 8);
@@ -663,11 +822,15 @@ export class WorkspaceController {
     const yVal = pxToUnit(this.cursorY, this.prefs.unit, this.activeCal.pxPerMm);
     const xStr = formatNumber(xVal, this.prefs.unit);
     const yStr = formatNumber(yVal, this.prefs.unit);
+    const pxSuffix =
+      this.prefs.dualUnit && this.prefs.dualPair === 'px' && this.prefs.unit !== 'px'
+        ? ` (${Math.round(this.cursorX)} × ${Math.round(this.cursorY)} px)`
+        : '';
 
     if (this.prefs.unit === 'in') {
-      readoutEl.textContent = `X: ${xStr} in (${formatInchFraction(xVal, 16)}) · Y: ${yStr} in`;
+      readoutEl.textContent = `X: ${xStr} in (${formatInchFraction(xVal, divisor)}) · Y: ${yStr} in${pxSuffix}`;
     } else {
-      readoutEl.textContent = `X: ${xStr} ${this.prefs.unit} · Y: ${yStr} ${this.prefs.unit}`;
+      readoutEl.textContent = `X: ${xStr} ${this.prefs.unit} · Y: ${yStr} ${this.prefs.unit}${pxSuffix}`;
     }
   }
 
@@ -686,10 +849,53 @@ export class WorkspaceController {
 
     document.querySelector<HTMLButtonElement>('[data-edge-btn="all"]')?.addEventListener('click', () => this.setAllEdges());
     document.getElementById('btn-dual-unit')?.addEventListener('click', () => this.toggleDualUnit());
+    document.querySelectorAll<HTMLButtonElement>('[data-dual-preset]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const preset = btn.dataset.dualPreset;
+        if (preset === 'cm-px' || preset === 'in-px') {
+          this.setDualPreset(preset);
+        }
+      });
+    });
+    document.querySelectorAll<HTMLButtonElement>('[data-inch-divisor]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const d = Number(btn.dataset.inchDivisor);
+        if (d === 8 || d === 16 || d === 32) this.setInchDivisor(d);
+      });
+    });
+    document.getElementById('btn-photo-mode')?.addEventListener('click', () => {
+      void this.togglePhotoMode();
+    });
+    window.addEventListener('paste', (e) => {
+      const active = document.activeElement as HTMLElement | null;
+      if (
+        active &&
+        (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.isContentEditable)
+      ) {
+        return;
+      }
+      const items = e.clipboardData?.items;
+      if (!items) return;
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].type.startsWith('image/')) {
+          e.preventDefault();
+          const file = items[i].getAsFile();
+          if (file) {
+            void this.ensurePhotoController().then((ctrl) => {
+              this.photoModeActive = true;
+              this.syncPhotoButton();
+              return ctrl.loadBlob(file);
+            });
+          }
+          break;
+        }
+      }
+    });
     document.getElementById('btn-toggle-guides')?.addEventListener('click', () => this.toggleGuides());
     document.getElementById('btn-clear-guides')?.addEventListener('click', () => this.clearGuides());
     document.getElementById('btn-toggle-crosshair')?.addEventListener('click', () => this.toggleCrosshair());
     document.getElementById('btn-toggle-protractor')?.addEventListener('click', () => this.toggleProtractor());
+    document.getElementById('btn-focus-mode')?.addEventListener('click', () => this.toggleFocusMode());
     document.getElementById('btn-fullscreen')?.addEventListener('click', () => void this.toggleFullscreen());
     document.getElementById('btn-add-floating-ruler')?.addEventListener('click', () => this.addFloatingRuler());
 
@@ -767,6 +973,7 @@ export class WorkspaceController {
         this.crosshairBadgeEl.classList.add('hidden');
       }
       this.updateReadoutDOM();
+      this.scheduleCursorEdgeRedraw();
     });
 
     this.workspaceEl.addEventListener('pointerleave', () => {
@@ -776,6 +983,13 @@ export class WorkspaceController {
       this.crosshairYEl.classList.add('hidden');
       this.crosshairBadgeEl.classList.add('hidden');
       this.updateReadoutDOM();
+      if (this.cursorRafId !== null) {
+        window.cancelAnimationFrame(this.cursorRafId);
+        this.cursorRafId = null;
+      }
+      this.cursorRedrawQueued = false;
+      const dark = document.documentElement.classList.contains('dark');
+      this.renderEdgeCanvases(this.computeEdgeLayout(), dark);
     });
 
     (['top', 'bottom'] as const).forEach((edge) => {
@@ -879,6 +1093,8 @@ export class WorkspaceController {
           const helpModal = document.getElementById('help-shortcuts-modal');
           if (helpModal && !helpModal.classList.contains('hidden')) {
             window.dispatchEvent(new CustomEvent('orp:close-dialogs'));
+          } else if (this.photoModeActive) {
+            void this.togglePhotoMode(false);
           } else if (this.pseudoFullscreen) {
             this.pseudoFullscreen = false;
             this.syncFullscreenState();

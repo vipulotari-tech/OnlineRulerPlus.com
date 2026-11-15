@@ -791,6 +791,7 @@
   footer,
   #help-shortcuts-modal,
   #display-change-banner,
+  #locale-suggestion-banner,
   [data-stage-interactive] {
     display: none !important;
   }
@@ -802,6 +803,10 @@
     border: 1px solid #000000 !important;
     page-break-inside: avoid;
   }
+}
+
+html[data-focus-mode="true"] [data-hero-section] {
+  display: none;
 }
 
 /* Smooth Language Selector Dropdown Motion */

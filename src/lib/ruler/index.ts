@@ -6,4 +6,5 @@ export * from './devices.ts';
 export * from './storage.ts';
 export * from './resolve.ts';
 export * from './protractor.ts';
+export * from './photo-measure.ts';
 

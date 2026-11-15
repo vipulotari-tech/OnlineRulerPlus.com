@@ -47,7 +47,10 @@
       "calibration": "Calibration",
       "howItWorks": "How It Works",
       "ppiTable": "PPI Table"
-    }
+    },
+    "localeSuggestionText": "View this page in {language}?",
+    "localeSuggestionSwitch": "Switch",
+    "localeSuggestionDismiss": "Dismiss language suggestion"
   },
   "footer": {
     "footnote": "1. Actual physical accuracy requires display calibration using a standard ISO/IEC 7810 ID-1 card (85.60 × 53.98 mm) or known active screen diagonal at 100% browser zoom. Browsers default to 96 CSS pixels per inch when uncalibrated.",
@@ -85,18 +88,54 @@
     "enableShortcuts": "Enable single-key shortcuts (G, C, P, F, 1–4, D, H)",
     "gotIt": "Got it",
     "shortcuts": [
-      { "key": "G", "action": "Toggle click-to-place guide lines" },
-      { "key": "C", "action": "Toggle cursor-following crosshair" },
-      { "key": "P", "action": "Toggle 180° angle protractor overlay" },
-      { "key": "F", "action": "Toggle fullscreen measurement workspace" },
-      { "key": "1", "action": "Switch unit to Centimeters (cm)" },
-      { "key": "2", "action": "Switch unit to Inches (in)" },
-      { "key": "3", "action": "Switch unit to CSS Pixels (px)" },
-      { "key": "4 / M", "action": "Switch unit to Millimeters (mm)" },
-      { "key": "D", "action": "Toggle light and dark mode" },
-      { "key": "H", "action": "Open or close this keyboard shortcuts dialog" },
-      { "key": "Esc", "action": "Clear placed guide lines or close active dialogs" },
-      { "key": "← / →", "action": "Fine-tune credit card calibration size by 1px (Shift for 5px)" }
+      {
+        "key": "G",
+        "action": "Toggle click-to-place guide lines"
+      },
+      {
+        "key": "C",
+        "action": "Toggle cursor-following crosshair"
+      },
+      {
+        "key": "P",
+        "action": "Toggle 180° angle protractor overlay"
+      },
+      {
+        "key": "F",
+        "action": "Toggle fullscreen measurement workspace"
+      },
+      {
+        "key": "1",
+        "action": "Switch unit to Centimeters (cm)"
+      },
+      {
+        "key": "2",
+        "action": "Switch unit to Inches (in)"
+      },
+      {
+        "key": "3",
+        "action": "Switch unit to CSS Pixels (px)"
+      },
+      {
+        "key": "4 / M",
+        "action": "Switch unit to Millimeters (mm)"
+      },
+      {
+        "key": "D",
+        "action": "Toggle light and dark mode"
+      },
+      {
+        "key": "H",
+        "action": "Open or close this keyboard shortcuts dialog"
+      },
+      {
+        "key": "Esc",
+        "action": "Clear placed guide lines or close active dialogs"
+      },
+      {
+        "key": "← / →",
+        "action": "Fine-tune credit card calibration size by 1px (Shift for 5px)"
+      }
     ]
   },
   "hero": {
@@ -159,7 +198,30 @@
     "datumBody": "Align your object with the [[strong:0]] tick mark. Click any ruler or grid to drop draggable measurement guides.",
     "liveCursorInit": "X: 0.00 cm · Y: 0.00 cm",
     "saveToHistory": "Save to History",
-    "keysHint": "Keys: [[kbd:1]] cm · [[kbd:2]] in · [[kbd:3]] px · [[kbd:G]] guides · [[kbd:C]] crosshair · [[kbd:F]] fullscreen"
+    "keysHint": "Keys: [[kbd:1]] cm · [[kbd:2]] in · [[kbd:3]] px · [[kbd:G]] guides · [[kbd:C]] crosshair · [[kbd:F]] fullscreen",
+    "focusMode": "Focus",
+    "focusModeExit": "Show Info",
+    "focusModeTitle": "Toggle compact focus mode (hide intro banner)",
+    "dualCmPxTitle": "Dual cm + px scale",
+    "dualInPxTitle": "Dual inch + px scale",
+    "inchPrecisionAria": "Inch fraction precision",
+    "photoMode": "Photo / Ctrl+V",
+    "photoModeTitle": "Measure any photo or pasted Ctrl+V screenshot offline",
+    "photoPanelAria": "Client-side photo and clipboard measurement tool",
+    "photoChooseBtn": "Upload Photo",
+    "photoPasteBtn": "Paste (Ctrl+V)",
+    "photoToolCal": "1. Calibrate 2-pt",
+    "photoToolLine": "2. Line",
+    "photoToolRect": "3. ΔX / ΔY Box",
+    "photoRefLenAria": "Known reference length",
+    "photoRefUnitAria": "Reference unit",
+    "photoApplyCalBtn": "Apply Scale",
+    "photoUndoBtn": "Undo",
+    "photoClearBtn": "Clear",
+    "photoExportBtn": "Export PNG",
+    "photoCloseBtn": "Exit",
+    "photoEmptyTitle": "100% Client-Side Photo & Clipboard Ruler",
+    "photoEmptyDesc": "Press Ctrl+V to paste a screenshot, drop an image here, or choose a file. Nothing is ever uploaded."
   },
   "calibration": {
     "kicker": "Display Density Calibration · Saved Locally Per Screen",
@@ -235,7 +297,23 @@
     "historyClearBtn": "Clear",
     "historyEmpty": "Place two parallel guide lines in the ruler workspace and click [[strong:Save to History]] to record point-to-point spans ([[code:ΔX]] / [[code:ΔY]]) locally on your device.",
     "historyFooterLeft": "Storage: localStorage only",
-    "historyFooterRight": "Zero network sync"
+    "historyFooterRight": "Zero network sync",
+    "refPresetGroupAria": "Reference calibration target",
+    "refTargetLabel": "Target:",
+    "refCard1x": "1× Card (85.6 mm)",
+    "refCard2x": "2× Cards (171.2 mm)",
+    "refCard3x": "3× Cards (256.8 mm)",
+    "refA4": "A4 (210 mm)",
+    "refLetter": "US Letter (215.9 mm)",
+    "refCd": "CD/DVD (120 mm)",
+    "refQuarter": "US Quarter (24.26 mm)",
+    "refEuro": "€1 Coin (23.25 mm)",
+    "refCustom": "Custom",
+    "refCustomLengthLabel": "Object length:",
+    "refCustomUnitAria": "Custom object unit",
+    "refDragHint": "Drag the blue corner handle or slider to match your object",
+    "cardDragHandleAria": "Drag corner to resize reference box to match physical object",
+    "cardDragHandleTitle": "Drag corner or edge to match physical size"
   },
   "runtime": {
     "statusLabels": {
@@ -276,7 +354,8 @@
       "Typical density at default OS scaling": "Typical density at default OS scaling",
       "Manual calibration adjusted for current zoom or scaling": "Manual calibration adjusted for current zoom or scaling",
       "Calibrated against an ISO/IEC 7810 ID-1 card (85.60 × 53.98 mm)": "Calibrated against an ISO/IEC 7810 ID-1 card (85.60 × 53.98 mm)",
-      "Calibrated from entered display diagonal": "Calibrated from entered display diagonal"
+      "Calibrated from entered display diagonal": "Calibrated from entered display diagonal",
+      "Nominal mobile screen density": "Nominal mobile screen density"
     },
     "deviceLabelMap": {
       "Desktop display": "Desktop display",
@@ -285,7 +364,8 @@
       "Android device": "Android device",
       "Mac with Retina display": "Mac with Retina display",
       "Scaled laptop or desktop display": "Scaled laptop or desktop display",
-      "Credit card calibration": "Credit card calibration"
+      "Credit card calibration": "Credit card calibration",
+      "Touchscreen device (uncalibrated)": "Touchscreen device (uncalibrated)"
     },
     "errorMap": {
       "Enter your screen diagonal in inches.": "Enter your screen diagonal in inches.",
@@ -300,7 +380,8 @@
     },
     "displaySizeSuffix": "{long}×{short} display",
     "typMonitorBasis": "Assumes a typical {diag}″ screen at this resolution",
-    "manualDiagBasis": "{diag}″ Screen Diagonal"
+    "manualDiagBasis": "{diag}″ Screen Diagonal",
+    "pinchZoomBanner": "Pinch zoom active ({scale}×). Reset zoom to 100% for accurate physical measurement."
   },
   "home": {
     "title": "Online Ruler | Free Actual-Size Ruler in Inches, cm & mm",
@@ -390,14 +471,62 @@
       "Uncalibrated 96 PPI Error"
     ],
     "ppiRows": [
-      { "device": "13.3\" MacBook Air / Pro (Retina)", "res": "1440 × 900 CSS (2×)", "ppi": "127.7 PPI", "pxMm": "5.027 px/mm", "err": "−24.8% (draws 7.52 cm)" },
-      { "device": "14.2\" MacBook Pro (Liquid Retina XDR)", "res": "1512 × 982 CSS (2×)", "ppi": "127.0 PPI", "pxMm": "5.000 px/mm", "err": "−24.4% (draws 7.56 cm)" },
-      { "device": "15.6\" Full HD Laptop (100% Windows Scale)", "res": "1920 × 1080 CSS (1×)", "ppi": "141.2 PPI", "pxMm": "5.559 px/mm", "err": "−32.0% (draws 6.80 cm)" },
-      { "device": "15.6\" Full HD Laptop (125% Windows Scale)", "res": "1536 × 864 CSS (1.25×)", "ppi": "113.0 PPI", "pxMm": "4.448 px/mm", "err": "−15.0% (draws 8.50 cm)" },
-      { "device": "24\" Full HD Desktop Monitor (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "91.8 PPI", "pxMm": "3.614 px/mm", "err": "+4.6% (draws 10.46 cm)" },
-      { "device": "27\" Full HD Desktop Monitor (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "81.6 PPI", "pxMm": "3.212 px/mm", "err": "+17.6% (draws 11.76 cm)" },
-      { "device": "27\" QHD Monitor (2560 × 1440, 100%)", "res": "2560 × 1440 CSS (1×)", "ppi": "108.8 PPI", "pxMm": "4.283 px/mm", "err": "−11.8% (draws 8.82 cm)" },
-      { "device": "27\" 4K UHD Monitor (200% HiDPI Scale)", "res": "1920 × 1080 CSS (2×)", "ppi": "81.6 CSS PPI", "pxMm": "3.212 px/mm", "err": "+17.6% (draws 11.76 cm)" }
+      {
+        "device": "13.3\" MacBook Air / Pro (Retina)",
+        "res": "1440 × 900 CSS (2×)",
+        "ppi": "127.7 PPI",
+        "pxMm": "5.027 px/mm",
+        "err": "−24.8% (draws 7.52 cm)"
+      },
+      {
+        "device": "14.2\" MacBook Pro (Liquid Retina XDR)",
+        "res": "1512 × 982 CSS (2×)",
+        "ppi": "127.0 PPI",
+        "pxMm": "5.000 px/mm",
+        "err": "−24.4% (draws 7.56 cm)"
+      },
+      {
+        "device": "15.6\" Full HD Laptop (100% Windows Scale)",
+        "res": "1920 × 1080 CSS (1×)",
+        "ppi": "141.2 PPI",
+        "pxMm": "5.559 px/mm",
+        "err": "−32.0% (draws 6.80 cm)"
+      },
+      {
+        "device": "15.6\" Full HD Laptop (125% Windows Scale)",
+        "res": "1536 × 864 CSS (1.25×)",
+        "ppi": "113.0 PPI",
+        "pxMm": "4.448 px/mm",
+        "err": "−15.0% (draws 8.50 cm)"
+      },
+      {
+        "device": "24\" Full HD Desktop Monitor (1080p)",
+        "res": "1920 × 1080 CSS (1×)",
+        "ppi": "91.8 PPI",
+        "pxMm": "3.614 px/mm",
+        "err": "+4.6% (draws 10.46 cm)"
+      },
+      {
+        "device": "27\" Full HD Desktop Monitor (1080p)",
+        "res": "1920 × 1080 CSS (1×)",
+        "ppi": "81.6 PPI",
+        "pxMm": "3.212 px/mm",
+        "err": "+17.6% (draws 11.76 cm)"
+      },
+      {
+        "device": "27\" QHD Monitor (2560 × 1440, 100%)",
+        "res": "2560 × 1440 CSS (1×)",
+        "ppi": "108.8 PPI",
+        "pxMm": "4.283 px/mm",
+        "err": "−11.8% (draws 8.82 cm)"
+      },
+      {
+        "device": "27\" 4K UHD Monitor (200% HiDPI Scale)",
+        "res": "1920 × 1080 CSS (2×)",
+        "ppi": "81.6 CSS PPI",
+        "pxMm": "3.212 px/mm",
+        "err": "+17.6% (draws 11.76 cm)"
+      }
     ],
     "ppiFormula": "Formula: [[code:Effective CSS PPI = √(W_css² + H_css²) / diagonalInches]] · [[code:pxPerMm = CSS_PPI / 25.4]]. By international NIST / BIPM standard, 1 inch equals exactly 25.4 mm.",
     "modesKicker": "Specialized Measurement Views · Metric, Imperial & Pixel Scales",
@@ -503,11 +632,36 @@
     "modesHeading": "Explore Other Calibrated Online Ruler Modes",
     "modesAllEdgeBtn": "All-Edge Workspace",
     "modeTiles": [
-      { "href": "/cm-ruler", "kicker": "Metric · cm", "title": "Centimeter Ruler", "desc": "1 cm & 0.5 cm scale + cm-to-inch chart" },
-      { "href": "/inch-ruler", "kicker": "Imperial · 1/16″", "title": "Inch Ruler (12″)", "desc": "1/2, 1/4, 1/8, 1/16″ fractions" },
-      { "href": "/mm-ruler", "kicker": "Fine Pitch · mm", "title": "Millimeter Ruler", "desc": "1 mm & 5 mm hardware scale" },
-      { "href": "/horizontal-ruler", "kicker": "Top & Bottom", "title": "Horizontal Ruler", "desc": "Wide spans & CSS pixel (px) scale" },
-      { "href": "/vertical-ruler", "kicker": "Left & Right", "title": "Vertical Ruler", "desc": "Upright height & mobile portrait" }
+      {
+        "href": "/cm-ruler",
+        "kicker": "Metric · cm",
+        "title": "Centimeter Ruler",
+        "desc": "1 cm & 0.5 cm scale + cm-to-inch chart"
+      },
+      {
+        "href": "/inch-ruler",
+        "kicker": "Imperial · 1/16″",
+        "title": "Inch Ruler (12″)",
+        "desc": "1/2, 1/4, 1/8, 1/16″ fractions"
+      },
+      {
+        "href": "/mm-ruler",
+        "kicker": "Fine Pitch · mm",
+        "title": "Millimeter Ruler",
+        "desc": "1 mm & 5 mm hardware scale"
+      },
+      {
+        "href": "/horizontal-ruler",
+        "kicker": "Top & Bottom",
+        "title": "Horizontal Ruler",
+        "desc": "Wide spans & CSS pixel (px) scale"
+      },
+      {
+        "href": "/vertical-ruler",
+        "kicker": "Left & Right",
+        "title": "Vertical Ruler",
+        "desc": "Upright height & mobile portrait"
+      }
     ],
     "allFaqsBtn": "All Frequently Asked Questions"
   },
@@ -578,20 +732,98 @@
       "table": {
         "kicker": "Metric to Imperial Reference Chart (NIST / BIPM Exact Constants)",
         "heading": "Centimeters (cm) to Millimeters (mm), Decimal Inches & Nearest 1/16″ Fraction",
-        "headers": ["Centimeters (cm)", "Millimeters (mm)", "Decimal Inches (in)", "Nearest 1/16″ Fraction", "Common Physical Reference"],
+        "headers": [
+          "Centimeters (cm)",
+          "Millimeters (mm)",
+          "Decimal Inches (in)",
+          "Nearest 1/16″ Fraction",
+          "Common Physical Reference"
+        ],
         "rows": [
-          ["1 cm", "10.0 mm", "0.3937 in", "3/8 in (0.375″)", "Standard AAA battery diameter (~1.05 cm)"],
-          ["2 cm", "20.0 mm", "0.7874 in", "13/16 in (0.813″)", "US Penny diameter is 1.905 cm (19.05 mm)"],
-          ["2.54 cm", "25.4 mm", "1.0000 in", "1 in (exact)", "Exact definition of 1 Imperial inch"],
-          ["5 cm", "50.0 mm", "1.9685 in", "1 15/16 in (1.938″)", "Standard AA battery length (5.05 cm)"],
-          ["5.40 cm", "53.98 mm", "2.1252 in", "2 1/8 in (2.125″)", "ISO/IEC 7810 ID-1 credit card height"],
-          ["8.56 cm", "85.60 mm", "3.3701 in", "3 3/8 in (3.375″)", "ISO/IEC 7810 ID-1 credit card width"],
-          ["10 cm", "100.0 mm", "3.9370 in", "3 15/16 in (3.938″)", "1 decimeter (100 mm metric benchmark)"],
-          ["15 cm", "150.0 mm", "5.9055 in", "5 7/8 in (5.875″)", "Standard 15 cm pocket ruler / US bill (15.6 cm)"],
-          ["20 cm", "200.0 mm", "7.8740 in", "7 7/8 in (7.875″)", "A4 paper width is 21.0 cm (210 mm)"],
-          ["25 cm", "250.0 mm", "9.8425 in", "9 13/16 in (9.813″)", "Quarter-meter craft & sewing span"],
-          ["30 cm", "300.0 mm", "11.8110 in", "11 13/16 in (11.813″)", "Standard 30 cm school & office ruler"],
-          ["30.48 cm", "304.8 mm", "12.0000 in", "12 in (1 foot exact)", "Exact metric length of a 12-inch foot ruler"]
+          [
+            "1 cm",
+            "10.0 mm",
+            "0.3937 in",
+            "3/8 in (0.375″)",
+            "Standard AAA battery diameter (~1.05 cm)"
+          ],
+          [
+            "2 cm",
+            "20.0 mm",
+            "0.7874 in",
+            "13/16 in (0.813″)",
+            "US Penny diameter is 1.905 cm (19.05 mm)"
+          ],
+          [
+            "2.54 cm",
+            "25.4 mm",
+            "1.0000 in",
+            "1 in (exact)",
+            "Exact definition of 1 Imperial inch"
+          ],
+          [
+            "5 cm",
+            "50.0 mm",
+            "1.9685 in",
+            "1 15/16 in (1.938″)",
+            "Standard AA battery length (5.05 cm)"
+          ],
+          [
+            "5.40 cm",
+            "53.98 mm",
+            "2.1252 in",
+            "2 1/8 in (2.125″)",
+            "ISO/IEC 7810 ID-1 credit card height"
+          ],
+          [
+            "8.56 cm",
+            "85.60 mm",
+            "3.3701 in",
+            "3 3/8 in (3.375″)",
+            "ISO/IEC 7810 ID-1 credit card width"
+          ],
+          [
+            "10 cm",
+            "100.0 mm",
+            "3.9370 in",
+            "3 15/16 in (3.938″)",
+            "1 decimeter (100 mm metric benchmark)"
+          ],
+          [
+            "15 cm",
+            "150.0 mm",
+            "5.9055 in",
+            "5 7/8 in (5.875″)",
+            "Standard 15 cm pocket ruler / US bill (15.6 cm)"
+          ],
+          [
+            "20 cm",
+            "200.0 mm",
+            "7.8740 in",
+            "7 7/8 in (7.875″)",
+            "A4 paper width is 21.0 cm (210 mm)"
+          ],
+          [
+            "25 cm",
+            "250.0 mm",
+            "9.8425 in",
+            "9 13/16 in (9.813″)",
+            "Quarter-meter craft & sewing span"
+          ],
+          [
+            "30 cm",
+            "300.0 mm",
+            "11.8110 in",
+            "11 13/16 in (11.813″)",
+            "Standard 30 cm school & office ruler"
+          ],
+          [
+            "30.48 cm",
+            "304.8 mm",
+            "12.0000 in",
+            "12 in (1 foot exact)",
+            "Exact metric length of a 12-inch foot ruler"
+          ]
         ],
         "footnote": "Conversion formulas: mm = cm × 10 · in = cm ÷ 2.54 · cm = in × 2.54. All values computed using exact SI/NIST constants."
       },
@@ -682,24 +914,126 @@
       "table": {
         "kicker": "Engineering, Horology & Fastener Millimeter Reference Table",
         "heading": "Common Millimeter (mm) Sizes in Centimeters, Decimal Inches & Hardware Standards",
-        "headers": ["Millimeters (mm)", "Centimeters (cm)", "Decimal Inches", "Nearest 1/16″", "Standard Hardware / Object Reference"],
+        "headers": [
+          "Millimeters (mm)",
+          "Centimeters (cm)",
+          "Decimal Inches",
+          "Nearest 1/16″",
+          "Standard Hardware / Object Reference"
+        ],
         "rows": [
-          ["1.00 mm", "0.10 cm", "0.0394 in", "1/16 in (1.59 mm)", "18 AWG solid wire diameter (~1.02 mm)"],
-          ["1.59 mm", "0.16 cm", "0.0625 in", "1/16 in (exact)", "Exact metric equivalent of 1/16 inch"],
-          ["2.00 mm", "0.20 cm", "0.0787 in", "1/16 in", "ISO M2 machine screw major diameter"],
-          ["2.54 mm", "0.254 cm", "0.1000 in", "3/32 in", "Standard 0.100″ PCB through-hole pin header pitch"],
-          ["3.00 mm", "0.30 cm", "0.1181 in", "1/8 in (3.18 mm)", "ISO M3 machine screw / PC case standoff thread"],
-          ["4.00 mm", "0.40 cm", "0.1575 in", "5/32 in", "ISO M4 screw / standard 4 mm precision screwdriver bit"],
-          ["5.00 mm", "0.50 cm", "0.1969 in", "3/16 in (4.76 mm)", "ISO M5 bolt / standard 5 mm LED package diameter"],
-          ["6.00 mm", "0.60 cm", "0.2362 in", "1/4 in (6.35 mm)", "ISO M6 bolt; 1/4″ hex bit is 6.35 mm"],
-          ["8.00 mm", "0.80 cm", "0.3150 in", "5/16 in (7.94 mm)", "ISO M8 bolt / 608 skate & 3D-printer bearing bore"],
-          ["10.00 mm", "1.00 cm", "0.3937 in", "3/8 in (9.53 mm)", "ISO M10 bolt / 1 centimeter benchmark"],
-          ["18.00 mm", "1.80 cm", "0.7087 in", "11/16 in", "Classic dress watch strap lug width (18 mm)"],
-          ["20.00 mm", "2.00 cm", "0.7874 in", "13/16 in", "Standard wristwatch strap lug width (20 mm)"],
-          ["22.00 mm", "2.20 cm", "0.8661 in", "7/8 in (22.23 mm)", "Dive & chronograph watch lug width / 608 bearing OD"],
-          ["25.40 mm", "2.54 cm", "1.0000 in", "1 in (exact)", "Exact SI definition of 1 Imperial inch"],
-          ["53.98 mm", "5.40 cm", "2.1252 in", "2 1/8 in", "ISO/IEC 7810 ID-1 bank card short edge"],
-          ["85.60 mm", "8.56 cm", "3.3701 in", "3 3/8 in", "ISO/IEC 7810 ID-1 bank card long edge"]
+          [
+            "1.00 mm",
+            "0.10 cm",
+            "0.0394 in",
+            "1/16 in (1.59 mm)",
+            "18 AWG solid wire diameter (~1.02 mm)"
+          ],
+          [
+            "1.59 mm",
+            "0.16 cm",
+            "0.0625 in",
+            "1/16 in (exact)",
+            "Exact metric equivalent of 1/16 inch"
+          ],
+          [
+            "2.00 mm",
+            "0.20 cm",
+            "0.0787 in",
+            "1/16 in",
+            "ISO M2 machine screw major diameter"
+          ],
+          [
+            "2.54 mm",
+            "0.254 cm",
+            "0.1000 in",
+            "3/32 in",
+            "Standard 0.100″ PCB through-hole pin header pitch"
+          ],
+          [
+            "3.00 mm",
+            "0.30 cm",
+            "0.1181 in",
+            "1/8 in (3.18 mm)",
+            "ISO M3 machine screw / PC case standoff thread"
+          ],
+          [
+            "4.00 mm",
+            "0.40 cm",
+            "0.1575 in",
+            "5/32 in",
+            "ISO M4 screw / standard 4 mm precision screwdriver bit"
+          ],
+          [
+            "5.00 mm",
+            "0.50 cm",
+            "0.1969 in",
+            "3/16 in (4.76 mm)",
+            "ISO M5 bolt / standard 5 mm LED package diameter"
+          ],
+          [
+            "6.00 mm",
+            "0.60 cm",
+            "0.2362 in",
+            "1/4 in (6.35 mm)",
+            "ISO M6 bolt; 1/4″ hex bit is 6.35 mm"
+          ],
+          [
+            "8.00 mm",
+            "0.80 cm",
+            "0.3150 in",
+            "5/16 in (7.94 mm)",
+            "ISO M8 bolt / 608 skate & 3D-printer bearing bore"
+          ],
+          [
+            "10.00 mm",
+            "1.00 cm",
+            "0.3937 in",
+            "3/8 in (9.53 mm)",
+            "ISO M10 bolt / 1 centimeter benchmark"
+          ],
+          [
+            "18.00 mm",
+            "1.80 cm",
+            "0.7087 in",
+            "11/16 in",
+            "Classic dress watch strap lug width (18 mm)"
+          ],
+          [
+            "20.00 mm",
+            "2.00 cm",
+            "0.7874 in",
+            "13/16 in",
+            "Standard wristwatch strap lug width (20 mm)"
+          ],
+          [
+            "22.00 mm",
+            "2.20 cm",
+            "0.8661 in",
+            "7/8 in (22.23 mm)",
+            "Dive & chronograph watch lug width / 608 bearing OD"
+          ],
+          [
+            "25.40 mm",
+            "2.54 cm",
+            "1.0000 in",
+            "1 in (exact)",
+            "Exact SI definition of 1 Imperial inch"
+          ],
+          [
+            "53.98 mm",
+            "5.40 cm",
+            "2.1252 in",
+            "2 1/8 in",
+            "ISO/IEC 7810 ID-1 bank card short edge"
+          ],
+          [
+            "85.60 mm",
+            "8.56 cm",
+            "3.3701 in",
+            "3 3/8 in",
+            "ISO/IEC 7810 ID-1 bank card long edge"
+          ]
         ],
         "footnote": "Formulas: in = mm ÷ 25.4 · cm = mm ÷ 10 · 1/16″ = 1.5875 mm · 1/8″ = 3.175 mm · 1/4″ = 6.35 mm."
       },
@@ -790,24 +1124,126 @@
       "table": {
         "kicker": "Imperial Fractional Conversion Table (1/16″ to 1″ · 1 in = 25.4 mm)",
         "heading": "Sixteenths of an Inch (1/16″) to Reduced Fraction, Decimal Inches, mm & cm",
-        "headers": ["Sixteenths", "Reduced Fraction", "Decimal (in)", "Millimeters (mm)", "Centimeters (cm)"],
+        "headers": [
+          "Sixteenths",
+          "Reduced Fraction",
+          "Decimal (in)",
+          "Millimeters (mm)",
+          "Centimeters (cm)"
+        ],
         "rows": [
-          ["1/16″", "1/16 in", "0.0625 in", "1.588 mm", "0.159 cm"],
-          ["2/16″", "1/8 in", "0.1250 in", "3.175 mm", "0.318 cm"],
-          ["3/16″", "3/16 in", "0.1875 in", "4.763 mm", "0.476 cm"],
-          ["4/16″", "1/4 in", "0.2500 in", "6.350 mm", "0.635 cm"],
-          ["5/16″", "5/16 in", "0.3125 in", "7.938 mm", "0.794 cm"],
-          ["6/16″", "3/8 in", "0.3750 in", "9.525 mm", "0.953 cm"],
-          ["7/16″", "7/16 in", "0.4375 in", "11.113 mm", "1.111 cm"],
-          ["8/16″", "1/2 in", "0.5000 in", "12.700 mm", "1.270 cm"],
-          ["9/16″", "9/16 in", "0.5625 in", "14.288 mm", "1.429 cm"],
-          ["10/16″", "5/8 in", "0.6250 in", "15.875 mm", "1.588 cm"],
-          ["11/16″", "11/16 in", "0.6875 in", "17.463 mm", "1.746 cm"],
-          ["12/16″", "3/4 in (US Penny)", "0.7500 in", "19.050 mm", "1.905 cm"],
-          ["13/16″", "13/16 in", "0.8125 in", "20.638 mm", "2.064 cm"],
-          ["14/16″", "7/8 in", "0.8750 in", "22.225 mm", "2.223 cm"],
-          ["15/16″", "15/16 in (~US Quarter)", "0.9375 in", "23.813 mm", "2.381 cm"],
-          ["16/16″", "1 in (Full Inch)", "1.0000 in", "25.400 mm", "2.540 cm"]
+          [
+            "1/16″",
+            "1/16 in",
+            "0.0625 in",
+            "1.588 mm",
+            "0.159 cm"
+          ],
+          [
+            "2/16″",
+            "1/8 in",
+            "0.1250 in",
+            "3.175 mm",
+            "0.318 cm"
+          ],
+          [
+            "3/16″",
+            "3/16 in",
+            "0.1875 in",
+            "4.763 mm",
+            "0.476 cm"
+          ],
+          [
+            "4/16″",
+            "1/4 in",
+            "0.2500 in",
+            "6.350 mm",
+            "0.635 cm"
+          ],
+          [
+            "5/16″",
+            "5/16 in",
+            "0.3125 in",
+            "7.938 mm",
+            "0.794 cm"
+          ],
+          [
+            "6/16″",
+            "3/8 in",
+            "0.3750 in",
+            "9.525 mm",
+            "0.953 cm"
+          ],
+          [
+            "7/16″",
+            "7/16 in",
+            "0.4375 in",
+            "11.113 mm",
+            "1.111 cm"
+          ],
+          [
+            "8/16″",
+            "1/2 in",
+            "0.5000 in",
+            "12.700 mm",
+            "1.270 cm"
+          ],
+          [
+            "9/16″",
+            "9/16 in",
+            "0.5625 in",
+            "14.288 mm",
+            "1.429 cm"
+          ],
+          [
+            "10/16″",
+            "5/8 in",
+            "0.6250 in",
+            "15.875 mm",
+            "1.588 cm"
+          ],
+          [
+            "11/16″",
+            "11/16 in",
+            "0.6875 in",
+            "17.463 mm",
+            "1.746 cm"
+          ],
+          [
+            "12/16″",
+            "3/4 in (US Penny)",
+            "0.7500 in",
+            "19.050 mm",
+            "1.905 cm"
+          ],
+          [
+            "13/16″",
+            "13/16 in",
+            "0.8125 in",
+            "20.638 mm",
+            "2.064 cm"
+          ],
+          [
+            "14/16″",
+            "7/8 in",
+            "0.8750 in",
+            "22.225 mm",
+            "2.223 cm"
+          ],
+          [
+            "15/16″",
+            "15/16 in (~US Quarter)",
+            "0.9375 in",
+            "23.813 mm",
+            "2.381 cm"
+          ],
+          [
+            "16/16″",
+            "1 in (Full Inch)",
+            "1.0000 in",
+            "25.400 mm",
+            "2.540 cm"
+          ]
         ],
         "footnote": "Exact constants: 1 in = 25.4 mm · 1/2 in = 12.7 mm · 1/4 in = 6.35 mm · 1/8 in = 3.175 mm · 1/16 in = 1.5875 mm · 12 in (1 ft) = 304.8 mm."
       },
@@ -898,16 +1334,70 @@
       "table": {
         "kicker": "Display Panel Geometry Reference (16:9, 16:10 & 21:9 Monitors)",
         "heading": "Maximum Horizontal Screen Width by Display Diagonal in Inches, cm, mm & CSS Pixels",
-        "headers": ["Display Panel & Aspect Ratio", "Active Width (in)", "Active Width (cm / mm)", "Typical CSS Viewport Width", "Max Standard Ruler Fit"],
+        "headers": [
+          "Display Panel & Aspect Ratio",
+          "Active Width (in)",
+          "Active Width (cm / mm)",
+          "Typical CSS Viewport Width",
+          "Max Standard Ruler Fit"
+        ],
         "rows": [
-          ["6.1\" Smartphone (19.5:9 Landscape)", "5.55 in", "14.1 cm (141 mm)", "844 – 852 CSS px", "Up to 13 cm / 5 in"],
-          ["11.0\" Tablet (iPad / Android, 4:3)", "8.80 in", "22.4 cm (224 mm)", "1024 – 1194 CSS px", "15 cm / 6 in pocket ruler"],
-          ["13.3\" Laptop (16:10 Retina)", "11.28 in", "28.6 cm (286 mm)", "1440 CSS px", "Up to 27 cm / 10.5 in"],
-          ["14.2\" MacBook Pro (16:10 Liquid Retina)", "11.97 in", "30.4 cm (304 mm)", "1512 CSS px", "Full 30 cm / 11.5 in"],
-          ["15.6\" Full HD Laptop (16:9)", "13.60 in", "34.5 cm (345 mm)", "1536 – 1920 CSS px", "Full 30 cm & 12-inch foot ruler"],
-          ["24.0\" Desktop Monitor (16:9 1080p)", "20.92 in", "53.1 cm (531 mm)", "1920 CSS px", "50 cm / 18-inch ruler"],
-          ["27.0\" Desktop Monitor (16:9 QHD / 4K)", "23.53 in", "59.8 cm (598 mm)", "1920 – 2560 CSS px", "58 cm / 22-inch ruler"],
-          ["34.0\" Ultrawide Monitor (21:9)", "31.36 in", "79.7 cm (797 mm)", "3440 CSS px", "75 cm / 30-inch ruler"]
+          [
+            "6.1\" Smartphone (19.5:9 Landscape)",
+            "5.55 in",
+            "14.1 cm (141 mm)",
+            "844 – 852 CSS px",
+            "Up to 13 cm / 5 in"
+          ],
+          [
+            "11.0\" Tablet (iPad / Android, 4:3)",
+            "8.80 in",
+            "22.4 cm (224 mm)",
+            "1024 – 1194 CSS px",
+            "15 cm / 6 in pocket ruler"
+          ],
+          [
+            "13.3\" Laptop (16:10 Retina)",
+            "11.28 in",
+            "28.6 cm (286 mm)",
+            "1440 CSS px",
+            "Up to 27 cm / 10.5 in"
+          ],
+          [
+            "14.2\" MacBook Pro (16:10 Liquid Retina)",
+            "11.97 in",
+            "30.4 cm (304 mm)",
+            "1512 CSS px",
+            "Full 30 cm / 11.5 in"
+          ],
+          [
+            "15.6\" Full HD Laptop (16:9)",
+            "13.60 in",
+            "34.5 cm (345 mm)",
+            "1536 – 1920 CSS px",
+            "Full 30 cm & 12-inch foot ruler"
+          ],
+          [
+            "24.0\" Desktop Monitor (16:9 1080p)",
+            "20.92 in",
+            "53.1 cm (531 mm)",
+            "1920 CSS px",
+            "50 cm / 18-inch ruler"
+          ],
+          [
+            "27.0\" Desktop Monitor (16:9 QHD / 4K)",
+            "23.53 in",
+            "59.8 cm (598 mm)",
+            "1920 – 2560 CSS px",
+            "58 cm / 22-inch ruler"
+          ],
+          [
+            "34.0\" Ultrawide Monitor (21:9)",
+            "31.36 in",
+            "79.7 cm (797 mm)",
+            "3440 CSS px",
+            "75 cm / 30-inch ruler"
+          ]
         ],
         "footnote": "Horizontal width formulas: 16:9 Width = Diagonal × 0.87158 · 16:10 Width = Diagonal × 0.84800 · 21:9 Width = Diagonal × 0.92246."
       },
@@ -998,16 +1488,70 @@
       "table": {
         "kicker": "Vertical Display Height & Standing Object Reference Table",
         "heading": "Active Vertical Screen Height by Device & Common Upright Object Heights",
-        "headers": ["Device / Display Orientation", "Active Height (cm / mm)", "Active Height (in)", "CSS Viewport Height", "Common Upright Objects That Fit"],
+        "headers": [
+          "Device / Display Orientation",
+          "Active Height (cm / mm)",
+          "Active Height (in)",
+          "CSS Viewport Height",
+          "Common Upright Objects That Fit"
+        ],
         "rows": [
-          ["6.1\" Smartphone (Portrait)", "14.1 cm (141 mm)", "5.55 in", "844 – 852 CSS px", "AA/AAA batteries (50.5 / 44.5 mm), credit card (85.6 mm), beverage can (122 mm)"],
-          ["6.7\" Pro Max / Ultra Phone (Portrait)", "15.5 cm (155 mm)", "6.10 in", "926 – 932 CSS px", "Passport booklet (125 mm), ballpoint pen (~140 mm), 15 cm pocket ruler"],
-          ["11.0\" Tablet (Portrait 4:3)", "22.4 cm (224 mm)", "8.80 in", "1024 – 1194 CSS px", "A5 notebook height (210 mm), water bottle, paperback book"],
-          ["14.2\" MacBook Pro (16:10 Landscape)", "19.0 cm (190 mm)", "7.48 in", "982 CSS px", "Smartphone chassis height, 15 cm ruler, medium shipping box"],
-          ["15.6\" Laptop (16:9 Landscape)", "19.4 cm (194 mm)", "7.65 in", "864 – 1080 CSS px", "DVD/Blu-ray case (190 mm), action figure, coffee mug"],
-          ["24.0\" Desktop Monitor (16:9 Landscape)", "29.9 cm (299 mm)", "11.77 in", "1080 CSS px", "A4 paper height (297 mm), US Letter height (279.4 mm)"],
-          ["27.0\" Desktop Monitor (16:9 Landscape)", "33.6 cm (336 mm)", "13.24 in", "1080 – 1440 CSS px", "Full 30 cm / 12-inch vertical height, wine bottle (300 mm)"],
-          ["24.0\"–27.0\" Monitor (90° Portrait Pivot)", "53.1 – 59.8 cm", "20.9 – 23.5 in", "1920 – 2560 CSS px", "Tall speaker stands, PC tower chassis, 50 cm vertical scale"]
+          [
+            "6.1\" Smartphone (Portrait)",
+            "14.1 cm (141 mm)",
+            "5.55 in",
+            "844 – 852 CSS px",
+            "AA/AAA batteries (50.5 / 44.5 mm), credit card (85.6 mm), beverage can (122 mm)"
+          ],
+          [
+            "6.7\" Pro Max / Ultra Phone (Portrait)",
+            "15.5 cm (155 mm)",
+            "6.10 in",
+            "926 – 932 CSS px",
+            "Passport booklet (125 mm), ballpoint pen (~140 mm), 15 cm pocket ruler"
+          ],
+          [
+            "11.0\" Tablet (Portrait 4:3)",
+            "22.4 cm (224 mm)",
+            "8.80 in",
+            "1024 – 1194 CSS px",
+            "A5 notebook height (210 mm), water bottle, paperback book"
+          ],
+          [
+            "14.2\" MacBook Pro (16:10 Landscape)",
+            "19.0 cm (190 mm)",
+            "7.48 in",
+            "982 CSS px",
+            "Smartphone chassis height, 15 cm ruler, medium shipping box"
+          ],
+          [
+            "15.6\" Laptop (16:9 Landscape)",
+            "19.4 cm (194 mm)",
+            "7.65 in",
+            "864 – 1080 CSS px",
+            "DVD/Blu-ray case (190 mm), action figure, coffee mug"
+          ],
+          [
+            "24.0\" Desktop Monitor (16:9 Landscape)",
+            "29.9 cm (299 mm)",
+            "11.77 in",
+            "1080 CSS px",
+            "A4 paper height (297 mm), US Letter height (279.4 mm)"
+          ],
+          [
+            "27.0\" Desktop Monitor (16:9 Landscape)",
+            "33.6 cm (336 mm)",
+            "13.24 in",
+            "1080 – 1440 CSS px",
+            "Full 30 cm / 12-inch vertical height, wine bottle (300 mm)"
+          ],
+          [
+            "24.0\"–27.0\" Monitor (90° Portrait Pivot)",
+            "53.1 – 59.8 cm",
+            "20.9 – 23.5 in",
+            "1920 – 2560 CSS px",
+            "Tall speaker stands, PC tower chassis, 50 cm vertical scale"
+          ]
         ],
         "footnote": "Vertical height formulas: 16:9 Height = Diagonal × 0.49026 · 16:10 Height = Diagonal × 0.53000 · Standard US 12 oz beverage can height = 122.7 mm (4.83 in)."
       },
@@ -1050,7 +1594,10 @@
           "heading": "How do you calibrate your screen density first?",
           "body": "Screen density calibration is the essential first step that replaces your browser’s 96 CSS PPI default with your display’s true millimeter pixel pitch. Scroll to the Calibrate Your Screen section on any ruler page and choose your preferred reference method: hold a standard ISO/IEC 7810 ID-1 payment or ID card (85.60 × 53.98 mm) flat against the screen and adjust the slider or arrow keys until the box matches your card width; enter your display panel’s visible diagonal in inches (such as 14, 15.6, 24, or 27 inches) at 100% browser zoom; or run Auto-Detect Device. Click Apply Calibration to save the profile locally in your browser.",
           "links": [
-            { "href": "/#calibration", "label": "Open Credit Card Calibration →" }
+            {
+              "href": "/#calibration",
+              "label": "Open Credit Card Calibration →"
+            }
           ]
         },
         {
@@ -1059,9 +1606,18 @@
           "heading": "How do you choose measurement units and active edges?",
           "body": "Unit and edge configuration is controlled via the segmented instrument pods at the top of the workspace or via single-key shortcuts. Select your linear unit: press key 1 for Centimeters (cm) with 0.5 cm and 1 mm subdivisions, key 2 for Inches (in) with 1/2, 1/4, 1/8, and 1/16 inch dyadic fractions, key 3 for W3C CSS Pixels (px), or key 4 / M for Millimeters (mm). You can also enable Dual cm/in mode to display metric and imperial graduations side by side. Toggle Top, Bottom, Left, Right, or All Edges depending on where you want to hold your object against the screen.",
           "links": [
-            { "href": "/cm-ruler", "label": "cm Ruler" },
-            { "href": "/inch-ruler", "label": "Inch Ruler" },
-            { "href": "/mm-ruler", "label": "mm Ruler" }
+            {
+              "href": "/cm-ruler",
+              "label": "cm Ruler"
+            },
+            {
+              "href": "/inch-ruler",
+              "label": "Inch Ruler"
+            },
+            {
+              "href": "/mm-ruler",
+              "label": "mm Ruler"
+            }
           ]
         },
         {
@@ -1070,7 +1626,10 @@
           "heading": "How do you align at zero and measure spans with guides?",
           "body": "Zero-datum alignment means placing the starting edge of your physical object directly over the 0 graduation line inside the ruler strip (inset 16 CSS pixels from the bezel corner) rather than pressing against a raised plastic monitor bezel. Align the left or top end of your item with the 0 dashed datum hairline, then click any ruler strip or inside the gridded stage to drop a draggable blue guide line at the opposite end of your object. When two parallel guides are placed on screen, Online Ruler Plus computes the exact point-to-point delta span (ΔX or ΔY) and lets you save it to Measurement History.",
           "links": [
-            { "href": "/calibration-guide", "label": "Read Calibration & PPI Guide →" }
+            {
+              "href": "/calibration-guide",
+              "label": "Read Calibration & PPI Guide →"
+            }
           ]
         }
       ],
@@ -1114,18 +1673,62 @@
       "shortcutsKicker": "Workspace Controls · Keyboard Reference",
       "shortcutsHeading": "Complete Keyboard Shortcut Table",
       "shortcutsLead": "Keeping one hand on the physical object you are holding near the screen while switching units or spawning guides with single keystrokes avoids nudging your measurement out of alignment.",
-      "shortcutsHeaders": ["Shortcut Key", "Workspace Action", "When to Use"],
+      "shortcutsHeaders": [
+        "Shortcut Key",
+        "Workspace Action",
+        "When to Use"
+      ],
       "shortcuts": [
-        { "key": "1", "action": "Switch to Centimeters (cm)", "useCase": "Everyday lengths with 1 mm minor ticks and 0.5 cm midpoints" },
-        { "key": "2", "action": "Switch to Fractional Inches (in)", "useCase": "US sizing, woodworking, fabric cuts, and 1/16″ fraction readouts" },
-        { "key": "3", "action": "Switch to CSS Pixels (px)", "useCase": "UI alignment, responsive breakpoints, and viewport width checks" },
-        { "key": "4 / M", "action": "Switch to Millimeters (mm)", "useCase": "M2–M10 bolts, jewelry rings, watch lugs, and fine gaps" },
-        { "key": "D", "action": "Toggle Light / Dark Theme", "useCase": "Reduce screen glare or match ambient room lighting while measuring" },
-        { "key": "G", "action": "Add Vertical / Horizontal Guide", "useCase": "Drop draggable boundary lines for ΔX / ΔY subtraction" },
-        { "key": "C", "action": "Toggle Crosshair Overlay", "useCase": "Track live cursor X/Y coordinates across the canvas stage" },
-        { "key": "P", "action": "Toggle 180° Angle Protractor", "useCase": "Measure corners, chamfers, and slopes to 0.1° resolution" },
-        { "key": "F", "action": "Enter / Exit Fullscreen", "useCase": "Maximize measurable physical span across edge-to-edge glass" },
-        { "key": "Esc", "action": "Clear Active Guides & Modals", "useCase": "Reset guide pairs rapidly before measuring the next object" }
+        {
+          "key": "1",
+          "action": "Switch to Centimeters (cm)",
+          "useCase": "Everyday lengths with 1 mm minor ticks and 0.5 cm midpoints"
+        },
+        {
+          "key": "2",
+          "action": "Switch to Fractional Inches (in)",
+          "useCase": "US sizing, woodworking, fabric cuts, and 1/16″ fraction readouts"
+        },
+        {
+          "key": "3",
+          "action": "Switch to CSS Pixels (px)",
+          "useCase": "UI alignment, responsive breakpoints, and viewport width checks"
+        },
+        {
+          "key": "4 / M",
+          "action": "Switch to Millimeters (mm)",
+          "useCase": "M2–M10 bolts, jewelry rings, watch lugs, and fine gaps"
+        },
+        {
+          "key": "D",
+          "action": "Toggle Light / Dark Theme",
+          "useCase": "Reduce screen glare or match ambient room lighting while measuring"
+        },
+        {
+          "key": "G",
+          "action": "Add Vertical / Horizontal Guide",
+          "useCase": "Drop draggable boundary lines for ΔX / ΔY subtraction"
+        },
+        {
+          "key": "C",
+          "action": "Toggle Crosshair Overlay",
+          "useCase": "Track live cursor X/Y coordinates across the canvas stage"
+        },
+        {
+          "key": "P",
+          "action": "Toggle 180° Angle Protractor",
+          "useCase": "Measure corners, chamfers, and slopes to 0.1° resolution"
+        },
+        {
+          "key": "F",
+          "action": "Enter / Exit Fullscreen",
+          "useCase": "Maximize measurable physical span across edge-to-edge glass"
+        },
+        {
+          "key": "Esc",
+          "action": "Clear Active Guides & Modals",
+          "useCase": "Reset guide pairs rapidly before measuring the next object"
+        }
       ],
       "checklistKicker": "Pre-Measurement Verification · 6-Point Checklist",
       "checklistHeading": "Six Checks Before Trusting a Critical Reading",
@@ -1184,13 +1787,49 @@
       "s6Heading": "How CSS PPI, Physical PPI, and devicePxPerMm Relate Across Displays",
       "s6Lead": "Web browsers expose viewport CSS pixels rather than raw native LCD/OLED panel subpixels when HiDPI operating-system scaling is enabled. Using the Pythagorean diagonal formula on CSS pixels at 100% browser zoom yields exact [[code:CSS px/mm]] directly, while multiplying by [[code:window.devicePixelRatio]] yields zoom-invariant [[code:devicePxPerMm]].",
       "s6TableHeading": "Worked Density Table by Display & OS Scale",
-      "s6Headers": ["Display Configuration", "CSS Resolution", "Effective CSS PPI", "CSS px/mm", "devicePxPerMm"],
+      "s6Headers": [
+        "Display Configuration",
+        "CSS Resolution",
+        "Effective CSS PPI",
+        "CSS px/mm",
+        "devicePxPerMm"
+      ],
       "workedExamples": [
-        { "panel": "14.2\" Laptop (Mac Retina / 2× DPR)", "cssRes": "1512 × 982 CSS px (DPR 2.0)", "cssPpi": "127.0 CSS PPI", "pxPerMm": "5.000 CSS px/mm", "devicePxPerMm": "10.000 device px/mm" },
-        { "panel": "15.6\" Windows Laptop (125% OS Scale)", "cssRes": "1536 × 864 CSS px (DPR 1.25)", "cssPpi": "113.0 CSS PPI", "pxPerMm": "4.448 CSS px/mm", "devicePxPerMm": "5.560 device px/mm" },
-        { "panel": "24\" 1080p Desktop Monitor (100%)", "cssRes": "1920 × 1080 CSS px (DPR 1.0)", "cssPpi": "91.8 CSS PPI", "pxPerMm": "3.614 CSS px/mm", "devicePxPerMm": "3.614 device px/mm" },
-        { "panel": "27\" 4K UHD Monitor (150% OS Scale)", "cssRes": "2560 × 1440 CSS px (DPR 1.5)", "cssPpi": "108.8 CSS PPI", "pxPerMm": "4.283 CSS px/mm", "devicePxPerMm": "6.425 device px/mm" },
-        { "panel": "6.1\" OLED Smartphone (3× DPR)", "cssRes": "390 × 844 CSS px (DPR 3.0)", "cssPpi": "152.4 CSS PPI", "pxPerMm": "6.000 CSS px/mm", "devicePxPerMm": "18.000 device px/mm" }
+        {
+          "panel": "14.2\" Laptop (Mac Retina / 2× DPR)",
+          "cssRes": "1512 × 982 CSS px (DPR 2.0)",
+          "cssPpi": "127.0 CSS PPI",
+          "pxPerMm": "5.000 CSS px/mm",
+          "devicePxPerMm": "10.000 device px/mm"
+        },
+        {
+          "panel": "15.6\" Windows Laptop (125% OS Scale)",
+          "cssRes": "1536 × 864 CSS px (DPR 1.25)",
+          "cssPpi": "113.0 CSS PPI",
+          "pxPerMm": "4.448 CSS px/mm",
+          "devicePxPerMm": "5.560 device px/mm"
+        },
+        {
+          "panel": "24\" 1080p Desktop Monitor (100%)",
+          "cssRes": "1920 × 1080 CSS px (DPR 1.0)",
+          "cssPpi": "91.8 CSS PPI",
+          "pxPerMm": "3.614 CSS px/mm",
+          "devicePxPerMm": "3.614 device px/mm"
+        },
+        {
+          "panel": "27\" 4K UHD Monitor (150% OS Scale)",
+          "cssRes": "2560 × 1440 CSS px (DPR 1.5)",
+          "cssPpi": "108.8 CSS PPI",
+          "pxPerMm": "4.283 CSS px/mm",
+          "devicePxPerMm": "6.425 device px/mm"
+        },
+        {
+          "panel": "6.1\" OLED Smartphone (3× DPR)",
+          "cssRes": "390 × 844 CSS px (DPR 3.0)",
+          "cssPpi": "152.4 CSS PPI",
+          "pxPerMm": "6.000 CSS px/mm",
+          "devicePxPerMm": "18.000 device px/mm"
+        }
       ],
       "caveats": [
         {
@@ -1210,18 +1849,73 @@
       "s7Body2": "To keep readings repeatable within your screen’s sub-pixel resolution: align your line of sight straight perpendicular (90°) above the zero datum tick and again directly above the second guide line, calibrate with a rigid straight-edged ID-1 card rather than rounded paper corners, and switch to physical vernier calipers or micrometers whenever engineering tolerances are tighter than ±0.25 mm.",
       "s7TableHeading": "Published Physical Verification Objects Reference Table",
       "s7TableLead": "After saving calibration, place any item below lightly on screen (avoiding sharp edges on coated glass) to verify scale agreement:",
-      "s7Headers": ["Reference Object", "Metric (mm)", "Imperial (in)", "Governing Standard"],
+      "s7Headers": [
+        "Reference Object",
+        "Metric (mm)",
+        "Imperial (in)",
+        "Governing Standard"
+      ],
       "referenceItems": [
-        { "item": "ISO/IEC 7810 ID-1 Bank / Credit Card (Width)", "mm": "85.60 mm", "inches": "3.370 in", "standard": "ISO/IEC 7810:2019 ID-1" },
-        { "item": "ISO/IEC 7810 ID-1 Card (Height)", "mm": "53.98 mm", "inches": "2.125 in", "standard": "ISO/IEC 7810:2019 ID-1" },
-        { "item": "US One-Cent Penny (Diameter)", "mm": "19.05 mm", "inches": "0.750 in (3/4″)", "standard": "United States Mint Spec" },
-        { "item": "US Five-Cent Nickel (Diameter)", "mm": "21.21 mm", "inches": "0.835 in", "standard": "United States Mint Spec" },
-        { "item": "1 Euro Coin (Diameter)", "mm": "23.25 mm", "inches": "0.915 in", "standard": "European Central Bank" },
-        { "item": "US Quarter Dollar Coin (Diameter)", "mm": "24.26 mm", "inches": "0.955 in", "standard": "United States Mint Spec" },
-        { "item": "2 Euro Coin (Diameter)", "mm": "25.75 mm", "inches": "1.014 in", "standard": "European Central Bank" },
-        { "item": "Standard AA Battery (Length)", "mm": "50.50 mm", "inches": "1.988 in", "standard": "IEC R6 / ANSI 15" },
-        { "item": "US Federal Reserve Note (Width)", "mm": "155.96 mm", "inches": "6.140 in", "standard": "Bureau of Engraving & Printing" },
-        { "item": "ISO 216 A4 Paper (Short Edge)", "mm": "210.00 mm", "inches": "8.268 in", "standard": "ISO 216 Paper Series" }
+        {
+          "item": "ISO/IEC 7810 ID-1 Bank / Credit Card (Width)",
+          "mm": "85.60 mm",
+          "inches": "3.370 in",
+          "standard": "ISO/IEC 7810:2019 ID-1"
+        },
+        {
+          "item": "ISO/IEC 7810 ID-1 Card (Height)",
+          "mm": "53.98 mm",
+          "inches": "2.125 in",
+          "standard": "ISO/IEC 7810:2019 ID-1"
+        },
+        {
+          "item": "US One-Cent Penny (Diameter)",
+          "mm": "19.05 mm",
+          "inches": "0.750 in (3/4″)",
+          "standard": "United States Mint Spec"
+        },
+        {
+          "item": "US Five-Cent Nickel (Diameter)",
+          "mm": "21.21 mm",
+          "inches": "0.835 in",
+          "standard": "United States Mint Spec"
+        },
+        {
+          "item": "1 Euro Coin (Diameter)",
+          "mm": "23.25 mm",
+          "inches": "0.915 in",
+          "standard": "European Central Bank"
+        },
+        {
+          "item": "US Quarter Dollar Coin (Diameter)",
+          "mm": "24.26 mm",
+          "inches": "0.955 in",
+          "standard": "United States Mint Spec"
+        },
+        {
+          "item": "2 Euro Coin (Diameter)",
+          "mm": "25.75 mm",
+          "inches": "1.014 in",
+          "standard": "European Central Bank"
+        },
+        {
+          "item": "Standard AA Battery (Length)",
+          "mm": "50.50 mm",
+          "inches": "1.988 in",
+          "standard": "IEC R6 / ANSI 15"
+        },
+        {
+          "item": "US Federal Reserve Note (Width)",
+          "mm": "155.96 mm",
+          "inches": "6.140 in",
+          "standard": "Bureau of Engraving & Printing"
+        },
+        {
+          "item": "ISO 216 A4 Paper (Short Edge)",
+          "mm": "210.00 mm",
+          "inches": "8.268 in",
+          "standard": "ISO 216 Paper Series"
+        }
       ]
     },
     "faq": {

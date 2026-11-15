@@ -1,19 +1,53 @@
 import {
+  LOCALE_META,
   LOCALE_SOURCE_STORAGE_KEY,
   LOCALE_STORAGE_KEY,
   isLocale,
+  localizedPath,
 } from '../i18n/config.ts';
 
-function persistManualLocale(locale: string): void {
+function persistLocaleChoice(locale: string, source: 'manual' | 'auto'): void {
   try {
     localStorage.setItem(LOCALE_STORAGE_KEY, locale);
-    localStorage.setItem(LOCALE_SOURCE_STORAGE_KEY, 'manual');
+    localStorage.setItem(LOCALE_SOURCE_STORAGE_KEY, source);
   } catch {
     // Ignore storage access errors in private browsing modes
   }
 }
 
+function initLocaleSuggestionBanner(): void {
+  const banner = document.getElementById('locale-suggestion-banner');
+  const suggested = document.documentElement.dataset.suggestedLocale;
+  if (!banner || !suggested || !isLocale(suggested) || suggested === 'en') return;
+
+  const textEl = document.getElementById('locale-suggestion-text');
+  const linkEl = document.getElementById('locale-suggestion-link') as HTMLAnchorElement | null;
+  const dismissBtn = document.getElementById('locale-suggestion-dismiss');
+  if (!textEl || !linkEl || !dismissBtn) return;
+
+  const nativeName = LOCALE_META[suggested].nativeName;
+  const template = banner.dataset.textTemplate ?? 'View this page in {language}?';
+  textEl.textContent = template.replace('{language}', nativeName);
+  const targetUrl = `${localizedPath(suggested, '/')}${window.location.search}${window.location.hash}`;
+  linkEl.href = targetUrl;
+  linkEl.textContent = `${banner.dataset.switchLabel ?? 'Switch'} (${nativeName})`;
+
+  banner.classList.remove('hidden');
+
+  linkEl.addEventListener('click', () => {
+    persistLocaleChoice(suggested, 'auto');
+    delete document.documentElement.dataset.suggestedLocale;
+  });
+
+  dismissBtn.addEventListener('click', () => {
+    persistLocaleChoice('en', 'manual');
+    delete document.documentElement.dataset.suggestedLocale;
+    banner.classList.add('hidden');
+  });
+}
+
 export function initLanguageSelector(): void {
+  initLocaleSuggestionBanner();
   const root = document.querySelector<HTMLElement>('[data-language-selector]');
   if (!root) return;
 
@@ -109,7 +143,7 @@ export function initLanguageSelector(): void {
     option.addEventListener('click', () => {
       const targetLocale = option.dataset.languageOption;
       if (targetLocale && isLocale(targetLocale)) {
-        persistManualLocale(targetLocale);
+        persistLocaleChoice(targetLocale, 'manual');
       }
 
       // Preserve active query parameters (?unit=...&edges=...) and hash across locale switch

@@ -141,4 +141,90 @@ test.describe('Audit Regressions — Functional, Responsive & Accessibility Inva
     expect(actionText).toMatch(/theme|dark/i);
     expect(actionText).not.toMatch(/Toggle Dual/i);
   });
+
+  test('P0 invariants: mobile fold placement, live canvas cursor projection, localized ΔY span, focus mode, and pinch-zoom warning', async ({
+    page,
+  }) => {
+    // 1. P0.1 Mobile first-screen ruler placement at 375x667
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.goto('/');
+    const mobileBounds = await page.evaluate(() => {
+      const topCanvas = document.getElementById('ruler-canvas-top')!.getBoundingClientRect();
+      const stage = document.getElementById('ruler-stage')!.getBoundingClientRect();
+      return {
+        topCanvasTop: topCanvas.top,
+        stageTop: stage.top,
+        visibleStageH: Math.min(stage.bottom, window.innerHeight) - Math.max(stage.top, 0),
+        overflowX: document.documentElement.scrollWidth > document.documentElement.clientWidth,
+      };
+    });
+    expect(mobileBounds.overflowX).toBe(false);
+    expect(mobileBounds.topCanvasTop).toBeLessThan(280);
+    expect(mobileBounds.visibleStageH).toBeGreaterThanOrEqual(220);
+
+    // 2. P0.2 Live edge cursor canvas projection updates on pointermove & clears on pointerleave
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.goto('/');
+    await page.evaluate(() => document.fonts.ready);
+    const readCanvasStats = () =>
+      page.evaluate(() => {
+        const c = document.getElementById('ruler-canvas-top') as HTMLCanvasElement;
+        const data = c.getContext('2d')!.getImageData(0, 0, c.width, c.height).data;
+        let blueCursorPixels = 0;
+        let h = 2166136261;
+        for (let i = 0; i < data.length; i += 4) {
+          h ^= data[i];
+          h = Math.imul(h, 16777619);
+          if (data[i + 2] > 140 && data[i + 2] - data[i] > 60) {
+            blueCursorPixels++;
+          }
+        }
+        return { hash: h >>> 0, blueCursorPixels };
+      });
+    const before = await readCanvasStats();
+    expect(before.blueCursorPixels).toBe(0);
+    const stageBox = await page.locator('#ruler-stage').boundingBox();
+    expect(stageBox).not.toBeNull();
+    await page.mouse.move(stageBox!.x + 210, stageBox!.y + 120);
+    const afterMove = await readCanvasStats();
+    expect(afterMove.hash).not.toBe(before.hash);
+    expect(afterMove.blueCursorPixels).toBeGreaterThanOrEqual(40);
+    await page.mouse.move(5, 5);
+    await page.locator('#ruler-workspace').dispatchEvent('pointerleave');
+    const afterLeave = await readCanvasStats();
+    expect(afterLeave.blueCursorPixels).toBe(0);
+
+    // 3. P0.1 Focus Mode persists across reload
+    await page.locator('#btn-focus-mode').click();
+    await expect(page.locator('[data-hero-section]')).toBeHidden();
+    await page.reload();
+    await expect(page.locator('[data-hero-section]')).toBeHidden();
+    await page.locator('#btn-focus-mode').click();
+    await expect(page.locator('[data-hero-section]')).toBeVisible();
+
+    // 4. P0.3 Localized ΔY guide span on /es (never raw English 'ΔY guide span')
+    await page.goto('/es');
+    await page.locator('[data-guide-axis-btn="y"]').click();
+    await page.locator('#ruler-stage').click({ position: { x: 100, y: 90 } });
+    await page.locator('#ruler-stage').click({ position: { x: 100, y: 170 } });
+    const esSpanLabel = await page.locator('#guide-span-readout').getAttribute('data-span-label');
+    expect(esSpanLabel).toBeTruthy();
+    expect(esSpanLabel).not.toBe('ΔY guide span');
+
+    // 5. P0.4 Pinch-zoom (visualViewport.scale = 1.5) surfaces explicit warning banner
+    await page.addInitScript(() => {
+      Object.defineProperty(window, 'visualViewport', {
+        configurable: true,
+        value: {
+          scale: 1.5,
+          addEventListener: () => {},
+          removeEventListener: () => {},
+        },
+      });
+    });
+    await page.goto('/');
+    await expect(page.locator('#display-change-banner')).toBeVisible();
+    await expect(page.locator('#display-change-banner')).toHaveAttribute('data-tone', 'warning');
+    await expect(page.locator('#display-change-text')).toContainText('1.50');
+  });
 });

@@ -34,6 +34,7 @@ const FALLBACK_RUNTIME: RuntimeDict = {
   displayZoomManualBanner: 'Browser zoom or display scaling changed. Manual calibration scale adjusted proportionally.',
   displayZoomAutoBanner: 'Browser zoom or display scaling changed ({w}×{h}). Ruler updated to match active CSS scale.',
   displaySwitchedBanner: 'Display resolution changed ({w}×{h}). Active profile switched to {label}.',
+  pinchZoomBanner: 'Pinch zoom active ({scale}×). Reset zoom to 100% for accurate physical measurement.',
   enterDiagonalPrompt: 'Enter a diagonal size above to preview calibrated PPI.',
   calculatedScale: 'Calculated scale: {ppi} CSS PPI ({pxPerMm} px/mm)',
   basisMap: {},

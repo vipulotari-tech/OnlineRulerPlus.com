@@ -138,6 +138,29 @@ export function renderGuidesLayer(opts: RenderGuidesOptions): void {
     layerEl.appendChild(line);
   }
 
+  // Render bounding-box highlight when at least 2 X and 2 Y guides exist
+  const xSorted = guides.filter((g) => g.axis === 'x').sort((a, b) => a.px - b.px);
+  const ySorted = guides.filter((g) => g.axis === 'y').sort((a, b) => a.px - b.px);
+  if (xSorted.length >= 2 && ySorted.length >= 2) {
+    const x1 = xSorted[xSorted.length - 2].px;
+    const x2 = xSorted[xSorted.length - 1].px;
+    const y1 = ySorted[ySorted.length - 2].px;
+    const y2 = ySorted[ySorted.length - 1].px;
+    const w = x2 - x1;
+    const h = y2 - y1;
+    if (w > 0 && h > 0) {
+      const box = document.createElement('div');
+      box.dataset.boundingBox = 'true';
+      box.className =
+        'pointer-events-none absolute border border-dashed border-link bg-link/5 z-10';
+      box.style.left = `${originInsetPx + x1}px`;
+      box.style.top = `${originInsetPx + y1}px`;
+      box.style.width = `${w}px`;
+      box.style.height = `${h}px`;
+      layerEl.appendChild(box);
+    }
+  }
+
   updateGuideSpanBadge(guides, formatCoord);
 }
 
@@ -152,10 +175,12 @@ export function updateGuideSpanBadge(
 
   const xSpanPx = xGuides.length >= 2 ? xGuides[xGuides.length - 1].px - xGuides[xGuides.length - 2].px : 0;
   const ySpanPx = yGuides.length >= 2 ? yGuides[yGuides.length - 1].px - yGuides[yGuides.length - 2].px : 0;
+  const diagPx = xSpanPx > 0 && ySpanPx > 0 ? Math.hypot(xSpanPx, ySpanPx) : 0;
 
   const parts: string[] = [];
   if (xSpanPx > 0) parts.push(`ΔX: ${formatCoord(xSpanPx)}`);
   if (ySpanPx > 0) parts.push(`ΔY: ${formatCoord(ySpanPx)}`);
+  if (diagPx > 0) parts.push(`Diag: ${formatCoord(diagPx)}`);
 
   if (parts.length > 0) {
     badge.classList.remove('hidden');
@@ -167,16 +192,19 @@ export function updateGuideSpanBadge(
       badge.dataset.spanLabel = formatTemplate(rt.spanGuideLabel, { axis: 'ΔX' });
       badge.dataset.spanYPx = String(ySpanPx);
       badge.dataset.spanYLabel = formatTemplate(rt.spanGuideLabel, { axis: 'ΔY' });
+      badge.dataset.spanDiagPx = String(diagPx);
     } else if (xSpanPx > 0) {
       badge.dataset.spanPx = String(xSpanPx);
       badge.dataset.spanLabel = formatTemplate(rt.spanGuideLabel, { axis: 'ΔX' });
       delete badge.dataset.spanYPx;
       delete badge.dataset.spanYLabel;
+      delete badge.dataset.spanDiagPx;
     } else {
       badge.dataset.spanPx = String(ySpanPx);
-      badge.dataset.spanLabel = 'ΔY guide span';
+      badge.dataset.spanLabel = formatTemplate(rt.spanGuideLabel, { axis: 'ΔY' });
       delete badge.dataset.spanYPx;
       delete badge.dataset.spanYLabel;
+      delete badge.dataset.spanDiagPx;
     }
   } else {
     badge.classList.add('hidden');
@@ -184,6 +212,7 @@ export function updateGuideSpanBadge(
     delete badge.dataset.spanLabel;
     delete badge.dataset.spanYPx;
     delete badge.dataset.spanYLabel;
+    delete badge.dataset.spanDiagPx;
   }
 }
 
@@ -239,6 +268,8 @@ export function renderFloatingRulersLayer(opts: RenderFloatingRulersOptions): vo
       originInsetPx,
       unit: prefs.unit,
       dualUnit: prefs.dualUnit,
+      dualPair: prefs.dualPair,
+      inchDivisor: prefs.inchDivisor,
       pxPerMm,
       dpr: window.devicePixelRatio || 1,
       dark,

@@ -2,22 +2,25 @@ import {
   CARD_CORNER_RADIUS_MM,
   CARD_HEIGHT_MM,
   CARD_WIDTH_MM,
+  MM_PER_INCH,
   cardHeightForWidth,
-  cardHeightPx,
   cardWidthPx,
   classifyDisplayChange,
   createManualProfile,
   cssPpi,
   detectCalibration,
+  getReferencePreset,
   parseDiagonal,
   pxPerMmFromCardHeight,
   pxPerMmFromCardWidth,
   pxPerMmFromDiagonal,
+  pxPerMmFromReference,
   readDisplayInfo,
   removeProfileForDisplay,
   saveProfileToStore,
   type CalibrationMethod,
   type DisplayInfo,
+  type ReferencePresetId,
 } from '../lib/ruler/index.ts';
 import {
   formatTemplate,
@@ -34,10 +37,13 @@ export class CalibrationController {
   private activeTab: CalibrationMethod = 'card';
   private cardPortrait = false;
   private manualCardOrientation = false;
-  /** Current card long-edge width in CSS px during interactive sizing. */
+  private activeRefPreset: ReferencePresetId = 'card-1x';
+  private customRefMm = 100;
+  /** Current reference target width in CSS px during interactive sizing. */
   private currentCardWidthPx: number;
   private lastScreenX = window.screenX;
   private lastScreenY = window.screenY;
+  private pinchWarningActive = false;
 
   constructor(workspace: WorkspaceController) {
     this.workspace = workspace;
@@ -140,8 +146,12 @@ export class CalibrationController {
       this.updateDiagonalPreview(String(cal.diagonalIn));
     }
 
-    // Sync card sizer
-    this.currentCardWidthPx = cal.cardWidthPx ?? cardWidthPx(cal.pxPerMm);
+    // Sync reference sizer cleanly to current calibration scale
+    const activeRefMm = this.getActiveRefMm();
+    this.currentCardWidthPx =
+      this.activeRefPreset === 'card-1x'
+        ? (cal.cardWidthPx ?? cardWidthPx(cal.pxPerMm))
+        : Math.round(activeRefMm * cal.pxPerMm * 10) / 10;
     this.renderCardBox();
     this.renderVerificationShapes(cal.pxPerMm);
   }
@@ -319,46 +329,140 @@ export class CalibrationController {
     });
   }
 
+  private getActiveRefMm(): number {
+    if (this.activeRefPreset === 'custom') return Math.max(5, this.customRefMm);
+    return getReferencePreset(this.activeRefPreset).widthMm;
+  }
+
+  private getRefBounds(): { readonly min: number; readonly max: number } {
+    if (this.activeRefPreset === 'card-1x') {
+      return { min: 120, max: 900 };
+    }
+    const refMm = this.getActiveRefMm();
+    const min = Math.max(40, Math.round(refMm * 1.5));
+    const max = Math.min(2000, Math.max(min + 100, Math.round(refMm * 12)));
+    return { min, max };
+  }
+
+  private setReferencePreset(presetId: ReferencePresetId): void {
+    const cal = this.workspace.getCalibration();
+    const currentPxPerMm =
+      this.currentCardWidthPx > 0 ? this.currentCardWidthPx / this.getActiveRefMm() : cal.pxPerMm;
+    this.activeRefPreset = presetId;
+    const nextRefMm = this.getActiveRefMm();
+    const bounds = this.getRefBounds();
+    this.currentCardWidthPx = Math.max(
+      bounds.min,
+      Math.min(bounds.max, Math.round(nextRefMm * currentPxPerMm * 10) / 10),
+    );
+    document.querySelectorAll<HTMLButtonElement>('[data-ref-preset]').forEach((btn) => {
+      const active = btn.dataset.refPreset === presetId;
+      btn.dataset.active = String(active);
+      btn.setAttribute('aria-pressed', String(active));
+    });
+    const customRow = document.getElementById('custom-ref-row');
+    if (customRow) {
+      customRow.classList.toggle('hidden', presetId !== 'custom');
+      customRow.classList.toggle('flex', presetId === 'custom');
+    }
+    this.renderCardBox();
+  }
+
   private renderCardBox(): void {
     const box = document.getElementById('card-calibration-box');
     const slider = document.getElementById('slider-card-width') as HTMLInputElement | null;
     const numInput = document.getElementById('input-card-px') as HTMLInputElement | null;
     const scaleReadout = document.getElementById('card-scale-readout');
-    const orientBtn = document.getElementById('btn-card-orientation');
+    const orientBtn = document.getElementById('btn-card-orientation') as HTMLButtonElement | null;
     const pxLabel = document.getElementById('label-card-px');
 
-    const widthPx = Math.max(120, Math.min(900, this.currentCardWidthPx));
-    const heightPx = cardHeightForWidth(widthPx);
-    const pxPerMm = widthPx / CARD_WIDTH_MM;
-    const radiusPx = CARD_CORNER_RADIUS_MM * pxPerMm;
+    const bounds = this.getRefBounds();
+    const refMm = this.getActiveRefMm();
+    const isCard1x = this.activeRefPreset === 'card-1x';
+    const preset = this.activeRefPreset === 'custom' ? null : getReferencePreset(this.activeRefPreset);
+    const isCircular = Boolean(preset?.circular);
+
+    const widthPx = Math.max(bounds.min, Math.min(bounds.max, this.currentCardWidthPx));
+    const pxPerMm = widthPx / refMm;
+    const heightPx = isCard1x
+      ? cardHeightForWidth(widthPx)
+      : isCircular
+        ? widthPx
+        : Math.max(72, Math.min(220, CARD_HEIGHT_MM * pxPerMm));
+    const radiusPx = isCircular ? widthPx / 2 : CARD_CORNER_RADIUS_MM * pxPerMm;
 
     if (pxLabel) {
-      pxLabel.textContent = this.cardPortrait
-        ? (pxLabel.dataset.labelLong ?? 'Long Edge (px):')
-        : (pxLabel.dataset.labelWidth ?? 'Width (px):');
+      pxLabel.textContent =
+        isCard1x && this.cardPortrait
+          ? (pxLabel.dataset.labelLong ?? 'Long Edge (px):')
+          : (pxLabel.dataset.labelWidth ?? 'Width (px):');
     }
 
     if (box) {
-      const displayW = this.cardPortrait ? heightPx : widthPx;
-      const displayH = this.cardPortrait ? widthPx : heightPx;
+      const usePortrait = isCard1x && this.cardPortrait;
+      const displayW = usePortrait ? heightPx : widthPx;
+      const displayH = usePortrait ? widthPx : heightPx;
       box.style.width = `${displayW.toFixed(1)}px`;
       box.style.height = `${displayH.toFixed(1)}px`;
-      box.style.borderRadius = `${radiusPx.toFixed(1)}px`;
+      box.style.borderRadius = isCircular ? '9999px' : `${Math.min(18, radiusPx).toFixed(1)}px`;
       box.dataset.cardWidthPx = widthPx.toFixed(2);
       box.dataset.cardHeightPx = heightPx.toFixed(2);
-      box.dataset.orientation = this.cardPortrait ? 'portrait' : 'landscape';
+      box.dataset.orientation = usePortrait ? 'portrait' : 'landscape';
+      box.dataset.refPreset = this.activeRefPreset;
+
+      const chipIcon = document.getElementById('card-chip-icon');
+      const refTitle = document.getElementById('card-ref-title');
+      const refWidthLabel = document.getElementById('card-ref-width-label');
+      const refImperialLabel = document.getElementById('card-ref-imperial-label');
+      const refHeightLabel = document.getElementById('card-ref-height-label');
+      const placeTitle = document.getElementById('card-place-title');
+      const refSubLabel = document.getElementById('card-ref-sub-label');
+      const compactCircle = isCircular && widthPx < 160;
+      if (chipIcon) chipIcon.classList.toggle('hidden', !isCard1x);
+      if (refTitle) {
+        refTitle.classList.toggle('hidden', compactCircle);
+        refTitle.textContent =
+          this.activeRefPreset === 'custom'
+            ? `Custom (${refMm.toFixed(1)} mm)`
+            : (preset?.multiplierLabel ?? 'ISO/IEC 7810 ID-1');
+      }
+      if (placeTitle) placeTitle.classList.toggle('hidden', compactCircle);
+      if (refSubLabel) refSubLabel.classList.toggle('hidden', compactCircle);
+      if (refImperialLabel) {
+        refImperialLabel.classList.toggle('hidden', compactCircle);
+        refImperialLabel.textContent = isCard1x
+          ? '3.370 × 2.125 in'
+          : `${(refMm / MM_PER_INCH).toFixed(3)} in`;
+      }
+      if (refWidthLabel) {
+        refWidthLabel.textContent = `${refMm.toFixed(2)} mm`;
+        refWidthLabel.classList.toggle('mx-auto', compactCircle);
+      }
+      if (refHeightLabel) {
+        refHeightLabel.textContent = isCard1x ? `${CARD_HEIGHT_MM.toFixed(2)} mm` : '';
+      }
+      box.classList.toggle('justify-between', !compactCircle);
+      box.classList.toggle('items-center', compactCircle);
+      box.classList.toggle('justify-center', compactCircle);
+      box.classList.toggle('p-2', compactCircle);
+      box.classList.toggle('p-4', !compactCircle);
     }
 
-    if (slider && document.activeElement !== slider) {
-      slider.value = widthPx.toFixed(1);
+    if (slider) {
+      slider.min = String(bounds.min);
+      slider.max = String(bounds.max);
+      if (document.activeElement !== slider) slider.value = widthPx.toFixed(1);
     }
-    if (numInput && document.activeElement !== numInput) {
-      numInput.value = widthPx.toFixed(1);
+    if (numInput) {
+      numInput.min = String(bounds.min);
+      numInput.max = String(bounds.max);
+      if (document.activeElement !== numInput) numInput.value = widthPx.toFixed(1);
     }
     if (scaleReadout) {
       scaleReadout.textContent = `${cssPpi(pxPerMm).toFixed(1)} CSS PPI · ${pxPerMm.toFixed(3)} px/mm`;
     }
     if (orientBtn) {
+      orientBtn.classList.toggle('hidden', !isCard1x);
       orientBtn.textContent = this.cardPortrait
         ? (orientBtn.dataset.labelPortrait ?? 'Portrait (53.98 × 85.60 mm)')
         : (orientBtn.dataset.labelLandscape ?? 'Landscape (85.60 × 53.98 mm)');
@@ -366,7 +470,8 @@ export class CalibrationController {
   }
 
   private setCardWidth(nextWidthPx: number): void {
-    const clamped = Math.max(120, Math.min(900, Math.round(nextWidthPx * 10) / 10));
+    const bounds = this.getRefBounds();
+    const clamped = Math.max(bounds.min, Math.min(bounds.max, Math.round(nextWidthPx * 10) / 10));
     this.currentCardWidthPx = clamped;
     this.renderCardBox();
   }
@@ -379,22 +484,80 @@ export class CalibrationController {
     const orientBtn = document.getElementById('btn-card-orientation');
     const applyBtn = document.getElementById('btn-apply-card');
     const cardArea = document.getElementById('card-interactive-area');
+    const dragHandle = document.getElementById('card-drag-handle');
+    const customLenInput = document.getElementById('input-custom-ref-length') as HTMLInputElement | null;
+    const customUnitSelect = document.getElementById('select-custom-ref-unit') as HTMLSelectElement | null;
+
+    document.querySelectorAll<HTMLButtonElement>('[data-ref-preset]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.refPreset as ReferencePresetId | undefined;
+        if (id) this.setReferencePreset(id);
+      });
+    });
+
+    const syncCustomRef = () => {
+      if (!customLenInput || !customUnitSelect) return;
+      const raw = Number(customLenInput.value);
+      if (!Number.isFinite(raw) || raw <= 0) return;
+      const u = customUnitSelect.value;
+      const mm = u === 'cm' ? raw * 10 : u === 'in' ? raw * MM_PER_INCH : raw;
+      const clampedMm = Math.max(5, Math.min(2000, mm));
+      this.customRefMm = clampedMm;
+      if (this.activeRefPreset !== 'custom') {
+        this.setReferencePreset('custom');
+      } else {
+        this.renderCardBox();
+      }
+    };
+    customLenInput?.addEventListener('input', syncCustomRef);
+    customUnitSelect?.addEventListener('change', syncCustomRef);
+
+    // Direct corner/edge pointer drag handle on #card-calibration-box
+    dragHandle?.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dragHandle.setPointerCapture(e.pointerId);
+      const startX = e.clientX;
+      const startY = e.clientY;
+      const startWidthPx = this.currentCardWidthPx;
+      const usePortrait = this.activeRefPreset === 'card-1x' && this.cardPortrait;
+      const boxEl = document.getElementById('card-calibration-box');
+      if (boxEl) boxEl.dataset.dragging = 'true';
+
+      const onMove = (me: PointerEvent) => {
+        const dx = me.clientX - startX;
+        const dy = me.clientY - startY;
+        const delta = usePortrait ? dy : Math.abs(dx) >= Math.abs(dy) ? dx : dy * 1.4;
+        this.setCardWidth(startWidthPx + delta);
+      };
+      const onUp = () => {
+        if (boxEl) delete boxEl.dataset.dragging;
+        dragHandle.removeEventListener('pointermove', onMove);
+        dragHandle.removeEventListener('pointerup', onUp);
+        dragHandle.removeEventListener('pointercancel', onUp);
+      };
+      dragHandle.addEventListener('pointermove', onMove);
+      dragHandle.addEventListener('pointerup', onUp);
+      dragHandle.addEventListener('pointercancel', onUp);
+    });
 
     slider?.addEventListener('input', () => {
       this.setCardWidth(Number(slider.value));
     });
 
     numInput?.addEventListener('input', () => {
+      const bounds = this.getRefBounds();
       const v = Number(numInput.value);
-      if (Number.isFinite(v) && v >= 120 && v <= 900) {
+      if (Number.isFinite(v) && v >= bounds.min && v <= bounds.max) {
         this.setCardWidth(v);
       }
     });
 
     numInput?.addEventListener('change', () => {
+      const bounds = this.getRefBounds();
       const v = Number(numInput.value);
       if (numInput.value.trim() !== '' && Number.isFinite(v)) {
-        const clamped = Math.max(120, Math.min(900, v));
+        const clamped = Math.max(bounds.min, Math.min(bounds.max, v));
         this.setCardWidth(clamped);
         numInput.value = clamped.toFixed(1);
       } else {
@@ -430,18 +593,34 @@ export class CalibrationController {
     });
 
     applyBtn?.addEventListener('click', () => {
-      const res = this.cardPortrait
-        ? pxPerMmFromCardHeight(cardHeightForWidth(this.currentCardWidthPx))
-        : pxPerMmFromCardWidth(this.currentCardWidthPx);
+      const refMm = this.getActiveRefMm();
+      const res =
+        this.activeRefPreset === 'card-1x'
+          ? this.cardPortrait
+            ? pxPerMmFromCardHeight(cardHeightForWidth(this.currentCardWidthPx))
+            : pxPerMmFromCardWidth(this.currentCardWidthPx)
+          : pxPerMmFromReference(this.currentCardWidthPx, refMm);
       if (!res.ok) return;
 
       const disp = readDisplayInfo(window);
+      const presetInfo =
+        this.activeRefPreset === 'custom' ? null : getReferencePreset(this.activeRefPreset);
+      const profileLabel =
+        this.activeRefPreset === 'card-1x'
+          ? 'ISO/IEC 7810 ID-1 Card (85.60 mm)'
+          : this.activeRefPreset === 'custom'
+            ? `Custom Reference (${refMm.toFixed(1)} mm)`
+            : (presetInfo?.multiplierLabel ?? 'Reference calibration');
       const profile = createManualProfile(
         disp,
         res.value,
         'card',
-        'ISO/IEC 7810 ID-1 Card (85.60 mm)',
-        { cardWidthPx: this.currentCardWidthPx },
+        profileLabel,
+        {
+          cardWidthPx: cardWidthPx(res.value),
+          referencePresetId: this.activeRefPreset,
+          referenceMm: refMm,
+        },
       );
       const cleanStore = removeProfileForDisplay(this.workspace.getStore(), disp);
       const nextStore = saveProfileToStore(cleanStore, profile);
@@ -515,17 +694,43 @@ export class CalibrationController {
     });
   }
 
+  private checkPinchZoom(info: DisplayInfo): void {
+    const vvScale = info.visualViewportScale ?? 1;
+    const isPinched = Math.abs(vvScale - 1) > 0.02;
+    if (isPinched) {
+      const rt = getRuntimeDict();
+      this.pinchWarningActive = true;
+      this.showBanner(
+        formatTemplate(rt.pinchZoomBanner, { scale: vvScale.toFixed(2) }),
+        'warning',
+      );
+    } else if (this.pinchWarningActive) {
+      this.pinchWarningActive = false;
+      document.getElementById('display-change-banner')?.classList.add('hidden');
+    }
+  }
+
   private bindDisplayWatchers(): void {
+    this.checkPinchZoom(this.workspace.getDisplay());
+
     const checkDisplay = () => {
       const prev = this.workspace.getDisplay();
       const next = readDisplayInfo(window);
       const change = classifyDisplayChange(prev, next);
 
-      if (change === 'none') return;
+      if (change === 'none') {
+        this.checkPinchZoom(next);
+        return;
+      }
       this.workspace.refreshForDisplayChange(next);
       this.syncUI();
 
       const rt = getRuntimeDict();
+      if (Math.abs((next.visualViewportScale ?? 1) - 1) > 0.02) {
+        this.checkPinchZoom(next);
+        return;
+      }
+      this.pinchWarningActive = false;
       if (change === 'orientation') {
         this.showBanner(
           formatTemplate(rt.displayOrientationBanner, {
@@ -568,6 +773,7 @@ export class CalibrationController {
       checkDisplay();
     });
     window.screen.orientation?.addEventListener('change', checkDisplay);
+    window.visualViewport?.addEventListener('resize', checkDisplay);
 
     // Poll window.screenX/screenY lightly when moving between multi-monitor setups of identical resolution
     window.setInterval(() => {

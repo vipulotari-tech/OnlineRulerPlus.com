@@ -140,6 +140,20 @@ function estimateWithoutMatch(info: DisplayInfo): DetectionResult {
     }
     return est(CSS_PX_PER_INCH, 'Desktop display', 'CSS reference scale (96 px per inch)');
   }
+  if (info.touch && info.platform === 'other') {
+    return est(
+      NOMINAL_CSS_PPI.android,
+      'Touchscreen device (uncalibrated)',
+      'Nominal mobile screen density',
+    );
+  }
+  if (info.touch && info.dpr >= 1.5 && Math.min(info.screenWidth, info.screenHeight) <= 900) {
+    return est(
+      NOMINAL_CSS_PPI.android,
+      'Touchscreen device (uncalibrated)',
+      'Nominal mobile screen density',
+    );
+  }
   return est(NOMINAL_CSS_PPI.scaledWindows, 'Scaled laptop or desktop display', 'Typical density at default OS scaling');
 }
 

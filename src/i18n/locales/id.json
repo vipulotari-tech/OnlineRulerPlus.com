@@ -47,7 +47,10 @@
       "calibration": "Kalibrasi",
       "howItWorks": "Cara Kerja",
       "ppiTable": "Tabel PPI"
-    }
+    },
+    "localeSuggestionText": "Lihat halaman ini dalam {language}?",
+    "localeSuggestionSwitch": "Ganti",
+    "localeSuggestionDismiss": "Tutup saran bahasa"
   },
   "footer": {
     "footnote": "1. Akurasi fisik sebenarnya memerlukan kalibrasi layar menggunakan kartu standar ISO/IEC 7810 ID-1 (85,60 × 53,98 mm) atau diagonal layar yang diketahui pada zoom browser 100%. Tanpa kalibrasi, browser menggunakan standar 96 piksel CSS per inci.",
@@ -85,18 +88,54 @@
     "enableShortcuts": "Aktifkan pintasan satu tombol (G, C, P, F, 1–4, D, H)",
     "gotIt": "Mengerti",
     "shortcuts": [
-      { "key": "G", "action": "Aktifkan/nonaktifkan garis panduan klik" },
-      { "key": "C", "action": "Aktifkan/nonaktifkan garis silang kursor" },
-      { "key": "P", "action": "Aktifkan/nonaktifkan busur derajat 180°" },
-      { "key": "F", "action": "Masuk atau keluar mode layar penuh" },
-      { "key": "1", "action": "Ubah satuan ke Sentimeter (cm)" },
-      { "key": "2", "action": "Ubah satuan ke Inci (in)" },
-      { "key": "3", "action": "Ubah satuan ke Piksel CSS (px)" },
-      { "key": "4 / M", "action": "Ubah satuan ke Milimeter (mm)" },
-      { "key": "D", "action": "Ganti mode terang dan gelap" },
-      { "key": "H", "action": "Buka atau tutup dialog pintasan keyboard ini" },
-      { "key": "Esc", "action": "Hapus semua garis panduan atau tutup dialog aktif" },
-      { "key": "← / →", "action": "Sesuaikan ukuran kalibrasi kartu 1px (Shift untuk 5px)" }
+      {
+        "key": "G",
+        "action": "Aktifkan/nonaktifkan garis panduan klik"
+      },
+      {
+        "key": "C",
+        "action": "Aktifkan/nonaktifkan garis silang kursor"
+      },
+      {
+        "key": "P",
+        "action": "Aktifkan/nonaktifkan busur derajat 180°"
+      },
+      {
+        "key": "F",
+        "action": "Masuk atau keluar mode layar penuh"
+      },
+      {
+        "key": "1",
+        "action": "Ubah satuan ke Sentimeter (cm)"
+      },
+      {
+        "key": "2",
+        "action": "Ubah satuan ke Inci (in)"
+      },
+      {
+        "key": "3",
+        "action": "Ubah satuan ke Piksel CSS (px)"
+      },
+      {
+        "key": "4 / M",
+        "action": "Ubah satuan ke Milimeter (mm)"
+      },
+      {
+        "key": "D",
+        "action": "Ganti mode terang dan gelap"
+      },
+      {
+        "key": "H",
+        "action": "Buka atau tutup dialog pintasan keyboard ini"
+      },
+      {
+        "key": "Esc",
+        "action": "Hapus semua garis panduan atau tutup dialog aktif"
+      },
+      {
+        "key": "← / →",
+        "action": "Sesuaikan ukuran kalibrasi kartu 1px (Shift untuk 5px)"
+      }
     ]
   },
   "hero": {
@@ -159,7 +198,30 @@
     "datumBody": "Sejajarkan benda Anda dengan tanda [[strong:0]]. Klik penggaris atau area kotak untuk memasang garis panduan yang dapat digeser.",
     "liveCursorInit": "X: 0.00 cm · Y: 0.00 cm",
     "saveToHistory": "Simpan ke Riwayat",
-    "keysHint": "Tombol: [[kbd:1]] cm · [[kbd:2]] in · [[kbd:3]] px · [[kbd:G]] garis · [[kbd:C]] silang · [[kbd:F]] layar penuh"
+    "keysHint": "Tombol: [[kbd:1]] cm · [[kbd:2]] in · [[kbd:3]] px · [[kbd:G]] garis · [[kbd:C]] silang · [[kbd:F]] layar penuh",
+    "focusMode": "Fokus",
+    "focusModeExit": "Tampilkan Info",
+    "focusModeTitle": "Aktifkan mode fokus ringkas (sembunyikan intro)",
+    "dualCmPxTitle": "Skala ganda cm + px",
+    "dualInPxTitle": "Skala ganda inci + px",
+    "inchPrecisionAria": "Presisi pecahan inci",
+    "photoMode": "Foto / Ctrl+V",
+    "photoModeTitle": "Ukur foto atau tangkapan layar Ctrl+V secara offline",
+    "photoPanelAria": "Alat ukur foto & papan klip lokal",
+    "photoChooseBtn": "Pilih Foto",
+    "photoPasteBtn": "Tempel (Ctrl+V)",
+    "photoToolCal": "1. Kalibrasi 2-ttk",
+    "photoToolLine": "2. Garis",
+    "photoToolRect": "3. Kotak ΔX / ΔY",
+    "photoRefLenAria": "Panjang referensi diketahui",
+    "photoRefUnitAria": "Satuan referensi",
+    "photoApplyCalBtn": "Terapkan Skala",
+    "photoUndoBtn": "Urungkan",
+    "photoClearBtn": "Hapus",
+    "photoExportBtn": "Ekspor PNG",
+    "photoCloseBtn": "Tutup",
+    "photoEmptyTitle": "Penggaris Foto & Papan Klip 100% Lokal",
+    "photoEmptyDesc": "Tekan Ctrl+V untuk menempel gambar atau pilih file. Tidak ada gambar yang diunggah."
   },
   "calibration": {
     "kicker": "Kalibrasi Kerapatan Layar · Disimpan Lokal per Layar",
@@ -235,7 +297,23 @@
     "historyClearBtn": "Hapus",
     "historyEmpty": "Pasang dua garis panduan sejajar di area penggaris lalu klik [[strong:Simpan ke Riwayat]] untuk menyimpan jarak ([[code:ΔX]] / [[code:ΔY]]) secara lokal di perangkat Anda.",
     "historyFooterLeft": "Penyimpanan: hanya localStorage",
-    "historyFooterRight": "Tanpa sinkronisasi jaringan"
+    "historyFooterRight": "Tanpa sinkronisasi jaringan",
+    "refPresetGroupAria": "Target kalibrasi referensi",
+    "refTargetLabel": "Target:",
+    "refCard1x": "1× Kartu (85,6 mm)",
+    "refCard2x": "2× Kartu (171,2 mm)",
+    "refCard3x": "3× Kartu (256,8 mm)",
+    "refA4": "A4 (210 mm)",
+    "refLetter": "US Letter (215,9 mm)",
+    "refCd": "CD/DVD (120 mm)",
+    "refQuarter": "Koin Quarter (24,26 mm)",
+    "refEuro": "Koin €1 (23,25 mm)",
+    "refCustom": "Kustom",
+    "refCustomLengthLabel": "Panjang objek:",
+    "refCustomUnitAria": "Satuan objek kustom",
+    "refDragHint": "Seret sudut biru atau penggeser untuk mencocokkan",
+    "cardDragHandleAria": "Seret sudut untuk menyesuaikan kotak referensi",
+    "cardDragHandleTitle": "Seret sudut untuk ubah ukuran"
   },
   "runtime": {
     "statusLabels": {
@@ -276,7 +354,8 @@
       "Typical density at default OS scaling": "Kerapatan umum pada skala bawaan OS",
       "Manual calibration adjusted for current zoom or scaling": "Kalibrasi manual disesuaikan dengan zoom atau skala saat ini",
       "Calibrated against an ISO/IEC 7810 ID-1 card (85.60 × 53.98 mm)": "Dikalibrasi memakai kartu ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)",
-      "Calibrated from entered display diagonal": "Dikalibrasi dari diagonal layar yang dimasukkan"
+      "Calibrated from entered display diagonal": "Dikalibrasi dari diagonal layar yang dimasukkan",
+      "Nominal mobile screen density": "Kepadatan layar seluler nominal"
     },
     "deviceLabelMap": {
       "Desktop display": "Layar desktop",
@@ -285,7 +364,8 @@
       "Android device": "Perangkat Android",
       "Mac with Retina display": "Mac dengan layar Retina",
       "Scaled laptop or desktop display": "Laptop atau monitor terskala",
-      "Credit card calibration": "Kalibrasi kartu bank"
+      "Credit card calibration": "Kalibrasi kartu bank",
+      "Touchscreen device (uncalibrated)": "Perangkat layar sentuh (belum dikalibrasi)"
     },
     "errorMap": {
       "Enter your screen diagonal in inches.": "Masukkan diagonal layar Anda dalam inci.",
@@ -300,7 +380,8 @@
     },
     "displaySizeSuffix": "Layar {long}×{short}",
     "typMonitorBasis": "Mengasumsikan layar umum {diag}″ pada resolusi ini",
-    "manualDiagBasis": "Diagonal Layar {diag}″"
+    "manualDiagBasis": "Diagonal Layar {diag}″",
+    "pinchZoomBanner": "Zoom cubit aktif ({scale}×). Kembalikan ke 100% untuk pengukuran fisik akurat."
   },
   "home": {
     "title": "Penggaris Online | Penggaris Ukuran Asli Gratis (Inci, cm & mm)",
@@ -390,14 +471,62 @@
       "Kesalahan 96 PPI Tanpa Kalibrasi"
     ],
     "ppiRows": [
-      { "device": "13,3\" MacBook Air / Pro (Retina)", "res": "1440 × 900 CSS (2×)", "ppi": "127,7 PPI", "pxMm": "5,027 px/mm", "err": "−24,8% (menggambar 7,52 cm)" },
-      { "device": "14,2\" MacBook Pro (Liquid Retina XDR)", "res": "1512 × 982 CSS (2×)", "ppi": "127,0 PPI", "pxMm": "5,000 px/mm", "err": "−24,4% (menggambar 7,56 cm)" },
-      { "device": "15,6\" Laptop Full HD (Skala 100% Windows)", "res": "1920 × 1080 CSS (1×)", "ppi": "141,2 PPI", "pxMm": "5,559 px/mm", "err": "−32,0% (menggambar 6,80 cm)" },
-      { "device": "15,6\" Laptop Full HD (Skala 125% Windows)", "res": "1536 × 864 CSS (1,25×)", "ppi": "113,0 PPI", "pxMm": "4,448 px/mm", "err": "−15,0% (menggambar 8,50 cm)" },
-      { "device": "24\" Monitor Desktop Full HD (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "91,8 PPI", "pxMm": "3,614 px/mm", "err": "+4,6% (menggambar 10,46 cm)" },
-      { "device": "27\" Monitor Desktop Full HD (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "81,6 PPI", "pxMm": "3,212 px/mm", "err": "+17,6% (menggambar 11,76 cm)" },
-      { "device": "27\" Monitor QHD (2560 × 1440, 100%)", "res": "2560 × 1440 CSS (1×)", "ppi": "108,8 PPI", "pxMm": "4,283 px/mm", "err": "−11,8% (menggambar 8,82 cm)" },
-      { "device": "27\" Monitor 4K UHD (Skala 200% HiDPI)", "res": "1920 × 1080 CSS (2×)", "ppi": "81,6 CSS PPI", "pxMm": "3,212 px/mm", "err": "+17,6% (menggambar 11,76 cm)" }
+      {
+        "device": "13,3\" MacBook Air / Pro (Retina)",
+        "res": "1440 × 900 CSS (2×)",
+        "ppi": "127,7 PPI",
+        "pxMm": "5,027 px/mm",
+        "err": "−24,8% (menggambar 7,52 cm)"
+      },
+      {
+        "device": "14,2\" MacBook Pro (Liquid Retina XDR)",
+        "res": "1512 × 982 CSS (2×)",
+        "ppi": "127,0 PPI",
+        "pxMm": "5,000 px/mm",
+        "err": "−24,4% (menggambar 7,56 cm)"
+      },
+      {
+        "device": "15,6\" Laptop Full HD (Skala 100% Windows)",
+        "res": "1920 × 1080 CSS (1×)",
+        "ppi": "141,2 PPI",
+        "pxMm": "5,559 px/mm",
+        "err": "−32,0% (menggambar 6,80 cm)"
+      },
+      {
+        "device": "15,6\" Laptop Full HD (Skala 125% Windows)",
+        "res": "1536 × 864 CSS (1,25×)",
+        "ppi": "113,0 PPI",
+        "pxMm": "4,448 px/mm",
+        "err": "−15,0% (menggambar 8,50 cm)"
+      },
+      {
+        "device": "24\" Monitor Desktop Full HD (1080p)",
+        "res": "1920 × 1080 CSS (1×)",
+        "ppi": "91,8 PPI",
+        "pxMm": "3,614 px/mm",
+        "err": "+4,6% (menggambar 10,46 cm)"
+      },
+      {
+        "device": "27\" Monitor Desktop Full HD (1080p)",
+        "res": "1920 × 1080 CSS (1×)",
+        "ppi": "81,6 PPI",
+        "pxMm": "3,212 px/mm",
+        "err": "+17,6% (menggambar 11,76 cm)"
+      },
+      {
+        "device": "27\" Monitor QHD (2560 × 1440, 100%)",
+        "res": "2560 × 1440 CSS (1×)",
+        "ppi": "108,8 PPI",
+        "pxMm": "4,283 px/mm",
+        "err": "−11,8% (menggambar 8,82 cm)"
+      },
+      {
+        "device": "27\" Monitor 4K UHD (Skala 200% HiDPI)",
+        "res": "1920 × 1080 CSS (2×)",
+        "ppi": "81,6 CSS PPI",
+        "pxMm": "3,212 px/mm",
+        "err": "+17,6% (menggambar 11,76 cm)"
+      }
     ],
     "ppiFormula": "Rumus: [[code:CSS PPI Efektif = √(W_css² + H_css²) / diagonalInci]] · [[code:pxPerMm = CSS_PPI / 25.4]]. Menurut standar internasional NIST / BIPM, 1 inci sama dengan tepat 25,4 mm.",
     "modesKicker": "Tampilan Pengukuran Khusus · Skala Metrik, Imperial & Piksel",
@@ -503,11 +632,36 @@
     "modesHeading": "Jelajahi Mode Penggaris Online Terkalibrasi Lainnya",
     "modesAllEdgeBtn": "Area Semua Sisi",
     "modeTiles": [
-      { "href": "/cm-ruler", "kicker": "Metrik · cm", "title": "Penggaris Sentimeter", "desc": "Skala 1 cm & 0,5 cm + tabel cm ke inci" },
-      { "href": "/inch-ruler", "kicker": "Imperial · 1/16″", "title": "Penggaris Inci (12″)", "desc": "Pecahan 1/2, 1/4, 1/8, 1/16″" },
-      { "href": "/mm-ruler", "kicker": "Skala Halus · mm", "title": "Penggaris Milimeter", "desc": "Skala perangkat keras 1 mm & 5 mm" },
-      { "href": "/horizontal-ruler", "kicker": "Atas & Bawah", "title": "Penggaris Horizontal", "desc": "Rentang lebar & piksel CSS (px)" },
-      { "href": "/vertical-ruler", "kicker": "Kiri & Kanan", "title": "Penggaris Vertikal", "desc": "Tinggi tegak & ponsel potret" }
+      {
+        "href": "/cm-ruler",
+        "kicker": "Metrik · cm",
+        "title": "Penggaris Sentimeter",
+        "desc": "Skala 1 cm & 0,5 cm + tabel cm ke inci"
+      },
+      {
+        "href": "/inch-ruler",
+        "kicker": "Imperial · 1/16″",
+        "title": "Penggaris Inci (12″)",
+        "desc": "Pecahan 1/2, 1/4, 1/8, 1/16″"
+      },
+      {
+        "href": "/mm-ruler",
+        "kicker": "Skala Halus · mm",
+        "title": "Penggaris Milimeter",
+        "desc": "Skala perangkat keras 1 mm & 5 mm"
+      },
+      {
+        "href": "/horizontal-ruler",
+        "kicker": "Atas & Bawah",
+        "title": "Penggaris Horizontal",
+        "desc": "Rentang lebar & piksel CSS (px)"
+      },
+      {
+        "href": "/vertical-ruler",
+        "kicker": "Kiri & Kanan",
+        "title": "Penggaris Vertikal",
+        "desc": "Tinggi tegak & ponsel potret"
+      }
     ],
     "allFaqsBtn": "Semua Pertanyaan Umum"
   },
@@ -578,20 +732,98 @@
       "table": {
         "kicker": "Tabel Referensi Metrik ke Imperial (Konstanta NIST / BIPM)",
         "heading": "Sentimeter (cm) ke Milimeter (mm), Inci Desimal & Pecahan 1/16″",
-        "headers": ["Sentimeter (cm)", "Milimeter (mm)", "Inci Desimal (in)", "Pecahan 1/16″ Terdekat", "Referensi Fisik Umum"],
+        "headers": [
+          "Sentimeter (cm)",
+          "Milimeter (mm)",
+          "Inci Desimal (in)",
+          "Pecahan 1/16″ Terdekat",
+          "Referensi Fisik Umum"
+        ],
         "rows": [
-          ["1 cm", "10,0 mm", "0,3937 in", "3/8 in (0,375″)", "Diameter baterai AAA (~1,05 cm)"],
-          ["2 cm", "20,0 mm", "0,7874 in", "13/16 in (0,813″)", "Diameter Penny AS 1,905 cm (19,05 mm)"],
-          ["2,54 cm", "25,4 mm", "1,0000 in", "1 in (pasti)", "Definisi eksak 1 inci imperial"],
-          ["5 cm", "50,0 mm", "1,9685 in", "1 15/16 in (1,938″)", "Panjang baterai AA standar (5,05 cm)"],
-          ["5,40 cm", "53,98 mm", "2,1252 in", "2 1/8 in (2,125″)", "Tinggi kartu bank ISO/IEC 7810 ID-1"],
-          ["8,56 cm", "85,60 mm", "3,3701 in", "3 3/8 in (3,375″)", "Lebar kartu bank ISO/IEC 7810 ID-1"],
-          ["10 cm", "100,0 mm", "3,9370 in", "3 15/16 in (3,938″)", "1 desimeter (tolok ukur 100 mm)"],
-          ["15 cm", "150,0 mm", "5,9055 in", "5 7/8 in (5,875″)", "Penggaris saku 15 cm / uang dolar AS (15,6 cm)"],
-          ["20 cm", "200,0 mm", "7,8740 in", "7 7/8 in (7,875″)", "Lebar kertas A4 adalah 21,0 cm (210 mm)"],
-          ["25 cm", "250,0 mm", "9,8425 in", "9 13/16 in (9,813″)", "Rentang seperempat meter kerajinan"],
-          ["30 cm", "300,0 mm", "11,8110 in", "11 13/16 in (11,813″)", "Penggaris sekolah & kantor standar 30 cm"],
-          ["30,48 cm", "304,8 mm", "12,0000 in", "12 in (1 kaki pasti)", "Panjang metrik eksak penggaris 12 inci"]
+          [
+            "1 cm",
+            "10,0 mm",
+            "0,3937 in",
+            "3/8 in (0,375″)",
+            "Diameter baterai AAA (~1,05 cm)"
+          ],
+          [
+            "2 cm",
+            "20,0 mm",
+            "0,7874 in",
+            "13/16 in (0,813″)",
+            "Diameter Penny AS 1,905 cm (19,05 mm)"
+          ],
+          [
+            "2,54 cm",
+            "25,4 mm",
+            "1,0000 in",
+            "1 in (pasti)",
+            "Definisi eksak 1 inci imperial"
+          ],
+          [
+            "5 cm",
+            "50,0 mm",
+            "1,9685 in",
+            "1 15/16 in (1,938″)",
+            "Panjang baterai AA standar (5,05 cm)"
+          ],
+          [
+            "5,40 cm",
+            "53,98 mm",
+            "2,1252 in",
+            "2 1/8 in (2,125″)",
+            "Tinggi kartu bank ISO/IEC 7810 ID-1"
+          ],
+          [
+            "8,56 cm",
+            "85,60 mm",
+            "3,3701 in",
+            "3 3/8 in (3,375″)",
+            "Lebar kartu bank ISO/IEC 7810 ID-1"
+          ],
+          [
+            "10 cm",
+            "100,0 mm",
+            "3,9370 in",
+            "3 15/16 in (3,938″)",
+            "1 desimeter (tolok ukur 100 mm)"
+          ],
+          [
+            "15 cm",
+            "150,0 mm",
+            "5,9055 in",
+            "5 7/8 in (5,875″)",
+            "Penggaris saku 15 cm / uang dolar AS (15,6 cm)"
+          ],
+          [
+            "20 cm",
+            "200,0 mm",
+            "7,8740 in",
+            "7 7/8 in (7,875″)",
+            "Lebar kertas A4 adalah 21,0 cm (210 mm)"
+          ],
+          [
+            "25 cm",
+            "250,0 mm",
+            "9,8425 in",
+            "9 13/16 in (9,813″)",
+            "Rentang seperempat meter kerajinan"
+          ],
+          [
+            "30 cm",
+            "300,0 mm",
+            "11,8110 in",
+            "11 13/16 in (11,813″)",
+            "Penggaris sekolah & kantor standar 30 cm"
+          ],
+          [
+            "30,48 cm",
+            "304,8 mm",
+            "12,0000 in",
+            "12 in (1 kaki pasti)",
+            "Panjang metrik eksak penggaris 12 inci"
+          ]
         ],
         "footnote": "Rumus konversi: mm = cm × 10 · in = cm ÷ 2,54 · cm = in × 2,54."
       },
@@ -682,24 +914,126 @@
       "table": {
         "kicker": "Tabel Referensi Milimeter Teknik, Jam Tangan & Baut",
         "heading": "Ukuran Milimeter (mm) Umum dalam Sentimeter, Inci & Standar Perangkat Keras",
-        "headers": ["Milimeter (mm)", "Sentimeter (cm)", "Inci Desimal", "1/16″ Terdekat", "Referensi Perangkat Keras / Benda Standar"],
+        "headers": [
+          "Milimeter (mm)",
+          "Sentimeter (cm)",
+          "Inci Desimal",
+          "1/16″ Terdekat",
+          "Referensi Perangkat Keras / Benda Standar"
+        ],
         "rows": [
-          ["1,00 mm", "0,10 cm", "0,0394 in", "1/16 in (1,59 mm)", "Diameter kawat padat 18 AWG (~1,02 mm)"],
-          ["1,59 mm", "0,16 cm", "0,0625 in", "1/16 in (pasti)", "Nilai metrik pasti dari 1/16 inci"],
-          ["2,00 mm", "0,20 cm", "0,0787 in", "1/16 in", "Diameter nominal sekrup mesin ISO M2"],
-          ["2,54 mm", "0,254 cm", "0,1000 in", "3/32 in", "Jarak pin header PCB standar 0,100″"],
-          ["3,00 mm", "0,30 cm", "0,1181 in", "1/8 in (3,18 mm)", "Sekrup ISO M3 / standoff casing PC"],
-          ["4,00 mm", "0,40 cm", "0,1575 in", "5/32 in", "Sekrup ISO M4 / mata obeng presisi 4 mm"],
-          ["5,00 mm", "0,50 cm", "0,1969 in", "3/16 in (4,76 mm)", "Baut ISO M5 / diameter LED standar 5 mm"],
-          ["6,00 mm", "0,60 cm", "0,2362 in", "1/4 in (6,35 mm)", "Baut ISO M6; mata hex 1/4″ adalah 6,35 mm"],
-          ["8,00 mm", "0,80 cm", "0,3150 in", "5/16 in (7,94 mm)", "Baut ISO M8 / lubang as bearing 608"],
-          ["10,00 mm", "1,00 cm", "0,3937 in", "3/8 in (9,53 mm)", "Baut ISO M10 / patokan 1 sentimeter"],
-          ["18,00 mm", "1,80 cm", "0,7087 in", "11/16 in", "Lebar lug jam tangan klasik (18 mm)"],
-          ["20,00 mm", "2,00 cm", "0,7874 in", "13/16 in", "Lebar lug tali jam tangan standar (20 mm)"],
-          ["22,00 mm", "2,20 cm", "0,8661 in", "7/8 in (22,23 mm)", "Lebar lug jam selam / diameter luar bearing 608"],
-          ["25,40 mm", "2,54 cm", "1,0000 in", "1 in (pasti)", "Definisi SI eksak untuk 1 inci imperial"],
-          ["53,98 mm", "5,40 cm", "2,1252 in", "2 1/8 in", "Sisi pendek kartu bank ISO/IEC 7810 ID-1"],
-          ["85,60 mm", "8,56 cm", "3,3701 in", "3 3/8 in", "Sisi panjang kartu bank ISO/IEC 7810 ID-1"]
+          [
+            "1,00 mm",
+            "0,10 cm",
+            "0,0394 in",
+            "1/16 in (1,59 mm)",
+            "Diameter kawat padat 18 AWG (~1,02 mm)"
+          ],
+          [
+            "1,59 mm",
+            "0,16 cm",
+            "0,0625 in",
+            "1/16 in (pasti)",
+            "Nilai metrik pasti dari 1/16 inci"
+          ],
+          [
+            "2,00 mm",
+            "0,20 cm",
+            "0,0787 in",
+            "1/16 in",
+            "Diameter nominal sekrup mesin ISO M2"
+          ],
+          [
+            "2,54 mm",
+            "0,254 cm",
+            "0,1000 in",
+            "3/32 in",
+            "Jarak pin header PCB standar 0,100″"
+          ],
+          [
+            "3,00 mm",
+            "0,30 cm",
+            "0,1181 in",
+            "1/8 in (3,18 mm)",
+            "Sekrup ISO M3 / standoff casing PC"
+          ],
+          [
+            "4,00 mm",
+            "0,40 cm",
+            "0,1575 in",
+            "5/32 in",
+            "Sekrup ISO M4 / mata obeng presisi 4 mm"
+          ],
+          [
+            "5,00 mm",
+            "0,50 cm",
+            "0,1969 in",
+            "3/16 in (4,76 mm)",
+            "Baut ISO M5 / diameter LED standar 5 mm"
+          ],
+          [
+            "6,00 mm",
+            "0,60 cm",
+            "0,2362 in",
+            "1/4 in (6,35 mm)",
+            "Baut ISO M6; mata hex 1/4″ adalah 6,35 mm"
+          ],
+          [
+            "8,00 mm",
+            "0,80 cm",
+            "0,3150 in",
+            "5/16 in (7,94 mm)",
+            "Baut ISO M8 / lubang as bearing 608"
+          ],
+          [
+            "10,00 mm",
+            "1,00 cm",
+            "0,3937 in",
+            "3/8 in (9,53 mm)",
+            "Baut ISO M10 / patokan 1 sentimeter"
+          ],
+          [
+            "18,00 mm",
+            "1,80 cm",
+            "0,7087 in",
+            "11/16 in",
+            "Lebar lug jam tangan klasik (18 mm)"
+          ],
+          [
+            "20,00 mm",
+            "2,00 cm",
+            "0,7874 in",
+            "13/16 in",
+            "Lebar lug tali jam tangan standar (20 mm)"
+          ],
+          [
+            "22,00 mm",
+            "2,20 cm",
+            "0,8661 in",
+            "7/8 in (22,23 mm)",
+            "Lebar lug jam selam / diameter luar bearing 608"
+          ],
+          [
+            "25,40 mm",
+            "2,54 cm",
+            "1,0000 in",
+            "1 in (pasti)",
+            "Definisi SI eksak untuk 1 inci imperial"
+          ],
+          [
+            "53,98 mm",
+            "5,40 cm",
+            "2,1252 in",
+            "2 1/8 in",
+            "Sisi pendek kartu bank ISO/IEC 7810 ID-1"
+          ],
+          [
+            "85,60 mm",
+            "8,56 cm",
+            "3,3701 in",
+            "3 3/8 in",
+            "Sisi panjang kartu bank ISO/IEC 7810 ID-1"
+          ]
         ],
         "footnote": "Rumus: in = mm ÷ 25,4 · cm = mm ÷ 10 · 1/16″ = 1,5875 mm."
       },
@@ -790,24 +1124,126 @@
       "table": {
         "kicker": "Tabel Konversi Pecahan Imperial (1/16″ hingga 1″ · 1 in = 25,4 mm)",
         "heading": "Seperenambelas Inci (1/16″) ke Pecahan Sederhana, Desimal, mm & cm",
-        "headers": ["Perenambelas", "Pecahan Sederhana", "Desimal (in)", "Milimeter (mm)", "Sentimeter (cm)"],
+        "headers": [
+          "Perenambelas",
+          "Pecahan Sederhana",
+          "Desimal (in)",
+          "Milimeter (mm)",
+          "Sentimeter (cm)"
+        ],
         "rows": [
-          ["1/16″", "1/16 in", "0,0625 in", "1,588 mm", "0,159 cm"],
-          ["2/16″", "1/8 in", "0,1250 in", "3,175 mm", "0,318 cm"],
-          ["3/16″", "3/16 in", "0,1875 in", "4,763 mm", "0,476 cm"],
-          ["4/16″", "1/4 in", "0,2500 in", "6,350 mm", "0,635 cm"],
-          ["5/16″", "5/16 in", "0,3125 in", "7,938 mm", "0,794 cm"],
-          ["6/16″", "3/8 in", "0,3750 in", "9,525 mm", "0,953 cm"],
-          ["7/16″", "7/16 in", "0,4375 in", "11,113 mm", "1,111 cm"],
-          ["8/16″", "1/2 in", "0,5000 in", "12,700 mm", "1,270 cm"],
-          ["9/16″", "9/16 in", "0,5625 in", "14,288 mm", "1,429 cm"],
-          ["10/16″", "5/8 in", "0,6250 in", "15,875 mm", "1,588 cm"],
-          ["11/16″", "11/16 in", "0,6875 in", "17,463 mm", "1,746 cm"],
-          ["12/16″", "3/4 in (Penny AS)", "0,7500 in", "19,050 mm", "1,905 cm"],
-          ["13/16″", "13/16 in", "0,8125 in", "20,638 mm", "2,064 cm"],
-          ["14/16″", "7/8 in", "0,8750 in", "22,225 mm", "2,223 cm"],
-          ["15/16″", "15/16 in (~Quarter AS)", "0,9375 in", "23,813 mm", "2,381 cm"],
-          ["16/16″", "1 in (Inci Penuh)", "1,0000 in", "25,400 mm", "2,540 cm"]
+          [
+            "1/16″",
+            "1/16 in",
+            "0,0625 in",
+            "1,588 mm",
+            "0,159 cm"
+          ],
+          [
+            "2/16″",
+            "1/8 in",
+            "0,1250 in",
+            "3,175 mm",
+            "0,318 cm"
+          ],
+          [
+            "3/16″",
+            "3/16 in",
+            "0,1875 in",
+            "4,763 mm",
+            "0,476 cm"
+          ],
+          [
+            "4/16″",
+            "1/4 in",
+            "0,2500 in",
+            "6,350 mm",
+            "0,635 cm"
+          ],
+          [
+            "5/16″",
+            "5/16 in",
+            "0,3125 in",
+            "7,938 mm",
+            "0,794 cm"
+          ],
+          [
+            "6/16″",
+            "3/8 in",
+            "0,3750 in",
+            "9,525 mm",
+            "0,953 cm"
+          ],
+          [
+            "7/16″",
+            "7/16 in",
+            "0,4375 in",
+            "11,113 mm",
+            "1,111 cm"
+          ],
+          [
+            "8/16″",
+            "1/2 in",
+            "0,5000 in",
+            "12,700 mm",
+            "1,270 cm"
+          ],
+          [
+            "9/16″",
+            "9/16 in",
+            "0,5625 in",
+            "14,288 mm",
+            "1,429 cm"
+          ],
+          [
+            "10/16″",
+            "5/8 in",
+            "0,6250 in",
+            "15,875 mm",
+            "1,588 cm"
+          ],
+          [
+            "11/16″",
+            "11/16 in",
+            "0,6875 in",
+            "17,463 mm",
+            "1,746 cm"
+          ],
+          [
+            "12/16″",
+            "3/4 in (Penny AS)",
+            "0,7500 in",
+            "19,050 mm",
+            "1,905 cm"
+          ],
+          [
+            "13/16″",
+            "13/16 in",
+            "0,8125 in",
+            "20,638 mm",
+            "2,064 cm"
+          ],
+          [
+            "14/16″",
+            "7/8 in",
+            "0,8750 in",
+            "22,225 mm",
+            "2,223 cm"
+          ],
+          [
+            "15/16″",
+            "15/16 in (~Quarter AS)",
+            "0,9375 in",
+            "23,813 mm",
+            "2,381 cm"
+          ],
+          [
+            "16/16″",
+            "1 in (Inci Penuh)",
+            "1,0000 in",
+            "25,400 mm",
+            "2,540 cm"
+          ]
         ],
         "footnote": "Konstanta pasti: 1 in = 25,4 mm · 1/2 in = 12,7 mm · 1/4 in = 6,35 mm · 1/8 in = 3,175 mm · 1/16 in = 1,5875 mm."
       },
@@ -898,16 +1334,70 @@
       "table": {
         "kicker": "Referensi Geometri Panel Layar (16:9, 16:10 & 21:9)",
         "heading": "Lebar Layar Horizontal Maksimum Menurut Diagonal",
-        "headers": ["Panel & Rasio Aspek", "Lebar Aktif (in)", "Lebar Aktif (cm / mm)", "Lebar CSS Umum", "Penggaris Standar Maks."],
+        "headers": [
+          "Panel & Rasio Aspek",
+          "Lebar Aktif (in)",
+          "Lebar Aktif (cm / mm)",
+          "Lebar CSS Umum",
+          "Penggaris Standar Maks."
+        ],
         "rows": [
-          ["6,1\" Ponsel (19,5:9 Lanskap)", "5,55 in", "14,1 cm (141 mm)", "844 – 852 CSS px", "Hingga 13 cm / 5 in"],
-          ["11,0\" Tablet (4:3)", "8,80 in", "22,4 cm (224 mm)", "1024 – 1194 CSS px", "Penggaris 15 cm / 6 in"],
-          ["13,3\" Laptop (16:10 Retina)", "11,28 in", "28,6 cm (286 mm)", "1440 CSS px", "Hingga 27 cm / 10,5 in"],
-          ["14,2\" MacBook Pro (16:10)", "11,97 in", "30,4 cm (304 mm)", "1512 CSS px", "Penuh 30 cm / 11,5 in"],
-          ["15,6\" Laptop Full HD (16:9)", "13,60 in", "34,5 cm (345 mm)", "1536 – 1920 CSS px", "Penuh 30 cm & 12 inci"],
-          ["24,0\" Monitor (16:9 1080p)", "20,92 in", "53,1 cm (531 mm)", "1920 CSS px", "Penggaris 50 cm / 18 in"],
-          ["27,0\" Monitor (16:9 QHD/4K)", "23,53 in", "59,8 cm (598 mm)", "1920 – 2560 CSS px", "Penggaris 58 cm / 22 in"],
-          ["34,0\" Ultrawide (21:9)", "31,36 in", "79,7 cm (797 mm)", "3440 CSS px", "Penggaris 75 cm / 30 in"]
+          [
+            "6,1\" Ponsel (19,5:9 Lanskap)",
+            "5,55 in",
+            "14,1 cm (141 mm)",
+            "844 – 852 CSS px",
+            "Hingga 13 cm / 5 in"
+          ],
+          [
+            "11,0\" Tablet (4:3)",
+            "8,80 in",
+            "22,4 cm (224 mm)",
+            "1024 – 1194 CSS px",
+            "Penggaris 15 cm / 6 in"
+          ],
+          [
+            "13,3\" Laptop (16:10 Retina)",
+            "11,28 in",
+            "28,6 cm (286 mm)",
+            "1440 CSS px",
+            "Hingga 27 cm / 10,5 in"
+          ],
+          [
+            "14,2\" MacBook Pro (16:10)",
+            "11,97 in",
+            "30,4 cm (304 mm)",
+            "1512 CSS px",
+            "Penuh 30 cm / 11,5 in"
+          ],
+          [
+            "15,6\" Laptop Full HD (16:9)",
+            "13,60 in",
+            "34,5 cm (345 mm)",
+            "1536 – 1920 CSS px",
+            "Penuh 30 cm & 12 inci"
+          ],
+          [
+            "24,0\" Monitor (16:9 1080p)",
+            "20,92 in",
+            "53,1 cm (531 mm)",
+            "1920 CSS px",
+            "Penggaris 50 cm / 18 in"
+          ],
+          [
+            "27,0\" Monitor (16:9 QHD/4K)",
+            "23,53 in",
+            "59,8 cm (598 mm)",
+            "1920 – 2560 CSS px",
+            "Penggaris 58 cm / 22 in"
+          ],
+          [
+            "34,0\" Ultrawide (21:9)",
+            "31,36 in",
+            "79,7 cm (797 mm)",
+            "3440 CSS px",
+            "Penggaris 75 cm / 30 in"
+          ]
         ],
         "footnote": "Rumus lebar horizontal: 16:9 = Diagonal × 0,87158 · 16:10 = Diagonal × 0,84800 · 21:9 = Diagonal × 0,92246."
       },
@@ -998,16 +1488,70 @@
       "table": {
         "kicker": "Tabel Tinggi Layar Vertikal & Benda Tegak",
         "heading": "Tinggi Layar Aktif Vertikal Menurut Perangkat",
-        "headers": ["Perangkat / Orientasi", "Tinggi Aktif (cm / mm)", "Tinggi Aktif (in)", "Tinggi CSS", "Contoh Benda yang Muat"],
+        "headers": [
+          "Perangkat / Orientasi",
+          "Tinggi Aktif (cm / mm)",
+          "Tinggi Aktif (in)",
+          "Tinggi CSS",
+          "Contoh Benda yang Muat"
+        ],
         "rows": [
-          ["6,1\" Ponsel (Potret)", "14,1 cm (141 mm)", "5,55 in", "844 – 852 CSS px", "Baterai AA/AAA, kartu bank (85,6 mm), kaleng (122 mm)"],
-          ["6,7\" Pro Max / Ultra (Potret)", "15,5 cm (155 mm)", "6,10 in", "926 – 932 CSS px", "Paspor (125 mm), pulpen (~140 mm), penggaris 15 cm"],
-          ["11,0\" Tablet (Potret 4:3)", "22,4 cm (224 mm)", "8,80 in", "1024 – 1194 CSS px", "Buku catatan A5 (210 mm), botol minum"],
-          ["14,2\" MacBook Pro (16:10)", "19,0 cm (190 mm)", "7,48 in", "982 CSS px", "Tinggi ponsel, penggaris 15 cm"],
-          ["15,6\" Laptop (16:9)", "19,4 cm (194 mm)", "7,65 in", "864 – 1080 CSS px", "Kotak DVD (190 mm), cangkir kopi"],
-          ["24,0\" Monitor (16:9)", "29,9 cm (299 mm)", "11,77 in", "1080 CSS px", "Tinggi kertas A4 (297 mm)"],
-          ["27,0\" Monitor (16:9)", "33,6 cm (336 mm)", "13,24 in", "1080 – 1440 CSS px", "Tinggi penuh 30 cm / 12 in, botol 300 mm"],
-          ["24–27\" Monitor (Pivot 90°)", "53,1 – 59,8 cm", "20,9 – 23,5 in", "1920 – 2560 CSS px", "Speaker tinggi, casing PC, skala vertikal 50 cm"]
+          [
+            "6,1\" Ponsel (Potret)",
+            "14,1 cm (141 mm)",
+            "5,55 in",
+            "844 – 852 CSS px",
+            "Baterai AA/AAA, kartu bank (85,6 mm), kaleng (122 mm)"
+          ],
+          [
+            "6,7\" Pro Max / Ultra (Potret)",
+            "15,5 cm (155 mm)",
+            "6,10 in",
+            "926 – 932 CSS px",
+            "Paspor (125 mm), pulpen (~140 mm), penggaris 15 cm"
+          ],
+          [
+            "11,0\" Tablet (Potret 4:3)",
+            "22,4 cm (224 mm)",
+            "8,80 in",
+            "1024 – 1194 CSS px",
+            "Buku catatan A5 (210 mm), botol minum"
+          ],
+          [
+            "14,2\" MacBook Pro (16:10)",
+            "19,0 cm (190 mm)",
+            "7,48 in",
+            "982 CSS px",
+            "Tinggi ponsel, penggaris 15 cm"
+          ],
+          [
+            "15,6\" Laptop (16:9)",
+            "19,4 cm (194 mm)",
+            "7,65 in",
+            "864 – 1080 CSS px",
+            "Kotak DVD (190 mm), cangkir kopi"
+          ],
+          [
+            "24,0\" Monitor (16:9)",
+            "29,9 cm (299 mm)",
+            "11,77 in",
+            "1080 CSS px",
+            "Tinggi kertas A4 (297 mm)"
+          ],
+          [
+            "27,0\" Monitor (16:9)",
+            "33,6 cm (336 mm)",
+            "13,24 in",
+            "1080 – 1440 CSS px",
+            "Tinggi penuh 30 cm / 12 in, botol 300 mm"
+          ],
+          [
+            "24–27\" Monitor (Pivot 90°)",
+            "53,1 – 59,8 cm",
+            "20,9 – 23,5 in",
+            "1920 – 2560 CSS px",
+            "Speaker tinggi, casing PC, skala vertikal 50 cm"
+          ]
         ],
         "footnote": "Rumus tinggi: 16:9 = Diagonal × 0,49026 · 16:10 = Diagonal × 0,53000."
       },
@@ -1050,7 +1594,10 @@
           "heading": "Kalibrasi kerapatan layar Anda terlebih dahulu",
           "body": "Cocokkan kartu standar ISO/IEC 7810 ID-1 (85,60 × 53,98 mm) atau masukkan diagonal layar tampak dalam inci pada zoom 100%, lalu tekan Terapkan Kalibrasi.",
           "links": [
-            { "href": "/#calibration", "label": "Buka Kalibrasi Kartu Kredit →" }
+            {
+              "href": "/#calibration",
+              "label": "Buka Kalibrasi Kartu Kredit →"
+            }
           ]
         },
         {
@@ -1059,9 +1606,18 @@
           "heading": "Pilih satuan ukur dan sisi penggaris aktif",
           "body": "Tekan 1 (cm), 2 (inci), 3 (CSS px), 4/M (mm), atau Ganda cm/in, lalu aktifkan tepi Atas, Bawah, Kiri, Kanan, atau Semua Sisi.",
           "links": [
-            { "href": "/cm-ruler", "label": "Penggaris cm" },
-            { "href": "/inch-ruler", "label": "Penggaris Inci" },
-            { "href": "/mm-ruler", "label": "Penggaris mm" }
+            {
+              "href": "/cm-ruler",
+              "label": "Penggaris cm"
+            },
+            {
+              "href": "/inch-ruler",
+              "label": "Penggaris Inci"
+            },
+            {
+              "href": "/mm-ruler",
+              "label": "Penggaris mm"
+            }
           ]
         },
         {
@@ -1070,7 +1626,10 @@
           "heading": "Sejajarkan di titik 0 dan ukur rentang dengan garis panduan",
           "body": "Tempelkan tepi awal ke garis putus-putus 0 (16 px di dalam bingkai) atau pasang dua garis panduan biru sejajar untuk menghitung ΔX/ΔY dan menyimpannya ke Riwayat.",
           "links": [
-            { "href": "/calibration-guide", "label": "Baca Panduan Kalibrasi & PPI →" }
+            {
+              "href": "/calibration-guide",
+              "label": "Baca Panduan Kalibrasi & PPI →"
+            }
           ]
         }
       ],
@@ -1114,18 +1673,62 @@
       "shortcutsKicker": "Kontrol Area · Referensi Keyboard",
       "shortcutsHeading": "Tabel Lengkap Pintasan Keyboard",
       "shortcutsLead": "Tahan benda dengan satu tangan sambil menekan satu tombol di tangan lainnya:",
-      "shortcutsHeaders": ["Tombol", "Aksi", "Kapan Digunakan"],
+      "shortcutsHeaders": [
+        "Tombol",
+        "Aksi",
+        "Kapan Digunakan"
+      ],
       "shortcuts": [
-        { "key": "1", "action": "Pindah ke Sentimeter (cm)", "useCase": "Pengukuran harian dengan tanda 1 mm dan 0,5 cm" },
-        { "key": "2", "action": "Pindah ke Inci Pecahan (in)", "useCase": "Pertukangan dan pembacaan 1/16″" },
-        { "key": "3", "action": "Pindah ke Piksel CSS (px)", "useCase": "Desain web & pemeriksaan lebar tata letak" },
-        { "key": "4 / M", "action": "Pindah ke Milimeter (mm)", "useCase": "Baut M2–M10, cincin, jam tangan" },
-        { "key": "D", "action": "Ganti Tema Terang / Gelap", "useCase": "Mengurangi silau layar" },
-        { "key": "G", "action": "Aktifkan Garis Panduan", "useCase": "Menjatuhkan garis batas ΔX / ΔY" },
-        { "key": "C", "action": "Aktifkan Garis Silang", "useCase": "Melacak koordinat X/Y kursor langsung" },
-        { "key": "P", "action": "Aktifkan Busur Derajat 180°", "useCase": "Mengukur sudut dengan ketelitian 0,1°" },
-        { "key": "F", "action": "Masuk / Keluar Layar Penuh", "useCase": "Memaksimalkan panjang penggaris" },
-        { "key": "Esc", "action": "Bersihkan Garis & Dialog", "useCase": "Reset cepat sebelum pengukuran berikutnya" }
+        {
+          "key": "1",
+          "action": "Pindah ke Sentimeter (cm)",
+          "useCase": "Pengukuran harian dengan tanda 1 mm dan 0,5 cm"
+        },
+        {
+          "key": "2",
+          "action": "Pindah ke Inci Pecahan (in)",
+          "useCase": "Pertukangan dan pembacaan 1/16″"
+        },
+        {
+          "key": "3",
+          "action": "Pindah ke Piksel CSS (px)",
+          "useCase": "Desain web & pemeriksaan lebar tata letak"
+        },
+        {
+          "key": "4 / M",
+          "action": "Pindah ke Milimeter (mm)",
+          "useCase": "Baut M2–M10, cincin, jam tangan"
+        },
+        {
+          "key": "D",
+          "action": "Ganti Tema Terang / Gelap",
+          "useCase": "Mengurangi silau layar"
+        },
+        {
+          "key": "G",
+          "action": "Aktifkan Garis Panduan",
+          "useCase": "Menjatuhkan garis batas ΔX / ΔY"
+        },
+        {
+          "key": "C",
+          "action": "Aktifkan Garis Silang",
+          "useCase": "Melacak koordinat X/Y kursor langsung"
+        },
+        {
+          "key": "P",
+          "action": "Aktifkan Busur Derajat 180°",
+          "useCase": "Mengukur sudut dengan ketelitian 0,1°"
+        },
+        {
+          "key": "F",
+          "action": "Masuk / Keluar Layar Penuh",
+          "useCase": "Memaksimalkan panjang penggaris"
+        },
+        {
+          "key": "Esc",
+          "action": "Bersihkan Garis & Dialog",
+          "useCase": "Reset cepat sebelum pengukuran berikutnya"
+        }
       ],
       "checklistKicker": "Verifikasi Sebelum Ukur · 6 Poin",
       "checklistHeading": "Enam Cek Sebelum Memercayai Angka Pengukuran Penting",
@@ -1184,13 +1787,49 @@
       "s6Heading": "Hubungan CSS PPI, PPI Fisik, dan devicePxPerMm pada Layar",
       "s6Lead": "Rumus Pythagoras pada piksel CSS di zoom 100% memberi [[code:CSS px/mm]], dan dikali [[code:window.devicePixelRatio]] memberi [[code:devicePxPerMm]] tahan-zoom.",
       "s6TableHeading": "Tabel Contoh Kerapatan Menurut Layar & Skala OS",
-      "s6Headers": ["Konfigurasi Layar", "Resolusi CSS", "CSS PPI Efektif", "CSS px/mm", "devicePxPerMm"],
+      "s6Headers": [
+        "Konfigurasi Layar",
+        "Resolusi CSS",
+        "CSS PPI Efektif",
+        "CSS px/mm",
+        "devicePxPerMm"
+      ],
       "workedExamples": [
-        { "panel": "14,2\" Laptop (Mac Retina / 2× DPR)", "cssRes": "1512 × 982 CSS px (DPR 2,0)", "cssPpi": "127,0 CSS PPI", "pxPerMm": "5,000 CSS px/mm", "devicePxPerMm": "10,000 device px/mm" },
-        { "panel": "15,6\" Laptop Windows (Skala 125%)", "cssRes": "1536 × 864 CSS px (DPR 1,25)", "cssPpi": "113,0 CSS PPI", "pxPerMm": "4,448 CSS px/mm", "devicePxPerMm": "5,560 device px/mm" },
-        { "panel": "24\" Monitor 1080p (100%)", "cssRes": "1920 × 1080 CSS px (DPR 1,0)", "cssPpi": "91,8 CSS PPI", "pxPerMm": "3,614 CSS px/mm", "devicePxPerMm": "3,614 device px/mm" },
-        { "panel": "27\" Monitor 4K UHD (Skala 150%)", "cssRes": "2560 × 1440 CSS px (DPR 1,5)", "cssPpi": "108,8 CSS PPI", "pxPerMm": "4,283 CSS px/mm", "devicePxPerMm": "6,425 device px/mm" },
-        { "panel": "6,1\" Ponsel OLED (3× DPR)", "cssRes": "390 × 844 CSS px (DPR 3,0)", "cssPpi": "152,4 CSS PPI", "pxPerMm": "6,000 CSS px/mm", "devicePxPerMm": "18,000 device px/mm" }
+        {
+          "panel": "14,2\" Laptop (Mac Retina / 2× DPR)",
+          "cssRes": "1512 × 982 CSS px (DPR 2,0)",
+          "cssPpi": "127,0 CSS PPI",
+          "pxPerMm": "5,000 CSS px/mm",
+          "devicePxPerMm": "10,000 device px/mm"
+        },
+        {
+          "panel": "15,6\" Laptop Windows (Skala 125%)",
+          "cssRes": "1536 × 864 CSS px (DPR 1,25)",
+          "cssPpi": "113,0 CSS PPI",
+          "pxPerMm": "4,448 CSS px/mm",
+          "devicePxPerMm": "5,560 device px/mm"
+        },
+        {
+          "panel": "24\" Monitor 1080p (100%)",
+          "cssRes": "1920 × 1080 CSS px (DPR 1,0)",
+          "cssPpi": "91,8 CSS PPI",
+          "pxPerMm": "3,614 CSS px/mm",
+          "devicePxPerMm": "3,614 device px/mm"
+        },
+        {
+          "panel": "27\" Monitor 4K UHD (Skala 150%)",
+          "cssRes": "2560 × 1440 CSS px (DPR 1,5)",
+          "cssPpi": "108,8 CSS PPI",
+          "pxPerMm": "4,283 CSS px/mm",
+          "devicePxPerMm": "6,425 device px/mm"
+        },
+        {
+          "panel": "6,1\" Ponsel OLED (3× DPR)",
+          "cssRes": "390 × 844 CSS px (DPR 3,0)",
+          "cssPpi": "152,4 CSS PPI",
+          "pxPerMm": "6,000 CSS px/mm",
+          "devicePxPerMm": "18,000 device px/mm"
+        }
       ],
       "caveats": [
         {
@@ -1210,18 +1849,73 @@
       "s7Body2": "Arahkan mata lurus 90° di atas garis panduan dan gunakan jangka sorong fisik jika toleransi teknik lebih ketat dari ±0,25 mm.",
       "s7TableHeading": "Tabel Referensi Benda Verifikasi Fisik Resmi",
       "s7TableLead": "Setelah menyimpan kalibrasi, tempelkan perlahan salah satu benda berikut untuk cek akurasi:",
-      "s7Headers": ["Objek Referensi", "Metrik (mm)", "Imperial (in)", "Standar Resmi"],
+      "s7Headers": [
+        "Objek Referensi",
+        "Metrik (mm)",
+        "Imperial (in)",
+        "Standar Resmi"
+      ],
       "referenceItems": [
-        { "item": "Kartu Bank ISO/IEC 7810 ID-1 (Lebar)", "mm": "85,60 mm", "inches": "3,370 in", "standard": "ISO/IEC 7810:2019 ID-1" },
-        { "item": "Kartu Bank ISO/IEC 7810 ID-1 (Tinggi)", "mm": "53,98 mm", "inches": "2,125 in", "standard": "ISO/IEC 7810:2019 ID-1" },
-        { "item": "Koin Penny 1 Sen AS (Diameter)", "mm": "19,05 mm", "inches": "0,750 in (3/4″)", "standard": "United States Mint" },
-        { "item": "Koin Nikel 5 Sen AS (Diameter)", "mm": "21,21 mm", "inches": "0,835 in", "standard": "United States Mint" },
-        { "item": "Koin 1 Euro (Diameter)", "mm": "23,25 mm", "inches": "0,915 in", "standard": "Bank Sentral Eropa" },
-        { "item": "Koin Quarter AS (Diameter)", "mm": "24,26 mm", "inches": "0,955 in", "standard": "United States Mint" },
-        { "item": "Koin 2 Euro (Diameter)", "mm": "25,75 mm", "inches": "1,014 in", "standard": "Bank Sentral Eropa" },
-        { "item": "Baterai AA Standar (Panjang)", "mm": "50,50 mm", "inches": "1,988 in", "standard": "IEC R6 / ANSI 15" },
-        { "item": "Uang Kertas Dolar AS (Lebar)", "mm": "155,96 mm", "inches": "6,140 in", "standard": "Bureau of Engraving & Printing" },
-        { "item": "Kertas ISO 216 A4 (Sisi Pendek)", "mm": "210,00 mm", "inches": "8,268 in", "standard": "Seri Kertas ISO 216" }
+        {
+          "item": "Kartu Bank ISO/IEC 7810 ID-1 (Lebar)",
+          "mm": "85,60 mm",
+          "inches": "3,370 in",
+          "standard": "ISO/IEC 7810:2019 ID-1"
+        },
+        {
+          "item": "Kartu Bank ISO/IEC 7810 ID-1 (Tinggi)",
+          "mm": "53,98 mm",
+          "inches": "2,125 in",
+          "standard": "ISO/IEC 7810:2019 ID-1"
+        },
+        {
+          "item": "Koin Penny 1 Sen AS (Diameter)",
+          "mm": "19,05 mm",
+          "inches": "0,750 in (3/4″)",
+          "standard": "United States Mint"
+        },
+        {
+          "item": "Koin Nikel 5 Sen AS (Diameter)",
+          "mm": "21,21 mm",
+          "inches": "0,835 in",
+          "standard": "United States Mint"
+        },
+        {
+          "item": "Koin 1 Euro (Diameter)",
+          "mm": "23,25 mm",
+          "inches": "0,915 in",
+          "standard": "Bank Sentral Eropa"
+        },
+        {
+          "item": "Koin Quarter AS (Diameter)",
+          "mm": "24,26 mm",
+          "inches": "0,955 in",
+          "standard": "United States Mint"
+        },
+        {
+          "item": "Koin 2 Euro (Diameter)",
+          "mm": "25,75 mm",
+          "inches": "1,014 in",
+          "standard": "Bank Sentral Eropa"
+        },
+        {
+          "item": "Baterai AA Standar (Panjang)",
+          "mm": "50,50 mm",
+          "inches": "1,988 in",
+          "standard": "IEC R6 / ANSI 15"
+        },
+        {
+          "item": "Uang Kertas Dolar AS (Lebar)",
+          "mm": "155,96 mm",
+          "inches": "6,140 in",
+          "standard": "Bureau of Engraving & Printing"
+        },
+        {
+          "item": "Kertas ISO 216 A4 (Sisi Pendek)",
+          "mm": "210,00 mm",
+          "inches": "8,268 in",
+          "standard": "Seri Kertas ISO 216"
+        }
       ]
     },
     "faq": {

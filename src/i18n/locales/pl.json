@@ -47,7 +47,10 @@
       "calibration": "Kalibracja",
       "howItWorks": "Jak to działa",
       "ppiTable": "Tabela PPI"
-    }
+    },
+    "localeSuggestionText": "Wyświetlić tę stronę w języku {language}?",
+    "localeSuggestionSwitch": "Przełącz",
+    "localeSuggestionDismiss": "Odrzuć sugestię języka"
   },
   "footer": {
     "footnote": "1. Rzeczywista dokładność fizyczna wymaga kalibracji ekranu standardową kartą ISO/IEC 7810 ID-1 (85,60 × 53,98 mm) lub znaną przekątną ekranu przy powiększeniu przeglądarki 100%. Bez kalibracji przeglądarki przyjmują 96 pikseli CSS na cal.",
@@ -85,18 +88,54 @@
     "enableShortcuts": "Włącz skróty jednoklawiszowe (G, C, P, F, 1–4, D, H)",
     "gotIt": "Rozumiem",
     "shortcuts": [
-      { "key": "G", "action": "Włącz/wyłącz dodawanie linii pomocniczych kliknięciem" },
-      { "key": "C", "action": "Włącz/wyłącz celownik podążający za kursorem" },
-      { "key": "P", "action": "Włącz/wyłącz nakładkę kątomierza 180°" },
-      { "key": "F", "action": "Przełącz tryb pełnoekranowy obszaru pomiaru" },
-      { "key": "1", "action": "Zmień jednostkę na Centymetry (cm)" },
-      { "key": "2", "action": "Zmień jednostkę na Cale (in)" },
-      { "key": "3", "action": "Zmień jednostkę na Piksele CSS (px)" },
-      { "key": "4 / M", "action": "Zmień jednostkę na Milimetry (mm)" },
-      { "key": "D", "action": "Przełącz motyw jasny i ciemny" },
-      { "key": "H", "action": "Otwórz lub zamknij okno skrótów klawiszowych" },
-      { "key": "Esc", "action": "Usuń dodane linie pomocnicze lub zamknij okna" },
-      { "key": "← / →", "action": "Precyzyjnie dopasuj szerokość karty o 1px (Shift = 5px)" }
+      {
+        "key": "G",
+        "action": "Włącz/wyłącz dodawanie linii pomocniczych kliknięciem"
+      },
+      {
+        "key": "C",
+        "action": "Włącz/wyłącz celownik podążający za kursorem"
+      },
+      {
+        "key": "P",
+        "action": "Włącz/wyłącz nakładkę kątomierza 180°"
+      },
+      {
+        "key": "F",
+        "action": "Przełącz tryb pełnoekranowy obszaru pomiaru"
+      },
+      {
+        "key": "1",
+        "action": "Zmień jednostkę na Centymetry (cm)"
+      },
+      {
+        "key": "2",
+        "action": "Zmień jednostkę na Cale (in)"
+      },
+      {
+        "key": "3",
+        "action": "Zmień jednostkę na Piksele CSS (px)"
+      },
+      {
+        "key": "4 / M",
+        "action": "Zmień jednostkę na Milimetry (mm)"
+      },
+      {
+        "key": "D",
+        "action": "Przełącz motyw jasny i ciemny"
+      },
+      {
+        "key": "H",
+        "action": "Otwórz lub zamknij okno skrótów klawiszowych"
+      },
+      {
+        "key": "Esc",
+        "action": "Usuń dodane linie pomocnicze lub zamknij okna"
+      },
+      {
+        "key": "← / →",
+        "action": "Precyzyjnie dopasuj szerokość karty o 1px (Shift = 5px)"
+      }
     ]
   },
   "hero": {
@@ -159,7 +198,30 @@
     "datumBody": "Wyrównaj przedmiot do kreski [[strong:0]]. Kliknij dowolną linijkę lub siatkę, aby ustawić przeciągane linie pomiarowe.",
     "liveCursorInit": "X: 0.00 cm · Y: 0.00 cm",
     "saveToHistory": "Zapisz w Historii",
-    "keysHint": "Klawisze: [[kbd:1]] cm · [[kbd:2]] in · [[kbd:3]] px · [[kbd:G]] linie · [[kbd:C]] celownik · [[kbd:F]] pełny ekran"
+    "keysHint": "Klawisze: [[kbd:1]] cm · [[kbd:2]] in · [[kbd:3]] px · [[kbd:G]] linie · [[kbd:C]] celownik · [[kbd:F]] pełny ekran",
+    "focusMode": "Skupienie",
+    "focusModeExit": "Pokaż info",
+    "focusModeTitle": "Przełącz tryb kompaktowy (ukryj wstęp)",
+    "dualCmPxTitle": "Podwójna skala cm + px",
+    "dualInPxTitle": "Podwójna skala cale + px",
+    "inchPrecisionAria": "Dokładność ułamków cala",
+    "photoMode": "Zdjęcie / Ctrl+V",
+    "photoModeTitle": "Zmierz zdjęcie lub wklejony zrzut Ctrl+V lokalnie",
+    "photoPanelAria": "Lokalne narzędzie pomiaru zdjęć i schowka",
+    "photoChooseBtn": "Wybierz zdjęcie",
+    "photoPasteBtn": "Wklej (Ctrl+V)",
+    "photoToolCal": "1. Kalibracja 2-pkt",
+    "photoToolLine": "2. Linia",
+    "photoToolRect": "3. Ramka ΔX / ΔY",
+    "photoRefLenAria": "Znana długość odniesienia",
+    "photoRefUnitAria": "Jednostka odniesienia",
+    "photoApplyCalBtn": "Zastosuj skalę",
+    "photoUndoBtn": "Cofnij",
+    "photoClearBtn": "Wyczyść",
+    "photoExportBtn": "Eksportuj PNG",
+    "photoCloseBtn": "Zamknij",
+    "photoEmptyTitle": "W 100% lokalna linijka do zdjęć i schowka",
+    "photoEmptyDesc": "Naciśnij Ctrl+V, aby wkleić zrzut ekranu, lub wybierz plik. Nic nie jest wysyłane."
   },
   "calibration": {
     "kicker": "Kalibracja Gęstości Ekranu · Zapis Lokalny Dla Monitora",
@@ -235,7 +297,23 @@
     "historyClearBtn": "Wyczyść",
     "historyEmpty": "Umieść dwie równoległe linie pomocnicze w obszarze roboczym i kliknij [[strong:Zapisz w Historii]], aby zachować zmierzone odcinki ([[code:ΔX]] / [[code:ΔY]]) lokalnie na urządzeniu.",
     "historyFooterLeft": "Zapis: wyłącznie localStorage",
-    "historyFooterRight": "Zero wysyłania w sieć"
+    "historyFooterRight": "Zero wysyłania w sieć",
+    "refPresetGroupAria": "Obiekt odniesienia kalibracji",
+    "refTargetLabel": "Cel:",
+    "refCard1x": "1× Karta (85,6 mm)",
+    "refCard2x": "2× Karty (171,2 mm)",
+    "refCard3x": "3× Karty (256,8 mm)",
+    "refA4": "A4 (210 mm)",
+    "refLetter": "US Letter (215,9 mm)",
+    "refCd": "CD/DVD (120 mm)",
+    "refQuarter": "Quarter USA (24,26 mm)",
+    "refEuro": "Moneta 1 € (23,25 mm)",
+    "refCustom": "Własny",
+    "refCustomLengthLabel": "Długość:",
+    "refCustomUnitAria": "Jednostka własnego obiektu",
+    "refDragHint": "Przeciągnij niebieski uchwyt narożnika lub użyj suwaka",
+    "cardDragHandleAria": "Przeciągnij róg, aby dopasować rozmiar",
+    "cardDragHandleTitle": "Przeciągnij róg, aby dopasować"
   },
   "runtime": {
     "statusLabels": {
@@ -276,7 +354,8 @@
       "Typical density at default OS scaling": "Typowa gęstość przy domyślnej skali systemu",
       "Manual calibration adjusted for current zoom or scaling": "Kalibracja ręczna dostosowana do aktualnego powiększenia",
       "Calibrated against an ISO/IEC 7810 ID-1 card (85.60 × 53.98 mm)": "Skalibrowano kartą ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)",
-      "Calibrated from entered display diagonal": "Skalibrowano na podstawie wpisanej przekątnej ekranu"
+      "Calibrated from entered display diagonal": "Skalibrowano na podstawie wpisanej przekątnej ekranu",
+      "Nominal mobile screen density": "Nominalna gęstość ekranu mobilnego"
     },
     "deviceLabelMap": {
       "Desktop display": "Ekran stacjonarny",
@@ -285,7 +364,8 @@
       "Android device": "Urządzenie Android",
       "Mac with Retina display": "Mac z ekranem Retina",
       "Scaled laptop or desktop display": "Skalowany laptop lub monitor",
-      "Credit card calibration": "Kalibracja kartą płatniczą"
+      "Credit card calibration": "Kalibracja kartą płatniczą",
+      "Touchscreen device (uncalibrated)": "Urządzenie dotykowe (nieskalibrowane)"
     },
     "errorMap": {
       "Enter your screen diagonal in inches.": "Wpisz przekątną ekranu w calach.",
@@ -300,7 +380,8 @@
     },
     "displaySizeSuffix": "Ekran {long}×{short}",
     "typMonitorBasis": "Zakłada typowy ekran {diag}″ przy tej rozdzielczości",
-    "manualDiagBasis": "Przekątna Ekranu {diag}″"
+    "manualDiagBasis": "Przekątna Ekranu {diag}″",
+    "pinchZoomBanner": "Powiększenie gestem aktywne ({scale}×). Przywróć 100% dla dokładnego pomiaru."
   },
   "home": {
     "title": "Linijka Online | Darmowa Linijka w Skali 1:1 (Cale, cm i mm)",
@@ -390,14 +471,62 @@
       "Błąd przy 96 PPI"
     ],
     "ppiRows": [
-      { "device": "13,3\" MacBook Air / Pro (Retina)", "res": "1440 × 900 CSS (2×)", "ppi": "127,7 PPI", "pxMm": "5,027 px/mm", "err": "−24,8% (rysuje 7,52 cm)" },
-      { "device": "14,2\" MacBook Pro (Liquid Retina XDR)", "res": "1512 × 982 CSS (2×)", "ppi": "127,0 PPI", "pxMm": "5,000 px/mm", "err": "−24,4% (rysuje 7,56 cm)" },
-      { "device": "15,6\" Laptop Full HD (Skala 100% Windows)", "res": "1920 × 1080 CSS (1×)", "ppi": "141,2 PPI", "pxMm": "5,559 px/mm", "err": "−32,0% (rysuje 6,80 cm)" },
-      { "device": "15,6\" Laptop Full HD (Skala 125% Windows)", "res": "1536 × 864 CSS (1,25×)", "ppi": "113,0 PPI", "pxMm": "4,448 px/mm", "err": "−15,0% (rysuje 8,50 cm)" },
-      { "device": "24\" Monitor Desktop Full HD (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "91,8 PPI", "pxMm": "3,614 px/mm", "err": "+4,6% (rysuje 10,46 cm)" },
-      { "device": "27\" Monitor Desktop Full HD (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "81,6 PPI", "pxMm": "3,212 px/mm", "err": "+17,6% (rysuje 11,76 cm)" },
-      { "device": "27\" Monitor QHD (2560 × 1440, 100%)", "res": "2560 × 1440 CSS (1×)", "ppi": "108,8 PPI", "pxMm": "4,283 px/mm", "err": "−11,8% (rysuje 8,82 cm)" },
-      { "device": "27\" Monitor 4K UHD (Skala 200% HiDPI)", "res": "1920 × 1080 CSS (2×)", "ppi": "81,6 CSS PPI", "pxMm": "3,212 px/mm", "err": "+17,6% (rysuje 11,76 cm)" }
+      {
+        "device": "13,3\" MacBook Air / Pro (Retina)",
+        "res": "1440 × 900 CSS (2×)",
+        "ppi": "127,7 PPI",
+        "pxMm": "5,027 px/mm",
+        "err": "−24,8% (rysuje 7,52 cm)"
+      },
+      {
+        "device": "14,2\" MacBook Pro (Liquid Retina XDR)",
+        "res": "1512 × 982 CSS (2×)",
+        "ppi": "127,0 PPI",
+        "pxMm": "5,000 px/mm",
+        "err": "−24,4% (rysuje 7,56 cm)"
+      },
+      {
+        "device": "15,6\" Laptop Full HD (Skala 100% Windows)",
+        "res": "1920 × 1080 CSS (1×)",
+        "ppi": "141,2 PPI",
+        "pxMm": "5,559 px/mm",
+        "err": "−32,0% (rysuje 6,80 cm)"
+      },
+      {
+        "device": "15,6\" Laptop Full HD (Skala 125% Windows)",
+        "res": "1536 × 864 CSS (1,25×)",
+        "ppi": "113,0 PPI",
+        "pxMm": "4,448 px/mm",
+        "err": "−15,0% (rysuje 8,50 cm)"
+      },
+      {
+        "device": "24\" Monitor Desktop Full HD (1080p)",
+        "res": "1920 × 1080 CSS (1×)",
+        "ppi": "91,8 PPI",
+        "pxMm": "3,614 px/mm",
+        "err": "+4,6% (rysuje 10,46 cm)"
+      },
+      {
+        "device": "27\" Monitor Desktop Full HD (1080p)",
+        "res": "1920 × 1080 CSS (1×)",
+        "ppi": "81,6 PPI",
+        "pxMm": "3,212 px/mm",
+        "err": "+17,6% (rysuje 11,76 cm)"
+      },
+      {
+        "device": "27\" Monitor QHD (2560 × 1440, 100%)",
+        "res": "2560 × 1440 CSS (1×)",
+        "ppi": "108,8 PPI",
+        "pxMm": "4,283 px/mm",
+        "err": "−11,8% (rysuje 8,82 cm)"
+      },
+      {
+        "device": "27\" Monitor 4K UHD (Skala 200% HiDPI)",
+        "res": "1920 × 1080 CSS (2×)",
+        "ppi": "81,6 CSS PPI",
+        "pxMm": "3,212 px/mm",
+        "err": "+17,6% (rysuje 11,76 cm)"
+      }
     ],
     "ppiFormula": "Wzór: [[code:Efektywne CSS PPI = √(W_css² + H_css²) / przekątnaCale]] · [[code:pxPerMm = CSS_PPI / 25.4]]. Według normy NIST / BIPM 1 cal wynosi dokładnie 25,4 mm.",
     "modesKicker": "Dedykowane Widoki Pomiarowe · Skale Metryczna, Calowa i Pikselowa",
@@ -503,11 +632,36 @@
     "modesHeading": "Poznaj Pozostałe Skalibrowane Tryby Linijki Online",
     "modesAllEdgeBtn": "Obszar Wszystkie Krawędzie",
     "modeTiles": [
-      { "href": "/cm-ruler", "kicker": "Metryczna · cm", "title": "Linijka Centymetrowa", "desc": "Skala 1 cm i 0,5 cm + tabela cm na cale" },
-      { "href": "/inch-ruler", "kicker": "Calowa · 1/16″", "title": "Linijka Calowa (12″)", "desc": "Ułamki 1/2, 1/4, 1/8, 1/16″" },
-      { "href": "/mm-ruler", "kicker": "Drobny krok · mm", "title": "Linijka Milimetrowa", "desc": "Podziałka sprzętowa 1 mm i 5 mm" },
-      { "href": "/horizontal-ruler", "kicker": "Góra i Dół", "title": "Linijka Pozioma", "desc": "Szerokie pomiary i piksele CSS (px)" },
-      { "href": "/vertical-ruler", "kicker": "Lewo i Prawo", "title": "Linijka Pionowa", "desc": "Wysokość w pionie i telefon pionowo" }
+      {
+        "href": "/cm-ruler",
+        "kicker": "Metryczna · cm",
+        "title": "Linijka Centymetrowa",
+        "desc": "Skala 1 cm i 0,5 cm + tabela cm na cale"
+      },
+      {
+        "href": "/inch-ruler",
+        "kicker": "Calowa · 1/16″",
+        "title": "Linijka Calowa (12″)",
+        "desc": "Ułamki 1/2, 1/4, 1/8, 1/16″"
+      },
+      {
+        "href": "/mm-ruler",
+        "kicker": "Drobny krok · mm",
+        "title": "Linijka Milimetrowa",
+        "desc": "Podziałka sprzętowa 1 mm i 5 mm"
+      },
+      {
+        "href": "/horizontal-ruler",
+        "kicker": "Góra i Dół",
+        "title": "Linijka Pozioma",
+        "desc": "Szerokie pomiary i piksele CSS (px)"
+      },
+      {
+        "href": "/vertical-ruler",
+        "kicker": "Lewo i Prawo",
+        "title": "Linijka Pionowa",
+        "desc": "Wysokość w pionie i telefon pionowo"
+      }
     ],
     "allFaqsBtn": "Wszystkie Często Zadawane Pytania"
   },
@@ -578,20 +732,98 @@
       "table": {
         "kicker": "Tabela Przeliczeń Metryczno-Calowych (NIST / BIPM)",
         "heading": "Centymetry (cm) na Milimetry (mm), Cale Dziesiętne i Ułamki 1/16″",
-        "headers": ["Centymetry (cm)", "Milimetry (mm)", "Cale Dziesiętne (in)", "Najbliższe 1/16″", "Typowe Odniesienie Fizyczne"],
+        "headers": [
+          "Centymetry (cm)",
+          "Milimetry (mm)",
+          "Cale Dziesiętne (in)",
+          "Najbliższe 1/16″",
+          "Typowe Odniesienie Fizyczne"
+        ],
         "rows": [
-          ["1 cm", "10,0 mm", "0,3937 in", "3/8 in (0,375″)", "Średnica baterii AAA (~1,05 cm)"],
-          ["2 cm", "20,0 mm", "0,7874 in", "13/16 in (0,813″)", "Średnica US Penny: 1,905 cm (19,05 mm)"],
-          ["2,54 cm", "25,4 mm", "1,0000 in", "1 in (dokładnie)", "Ścisła definicja 1 cala imperialnego"],
-          ["5 cm", "50,0 mm", "1,9685 in", "1 15/16 in (1,938″)", "Długość baterii AA (5,05 cm)"],
-          ["5,40 cm", "53,98 mm", "2,1252 in", "2 1/8 in (2,125″)", "Wysokość karty bankowej ISO/IEC 7810 ID-1"],
-          ["8,56 cm", "85,60 mm", "3,3701 in", "3 3/8 in (3,375″)", "Szerokość karty bankowej ISO/IEC 7810 ID-1"],
-          ["10 cm", "100,0 mm", "3,9370 in", "3 15/16 in (3,938″)", "1 decymetr (wzorzec 100 mm)"],
-          ["15 cm", "150,0 mm", "5,9055 in", "5 7/8 in (5,875″)", "Linijka kieszonkowa 15 cm / banknot USD (15,6 cm)"],
-          ["20 cm", "200,0 mm", "7,8740 in", "7 7/8 in (7,875″)", "Szerokość kartki A4 to 21,0 cm (210 mm)"],
-          ["25 cm", "250,0 mm", "9,8425 in", "9 13/16 in (9,813″)", "Ćwierć metra (krawiectwo, rękodzieło)"],
-          ["30 cm", "300,0 mm", "11,8110 in", "11 13/16 in (11,813″)", "Standardowa szkolna linijka 30 cm"],
-          ["30,48 cm", "304,8 mm", "12,0000 in", "12 in (1 stopa)", "Dokładna długość linijki 12-calowej"]
+          [
+            "1 cm",
+            "10,0 mm",
+            "0,3937 in",
+            "3/8 in (0,375″)",
+            "Średnica baterii AAA (~1,05 cm)"
+          ],
+          [
+            "2 cm",
+            "20,0 mm",
+            "0,7874 in",
+            "13/16 in (0,813″)",
+            "Średnica US Penny: 1,905 cm (19,05 mm)"
+          ],
+          [
+            "2,54 cm",
+            "25,4 mm",
+            "1,0000 in",
+            "1 in (dokładnie)",
+            "Ścisła definicja 1 cala imperialnego"
+          ],
+          [
+            "5 cm",
+            "50,0 mm",
+            "1,9685 in",
+            "1 15/16 in (1,938″)",
+            "Długość baterii AA (5,05 cm)"
+          ],
+          [
+            "5,40 cm",
+            "53,98 mm",
+            "2,1252 in",
+            "2 1/8 in (2,125″)",
+            "Wysokość karty bankowej ISO/IEC 7810 ID-1"
+          ],
+          [
+            "8,56 cm",
+            "85,60 mm",
+            "3,3701 in",
+            "3 3/8 in (3,375″)",
+            "Szerokość karty bankowej ISO/IEC 7810 ID-1"
+          ],
+          [
+            "10 cm",
+            "100,0 mm",
+            "3,9370 in",
+            "3 15/16 in (3,938″)",
+            "1 decymetr (wzorzec 100 mm)"
+          ],
+          [
+            "15 cm",
+            "150,0 mm",
+            "5,9055 in",
+            "5 7/8 in (5,875″)",
+            "Linijka kieszonkowa 15 cm / banknot USD (15,6 cm)"
+          ],
+          [
+            "20 cm",
+            "200,0 mm",
+            "7,8740 in",
+            "7 7/8 in (7,875″)",
+            "Szerokość kartki A4 to 21,0 cm (210 mm)"
+          ],
+          [
+            "25 cm",
+            "250,0 mm",
+            "9,8425 in",
+            "9 13/16 in (9,813″)",
+            "Ćwierć metra (krawiectwo, rękodzieło)"
+          ],
+          [
+            "30 cm",
+            "300,0 mm",
+            "11,8110 in",
+            "11 13/16 in (11,813″)",
+            "Standardowa szkolna linijka 30 cm"
+          ],
+          [
+            "30,48 cm",
+            "304,8 mm",
+            "12,0000 in",
+            "12 in (1 stopa)",
+            "Dokładna długość linijki 12-calowej"
+          ]
         ],
         "footnote": "Wzory: mm = cm × 10 · in = cm ÷ 2,54 · cm = in × 2,54."
       },
@@ -682,24 +914,126 @@
       "table": {
         "kicker": "Tabela Techniczna Śrub, Zegarmistrzostwa i Elektroniki (mm)",
         "heading": "Popularne Rozmiary w Milimetrach (mm), Centymetrach, Calach i Normach",
-        "headers": ["Milimetry (mm)", "Centymetry (cm)", "Cale Dziesiętne", "Najbliższe 1/16″", "Standardowe Odniesienie Sprzętowe"],
+        "headers": [
+          "Milimetry (mm)",
+          "Centymetry (cm)",
+          "Cale Dziesiętne",
+          "Najbliższe 1/16″",
+          "Standardowe Odniesienie Sprzętowe"
+        ],
         "rows": [
-          ["1,00 mm", "0,10 cm", "0,0394 in", "1/16 in (1,59 mm)", "Średnica drutu 18 AWG (~1,02 mm)"],
-          ["1,59 mm", "0,16 cm", "0,0625 in", "1/16 in (dokładnie)", "Dokładny odpowiednik 1/16 cala"],
-          ["2,00 mm", "0,20 cm", "0,0787 in", "1/16 in", "Średnica gwintu śruby ISO M2"],
-          ["2,54 mm", "0,254 cm", "0,1000 in", "3/32 in", "Standardowy raster listew kołkowych PCB 0,100″"],
-          ["3,00 mm", "0,30 cm", "0,1181 in", "1/8 in (3,18 mm)", "Śruba ISO M3 / dystans płyty głównej PC"],
-          ["4,00 mm", "0,40 cm", "0,1575 in", "5/32 in", "Śruba ISO M4 / bit precyzyjny 4 mm"],
-          ["5,00 mm", "0,50 cm", "0,1969 in", "3/16 in (4,76 mm)", "Śruba ISO M5 / standardowa dioda LED 5 mm"],
-          ["6,00 mm", "0,60 cm", "0,2362 in", "1/4 in (6,35 mm)", "Śruba ISO M6; uchwyt bitów 1/4″ ma 6,35 mm"],
-          ["8,00 mm", "0,80 cm", "0,3150 in", "5/16 in (7,94 mm)", "Śruba ISO M8 / otwór wewnętrzny łożyska 608"],
-          ["10,00 mm", "1,00 cm", "0,3937 in", "3/8 in (9,53 mm)", "Śruba ISO M10 / wzorzec 1 cm"],
-          ["18,00 mm", "1,80 cm", "0,7087 in", "11/16 in", "Klasyczny pasek do zegarka garniturowego (18 mm)"],
-          ["20,00 mm", "2,00 cm", "0,7874 in", "13/16 in", "Standardowa szerokość paska zegarka (20 mm)"],
-          ["22,00 mm", "2,20 cm", "0,8661 in", "7/8 in (22,23 mm)", "Pasek zegarka typu diver / średnica zewn. łożyska 608"],
-          ["25,40 mm", "2,54 cm", "1,0000 in", "1 in (dokładnie)", "Ścisła definicja SI 1 cala"],
-          ["53,98 mm", "5,40 cm", "2,1252 in", "2 1/8 in", "Krótszy bok karty bankowej ISO/IEC 7810 ID-1"],
-          ["85,60 mm", "8,56 cm", "3,3701 in", "3 3/8 in", "Dłuższy bok karty bankowej ISO/IEC 7810 ID-1"]
+          [
+            "1,00 mm",
+            "0,10 cm",
+            "0,0394 in",
+            "1/16 in (1,59 mm)",
+            "Średnica drutu 18 AWG (~1,02 mm)"
+          ],
+          [
+            "1,59 mm",
+            "0,16 cm",
+            "0,0625 in",
+            "1/16 in (dokładnie)",
+            "Dokładny odpowiednik 1/16 cala"
+          ],
+          [
+            "2,00 mm",
+            "0,20 cm",
+            "0,0787 in",
+            "1/16 in",
+            "Średnica gwintu śruby ISO M2"
+          ],
+          [
+            "2,54 mm",
+            "0,254 cm",
+            "0,1000 in",
+            "3/32 in",
+            "Standardowy raster listew kołkowych PCB 0,100″"
+          ],
+          [
+            "3,00 mm",
+            "0,30 cm",
+            "0,1181 in",
+            "1/8 in (3,18 mm)",
+            "Śruba ISO M3 / dystans płyty głównej PC"
+          ],
+          [
+            "4,00 mm",
+            "0,40 cm",
+            "0,1575 in",
+            "5/32 in",
+            "Śruba ISO M4 / bit precyzyjny 4 mm"
+          ],
+          [
+            "5,00 mm",
+            "0,50 cm",
+            "0,1969 in",
+            "3/16 in (4,76 mm)",
+            "Śruba ISO M5 / standardowa dioda LED 5 mm"
+          ],
+          [
+            "6,00 mm",
+            "0,60 cm",
+            "0,2362 in",
+            "1/4 in (6,35 mm)",
+            "Śruba ISO M6; uchwyt bitów 1/4″ ma 6,35 mm"
+          ],
+          [
+            "8,00 mm",
+            "0,80 cm",
+            "0,3150 in",
+            "5/16 in (7,94 mm)",
+            "Śruba ISO M8 / otwór wewnętrzny łożyska 608"
+          ],
+          [
+            "10,00 mm",
+            "1,00 cm",
+            "0,3937 in",
+            "3/8 in (9,53 mm)",
+            "Śruba ISO M10 / wzorzec 1 cm"
+          ],
+          [
+            "18,00 mm",
+            "1,80 cm",
+            "0,7087 in",
+            "11/16 in",
+            "Klasyczny pasek do zegarka garniturowego (18 mm)"
+          ],
+          [
+            "20,00 mm",
+            "2,00 cm",
+            "0,7874 in",
+            "13/16 in",
+            "Standardowa szerokość paska zegarka (20 mm)"
+          ],
+          [
+            "22,00 mm",
+            "2,20 cm",
+            "0,8661 in",
+            "7/8 in (22,23 mm)",
+            "Pasek zegarka typu diver / średnica zewn. łożyska 608"
+          ],
+          [
+            "25,40 mm",
+            "2,54 cm",
+            "1,0000 in",
+            "1 in (dokładnie)",
+            "Ścisła definicja SI 1 cala"
+          ],
+          [
+            "53,98 mm",
+            "5,40 cm",
+            "2,1252 in",
+            "2 1/8 in",
+            "Krótszy bok karty bankowej ISO/IEC 7810 ID-1"
+          ],
+          [
+            "85,60 mm",
+            "8,56 cm",
+            "3,3701 in",
+            "3 3/8 in",
+            "Dłuższy bok karty bankowej ISO/IEC 7810 ID-1"
+          ]
         ],
         "footnote": "Wzory: in = mm ÷ 25,4 · cm = mm ÷ 10 · 1/16″ = 1,5875 mm."
       },
@@ -790,24 +1124,126 @@
       "table": {
         "kicker": "Tabela Ułamków Calowych (1/16″ do 1″ · 1 cal = 25,4 mm)",
         "heading": "Szesnaste Części Cala (1/16″) na Ułamek Skrócony, Dziesiętne, mm i cm",
-        "headers": ["Szesnaste", "Ułamek Skrócony", "Dziesiętne (in)", "Milimetry (mm)", "Centymetry (cm)"],
+        "headers": [
+          "Szesnaste",
+          "Ułamek Skrócony",
+          "Dziesiętne (in)",
+          "Milimetry (mm)",
+          "Centymetry (cm)"
+        ],
         "rows": [
-          ["1/16″", "1/16 in", "0,0625 in", "1,588 mm", "0,159 cm"],
-          ["2/16″", "1/8 in", "0,1250 in", "3,175 mm", "0,318 cm"],
-          ["3/16″", "3/16 in", "0,1875 in", "4,763 mm", "0,476 cm"],
-          ["4/16″", "1/4 in", "0,2500 in", "6,350 mm", "0,635 cm"],
-          ["5/16″", "5/16 in", "0,3125 in", "7,938 mm", "0,794 cm"],
-          ["6/16″", "3/8 in", "0,3750 in", "9,525 mm", "0,953 cm"],
-          ["7/16″", "7/16 in", "0,4375 in", "11,113 mm", "1,111 cm"],
-          ["8/16″", "1/2 in", "0,5000 in", "12,700 mm", "1,270 cm"],
-          ["9/16″", "9/16 in", "0,5625 in", "14,288 mm", "1,429 cm"],
-          ["10/16″", "5/8 in", "0,6250 in", "15,875 mm", "1,588 cm"],
-          ["11/16″", "11/16 in", "0,6875 in", "17,463 mm", "1,746 cm"],
-          ["12/16″", "3/4 in (US Penny)", "0,7500 in", "19,050 mm", "1,905 cm"],
-          ["13/16″", "13/16 in", "0,8125 in", "20,638 mm", "2,064 cm"],
-          ["14/16″", "7/8 in", "0,8750 in", "22,225 mm", "2,223 cm"],
-          ["15/16″", "15/16 in (~US Quarter)", "0,9375 in", "23,813 mm", "2,381 cm"],
-          ["16/16″", "1 in (Pełny Cal)", "1,0000 in", "25,400 mm", "2,540 cm"]
+          [
+            "1/16″",
+            "1/16 in",
+            "0,0625 in",
+            "1,588 mm",
+            "0,159 cm"
+          ],
+          [
+            "2/16″",
+            "1/8 in",
+            "0,1250 in",
+            "3,175 mm",
+            "0,318 cm"
+          ],
+          [
+            "3/16″",
+            "3/16 in",
+            "0,1875 in",
+            "4,763 mm",
+            "0,476 cm"
+          ],
+          [
+            "4/16″",
+            "1/4 in",
+            "0,2500 in",
+            "6,350 mm",
+            "0,635 cm"
+          ],
+          [
+            "5/16″",
+            "5/16 in",
+            "0,3125 in",
+            "7,938 mm",
+            "0,794 cm"
+          ],
+          [
+            "6/16″",
+            "3/8 in",
+            "0,3750 in",
+            "9,525 mm",
+            "0,953 cm"
+          ],
+          [
+            "7/16″",
+            "7/16 in",
+            "0,4375 in",
+            "11,113 mm",
+            "1,111 cm"
+          ],
+          [
+            "8/16″",
+            "1/2 in",
+            "0,5000 in",
+            "12,700 mm",
+            "1,270 cm"
+          ],
+          [
+            "9/16″",
+            "9/16 in",
+            "0,5625 in",
+            "14,288 mm",
+            "1,429 cm"
+          ],
+          [
+            "10/16″",
+            "5/8 in",
+            "0,6250 in",
+            "15,875 mm",
+            "1,588 cm"
+          ],
+          [
+            "11/16″",
+            "11/16 in",
+            "0,6875 in",
+            "17,463 mm",
+            "1,746 cm"
+          ],
+          [
+            "12/16″",
+            "3/4 in (US Penny)",
+            "0,7500 in",
+            "19,050 mm",
+            "1,905 cm"
+          ],
+          [
+            "13/16″",
+            "13/16 in",
+            "0,8125 in",
+            "20,638 mm",
+            "2,064 cm"
+          ],
+          [
+            "14/16″",
+            "7/8 in",
+            "0,8750 in",
+            "22,225 mm",
+            "2,223 cm"
+          ],
+          [
+            "15/16″",
+            "15/16 in (~US Quarter)",
+            "0,9375 in",
+            "23,813 mm",
+            "2,381 cm"
+          ],
+          [
+            "16/16″",
+            "1 in (Pełny Cal)",
+            "1,0000 in",
+            "25,400 mm",
+            "2,540 cm"
+          ]
         ],
         "footnote": "Stałe dokładne: 1 in = 25,4 mm · 1/2 in = 12,7 mm · 1/4 in = 6,35 mm · 1/8 in = 3,175 mm · 1/16 in = 1,5875 mm."
       },
@@ -898,16 +1334,70 @@
       "table": {
         "kicker": "Geometria Paneli Ekranowych (16:9, 16:10 i 21:9)",
         "heading": "Maksymalna Szerokość Pozioma Wg Przekątnej Ekranu",
-        "headers": ["Panel i Proporcje", "Szerokość (in)", "Szerokość (cm / mm)", "Typowy Viewport CSS", "Mieszcząca się Linijka"],
+        "headers": [
+          "Panel i Proporcje",
+          "Szerokość (in)",
+          "Szerokość (cm / mm)",
+          "Typowy Viewport CSS",
+          "Mieszcząca się Linijka"
+        ],
         "rows": [
-          ["6,1\" Smartfon (19,5:9 Poziomo)", "5,55 in", "14,1 cm (141 mm)", "844 – 852 CSS px", "Do 13 cm / 5 in"],
-          ["11,0\" Tablet (4:3)", "8,80 in", "22,4 cm (224 mm)", "1024 – 1194 CSS px", "Linijka kieszonkowa 15 cm / 6 in"],
-          ["13,3\" Laptop (16:10 Retina)", "11,28 in", "28,6 cm (286 mm)", "1440 CSS px", "Do 27 cm / 10,5 in"],
-          ["14,2\" MacBook Pro (16:10)", "11,97 in", "30,4 cm (304 mm)", "1512 CSS px", "Pełne 30 cm / 11,5 in"],
-          ["15,6\" Laptop Full HD (16:9)", "13,60 in", "34,5 cm (345 mm)", "1536 – 1920 CSS px", "Pełne 30 cm i 12 cali"],
-          ["24,0\" Monitor (16:9 1080p)", "20,92 in", "53,1 cm (531 mm)", "1920 CSS px", "Linijka 50 cm / 18 in"],
-          ["27,0\" Monitor (16:9 QHD/4K)", "23,53 in", "59,8 cm (598 mm)", "1920 – 2560 CSS px", "Linijka 58 cm / 22 in"],
-          ["34,0\" Ultrawide (21:9)", "31,36 in", "79,7 cm (797 mm)", "3440 CSS px", "Linijka 75 cm / 30 in"]
+          [
+            "6,1\" Smartfon (19,5:9 Poziomo)",
+            "5,55 in",
+            "14,1 cm (141 mm)",
+            "844 – 852 CSS px",
+            "Do 13 cm / 5 in"
+          ],
+          [
+            "11,0\" Tablet (4:3)",
+            "8,80 in",
+            "22,4 cm (224 mm)",
+            "1024 – 1194 CSS px",
+            "Linijka kieszonkowa 15 cm / 6 in"
+          ],
+          [
+            "13,3\" Laptop (16:10 Retina)",
+            "11,28 in",
+            "28,6 cm (286 mm)",
+            "1440 CSS px",
+            "Do 27 cm / 10,5 in"
+          ],
+          [
+            "14,2\" MacBook Pro (16:10)",
+            "11,97 in",
+            "30,4 cm (304 mm)",
+            "1512 CSS px",
+            "Pełne 30 cm / 11,5 in"
+          ],
+          [
+            "15,6\" Laptop Full HD (16:9)",
+            "13,60 in",
+            "34,5 cm (345 mm)",
+            "1536 – 1920 CSS px",
+            "Pełne 30 cm i 12 cali"
+          ],
+          [
+            "24,0\" Monitor (16:9 1080p)",
+            "20,92 in",
+            "53,1 cm (531 mm)",
+            "1920 CSS px",
+            "Linijka 50 cm / 18 in"
+          ],
+          [
+            "27,0\" Monitor (16:9 QHD/4K)",
+            "23,53 in",
+            "59,8 cm (598 mm)",
+            "1920 – 2560 CSS px",
+            "Linijka 58 cm / 22 in"
+          ],
+          [
+            "34,0\" Ultrawide (21:9)",
+            "31,36 in",
+            "79,7 cm (797 mm)",
+            "3440 CSS px",
+            "Linijka 75 cm / 30 in"
+          ]
         ],
         "footnote": "Wzory szerokości: 16:9 = Przekątna × 0,87158 · 16:10 = Przekątna × 0,84800 · 21:9 = Przekątna × 0,92246."
       },
@@ -998,16 +1488,70 @@
       "table": {
         "kicker": "Tabela Wysokości Pionowych i Przykładowych Przedmiotów",
         "heading": "Aktywna Wysokość Ekranu Wg Urządzenia",
-        "headers": ["Urządzenie / Orientacja", "Wysokość (cm / mm)", "Wysokość (in)", "Wysokość CSS", "Przedmioty Mieszczące Się w Pionie"],
+        "headers": [
+          "Urządzenie / Orientacja",
+          "Wysokość (cm / mm)",
+          "Wysokość (in)",
+          "Wysokość CSS",
+          "Przedmioty Mieszczące Się w Pionie"
+        ],
         "rows": [
-          ["6,1\" Smartfon (Pionowo)", "14,1 cm (141 mm)", "5,55 in", "844 – 852 CSS px", "Baterie AA/AAA, karta (85,6 mm), puszka (122 mm)"],
-          ["6,7\" Pro Max / Ultra (Pionowo)", "15,5 cm (155 mm)", "6,10 in", "926 – 932 CSS px", "Paszport (125 mm), długopis (~140 mm), linijka 15 cm"],
-          ["11,0\" Tablet (Pionowo 4:3)", "22,4 cm (224 mm)", "8,80 in", "1024 – 1194 CSS px", "Zeszyt A5 (210 mm), butelka, książka"],
-          ["14,2\" MacBook Pro (16:10)", "19,0 cm (190 mm)", "7,48 in", "982 CSS px", "Wysokość smartfona, linijka 15 cm"],
-          ["15,6\" Laptop (16:9)", "19,4 cm (194 mm)", "7,65 in", "864 – 1080 CSS px", "Pudełko DVD (190 mm), kubek"],
-          ["24,0\" Monitor (16:9)", "29,9 cm (299 mm)", "11,77 in", "1080 CSS px", "Wysokość kartki A4 (297 mm)"],
-          ["27,0\" Monitor (16:9)", "33,6 cm (336 mm)", "13,24 in", "1080 – 1440 CSS px", "Pełne 30 cm / 12 cali, butelka wina (300 mm)"],
-          ["24–27\" Monitor (Pivot 90°)", "53,1 – 59,8 cm", "20,9 – 23,5 in", "1920 – 2560 CSS px", "Kolumna głośnikowa, obudowa PC, skala 50 cm"]
+          [
+            "6,1\" Smartfon (Pionowo)",
+            "14,1 cm (141 mm)",
+            "5,55 in",
+            "844 – 852 CSS px",
+            "Baterie AA/AAA, karta (85,6 mm), puszka (122 mm)"
+          ],
+          [
+            "6,7\" Pro Max / Ultra (Pionowo)",
+            "15,5 cm (155 mm)",
+            "6,10 in",
+            "926 – 932 CSS px",
+            "Paszport (125 mm), długopis (~140 mm), linijka 15 cm"
+          ],
+          [
+            "11,0\" Tablet (Pionowo 4:3)",
+            "22,4 cm (224 mm)",
+            "8,80 in",
+            "1024 – 1194 CSS px",
+            "Zeszyt A5 (210 mm), butelka, książka"
+          ],
+          [
+            "14,2\" MacBook Pro (16:10)",
+            "19,0 cm (190 mm)",
+            "7,48 in",
+            "982 CSS px",
+            "Wysokość smartfona, linijka 15 cm"
+          ],
+          [
+            "15,6\" Laptop (16:9)",
+            "19,4 cm (194 mm)",
+            "7,65 in",
+            "864 – 1080 CSS px",
+            "Pudełko DVD (190 mm), kubek"
+          ],
+          [
+            "24,0\" Monitor (16:9)",
+            "29,9 cm (299 mm)",
+            "11,77 in",
+            "1080 CSS px",
+            "Wysokość kartki A4 (297 mm)"
+          ],
+          [
+            "27,0\" Monitor (16:9)",
+            "33,6 cm (336 mm)",
+            "13,24 in",
+            "1080 – 1440 CSS px",
+            "Pełne 30 cm / 12 cali, butelka wina (300 mm)"
+          ],
+          [
+            "24–27\" Monitor (Pivot 90°)",
+            "53,1 – 59,8 cm",
+            "20,9 – 23,5 in",
+            "1920 – 2560 CSS px",
+            "Kolumna głośnikowa, obudowa PC, skala 50 cm"
+          ]
         ],
         "footnote": "Wzory wysokości: 16:9 = Przekątna × 0,49026 · 16:10 = Przekątna × 0,53000."
       },
@@ -1050,7 +1594,10 @@
           "heading": "Najpierw skalibruj gęstość ekranu",
           "body": "W sekcji Skalibruj Ekran dopasuj kartę ISO/IEC 7810 ID-1 (85,60 × 53,98 mm) lub wpisz przekątną ekranu przy powiększeniu 100%, po czym kliknij Zastosuj Kalibrację.",
           "links": [
-            { "href": "/#calibration", "label": "Otwórz Kalibrację Kartą →" }
+            {
+              "href": "/#calibration",
+              "label": "Otwórz Kalibrację Kartą →"
+            }
           ]
         },
         {
@@ -1059,9 +1606,18 @@
           "heading": "Wybierz jednostkę miary i aktywne krawędzie",
           "body": "Użyj klawiszy 1 (cm), 2 (cale), 3 (CSS px), 4/M (mm) lub Podwójne cm/in i ustaw krawędzie Góra, Dół, Lewo, Prawo lub Wszystkie.",
           "links": [
-            { "href": "/cm-ruler", "label": "Linijka cm" },
-            { "href": "/inch-ruler", "label": "Linijka Calowa" },
-            { "href": "/mm-ruler", "label": "Linijka mm" }
+            {
+              "href": "/cm-ruler",
+              "label": "Linijka cm"
+            },
+            {
+              "href": "/inch-ruler",
+              "label": "Linijka Calowa"
+            },
+            {
+              "href": "/mm-ruler",
+              "label": "Linijka mm"
+            }
           ]
         },
         {
@@ -1070,7 +1626,10 @@
           "heading": "Wyrównaj do zera i mierz odcinki liniami pomocniczymi",
           "body": "Przyłóż początek obiektu do przerywanej linii 0 (16 px od krawędzi) lub postaw dwie równoległe niebieskie linie, by wyliczyć ΔX/ΔY i zapisać pomiar w Historii.",
           "links": [
-            { "href": "/calibration-guide", "label": "Przeczytaj Poradnik Kalibracji i PPI →" }
+            {
+              "href": "/calibration-guide",
+              "label": "Przeczytaj Poradnik Kalibracji i PPI →"
+            }
           ]
         }
       ],
@@ -1114,18 +1673,62 @@
       "shortcutsKicker": "Sterowanie Obszarem · Klawiatura",
       "shortcutsHeading": "Pełna Tabela Skrótów Klawiszowych",
       "shortcutsLead": "Przytrzymuj przedmiot jedną ręką, a drugą przełączaj jednostki jednym klawiszem:",
-      "shortcutsHeaders": ["Klawisz", "Akcja w Obszarze", "Kiedy Używać"],
+      "shortcutsHeaders": [
+        "Klawisz",
+        "Akcja w Obszarze",
+        "Kiedy Używać"
+      ],
       "shortcuts": [
-        { "key": "1", "action": "Przełącz na Centymetry (cm)", "useCase": "Codzienne pomiary z podziałką 1 mm i 0,5 cm" },
-        { "key": "2", "action": "Przełącz na Cale Ułamkowe (in)", "useCase": "Stolarstwo i odczyty w ułamkach 1/16″" },
-        { "key": "3", "action": "Przełącz na Piksele CSS (px)", "useCase": "Testowanie układów WWW i szerokości viewportu" },
-        { "key": "4 / M", "action": "Przełącz na Milimetry (mm)", "useCase": "Śruby M2–M10, zegarki, biżuteria" },
-        { "key": "D", "action": "Przełącz Motyw Jasny / Ciemny", "useCase": "Ograniczenie odblasków ekranu" },
-        { "key": "G", "action": "Włącz/Dodaj Linie Pomocnicze", "useCase": "Wyznaczanie odcinków ΔX / ΔY" },
-        { "key": "C", "action": "Przełącz Celownik Kursora", "useCase": "Śledzenie współrzędnych X/Y na bieżąco" },
-        { "key": "P", "action": "Przełącz Kątomierz 180°", "useCase": "Pomiar kątów z rozdzielczością 0,1°" },
-        { "key": "F", "action": "Pełny Ekran", "useCase": "Maksymalne wydłużenie linijki na matrycy" },
-        { "key": "Esc", "action": "Wyczyść Linie i Okna", "useCase": "Szybkie czyszczenie przed kolejnym pomiarem" }
+        {
+          "key": "1",
+          "action": "Przełącz na Centymetry (cm)",
+          "useCase": "Codzienne pomiary z podziałką 1 mm i 0,5 cm"
+        },
+        {
+          "key": "2",
+          "action": "Przełącz na Cale Ułamkowe (in)",
+          "useCase": "Stolarstwo i odczyty w ułamkach 1/16″"
+        },
+        {
+          "key": "3",
+          "action": "Przełącz na Piksele CSS (px)",
+          "useCase": "Testowanie układów WWW i szerokości viewportu"
+        },
+        {
+          "key": "4 / M",
+          "action": "Przełącz na Milimetry (mm)",
+          "useCase": "Śruby M2–M10, zegarki, biżuteria"
+        },
+        {
+          "key": "D",
+          "action": "Przełącz Motyw Jasny / Ciemny",
+          "useCase": "Ograniczenie odblasków ekranu"
+        },
+        {
+          "key": "G",
+          "action": "Włącz/Dodaj Linie Pomocnicze",
+          "useCase": "Wyznaczanie odcinków ΔX / ΔY"
+        },
+        {
+          "key": "C",
+          "action": "Przełącz Celownik Kursora",
+          "useCase": "Śledzenie współrzędnych X/Y na bieżąco"
+        },
+        {
+          "key": "P",
+          "action": "Przełącz Kątomierz 180°",
+          "useCase": "Pomiar kątów z rozdzielczością 0,1°"
+        },
+        {
+          "key": "F",
+          "action": "Pełny Ekran",
+          "useCase": "Maksymalne wydłużenie linijki na matrycy"
+        },
+        {
+          "key": "Esc",
+          "action": "Wyczyść Linie i Okna",
+          "useCase": "Szybkie czyszczenie przed kolejnym pomiarem"
+        }
       ],
       "checklistKicker": "Kontrola Przed Pomiarem · 6 Punktów",
       "checklistHeading": "Sześć Kontroli Przed Zapisaniem Ważnego Wymiaru",
@@ -1184,13 +1787,49 @@
       "s6Heading": "Zależność CSS PPI, Fizycznego PPI i devicePxPerMm",
       "s6Lead": "Wzór Pitagorasa na pikselach CSS przy zoomie 100% daje [[code:CSS px/mm]], a pomnożenie przez [[code:window.devicePixelRatio]] daje stałe [[code:devicePxPerMm]].",
       "s6TableHeading": "Przykładowa Tabela Gęstości Wg Ekranu i Skali OS",
-      "s6Headers": ["Konfiguracja Ekranu", "Rozdzielczość CSS", "Efektywne CSS PPI", "CSS px/mm", "devicePxPerMm"],
+      "s6Headers": [
+        "Konfiguracja Ekranu",
+        "Rozdzielczość CSS",
+        "Efektywne CSS PPI",
+        "CSS px/mm",
+        "devicePxPerMm"
+      ],
       "workedExamples": [
-        { "panel": "14,2\" Laptop (Mac Retina / 2× DPR)", "cssRes": "1512 × 982 CSS px (DPR 2,0)", "cssPpi": "127,0 CSS PPI", "pxPerMm": "5,000 CSS px/mm", "devicePxPerMm": "10,000 device px/mm" },
-        { "panel": "15,6\" Laptop Windows (Skala 125%)", "cssRes": "1536 × 864 CSS px (DPR 1,25)", "cssPpi": "113,0 CSS PPI", "pxPerMm": "4,448 CSS px/mm", "devicePxPerMm": "5,560 device px/mm" },
-        { "panel": "24\" Monitor 1080p (100%)", "cssRes": "1920 × 1080 CSS px (DPR 1,0)", "cssPpi": "91,8 CSS PPI", "pxPerMm": "3,614 CSS px/mm", "devicePxPerMm": "3,614 device px/mm" },
-        { "panel": "27\" Monitor 4K UHD (Skala 150%)", "cssRes": "2560 × 1440 CSS px (DPR 1,5)", "cssPpi": "108,8 CSS PPI", "pxPerMm": "4,283 CSS px/mm", "devicePxPerMm": "6,425 device px/mm" },
-        { "panel": "6,1\" Smartfon OLED (3× DPR)", "cssRes": "390 × 844 CSS px (DPR 3,0)", "cssPpi": "152,4 CSS PPI", "pxPerMm": "6,000 CSS px/mm", "devicePxPerMm": "18,000 device px/mm" }
+        {
+          "panel": "14,2\" Laptop (Mac Retina / 2× DPR)",
+          "cssRes": "1512 × 982 CSS px (DPR 2,0)",
+          "cssPpi": "127,0 CSS PPI",
+          "pxPerMm": "5,000 CSS px/mm",
+          "devicePxPerMm": "10,000 device px/mm"
+        },
+        {
+          "panel": "15,6\" Laptop Windows (Skala 125%)",
+          "cssRes": "1536 × 864 CSS px (DPR 1,25)",
+          "cssPpi": "113,0 CSS PPI",
+          "pxPerMm": "4,448 CSS px/mm",
+          "devicePxPerMm": "5,560 device px/mm"
+        },
+        {
+          "panel": "24\" Monitor 1080p (100%)",
+          "cssRes": "1920 × 1080 CSS px (DPR 1,0)",
+          "cssPpi": "91,8 CSS PPI",
+          "pxPerMm": "3,614 CSS px/mm",
+          "devicePxPerMm": "3,614 device px/mm"
+        },
+        {
+          "panel": "27\" Monitor 4K UHD (Skala 150%)",
+          "cssRes": "2560 × 1440 CSS px (DPR 1,5)",
+          "cssPpi": "108,8 CSS PPI",
+          "pxPerMm": "4,283 CSS px/mm",
+          "devicePxPerMm": "6,425 device px/mm"
+        },
+        {
+          "panel": "6,1\" Smartfon OLED (3× DPR)",
+          "cssRes": "390 × 844 CSS px (DPR 3,0)",
+          "cssPpi": "152,4 CSS PPI",
+          "pxPerMm": "6,000 CSS px/mm",
+          "devicePxPerMm": "18,000 device px/mm"
+        }
       ],
       "caveats": [
         {
@@ -1210,18 +1849,73 @@
       "s7Body2": "Patrz zawsze prostopadle (90°) nad kreską i linią pomocniczą, a przy tolerancji poniżej ±0,25 mm korzystaj z wzorcowanych suwmiarek.",
       "s7TableHeading": "Tabela Normatywnych Przedmiotów do Weryfikacji",
       "s7TableLead": "Po zapisaniu kalibracji przyłóż lekko dowolny przedmiot z poniższej listy, aby potwierdzić zgodność:",
-      "s7Headers": ["Przedmiot Odniesienia", "Metryczne (mm)", "Calowe (in)", "Obowiązująca Norma"],
+      "s7Headers": [
+        "Przedmiot Odniesienia",
+        "Metryczne (mm)",
+        "Calowe (in)",
+        "Obowiązująca Norma"
+      ],
       "referenceItems": [
-        { "item": "Karta Bankowa ISO/IEC 7810 ID-1 (Szerokość)", "mm": "85,60 mm", "inches": "3,370 in", "standard": "ISO/IEC 7810:2019 ID-1" },
-        { "item": "Karta ISO/IEC 7810 ID-1 (Wysokość)", "mm": "53,98 mm", "inches": "2,125 in", "standard": "ISO/IEC 7810:2019 ID-1" },
-        { "item": "Moneta US 1-Cent Penny (Średnica)", "mm": "19,05 mm", "inches": "0,750 in (3/4″)", "standard": "Mennica USA" },
-        { "item": "Moneta US 5-Cent Nickel (Średnica)", "mm": "21,21 mm", "inches": "0,835 in", "standard": "Mennica USA" },
-        { "item": "Moneta 1 Euro (Średnica)", "mm": "23,25 mm", "inches": "0,915 in", "standard": "Europejski Bank Centralny" },
-        { "item": "Moneta US Quarter Dollar (Średnica)", "mm": "24,26 mm", "inches": "0,955 in", "standard": "Mennica USA" },
-        { "item": "Moneta 2 Euro (Średnica)", "mm": "25,75 mm", "inches": "1,014 in", "standard": "Europejski Bank Centralny" },
-        { "item": "Bateria AA (Długość)", "mm": "50,50 mm", "inches": "1,988 in", "standard": "IEC R6 / ANSI 15" },
-        { "item": "Banknot Dolar USA (Szerokość)", "mm": "155,96 mm", "inches": "6,140 in", "standard": "Bureau of Engraving & Printing" },
-        { "item": "Papier ISO 216 A4 (Krótszy Bok)", "mm": "210,00 mm", "inches": "8,268 in", "standard": "Norma Papierowa ISO 216" }
+        {
+          "item": "Karta Bankowa ISO/IEC 7810 ID-1 (Szerokość)",
+          "mm": "85,60 mm",
+          "inches": "3,370 in",
+          "standard": "ISO/IEC 7810:2019 ID-1"
+        },
+        {
+          "item": "Karta ISO/IEC 7810 ID-1 (Wysokość)",
+          "mm": "53,98 mm",
+          "inches": "2,125 in",
+          "standard": "ISO/IEC 7810:2019 ID-1"
+        },
+        {
+          "item": "Moneta US 1-Cent Penny (Średnica)",
+          "mm": "19,05 mm",
+          "inches": "0,750 in (3/4″)",
+          "standard": "Mennica USA"
+        },
+        {
+          "item": "Moneta US 5-Cent Nickel (Średnica)",
+          "mm": "21,21 mm",
+          "inches": "0,835 in",
+          "standard": "Mennica USA"
+        },
+        {
+          "item": "Moneta 1 Euro (Średnica)",
+          "mm": "23,25 mm",
+          "inches": "0,915 in",
+          "standard": "Europejski Bank Centralny"
+        },
+        {
+          "item": "Moneta US Quarter Dollar (Średnica)",
+          "mm": "24,26 mm",
+          "inches": "0,955 in",
+          "standard": "Mennica USA"
+        },
+        {
+          "item": "Moneta 2 Euro (Średnica)",
+          "mm": "25,75 mm",
+          "inches": "1,014 in",
+          "standard": "Europejski Bank Centralny"
+        },
+        {
+          "item": "Bateria AA (Długość)",
+          "mm": "50,50 mm",
+          "inches": "1,988 in",
+          "standard": "IEC R6 / ANSI 15"
+        },
+        {
+          "item": "Banknot Dolar USA (Szerokość)",
+          "mm": "155,96 mm",
+          "inches": "6,140 in",
+          "standard": "Bureau of Engraving & Printing"
+        },
+        {
+          "item": "Papier ISO 216 A4 (Krótszy Bok)",
+          "mm": "210,00 mm",
+          "inches": "8,268 in",
+          "standard": "Norma Papierowa ISO 216"
+        }
       ]
     },
     "faq": {

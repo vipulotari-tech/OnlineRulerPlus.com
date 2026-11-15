@@ -47,7 +47,10 @@
       "calibration": "Kalibratie",
       "howItWorks": "Hoe het werkt",
       "ppiTable": "PPI-tabel"
-    }
+    },
+    "localeSuggestionText": "Deze pagina bekijken in het {language}?",
+    "localeSuggestionSwitch": "Wisselen",
+    "localeSuggestionDismiss": "Taalsuggestie sluiten"
   },
   "footer": {
     "footnote": "1. Echte fysieke nauwkeurigheid vereist schermkalibratie met een standaard ISO/IEC 7810 ID-1 bankpas (85,60 × 53,98 mm) of bekende schermdiagonaal bij 100% browserzoom. Zonder kalibratie gebruiken browsers standaard 96 CSS-pixels per inch.",
@@ -85,18 +88,54 @@
     "enableShortcuts": "Enkeltoets-sneltoetsen inschakelen (G, C, P, F, 1–4, D, H)",
     "gotIt": "Begrepen",
     "shortcuts": [
-      { "key": "G", "action": "Klik-en-plaats hulplijnen in-/uitschakelen" },
-      { "key": "C", "action": "Volgend dradenkruis in-/uitschakelen" },
-      { "key": "P", "action": "180° gradenboog-overlay in-/uitschakelen" },
-      { "key": "F", "action": "Volledig scherm voor meetwerkruimte wisselen" },
-      { "key": "1", "action": "Eenheid wisselen naar Centimeters (cm)" },
-      { "key": "2", "action": "Eenheid wisselen naar Inches (in)" },
-      { "key": "3", "action": "Eenheid wisselen naar CSS-pixels (px)" },
-      { "key": "4 / M", "action": "Eenheid wisselen naar Millimeters (mm)" },
-      { "key": "D", "action": "Lichte en donkere modus wisselen" },
-      { "key": "H", "action": "Dit sneltoetsenoverzicht openen of sluiten" },
-      { "key": "Esc", "action": "Geplaatste hulplijnen wissen of actieve vensters sluiten" },
-      { "key": "← / →", "action": "Kaartkalibratie bijstellen met 1px (Shift voor 5px)" }
+      {
+        "key": "G",
+        "action": "Klik-en-plaats hulplijnen in-/uitschakelen"
+      },
+      {
+        "key": "C",
+        "action": "Volgend dradenkruis in-/uitschakelen"
+      },
+      {
+        "key": "P",
+        "action": "180° gradenboog-overlay in-/uitschakelen"
+      },
+      {
+        "key": "F",
+        "action": "Volledig scherm voor meetwerkruimte wisselen"
+      },
+      {
+        "key": "1",
+        "action": "Eenheid wisselen naar Centimeters (cm)"
+      },
+      {
+        "key": "2",
+        "action": "Eenheid wisselen naar Inches (in)"
+      },
+      {
+        "key": "3",
+        "action": "Eenheid wisselen naar CSS-pixels (px)"
+      },
+      {
+        "key": "4 / M",
+        "action": "Eenheid wisselen naar Millimeters (mm)"
+      },
+      {
+        "key": "D",
+        "action": "Lichte en donkere modus wisselen"
+      },
+      {
+        "key": "H",
+        "action": "Dit sneltoetsenoverzicht openen of sluiten"
+      },
+      {
+        "key": "Esc",
+        "action": "Geplaatste hulplijnen wissen of actieve vensters sluiten"
+      },
+      {
+        "key": "← / →",
+        "action": "Kaartkalibratie bijstellen met 1px (Shift voor 5px)"
+      }
     ]
   },
   "hero": {
@@ -159,7 +198,30 @@
     "datumBody": "Lijn uw object uit met het [[strong:0]]-streepje. Klik op een liniaal of op het raster om versleepbare hulplijnen te plaatsen.",
     "liveCursorInit": "X: 0.00 cm · Y: 0.00 cm",
     "saveToHistory": "Opslaan in Geschiedenis",
-    "keysHint": "Toetsen: [[kbd:1]] cm · [[kbd:2]] in · [[kbd:3]] px · [[kbd:G]] hulplijnen · [[kbd:C]] dradenkruis · [[kbd:F]] volledig scherm"
+    "keysHint": "Toetsen: [[kbd:1]] cm · [[kbd:2]] in · [[kbd:3]] px · [[kbd:G]] hulplijnen · [[kbd:C]] dradenkruis · [[kbd:F]] volledig scherm",
+    "focusMode": "Focus",
+    "focusModeExit": "Toon info",
+    "focusModeTitle": "Compacte focusmodus schakelen (intro verbergen)",
+    "dualCmPxTitle": "Dubbele schaal cm + px",
+    "dualInPxTitle": "Dubbele schaal inch + px",
+    "inchPrecisionAria": "Precisie van inchbreuken",
+    "photoMode": "Foto / Ctrl+V",
+    "photoModeTitle": "Meet een foto of geplakte Ctrl+V-schermafbeelding offline",
+    "photoPanelAria": "Lokale foto- en klembordmeethulp",
+    "photoChooseBtn": "Foto kiezen",
+    "photoPasteBtn": "Plakken (Ctrl+V)",
+    "photoToolCal": "1. 2-pt kalibreren",
+    "photoToolLine": "2. Lijn",
+    "photoToolRect": "3. ΔX / ΔY-vak",
+    "photoRefLenAria": "Bekende referentielengte",
+    "photoRefUnitAria": "Referentie-eenheid",
+    "photoApplyCalBtn": "Schaal toepassen",
+    "photoUndoBtn": "Ongedaan",
+    "photoClearBtn": "Wissen",
+    "photoExportBtn": "PNG opslaan",
+    "photoCloseBtn": "Sluiten",
+    "photoEmptyTitle": "100% lokale foto- en klembordliniaal",
+    "photoEmptyDesc": "Druk op Ctrl+V om een schermafbeelding te plakken of sleep een bestand hierheen. Niets wordt geüpload."
   },
   "calibration": {
     "kicker": "Beeldschermdichtheid Kalibreren · Lokaal Opgeslagen per Scherm",
@@ -235,7 +297,23 @@
     "historyClearBtn": "Wissen",
     "historyEmpty": "Plaats twee parallelle hulplijnen in het werkvlak en klik op [[strong:Opslaan in Geschiedenis]] om afstanden ([[code:ΔX]] / [[code:ΔY]]) lokaal op uw apparaat op te slaan.",
     "historyFooterLeft": "Opslag: uitsluitend localStorage",
-    "historyFooterRight": "Geen netwerkverzending"
+    "historyFooterRight": "Geen netwerkverzending",
+    "refPresetGroupAria": "Referentieobject voor kalibratie",
+    "refTargetLabel": "Doel:",
+    "refCard1x": "1× Kaart (85,6 mm)",
+    "refCard2x": "2× Kaarten (171,2 mm)",
+    "refCard3x": "3× Kaarten (256,8 mm)",
+    "refA4": "A4 (210 mm)",
+    "refLetter": "US Letter (215,9 mm)",
+    "refCd": "CD/DVD (120 mm)",
+    "refQuarter": "US Quarter (24,26 mm)",
+    "refEuro": "€1 Munt (23,25 mm)",
+    "refCustom": "Aangepast",
+    "refCustomLengthLabel": "Lengte:",
+    "refCustomUnitAria": "Aangepaste eenheid",
+    "refDragHint": "Sleep de blauwe hoekgreep of gebruik de schuif",
+    "cardDragHandleAria": "Sleep de hoek om het kader aan te passen",
+    "cardDragHandleTitle": "Sleep hoek om af te stemmen"
   },
   "runtime": {
     "statusLabels": {
@@ -276,7 +354,8 @@
       "Typical density at default OS scaling": "Gebruikelijke dichtheid bij standaard OS-schaling",
       "Manual calibration adjusted for current zoom or scaling": "Handmatige kalibratie aangepast aan huidige zoom of schaling",
       "Calibrated against an ISO/IEC 7810 ID-1 card (85.60 × 53.98 mm)": "Gekalibreerd met ISO/IEC 7810 ID-1 kaart (85,60 × 53,98 mm)",
-      "Calibrated from entered display diagonal": "Gekalibreerd op basis van opgegeven schermdiagonaal"
+      "Calibrated from entered display diagonal": "Gekalibreerd op basis van opgegeven schermdiagonaal",
+      "Nominal mobile screen density": "Nominale mobiele schermdichtheid"
     },
     "deviceLabelMap": {
       "Desktop display": "Bureaubladscherm",
@@ -285,7 +364,8 @@
       "Android device": "Android-apparaat",
       "Mac with Retina display": "Mac met Retina-scherm",
       "Scaled laptop or desktop display": "Geschaalde laptop of monitor",
-      "Credit card calibration": "Bankpaskalibratie"
+      "Credit card calibration": "Bankpaskalibratie",
+      "Touchscreen device (uncalibrated)": "Touchscreen-apparaat (ongekalibreerd)"
     },
     "errorMap": {
       "Enter your screen diagonal in inches.": "Voer uw schermdiagonaal in inches in.",
@@ -300,7 +380,8 @@
     },
     "displaySizeSuffix": "{long}×{short} scherm",
     "typMonitorBasis": "Veronderstelt een standaard {diag}″ scherm op deze resolutie",
-    "manualDiagBasis": "{diag}″ Schermdiagonaal"
+    "manualDiagBasis": "{diag}″ Schermdiagonaal",
+    "pinchZoomBanner": "Knijpzoom actief ({scale}×). Zet terug naar 100% voor nauwkeurige fysieke meting."
   },
   "home": {
     "title": "Online Liniaal | Gratis Liniaal op Ware Grootte (cm, mm & Inches)",
@@ -390,14 +471,62 @@
       "Ongekalibreerde 96 PPI Fout"
     ],
     "ppiRows": [
-      { "device": "13,3\" MacBook Air / Pro (Retina)", "res": "1440 × 900 CSS (2×)", "ppi": "127,7 PPI", "pxMm": "5,027 px/mm", "err": "−24,8% (tekent 7,52 cm)" },
-      { "device": "14,2\" MacBook Pro (Liquid Retina XDR)", "res": "1512 × 982 CSS (2×)", "ppi": "127,0 PPI", "pxMm": "5,000 px/mm", "err": "−24,4% (tekent 7,56 cm)" },
-      { "device": "15,6\" Full HD Laptop (100% Windows)", "res": "1920 × 1080 CSS (1×)", "ppi": "141,2 PPI", "pxMm": "5,559 px/mm", "err": "−32,0% (tekent 6,80 cm)" },
-      { "device": "15,6\" Full HD Laptop (125% Windows)", "res": "1536 × 864 CSS (1,25×)", "ppi": "113,0 PPI", "pxMm": "4,448 px/mm", "err": "−15,0% (tekent 8,50 cm)" },
-      { "device": "24\" Full HD Monitor (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "91,8 PPI", "pxMm": "3,614 px/mm", "err": "+4,6% (tekent 10,46 cm)" },
-      { "device": "27\" Full HD Monitor (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "81,6 PPI", "pxMm": "3,212 px/mm", "err": "+17,6% (tekent 11,76 cm)" },
-      { "device": "27\" QHD Monitor (2560 × 1440, 100%)", "res": "2560 × 1440 CSS (1×)", "ppi": "108,8 PPI", "pxMm": "4,283 px/mm", "err": "−11,8% (tekent 8,82 cm)" },
-      { "device": "27\" 4K UHD Monitor (200% HiDPI)", "res": "1920 × 1080 CSS (2×)", "ppi": "81,6 CSS PPI", "pxMm": "3,212 px/mm", "err": "+17,6% (tekent 11,76 cm)" }
+      {
+        "device": "13,3\" MacBook Air / Pro (Retina)",
+        "res": "1440 × 900 CSS (2×)",
+        "ppi": "127,7 PPI",
+        "pxMm": "5,027 px/mm",
+        "err": "−24,8% (tekent 7,52 cm)"
+      },
+      {
+        "device": "14,2\" MacBook Pro (Liquid Retina XDR)",
+        "res": "1512 × 982 CSS (2×)",
+        "ppi": "127,0 PPI",
+        "pxMm": "5,000 px/mm",
+        "err": "−24,4% (tekent 7,56 cm)"
+      },
+      {
+        "device": "15,6\" Full HD Laptop (100% Windows)",
+        "res": "1920 × 1080 CSS (1×)",
+        "ppi": "141,2 PPI",
+        "pxMm": "5,559 px/mm",
+        "err": "−32,0% (tekent 6,80 cm)"
+      },
+      {
+        "device": "15,6\" Full HD Laptop (125% Windows)",
+        "res": "1536 × 864 CSS (1,25×)",
+        "ppi": "113,0 PPI",
+        "pxMm": "4,448 px/mm",
+        "err": "−15,0% (tekent 8,50 cm)"
+      },
+      {
+        "device": "24\" Full HD Monitor (1080p)",
+        "res": "1920 × 1080 CSS (1×)",
+        "ppi": "91,8 PPI",
+        "pxMm": "3,614 px/mm",
+        "err": "+4,6% (tekent 10,46 cm)"
+      },
+      {
+        "device": "27\" Full HD Monitor (1080p)",
+        "res": "1920 × 1080 CSS (1×)",
+        "ppi": "81,6 PPI",
+        "pxMm": "3,212 px/mm",
+        "err": "+17,6% (tekent 11,76 cm)"
+      },
+      {
+        "device": "27\" QHD Monitor (2560 × 1440, 100%)",
+        "res": "2560 × 1440 CSS (1×)",
+        "ppi": "108,8 PPI",
+        "pxMm": "4,283 px/mm",
+        "err": "−11,8% (tekent 8,82 cm)"
+      },
+      {
+        "device": "27\" 4K UHD Monitor (200% HiDPI)",
+        "res": "1920 × 1080 CSS (2×)",
+        "ppi": "81,6 CSS PPI",
+        "pxMm": "3,212 px/mm",
+        "err": "+17,6% (tekent 11,76 cm)"
+      }
     ],
     "ppiFormula": "Formule: [[code:Effectieve CSS PPI = √(W_css² + H_css²) / diagonaalInches]] · [[code:pxPerMm = CSS_PPI / 25.4]]. Volgens NIST / BIPM is 1 inch exact 25,4 mm.",
     "modesKicker": "Gespecialiseerde Weergaven · Metrisch, Imperiaal & Pixels",
@@ -503,11 +632,36 @@
     "modesHeading": "Bekijk Andere Gekalibreerde Online Liniaalmodi",
     "modesAllEdgeBtn": "Alle Randen Werkruimte",
     "modeTiles": [
-      { "href": "/cm-ruler", "kicker": "Metrisch · cm", "title": "Centimeter Liniaal", "desc": "1 cm & 0,5 cm schaal + cm-naar-inch tabel" },
-      { "href": "/inch-ruler", "kicker": "Imperiaal · 1/16″", "title": "Inch Liniaal (12″)", "desc": "1/2, 1/4, 1/8, 1/16″ breuken" },
-      { "href": "/mm-ruler", "kicker": "Fijne Schaal · mm", "title": "Millimeter Liniaal", "desc": "1 mm & 5 mm hardwareschaal" },
-      { "href": "/horizontal-ruler", "kicker": "Boven & Onder", "title": "Horizontale Liniaal", "desc": "Brede afstanden & CSS-pixels (px)" },
-      { "href": "/vertical-ruler", "kicker": "Links & Rechts", "title": "Verticale Liniaal", "desc": "Hoogtemeting & mobiel staand" }
+      {
+        "href": "/cm-ruler",
+        "kicker": "Metrisch · cm",
+        "title": "Centimeter Liniaal",
+        "desc": "1 cm & 0,5 cm schaal + cm-naar-inch tabel"
+      },
+      {
+        "href": "/inch-ruler",
+        "kicker": "Imperiaal · 1/16″",
+        "title": "Inch Liniaal (12″)",
+        "desc": "1/2, 1/4, 1/8, 1/16″ breuken"
+      },
+      {
+        "href": "/mm-ruler",
+        "kicker": "Fijne Schaal · mm",
+        "title": "Millimeter Liniaal",
+        "desc": "1 mm & 5 mm hardwareschaal"
+      },
+      {
+        "href": "/horizontal-ruler",
+        "kicker": "Boven & Onder",
+        "title": "Horizontale Liniaal",
+        "desc": "Brede afstanden & CSS-pixels (px)"
+      },
+      {
+        "href": "/vertical-ruler",
+        "kicker": "Links & Rechts",
+        "title": "Verticale Liniaal",
+        "desc": "Hoogtemeting & mobiel staand"
+      }
     ],
     "allFaqsBtn": "Alle Veelgestelde Vragen"
   },
@@ -578,20 +732,98 @@
       "table": {
         "kicker": "Metrisch-Imperiale Referentietabel (NIST / BIPM)",
         "heading": "Centimeters (cm) naar Millimeters (mm), Decimale Inches & 1/16″ Breuk",
-        "headers": ["Centimeters (cm)", "Millimeters (mm)", "Decimale Inches", "Dichtstbijzijnde 1/16″", "Bekend Fysiek Referentie-object"],
+        "headers": [
+          "Centimeters (cm)",
+          "Millimeters (mm)",
+          "Decimale Inches",
+          "Dichtstbijzijnde 1/16″",
+          "Bekend Fysiek Referentie-object"
+        ],
         "rows": [
-          ["1 cm", "10,0 mm", "0,3937 in", "3/8 in (0,375″)", "AAA-batterij diameter (~1,05 cm)"],
-          ["2 cm", "20,0 mm", "0,7874 in", "13/16 in (0,813″)", "US Penny is 1,905 cm (19,05 mm)"],
-          ["2,54 cm", "25,4 mm", "1,0000 in", "1 in (exact)", "Exacte definitie van 1 inch"],
-          ["5 cm", "50,0 mm", "1,9685 in", "1 15/16 in (1,938″)", "AA-batterij lengte (5,05 cm)"],
-          ["5,40 cm", "53,98 mm", "2,1252 in", "2 1/8 in (2,125″)", "Hoogte van ISO/IEC 7810 ID-1 bankpas"],
-          ["8,56 cm", "85,60 mm", "3,3701 in", "3 3/8 in (3,375″)", "Breedte van ISO/IEC 7810 ID-1 bankpas"],
-          ["10 cm", "100,0 mm", "3,9370 in", "3 15/16 in (3,938″)", "1 decimeter (100 mm ijkmaat)"],
-          ["15 cm", "150,0 mm", "5,9055 in", "5 7/8 in (5,875″)", "15 cm zakliniaal / US dollarbiljet (15,6 cm)"],
-          ["20 cm", "200,0 mm", "7,8740 in", "7 7/8 in (7,875″)", "A4 papierbreedte is 21,0 cm (210 mm)"],
-          ["25 cm", "250,0 mm", "9,8425 in", "9 13/16 in (9,813″)", "Kwartmeter naai- en knutselmaat"],
-          ["30 cm", "300,0 mm", "11,8110 in", "11 13/16 in (11,813″)", "Standaard 30 cm schoolliniaal"],
-          ["30,48 cm", "304,8 mm", "12,0000 in", "12 in (exact 1 voet)", "Exacte lengte van een 12-inch liniaal"]
+          [
+            "1 cm",
+            "10,0 mm",
+            "0,3937 in",
+            "3/8 in (0,375″)",
+            "AAA-batterij diameter (~1,05 cm)"
+          ],
+          [
+            "2 cm",
+            "20,0 mm",
+            "0,7874 in",
+            "13/16 in (0,813″)",
+            "US Penny is 1,905 cm (19,05 mm)"
+          ],
+          [
+            "2,54 cm",
+            "25,4 mm",
+            "1,0000 in",
+            "1 in (exact)",
+            "Exacte definitie van 1 inch"
+          ],
+          [
+            "5 cm",
+            "50,0 mm",
+            "1,9685 in",
+            "1 15/16 in (1,938″)",
+            "AA-batterij lengte (5,05 cm)"
+          ],
+          [
+            "5,40 cm",
+            "53,98 mm",
+            "2,1252 in",
+            "2 1/8 in (2,125″)",
+            "Hoogte van ISO/IEC 7810 ID-1 bankpas"
+          ],
+          [
+            "8,56 cm",
+            "85,60 mm",
+            "3,3701 in",
+            "3 3/8 in (3,375″)",
+            "Breedte van ISO/IEC 7810 ID-1 bankpas"
+          ],
+          [
+            "10 cm",
+            "100,0 mm",
+            "3,9370 in",
+            "3 15/16 in (3,938″)",
+            "1 decimeter (100 mm ijkmaat)"
+          ],
+          [
+            "15 cm",
+            "150,0 mm",
+            "5,9055 in",
+            "5 7/8 in (5,875″)",
+            "15 cm zakliniaal / US dollarbiljet (15,6 cm)"
+          ],
+          [
+            "20 cm",
+            "200,0 mm",
+            "7,8740 in",
+            "7 7/8 in (7,875″)",
+            "A4 papierbreedte is 21,0 cm (210 mm)"
+          ],
+          [
+            "25 cm",
+            "250,0 mm",
+            "9,8425 in",
+            "9 13/16 in (9,813″)",
+            "Kwartmeter naai- en knutselmaat"
+          ],
+          [
+            "30 cm",
+            "300,0 mm",
+            "11,8110 in",
+            "11 13/16 in (11,813″)",
+            "Standaard 30 cm schoolliniaal"
+          ],
+          [
+            "30,48 cm",
+            "304,8 mm",
+            "12,0000 in",
+            "12 in (exact 1 voet)",
+            "Exacte lengte van een 12-inch liniaal"
+          ]
         ],
         "footnote": "Formules: mm = cm × 10 · in = cm ÷ 2,54 · cm = in × 2,54."
       },
@@ -682,24 +914,126 @@
       "table": {
         "kicker": "Technische Millimeter Referentietabel",
         "heading": "Veelvoorkomende Millimeter (mm) Maten en Hardwarestandaarden",
-        "headers": ["Millimeters (mm)", "Centimeters (cm)", "Decimale Inches", "Dichtstbijzijnde 1/16″", "Standaard Hardware / Voorwerp"],
+        "headers": [
+          "Millimeters (mm)",
+          "Centimeters (cm)",
+          "Decimale Inches",
+          "Dichtstbijzijnde 1/16″",
+          "Standaard Hardware / Voorwerp"
+        ],
         "rows": [
-          ["1,00 mm", "0,10 cm", "0,0394 in", "1/16 in (1,59 mm)", "18 AWG massieve draaddiameter (~1,02 mm)"],
-          ["1,59 mm", "0,16 cm", "0,0625 in", "1/16 in (exact)", "Exacte metrische waarde van 1/16 inch"],
-          ["2,00 mm", "0,20 cm", "0,0787 in", "1/16 in", "ISO M2 machineschroef diameter"],
-          ["2,54 mm", "0,254 cm", "0,1000 in", "3/32 in", "Standaard 0,100″ PCB pinheader steek"],
-          ["3,00 mm", "0,30 cm", "0,1181 in", "1/8 in (3,18 mm)", "ISO M3 schroef / pc-moederbord afstandsbus"],
-          ["4,00 mm", "0,40 cm", "0,1575 in", "5/32 in", "ISO M4 schroef / 4 mm precisiebit"],
-          ["5,00 mm", "0,50 cm", "0,1969 in", "3/16 in (4,76 mm)", "ISO M5 bout / standaard 5 mm LED"],
-          ["6,00 mm", "0,60 cm", "0,2362 in", "1/4 in (6,35 mm)", "ISO M6 bout; 1/4″ zeskantbit is 6,35 mm"],
-          ["8,00 mm", "0,80 cm", "0,3150 in", "5/16 in (7,94 mm)", "ISO M8 bout / 608 kogellager asgat"],
-          ["10,00 mm", "1,00 cm", "0,3937 in", "3/8 in (9,53 mm)", "ISO M10 bout / 1 cm referentie"],
-          ["18,00 mm", "1,80 cm", "0,7087 in", "11/16 in", "Klassieke dresswatch bandaanzet (18 mm)"],
-          ["20,00 mm", "2,00 cm", "0,7874 in", "13/16 in", "Standaard horlogeband breedte (20 mm)"],
-          ["22,00 mm", "2,20 cm", "0,8661 in", "7/8 in (22,23 mm)", "Duikhorloge aanzet / 608 lager buitendiameter"],
-          ["25,40 mm", "2,54 cm", "1,0000 in", "1 in (exact)", "Exacte SI-definitie van 1 inch"],
-          ["53,98 mm", "5,40 cm", "2,1252 in", "2 1/8 in", "ISO/IEC 7810 ID-1 bankpas korte zijde"],
-          ["85,60 mm", "8,56 cm", "3,3701 in", "3 3/8 in", "ISO/IEC 7810 ID-1 bankpas lange zijde"]
+          [
+            "1,00 mm",
+            "0,10 cm",
+            "0,0394 in",
+            "1/16 in (1,59 mm)",
+            "18 AWG massieve draaddiameter (~1,02 mm)"
+          ],
+          [
+            "1,59 mm",
+            "0,16 cm",
+            "0,0625 in",
+            "1/16 in (exact)",
+            "Exacte metrische waarde van 1/16 inch"
+          ],
+          [
+            "2,00 mm",
+            "0,20 cm",
+            "0,0787 in",
+            "1/16 in",
+            "ISO M2 machineschroef diameter"
+          ],
+          [
+            "2,54 mm",
+            "0,254 cm",
+            "0,1000 in",
+            "3/32 in",
+            "Standaard 0,100″ PCB pinheader steek"
+          ],
+          [
+            "3,00 mm",
+            "0,30 cm",
+            "0,1181 in",
+            "1/8 in (3,18 mm)",
+            "ISO M3 schroef / pc-moederbord afstandsbus"
+          ],
+          [
+            "4,00 mm",
+            "0,40 cm",
+            "0,1575 in",
+            "5/32 in",
+            "ISO M4 schroef / 4 mm precisiebit"
+          ],
+          [
+            "5,00 mm",
+            "0,50 cm",
+            "0,1969 in",
+            "3/16 in (4,76 mm)",
+            "ISO M5 bout / standaard 5 mm LED"
+          ],
+          [
+            "6,00 mm",
+            "0,60 cm",
+            "0,2362 in",
+            "1/4 in (6,35 mm)",
+            "ISO M6 bout; 1/4″ zeskantbit is 6,35 mm"
+          ],
+          [
+            "8,00 mm",
+            "0,80 cm",
+            "0,3150 in",
+            "5/16 in (7,94 mm)",
+            "ISO M8 bout / 608 kogellager asgat"
+          ],
+          [
+            "10,00 mm",
+            "1,00 cm",
+            "0,3937 in",
+            "3/8 in (9,53 mm)",
+            "ISO M10 bout / 1 cm referentie"
+          ],
+          [
+            "18,00 mm",
+            "1,80 cm",
+            "0,7087 in",
+            "11/16 in",
+            "Klassieke dresswatch bandaanzet (18 mm)"
+          ],
+          [
+            "20,00 mm",
+            "2,00 cm",
+            "0,7874 in",
+            "13/16 in",
+            "Standaard horlogeband breedte (20 mm)"
+          ],
+          [
+            "22,00 mm",
+            "2,20 cm",
+            "0,8661 in",
+            "7/8 in (22,23 mm)",
+            "Duikhorloge aanzet / 608 lager buitendiameter"
+          ],
+          [
+            "25,40 mm",
+            "2,54 cm",
+            "1,0000 in",
+            "1 in (exact)",
+            "Exacte SI-definitie van 1 inch"
+          ],
+          [
+            "53,98 mm",
+            "5,40 cm",
+            "2,1252 in",
+            "2 1/8 in",
+            "ISO/IEC 7810 ID-1 bankpas korte zijde"
+          ],
+          [
+            "85,60 mm",
+            "8,56 cm",
+            "3,3701 in",
+            "3 3/8 in",
+            "ISO/IEC 7810 ID-1 bankpas lange zijde"
+          ]
         ],
         "footnote": "Formules: in = mm ÷ 25,4 · cm = mm ÷ 10 · 1/16″ = 1,5875 mm."
       },
@@ -790,24 +1124,126 @@
       "table": {
         "kicker": "Imperiale Breukentabel (1/16″ tot 1″ · 1 in = 25,4 mm)",
         "heading": "Zestienden van een Inch naar Vereenvoudigde Breuk, Decimaal, mm & cm",
-        "headers": ["Zestienden", "Vereenvoudigd", "Decimaal (in)", "Millimeters (mm)", "Centimeters (cm)"],
+        "headers": [
+          "Zestienden",
+          "Vereenvoudigd",
+          "Decimaal (in)",
+          "Millimeters (mm)",
+          "Centimeters (cm)"
+        ],
         "rows": [
-          ["1/16″", "1/16 in", "0,0625 in", "1,588 mm", "0,159 cm"],
-          ["2/16″", "1/8 in", "0,1250 in", "3,175 mm", "0,318 cm"],
-          ["3/16″", "3/16 in", "0,1875 in", "4,763 mm", "0,476 cm"],
-          ["4/16″", "1/4 in", "0,2500 in", "6,350 mm", "0,635 cm"],
-          ["5/16″", "5/16 in", "0,3125 in", "7,938 mm", "0,794 cm"],
-          ["6/16″", "3/8 in", "0,3750 in", "9,525 mm", "0,953 cm"],
-          ["7/16″", "7/16 in", "0,4375 in", "11,113 mm", "1,111 cm"],
-          ["8/16″", "1/2 in", "0,5000 in", "12,700 mm", "1,270 cm"],
-          ["9/16″", "9/16 in", "0,5625 in", "14,288 mm", "1,429 cm"],
-          ["10/16″", "5/8 in", "0,6250 in", "15,875 mm", "1,588 cm"],
-          ["11/16″", "11/16 in", "0,6875 in", "17,463 mm", "1,746 cm"],
-          ["12/16″", "3/4 in (US Penny)", "0,7500 in", "19,050 mm", "1,905 cm"],
-          ["13/16″", "13/16 in", "0,8125 in", "20,638 mm", "2,064 cm"],
-          ["14/16″", "7/8 in", "0,8750 in", "22,225 mm", "2,223 cm"],
-          ["15/16″", "15/16 in (~US Quarter)", "0,9375 in", "23,813 mm", "2,381 cm"],
-          ["16/16″", "1 in (Hele Inch)", "1,0000 in", "25,400 mm", "2,540 cm"]
+          [
+            "1/16″",
+            "1/16 in",
+            "0,0625 in",
+            "1,588 mm",
+            "0,159 cm"
+          ],
+          [
+            "2/16″",
+            "1/8 in",
+            "0,1250 in",
+            "3,175 mm",
+            "0,318 cm"
+          ],
+          [
+            "3/16″",
+            "3/16 in",
+            "0,1875 in",
+            "4,763 mm",
+            "0,476 cm"
+          ],
+          [
+            "4/16″",
+            "1/4 in",
+            "0,2500 in",
+            "6,350 mm",
+            "0,635 cm"
+          ],
+          [
+            "5/16″",
+            "5/16 in",
+            "0,3125 in",
+            "7,938 mm",
+            "0,794 cm"
+          ],
+          [
+            "6/16″",
+            "3/8 in",
+            "0,3750 in",
+            "9,525 mm",
+            "0,953 cm"
+          ],
+          [
+            "7/16″",
+            "7/16 in",
+            "0,4375 in",
+            "11,113 mm",
+            "1,111 cm"
+          ],
+          [
+            "8/16″",
+            "1/2 in",
+            "0,5000 in",
+            "12,700 mm",
+            "1,270 cm"
+          ],
+          [
+            "9/16″",
+            "9/16 in",
+            "0,5625 in",
+            "14,288 mm",
+            "1,429 cm"
+          ],
+          [
+            "10/16″",
+            "5/8 in",
+            "0,6250 in",
+            "15,875 mm",
+            "1,588 cm"
+          ],
+          [
+            "11/16″",
+            "11/16 in",
+            "0,6875 in",
+            "17,463 mm",
+            "1,746 cm"
+          ],
+          [
+            "12/16″",
+            "3/4 in (US Penny)",
+            "0,7500 in",
+            "19,050 mm",
+            "1,905 cm"
+          ],
+          [
+            "13/16″",
+            "13/16 in",
+            "0,8125 in",
+            "20,638 mm",
+            "2,064 cm"
+          ],
+          [
+            "14/16″",
+            "7/8 in",
+            "0,8750 in",
+            "22,225 mm",
+            "2,223 cm"
+          ],
+          [
+            "15/16″",
+            "15/16 in (~US Quarter)",
+            "0,9375 in",
+            "23,813 mm",
+            "2,381 cm"
+          ],
+          [
+            "16/16″",
+            "1 in (Hele Inch)",
+            "1,0000 in",
+            "25,400 mm",
+            "2,540 cm"
+          ]
         ],
         "footnote": "Exacte constanten: 1 in = 25,4 mm · 1/2 in = 12,7 mm · 1/4 in = 6,35 mm · 1/8 in = 3,175 mm · 1/16 in = 1,5875 mm."
       },
@@ -898,16 +1334,70 @@
       "table": {
         "kicker": "Beeldschermgeometrie (16:9, 16:10 & 21:9)",
         "heading": "Maximale Horizontale Schermbreedte per Diagonaal",
-        "headers": ["Scherm & Verhouding", "Breedte (in)", "Breedte (cm / mm)", "CSS Viewport Breedte", "Passende Standaardliniaal"],
+        "headers": [
+          "Scherm & Verhouding",
+          "Breedte (in)",
+          "Breedte (cm / mm)",
+          "CSS Viewport Breedte",
+          "Passende Standaardliniaal"
+        ],
         "rows": [
-          ["6,1\" Smartphone (19,5:9 Liggend)", "5,55 in", "14,1 cm (141 mm)", "844 – 852 CSS px", "Tot 13 cm / 5 in"],
-          ["11,0\" Tablet (4:3)", "8,80 in", "22,4 cm (224 mm)", "1024 – 1194 CSS px", "15 cm / 6 in zakliniaal"],
-          ["13,3\" Laptop (16:10 Retina)", "11,28 in", "28,6 cm (286 mm)", "1440 CSS px", "Tot 27 cm / 10,5 in"],
-          ["14,2\" MacBook Pro (16:10)", "11,97 in", "30,4 cm (304 mm)", "1512 CSS px", "Volledige 30 cm / 11,5 in"],
-          ["15,6\" Full HD Laptop (16:9)", "13,60 in", "34,5 cm (345 mm)", "1536 – 1920 CSS px", "Volledige 30 cm & 12-inch"],
-          ["24,0\" Monitor (16:9 1080p)", "20,92 in", "53,1 cm (531 mm)", "1920 CSS px", "50 cm / 18-inch liniaal"],
-          ["27,0\" Monitor (16:9 QHD/4K)", "23,53 in", "59,8 cm (598 mm)", "1920 – 2560 CSS px", "58 cm / 22-inch liniaal"],
-          ["34,0\" Ultrawide (21:9)", "31,36 in", "79,7 cm (797 mm)", "3440 CSS px", "75 cm / 30-inch liniaal"]
+          [
+            "6,1\" Smartphone (19,5:9 Liggend)",
+            "5,55 in",
+            "14,1 cm (141 mm)",
+            "844 – 852 CSS px",
+            "Tot 13 cm / 5 in"
+          ],
+          [
+            "11,0\" Tablet (4:3)",
+            "8,80 in",
+            "22,4 cm (224 mm)",
+            "1024 – 1194 CSS px",
+            "15 cm / 6 in zakliniaal"
+          ],
+          [
+            "13,3\" Laptop (16:10 Retina)",
+            "11,28 in",
+            "28,6 cm (286 mm)",
+            "1440 CSS px",
+            "Tot 27 cm / 10,5 in"
+          ],
+          [
+            "14,2\" MacBook Pro (16:10)",
+            "11,97 in",
+            "30,4 cm (304 mm)",
+            "1512 CSS px",
+            "Volledige 30 cm / 11,5 in"
+          ],
+          [
+            "15,6\" Full HD Laptop (16:9)",
+            "13,60 in",
+            "34,5 cm (345 mm)",
+            "1536 – 1920 CSS px",
+            "Volledige 30 cm & 12-inch"
+          ],
+          [
+            "24,0\" Monitor (16:9 1080p)",
+            "20,92 in",
+            "53,1 cm (531 mm)",
+            "1920 CSS px",
+            "50 cm / 18-inch liniaal"
+          ],
+          [
+            "27,0\" Monitor (16:9 QHD/4K)",
+            "23,53 in",
+            "59,8 cm (598 mm)",
+            "1920 – 2560 CSS px",
+            "58 cm / 22-inch liniaal"
+          ],
+          [
+            "34,0\" Ultrawide (21:9)",
+            "31,36 in",
+            "79,7 cm (797 mm)",
+            "3440 CSS px",
+            "75 cm / 30-inch liniaal"
+          ]
         ],
         "footnote": "Breedteformules: 16:9 = Diagonaal × 0,87158 · 16:10 = Diagonaal × 0,84800 · 21:9 = Diagonaal × 0,92246."
       },
@@ -998,16 +1488,70 @@
       "table": {
         "kicker": "Verticale Schermhoogte & Objecten Tabel",
         "heading": "Actieve Schermhoogte per Apparaat",
-        "headers": ["Apparaat / Oriëntatie", "Hoogte (cm / mm)", "Hoogte (in)", "CSS Hoogte", "Voorwerpen Die Passen"],
+        "headers": [
+          "Apparaat / Oriëntatie",
+          "Hoogte (cm / mm)",
+          "Hoogte (in)",
+          "CSS Hoogte",
+          "Voorwerpen Die Passen"
+        ],
         "rows": [
-          ["6,1\" Smartphone (Staand)", "14,1 cm (141 mm)", "5,55 in", "844 – 852 CSS px", "AA/AAA batterijen, bankpas (85,6 mm), blikje (122 mm)"],
-          ["6,7\" Pro Max / Ultra (Staand)", "15,5 cm (155 mm)", "6,10 in", "926 – 932 CSS px", "Paspoort (125 mm), pen (~140 mm), 15 cm liniaal"],
-          ["11,0\" Tablet (Staand 4:3)", "22,4 cm (224 mm)", "8,80 in", "1024 – 1194 CSS px", "A5-schrift (210 mm), drinkfles, paperback"],
-          ["14,2\" MacBook Pro (16:10)", "19,0 cm (190 mm)", "7,48 in", "982 CSS px", "Smartphonehoogte, 15 cm liniaal"],
-          ["15,6\" Laptop (16:9)", "19,4 cm (194 mm)", "7,65 in", "864 – 1080 CSS px", "DVD-hoes (190 mm), koffiemok"],
-          ["24,0\" Monitor (16:9)", "29,9 cm (299 mm)", "11,77 in", "1080 CSS px", "A4-papierhoogte (297 mm)"],
-          ["27,0\" Monitor (16:9)", "33,6 cm (336 mm)", "13,24 in", "1080 – 1440 CSS px", "Volledige 30 cm / 12-inch, wijnfles (300 mm)"],
-          ["24–27\" Monitor (90° Staand)", "53,1 – 59,8 cm", "20,9 – 23,5 in", "1920 – 2560 CSS px", "Luidspreker, pc-behuizing, 50 cm schaal"]
+          [
+            "6,1\" Smartphone (Staand)",
+            "14,1 cm (141 mm)",
+            "5,55 in",
+            "844 – 852 CSS px",
+            "AA/AAA batterijen, bankpas (85,6 mm), blikje (122 mm)"
+          ],
+          [
+            "6,7\" Pro Max / Ultra (Staand)",
+            "15,5 cm (155 mm)",
+            "6,10 in",
+            "926 – 932 CSS px",
+            "Paspoort (125 mm), pen (~140 mm), 15 cm liniaal"
+          ],
+          [
+            "11,0\" Tablet (Staand 4:3)",
+            "22,4 cm (224 mm)",
+            "8,80 in",
+            "1024 – 1194 CSS px",
+            "A5-schrift (210 mm), drinkfles, paperback"
+          ],
+          [
+            "14,2\" MacBook Pro (16:10)",
+            "19,0 cm (190 mm)",
+            "7,48 in",
+            "982 CSS px",
+            "Smartphonehoogte, 15 cm liniaal"
+          ],
+          [
+            "15,6\" Laptop (16:9)",
+            "19,4 cm (194 mm)",
+            "7,65 in",
+            "864 – 1080 CSS px",
+            "DVD-hoes (190 mm), koffiemok"
+          ],
+          [
+            "24,0\" Monitor (16:9)",
+            "29,9 cm (299 mm)",
+            "11,77 in",
+            "1080 CSS px",
+            "A4-papierhoogte (297 mm)"
+          ],
+          [
+            "27,0\" Monitor (16:9)",
+            "33,6 cm (336 mm)",
+            "13,24 in",
+            "1080 – 1440 CSS px",
+            "Volledige 30 cm / 12-inch, wijnfles (300 mm)"
+          ],
+          [
+            "24–27\" Monitor (90° Staand)",
+            "53,1 – 59,8 cm",
+            "20,9 – 23,5 in",
+            "1920 – 2560 CSS px",
+            "Luidspreker, pc-behuizing, 50 cm schaal"
+          ]
         ],
         "footnote": "Hoogteformules: 16:9 = Diagonaal × 0,49026 · 16:10 = Diagonaal × 0,53000."
       },
@@ -1050,7 +1594,10 @@
           "heading": "Eerst uw beeldschermdichtheid kalibreren",
           "body": "Vervang de standaard 96 CSS PPI door een ISO/IEC 7810 ID-1 bankpas (85,60 × 53,98 mm) tegen het kader te houden of uw schermdiagonaal op 100% zoom in te voeren en op Kalibratie Toepassen te klikken.",
           "links": [
-            { "href": "/#calibration", "label": "Bankpaskalibratie openen →" }
+            {
+              "href": "/#calibration",
+              "label": "Bankpaskalibratie openen →"
+            }
           ]
         },
         {
@@ -1059,9 +1606,18 @@
           "heading": "Meeteenheden en actieve randen kiezen",
           "body": "Gebruik toets 1 (cm), 2 (inch), 3 (CSS px), 4/M (mm) of Dubbel cm/in, en kies Boven, Onder, Links, Rechts of Alle Randen.",
           "links": [
-            { "href": "/cm-ruler", "label": "cm Liniaal" },
-            { "href": "/inch-ruler", "label": "Inch Liniaal" },
-            { "href": "/mm-ruler", "label": "mm Liniaal" }
+            {
+              "href": "/cm-ruler",
+              "label": "cm Liniaal"
+            },
+            {
+              "href": "/inch-ruler",
+              "label": "Inch Liniaal"
+            },
+            {
+              "href": "/mm-ruler",
+              "label": "mm Liniaal"
+            }
           ]
         },
         {
@@ -1070,7 +1626,10 @@
           "heading": "Uitlijnen op nul en afstanden meten met hulplijnen",
           "body": "Leg het startpunt op de 0-stippellijn of plaats twee parallelle blauwe hulplijnen om ΔX/ΔY direct op te slaan in de Meetgeschiedenis.",
           "links": [
-            { "href": "/calibration-guide", "label": "Kalibratie- & PPI-gids lezen →" }
+            {
+              "href": "/calibration-guide",
+              "label": "Kalibratie- & PPI-gids lezen →"
+            }
           ]
         }
       ],
@@ -1114,18 +1673,62 @@
       "shortcutsKicker": "Werkruimtebediening · Sneltoetsen",
       "shortcutsHeading": "Volledige Sneltoetsentabel",
       "shortcutsLead": "Bedien eenheden en hulplijnen met één hand terwijl u het voorwerp met de andere hand stilhoudt:",
-      "shortcutsHeaders": ["Toets", "Actie", "Wanneer gebruiken"],
+      "shortcutsHeaders": [
+        "Toets",
+        "Actie",
+        "Wanneer gebruiken"
+      ],
       "shortcuts": [
-        { "key": "1", "action": "Wisselen naar Centimeters (cm)", "useCase": "Dagelijkse lengtes met 1 mm / 0,5 cm streepjes" },
-        { "key": "2", "action": "Wisselen naar Inches (in)", "useCase": "Houtbewerking en 1/16″ breuken" },
-        { "key": "3", "action": "Wisselen naar CSS-pixels (px)", "useCase": "UI-afmetingen en viewportbreedte" },
-        { "key": "4 / M", "action": "Wisselen naar Millimeters (mm)", "useCase": "M2–M10 schroeven, sieraden, horloges" },
-        { "key": "D", "action": "Licht / Donker thema wisselen", "useCase": "Schittering verminderen" },
-        { "key": "G", "action": "Hulplijnen aan/uit", "useCase": "ΔX / ΔY meetlijnen plaatsen" },
-        { "key": "C", "action": "Dradenkruis aan/uit", "useCase": "Live X/Y-coördinaten volgen" },
-        { "key": "P", "action": "180° Gradenboog aan/uit", "useCase": "Hoeken meten tot 0,1°" },
-        { "key": "F", "action": "Volledig scherm wisselen", "useCase": "Maximale schermbreedte gebruiken" },
-        { "key": "Esc", "action": "Hulplijnen & vensters wissen", "useCase": "Snel leegmaken voor volgende meting" }
+        {
+          "key": "1",
+          "action": "Wisselen naar Centimeters (cm)",
+          "useCase": "Dagelijkse lengtes met 1 mm / 0,5 cm streepjes"
+        },
+        {
+          "key": "2",
+          "action": "Wisselen naar Inches (in)",
+          "useCase": "Houtbewerking en 1/16″ breuken"
+        },
+        {
+          "key": "3",
+          "action": "Wisselen naar CSS-pixels (px)",
+          "useCase": "UI-afmetingen en viewportbreedte"
+        },
+        {
+          "key": "4 / M",
+          "action": "Wisselen naar Millimeters (mm)",
+          "useCase": "M2–M10 schroeven, sieraden, horloges"
+        },
+        {
+          "key": "D",
+          "action": "Licht / Donker thema wisselen",
+          "useCase": "Schittering verminderen"
+        },
+        {
+          "key": "G",
+          "action": "Hulplijnen aan/uit",
+          "useCase": "ΔX / ΔY meetlijnen plaatsen"
+        },
+        {
+          "key": "C",
+          "action": "Dradenkruis aan/uit",
+          "useCase": "Live X/Y-coördinaten volgen"
+        },
+        {
+          "key": "P",
+          "action": "180° Gradenboog aan/uit",
+          "useCase": "Hoeken meten tot 0,1°"
+        },
+        {
+          "key": "F",
+          "action": "Volledig scherm wisselen",
+          "useCase": "Maximale schermbreedte gebruiken"
+        },
+        {
+          "key": "Esc",
+          "action": "Hulplijnen & vensters wissen",
+          "useCase": "Snel leegmaken voor volgende meting"
+        }
       ],
       "checklistKicker": "Controle Vooraf · 6 Punten",
       "checklistHeading": "Zes Controles Vóór Een Kritieke Meting",
@@ -1184,13 +1787,49 @@
       "s6Heading": "Verband tussen CSS PPI, Fysieke PPI en devicePxPerMm",
       "s6Lead": "De stelling van Pythagoras op CSS-pixels bij 100% zoom geeft [[code:CSS px/mm]], en × [[code:devicePixelRatio]] geeft [[code:devicePxPerMm]].",
       "s6TableHeading": "Dichtheidstabel per Scherm & OS-schaling",
-      "s6Headers": ["Schermconfiguratie", "CSS-resolutie", "Effectieve CSS PPI", "CSS px/mm", "devicePxPerMm"],
+      "s6Headers": [
+        "Schermconfiguratie",
+        "CSS-resolutie",
+        "Effectieve CSS PPI",
+        "CSS px/mm",
+        "devicePxPerMm"
+      ],
       "workedExamples": [
-        { "panel": "14,2\" Laptop (Mac Retina / 2× DPR)", "cssRes": "1512 × 982 CSS px (DPR 2,0)", "cssPpi": "127,0 CSS PPI", "pxPerMm": "5,000 CSS px/mm", "devicePxPerMm": "10,000 device px/mm" },
-        { "panel": "15,6\" Windows Laptop (125% schaal)", "cssRes": "1536 × 864 CSS px (DPR 1,25)", "cssPpi": "113,0 CSS PPI", "pxPerMm": "4,448 CSS px/mm", "devicePxPerMm": "5,560 device px/mm" },
-        { "panel": "24\" 1080p Monitor (100%)", "cssRes": "1920 × 1080 CSS px (DPR 1,0)", "cssPpi": "91,8 CSS PPI", "pxPerMm": "3,614 CSS px/mm", "devicePxPerMm": "3,614 device px/mm" },
-        { "panel": "27\" 4K UHD Monitor (150% schaal)", "cssRes": "2560 × 1440 CSS px (DPR 1,5)", "cssPpi": "108,8 CSS PPI", "pxPerMm": "4,283 CSS px/mm", "devicePxPerMm": "6,425 device px/mm" },
-        { "panel": "6,1\" OLED Smartphone (3× DPR)", "cssRes": "390 × 844 CSS px (DPR 3,0)", "cssPpi": "152,4 CSS PPI", "pxPerMm": "6,000 CSS px/mm", "devicePxPerMm": "18,000 device px/mm" }
+        {
+          "panel": "14,2\" Laptop (Mac Retina / 2× DPR)",
+          "cssRes": "1512 × 982 CSS px (DPR 2,0)",
+          "cssPpi": "127,0 CSS PPI",
+          "pxPerMm": "5,000 CSS px/mm",
+          "devicePxPerMm": "10,000 device px/mm"
+        },
+        {
+          "panel": "15,6\" Windows Laptop (125% schaal)",
+          "cssRes": "1536 × 864 CSS px (DPR 1,25)",
+          "cssPpi": "113,0 CSS PPI",
+          "pxPerMm": "4,448 CSS px/mm",
+          "devicePxPerMm": "5,560 device px/mm"
+        },
+        {
+          "panel": "24\" 1080p Monitor (100%)",
+          "cssRes": "1920 × 1080 CSS px (DPR 1,0)",
+          "cssPpi": "91,8 CSS PPI",
+          "pxPerMm": "3,614 CSS px/mm",
+          "devicePxPerMm": "3,614 device px/mm"
+        },
+        {
+          "panel": "27\" 4K UHD Monitor (150% schaal)",
+          "cssRes": "2560 × 1440 CSS px (DPR 1,5)",
+          "cssPpi": "108,8 CSS PPI",
+          "pxPerMm": "4,283 CSS px/mm",
+          "devicePxPerMm": "6,425 device px/mm"
+        },
+        {
+          "panel": "6,1\" OLED Smartphone (3× DPR)",
+          "cssRes": "390 × 844 CSS px (DPR 3,0)",
+          "cssPpi": "152,4 CSS PPI",
+          "pxPerMm": "6,000 CSS px/mm",
+          "devicePxPerMm": "18,000 device px/mm"
+        }
       ],
       "caveats": [
         {
@@ -1210,18 +1849,73 @@
       "s7Body2": "Kijk recht haaks (90°) boven de maatstreep en gebruik onder ±0,25 mm tolerantie altijd een gecertificeerde schuifmaat.",
       "s7TableHeading": "Tabel met Gestandaardiseerde Fysieke Verificatie-objecten",
       "s7TableLead": "Controleer na het kalibreren eventueel met een van de onderstaande standaardvoorwerpen:",
-      "s7Headers": ["Referentie-object", "Metrisch (mm)", "Imperiaal (in)", "Geldende Norm"],
+      "s7Headers": [
+        "Referentie-object",
+        "Metrisch (mm)",
+        "Imperiaal (in)",
+        "Geldende Norm"
+      ],
       "referenceItems": [
-        { "item": "ISO/IEC 7810 ID-1 Bankpas (Breedte)", "mm": "85,60 mm", "inches": "3,370 in", "standard": "ISO/IEC 7810:2019 ID-1" },
-        { "item": "ISO/IEC 7810 ID-1 Bankpas (Hoogte)", "mm": "53,98 mm", "inches": "2,125 in", "standard": "ISO/IEC 7810:2019 ID-1" },
-        { "item": "US 1-Cent Penny (Diameter)", "mm": "19,05 mm", "inches": "0,750 in (3/4″)", "standard": "US Mint Specificatie" },
-        { "item": "US 5-Cent Nickel (Diameter)", "mm": "21,21 mm", "inches": "0,835 in", "standard": "US Mint Specificatie" },
-        { "item": "1 Euromunt (Diameter)", "mm": "23,25 mm", "inches": "0,915 in", "standard": "Europese Centrale Bank" },
-        { "item": "US Quarter Dollar (Diameter)", "mm": "24,26 mm", "inches": "0,955 in", "standard": "US Mint Specificatie" },
-        { "item": "2 Euromunt (Diameter)", "mm": "25,75 mm", "inches": "1,014 in", "standard": "Europese Centrale Bank" },
-        { "item": "Standaard AA-batterij (Lengte)", "mm": "50,50 mm", "inches": "1,988 in", "standard": "IEC R6 / ANSI 15" },
-        { "item": "US Dollarbiljet (Breedte)", "mm": "155,96 mm", "inches": "6,140 in", "standard": "Bureau of Engraving & Printing" },
-        { "item": "ISO 216 A4-papier (Korte Zijde)", "mm": "210,00 mm", "inches": "8,268 in", "standard": "ISO 216 Papierformaat" }
+        {
+          "item": "ISO/IEC 7810 ID-1 Bankpas (Breedte)",
+          "mm": "85,60 mm",
+          "inches": "3,370 in",
+          "standard": "ISO/IEC 7810:2019 ID-1"
+        },
+        {
+          "item": "ISO/IEC 7810 ID-1 Bankpas (Hoogte)",
+          "mm": "53,98 mm",
+          "inches": "2,125 in",
+          "standard": "ISO/IEC 7810:2019 ID-1"
+        },
+        {
+          "item": "US 1-Cent Penny (Diameter)",
+          "mm": "19,05 mm",
+          "inches": "0,750 in (3/4″)",
+          "standard": "US Mint Specificatie"
+        },
+        {
+          "item": "US 5-Cent Nickel (Diameter)",
+          "mm": "21,21 mm",
+          "inches": "0,835 in",
+          "standard": "US Mint Specificatie"
+        },
+        {
+          "item": "1 Euromunt (Diameter)",
+          "mm": "23,25 mm",
+          "inches": "0,915 in",
+          "standard": "Europese Centrale Bank"
+        },
+        {
+          "item": "US Quarter Dollar (Diameter)",
+          "mm": "24,26 mm",
+          "inches": "0,955 in",
+          "standard": "US Mint Specificatie"
+        },
+        {
+          "item": "2 Euromunt (Diameter)",
+          "mm": "25,75 mm",
+          "inches": "1,014 in",
+          "standard": "Europese Centrale Bank"
+        },
+        {
+          "item": "Standaard AA-batterij (Lengte)",
+          "mm": "50,50 mm",
+          "inches": "1,988 in",
+          "standard": "IEC R6 / ANSI 15"
+        },
+        {
+          "item": "US Dollarbiljet (Breedte)",
+          "mm": "155,96 mm",
+          "inches": "6,140 in",
+          "standard": "Bureau of Engraving & Printing"
+        },
+        {
+          "item": "ISO 216 A4-papier (Korte Zijde)",
+          "mm": "210,00 mm",
+          "inches": "8,268 in",
+          "standard": "ISO 216 Papierformaat"
+        }
       ]
     },
     "faq": {

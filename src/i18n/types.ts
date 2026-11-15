@@ -75,6 +75,9 @@ export interface LocaleDict {
     readonly languageLabel: string;
     readonly languageTriggerAria: string;
     readonly languageMenuAria: string;
+    readonly localeSuggestionText: string;
+    readonly localeSuggestionSwitch: string;
+    readonly localeSuggestionDismiss: string;
     readonly links: {
       readonly cmRuler: string;
       readonly mmRuler: string;
@@ -152,6 +155,9 @@ export interface LocaleDict {
     readonly unitPxTitle: string;
     readonly dualUnit: string;
     readonly dualUnitTitle: string;
+    readonly dualCmPxTitle: string;
+    readonly dualInPxTitle: string;
+    readonly inchPrecisionAria: string;
     readonly edgesGroupAria: string;
     readonly edgesLabel: string;
     readonly edgeTop: string;
@@ -168,6 +174,11 @@ export interface LocaleDict {
     readonly addFloatingTitle: string;
     readonly protractor: string;
     readonly protractorTitle: string;
+    readonly photoMode: string;
+    readonly photoModeTitle: string;
+    readonly focusMode: string;
+    readonly focusModeExit: string;
+    readonly focusModeTitle: string;
     readonly fullscreen: string;
     readonly fullscreenExit: string;
     readonly fullscreenTitle: string;
@@ -194,6 +205,21 @@ export interface LocaleDict {
     readonly liveCursorInit: string;
     readonly saveToHistory: string;
     readonly keysHint: string;
+    readonly photoPanelAria: string;
+    readonly photoChooseBtn: string;
+    readonly photoPasteBtn: string;
+    readonly photoToolCal: string;
+    readonly photoToolLine: string;
+    readonly photoToolRect: string;
+    readonly photoRefLenAria: string;
+    readonly photoRefUnitAria: string;
+    readonly photoApplyCalBtn: string;
+    readonly photoUndoBtn: string;
+    readonly photoClearBtn: string;
+    readonly photoExportBtn: string;
+    readonly photoCloseBtn: string;
+    readonly photoEmptyTitle: string;
+    readonly photoEmptyDesc: string;
   };
   readonly calibration: {
     readonly kicker: string;
@@ -213,6 +239,22 @@ export interface LocaleDict {
     readonly cardOrientTitle: string;
     readonly cardOrientLandscape: string;
     readonly cardOrientPortrait: string;
+    readonly refPresetGroupAria: string;
+    readonly refTargetLabel: string;
+    readonly refCard1x: string;
+    readonly refCard2x: string;
+    readonly refCard3x: string;
+    readonly refA4: string;
+    readonly refLetter: string;
+    readonly refCd: string;
+    readonly refQuarter: string;
+    readonly refEuro: string;
+    readonly refCustom: string;
+    readonly refCustomLengthLabel: string;
+    readonly refCustomUnitAria: string;
+    readonly refDragHint: string;
+    readonly cardDragHandleAria: string;
+    readonly cardDragHandleTitle: string;
     readonly cardStageAria: string;
     readonly cardDatumNote: string;
     readonly cardPlaceTitle: string;
@@ -290,6 +332,7 @@ export interface LocaleDict {
     readonly displayZoomManualBanner: string;
     readonly displayZoomAutoBanner: string;
     readonly displaySwitchedBanner: string;
+    readonly pinchZoomBanner: string;
     readonly enterDiagonalPrompt: string;
     readonly calculatedScale: string;
     readonly basisMap: Readonly<Record<string, string>>;

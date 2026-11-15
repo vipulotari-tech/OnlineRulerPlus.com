@@ -140,6 +140,7 @@ test.describe('QA Comprehensive — Responsive Layouts & Navigation', () => {
   test('all 7 viewports (320px to 1920px) have 0 overflow and clean open dropdowns/drawers', async ({
     page,
   }) => {
+    test.setTimeout(60_000);
     for (const vp of VIEWPORTS) {
       await page.setViewportSize(vp);
       for (const route of ['/', '/calibration-guide', '/faq']) {

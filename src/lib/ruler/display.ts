@@ -7,6 +7,8 @@ export interface DisplayInfo {
   readonly dpr: number;
   readonly platform: Platform;
   readonly touch: boolean;
+  /** window.visualViewport?.scale when available (1 at un-pinched scale). */
+  readonly visualViewportScale?: number;
 }
 
 export type DisplayChange = 'none' | 'orientation' | 'zoom' | 'display';
@@ -45,7 +47,10 @@ export function devicePixelSize(info: DisplayInfo): [long: number, short: number
 }
 
 const DPR_EPSILON = 0.001;
-const DEVICE_PX_TOLERANCE = 2;
+
+function devicePixelTolerance(dprA: number, dprB: number): number {
+  return Math.max(4, Math.ceil(Math.max(dprA, dprB) * 2));
+}
 
 /**
  * Classify how the display changed between two readings.
@@ -66,7 +71,8 @@ export function classifyDisplayChange(prev: DisplayInfo, next: DisplayInfo): Dis
     if (sameCssSize) return 'zoom';
     const [pdl, pds] = devicePixelSize(prev);
     const [ndl, nds] = devicePixelSize(next);
-    if (Math.abs(pdl - ndl) <= DEVICE_PX_TOLERANCE && Math.abs(pds - nds) <= DEVICE_PX_TOLERANCE) return 'zoom';
+    const tol = devicePixelTolerance(prev.dpr, next.dpr);
+    if (Math.abs(pdl - ndl) <= tol && Math.abs(pds - nds) <= tol) return 'zoom';
   }
   return 'display';
 }
@@ -74,11 +80,17 @@ export function classifyDisplayChange(prev: DisplayInfo, next: DisplayInfo): Dis
 /** Read the current display from browser globals. Browser-only. */
 export function readDisplayInfo(win: Window = window): DisplayInfo {
   const nav = win.navigator;
+  const rawScale = win.visualViewport?.scale;
+  const visualViewportScale =
+    typeof rawScale === 'number' && Number.isFinite(rawScale) && rawScale > 0
+      ? round3(rawScale)
+      : 1;
   return {
     screenWidth: win.screen.width,
     screenHeight: win.screen.height,
     dpr: win.devicePixelRatio || 1,
     platform: detectPlatform(nav.userAgent, nav.maxTouchPoints),
     touch: nav.maxTouchPoints > 0,
+    visualViewportScale,
   };
 }

@@ -1,7 +1,8 @@
-import { generateTicks, type Tick, type TickLevel } from './ticks.ts';
+import { generateTicks, type InchDivisor, type Tick, type TickLevel } from './ticks.ts';
 import { type Unit } from './units.ts';
 
 export type RulerEdge = 'top' | 'bottom' | 'left' | 'right';
+export type DualPairMode = 'unit' | 'px';
 
 export interface RenderRulerOptions {
   readonly edge: RulerEdge;
@@ -10,6 +11,8 @@ export interface RenderRulerOptions {
   readonly originInsetPx: number;
   readonly unit: Unit;
   readonly dualUnit: boolean;
+  readonly dualPair?: DualPairMode;
+  readonly inchDivisor?: InchDivisor;
   readonly pxPerMm: number;
   readonly dpr: number;
   readonly dark: boolean;
@@ -32,7 +35,8 @@ const DUAL_LEVEL_HEIGHT_RATIO: Readonly<Record<TickLevel, number>> = {
   4: 0.09,
 };
 
-function secondaryUnitFor(primary: Unit): Unit {
+function secondaryUnitFor(primary: Unit, dualPair: DualPairMode = 'unit'): Unit {
+  if (dualPair === 'px') return primary === 'px' ? 'cm' : 'px';
   return primary === 'in' ? 'cm' : 'in';
 }
 
@@ -51,6 +55,8 @@ export function renderRulerToCanvas(
     originInsetPx,
     unit,
     dualUnit,
+    dualPair = 'unit',
+    inchDivisor = 16,
     pxPerMm,
     dpr,
     dark,
@@ -68,9 +74,12 @@ export function renderRulerToCanvas(
 
   const ctx = canvas.getContext('2d');
   const measurableLength = Math.max(0, lengthPx - originInsetPx - 8);
-  const primaryTicks = generateTicks(measurableLength, unit, pxPerMm);
-  const secondaryUnit = secondaryUnitFor(unit);
-  const secondaryTicks = dualUnit ? generateTicks(measurableLength, secondaryUnit, pxPerMm) : [];
+  const tickOpts = { inchDivisor };
+  const primaryTicks = generateTicks(measurableLength, unit, pxPerMm, undefined, tickOpts);
+  const secondaryUnit = secondaryUnitFor(unit, dualPair);
+  const secondaryTicks = dualUnit
+    ? generateTicks(measurableLength, secondaryUnit, pxPerMm, undefined, tickOpts)
+    : [];
 
   if (!ctx) return { primaryTicks, secondaryTicks };
 

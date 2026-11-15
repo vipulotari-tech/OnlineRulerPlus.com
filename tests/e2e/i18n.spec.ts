@@ -129,23 +129,26 @@ test.describe('Multilingual Language Selector & Full-Site i18n E2E', () => {
     await expect(page.locator('html')).toHaveAttribute('lang', 'en-US');
   });
 
-  test('auto-detects browser language on first visit to / and respects manual switch back to English', async ({
+  test('suggests localized route non-intrusively on first visit to / without forced redirect', async ({
     browser,
   }) => {
     const context = await browser.newContext({ locale: 'es-ES' });
     const page = await context.newPage();
 
     await page.goto('/');
+    // P0.3: URL stays cleanly on / (no forced JS redirect) and shows dismissible Spanish suggestion
+    expect(new URL(page.url()).pathname).toBe('/');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en-US');
+
+    const banner = page.locator('#locale-suggestion-banner');
+    await expect(banner).toBeVisible();
+    await expect(page.locator('#locale-suggestion-link')).toHaveAttribute('href', '/es');
+
+    // Clicking switch navigates to /es and saves preference; switching back to English persists manual 'en'
+    await page.locator('#locale-suggestion-link').click();
     await page.waitForURL(/\/es\/?$/);
     await expect(page.locator('html')).toHaveAttribute('lang', 'es-ES');
 
-    const autoStorage = await page.evaluate(() => ({
-      locale: localStorage.getItem('orp:locale:v1'),
-      source: localStorage.getItem('orp:locale-source:v1'),
-    }));
-    expect(autoStorage).toEqual({ locale: 'es', source: 'auto' });
-
-    // Switch manually back to English; reload must NOT auto-redirect back to /es
     await page.locator('[data-language-trigger]').click();
     await page.locator('[data-language-option="en"]').click();
     await page.waitForURL((url) => url.pathname === '/');
@@ -158,6 +161,7 @@ test.describe('Multilingual Language Selector & Full-Site i18n E2E', () => {
 
     await page.reload();
     await expect(page.locator('html')).toHaveAttribute('lang', 'en-US');
+    await expect(banner).toBeHidden();
     expect(new URL(page.url()).pathname).toBe('/');
 
     await context.close();

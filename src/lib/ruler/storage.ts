@@ -1,5 +1,12 @@
-import { cardWidthPx, fromDevicePxPerMm, isPlausiblePxPerMm, toDevicePxPerMm } from './calibration.ts';
+import {
+  cardWidthPx,
+  fromDevicePxPerMm,
+  isPlausiblePxPerMm,
+  toDevicePxPerMm,
+  type ReferencePresetId,
+} from './calibration.ts';
 import { type DisplayInfo, displaySignature, sortedSize } from './display.ts';
+import type { InchDivisor } from './ticks.ts';
 import { isUnit, type Unit } from './units.ts';
 
 export type CalibrationMethod = 'auto-detect' | 'diagonal' | 'card';
@@ -23,6 +30,8 @@ export interface CalibrationProfile {
   readonly label: string;
   readonly diagonalIn?: number;
   readonly cardWidthPx?: number;
+  readonly referencePresetId?: ReferencePresetId;
+  readonly referenceMm?: number;
   readonly updatedAt: number;
 }
 
@@ -44,11 +53,14 @@ export interface RulerPreferences {
   readonly unit: Unit;
   readonly edges: EdgeState;
   readonly dualUnit: boolean;
+  readonly dualPair?: 'unit' | 'px';
+  readonly inchDivisor?: InchDivisor;
   readonly thickness: RulerThickness;
   readonly opacity: number;
   readonly guidesEnabled: boolean;
   readonly crosshairEnabled: boolean;
   readonly shortcutsEnabled?: boolean;
+  readonly focusMode?: boolean;
 }
 
 export interface MeasurementRecord {
@@ -124,7 +136,12 @@ export function createManualProfile(
   pxPerMm: number,
   method: 'diagonal' | 'card',
   label: string,
-  extra?: { readonly diagonalIn?: number; readonly cardWidthPx?: number },
+  extra?: {
+    readonly diagonalIn?: number;
+    readonly cardWidthPx?: number;
+    readonly referencePresetId?: ReferencePresetId;
+    readonly referenceMm?: number;
+  },
   now = Date.now(),
 ): CalibrationProfile {
   const [cssLong, cssShort] = sortedSize(info);
@@ -140,6 +157,8 @@ export function createManualProfile(
     label,
     ...(extra?.diagonalIn !== undefined ? { diagonalIn: extra.diagonalIn } : {}),
     ...(extra?.cardWidthPx !== undefined ? { cardWidthPx: extra.cardWidthPx } : {}),
+    ...(extra?.referencePresetId !== undefined ? { referencePresetId: extra.referencePresetId } : {}),
+    ...(extra?.referenceMm !== undefined ? { referenceMm: extra.referenceMm } : {}),
     updatedAt: now,
   };
 }
@@ -183,7 +202,8 @@ function matchesPhysicalPanel(cand: CalibrationProfile, info: DisplayInfo): bool
   const devShort = Math.round(short * info.dpr);
   const candDevLong = Math.round(cand.cssLong * cand.dpr);
   const candDevShort = Math.round(cand.cssShort * cand.dpr);
-  return Math.abs(candDevLong - devLong) <= 2 && Math.abs(candDevShort - devShort) <= 2;
+  const tol = Math.max(4, Math.ceil(Math.max(info.dpr, cand.dpr) * 2));
+  return Math.abs(candDevLong - devLong) <= tol && Math.abs(candDevShort - devShort) <= tol;
 }
 
 export function removeProfileFromStore(
@@ -286,16 +306,27 @@ export function parsePreferences(raw: string | null | undefined): RulerPreferenc
         : DEFAULT_PREFERENCES.crosshairEnabled;
     const shortcutsEnabled =
       typeof parsed.shortcutsEnabled === 'boolean' ? parsed.shortcutsEnabled : true;
+    const focusMode =
+      typeof parsed.focusMode === 'boolean' ? parsed.focusMode : false;
+    const dualPair =
+      parsed.dualPair === 'px' || parsed.dualPair === 'unit' ? parsed.dualPair : undefined;
+    const inchDivisor =
+      parsed.inchDivisor === 8 || parsed.inchDivisor === 16 || parsed.inchDivisor === 32
+        ? parsed.inchDivisor
+        : undefined;
 
     return {
       unit,
       edges,
       dualUnit,
+      ...(dualPair !== undefined ? { dualPair } : {}),
+      ...(inchDivisor !== undefined ? { inchDivisor } : {}),
       thickness,
       opacity,
       guidesEnabled,
       crosshairEnabled,
       ...(parsed.shortcutsEnabled !== undefined ? { shortcutsEnabled } : {}),
+      ...(parsed.focusMode !== undefined ? { focusMode } : {}),
     };
   } catch {
     return DEFAULT_PREFERENCES;
