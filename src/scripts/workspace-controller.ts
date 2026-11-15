@@ -258,13 +258,15 @@ export class WorkspaceController {
     const offset = this.floatingRulers.length * 28;
     const stageRect = this.stageEl.getBoundingClientRect();
     const maxLen = Math.max(180, Math.min(420, Math.floor(stageRect.width - 64)));
+    const x = Math.min(32 + offset, Math.max(8, Math.floor(stageRect.width - maxLen - 8)));
+    const y = Math.min(56 + offset, Math.max(8, Math.floor(stageRect.height - 64)));
     this.floatingRulers = [
       ...this.floatingRulers,
       {
         id: `fr-${Date.now()}-${Math.random().toString(36).slice(2, 5)}`,
         orientation: 'horizontal',
-        x: 32 + offset,
-        y: 56 + offset,
+        x,
+        y,
         lengthPx: maxLen,
       },
     ];

@@ -31,10 +31,11 @@ const hm = getDict(locale).helpModal;
       <button
         type="button"
         data-help-close
-        aria-label={hm.closeAria}
+        title={hm.closeAria}
         class="apple-btn-pearl font-mono text-xs"
       >
-        {hm.escLabel}
+        <span>{hm.escLabel}</span>
+        <span class="sr-only"> — {hm.closeAria}</span>
       </button>
     </div>
 

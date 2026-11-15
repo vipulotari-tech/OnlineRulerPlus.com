@@ -33,9 +33,9 @@
   --text-body-on-dark: #ffffff;
   --text-body-muted-on-dark: #cccccc;
   --text-ink-muted-80: #333333;
-  --text-ink-muted-48: #7a7a7a;
+  --text-ink-muted-48: #5f5f63;
   --text-mute: #333333;
-  --text-faint: #7a7a7a;
+  --text-faint: #5f5f63;
 
   /* Borders & Hairlines */
   --border-divider-soft: #f0f0f0;
@@ -46,10 +46,10 @@
   --action-primary: #0066cc;
   --action-primary-focus: #0071e3;
   --action-on-primary: #ffffff;
-  --accent-link: #0066cc;
-  --accent-link-deep: #0071e3;
-  --accent-link-on-dark: #2997ff;
-  --accent-link-soft: rgba(0, 102, 204, 0.12);
+  --accent-link: #005bb8;
+  --accent-link-deep: #005bb8;
+  --accent-link-on-dark: #5eb2ff;
+  --accent-link-soft: rgba(0, 102, 204, 0.09);
 
   /* Functional Feedback */
   --status-error: #de071c;
@@ -106,10 +106,10 @@
   --action-primary: #0066cc;
   --action-primary-focus: #0071e3;
   --action-on-primary: #ffffff;
-  --accent-link: #2997ff;
+  --accent-link: #5eb2ff;
   --accent-link-deep: #0071e3;
-  --accent-link-on-dark: #2997ff;
-  --accent-link-soft: rgba(41, 151, 255, 0.18);
+  --accent-link-on-dark: #5eb2ff;
+  --accent-link-soft: rgba(41, 151, 255, 0.14);
 
   --status-error: #ff453a;
   --status-warning: #ff9f0a;
@@ -117,9 +117,28 @@
   --status-warning-deep: #ffd60a;
 }
 
+/* Metric-adjusted local fallbacks minimize FOUT layout shift while web fonts decode */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("Segoe UI");
+  size-adjust: 107%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans Fallback";
+  src: local("Arial"), local("Segoe UI");
+  size-adjust: 106%;
+  ascent-override: 93%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
 @theme inline {
-  --font-display: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Inter Variable", sans-serif;
-  --font-sans: "Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans Variable", system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", "Plus Jakarta Sans Fallback", -apple-system, BlinkMacSystemFont, "Inter Variable", sans-serif;
+  --font-sans: "Inter Variable", "Inter", "Inter Fallback", -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans Variable", system-ui, sans-serif;
   --font-mono: "Geist Mono Variable", "Geist Mono", "SF Mono", SFMono-Regular, ui-monospace, Menlo, Consolas, monospace;
 
   --color-canvas: var(--surface-canvas);

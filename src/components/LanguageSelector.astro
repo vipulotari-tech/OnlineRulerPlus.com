@@ -27,13 +27,13 @@ const currentMeta = LOCALE_META[locale];
     aria-haspopup="menu"
     aria-expanded="false"
     aria-controls="orp-language-menu"
-    aria-label={dict.nav.languageTriggerAria}
     title={dict.nav.languageLabel}
     class="group inline-flex items-center gap-1.5 h-7 sm:h-[32px] px-2 sm:px-2.5 rounded-[8px] type-nav-link font-medium whitespace-nowrap text-on-dark bg-[#1d1d1f] hover:bg-[#2a2a2c] border border-white/[0.1] hover:border-white/[0.2] shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_1px_2px_rgba(0,0,0,0.35)] transition-all cursor-pointer"
   >
     <LocaleFlag locale={locale} class="ring-white/20" />
-    <span class="hidden sm:inline leading-none">{currentMeta.nativeName}</span>
-    <span class="sm:hidden font-semibold tracking-tight leading-none">{currentMeta.shortCode}</span>
+    <span class="sr-only sm:not-sr-only leading-none">{currentMeta.nativeName}</span>
+    <span class="sr-only"> — {dict.nav.languageTriggerAria}</span>
+    <span class="sm:hidden font-semibold tracking-tight leading-none" aria-hidden="true">{currentMeta.shortCode}</span>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="11"

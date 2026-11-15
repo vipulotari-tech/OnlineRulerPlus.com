@@ -180,10 +180,15 @@ const structuredData = [
         <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
           <div class="lg:col-span-7">
             <p class="type-kicker">{page.shortcutsKicker}</p>
-            <h2 class="mt-1.5 type-display-lg text-ink">{page.shortcutsHeading}</h2>
+            <h2 id="how-shortcuts-heading" class="mt-1.5 type-display-lg text-ink">{page.shortcutsHeading}</h2>
             <p class="mt-2.5 max-w-2xl type-body text-ink-muted-80">{page.shortcutsLead}</p>
 
-            <div class="mt-6 overflow-x-auto rounded-[18px] border border-hairline bg-surface-primary p-4 sm:p-6">
+            <div
+              role="region"
+              tabindex="0"
+              aria-labelledby="how-shortcuts-heading"
+              class="mt-6 overflow-x-auto rounded-[18px] border border-hairline bg-canvas p-4 sm:p-6 focus-visible:rounded-[18px]"
+            >
               <table class="w-full text-left border-collapse">
                 <thead>
                   <tr class="border-b border-hairline font-mono text-xs text-ink-muted-48">

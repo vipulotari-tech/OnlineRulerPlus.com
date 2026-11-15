@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import interLatinWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import jakartaLatinWoff2 from '@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2?url';
 import {
   DEFAULT_LOCALE,
   LOCALES,
@@ -136,6 +138,8 @@ const skipLabel = skipHref === '#ruler-tool' ? dict.nav.skipToWorkspace : dict.n
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href={interLatinWoff2} />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href={jakartaLatinWoff2} />
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

@@ -64,8 +64,8 @@ export function renderGuidesLayer(opts: RenderGuidesOptions): void {
 
     const line = document.createElement('div');
     line.className = isX
-      ? 'guide-line absolute top-0 bottom-0 w-px bg-link cursor-ew-resize group z-20'
-      : 'guide-line absolute left-0 right-0 h-px bg-link cursor-ns-resize group z-20';
+      ? 'guide-line touch-none absolute top-0 bottom-0 w-px bg-link cursor-ew-resize group z-20'
+      : 'guide-line touch-none absolute left-0 right-0 h-px bg-link cursor-ns-resize group z-20';
     line.dataset.guideId = guide.id;
     line.dataset.guideAxis = guide.axis;
     line.style.left = isX ? `${posInStage}px` : '0px';
@@ -221,7 +221,7 @@ export function renderFloatingRulersLayer(opts: RenderFloatingRulersOptions): vo
     const thickness = 44;
     const wrapper = document.createElement('div');
     wrapper.className =
-      'floating-ruler apple-product-shadow absolute z-30 rounded-[8px] border border-hairline bg-canvas-elevated select-none cursor-move';
+      'floating-ruler touch-none apple-product-shadow absolute z-30 rounded-[8px] border border-hairline bg-canvas-elevated select-none cursor-move';
     wrapper.dataset.floatingId = fr.id;
     wrapper.style.left = `${fr.x}px`;
     wrapper.style.top = `${fr.y}px`;
@@ -399,7 +399,7 @@ export function renderProtractorOverlay(
   canvas.height = Math.round(cssH * dpr);
   canvas.style.width = `${cssW}px`;
   canvas.style.height = `${cssH}px`;
-  canvas.className = 'cursor-crosshair';
+  canvas.className = 'touch-none cursor-crosshair';
 
   const draw = (deg: number) => {
     const ctx = canvas.getContext('2d');

@@ -168,11 +168,16 @@ const shared = dict.spokeShared;
           <span class="font-mono text-xs font-semibold text-primary-on-dark">
             {table.kicker}
           </span>
-          <h3 class="mt-1 type-tagline text-on-dark">
+          <h3 id="spoke-table-heading" class="mt-1 type-tagline text-on-dark">
             {table.heading}
           </h3>
 
-          <div class="mt-5 overflow-x-auto">
+          <div
+            role="region"
+            tabindex="0"
+            aria-labelledby="spoke-table-heading"
+            class="mt-5 overflow-x-auto focus-visible:rounded-[8px]"
+          >
             <table class="w-full text-left border-collapse">
               <thead>
                 <tr class="border-b border-white/15 font-mono text-[11px] text-body-muted">

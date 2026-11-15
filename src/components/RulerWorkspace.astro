@@ -18,6 +18,19 @@ const {
 
 const dict = getDict(locale);
 const w = dict.workspace;
+
+const initUnit = forceUnit ?? defaultUnit;
+const initEdges = {
+  top: forceEdges !== 'vertical',
+  bottom: forceEdges === 'horizontal' || forceEdges === 'all',
+  left: forceEdges !== 'horizontal',
+  right: forceEdges === 'vertical' || forceEdges === 'all',
+};
+const initThickness = 48;
+const offTop = initEdges.top ? initThickness : 0;
+const offBottom = initEdges.bottom ? initThickness : 0;
+const offLeft = initEdges.left ? initThickness : 0;
+const offRight = initEdges.right ? initThickness : 0;
 ---
 
 <section
@@ -256,7 +269,7 @@ const w = dict.workspace;
 
       <div class="flex flex-wrap items-center gap-3 text-ink-muted-80">
         <!-- Guide placement axis -->
-        <div class="flex items-center gap-1" role="group" aria-label={w.guideAxisAria}>
+        <div class="flex flex-wrap items-center gap-1" role="group" aria-label={w.guideAxisAria}>
           <span class="font-mono text-[11px] text-ink-muted-48">{w.guideAxisLabel}</span>
           <button
             type="button"
@@ -331,21 +344,37 @@ const w = dict.workspace;
     <!-- 4 Corner Origin Cells -->
     <div
       id="corner-top-left"
-      class="absolute left-0 top-0 z-20 flex items-center justify-center border-r border-b border-hairline bg-canvas-parchment font-mono text-[11px] font-semibold uppercase text-ink-muted-80"
+      style={`width: ${initThickness}px; height: ${initThickness}px;`}
+      class:list={[
+        'absolute left-0 top-0 z-20 flex items-center justify-center border-r border-b border-hairline bg-canvas-parchment font-mono text-[11px] font-semibold uppercase text-ink-muted-80',
+        !(initEdges.top && initEdges.left) && 'hidden',
+      ]}
     >
-      cm
+      {initUnit}
     </div>
     <div
       id="corner-top-right"
-      class="hidden absolute right-0 top-0 z-20 border-l border-b border-hairline bg-canvas-parchment"
+      style={`width: ${initThickness}px; height: ${initThickness}px;`}
+      class:list={[
+        'absolute right-0 top-0 z-20 border-l border-b border-hairline bg-canvas-parchment',
+        !(initEdges.top && initEdges.right) && 'hidden',
+      ]}
     ></div>
     <div
       id="corner-bottom-left"
-      class="hidden absolute left-0 bottom-0 z-20 border-r border-t border-hairline bg-canvas-parchment"
+      style={`width: ${initThickness}px; height: ${initThickness}px;`}
+      class:list={[
+        'absolute left-0 bottom-0 z-20 border-r border-t border-hairline bg-canvas-parchment',
+        !(initEdges.bottom && initEdges.left) && 'hidden',
+      ]}
     ></div>
     <div
       id="corner-bottom-right"
-      class="hidden absolute right-0 bottom-0 z-20 border-l border-t border-hairline bg-canvas-parchment"
+      style={`width: ${initThickness}px; height: ${initThickness}px;`}
+      class:list={[
+        'absolute right-0 bottom-0 z-20 border-l border-t border-hairline bg-canvas-parchment',
+        !(initEdges.bottom && initEdges.right) && 'hidden',
+      ]}
     ></div>
 
     <!-- 4 Calibrated Edge Ruler Canvases -->
@@ -353,30 +382,47 @@ const w = dict.workspace;
       id="ruler-canvas-top"
       data-edge="top"
       aria-label={w.canvasTopAria}
-      class="absolute z-10 border-b border-hairline cursor-crosshair"
+      style={`left: ${offLeft}px; top: 0px; width: calc(100% - ${offLeft + offRight}px); height: ${initThickness}px;`}
+      class:list={[
+        'absolute z-10 border-b border-hairline cursor-crosshair',
+        !initEdges.top && 'hidden',
+      ]}
     ></canvas>
     <canvas
       id="ruler-canvas-bottom"
       data-edge="bottom"
       aria-label={w.canvasBottomAria}
-      class="hidden absolute z-10 border-t border-hairline cursor-crosshair"
+      style={`left: ${offLeft}px; bottom: 0px; width: calc(100% - ${offLeft + offRight}px); height: ${initThickness}px;`}
+      class:list={[
+        'absolute z-10 border-t border-hairline cursor-crosshair',
+        !initEdges.bottom && 'hidden',
+      ]}
     ></canvas>
     <canvas
       id="ruler-canvas-left"
       data-edge="left"
       aria-label={w.canvasLeftAria}
-      class="absolute z-10 border-r border-hairline cursor-crosshair"
+      style={`left: 0px; top: ${offTop}px; width: ${initThickness}px; height: calc(100% - ${offTop + offBottom}px);`}
+      class:list={[
+        'absolute z-10 border-r border-hairline cursor-crosshair',
+        !initEdges.left && 'hidden',
+      ]}
     ></canvas>
     <canvas
       id="ruler-canvas-right"
       data-edge="right"
       aria-label={w.canvasRightAria}
-      class="hidden absolute z-10 border-l border-hairline cursor-crosshair"
+      style={`right: 0px; top: ${offTop}px; width: ${initThickness}px; height: calc(100% - ${offTop + offBottom}px);`}
+      class:list={[
+        'absolute z-10 border-l border-hairline cursor-crosshair',
+        !initEdges.right && 'hidden',
+      ]}
     ></canvas>
 
     <!-- Inner Measurement Stage -->
     <div
       id="ruler-stage"
+      style={`top: ${offTop}px; right: ${offRight}px; bottom: ${offBottom}px; left: ${offLeft}px;`}
       class="workspace-grid-bg absolute overflow-hidden cursor-crosshair"
     >
       <!-- Zero Origin Datum Hairlines (16px inset matching ruler 0 ticks) -->

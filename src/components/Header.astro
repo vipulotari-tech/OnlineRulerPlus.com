@@ -49,19 +49,19 @@ const homeHref = localizedPath(locale, '/');
 <!-- Row 1: Apple global-nav (#000000 true black, 44px height, 12px/400/-0.12px links) -->
 <header class="sticky top-0 z-40">
   <div class="h-[44px] w-full bg-surface-black text-on-dark">
-    <div class="mx-auto flex h-full max-w-[1440px] items-center justify-between gap-1.5 sm:gap-3 px-2.5 sm:px-6 lg:px-8">
+    <div class="mx-auto flex h-full max-w-[1440px] items-center justify-between gap-1 sm:gap-3 px-2 sm:px-6 lg:px-8">
       <!-- Brand Mark -->
       <a
         href={homeHref}
         aria-current={rawBasePath === '/' ? 'page' : undefined}
-        class="inline-flex h-[44px] min-w-0 shrink-0 items-center gap-1.5 sm:gap-2 whitespace-nowrap text-on-dark text-[11px] sm:text-[12px] font-semibold focus-visible:rounded-[5px]"
+        class="inline-flex h-[44px] min-w-0 shrink items-center gap-1 sm:gap-2 whitespace-nowrap text-on-dark text-[11px] sm:text-[12px] font-semibold focus-visible:rounded-[5px]"
         aria-label={dict.nav.brandHomeAria}
       >
         <svg class="h-4 w-4 text-primary-on-dark shrink-0" viewBox="0 0 20 20" fill="none" aria-hidden="true">
           <rect x="1.5" y="4.5" width="17" height="11" rx="2" stroke="currentColor" stroke-width="1.5" />
           <path d="M5 4.5V10M8.5 4.5V8M12 4.5V10.5M15.5 4.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
         </svg>
-        <span class="tracking-[-0.12px]">Online Ruler Plus</span>
+        <span class="tracking-[-0.12px] truncate">Online Ruler Plus</span>
       </a>
 
       <!-- Desktop Global Nav Links -->
@@ -96,25 +96,23 @@ const homeHref = localizedPath(locale, '/');
           data-help-toggle
           aria-expanded="false"
           aria-controls="help-shortcuts-modal"
-          aria-label={dict.nav.shortcutsBtnTitle}
-          class="inline-flex h-7 sm:h-[32px] items-center gap-1.5 rounded-[8px] bg-[#1d1d1f] hover:bg-[#2a2a2c] px-2 sm:px-2.5 type-nav-link text-on-dark cursor-pointer"
+          class="inline-flex h-7 sm:h-[32px] items-center gap-1.5 rounded-[8px] bg-[#1d1d1f] hover:bg-[#2a2a2c] px-1.5 sm:px-2.5 type-nav-link text-on-dark cursor-pointer"
           title={dict.nav.shortcutsBtnTitle}
         >
           <svg class="h-3.5 w-3.5 sm:hidden" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <rect x="1.5" y="3.5" width="13" height="9" rx="1.8" stroke="currentColor" stroke-width="1.3" />
             <path d="M4 6.5h1.5M7 6.5h2M11 6.5h1M5 9.5h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
           </svg>
-          <span class="hidden sm:inline">{dict.nav.shortcutsBtn}</span>
-          <kbd class="hidden sm:inline rounded-[5px] bg-[#2a2a2c] px-1.5 py-0.5 font-mono text-[10px] text-body-muted">H</kbd>
+          <span class="sr-only sm:not-sr-only">{dict.nav.shortcutsBtn}</span>
+          <span class="sr-only"> — {dict.nav.shortcutsBtnTitle}</span>
+          <kbd aria-hidden="true" class="hidden sm:inline rounded-[5px] bg-[#2a2a2c] px-1.5 py-0.5 font-mono text-[10px] text-body-muted">H</kbd>
         </button>
 
         <button
           type="button"
           data-theme-toggle
           aria-pressed="false"
-          aria-label={dict.nav.themeBtnAria}
-          data-label-switch={dict.nav.themeBtnAria}
-          class="inline-flex h-7 sm:h-[32px] items-center gap-1.5 rounded-[8px] bg-[#1d1d1f] hover:bg-[#2a2a2c] px-2 sm:px-2.5 type-nav-link text-on-dark cursor-pointer"
+          class="inline-flex h-7 sm:h-[32px] items-center gap-1.5 rounded-[8px] bg-[#1d1d1f] hover:bg-[#2a2a2c] px-1.5 sm:px-2.5 type-nav-link text-on-dark cursor-pointer"
           title={dict.nav.themeBtnTitle}
         >
           <svg class="h-3.5 w-3.5 dark:hidden" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -124,8 +122,9 @@ const homeHref = localizedPath(locale, '/');
           <svg class="hidden h-3.5 w-3.5 dark:inline" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M13.2 9.8A5.5 5.5 0 0 1 6.2 2.8a5.5 5.5 0 1 0 7 7Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
           </svg>
-          <span class="hidden sm:inline">{dict.nav.themeBtn}</span>
-          <kbd class="hidden sm:inline rounded-[5px] bg-[#2a2a2c] px-1.5 py-0.5 font-mono text-[10px] text-body-muted">D</kbd>
+          <span class="sr-only sm:not-sr-only">{dict.nav.themeBtn}</span>
+          <span class="sr-only"> — {dict.nav.themeBtnAria}</span>
+          <kbd aria-hidden="true" class="hidden sm:inline rounded-[5px] bg-[#2a2a2c] px-1.5 py-0.5 font-mono text-[10px] text-body-muted">D</kbd>
         </button>
 
         <button
@@ -134,7 +133,7 @@ const homeHref = localizedPath(locale, '/');
           aria-expanded="false"
           aria-controls="mobile-nav-tray"
           aria-label={dict.nav.mobileMenuAria}
-          class="apple-nav-mobile h-[44px] w-[36px] sm:w-[44px] items-center justify-center text-on-dark cursor-pointer"
+          class="apple-nav-mobile h-[44px] w-[30px] sm:w-[44px] items-center justify-center text-on-dark cursor-pointer"
         >
           <svg class="h-4 w-4" viewBox="0 0 18 18" fill="none" aria-hidden="true">
             <path d="M2 5.5h14M2 12.5h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
