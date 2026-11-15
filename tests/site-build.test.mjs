@@ -394,7 +394,7 @@ test('Technical SEO: single sitemap.xml, compliant robots.txt, _headers, branded
   assert.ok(!robotsTxt.includes('sitemap-index.xml'), 'robots.txt must not reference removed sitemap-index.xml');
   assert.ok(!/^Disallow:\s*\/(_astro|assets|blog|embed)/im.test(robotsTxt), 'robots.txt must not block CSS/JS/blog/embed');
 
-  // 2. _headers security & embed framing rules
+  // 2. _headers security, embed framing & .pages.dev noindex rules
   const headersFile = fs.readFileSync(path.join(distDir, '_headers'), 'utf-8');
   assert.ok(headersFile.includes('X-Content-Type-Options: nosniff'), '_headers must set X-Content-Type-Options');
   assert.ok(headersFile.includes('X-Frame-Options: SAMEORIGIN'), '_headers must set SAMEORIGIN globally');
@@ -402,6 +402,21 @@ test('Technical SEO: single sitemap.xml, compliant robots.txt, _headers, branded
     headersFile.includes('/embed\n  ! X-Frame-Options') ||
       headersFile.includes('/embed\r\n  ! X-Frame-Options'),
     '_headers must detach X-Frame-Options on /embed',
+  );
+  assert.ok(
+    headersFile.includes('https://onlinerulerplus.pages.dev/*\n  X-Robots-Tag: noindex') ||
+      headersFile.includes('https://onlinerulerplus.pages.dev/*\r\n  X-Robots-Tag: noindex'),
+    '_headers must add X-Robots-Tag: noindex for onlinerulerplus.pages.dev',
+  );
+  assert.ok(
+    headersFile.includes('https://:version.onlinerulerplus.pages.dev/*\n  X-Robots-Tag: noindex') ||
+      headersFile.includes('https://:version.onlinerulerplus.pages.dev/*\r\n  X-Robots-Tag: noindex'),
+    '_headers must add X-Robots-Tag: noindex for preview subdomains on onlinerulerplus.pages.dev',
+  );
+  assert.doesNotMatch(
+    headersFile,
+    /^\/\*\r?\n(?:  [^\r\n]+\r?\n)*  X-Robots-Tag:\s*noindex/m,
+    '_headers must never apply X-Robots-Tag: noindex globally to onlinerulerplus.com',
   );
 
   // 3. Branded 404.html (noindex, nofollow, no canonical, search & links)
