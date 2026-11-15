@@ -169,6 +169,10 @@ export function bootstrapRulerApp(): void {
     void import('./unit-converter.ts').then((m) => m.initUnitConverter());
   }
 
+  if (document.querySelector('[data-motion-walkthrough]')) {
+    import('./visual-walkthrough').then((m) => m.initVisualWalkthroughs());
+  }
+
   if (!workspaceEl) {
     initTheme();
     window.addEventListener('keydown', (e) => {

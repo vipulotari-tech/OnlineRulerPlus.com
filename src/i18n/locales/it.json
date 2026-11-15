@@ -2615,5 +2615,132 @@
     "cmAria": "Converti centimetri",
     "inAria": "Converti pollici",
     "pxAria": "Converti pixel CSS"
+  },
+  "visuals": {
+    "walkthrough": {
+      "kicker": "Guida Animata Interattiva",
+      "heading": "Osserva Ogni Meccanismo di Misura in Movimento",
+      "tablistAria": "Dimostrazioni animate di misurazione",
+      "playLabel": "Avvia",
+      "pauseLabel": "Pausa",
+      "statusPlaying": "Animazione attiva",
+      "statusPaused": "Animazione in pausa",
+      "scenes": {
+        "ticks": {
+          "label": "Progressione Tacche",
+          "summary": "I centimetri principali si suddividono in tacche medie da 5 mm e divisioni fini da 1 mm.",
+          "formula": "1 cm = 10 mm"
+        },
+        "line": {
+          "label": "Espansione Linea",
+          "summary": "Allinea il bordo sinistro sullo zero interno ed estendi la lettura fino al margine opposto.",
+          "formula": "ΔX = X₂ − X₁"
+        },
+        "drag": {
+          "label": "Guide X/Y",
+          "summary": "Combina guide verticali X e orizzontali Y per leggere larghezza, altezza e diagonale reale.",
+          "formula": "Diag = √(ΔX² + ΔY²)"
+        },
+        "protractor": {
+          "label": "Rotazione Goniometro",
+          "summary": "Ruota il secondo raggio attorno al vertice per leggere angolo primario, supplementare ed esplementare.",
+          "formula": "θ = atan2(ΔY, ΔX)"
+        },
+        "calibration": {
+          "label": "Calibrazione con Carta",
+          "summary": "Allinea una tessera ISO/IEC 7810 ID-1 all’origine (0, 0) e trascina il bordo fino a combaciare.",
+          "formula": "85.60 × 53.98 mm"
+        }
+      }
+    },
+    "diagrams": {
+      "d01": {
+        "kicker": "FIG. 01 · METODO",
+        "title": "Come Usare il Righello Online",
+        "alt": "Diagramma tecnico con zero interno separato dalla cornice, oggetto sullo schermo e sottrazione ΔX tra guide X1 e X2.",
+        "caption": "Allinea l’oggetto sullo zero interno — mai sulla cornice fisica — oppure sottrai X1 da X2 sul piano."
+      },
+      "d02": {
+        "kicker": "FIG. 02 · CALIBRAZIONE",
+        "title": "Calibrazione con Carta o Riferimento Personalizzato",
+        "alt": "Schema di carta ISO/IEC 7810 ID-1 (85.60 x 53.98 mm) su origine (0,0) con confronto ottico di parallasse.",
+        "caption": "Usa una comune carta ID-1 (85.60 × 53.98 mm) osservando frontalmente a 90° per evitare errori di parallasse."
+      },
+      "d03": {
+        "kicker": "FIG. 03 · CONFRONTO SCALE",
+        "title": "Centimetri, Millimetri e Pollici",
+        "alt": "Tavola tecnica allineata tra scala centimetri/millimetri e frazioni di pollice con equivalenza esatta di 25.4 mm.",
+        "caption": "Confronto visivo diretto tra sistema metrico (10 mm = 1 cm) e pollici (1 in = 25.40 mm esatti)."
+      },
+      "d04": {
+        "kicker": "FIG. 04 · FRAZIONI",
+        "title": "Frazioni di Pollice",
+        "alt": "Diagramma binario delle frazioni di pollice da 1/2 a 1/32 con relativi valori decimali.",
+        "caption": "Ogni dimezzamento raddoppia la risoluzione visiva da 1/2\" (0.500\") fino a 1/32\" (0.0313\")."
+      },
+      "d05": {
+        "kicker": "FIG. 05 · MODALITÀ FOTO",
+        "title": "Misurare Oggetti dalle Foto",
+        "alt": "Schema in tre fasi: caricamento locale della foto, calibrazione a 2 punti e misura reale sul soggetto.",
+        "caption": "Elaborazione 100% locale: calibra prima due punti di lunghezza nota e poi misura sullo stesso piano."
+      },
+      "d06": {
+        "kicker": "FIG. 06 · PIANO 2D",
+        "title": "Guide X/Y e Mirino",
+        "alt": "Tavola operativa con guide mobili X e Y, rettangolo ΔX × ΔY, diagonale calcolata e mirino live.",
+        "caption": "Usa insieme guide X/Y e mirino per rilevare larghezza, altezza e diagonale in un solo passaggio."
+      },
+      "d07": {
+        "kicker": "FIG. 07 · ANGOLI",
+        "title": "Goniometro e Misura Angoli",
+        "alt": "Diagramma di goniometro con angolo principale 42.0°, supplementare 138.0° ed esplementare 318.0°.",
+        "caption": "Misura angoli acuti, ottusi e completi fino a 360° posizionando il vertice ovunque sullo schermo."
+      },
+      "d08": {
+        "kicker": "FIG. 08 · STRUMENTI",
+        "title": "Righello vs Metro a Nastro vs Calibro",
+        "alt": "Confronto tecnico a tre colonne fra righello su schermo calibrato, metro flessibile e calibro a corsoio.",
+        "caption": "Scegli lo strumento adatto alla tolleranza: righello a schermo per oggetti piani, metro per curve, calibro per fori."
+      },
+      "d09": {
+        "kicker": "FIG. 09 · FISICA DISPLAY",
+        "title": "DPI/PPI dello Schermo e Precisione Reale",
+        "alt": "Grafico comparativo dove 378 px CSS misurano 11.76 cm su 81.6 PPI, 6.80 cm su 141.2 PPI e 10.00 cm calibrati.",
+        "caption": "Senza calibrazione il browser presume 96 px/pollice, introducendo errori fino al 32% tra monitor diversi."
+      }
+    },
+    "captures": {
+      "workspaceGuides": {
+        "kicker": "INTERFACCIA REALE · GUIDE X/Y",
+        "title": "Riquadro Guide X/Y e Mirino Live",
+        "alt": "Schermata reale con guide blu X e Y che delimitano un’area con lettura ΔX, ΔY e diagonale.",
+        "caption": "Le guide X e Y isolano dimensioni rettangolari calcolando istantaneamente la diagonale reale."
+      },
+      "photoMeasure": {
+        "kicker": "INTERFACCIA REALE · MODALITÀ FOTO",
+        "title": "Calibrazione a Due Punti su Foto Locali",
+        "alt": "Schermata modalità foto con linea arancione su tessera di riferimento e misura blu da 12.04 cm su piastra.",
+        "caption": "Usa una tessera ID-1 nell’immagine per calibrare localmente senza caricare foto su server esterni."
+      },
+      "protractorOverlay": {
+        "kicker": "INTERFACCIA REALE · GONIOMETRO 360°",
+        "title": "Goniometro Trasparente a 360°",
+        "alt": "Schermata con quadrante goniometro circolare trasparente regolato a 45.0 gradi.",
+        "caption": "Sovrapponi il quadrante 360° direttamente sopra disegni tecnici, schemi o immagini incollate."
+      }
+    },
+    "sections": {
+      "howToHubKicker": "Guida Visiva alla Misurazione",
+      "howToHubHeading": "Diagrammi, Movimenti e Schermate Reali",
+      "howToHubLead": "Ogni concetto chiave illustrato passo dopo passo per calibrare bene e misurare con precisione.",
+      "calibrationVisualKicker": "Schema di Calibrazione",
+      "calibrationVisualHeading": "Comprendi la Calibrazione Reale Passo Dopo Passo",
+      "calibrationVisualLead": "Scopri perché il valore predefinito di 96 PPI cambia fra schermi e come una carta fissa la scala 1:1.",
+      "faqVisualKicker": "Riferimento Visivo Rapido",
+      "faqVisualHeading": "Tolleranze e Scala dello Schermo a Colpo d’Occhio",
+      "detectorVisualKicker": "Scala del Display",
+      "detectorVisualHeading": "Perché il PPI Effettivo Determina la Dimensione Fisica",
+      "detectorVisualLead": "Confronta come gli stessi pixel CSS cambiano lunghezza fisica tra monitor desktop e laptop ad alta densità."
+    }
   }
 }

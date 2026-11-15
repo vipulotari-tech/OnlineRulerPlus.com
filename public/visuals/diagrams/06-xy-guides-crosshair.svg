@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" fill="none" role="img" aria-label="FIG. 06 · X/Y GUIDES, BOUNDING BOX &amp; CROSSHAIR">
+  <defs>
+    <pattern id="grid-06" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ededf2" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+  <rect x="1" y="1" width="718" height="398" rx="14" fill="#fafafc" stroke="#d8d8de" stroke-width="1.5"/>
+  <rect x="12" y="12" width="696" height="376" rx="10" fill="url(#grid-06)"/>
+  <g transform="translate(28, 26)">
+    <rect x="0" y="0" width="338.8" height="22" rx="11" fill="#ffffff" stroke="#d8d8de" stroke-width="1"/>
+    <circle cx="12" cy="11" r="3" fill="#0066cc"/>
+    <text x="21" y="14.5" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#5f5f63" letter-spacing="0.4">FIG. 06 · X/Y GUIDES, BOUNDING BOX &amp; CROSSHAIR</text>
+  </g>
+
+  <!-- Workspace Frame -->
+  <rect x="64" y="76" width="604" height="290" rx="12" fill="#ffffff" stroke="#d8d8de" stroke-width="1.5"/>
+  <!-- Top & Left Edge Strips -->
+  <rect x="64" y="76" width="604" height="32" rx="10" fill="#f5f5f7"/>
+  <rect x="64" y="76" width="32" height="290" rx="10" fill="#f5f5f7"/>
+  <line x1="112" y1="76" x2="112" y2="90" stroke="#1d1d1f" stroke-width="1.2"/><text x="112" y="102" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#5f5f63">0</text><line x1="122" y1="76" x2="122" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="132" y1="76" x2="132" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="142" y1="76" x2="142" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="152" y1="76" x2="152" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="162" y1="76" x2="162" y2="90" stroke="#1d1d1f" stroke-width="1.2"/><line x1="172" y1="76" x2="172" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="182" y1="76" x2="182" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="192" y1="76" x2="192" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="202" y1="76" x2="202" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="212" y1="76" x2="212" y2="90" stroke="#1d1d1f" stroke-width="1.2"/><text x="212" y="102" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#5f5f63">2</text><line x1="222" y1="76" x2="222" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="232" y1="76" x2="232" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="242" y1="76" x2="242" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="252" y1="76" x2="252" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="262" y1="76" x2="262" y2="90" stroke="#1d1d1f" stroke-width="1.2"/><line x1="272" y1="76" x2="272" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="282" y1="76" x2="282" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="292" y1="76" x2="292" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="302" y1="76" x2="302" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="312" y1="76" x2="312" y2="90" stroke="#1d1d1f" stroke-width="1.2"/><text x="312" y="102" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#5f5f63">4</text><line x1="322" y1="76" x2="322" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="332" y1="76" x2="332" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="342" y1="76" x2="342" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="352" y1="76" x2="352" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="362" y1="76" x2="362" y2="90" stroke="#1d1d1f" stroke-width="1.2"/><line x1="372" y1="76" x2="372" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="382" y1="76" x2="382" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="392" y1="76" x2="392" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="402" y1="76" x2="402" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="412" y1="76" x2="412" y2="90" stroke="#1d1d1f" stroke-width="1.2"/><text x="412" y="102" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#5f5f63">6</text><line x1="422" y1="76" x2="422" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="432" y1="76" x2="432" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="442" y1="76" x2="442" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="452" y1="76" x2="452" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="462" y1="76" x2="462" y2="90" stroke="#1d1d1f" stroke-width="1.2"/><line x1="472" y1="76" x2="472" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="482" y1="76" x2="482" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="492" y1="76" x2="492" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="502" y1="76" x2="502" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="512" y1="76" x2="512" y2="90" stroke="#1d1d1f" stroke-width="1.2"/><text x="512" y="102" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#5f5f63">8</text><line x1="522" y1="76" x2="522" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="532" y1="76" x2="532" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="542" y1="76" x2="542" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="552" y1="76" x2="552" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="562" y1="76" x2="562" y2="90" stroke="#1d1d1f" stroke-width="1.2"/><line x1="572" y1="76" x2="572" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="582" y1="76" x2="582" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="592" y1="76" x2="592" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="602" y1="76" x2="602" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="612" y1="76" x2="612" y2="90" stroke="#1d1d1f" stroke-width="1.2"/><text x="612" y="102" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#5f5f63">10</text><line x1="622" y1="76" x2="622" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="632" y1="76" x2="632" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="642" y1="76" x2="642" y2="83" stroke="#1d1d1f" stroke-width="0.8"/><line x1="652" y1="76" x2="652" y2="83" stroke="#1d1d1f" stroke-width="0.8"/>
+  <line x1="64" y1="124" x2="78" y2="124" stroke="#1d1d1f" stroke-width="1.2"/><line x1="64" y1="134" x2="71" y2="134" stroke="#1d1d1f" stroke-width="0.8"/><line x1="64" y1="144" x2="71" y2="144" stroke="#1d1d1f" stroke-width="0.8"/><line x1="64" y1="154" x2="71" y2="154" stroke="#1d1d1f" stroke-width="0.8"/><line x1="64" y1="164" x2="71" y2="164" stroke="#1d1d1f" stroke-width="0.8"/><line x1="64" y1="174" x2="78" y2="174" stroke="#1d1d1f" stroke-width="1.2"/><line x1="64" y1="184" x2="71" y2="184" stroke="#1d1d1f" stroke-width="0.8"/><line x1="64" y1="194" x2="71" y2="194" stroke="#1d1d1f" stroke-width="0.8"/><line x1="64" y1="204" x2="71" y2="204" stroke="#1d1d1f" stroke-width="0.8"/><line x1="64" y1="214" x2="71" y2="214" stroke="#1d1d1f" stroke-width="0.8"/><line x1="64" y1="224" x2="78" y2="224" stroke="#1d1d1f" stroke-width="1.2"/><line x1="64" y1="234" x2="71" y2="234" stroke="#1d1d1f" stroke-width="0.8"/><line x1="64" y1="244" x2="71" y2="244" stroke="#1d1d1f" stroke-width="0.8"/><line x1="64" y1="254" x2="71" y2="254" stroke="#1d1d1f" stroke-width="0.8"/><line x1="64" y1="264" x2="71" y2="264" stroke="#1d1d1f" stroke-width="0.8"/><line x1="64" y1="274" x2="78" y2="274" stroke="#1d1d1f" stroke-width="1.2"/><line x1="64" y1="284" x2="71" y2="284" stroke="#1d1d1f" stroke-width="0.8"/><line x1="64" y1="294" x2="71" y2="294" stroke="#1d1d1f" stroke-width="0.8"/><line x1="64" y1="304" x2="71" y2="304" stroke="#1d1d1f" stroke-width="0.8"/><line x1="64" y1="314" x2="71" y2="314" stroke="#1d1d1f" stroke-width="0.8"/><line x1="64" y1="324" x2="78" y2="324" stroke="#1d1d1f" stroke-width="1.2"/><line x1="64" y1="334" x2="71" y2="334" stroke="#1d1d1f" stroke-width="0.8"/><line x1="64" y1="344" x2="71" y2="344" stroke="#1d1d1f" stroke-width="0.8"/><line x1="64" y1="354" x2="71" y2="354" stroke="#1d1d1f" stroke-width="0.8"/>
+  <rect x="64" y="76" width="32" height="32" rx="6" fill="#ffffff" stroke="#d8d8de"/>
+  <text x="80" y="96" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" font-weight="700" fill="#1d1d1f">CM</text>
+
+  <!-- Origin Datum -->
+  <line x1="112" y1="108" x2="112" y2="366" stroke="#5f5f63" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="96" y1="124" x2="668" y2="124" stroke="#5f5f63" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- Bounding Box formed by 2 X-guides and 2 Y-guides -->
+  <rect x="216" y="152" width="230" height="140" fill="#e6f0fa" fill-opacity="0.7" stroke="#0066cc" stroke-width="1.5"/>
+  <line x1="216" y1="152" x2="446" y2="292" stroke="#0066cc" stroke-width="1.75" stroke-dasharray="5 3"/>
+
+  <!-- Vertical Guides X1, X2 -->
+  <line x1="216" y1="108" x2="216" y2="366" stroke="#0066cc" stroke-width="1.75"/>
+  <line x1="446" y1="108" x2="446" y2="366" stroke="#0066cc" stroke-width="1.75"/>
+  <!-- Horizontal Guides Y1, Y2 -->
+  <line x1="96" y1="152" x2="668" y2="152" stroke="#0066cc" stroke-width="1.75"/>
+  <line x1="96" y1="292" x2="668" y2="292" stroke="#0066cc" stroke-width="1.75"/>
+
+  <!-- Bounding Box Labels -->
+  <rect x="283" y="140" width="96" height="22" rx="11" fill="#0066cc"/>
+  <text x="331" y="154.5" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#ffffff">ΔX = 6.00 cm</text>
+
+  <rect x="110" y="211" width="96" height="22" rx="11" fill="#0066cc"/>
+  <text x="158" y="225.5" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#ffffff">ΔY = 3.50 cm</text>
+
+  <rect x="267" y="210" width="128" height="24" rx="12" fill="#ffffff" stroke="#8ec0f2"/>
+  <text x="331" y="226" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#0066cc">Diag = 6.95 cm</text>
+
+  <!-- Live Cursor Crosshair -->
+  <line x1="542" y1="108" x2="542" y2="366" stroke="#1d1d1f" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="96" y1="208" x2="668" y2="208" stroke="#1d1d1f" stroke-width="1" stroke-dasharray="3 3"/>
+  <circle cx="542" cy="208" r="5" fill="#1d1d1f" stroke="#ffffff" stroke-width="1.5"/>
+  <rect x="478" y="220" width="128" height="36" rx="8" fill="#1d1d1f"/>
+  <text x="542" y="235" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" font-weight="600" fill="#ffffff">LIVE CROSSHAIR [C]</text>
+  <text x="542" y="249" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#5eb2ff">X: 11.20 · Y: 3.90</text>
+  
+</svg>

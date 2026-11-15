@@ -2615,5 +2615,132 @@
     "cmAria": "Zentimeter umrechnen",
     "inAria": "Zoll umrechnen",
     "pxAria": "CSS-Pixel umrechnen"
+  },
+  "visuals": {
+    "walkthrough": {
+      "kicker": "Interaktive Bewegungsanleitung",
+      "heading": "Alle Messabläufe Direkt in Bewegung Erleben",
+      "tablistAria": "Animierte Messdemonstrationen",
+      "playLabel": "Abspielen",
+      "pauseLabel": "Pausieren",
+      "statusPlaying": "Animation läuft",
+      "statusPaused": "Animation pausiert",
+      "scenes": {
+        "ticks": {
+          "label": "Skalen-Aufbau",
+          "summary": "Zentimeter-Hauptstriche teilen sich sauber in 5-mm-Halbschritte und feine 1-mm-Teilstriche auf.",
+          "formula": "1 cm = 10 mm"
+        },
+        "line": {
+          "label": "Längen-Aufzug",
+          "summary": "Linke Kante am eingerückten Nullpunkt anlegen und Messstrecke bis zur Objektkante ablesen.",
+          "formula": "ΔX = X₂ − X₁"
+        },
+        "drag": {
+          "label": "X/Y-Hilfslinien",
+          "summary": "Vertikale X- und horizontale Y-Linien kombinieren, um Breite, Höhe und Diagonale direkt abzulesen.",
+          "formula": "Diag = √(ΔX² + ΔY²)"
+        },
+        "protractor": {
+          "label": "Winkel-Schwenk",
+          "summary": "Zweiten Strahl um den Scheitelpunkt schwenken und Haupt-, Neben- sowie Vollwinkel gleichzeitig prüfen.",
+          "formula": "θ = atan2(ΔY, ΔX)"
+        },
+        "calibration": {
+          "label": "Karten-Kalibrierung",
+          "summary": "Physische ISO/IEC 7810 ID-1 Bankkarte an (0, 0) ausrichten und den blauen Rahmen bündig ziehen.",
+          "formula": "85.60 × 53.98 mm"
+        }
+      }
+    },
+    "diagrams": {
+      "d01": {
+        "kicker": "ABB. 01 · ANWENDUNG",
+        "title": "Online-Lineal Richtig Anwenden",
+        "alt": "Technische Zeichnung mit eingerücktem Nullpunkt abseits des Rahmens, aufgelegtem Objekt und ΔX-Differenz zwischen X1 und X2.",
+        "caption": "Objekte stets am eingerückten Nullpunkt anlegen — nie am Gehäuserahmen — oder X1 von X2 auf der Fläche abziehen."
+      },
+      "d02": {
+        "kicker": "ABB. 02 · KALIBRIERUNG",
+        "title": "Kalibrierung per Karte & Eigener Referenz",
+        "alt": "Darstellung einer ISO/IEC 7810 ID-1 Karte (85.60 x 53.98 mm) an Ecke (0,0) inklusive Parallaxe-Winkelvergleich.",
+        "caption": "Standard-ID-1-Karte (85.60 × 53.98 mm) senkrecht im 90°-Winkel betrachten, um Parallaxefehler auszuschließen."
+      },
+      "d03": {
+        "kicker": "ABB. 03 · SKALENVERGLEICH",
+        "title": "Zentimeter, Millimeter & Zoll",
+        "alt": "Ausgerichtete Doppelskala zwischen Zentimetern/Millimetern und Zoll-Brüchen auf Basis exakt 25.4 mm pro Zoll.",
+        "caption": "Direkte Gegenüberstellung von metrischer Skala (10 mm = 1 cm) und Imperial-Zoll (1 in = 25.40 mm exakt)."
+      },
+      "d04": {
+        "kicker": "ABB. 04 · UNTERTEILUNG",
+        "title": "Zoll-Brüche Verstehen",
+        "alt": "Hierarchisches Binärdiagramm von ganzen Zoll bis 1/2, 1/4, 1/8, 1/16 und 1/32 mit Dezimalwerten.",
+        "caption": "Jede Halbierung verdoppelt die Auflösung der Skala von 1/2\" (0.500\") bis 1/32\" (0.0313\")."
+      },
+      "d05": {
+        "kicker": "ABB. 05 · FOTO-MODUS",
+        "title": "Objekte per Foto Messen",
+        "alt": "Dreistufiges Diagramm: lokaler Bildimport, 2-Punkt-Referenzkalibrierung und reale Längenmessung am Bauteil.",
+        "caption": "Läuft vollständig lokal im Browser: zuerst bekannte 2-Punkt-Referenz definieren, dann beliebige Strecken derselben Ebene messen."
+      },
+      "d06": {
+        "kicker": "ABB. 06 · 2D-BÜHNE",
+        "title": "X/Y-Hilfslinien & Fadenkreuz",
+        "alt": "Arbeitsflächen-Schema mit verschiebbaren X- und Y-Hilfslinien, ΔX×ΔY-Feld, Diagonale und Live-Fadenkreuz.",
+        "caption": "X/Y-Hilfslinien und Fadenkreuz erfassen rechteckige Abmessungen und Diagonalen in einem Arbeitsschritt."
+      },
+      "d07": {
+        "kicker": "ABB. 07 · WINKEL",
+        "title": "Winkelmesser & 360°-Messung",
+        "alt": "Winkelmesser-Diagramm mit 42.0° Hauptwinkel, 138.0° Nebenwinkel und 318.0° überstumpfem Gegenwinkel.",
+        "caption": "Spitze, stumpfe und überstumpfe Winkel bis 360° an jedem frei verschiebbaren Scheitelpunkt ablesen."
+      },
+      "d08": {
+        "kicker": "ABB. 08 · WERKZEUGWAHL",
+        "title": "Lineal vs Maßband vs Messschieber",
+        "alt": "Dreispaltenvergleich zwischen kalibriertem Bildschirm-Lineal, flexiblem Maßband und Messschieber.",
+        "caption": "Passendes Werkzeug nach Toleranz wählen: Bildschirm-Lineal für flache Teile, Maßband für Rundungen, Messschieber für Bohrungen."
+      },
+      "d09": {
+        "kicker": "ABB. 09 · DISPLAY-PHYSIK",
+        "title": "Bildschirm-DPI/PPI & Physische Präzision",
+        "alt": "Balkenvergleich: 378 CSS-Pixel ergeben 11.76 cm bei 81.6 PPI, 6.80 cm bei 141.2 PPI und 10.00 cm kalibriert.",
+        "caption": "Unkalibrierte Browser gehen pauschal von 96 CSS-px/Zoll aus – das erzeugt bis zu 32 % Größenfehler."
+      }
+    },
+    "captures": {
+      "workspaceGuides": {
+        "kicker": "ECHTE UI · X/Y-HILFSLINIEN",
+        "title": "Präzisions-Messfeld mit Fadenkreuz",
+        "alt": "Screenshot des Lineals mit aktiven blauen X/Y-Hilfslinien und Live-Anzeige von ΔX, ΔY und Diagonale.",
+        "caption": "Verschiebbare X- und Y-Linien grenzen Rechtecke direkt auf dem kalibrierten Raster samt Diagonale ein."
+      },
+      "photoMeasure": {
+        "kicker": "ECHTE UI · FOTO-MODUS",
+        "title": "Zwei-Punkt-Kalibrierung Direkt im Foto",
+        "alt": "Screenshot des Foto-Modus mit oranger Kalibrierlinie über einer Karte und 12.04 cm Messlinie über einer Platte.",
+        "caption": "Anhand einer ID-1-Karte im Foto skalieren und Bauteile privat ohne Server-Upload ausmessen."
+      },
+      "protractorOverlay": {
+        "kicker": "ECHTE UI · 360°-WINKELMESSER",
+        "title": "Transparenter 360°-Winkelmesser",
+        "alt": "Screenshot des Arbeitsbereichs mit eingeblendeter transparenter 360°-Winkelskala auf 45.0 Grad.",
+        "caption": "Legen Sie den transparenten Winkelmesser direkt über Skizzen, Schaltpläne oder eingefügte Bilder."
+      }
+    },
+    "sections": {
+      "howToHubKicker": "Visueller Leitfaden",
+      "howToHubHeading": "Diagramme, Animationen & Echte Produktansichten",
+      "howToHubLead": "Jeder Messvorgang klar illustriert – einmal kalibrieren, sauber anlegen und verlässlich messen.",
+      "calibrationVisualKicker": "Kalibrierungs-Bauplan",
+      "calibrationVisualHeading": "Maßstabsgetreue Kalibrierung Schritt für Schritt",
+      "calibrationVisualLead": "Warum 96-PPI-Standardwerte abweichen und wie eine einzelne Karte exakte physische Maße sichert.",
+      "faqVisualKicker": "Visuelle Schnellreferenz",
+      "faqVisualHeading": "Toleranzen & Display-Skalierung auf Einen Blick",
+      "detectorVisualKicker": "Skalierungs-Referenz",
+      "detectorVisualHeading": "Warum Effektive CSS-PPI die Physische Größe Bestimmen",
+      "detectorVisualLead": "Vergleichen Sie, wie sich identische CSS-Pixelwerte auf verschiedenen Monitoren physikalisch verhalten."
+    }
   }
 }

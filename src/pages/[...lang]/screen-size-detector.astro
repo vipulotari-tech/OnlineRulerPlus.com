@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import HelpModal from '../../components/HelpModal.astro';
 import Footer from '../../components/Footer.astro';
+import DiagramFigure from '../../components/DiagramFigure.astro';
 import {
   LOCALE_META,
   getLocaleStaticPaths,
@@ -206,6 +207,33 @@ const DIAGONAL_PRESETS = [13.3, 14, 15.6, 16, 21.5, 24, 27, 32, 34];
               <p class="mt-2 type-caption text-ink-muted-80">{card.body}</p>
             </article>
           ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="detector-visual-reference" class="apple-tile-light">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 space-y-6">
+        <div class="max-w-3xl">
+          <p class="type-kicker">{dict.visuals.sections.detectorVisualKicker}</p>
+          <h2 class="mt-1.5 type-display-md text-ink">{dict.visuals.sections.detectorVisualHeading}</h2>
+          <p class="mt-2 max-w-2xl type-body text-ink-muted-80">{dict.visuals.sections.detectorVisualLead}</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <DiagramFigure
+            svgSrc="/visuals/diagrams/09-screen-dpi-ppi-accuracy.svg"
+            kicker={dict.visuals.diagrams.d09.kicker}
+            title={dict.visuals.diagrams.d09.title}
+            alt={dict.visuals.diagrams.d09.alt}
+            caption={dict.visuals.diagrams.d09.caption}
+          />
+          <DiagramFigure
+            svgSrc="/visuals/diagrams/02-credit-card-calibration.svg"
+            kicker={dict.visuals.diagrams.d02.kicker}
+            title={dict.visuals.diagrams.d02.title}
+            alt={dict.visuals.diagrams.d02.alt}
+            caption={dict.visuals.diagrams.d02.caption}
+          />
         </div>
       </div>
     </section>

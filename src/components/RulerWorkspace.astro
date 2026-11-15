@@ -83,12 +83,13 @@ const offRight = initEdges.right ? initThickness : 0;
     </div>
   </div>
 
-  <!-- Workspace Control Bar (Grouped Segmented Instrument Pods) -->
-  <div class="rounded-t-[18px] border border-b-0 border-hairline bg-canvas-parchment px-2 py-1.5 sm:px-3 sm:py-1.5">
-    <div class="flex flex-nowrap sm:flex-wrap items-center justify-start sm:justify-between gap-1 sm:gap-1.5 overflow-x-auto sm:overflow-visible pb-0.5 sm:pb-0">
+  <!-- Workspace Control Console (Restrained Architectural Segmented Controls) -->
+  <div class="rounded-t-[20px] border border-b-0 border-hairline bg-surface-pearl px-2.5 py-2 sm:px-4 sm:py-2.5">
+    <!-- Row 1: Primary Units & Ruler Edges -->
+    <div class="flex flex-nowrap sm:flex-wrap items-center justify-start sm:justify-between gap-2 overflow-x-auto sm:overflow-visible pb-0.5 sm:pb-0">
       <!-- Pod 1: Unit Selector -->
       <div class="apple-segmented-pod flex-nowrap! shrink-0 sm:shrink sm:max-w-full sm:flex-wrap!" role="group" aria-label={w.unitGroupAria}>
-        <span class="hidden 2xl:inline px-1.5 font-mono text-[11px] font-semibold text-ink-muted-48">{w.unitLabel}</span>
+        <span class="hidden 2xl:inline px-2 text-[11px] font-medium text-ink-muted-48">{w.unitLabel}</span>
         <button
           type="button"
           data-unit-btn="cm"
@@ -129,12 +130,13 @@ const offRight = initEdges.right ? initThickness : 0;
         >
           px
         </button>
+        <span class="hidden sm:inline-block h-4 w-px bg-hairline mx-0.5" aria-hidden="true"></span>
         <button
           id="btn-dual-unit"
           type="button"
           aria-pressed="false"
           data-active="false"
-          class="apple-option-chip"
+          class="apple-option-chip text-[11.5px]!"
           title={w.dualUnitTitle}
         >
           {w.dualUnit}
@@ -145,7 +147,7 @@ const offRight = initEdges.right ? initThickness : 0;
           data-dual-preset="cm-px"
           aria-pressed="false"
           data-active="false"
-          class="apple-option-chip font-mono"
+          class="apple-option-chip font-mono text-[11.5px]!"
           title={w.dualCmPxTitle ?? 'Dual cm + px scale'}
         >
           cm+px
@@ -156,7 +158,7 @@ const offRight = initEdges.right ? initThickness : 0;
           data-dual-preset="in-px"
           aria-pressed="false"
           data-active="false"
-          class="apple-option-chip font-mono"
+          class="apple-option-chip font-mono text-[11.5px]!"
           title={w.dualInPxTitle ?? 'Dual inch + px scale'}
         >
           in+px
@@ -178,7 +180,7 @@ const offRight = initEdges.right ? initThickness : 0;
 
       <!-- Pod 2: Edge Selector -->
       <div class="apple-segmented-pod flex-nowrap! shrink-0 sm:shrink sm:max-w-full sm:flex-wrap!" role="group" aria-label={w.edgesGroupAria}>
-        <span class="hidden 2xl:inline px-1.5 font-mono text-[11px] font-semibold text-ink-muted-48">{w.edgesLabel}</span>
+        <span class="hidden 2xl:inline px-2 text-[11px] font-medium text-ink-muted-48">{w.edgesLabel}</span>
         <button
           type="button"
           data-edge-btn="top"
@@ -225,8 +227,10 @@ const offRight = initEdges.right ? initThickness : 0;
           {w.edgeAll}
         </button>
       </div>
+    </div>
 
-      <!-- Pod 3: Precision Overlay Tools -->
+    <!-- Row 2: Precision Measurement Overlays & Workspace View -->
+    <div class="mt-2 flex flex-nowrap sm:flex-wrap items-center justify-between gap-2 overflow-x-auto sm:overflow-visible">
       <div class="apple-segmented-pod flex-nowrap! shrink-0 sm:shrink sm:max-w-full sm:flex-wrap!" role="group" aria-label={w.toolsGroupAria}>
         <button
           id="btn-toggle-guides"
@@ -236,8 +240,10 @@ const offRight = initEdges.right ? initThickness : 0;
           class="apple-option-chip"
           title={w.guidesTitle}
         >
+          <svg class="h-3.5 w-3.5 opacity-75 shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M5 2v12M11 2v12M2 5h12M2 11h12" stroke-linecap="round" />
+          </svg>
           <span>{w.guides}</span>
-          <kbd class="hidden xl:inline font-mono text-[10px] text-ink-muted-48">G</kbd>
         </button>
         <button
           id="btn-toggle-crosshair"
@@ -247,8 +253,11 @@ const offRight = initEdges.right ? initThickness : 0;
           class="apple-option-chip"
           title={w.crosshairTitle}
         >
+          <svg class="h-3.5 w-3.5 opacity-75 shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="8" cy="8" r="4.5" />
+            <path d="M8 1.5v2M8 12.5v2M1.5 8h2M12.5 8h2" stroke-linecap="round" />
+          </svg>
           <span>{w.crosshair}</span>
-          <kbd class="hidden xl:inline font-mono text-[10px] text-ink-muted-48">C</kbd>
         </button>
         <button
           id="btn-add-floating-ruler"
@@ -256,7 +265,11 @@ const offRight = initEdges.right ? initThickness : 0;
           class="apple-btn-pearl"
           title={w.addFloatingTitle}
         >
-          {w.addFloating}
+          <svg class="h-3.5 w-3.5 opacity-75 shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="2" y="5.5" width="12" height="5" rx="1.2" />
+            <path d="M5 5.5v2M8 5.5v2.5M11 5.5v2" stroke-linecap="round" />
+          </svg>
+          <span>{w.addFloating}</span>
         </button>
         <button
           id="btn-toggle-protractor"
@@ -266,8 +279,11 @@ const offRight = initEdges.right ? initThickness : 0;
           class="apple-option-chip"
           title={w.protractorTitle}
         >
+          <svg class="h-3.5 w-3.5 opacity-75 shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M2.5 12.5a5.5 5.5 0 0 1 11 0H2.5Z" stroke-linejoin="round" />
+            <path d="M8 12.5 11.2 8.5" stroke-linecap="round" />
+          </svg>
           <span>{w.protractor}</span>
-          <kbd class="hidden xl:inline font-mono text-[10px] text-ink-muted-48">P</kbd>
         </button>
         <button
           id="btn-photo-mode"
@@ -277,8 +293,25 @@ const offRight = initEdges.right ? initThickness : 0;
           class="apple-option-chip"
           title={w.photoModeTitle ?? 'Measure any photo or pasted Ctrl+V screenshot offline'}
         >
+          <svg class="h-3.5 w-3.5 opacity-75 shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="2" y="3" width="12" height="10" rx="2" />
+            <circle cx="5.75" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            <path d="M3.5 11.5 7 8.5l2.5 2 2-1.5 2.5 2.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
           <span>{w.photoMode ?? 'Photo / Ctrl+V'}</span>
         </button>
+        <button
+          id="btn-clear-guides"
+          type="button"
+          class="hidden apple-btn-pearl text-error!"
+          title={w.clearGuidesTitle}
+        >
+          {w.clearGuides}
+        </button>
+      </div>
+
+      <!-- View & Window Actions -->
+      <div class="apple-segmented-pod flex-nowrap! shrink-0" role="group" aria-label={w.viewGroupAria ?? 'Workspace view controls'}>
         <button
           id="btn-focus-mode"
           type="button"
@@ -300,8 +333,10 @@ const offRight = initEdges.right ? initThickness : 0;
           class="apple-btn-pearl"
           title={w.fullscreenTitle}
         >
+          <svg class="h-3.5 w-3.5 opacity-75 shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
           <span>{w.fullscreen}</span>
-          <kbd class="hidden xl:inline font-mono text-[10px] text-ink-muted-48">F</kbd>
         </button>
         {!compactEmbed && (
           <>
@@ -309,7 +344,7 @@ const offRight = initEdges.right ? initThickness : 0;
               id="btn-popout-ruler"
               type="button"
               data-embed-href={embedRoute}
-              class="hidden md:inline-flex apple-btn-pearl font-mono text-xs"
+              class="hidden md:inline-flex apple-btn-pearl"
               title={w.popoutTitle ?? 'Open compact pop-out ruler window'}
             >
               {w.popoutBtn ?? 'Pop-Out'}
@@ -320,37 +355,29 @@ const offRight = initEdges.right ? initThickness : 0;
               data-embed-href={embedRoute}
               aria-expanded="false"
               aria-controls="embed-snippet-popover"
-              class="hidden md:inline-flex apple-btn-pearl font-mono text-xs"
+              class="hidden md:inline-flex apple-btn-pearl"
               title={w.embedTitle ?? 'Get iframe embed code'}
             >
               {w.embedBtn ?? 'Embed'}
             </button>
           </>
         )}
-        <button
-          id="btn-clear-guides"
-          type="button"
-          class="hidden apple-btn-pearl text-error border-error"
-          title={w.clearGuidesTitle}
-        >
-          {w.clearGuides}
-        </button>
       </div>
     </div>
 
-    <!-- Secondary Row: Calibration Telemetry, Guide Axis, Thickness & Opacity -->
-    <div class="mt-1 sm:mt-1.5 flex flex-nowrap sm:flex-wrap items-center justify-between gap-1.5 border-t border-hairline pt-1 sm:pt-1.5 type-caption overflow-x-auto sm:overflow-visible">
-      <div class="flex flex-nowrap sm:flex-wrap items-center gap-1.5 shrink-0 sm:shrink sm:max-w-full">
+    <!-- Row 3: Quiet Telemetry & Precision Fine-Tuning Bar -->
+    <div class="mt-2 flex flex-nowrap sm:flex-wrap items-center justify-between gap-2 border-t border-hairline/70 pt-2 type-caption overflow-x-auto sm:overflow-visible">
+      <div class="flex flex-nowrap sm:flex-wrap items-center gap-2 shrink-0 sm:shrink sm:max-w-full">
         <span
           data-cal-status-label
           data-status="estimated"
-          class="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border border-hairline bg-canvas px-2.5 py-0.5 font-mono text-[11px] font-semibold text-ink data-[status=manual]:border-primary-focus data-[status=manual]:text-link"
+          class="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border border-hairline bg-canvas px-2.5 py-0.5 text-[11px] font-medium text-ink data-[status=manual]:border-primary-focus/40 data-[status=manual]:text-link"
         >
           {w.calDefaultStatus}
         </span>
-        <span class="font-mono text-xs text-ink-muted-80 whitespace-nowrap">
+        <span class="font-mono text-[11.5px] text-ink-muted-80 whitespace-nowrap">
           <strong data-cal-ppi class="font-semibold text-ink">96.0 PPI</strong>
-          <span class="hidden sm:inline mx-1 text-ink-muted-48">·</span>
+          <span class="hidden sm:inline mx-1.5 text-ink-muted-48">·</span>
           <span data-cal-device-label class="hidden sm:inline text-ink-muted-48">{w.calDefaultDevice}</span>
         </span>
         <a
@@ -358,53 +385,55 @@ const offRight = initEdges.right ? initThickness : 0;
           target={compactEmbed ? '_blank' : undefined}
           rel={compactEmbed ? 'noopener noreferrer' : undefined}
           data-open-calibration="card"
-          class="inline-flex items-center gap-1 whitespace-nowrap rounded-full border border-primary/30 bg-link-soft px-2.5 py-0.5 font-mono text-[11px] font-semibold text-link hover:border-primary-focus transition-colors"
+          class="inline-flex items-center gap-1 whitespace-nowrap rounded-full border border-primary/25 bg-link-soft px-2.5 py-0.5 text-[11px] font-semibold text-link hover:border-primary-focus transition-colors"
         >
           <span>{w.calibrateBtn}</span>
           <span aria-hidden="true">↓</span>
         </a>
       </div>
 
-      <div class="flex flex-nowrap sm:flex-wrap items-center gap-1.5 sm:gap-2 text-ink-muted-80 shrink-0 sm:shrink sm:max-w-full">
-        <!-- Guide placement axis -->
-        <div class="flex flex-wrap items-center gap-1" role="group" aria-label={w.guideAxisAria}>
-          <span class="font-mono text-[11px] text-ink-muted-48">{w.guideAxisLabel}</span>
-          <button
-            type="button"
-            data-guide-axis-btn="x"
-            aria-pressed="true"
-            data-active="true"
-            class="rounded-full border border-hairline bg-canvas px-2.5 py-0.5 font-mono text-[11px] text-ink cursor-pointer data-[active=true]:border-primary-focus data-[active=true]:bg-link-soft data-[active=true]:text-link data-[active=true]:font-semibold"
-          >
-            {w.axisVertical}
-          </button>
-          <button
-            type="button"
-            data-guide-axis-btn="y"
-            aria-pressed="false"
-            data-active="false"
-            class="rounded-full border border-hairline bg-canvas px-2.5 py-0.5 font-mono text-[11px] text-ink cursor-pointer data-[active=true]:border-primary-focus data-[active=true]:bg-link-soft data-[active=true]:text-link data-[active=true]:font-semibold"
-          >
-            {w.axisHorizontal}
-          </button>
-          <button
-            type="button"
-            data-guide-axis-btn="both"
-            aria-pressed="false"
-            data-active="false"
-            class="rounded-full border border-hairline bg-canvas px-2.5 py-0.5 font-mono text-[11px] text-ink cursor-pointer data-[active=true]:border-primary-focus data-[active=true]:bg-link-soft data-[active=true]:text-link data-[active=true]:font-semibold"
-          >
-            {w.axisBoth}
-          </button>
+      <div class="flex flex-nowrap sm:flex-wrap items-center gap-2 text-ink-muted-80 shrink-0 sm:shrink sm:max-w-full">
+        <!-- Guide placement axis (quiet segmented micro track) -->
+        <div class="flex items-center gap-1.5" role="group" aria-label={w.guideAxisAria}>
+          <span class="text-[11px] font-medium text-ink-muted-48">{w.guideAxisLabel}</span>
+          <div class="inline-flex items-center rounded-[9px] border border-hairline/75 bg-canvas p-0.5">
+            <button
+              type="button"
+              data-guide-axis-btn="x"
+              aria-pressed="true"
+              data-active="true"
+              class="rounded-[7px] px-2 py-0.5 text-[11px] font-medium text-ink-muted-80 cursor-pointer transition-colors data-[active=true]:bg-link-soft data-[active=true]:text-link data-[active=true]:font-semibold"
+            >
+              {w.axisVertical}
+            </button>
+            <button
+              type="button"
+              data-guide-axis-btn="y"
+              aria-pressed="false"
+              data-active="false"
+              class="rounded-[7px] px-2 py-0.5 text-[11px] font-medium text-ink-muted-80 cursor-pointer transition-colors data-[active=true]:bg-link-soft data-[active=true]:text-link data-[active=true]:font-semibold"
+            >
+              {w.axisHorizontal}
+            </button>
+            <button
+              type="button"
+              data-guide-axis-btn="both"
+              aria-pressed="false"
+              data-active="false"
+              class="rounded-[7px] px-2 py-0.5 text-[11px] font-medium text-ink-muted-80 cursor-pointer transition-colors data-[active=true]:bg-link-soft data-[active=true]:text-link data-[active=true]:font-semibold"
+            >
+              {w.axisBoth}
+            </button>
+          </div>
         </div>
 
-        <!-- Architectural & Engineering Scale Selector (P3) -->
-        <label class="flex items-center gap-1.5 font-mono text-[11px]">
-          <span class="text-ink-muted-48">{w.scaleLabel ?? 'Scale'}</span>
+        <!-- Architectural & Engineering Scale Selector -->
+        <label class="flex items-center gap-1.5 text-[11px]">
+          <span class="font-medium text-ink-muted-48">{w.scaleLabel ?? 'Scale'}</span>
           <select
             id="select-arch-scale"
             aria-label={w.scaleAria ?? 'Architectural and engineering drawing scale'}
-            class="rounded-[8px] border border-hairline bg-canvas px-2 py-0.5 font-mono text-[11px] text-ink cursor-pointer"
+            class="rounded-[8px] border border-hairline/85 bg-canvas px-2 py-0.5 font-mono text-[11px] text-ink cursor-pointer"
           >
             <option value="1:1" selected>1:1 (Actual)</option>
             <option value="1:10">1:10</option>
@@ -430,12 +459,12 @@ const offRight = initEdges.right ? initThickness : 0;
         </span>
 
         <!-- Ruler thickness -->
-        <label class="flex items-center gap-1.5 font-mono text-[11px]">
-          <span class="text-ink-muted-48">{w.thicknessLabel}</span>
+        <label class="flex items-center gap-1.5 text-[11px]">
+          <span class="font-medium text-ink-muted-48">{w.thicknessLabel}</span>
           <select
             id="select-thickness"
             aria-label={w.thicknessAria}
-            class="rounded-[8px] border border-hairline bg-canvas px-2 py-0.5 font-mono text-[11px] text-ink cursor-pointer"
+            class="rounded-[8px] border border-hairline/85 bg-canvas px-2 py-0.5 font-mono text-[11px] text-ink cursor-pointer"
           >
             <option value="36">36px</option>
             <option value="48" selected>48px</option>
@@ -444,8 +473,8 @@ const offRight = initEdges.right ? initThickness : 0;
         </label>
 
         <!-- Ruler opacity -->
-        <label class="hidden sm:flex items-center gap-1.5 font-mono text-[11px]">
-          <span class="text-ink-muted-48">{w.opacityLabel}</span>
+        <label class="hidden sm:flex items-center gap-1.5 text-[11px]">
+          <span class="font-medium text-ink-muted-48">{w.opacityLabel}</span>
           <input
             id="slider-opacity"
             type="range"
@@ -455,7 +484,7 @@ const offRight = initEdges.right ? initThickness : 0;
             aria-label={w.opacityAria}
             class="w-16 accent-primary cursor-pointer"
           />
-          <span id="label-opacity" class="w-8 text-right font-semibold text-ink">96%</span>
+          <span id="label-opacity" class="w-8 text-right font-mono font-semibold text-ink">96%</span>
         </label>
       </div>
     </div>

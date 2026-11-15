@@ -2615,5 +2615,132 @@
     "cmAria": "Convertir en centimètres",
     "inAria": "Convertir en pouces",
     "pxAria": "Convertir en pixels CSS"
+  },
+  "visuals": {
+    "walkthrough": {
+      "kicker": "Guide Animé Interactif",
+      "heading": "Visualisez Chaque Principe de Mesure",
+      "tablistAria": "Démonstrations animées de mesure",
+      "playLabel": "Lire",
+      "pauseLabel": "Pause",
+      "statusPlaying": "Animation active",
+      "statusPaused": "Animation en pause",
+      "scenes": {
+        "ticks": {
+          "label": "Progression des Graduations",
+          "summary": "Les centimètres principaux se subdivisent en demi-centimètres (5 mm) et millimètres fins.",
+          "formula": "1 cm = 10 mm"
+        },
+        "line": {
+          "label": "Extension de Portée",
+          "summary": "Calez le bord gauche sur le zéro décalé et étendez la mesure jusqu’au bord opposé.",
+          "formula": "ΔX = X₂ − X₁"
+        },
+        "drag": {
+          "label": "Repères X/Y",
+          "summary": "Associez repères verticaux X et horizontaux Y pour lire largeur, hauteur et diagonale.",
+          "formula": "Diag = √(ΔX² + ΔY²)"
+        },
+        "protractor": {
+          "label": "Balayage Angulaire",
+          "summary": "Faites pivoter le second rayon pour afficher simultanément angle principal, supplémentaire et réflexe.",
+          "formula": "θ = atan2(ΔY, ΔX)"
+        },
+        "calibration": {
+          "label": "Étalonnage par Carte",
+          "summary": "Alignez une carte ISO/IEC 7810 ID-1 sur l’origine (0, 0) et ajustez la poignée au bord exact.",
+          "formula": "85.60 × 53.98 mm"
+        }
+      }
+    },
+    "diagrams": {
+      "d01": {
+        "kicker": "FIG. 01 · MÉTHODE",
+        "title": "Comment Utiliser une Règle en Ligne",
+        "alt": "Schéma technique montrant le zéro intérieur éloigné du cadre, un objet placé sur l’écran et la différence ΔX entre X1 et X2.",
+        "caption": "Alignez toujours l’objet sur le repère 0 intérieur — jamais sur le bord physique de l’écran — ou soustrayez X1 de X2."
+      },
+      "d02": {
+        "kicker": "FIG. 02 · ÉTALONNAGE",
+        "title": "Étalonnage par Carte Bancaire ou Référence",
+        "alt": "Schéma d’une carte ISO/IEC 7810 ID-1 (85.60 x 53.98 mm) calée en (0,0) avec illustration de l’erreur de parallaxe.",
+        "caption": "Utilisez une carte bancaire standard (85.60 × 53.98 mm) et regardez bien à la verticale (90°) pour éviter le parallaxe."
+      },
+      "d03": {
+        "kicker": "FIG. 03 · UNITÉS",
+        "title": "Centimètres, Millimètres et Pouces",
+        "alt": "Dessin technique comparant graduations centimétriques/millimétriques et pouces fractionnaires avec facteur exact de 25.4 mm.",
+        "caption": "Correspondance visuelle directe entre échelle métrique (10 mm = 1 cm) et impériale (1 pouce = 25.40 mm)."
+      },
+      "d04": {
+        "kicker": "FIG. 04 · SUBDIVISIONS",
+        "title": "Fractions de Pouce",
+        "alt": "Diagramme binaire hiérarchique des fractions de pouce de 1/2 à 1/32 avec valeurs décimales associées.",
+        "caption": "Chaque division par deux affine la lecture des traits, de 1/2\" (0.500\") jusqu’à 1/32\" (0.0313\")."
+      },
+      "d05": {
+        "kicker": "FIG. 05 · MODE PHOTO",
+        "title": "Mesurer sur une Photographie",
+        "alt": "Schéma en trois étapes : importation locale de photo, étalonnage à 2 points et mesure à l’échelle réelle.",
+        "caption": "Le Mode Photo reste 100 % local : tracez un étalon connu en deux points puis mesurez toute dimension dans le même plan."
+      },
+      "d06": {
+        "kicker": "FIG. 06 · PLAN 2D",
+        "title": "Repères X/Y et Réticule",
+        "alt": "Vue technique avec repères mobiles X et Y délimitant une zone ΔX par ΔY, sa diagonale et les coordonnées du curseur.",
+        "caption": "Combinez guides X/Y et réticule dynamique pour relever largeur, hauteur et diagonale en un seul geste."
+      },
+      "d07": {
+        "kicker": "FIG. 07 · ANGLES",
+        "title": "Rapporteur et Mesure Angulaire",
+        "alt": "Diagramme de rapporteur affichant un angle principal de 42.0°, supplémentaire de 138.0° et réflexe de 318.0°.",
+        "caption": "Mesurez des angles aigus, obtus ou complets sur 360° depuis un sommet déplaçable librement."
+      },
+      "d08": {
+        "kicker": "FIG. 08 · OUTILS",
+        "title": "Règle vs Mètre Ruban vs Pied à Coulisse",
+        "alt": "Tableau comparatif technique entre règle écran étalonnée, mètre souple et pied à coulisse.",
+        "caption": "Choisissez l’instrument adapté à la tolérance requise : règle écran pour objets plats, ruban pour courbes, pied à coulisse pour usinage."
+      },
+      "d09": {
+        "kicker": "FIG. 09 · OPTIQUE D’ÉCRAN",
+        "title": "DPI/PPI et Précision Physique",
+        "alt": "Graphique comparant 378 px CSS rendus à 11.76 cm sur écran 81.6 PPI, 6.80 cm sur portable 141.2 PPI et 10.00 cm après étalonnage.",
+        "caption": "Sans étalonnage, la valeur par défaut de 96 px/pouce entraîne jusqu’à 32 % d’écart selon la densité de l’écran."
+      }
+    },
+    "captures": {
+      "workspaceGuides": {
+        "kicker": "INTERFACE RÉELLE · REPÈRES X/Y",
+        "title": "Zone de Mesure X/Y et Réticule Actif",
+        "alt": "Capture d’écran montrant les repères bleus X et Y encadrant une zone avec ΔX, ΔY et diagonale affichés.",
+        "caption": "Les repères X et Y isolent instantanément des cotes rectangulaires et leur diagonale sur la règle calibrée."
+      },
+      "photoMeasure": {
+        "kicker": "INTERFACE RÉELLE · MODE PHOTO",
+        "title": "Étalonnage à Deux Points sur Photo Locale",
+        "alt": "Capture du mode photo montrant une ligne orange de référence sur une carte et une mesure bleue de 12.04 cm.",
+        "caption": "Étalonnez à partir d’une carte ID-1 présente sur la photo et mesurez en toute confidentialité."
+      },
+      "protractorOverlay": {
+        "kicker": "INTERFACE RÉELLE · RAPPORTEUR 360°",
+        "title": "Rapporteur Circulaire Transparent 360°",
+        "alt": "Capture d’écran montrant le cadran rapporteur transparent 360 degrés réglé à 45.0 degrés.",
+        "caption": "Superposez le rapporteur 360° sur vos schémas, plans techniques ou images collées."
+      }
+    },
+    "sections": {
+      "howToHubKicker": "Guide Visuel Pratique",
+      "howToHubHeading": "Schémas Techniques, Mouvements & Captures",
+      "howToHubLead": "Chaque principe illustré clairement pour étalonner en quelques secondes et mesurer avec précision.",
+      "calibrationVisualKicker": "Schéma d’Étalonnage",
+      "calibrationVisualHeading": "Comprendre l’Étalonnage Réel Étape par Étape",
+      "calibrationVisualLead": "Découvrez pourquoi la norme 96 PPI dérive selon les écrans et comment une carte fixe l’échelle 1:1.",
+      "faqVisualKicker": "Repères Visuels Rapides",
+      "faqVisualHeading": "Tolérances et Densité d’Écran en un Coup d’Œil",
+      "detectorVisualKicker": "Échelle des Écrans",
+      "detectorVisualHeading": "Pourquoi le PPI Effectif Détermine la Taille Réelle",
+      "detectorVisualLead": "Comparez comment un même nombre de pixels CSS varie physiquement selon la densité du moniteur."
+    }
   }
 }

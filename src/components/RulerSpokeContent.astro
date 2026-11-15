@@ -1,6 +1,8 @@
 ---
 import { DEFAULT_LOCALE, localizedPath, type Locale } from '../i18n/config.ts';
 import { getDict } from '../i18n/index.ts';
+import DiagramFigure from './DiagramFigure.astro';
+import MotionWalkthrough, { type WalkthroughSceneId } from './MotionWalkthrough.astro';
 
 export interface SpokeCard {
   step: string;
@@ -49,10 +51,12 @@ interface Props {
   faqKicker: string;
   faqHeading: string;
   faqs: readonly SpokeFaq[];
+  pageKey?: 'cmRuler' | 'mmRuler' | 'inchRuler' | 'horizontalRuler' | 'verticalRuler' | 'photoRuler' | 'protractor';
 }
 
 const {
   locale = DEFAULT_LOCALE,
+  pageKey,
   guideKicker,
   guideHeading,
   guideLead,
@@ -69,6 +73,61 @@ const {
 
 const dict = getDict(locale);
 const shared = dict.spokeShared;
+const v = dict.visuals;
+
+const spokeVisualConfig: Record<
+  NonNullable<Props['pageKey']>,
+  {
+    diagramPath: string;
+    diagramMeta: typeof v.diagrams.d03;
+    walkthroughScenes?: WalkthroughSceneId[];
+    secondDiagramPath?: string;
+    secondDiagramMeta?: typeof v.diagrams.d03;
+    captureBase?: string;
+    captureMeta?: typeof v.captures.photoMeasure;
+  }
+> = {
+  cmRuler: {
+    diagramPath: '/visuals/diagrams/03-cm-mm-inch-comparison.svg',
+    diagramMeta: v.diagrams.d03,
+    walkthroughScenes: ['ticks', 'line'],
+  },
+  mmRuler: {
+    diagramPath: '/visuals/diagrams/03-cm-mm-inch-comparison.svg',
+    diagramMeta: v.diagrams.d03,
+    walkthroughScenes: ['ticks', 'calibration'],
+  },
+  inchRuler: {
+    diagramPath: '/visuals/diagrams/04-inch-fractions.svg',
+    diagramMeta: v.diagrams.d04,
+    secondDiagramPath: '/visuals/diagrams/03-cm-mm-inch-comparison.svg',
+    secondDiagramMeta: v.diagrams.d03,
+  },
+  horizontalRuler: {
+    diagramPath: '/visuals/diagrams/06-xy-guides-crosshair.svg',
+    diagramMeta: v.diagrams.d06,
+    walkthroughScenes: ['line', 'drag'],
+  },
+  verticalRuler: {
+    diagramPath: '/visuals/diagrams/06-xy-guides-crosshair.svg',
+    diagramMeta: v.diagrams.d06,
+    captureBase: '/visuals/captures/workspace-guides',
+    captureMeta: v.captures.workspaceGuides,
+  },
+  photoRuler: {
+    diagramPath: '/visuals/diagrams/05-photo-measurement.svg',
+    diagramMeta: v.diagrams.d05,
+    captureBase: '/visuals/captures/photo-measure',
+    captureMeta: v.captures.photoMeasure,
+  },
+  protractor: {
+    diagramPath: '/visuals/diagrams/07-protractor-angle-measurement.svg',
+    diagramMeta: v.diagrams.d07,
+    walkthroughScenes: ['protractor'],
+  },
+};
+
+const activeVisual = pageKey ? spokeVisualConfig[pageKey] : null;
 ---
 
 <!-- SECTION 1: INTENT-SPECIFIC MEASUREMENT GUIDE (Light White Tile #ffffff) -->
@@ -120,6 +179,47 @@ const shared = dict.spokeShared;
         ))
       }
     </div>
+
+    {activeVisual && (
+      <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2 items-start">
+        <DiagramFigure
+          svgSrc={activeVisual.diagramPath}
+          kicker={activeVisual.diagramMeta.kicker}
+          title={activeVisual.diagramMeta.title}
+          alt={activeVisual.diagramMeta.alt}
+          caption={activeVisual.diagramMeta.caption}
+        />
+        {activeVisual.walkthroughScenes && (
+          <MotionWalkthrough
+            locale={locale}
+            scenes={activeVisual.walkthroughScenes}
+            compact
+            id={`spoke-motion-${pageKey}`}
+          />
+        )}
+        {activeVisual.secondDiagramPath && activeVisual.secondDiagramMeta && (
+          <DiagramFigure
+            svgSrc={activeVisual.secondDiagramPath}
+            kicker={activeVisual.secondDiagramMeta.kicker}
+            title={activeVisual.secondDiagramMeta.title}
+            alt={activeVisual.secondDiagramMeta.alt}
+            caption={activeVisual.secondDiagramMeta.caption}
+          />
+        )}
+        {activeVisual.captureBase && activeVisual.captureMeta && (
+          <DiagramFigure
+            type="capture"
+            srcBase={activeVisual.captureBase}
+            width={1200}
+            height={pageKey === 'photoRuler' ? 533 : 534}
+            kicker={activeVisual.captureMeta.kicker}
+            title={activeVisual.captureMeta.title}
+            alt={activeVisual.captureMeta.alt}
+            caption={activeVisual.captureMeta.caption}
+          />
+        )}
+      </div>
+    )}
   </div>
 </section>
 

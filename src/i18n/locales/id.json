@@ -2615,5 +2615,132 @@
     "cmAria": "Konversi sentimeter",
     "inAria": "Konversi inci",
     "pxAria": "Konversi piksel CSS"
+  },
+  "visuals": {
+    "walkthrough": {
+      "kicker": "Panduan Gerak Interaktif",
+      "heading": "Lihat Setiap Mekanisme Pengukuran Secara Visual",
+      "tablistAria": "Demonstrasi gerak pengukuran",
+      "playLabel": "Putar",
+      "pauseLabel": "Jeda",
+      "statusPlaying": "Animasi diputar",
+      "statusPaused": "Animasi dijeda",
+      "scenes": {
+        "ticks": {
+          "label": "Progresi Garis Skala",
+          "summary": "Garis utama sentimeter terbagi rapi menjadi garis tengah 5 mm dan garis halus 1 mm.",
+          "formula": "1 cm = 10 mm"
+        },
+        "line": {
+          "label": "Ekspansi Rentang",
+          "summary": "Sejajarkan sisi kiri pada titik nol dalam lalu rentangkan pembacaan hingga batas ujung objek.",
+          "formula": "ΔX = X₂ − X₁"
+        },
+        "drag": {
+          "label": "Panduan Geser X/Y",
+          "summary": "Gabungkan garis vertikal X dan horizontal Y untuk membaca lebar, tinggi, serta panjang diagonal.",
+          "formula": "Diag = √(ΔX² + ΔY²)"
+        },
+        "protractor": {
+          "label": "Sapuan Busur Derajat",
+          "summary": "Putar sinar kedua mengitari titik pusat untuk membaca sudut utama, suplemen, dan refleks sekaligus.",
+          "formula": "θ = atan2(ΔY, ΔX)"
+        },
+        "calibration": {
+          "label": "Kalibrasi Kartu",
+          "summary": "Sejajarkan kartu fisik ISO/IEC 7810 ID-1 pada titik (0, 0) lalu geser pegangan tepi hingga pas.",
+          "formula": "85.60 × 53.98 mm"
+        }
+      }
+    },
+    "diagrams": {
+      "d01": {
+        "kicker": "GBR. 01 · ALUR KERJA",
+        "title": "Cara Menggunakan Penggaris Online",
+        "alt": "Diagram teknis titik nol di dalam layar jauh dari bezel, objek fisik, dan selisih ΔX antara panduan X1 dan X2.",
+        "caption": "Sejajarkan benda pada garis nol di dalam layar — bukan bezel monitor — atau kurangkan X1 dari X2."
+      },
+      "d02": {
+        "kicker": "GBR. 02 · KALIBRASI",
+        "title": "Kalibrasi Kartu Kredit & Referensi Kustom",
+        "alt": "Diagram kartu ISO/IEC 7810 ID-1 (85.60 x 53.98 mm) pada sudut (0,0) beserta ilustrasi kesalahan paralaks.",
+        "caption": "Gunakan kartu ID-1 standar (85.60 × 53.98 mm) dan lihat tegak lurus 90° untuk mencegah pergeseran paralaks."
+      },
+      "d03": {
+        "kicker": "GBR. 03 · PERBANDINGAN SKALA",
+        "title": "Sentimeter, Milimeter & Inci",
+        "alt": "Gambar teknik sejajar yang membandingkan skala cm/mm terhadap pecahan inci dengan nilai tepat 25.40 mm.",
+        "caption": "Pemetaan visual langsung antara sistem metrik (10 mm = 1 cm) dan inci (1 in = 25.40 mm tepat)."
+      },
+      "d04": {
+        "kicker": "GBR. 04 · PECAHAN INCI",
+        "title": "Memahami Pecahan Inci",
+        "alt": "Diagram pembagian biner dari 1 inci utuh ke 1/2, 1/4, 1/8, 1/16, dan 1/32 beserta nilai desimalnya.",
+        "caption": "Setiap pembagian dua kali lipat memperhalus skala dari 1/2\" (0.500\") hingga 1/32\" (0.0313\")."
+      },
+      "d05": {
+        "kicker": "GBR. 05 · MODE FOTO",
+        "title": "Mengukur Benda Lewat Foto",
+        "alt": "Diagram tiga langkah: muat foto lokal, kalibrasi 2 titik pada referensi dikenal, lalu ukur komponen.",
+        "caption": "Berjalan 100% lokal di browser: tandai dua titik objek referensi terlebih dahulu lalu ukur tepi di bidang sama."
+      },
+      "d06": {
+        "kicker": "GBR. 06 · KANVAS 2D",
+        "title": "Panduan X/Y & Bidik Silang",
+        "alt": "Cetak biru area kerja dengan garis panduan geser X dan Y, kotak ΔX × ΔY, diagonal, dan bidik kursor.",
+        "caption": "Padukan panduan X/Y dan bidik silang untuk menangkap panjang, tinggi, dan diagonal sekaligus."
+      },
+      "d07": {
+        "kicker": "GBR. 07 · SUDUT",
+        "title": "Busur Derajat & Ukur Sudut",
+        "alt": "Diagram busur derajat dua sinar membaca sudut utama 42.0°, suplemen 138.0°, dan refleks 318.0°.",
+        "caption": "Ukur sudut lancip, tumpul, hingga 360° penuh dengan titik pusat yang dapat dipindahkan bebas."
+      },
+      "d08": {
+        "kicker": "GBR. 08 · ALAT UKUR",
+        "title": "Penggaris vs Meteran vs Jangka Sorong",
+        "alt": "Perbandingan tiga kolom antara penggaris layar terkalibrasi, meteran pita, dan jangka sorong.",
+        "caption": "Sesuaikan alat dengan toleransi: penggaris layar untuk objek datar, meteran untuk lengkungan, jangka sorong untuk mesin."
+      },
+      "d09": {
+        "kicker": "GBR. 09 · FISIKA LAYAR",
+        "title": "DPI/PPI Layar & Akurasi Fisik",
+        "alt": "Grafik perbandingan garis 378 CSS px menjadi 11.76 cm di 81.6 PPI, 6.80 cm di 141.2 PPI, dan 10.00 cm setelah kalibrasi.",
+        "caption": "Browser tanpa kalibrasi menganggap 96 CSS px/inci, menyebabkan kesalahan hingga 32% antar panel layar."
+      }
+    },
+    "captures": {
+      "workspaceGuides": {
+        "kicker": "UI LANGSUNG · PANDUAN X/Y",
+        "title": "Kotak Panduan X/Y & Bacaan Silang Presisi",
+        "alt": "Tangkapan layar area kerja dengan garis biru X dan Y serta bacaan ΔX, ΔY, dan diagonal.",
+        "caption": "Garis geser X dan Y mengunci ukuran persegi panjang langsung pada kanvas dengan hitungan diagonal."
+      },
+      "photoMeasure": {
+        "kicker": "UI LANGSUNG · MODE FOTO",
+        "title": "Kalibrasi Referensi Dua Titik pada Foto Lokal",
+        "alt": "Tangkapan layar mode foto menunjukkan garis kalibrasi oranye pada kartu dan garis biru 12.04 cm pada pelat.",
+        "caption": "Gunakan kartu ID-1 dalam foto untuk kalibrasi pribadi tanpa mengunggah file ke luar perangkat."
+      },
+      "protractorOverlay": {
+        "kicker": "UI LANGSUNG · BUSUR 360°",
+        "title": "Lapisan Busur Derajat 360° Transparan",
+        "alt": "Tangkapan layar ruang penggaris menampilkan busur derajat transparan 360 derajat pada posisi 45.0 derajat.",
+        "caption": "Tempelkan busur derajat interaktif 360° tepat di atas skema, diagram, atau tangkapan layar."
+      }
+    },
+    "sections": {
+      "howToHubKicker": "Panduan Visual Pengukuran",
+      "howToHubHeading": "Diagram, Gerak Interaktif & Tangkapan Asli",
+      "howToHubLead": "Setiap konsep inti digambarkan jelas agar Anda cukup kalibrasi sekali dan mengukur dengan akurat.",
+      "calibrationVisualKicker": "Cetak Biru Kalibrasi",
+      "calibrationVisualHeading": "Pahami Kalibrasi Skala Nyata Langkah Demi Langkah",
+      "calibrationVisualLead": "Lihat mengapa nilai bawaan 96 PPI meleset dan bagaimana satu kartu mengunci ukuran fisik 1:1.",
+      "faqVisualKicker": "Referensi Visual Cepat",
+      "faqVisualHeading": "Toleransi Alat & Skala Layar Sekilas",
+      "detectorVisualKicker": "Referensi Skala Layar",
+      "detectorVisualHeading": "Mengapa CSS PPI Efektif Menentukan Ukuran Fisik",
+      "detectorVisualLead": "Bandingkan bagaimana piksel CSS yang sama memanjang atau menyusut di berbagai monitor dan laptop."
+    }
   }
 }

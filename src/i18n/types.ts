@@ -694,4 +694,51 @@ export interface LocaleDict {
       readonly guideCards: readonly { readonly kicker: string; readonly heading: string; readonly body: string }[];
     };
   };
+  readonly visuals: {
+    readonly walkthrough: {
+      readonly kicker: string;
+      readonly heading: string;
+      readonly tablistAria: string;
+      readonly playLabel: string;
+      readonly pauseLabel: string;
+      readonly statusPlaying: string;
+      readonly statusPaused: string;
+      readonly scenes: {
+        readonly ticks: { readonly label: string; readonly summary: string; readonly formula: string };
+        readonly line: { readonly label: string; readonly summary: string; readonly formula: string };
+        readonly drag: { readonly label: string; readonly summary: string; readonly formula: string };
+        readonly protractor: { readonly label: string; readonly summary: string; readonly formula: string };
+        readonly calibration: { readonly label: string; readonly summary: string; readonly formula: string };
+      };
+    };
+    readonly diagrams: {
+      readonly d01: { readonly kicker: string; readonly title: string; readonly alt: string; readonly caption: string };
+      readonly d02: { readonly kicker: string; readonly title: string; readonly alt: string; readonly caption: string };
+      readonly d03: { readonly kicker: string; readonly title: string; readonly alt: string; readonly caption: string };
+      readonly d04: { readonly kicker: string; readonly title: string; readonly alt: string; readonly caption: string };
+      readonly d05: { readonly kicker: string; readonly title: string; readonly alt: string; readonly caption: string };
+      readonly d06: { readonly kicker: string; readonly title: string; readonly alt: string; readonly caption: string };
+      readonly d07: { readonly kicker: string; readonly title: string; readonly alt: string; readonly caption: string };
+      readonly d08: { readonly kicker: string; readonly title: string; readonly alt: string; readonly caption: string };
+      readonly d09: { readonly kicker: string; readonly title: string; readonly alt: string; readonly caption: string };
+    };
+    readonly captures: {
+      readonly workspaceGuides: { readonly kicker: string; readonly title: string; readonly alt: string; readonly caption: string };
+      readonly photoMeasure: { readonly kicker: string; readonly title: string; readonly alt: string; readonly caption: string };
+      readonly protractorOverlay: { readonly kicker: string; readonly title: string; readonly alt: string; readonly caption: string };
+    };
+    readonly sections: {
+      readonly howToHubKicker: string;
+      readonly howToHubHeading: string;
+      readonly howToHubLead: string;
+      readonly calibrationVisualKicker: string;
+      readonly calibrationVisualHeading: string;
+      readonly calibrationVisualLead: string;
+      readonly faqVisualKicker: string;
+      readonly faqVisualHeading: string;
+      readonly detectorVisualKicker: string;
+      readonly detectorVisualHeading: string;
+      readonly detectorVisualLead: string;
+    };
+  };
 }

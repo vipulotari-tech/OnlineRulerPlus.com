@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" fill="none" role="img" aria-label="FIG. 07 · 180° / 360° DUAL-RAY PROTRACTOR">
+  <defs>
+    <pattern id="grid-07" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ededf2" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+  <rect x="1" y="1" width="718" height="398" rx="14" fill="#fafafc" stroke="#d8d8de" stroke-width="1.5"/>
+  <rect x="12" y="12" width="696" height="376" rx="10" fill="url(#grid-07)"/>
+  <g transform="translate(28, 26)">
+    <rect x="0" y="0" width="304.8" height="22" rx="11" fill="#ffffff" stroke="#d8d8de" stroke-width="1"/>
+    <circle cx="12" cy="11" r="3" fill="#0066cc"/>
+    <text x="21" y="14.5" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#5f5f63" letter-spacing="0.4">FIG. 07 · 180° / 360° DUAL-RAY PROTRACTOR</text>
+  </g>
+
+  <!-- Semicircle Protractor Body -->
+  <path d="M 86 278 A 164 164 0 0 1 414 278 Z" fill="#ffffff" stroke="#d8d8de" stroke-width="1.5"/>
+  <line x1="396.0" y1="278.0" x2="414.0" y2="278.0" stroke="#1d1d1f" stroke-width="1.6"/><text x="384.0" y="268.0" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#1d1d1f">0°</text><line x1="406.4" y1="264.3" x2="413.4" y2="263.7" stroke="#1d1d1f" stroke-width="1"/><line x1="404.6" y1="250.7" x2="411.5" y2="249.5" stroke="#1d1d1f" stroke-width="1"/><line x1="396.8" y1="238.7" x2="408.4" y2="235.6" stroke="#1d1d1f" stroke-width="1"/><line x1="397.5" y1="224.3" x2="404.1" y2="221.9" stroke="#1d1d1f" stroke-width="1"/><line x1="392.3" y1="211.6" x2="398.6" y2="208.7" stroke="#1d1d1f" stroke-width="1"/><line x1="376.4" y1="205.0" x2="392.0" y2="196.0" stroke="#1d1d1f" stroke-width="1.6"/><text x="366.0" y="215.0" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#1d1d1f">30°</text><line x1="378.6" y1="187.9" x2="384.3" y2="183.9" stroke="#1d1d1f" stroke-width="1"/><line x1="370.3" y1="177.1" x2="375.6" y2="172.6" stroke="#1d1d1f" stroke-width="1"/><line x1="357.5" y1="170.5" x2="366.0" y2="162.0" stroke="#1d1d1f" stroke-width="1"/><line x1="350.9" y1="157.7" x2="355.4" y2="152.4" stroke="#1d1d1f" stroke-width="1"/><line x1="340.1" y1="149.4" x2="344.1" y2="143.7" stroke="#1d1d1f" stroke-width="1"/><line x1="323.0" y1="151.6" x2="332.0" y2="136.0" stroke="#1d1d1f" stroke-width="1.6"/><text x="317.0" y="166.0" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#1d1d1f">60°</text><line x1="316.4" y1="135.7" x2="319.3" y2="129.4" stroke="#1d1d1f" stroke-width="1"/><line x1="303.7" y1="130.5" x2="306.1" y2="123.9" stroke="#1d1d1f" stroke-width="1"/><line x1="289.3" y1="131.2" x2="292.4" y2="119.6" stroke="#1d1d1f" stroke-width="1"/><line x1="277.3" y1="123.4" x2="278.5" y2="116.5" stroke="#1d1d1f" stroke-width="1"/><line x1="263.7" y1="121.6" x2="264.3" y2="114.6" stroke="#1d1d1f" stroke-width="1"/><line x1="250.0" y1="132.0" x2="250.0" y2="114.0" stroke="#1d1d1f" stroke-width="1.6"/><text x="250.0" y="148.0" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#1d1d1f">90°</text><line x1="236.3" y1="121.6" x2="235.7" y2="114.6" stroke="#1d1d1f" stroke-width="1"/><line x1="222.7" y1="123.4" x2="221.5" y2="116.5" stroke="#1d1d1f" stroke-width="1"/><line x1="210.7" y1="131.2" x2="207.6" y2="119.6" stroke="#1d1d1f" stroke-width="1"/><line x1="196.3" y1="130.5" x2="193.9" y2="123.9" stroke="#1d1d1f" stroke-width="1"/><line x1="183.6" y1="135.7" x2="180.7" y2="129.4" stroke="#1d1d1f" stroke-width="1"/><line x1="177.0" y1="151.6" x2="168.0" y2="136.0" stroke="#1d1d1f" stroke-width="1.6"/><text x="183.0" y="166.0" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#1d1d1f">120°</text><line x1="159.9" y1="149.4" x2="155.9" y2="143.7" stroke="#1d1d1f" stroke-width="1"/><line x1="149.1" y1="157.7" x2="144.6" y2="152.4" stroke="#1d1d1f" stroke-width="1"/><line x1="142.5" y1="170.5" x2="134.0" y2="162.0" stroke="#1d1d1f" stroke-width="1"/><line x1="129.7" y1="177.1" x2="124.4" y2="172.6" stroke="#1d1d1f" stroke-width="1"/><line x1="121.4" y1="187.9" x2="115.7" y2="183.9" stroke="#1d1d1f" stroke-width="1"/><line x1="123.6" y1="205.0" x2="108.0" y2="196.0" stroke="#1d1d1f" stroke-width="1.6"/><text x="134.0" y="215.0" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#1d1d1f">150°</text><line x1="107.7" y1="211.6" x2="101.4" y2="208.7" stroke="#1d1d1f" stroke-width="1"/><line x1="102.5" y1="224.3" x2="95.9" y2="221.9" stroke="#1d1d1f" stroke-width="1"/><line x1="103.2" y1="238.7" x2="91.6" y2="235.6" stroke="#1d1d1f" stroke-width="1"/><line x1="95.4" y1="250.7" x2="88.5" y2="249.5" stroke="#1d1d1f" stroke-width="1"/><line x1="93.6" y1="264.3" x2="86.6" y2="263.7" stroke="#1d1d1f" stroke-width="1"/><line x1="104.0" y1="278.0" x2="86.0" y2="278.0" stroke="#1d1d1f" stroke-width="1.6"/><text x="116.0" y="268.0" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#1d1d1f">180°</text>
+
+  <!-- Shaded Angle Sector -->
+  <path d="M 250 278 L 326 278 A 76 76 0 0 0 306.5 227.1 Z" fill="#e6f0fa" stroke="#0066cc" stroke-width="1.5"/>
+
+  <!-- Baseline Ray A (0°) and Draggable Ray B (42°) -->
+  <line x1="86" y1="278" x2="430" y2="278" stroke="#1d1d1f" stroke-width="2"/>
+  <line x1="250" y1="278" x2="383.8" y2="157.6" stroke="#0066cc" stroke-width="2.5"/>
+  <circle cx="383.8" cy="157.6" r="7" fill="#0066cc" stroke="#ffffff" stroke-width="2"/>
+  <circle cx="250" cy="278" r="6" fill="#1d1d1f" stroke="#ffffff" stroke-width="2"/>
+
+  <rect x="338" y="234" width="72" height="24" rx="12" fill="#0066cc"/>
+  <text x="374" y="250" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" font-weight="700" fill="#ffffff">θ = 42.0°</text>
+
+  <!-- Right Spec Card -->
+  <g transform="translate(464, 92)">
+    <rect x="0" y="0" width="214" height="226" rx="12" fill="#ffffff" stroke="#d8d8de"/>
+    <text x="18" y="28" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#0066cc">DUAL-RAY TELEMETRY</text>
+
+    <text x="18" y="60" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="11.5" fill="#5f5f63">Primary Angle (θ)</text>
+    <text x="18" y="82" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" font-weight="700" fill="#1d1d1f">42.0°</text>
+
+    <line x1="18" y1="98" x2="196" y2="98" stroke="#d8d8de"/>
+    <text x="18" y="122" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="11.5" fill="#5f5f63">Supplementary (180° − θ)</text>
+    <text x="18" y="142" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" font-weight="700" fill="#1d1d1f">138.0°</text>
+
+    <line x1="18" y1="158" x2="196" y2="158" stroke="#d8d8de"/>
+    <text x="18" y="182" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="11.5" fill="#5f5f63">Reflex (360° − θ)</text>
+    <text x="18" y="202" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" font-weight="700" fill="#0066cc">318.0°</text>
+  </g>
+  
+</svg>

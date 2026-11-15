@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" fill="none" role="img" aria-label="FIG. 02 · CARD &amp; CUSTOM REFERENCE CALIBRATION">
+  <defs>
+    <pattern id="grid-02" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ededf2" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+  <rect x="1" y="1" width="718" height="398" rx="14" fill="#fafafc" stroke="#d8d8de" stroke-width="1.5"/>
+  <rect x="12" y="12" width="696" height="376" rx="10" fill="url(#grid-02)"/>
+  <g transform="translate(28, 26)">
+    <rect x="0" y="0" width="332" height="22" rx="11" fill="#ffffff" stroke="#d8d8de" stroke-width="1"/>
+    <circle cx="12" cy="11" r="3" fill="#0066cc"/>
+    <text x="21" y="14.5" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#5f5f63" letter-spacing="0.4">FIG. 02 · CARD &amp; CUSTOM REFERENCE CALIBRATION</text>
+  </g>
+
+  <!-- Card Alignment Stage -->
+  <rect x="44" y="72" width="366" height="278" rx="12" fill="#f5f5f7" stroke="#d8d8de" stroke-width="1.25"/>
+  <line x1="58" y1="72" x2="58" y2="350" stroke="#0066cc" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="44" y1="98" x2="410" y2="98" stroke="#0066cc" stroke-width="1" stroke-dasharray="4 4"/>
+  <circle cx="58" cy="98" r="4" fill="#0066cc"/>
+  <text x="66" y="90" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" font-weight="600" fill="#0066cc">TOP-LEFT DATUM (0, 0)</text>
+
+  <!-- Physical ISO ID-1 Card Outline -->
+  <rect x="58" y="98" width="260" height="164" rx="12" fill="#ffffff" stroke="#1d1d1f" stroke-width="2.2"/>
+  <rect x="76" y="116" width="36" height="26" rx="5" fill="#f5f5f7" stroke="#d8d8de" stroke-width="1.25"/>
+  <path d="M 76 129 h 36 M 94 116 v 26" stroke="#d8d8de" stroke-width="1"/>
+  <text x="122" y="132" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#5f5f63">ISO/IEC 7810 ID-1</text>
+  <text x="76" y="184" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="#1d1d1f">Physical Bank / ID Card</text>
+  <text x="76" y="204" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" fill="#5f5f63">85.60 × 53.98 mm · 3.370 × 2.125 in</text>
+
+  <!-- Corner Drag Handle -->
+  <circle cx="318" cy="262" r="11" fill="#0066cc" stroke="#ffffff" stroke-width="2"/>
+  <path d="M 314.5 258.5 l 7 7 m -4.5 0 h 4.5 v -4.5" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Width & Height Dimension Arrows -->
+  
+    <line x1="58" y1="290" x2="318" y2="290" stroke="#0066cc" stroke-width="1.75"/>
+    <path d="M 64 286 L 58 290 L 64 294" stroke="#0066cc" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 312 286 L 318 290 L 312 294" stroke="#0066cc" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <rect x="140" y="279" width="96" height="22" rx="11" fill="#0066cc"/>
+  <text x="188" y="293.5" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#ffffff">85.60 mm</text>
+
+  
+    <line x1="340" y1="98" x2="340" y2="262" stroke="#1d1d1f" stroke-width="1.75"/>
+    <path d="M 336 104 L 340 98 L 344 104" stroke="#1d1d1f" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 336 256 L 340 262 L 344 256" stroke="#1d1d1f" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <text x="346" y="184" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" font-weight="600" fill="#1d1d1f">53.98 mm</text>
+
+  <!-- Right Panel: Parallax Angle & Reference Presets -->
+  <g transform="translate(426, 72)">
+    <rect x="0" y="0" width="250" height="148" rx="12" fill="#ffffff" stroke="#d8d8de"/>
+    <text x="16" y="24" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#0066cc">AVOID OPTICAL PARALLAX</text>
+
+    <!-- Display Glass Cross-Section -->
+    <rect x="18" y="106" width="214" height="10" rx="2" fill="#f5f5f7" stroke="#d8d8de"/>
+    <rect x="18" y="116" width="214" height="8" rx="2" fill="#d2d2d7"/>
+    <text x="230" y="137" text-anchor="end" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#5f5f63">DISPLAY GLASS + PIXEL LAYER</text>
+
+    <!-- 90 deg perpendicular ray -->
+    <line x1="88" y1="42" x2="88" y2="116" stroke="#1e7e34" stroke-width="2"/>
+    <circle cx="88" cy="42" r="5" fill="#1e7e34"/>
+    <text x="88" y="34" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" font-weight="700" fill="#1e7e34">90° EXACT</text>
+
+    <!-- Angled parallax ray -->
+    <line x1="190" y1="44" x2="148" y2="116" stroke="#bf4800" stroke-width="1.75" stroke-dasharray="4 3"/>
+    <circle cx="190" cy="44" r="5" fill="#bf4800"/>
+    <text x="190" y="34" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" font-weight="700" fill="#bf4800">ANGLED SHIFT</text>
+  </g>
+
+  <g transform="translate(426, 236)">
+    <rect x="0" y="0" width="250" height="114" rx="12" fill="#ffffff" stroke="#d8d8de"/>
+    <text x="16" y="24" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#1d1d1f">SUPPORTED REFERENCES</text>
+    <rect x="14" y="36" width="108" height="26" rx="13" fill="#e6f0fa" stroke="#8ec0f2"/>
+    <text x="68" y="53" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" font-weight="600" fill="#0066cc">1× Card 85.6 mm</text>
+    <rect x="128" y="36" width="108" height="26" rx="13" fill="#f5f5f7" stroke="#d8d8de"/>
+    <text x="182" y="53" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#1d1d1f">A4 210.0 mm</text>
+    <rect x="14" y="70" width="108" height="26" rx="13" fill="#f5f5f7" stroke="#d8d8de"/>
+    <text x="68" y="87" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#1d1d1f">Quarter 24.26 mm</text>
+    <rect x="128" y="70" width="108" height="26" rx="13" fill="#f5f5f7" stroke="#d8d8de"/>
+    <text x="182" y="87" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#1d1d1f">Custom Length</text>
+  </g>
+  
+</svg>

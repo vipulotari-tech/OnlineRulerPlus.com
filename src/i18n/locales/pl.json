@@ -2615,5 +2615,132 @@
     "cmAria": "Przelicz centymetry",
     "inAria": "Przelicz cale",
     "pxAria": "Przelicz piksele CSS"
+  },
+  "visuals": {
+    "walkthrough": {
+      "kicker": "Interaktywny Przewodnik Ruchowy",
+      "heading": "Zobacz Każdą Technikę Pomiaru w Ruchu",
+      "tablistAria": "Animowane pokazy pomiarowe",
+      "playLabel": "Odtwórz",
+      "pauseLabel": "Pauza",
+      "statusPlaying": "Animacja aktywna",
+      "statusPaused": "Animacja wstrzymana",
+      "scenes": {
+        "ticks": {
+          "label": "Podziałka Linijki",
+          "summary": "Główne podziałki centymetrowe dzielą się kolejno na połówki 5 mm oraz drobne kreski 1 mm.",
+          "formula": "1 cm = 10 mm"
+        },
+        "line": {
+          "label": "Rozciąganie Odcinka",
+          "summary": "Wyrównaj lewą krawędź z wewnętrznym zerem i odczytaj długość na przeciwnym brzegu obiektu.",
+          "formula": "ΔX = X₂ − X₁"
+        },
+        "drag": {
+          "label": "Prowadnice X/Y",
+          "summary": "Połącz pionowe prowadnice X z poziomymi Y, aby odczytać szerokość, wysokość oraz przekątną.",
+          "formula": "Diag = √(ΔX² + ΔY²)"
+        },
+        "protractor": {
+          "label": "Ruch Kątomierza",
+          "summary": "Obracaj drugie ramię wokół wierzchołka i odczytuj jednocześnie kąt główny, przyległy i wklęsły.",
+          "formula": "θ = atan2(ΔY, ΔX)"
+        },
+        "calibration": {
+          "label": "Kalibracja Kartą",
+          "summary": "Przyłóż kartę ISO/IEC 7810 ID-1 do punktu (0, 0) i dopasuj niebieską ramkę do prawej krawędzi.",
+          "formula": "85.60 × 53.98 mm"
+        }
+      }
+    },
+    "diagrams": {
+      "d01": {
+        "kicker": "RYS. 01 · OBSŁUGA",
+        "title": "Jak Korzystać z Linijki Online",
+        "alt": "Rysunek techniczny pokazujący wewnętrzne zero odsunięte od ramki monitora oraz pomiar ΔX między liniami X1 i X2.",
+        "caption": "Przykładaj obiekt do wewnętrznego punktu 0 — nigdy do ramki ekranu — lub odejmij X1 od X2 na planszy."
+      },
+      "d02": {
+        "kicker": "RYS. 02 · KALIBRACJA",
+        "title": "Kalibracja Kartą i Własnym Wzorcem",
+        "alt": "Schemat karty ISO/IEC 7810 ID-1 (85.60 x 53.98 mm) w narożniku (0,0) z ilustracją błędu paralaksy.",
+        "caption": "Użyj dowolnej karty ID-1 (85.60 × 53.98 mm), patrząc prostopadle pod kątem 90°, aby uniknąć paralaksy."
+      },
+      "d03": {
+        "kicker": "RYS. 03 · SKALE",
+        "title": "Centymetry, Milimetry i Cale",
+        "alt": "Zestawienie techniczne porównujące podziałkę cm/mm z ułamkami cala w dokładnej skali 1 in = 25.40 mm.",
+        "caption": "Bezpośrednie porównanie układu metrycznego (10 mm = 1 cm) z calami (1 cal = 25.40 mm dokładnie)."
+      },
+      "d04": {
+        "kicker": "RYS. 04 · UŁAMKI CALA",
+        "title": "Ułamki Cala w Praktyce",
+        "alt": "Binarny diagram podziału cala od 1/2 przez 1/4, 1/8, 1/16 aż do 1/32 wraz z wartościami dziesiętnymi.",
+        "caption": "Każde podwojenie gęstości kresek zwiększa rozdzielczość odczytu od 1/2\" (0.500\") do 1/32\" (0.0313\")."
+      },
+      "d05": {
+        "kicker": "RYS. 05 · TRYB ZDJĘĆ",
+        "title": "Pomiar Obiektów na Zdjęciu",
+        "alt": "Trzystopniowy diagram: lokalne wczytanie zdjęcia, kalibracja 2-punktowa i pomiar rzeczywisty detalu.",
+        "caption": "Tryb Zdjęć działa w 100% lokalnie: najpierw wyznacz znany odcinek odniesienia, a potem mierz dowolny element."
+      },
+      "d06": {
+        "kicker": "RYS. 06 · OBSZAR 2D",
+        "title": "Prowadnice X/Y i Celownik",
+        "alt": "Schemat obszaru roboczego z prowadnicami X i Y wyznaczającymi prostokąt ΔX × ΔY, przekątną i celownik.",
+        "caption": "Połącz prowadnice X/Y z celownikiem kursora, aby jednocześnie zmierzyć boki oraz przekątną."
+      },
+      "d07": {
+        "kicker": "RYS. 07 · KĄTY",
+        "title": "Kątomierz i Pomiar Kątów",
+        "alt": "Schemat kątomierza pokazujący kąt główny 42.0°, przyległy 138.0° oraz pełny refleksyjny 318.0°.",
+        "caption": "Mierz kąty ostre, rozwarte i pełne 360° wokół dowolnie przesuwanego wierzchołka."
+      },
+      "d08": {
+        "kicker": "RYS. 08 · NARZĘDZIA",
+        "title": "Linijka vs Miarka Zwijana vs Suwmiarka",
+        "alt": "Trójkolumnowe zestawienie zastosowań i tolerancji linijki ekranowej, taśmy mierniczej i suwmiarki.",
+        "caption": "Dobierz przyrząd do tolerancji: linijka ekranowa do płaskich detali, taśma do łuków, suwmiarka do otworów."
+      },
+      "d09": {
+        "kicker": "RYS. 09 · FIZYKA EKRANU",
+        "title": "DPI/PPI Ekranu a Rzeczywista Dokładność",
+        "alt": "Wykres pokazujący linię 378 px CSS równą 11.76 cm przy 81.6 PPI, 6.80 cm przy 141.2 PPI i 10.00 cm po kalibracji.",
+        "caption": "Bez kalibracji przeglądarki zakładają 96 px/cal, co powoduje błędy wymiaru sięgające 32% między ekranami."
+      }
+    },
+    "captures": {
+      "workspaceGuides": {
+        "kicker": "WIDOK NA ŻYWO · PROWADNICE X/Y",
+        "title": "Precyzyjna Ramka X/Y i Celownik",
+        "alt": "Zrzut ekranu z niebieskimi prowadnicami X i Y wyznaczającymi prostokąt z wynikiem ΔX, ΔY i przekątną.",
+        "caption": "Przesuwane prowadnice X i Y natychmiast wyliczają wymiary prostokąta oraz długość przekątnej."
+      },
+      "photoMeasure": {
+        "kicker": "WIDOK NA ŻYWO · TRYB ZDJĘĆ",
+        "title": "Dwupunktowa Kalibracja na Lokalnych Zdjęciach",
+        "alt": "Zrzut trybu zdjęć z pomarańczową linią kalibracji na karcie i niebieskim pomiarem 12.04 cm na płytce.",
+        "caption": "Wykorzystaj kartę ID-1 ze zdjęcia jako skalę i wykonuj pomiary prywatnie bez wysyłania plików."
+      },
+      "protractorOverlay": {
+        "kicker": "WIDOK NA ŻYWO · KĄTOMIERZ 360°",
+        "title": "Przezroczysta Nakładka Kątomierza 360°",
+        "alt": "Zrzut obszaru roboczego z przezroczystym kątomierzem 360° ustawionym na 45.0 stopni.",
+        "caption": "Nałóż interaktywną tarczę 360° bezpośrednio na rysunki techniczne, schematy lub wklejone zrzuty."
+      }
+    },
+    "sections": {
+      "howToHubKicker": "Wizualny Przewodnik Pomiarowy",
+      "howToHubHeading": "Diagramy, Animacje i Prawdziwe Widoki",
+      "howToHubLead": "Każda kluczowa zasada zilustrowana krok po kroku, by skalibrować ekran raz i mierzyć pewnie.",
+      "calibrationVisualKicker": "Schemat Kalibracji",
+      "calibrationVisualHeading": "Skalowanie Rzeczywiste Krok po Kroku",
+      "calibrationVisualLead": "Zobacz, skąd biorą się różnice przy domyślnym 96 PPI i jak jedna karta blokuje dokładność 1:1.",
+      "faqVisualKicker": "Szybka Ściąga Wizualna",
+      "faqVisualHeading": "Tolerancje Narzędzi i Skalowanie Ekranu",
+      "detectorVisualKicker": "Odniesienie Skali",
+      "detectorVisualHeading": "Dlaczego Efektywne CSS PPI Określa Wymiar Fizyczny",
+      "detectorVisualLead": "Porównaj, jak ta sama liczba pikseli CSS zmienia fizyczną długość na monitorach i laptopach."
+    }
   }
 }

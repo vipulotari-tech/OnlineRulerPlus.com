@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" fill="none" role="img" aria-label="FIG. 09 · SCREEN DPI / PPI &amp; PHYSICAL ACCURACY">
+  <defs>
+    <pattern id="grid-09" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ededf2" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+  <rect x="1" y="1" width="718" height="398" rx="14" fill="#fafafc" stroke="#d8d8de" stroke-width="1.5"/>
+  <rect x="12" y="12" width="696" height="376" rx="10" fill="url(#grid-09)"/>
+  <g transform="translate(28, 26)">
+    <rect x="0" y="0" width="338.8" height="22" rx="11" fill="#ffffff" stroke="#d8d8de" stroke-width="1"/>
+    <circle cx="12" cy="11" r="3" fill="#0066cc"/>
+    <text x="21" y="14.5" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#5f5f63" letter-spacing="0.4">FIG. 09 · SCREEN DPI / PPI &amp; PHYSICAL ACCURACY</text>
+  </g>
+
+  <text x="44" y="84" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#1d1d1f">Same 378 CSS px Line Drawn Without Calibration (Browser Default = 96 CSS px/in)</text>
+
+  <!-- Vertical 10.00 cm Target Line (drawn behind labels) -->
+  <line x1="456" y1="100" x2="456" y2="266" stroke="#0066cc" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+  <!-- Row 1: 27" 1080p -->
+  <g transform="translate(44, 102)">
+    <text x="0" y="20" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="#1d1d1f">27″ 1080p Monitor</text>
+    <text x="0" y="36" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" fill="#5f5f63">81.6 CSS PPI</text>
+    <rect x="152" y="10" width="305.9" height="24" rx="5" fill="#fff5eb" stroke="#bf4800" stroke-width="1.5"/>
+    <text x="467.9" y="26" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#bf4800">Draws 11.76 cm (+17.6%)</text>
+  </g>
+
+  <!-- Row 2: Exact 96 PPI Reference -->
+  <g transform="translate(44, 162)">
+    <text x="0" y="20" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="#0066cc">Calibrated 1:1 Target</text>
+    <text x="0" y="36" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" fill="#0066cc">True Physical Scale</text>
+    <rect x="152" y="10" width="260" height="24" rx="5" fill="#e6f0fa" stroke="#0066cc" stroke-width="2"/>
+    <text x="422" y="26" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#0066cc">Draws 10.00 cm (0.0% Error)</text>
+  </g>
+
+  <!-- Row 3: 15.6" 1080p Laptop -->
+  <g transform="translate(44, 222)">
+    <text x="0" y="20" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="#1d1d1f">15.6″ 1080p Laptop</text>
+    <text x="0" y="36" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" fill="#5f5f63">141.2 CSS PPI</text>
+    <rect x="152" y="10" width="176.8" height="24" rx="5" fill="#fff5eb" stroke="#bf4800" stroke-width="1.5"/>
+    <rect x="334.8" y="11" width="170" height="22" rx="4" fill="#fafafc"/>
+    <text x="338.8" y="26" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#bf4800">Draws 6.80 cm (−32.0%)</text>
+  </g>
+
+  <!-- Bottom Formula Card -->
+  <rect x="44" y="286" width="632" height="82" rx="12" fill="#ffffff" stroke="#d8d8de"/>
+  <text x="64" y="314" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#0066cc">DISPLAY METROLOGY FORMULA</text>
+  <text x="64" y="336" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="600" fill="#1d1d1f">Effective CSS PPI = √(W_css² + H_css²) / Diagonal_in   ·   px/mm = CSS_PPI / 25.4</text>
+  <text x="64" y="356" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="11.5" fill="#5f5f63">Keep browser zoom at 100% and calibrate once per monitor or OS scaling factor (100%, 125%, 150%).</text>
+  
+</svg>

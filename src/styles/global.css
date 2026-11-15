@@ -568,108 +568,136 @@
     cursor: pointer;
   }
 
-  /* button-pearl-capsule: #fafafc fill, #333333 text, 13px/500, pill/capsule radius, unified 34px height */
+  /* button-pearl-capsule: clean refined tactile surface */
   .apple-btn-pearl {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
     min-height: 30px;
-    padding: 4px 10px;
-    border-radius: var(--radius-pill);
-    border: 1px solid var(--border-hairline);
-    background-color: var(--surface-pearl);
+    padding: 4px 11px;
+    border-radius: 9px;
+    border: 1px solid color-mix(in srgb, var(--border-hairline) 85%, transparent);
+    background-color: var(--surface-canvas);
     color: var(--text-ink-muted-80);
     font-family: var(--font-sans);
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.25;
-    letter-spacing: -0.18px;
+    letter-spacing: -0.01em;
     cursor: pointer;
+    transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
   }
 
   @media (min-width: 1360px) {
     .apple-btn-pearl {
       gap: 6px;
-      min-height: 34px;
-      padding: 6px 13px;
-      font-size: 13px;
+      min-height: 32px;
+      padding: 5px 12px;
+      font-size: 12.5px;
     }
   }
 
   .apple-btn-pearl:hover {
-    border-color: var(--action-primary-focus);
+    border-color: color-mix(in srgb, var(--action-primary-focus) 55%, var(--border-hairline));
+    background-color: var(--surface-elevated);
     color: var(--text-ink);
   }
 
-  /* configurator-option-chip: pill-shaped tappable cell, 2px #0071e3 border when selected */
+  /* configurator-option-chip: standalone pill OR elevated tab inside segmented pod */
   .apple-option-chip {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 5px;
     min-height: 30px;
-    padding: 4px 10px;
-    border-radius: var(--radius-pill);
+    padding: 4px 11px;
+    border-radius: 9px;
     border: 1px solid var(--border-hairline);
     background-color: var(--surface-canvas);
-    color: var(--text-ink);
+    color: var(--text-ink-muted-80);
     font-family: var(--font-sans);
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.25;
-    letter-spacing: -0.18px;
+    letter-spacing: -0.01em;
     cursor: pointer;
+    transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
   }
 
   @media (min-width: 1360px) {
     .apple-option-chip {
       gap: 5px;
-      min-height: 34px;
-      padding: 5px 13px;
-      font-size: 13px;
+      min-height: 32px;
+      padding: 5px 12px;
+      font-size: 12.5px;
     }
   }
 
   .apple-option-chip:hover {
-    border-color: var(--action-primary-focus);
+    border-color: color-mix(in srgb, var(--action-primary-focus) 50%, var(--border-hairline));
+    color: var(--text-ink);
   }
 
   .apple-option-chip[data-active="true"],
   .apple-option-chip[aria-pressed="true"],
   .apple-option-chip[aria-selected="true"] {
-    border: 2px solid var(--action-primary-focus);
-    padding: 3px 9px;
+    border: 1px solid color-mix(in srgb, var(--action-primary-focus) 45%, var(--border-hairline));
     background-color: var(--accent-link-soft);
     color: var(--accent-link);
     font-weight: 600;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
   }
 
-  @media (min-width: 1360px) {
-    .apple-option-chip[data-active="true"],
-    .apple-option-chip[aria-pressed="true"],
-    .apple-option-chip[aria-selected="true"] {
-      padding: 4px 12px;
-    }
-  }
-
-  /* Segmented control pod for grouped instrument controls */
+  /* Segmented control pod: quiet sculpted track eliminates double pill-in-pill borders */
   .apple-segmented-pod {
     display: inline-flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 4px;
-    border-radius: 16px;
-    border: 1px solid var(--border-hairline);
-    background-color: color-mix(in srgb, var(--surface-canvas) 65%, var(--surface-parchment));
-    padding: 3px 5px;
+    gap: 2px;
+    border-radius: 12px;
+    border: 1px solid color-mix(in srgb, var(--border-hairline) 75%, transparent);
+    background-color: color-mix(in srgb, var(--border-hairline) 32%, var(--surface-parchment));
+    padding: 3px;
+  }
+
+  .apple-segmented-pod .apple-option-chip,
+  .apple-segmented-pod .apple-btn-pearl {
+    min-height: 28px;
+    padding: 3px 10px;
+    border: 1px solid transparent;
+    border-radius: 8.5px;
+    background-color: transparent;
+    box-shadow: none;
   }
 
   @media (min-width: 1360px) {
     .apple-segmented-pod {
-      gap: 5px;
-      padding: 4px 6px;
+      gap: 3px;
+      padding: 3px;
     }
+    .apple-segmented-pod .apple-option-chip,
+    .apple-segmented-pod .apple-btn-pearl {
+      min-height: 30px;
+      padding: 4px 12px;
+    }
+  }
+
+  .apple-segmented-pod .apple-option-chip:hover,
+  .apple-segmented-pod .apple-btn-pearl:hover {
+    border-color: transparent;
+    background-color: color-mix(in srgb, var(--surface-canvas) 65%, transparent);
+    color: var(--text-ink);
+  }
+
+  .apple-segmented-pod .apple-option-chip[data-active="true"],
+  .apple-segmented-pod .apple-option-chip[aria-pressed="true"],
+  .apple-segmented-pod .apple-option-chip[aria-selected="true"] {
+    border: 1px solid color-mix(in srgb, var(--action-primary-focus) 36%, var(--border-hairline));
+    background-color: var(--surface-elevated);
+    color: var(--accent-link);
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 1px rgba(0, 0, 0, 0.03);
   }
 
   /* Compact hero tile for documentation and reference pages */
@@ -851,5 +879,208 @@ html[data-embed-mode="true"] .order-3 {
   .orp-lang-menu {
     transition: none;
     transform: none;
+  }
+}
+
+/* ==========================================================================
+   Purposeful Motion Walkthroughs (GPU-composited, reduced-motion safe)
+   ========================================================================== */
+
+@keyframes orp-fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes orp-tick-grow {
+  0%,
+  12% {
+    opacity: 0.22;
+    transform: scaleY(0.15);
+  }
+  40%,
+  88% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0.22;
+    transform: scaleY(0.15);
+  }
+}
+
+@keyframes orp-line-expand {
+  0%,
+  10% {
+    transform: scaleX(0.08);
+    opacity: 0.4;
+  }
+  45%,
+  85% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(0.08);
+    opacity: 0.4;
+  }
+}
+
+@keyframes orp-cursor-scan {
+  0%,
+  10% {
+    transform: translateX(-210px);
+  }
+  45%,
+  85% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-210px);
+  }
+}
+
+@keyframes orp-guide-slide-x {
+  0%,
+  12% {
+    transform: translateX(-56px);
+  }
+  42%,
+  84% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-56px);
+  }
+}
+
+@keyframes orp-guide-slide-y {
+  0%,
+  18% {
+    transform: translateY(-32px);
+  }
+  48%,
+  84% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-32px);
+  }
+}
+
+@keyframes orp-zone-reveal {
+  0%,
+  36% {
+    opacity: 0.12;
+  }
+  52%,
+  84% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.12;
+  }
+}
+
+@keyframes orp-protractor-sweep {
+  0%,
+  12% {
+    transform: rotate(42deg);
+  }
+  46%,
+  82% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(42deg);
+  }
+}
+
+@keyframes orp-cal-handle {
+  0%,
+  10% {
+    transform: translateX(-72px);
+  }
+  45%,
+  85% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-72px);
+  }
+}
+
+[data-motion-walkthrough] .orp-scene-panel[data-active="true"] {
+  animation: orp-fade-slide-in 200ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.orp-anim {
+  will-change: transform, opacity;
+}
+
+.orp-anim-tick-cm {
+  transform-box: fill-box;
+  transform-origin: center top;
+  animation: orp-tick-grow 5.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.orp-anim-tick-half {
+  transform-box: fill-box;
+  transform-origin: center top;
+  animation: orp-tick-grow 5.6s cubic-bezier(0.22, 1, 0.36, 1) 0.35s infinite;
+}
+
+.orp-anim-tick-mm {
+  transform-box: fill-box;
+  transform-origin: center top;
+  animation: orp-tick-grow 5.6s cubic-bezier(0.22, 1, 0.36, 1) 0.7s infinite;
+}
+
+.orp-anim-line {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: orp-line-expand 5.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.orp-anim-cursor {
+  animation: orp-cursor-scan 5.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.orp-anim-guide-x {
+  animation: orp-guide-slide-x 5.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.orp-anim-guide-y {
+  animation: orp-guide-slide-y 5.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.orp-anim-zone {
+  animation: orp-zone-reveal 5.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.orp-anim-ray {
+  transform-origin: 210px 186px;
+  animation: orp-protractor-sweep 5.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.orp-anim-cal-handle {
+  animation: orp-cal-handle 5.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+[data-motion-walkthrough][data-motion-paused="true"] .orp-anim {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-motion-walkthrough] .orp-scene-panel[data-active="true"],
+  .orp-anim {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
   }
 }

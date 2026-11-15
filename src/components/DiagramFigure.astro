@@ -1,0 +1,75 @@
+---
+interface Props {
+  type?: 'svg' | 'capture';
+  svgSrc?: string;
+  srcBase?: string;
+  width?: number;
+  height?: number;
+  alt: string;
+  title?: string;
+  caption?: string;
+  kicker?: string;
+  eager?: boolean;
+  class?: string;
+}
+
+const {
+  type = 'svg',
+  svgSrc,
+  srcBase,
+  width = 720,
+  height = 400,
+  alt,
+  title,
+  caption,
+  kicker,
+  eager = false,
+  class: extraClass = '',
+} = Astro.props;
+
+const loadingMode = eager ? 'eager' : 'lazy';
+---
+
+<figure class={`rounded-[14px] border border-hairline bg-canvas-elevated p-3 sm:p-4 ${extraClass}`}>
+  {(kicker || title) && (
+    <div class="mb-2.5 flex flex-wrap items-baseline justify-between gap-2 px-0.5">
+      {title && <h3 class="text-sm font-semibold tracking-tight text-ink">{title}</h3>}
+      {kicker && <span class="font-mono text-[11px] font-medium uppercase tracking-wider text-ink-muted-80">{kicker}</span>}
+    </div>
+  )}
+  <div
+    class="overflow-hidden rounded-[10px] border border-hairline/70 bg-canvas-parchment"
+    style={`aspect-ratio: ${width} / ${height};`}
+  >
+    {type === 'capture' && srcBase ? (
+      <picture>
+        <source type="image/avif" srcset={`${srcBase}.avif`} />
+        <source type="image/webp" srcset={`${srcBase}.webp`} />
+        <img
+          src={`${srcBase}.webp`}
+          alt={alt}
+          width={width}
+          height={height}
+          loading={loadingMode}
+          decoding="async"
+          class="block h-full w-full object-cover"
+        />
+      </picture>
+    ) : (
+      <img
+        src={svgSrc}
+        alt={alt}
+        width={width}
+        height={height}
+        loading={loadingMode}
+        decoding="async"
+        class="block h-full w-full object-contain"
+      />
+    )}
+  </div>
+  {caption && (
+    <figcaption class="mt-2.5 px-0.5 text-xs leading-relaxed text-ink-muted-80">
+      {caption}
+    </figcaption>
+  )}
+</figure>

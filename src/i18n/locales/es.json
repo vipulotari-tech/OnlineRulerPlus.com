@@ -2615,5 +2615,132 @@
     "cmAria": "Convertir centímetros",
     "inAria": "Convertir pulgadas",
     "pxAria": "Convertir píxeles CSS"
+  },
+  "visuals": {
+    "walkthrough": {
+      "kicker": "Guía Visual Interactiva",
+      "heading": "Observa Cada Mecánica de Medición en Movimiento",
+      "tablistAria": "Demostraciones animadas de medición",
+      "playLabel": "Reproducir",
+      "pauseLabel": "Pausar",
+      "statusPlaying": "Animación activa",
+      "statusPaused": "Animación en pausa",
+      "scenes": {
+        "ticks": {
+          "label": "Escala de Marcas",
+          "summary": "Las divisiones principales de centímetro se subdividen en medias marcas de 5 mm y trazos finos de 1 mm.",
+          "formula": "1 cm = 10 mm"
+        },
+        "line": {
+          "label": "Expansión de Línea",
+          "summary": "Alinea el borde izquierdo en el cero desplazado y extiende la lectura hasta el extremo del objeto.",
+          "formula": "ΔX = X₂ − X₁"
+        },
+        "drag": {
+          "label": "Guías X/Y",
+          "summary": "Combina guías verticales X y horizontales Y para medir ancho, alto y diagonal exacta.",
+          "formula": "Diag = √(ΔX² + ΔY²)"
+        },
+        "protractor": {
+          "label": "Barrido Angular",
+          "summary": "Gira el segundo rayo alrededor del vértice para leer ángulos primarios, suplementarios y reflejos.",
+          "formula": "θ = atan2(ΔY, ΔX)"
+        },
+        "calibration": {
+          "label": "Calibración con Tarjeta",
+          "summary": "Coloca una tarjeta ISO/IEC 7810 ID-1 en el origen (0, 0) y ajusta el borde hasta que coincida.",
+          "formula": "85.60 × 53.98 mm"
+        }
+      }
+    },
+    "diagrams": {
+      "d01": {
+        "kicker": "FIG. 01 · FLUJO DE USO",
+        "title": "Cómo Usar la Regla Online",
+        "alt": "Diagrama técnico que muestra el origen cero separado del bisel, un objeto sobre la pantalla y la resta ΔX entre guías X1 y X2.",
+        "caption": "Alinea los objetos con el cero interior —no con el bisel— o resta X1 de X2 en cualquier zona del área de trabajo."
+      },
+      "d02": {
+        "kicker": "FIG. 02 · CALIBRACIÓN",
+        "title": "Calibración con Tarjeta y Referencia Personalizada",
+        "alt": "Diagrama de tarjeta bancaria ISO/IEC 7810 ID-1 (85.60 x 53.98 mm) alineada en (0,0) junto a un esquema de error de paralaje.",
+        "caption": "Usa cualquier tarjeta ID-1 estándar (85.60 × 53.98 mm) mirando de frente a 90° para evitar errores de paralaje."
+      },
+      "d03": {
+        "kicker": "FIG. 03 · COMPARATIVA",
+        "title": "Centímetros, Milímetros y Pulgadas",
+        "alt": "Dibujo técnico alineado que compara centímetros y milímetros frente a fracciones de pulgada con equivalencia exacta de 25.4 mm.",
+        "caption": "Equivalencia visual directa entre el sistema métrico (10 mm = 1 cm) y pulgadas (1 in = 25.40 mm exactos)."
+      },
+      "d04": {
+        "kicker": "FIG. 04 · SUBDIVISIONES",
+        "title": "Fracciones de Pulgada",
+        "alt": "Diagrama jerárquico de fracciones binarias desde pulgada entera hasta 1/2, 1/4, 1/8, 1/16 y 1/32 con equivalencias decimales.",
+        "caption": "Cada subdivisión binaria duplica la resolución visual desde 1/2\" (0.500\") hasta 1/32\" (0.0313\")."
+      },
+      "d05": {
+        "kicker": "FIG. 05 · MODO FOTO",
+        "title": "Medición Sobre Fotografías",
+        "alt": "Diagrama en tres pasos: carga local de imagen, calibración de dos puntos sobre referencia conocida y medición real.",
+        "caption": "Todo ocurre localmente en tu navegador: calibra dos puntos conocidos y mide cualquier arista en el mismo plano."
+      },
+      "d06": {
+        "kicker": "FIG. 06 · ESPACIO 2D",
+        "title": "Guías X/Y y Mira de Precisión",
+        "alt": "Plano con guías verticales X, horizontales Y, caja sombreada ΔX por ΔY, línea diagonal y coordenadas del cursor.",
+        "caption": "Combina guías X/Y y el cursor en cruz para capturar medidas rectangulares y diagonales al instante."
+      },
+      "d07": {
+        "kicker": "FIG. 07 · ÁNGULOS",
+        "title": "Transportador y Medición de Ángulos",
+        "alt": "Diagrama de transportador con lectura de ángulo principal de 42.0°, suplementario de 138.0° y reflejo de 318.0°.",
+        "caption": "Mide ángulos agudos, obtusos y completos de 360° con lecturas suplementarias desde cualquier vértice móvil."
+      },
+      "d08": {
+        "kicker": "FIG. 08 · INSTRUMENTOS",
+        "title": "Regla vs Cinta Métrica vs Calibre",
+        "alt": "Comparativa técnica en tres columnas entre regla en pantalla calibrada, cinta flexible y pie de rey.",
+        "caption": "Elige la herramienta según la tolerancia: regla en pantalla para objetos planos, cinta para curvas y calibre para mecanizado."
+      },
+      "d09": {
+        "kicker": "FIG. 09 · FÍSICA DE PANTALLA",
+        "title": "DPI/PPI de Pantalla y Precisión Física",
+        "alt": "Gráfico comparativo donde 378 px CSS miden 11.76 cm en un monitor 81.6 PPI, 6.80 cm en portátil 141.2 PPI y 10.00 cm calibrados.",
+        "caption": "Sin calibrar, los navegadores asumen 96 px CSS/pulgada, generando desviaciones de hasta un 32% entre pantallas."
+      }
+    },
+    "captures": {
+      "workspaceGuides": {
+        "kicker": "CAPTURA REAL · GUÍAS X/Y",
+        "title": "Caja de Guías X/Y y Lectura en Cruz",
+        "alt": "Captura real del área de medición con guías azules X e Y formando una caja medida con valores ΔX, ΔY y diagonal.",
+        "caption": "Las guías móviles X e Y aíslan dimensiones rectangulares con cálculo diagonal automático."
+      },
+      "photoMeasure": {
+        "kicker": "CAPTURA REAL · MODO FOTO",
+        "title": "Calibración por Dos Puntos en Fotos Locales",
+        "alt": "Captura del modo foto con línea naranja calibrada sobre una tarjeta y línea azul midiendo 12.04 cm en una pieza metálica.",
+        "caption": "Usa una tarjeta ID-1 dentro de la imagen para calibrar sin subir archivos privados a ningún servidor."
+      },
+      "protractorOverlay": {
+        "kicker": "CAPTURA REAL · TRANSPORTADOR 360°",
+        "title": "Transportador Circular Transparente de 360°",
+        "alt": "Captura de la interfaz mostrando el dial transportador circular transparente ajustado a 45.0 grados.",
+        "caption": "Superpón el transportador de 360° directamente sobre planos, esquemas o capturas pegadas."
+      }
+    },
+    "sections": {
+      "howToHubKicker": "Guía Visual de Medición",
+      "howToHubHeading": "Diagramas, Demostraciones y Capturas Reales",
+      "howToHubLead": "Cada técnica clave ilustrada paso a paso para calibrar una vez y medir con total confianza.",
+      "calibrationVisualKicker": "Esquema Visual de Calibración",
+      "calibrationVisualHeading": "Comprende la Calibración Real Paso a Paso",
+      "calibrationVisualLead": "Observa por qué varía la escala por defecto de 96 PPI y cómo una tarjeta fija la precisión física.",
+      "faqVisualKicker": "Referencia Visual Rápida",
+      "faqVisualHeading": "Tolerancias y Escala de Pantalla de un Vistazo",
+      "detectorVisualKicker": "Referencia de Escala",
+      "detectorVisualHeading": "Por Qué el PPI Efectivo Determina el Tamaño Físico",
+      "detectorVisualLead": "Compara cómo los mismos píxeles CSS cambian de longitud real según la densidad del panel."
+    }
   }
 }

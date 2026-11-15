@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" fill="none" role="img" aria-label="FIG. 04 · DYADIC FRACTIONS OF AN INCH">
+  <defs>
+    <pattern id="grid-04" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ededf2" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+  <rect x="1" y="1" width="718" height="398" rx="14" fill="#fafafc" stroke="#d8d8de" stroke-width="1.5"/>
+  <rect x="12" y="12" width="696" height="376" rx="10" fill="url(#grid-04)"/>
+  <g transform="translate(28, 26)">
+    <rect x="0" y="0" width="277.6" height="22" rx="11" fill="#ffffff" stroke="#d8d8de" stroke-width="1"/>
+    <circle cx="12" cy="11" r="3" fill="#0066cc"/>
+    <text x="21" y="14.5" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#5f5f63" letter-spacing="0.4">FIG. 04 · DYADIC FRACTIONS OF AN INCH</text>
+  </g>
+
+  <rect x="44" y="92" width="632" height="152" rx="12" fill="#ffffff" stroke="#d8d8de" stroke-width="1.5"/>
+  <line x1="68" y1="92" x2="68" y2="204" stroke="#1d1d1f" stroke-width="2.5"/><line x1="86" y1="92" x2="86" y2="116" stroke="#8c8c94" stroke-width="1"/><line x1="104" y1="92" x2="104" y2="130" stroke="#5f5f63" stroke-width="1.2"/><line x1="122" y1="92" x2="122" y2="116" stroke="#8c8c94" stroke-width="1"/><line x1="140" y1="92" x2="140" y2="146" stroke="#1d1d1f" stroke-width="1.5"/><line x1="158" y1="92" x2="158" y2="116" stroke="#8c8c94" stroke-width="1"/><line x1="176" y1="92" x2="176" y2="130" stroke="#5f5f63" stroke-width="1.2"/><line x1="194" y1="92" x2="194" y2="116" stroke="#8c8c94" stroke-width="1"/><line x1="212" y1="92" x2="212" y2="164" stroke="#1d1d1f" stroke-width="1.8"/><line x1="230" y1="92" x2="230" y2="116" stroke="#8c8c94" stroke-width="1"/><line x1="248" y1="92" x2="248" y2="130" stroke="#5f5f63" stroke-width="1.2"/><line x1="266" y1="92" x2="266" y2="116" stroke="#8c8c94" stroke-width="1"/><line x1="284" y1="92" x2="284" y2="146" stroke="#1d1d1f" stroke-width="1.5"/><line x1="302" y1="92" x2="302" y2="116" stroke="#8c8c94" stroke-width="1"/><line x1="320" y1="92" x2="320" y2="130" stroke="#5f5f63" stroke-width="1.2"/><line x1="338" y1="92" x2="338" y2="116" stroke="#8c8c94" stroke-width="1"/><line x1="356" y1="92" x2="356" y2="184" stroke="#0066cc" stroke-width="2.2"/><line x1="374" y1="92" x2="374" y2="116" stroke="#8c8c94" stroke-width="1"/><line x1="392" y1="92" x2="392" y2="130" stroke="#5f5f63" stroke-width="1.2"/><line x1="410" y1="92" x2="410" y2="116" stroke="#8c8c94" stroke-width="1"/><line x1="428" y1="92" x2="428" y2="146" stroke="#1d1d1f" stroke-width="1.5"/><line x1="446" y1="92" x2="446" y2="116" stroke="#8c8c94" stroke-width="1"/><line x1="464" y1="92" x2="464" y2="130" stroke="#5f5f63" stroke-width="1.2"/><line x1="482" y1="92" x2="482" y2="116" stroke="#8c8c94" stroke-width="1"/><line x1="500" y1="92" x2="500" y2="164" stroke="#1d1d1f" stroke-width="1.8"/><line x1="518" y1="92" x2="518" y2="116" stroke="#8c8c94" stroke-width="1"/><line x1="536" y1="92" x2="536" y2="130" stroke="#5f5f63" stroke-width="1.2"/><line x1="554" y1="92" x2="554" y2="116" stroke="#8c8c94" stroke-width="1"/><line x1="572" y1="92" x2="572" y2="146" stroke="#1d1d1f" stroke-width="1.5"/><line x1="590" y1="92" x2="590" y2="116" stroke="#8c8c94" stroke-width="1"/><line x1="608" y1="92" x2="608" y2="130" stroke="#5f5f63" stroke-width="1.2"/><line x1="626" y1="92" x2="626" y2="116" stroke="#8c8c94" stroke-width="1"/><line x1="644" y1="92" x2="644" y2="204" stroke="#1d1d1f" stroke-width="2.5"/>
+  <text x="68" y="226" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="700" fill="#1d1d1f">0″</text><text x="356" y="204" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" font-weight="700" fill="#0066cc">1/2″</text><text x="212" y="184" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" font-weight="700" fill="#1d1d1f">1/4″</text><text x="500" y="184" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" font-weight="700" fill="#1d1d1f">3/4″</text><text x="140" y="164" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#5f5f63">1/8</text><text x="284" y="164" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#5f5f63">3/8</text><text x="428" y="164" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#5f5f63">5/8</text><text x="572" y="164" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#5f5f63">7/8</text><text x="644" y="226" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="700" fill="#1d1d1f">1″</text>
+  <!-- Highlight 5/16" sample -->
+  <line x1="248" y1="92" x2="248" y2="244" stroke="#0066cc" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <text x="248" y="82" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#0066cc">10/32 → 5/16″</text>
+  
+    <rect x="44" y="266" width="120" height="94" rx="10" fill="#e6f0fa" stroke="#8ec0f2"/>
+    <text x="56" y="294" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="700" fill="#0066cc">1/2″</text>
+    <text x="56" y="318" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#1d1d1f">0.500 in</text>
+    <text x="56" y="336" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#5f5f63">12.70 mm</text>
+    
+    <rect x="172" y="266" width="120" height="94" rx="10" fill="#ffffff" stroke="#d8d8de"/>
+    <text x="184" y="294" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="700" fill="#1d1d1f">1/4″</text>
+    <text x="184" y="318" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#1d1d1f">0.250 in</text>
+    <text x="184" y="336" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#5f5f63">6.35 mm</text>
+    
+    <rect x="300" y="266" width="120" height="94" rx="10" fill="#ffffff" stroke="#d8d8de"/>
+    <text x="312" y="294" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="700" fill="#1d1d1f">1/8″</text>
+    <text x="312" y="318" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#1d1d1f">0.125 in</text>
+    <text x="312" y="336" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#5f5f63">3.18 mm</text>
+    
+    <rect x="428" y="266" width="120" height="94" rx="10" fill="#ffffff" stroke="#d8d8de"/>
+    <text x="440" y="294" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="700" fill="#5f5f63">1/16″</text>
+    <text x="440" y="318" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#1d1d1f">0.0625 in</text>
+    <text x="440" y="336" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#5f5f63">1.59 mm</text>
+    
+    <rect x="556" y="266" width="120" height="94" rx="10" fill="#ffffff" stroke="#d8d8de"/>
+    <text x="568" y="294" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="700" fill="#5f5f63">1/32″</text>
+    <text x="568" y="318" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#1d1d1f">0.0313 in</text>
+    <text x="568" y="336" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#5f5f63">0.79 mm</text>
+    
+  
+</svg>

@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import HelpModal from '../../components/HelpModal.astro';
 import Footer from '../../components/Footer.astro';
+import DiagramFigure from '../../components/DiagramFigure.astro';
+import MotionWalkthrough from '../../components/MotionWalkthrough.astro';
 import {
   LOCALE_META,
   getLocaleStaticPaths,
@@ -239,6 +241,40 @@ const structuredData = {
               </table>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="calibration-visual-blueprint" class="apple-tile-parchment border-t border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 space-y-8">
+        <div class="max-w-3xl">
+          <p class="type-kicker">{dict.visuals.sections.calibrationVisualKicker}</p>
+          <h2 class="mt-1.5 type-display-lg text-ink">{dict.visuals.sections.calibrationVisualHeading}</h2>
+          <p class="mt-3 max-w-2xl type-body text-ink-muted-80">{dict.visuals.sections.calibrationVisualLead}</p>
+        </div>
+
+        <MotionWalkthrough
+          locale={locale}
+          scenes={['calibration', 'ticks']}
+          defaultScene="calibration"
+          id="calibration-motion-walkthrough"
+        />
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <DiagramFigure
+            svgSrc="/visuals/diagrams/02-credit-card-calibration.svg"
+            kicker={dict.visuals.diagrams.d02.kicker}
+            title={dict.visuals.diagrams.d02.title}
+            alt={dict.visuals.diagrams.d02.alt}
+            caption={dict.visuals.diagrams.d02.caption}
+          />
+          <DiagramFigure
+            svgSrc="/visuals/diagrams/09-screen-dpi-ppi-accuracy.svg"
+            kicker={dict.visuals.diagrams.d09.kicker}
+            title={dict.visuals.diagrams.d09.title}
+            alt={dict.visuals.diagrams.d09.alt}
+            caption={dict.visuals.diagrams.d09.caption}
+          />
         </div>
       </div>
     </section>

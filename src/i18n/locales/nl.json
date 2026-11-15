@@ -2615,5 +2615,132 @@
     "cmAria": "Centimeters omrekenen",
     "inAria": "Inches omrekenen",
     "pxAria": "CSS-pixels omrekenen"
+  },
+  "visuals": {
+    "walkthrough": {
+      "kicker": "Interactieve Bewegingsgids",
+      "heading": "Bekijk Elke Meetmethode in Beweging",
+      "tablistAria": "Geanimeerde meetdemonstraties",
+      "playLabel": "Afspelen",
+      "pauseLabel": "Pauzeren",
+      "statusPlaying": "Animatie speelt",
+      "statusPaused": "Animatie gepauzeerd",
+      "scenes": {
+        "ticks": {
+          "label": "Schaalverdeling",
+          "summary": "Hoofdstrepen per centimeter worden netjes onderverdeeld in 5 mm- en 1 mm-streepjes.",
+          "formula": "1 cm = 10 mm"
+        },
+        "line": {
+          "label": "Lijnuitbreiding",
+          "summary": "Lijn de linkerrand uit op het verzonken nulpunt en lees de totale overspanning aan het uiteinde.",
+          "formula": "ΔX = X₂ − X₁"
+        },
+        "drag": {
+          "label": "X/Y-Hulplijnen",
+          "summary": "Combineer verticale X- en horizontale Y-hulplijnen om breedte, hoogte en diagonaal direct af te lezen.",
+          "formula": "Diag = √(ΔX² + ΔY²)"
+        },
+        "protractor": {
+          "label": "Gradenboog-Zwaai",
+          "summary": "Draai de tweede straal rond het hoekpunt voor directe lezing van hoofd-, supplement- en overstrekte hoek.",
+          "formula": "θ = atan2(ΔY, ΔX)"
+        },
+        "calibration": {
+          "label": "Kaartkalibratie",
+          "summary": "Leg een ISO/IEC 7810 ID-1 pasje tegen hoek (0, 0) en sleep de hendel precies gelijk met de rand.",
+          "formula": "85.60 × 53.98 mm"
+        }
+      }
+    },
+    "diagrams": {
+      "d01": {
+        "kicker": "FIG. 01 · WERKWIJZE",
+        "title": "Hoe Gebruik Je een Online Liniaal",
+        "alt": "Technisch diagram met verzonken nulpunt vrij van de rand, voorwerp op het scherm en ΔX-aftrekking tussen X1 en X2.",
+        "caption": "Lijn voorwerpen uit met het verzonken 0-punt — nooit met de schermrand — of trek X1 af van X2 op het werkveld."
+      },
+      "d02": {
+        "kicker": "FIG. 02 · KALIBRATIE",
+        "title": "Kalibreren met Bankpas of Eigen Referentie",
+        "alt": "Schema van een ISO/IEC 7810 ID-1 pas (85.60 x 53.98 mm) op (0,0) inclusief parallax-uitleg.",
+        "caption": "Gebruik elke standaard ID-1-pas (85.60 × 53.98 mm) en kijk recht van voren (90°) om parallax te voorkomen."
+      },
+      "d03": {
+        "kicker": "FIG. 03 · SCHAALVERGELIJKING",
+        "title": "Centimeters, Millimeters & Inches",
+        "alt": "Uitgelijnde tekening die cm/mm vergelijkt met inch-breuken op basis van exact 25.40 mm per inch.",
+        "caption": "Direct visueel verband tussen metrisch (10 mm = 1 cm) en imperiaal (1 inch = 25.40 mm exact)."
+      },
+      "d04": {
+        "kicker": "FIG. 04 · ONDERVERDELING",
+        "title": "Breuken van een Inch",
+        "alt": "Binaire verdeling van een hele inch tot 1/2, 1/4, 1/8, 1/16 en 1/32 met decimale waarden.",
+        "caption": "Elke halvering verdubbelt de streepdichtheid van 1/2\" (0.500\") tot 1/32\" (0.0313\")."
+      },
+      "d05": {
+        "kicker": "FIG. 05 · FOTOMODUS",
+        "title": "Meten op Basis van Foto’s",
+        "alt": "Drie-stappendiagram: lokaal foto laden, 2-punts kalibratie op bekend object en meting op schaal.",
+        "caption": "Fotomodus draait 100% lokaal: kalibreer twee bekende punten en meet elke afstand in hetzelfde vlak."
+      },
+      "d06": {
+        "kicker": "FIG. 06 · 2D-WERKVELD",
+        "title": "X/Y-Hulplijnen & Dradenkruis",
+        "alt": "Blauwdruk met verschuifbare X- en Y-hulplijnen, ΔX×ΔY-vlak, diagonaal en live dradenkruis.",
+        "caption": "Combineer X/Y-hulplijnen en dradenkruis om breedte, hoogte en diagonaal in één oogopslag af te lezen."
+      },
+      "d07": {
+        "kicker": "FIG. 07 · HOEKEN",
+        "title": "Gradenboog & Hoekmeting",
+        "alt": "Gradenboogdiagram met 42.0° hoofdhoek, 138.0° supplementaire hoek en 318.0° overstrekte hoek.",
+        "caption": "Meet scherpe, stompe en volledige 360°-hoeken rondom elk verplaatsbaar hoekpunt."
+      },
+      "d08": {
+        "kicker": "FIG. 08 · KEUZEHULP",
+        "title": "Liniaal vs Meetlint vs Schuifmaat",
+        "alt": "Driekoloms vergelijking tussen scherm-liniaal, flexibel meetlint en schuifmaat.",
+        "caption": "Kies het juiste instrument per tolerantie: scherm-liniaal voor platte objecten, lint voor bochten, schuifmaat voor boringen."
+      },
+      "d09": {
+        "kicker": "FIG. 09 · SCHERMFYSICA",
+        "title": "Scherm-DPI/PPI & Fysieke Nauwkeurigheid",
+        "alt": "Grafiek waarin 378 CSS px uitkomt op 11.76 cm bij 81.6 PPI, 6.80 cm bij 141.2 PPI en 10.00 cm gekalibreerd.",
+        "caption": "Ongekalibreerde browsers rekenen met 96 CSS px/inch, wat tot 32% afwijking geeft tussen schermen."
+      }
+    },
+    "captures": {
+      "workspaceGuides": {
+        "kicker": "LIVE UI · X/Y-LIJNEN",
+        "title": "Nauwkeurig X/Y-Kader & Dradenkruis",
+        "alt": "Screenshot van het werkveld met blauwe X- en Y-hulplijnen en live ΔX-, ΔY- en diagonaalmeting.",
+        "caption": "Verschuifbare X- en Y-lijnen zetten rechthoekige maten direct om in een exacte diagonaal."
+      },
+      "photoMeasure": {
+        "kicker": "LIVE UI · FOTOMODUS",
+        "title": "Tweepuntskalibratie op Lokale Foto’s",
+        "alt": "Screenshot van fotomodus met oranje kalibratielijn op kaart en blauwe lijn van 12.04 cm op onderdeel.",
+        "caption": "Kalibreer met een ID-1-pasje in een foto en meet privé zonder bestanden te uploaden."
+      },
+      "protractorOverlay": {
+        "kicker": "LIVE UI · 360° GRADENBOOG",
+        "title": "Transparante 360°-Gradenboog",
+        "alt": "Screenshot van het liniaalwerkveld met transparante 360°-gradenboog ingesteld op 45.0 graden.",
+        "caption": "Leg de interactieve 360°-schaal direct over tekeningen, schema’s of geplakte schermafdrukken."
+      }
+    },
+    "sections": {
+      "howToHubKicker": "Visuele Meetgids",
+      "howToHubHeading": "Diagrammen, Animaties & Echte Schermafdrukken",
+      "howToHubLead": "Elke meetstap overzichtelijk uitgelegd zodat je eenmalig kalibreert en nauwkeurig meet.",
+      "calibrationVisualKicker": "Kalibratie-Overzicht",
+      "calibrationVisualHeading": "Ware Schaalkalibratie Stap voor Stap",
+      "calibrationVisualLead": "Zie waarom de standaardwaarde van 96 PPI afwijkt per scherm en hoe één pasje dat oplost.",
+      "faqVisualKicker": "Visuele Snelle Referentie",
+      "faqVisualHeading": "Toleranties & Schermdichtheid in Eén Oogopslag",
+      "detectorVisualKicker": "Scherm-Schaalreferentie",
+      "detectorVisualHeading": "Waarom Effectieve CSS PPI de Fysieke Maat Bepaalt",
+      "detectorVisualLead": "Vergelijk hoe gelijke aantallen CSS-pixels op verschillende monitoren en laptops krimpen of uitrekken."
+    }
   }
 }

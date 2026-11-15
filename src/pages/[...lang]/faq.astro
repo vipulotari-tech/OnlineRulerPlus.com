@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import HelpModal from '../../components/HelpModal.astro';
 import Footer from '../../components/Footer.astro';
+import DiagramFigure from '../../components/DiagramFigure.astro';
 import {
   LOCALE_META,
   getLocaleStaticPaths,
@@ -126,6 +127,32 @@ const structuredData = [
               </details>
             ))
           }
+        </div>
+      </div>
+    </section>
+
+    <section id="faq-visual-reference" class="apple-tile-parchment border-t border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 space-y-6">
+        <div class="max-w-3xl">
+          <p class="type-kicker">{dict.visuals.sections.faqVisualKicker}</p>
+          <h2 class="mt-1.5 type-display-md text-ink">{dict.visuals.sections.faqVisualHeading}</h2>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <DiagramFigure
+            svgSrc="/visuals/diagrams/08-ruler-tape-caliper-comparison.svg"
+            kicker={dict.visuals.diagrams.d08.kicker}
+            title={dict.visuals.diagrams.d08.title}
+            alt={dict.visuals.diagrams.d08.alt}
+            caption={dict.visuals.diagrams.d08.caption}
+          />
+          <DiagramFigure
+            svgSrc="/visuals/diagrams/09-screen-dpi-ppi-accuracy.svg"
+            kicker={dict.visuals.diagrams.d09.kicker}
+            title={dict.visuals.diagrams.d09.title}
+            alt={dict.visuals.diagrams.d09.alt}
+            caption={dict.visuals.diagrams.d09.caption}
+          />
         </div>
       </div>
     </section>

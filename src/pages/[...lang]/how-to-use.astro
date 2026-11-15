@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import HelpModal from '../../components/HelpModal.astro';
 import Footer from '../../components/Footer.astro';
+import DiagramFigure from '../../components/DiagramFigure.astro';
+import MotionWalkthrough from '../../components/MotionWalkthrough.astro';
 import {
   LOCALE_META,
   getLocaleStaticPaths,
@@ -226,6 +228,96 @@ const structuredData = [
               </ul>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="visual-field-guide" class="apple-tile-parchment border-t border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 space-y-8">
+        <div class="max-w-3xl">
+          <p class="type-kicker">{dict.visuals.sections.howToHubKicker}</p>
+          <h2 class="mt-1.5 type-display-lg text-ink">{dict.visuals.sections.howToHubHeading}</h2>
+          <p class="mt-3 max-w-2xl type-body text-ink-muted-80">{dict.visuals.sections.howToHubLead}</p>
+        </div>
+
+        <MotionWalkthrough locale={locale} id="howto-motion-walkthrough" />
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <DiagramFigure
+            svgSrc="/visuals/diagrams/01-how-to-use-online-ruler.svg"
+            kicker={dict.visuals.diagrams.d01.kicker}
+            title={dict.visuals.diagrams.d01.title}
+            alt={dict.visuals.diagrams.d01.alt}
+            caption={dict.visuals.diagrams.d01.caption}
+          />
+          <DiagramFigure
+            svgSrc="/visuals/diagrams/06-xy-guides-crosshair.svg"
+            kicker={dict.visuals.diagrams.d06.kicker}
+            title={dict.visuals.diagrams.d06.title}
+            alt={dict.visuals.diagrams.d06.alt}
+            caption={dict.visuals.diagrams.d06.caption}
+          />
+          <DiagramFigure
+            svgSrc="/visuals/diagrams/03-cm-mm-inch-comparison.svg"
+            kicker={dict.visuals.diagrams.d03.kicker}
+            title={dict.visuals.diagrams.d03.title}
+            alt={dict.visuals.diagrams.d03.alt}
+            caption={dict.visuals.diagrams.d03.caption}
+          />
+          <DiagramFigure
+            svgSrc="/visuals/diagrams/04-inch-fractions.svg"
+            kicker={dict.visuals.diagrams.d04.kicker}
+            title={dict.visuals.diagrams.d04.title}
+            alt={dict.visuals.diagrams.d04.alt}
+            caption={dict.visuals.diagrams.d04.caption}
+          />
+          <DiagramFigure
+            svgSrc="/visuals/diagrams/05-photo-measurement.svg"
+            kicker={dict.visuals.diagrams.d05.kicker}
+            title={dict.visuals.diagrams.d05.title}
+            alt={dict.visuals.diagrams.d05.alt}
+            caption={dict.visuals.diagrams.d05.caption}
+          />
+          <DiagramFigure
+            svgSrc="/visuals/diagrams/07-protractor-angle-measurement.svg"
+            kicker={dict.visuals.diagrams.d07.kicker}
+            title={dict.visuals.diagrams.d07.title}
+            alt={dict.visuals.diagrams.d07.alt}
+            caption={dict.visuals.diagrams.d07.caption}
+          />
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <DiagramFigure
+            type="capture"
+            srcBase="/visuals/captures/workspace-guides"
+            width={1200}
+            height={534}
+            kicker={dict.visuals.captures.workspaceGuides.kicker}
+            title={dict.visuals.captures.workspaceGuides.title}
+            alt={dict.visuals.captures.workspaceGuides.alt}
+            caption={dict.visuals.captures.workspaceGuides.caption}
+          />
+          <DiagramFigure
+            type="capture"
+            srcBase="/visuals/captures/photo-measure"
+            width={1200}
+            height={533}
+            kicker={dict.visuals.captures.photoMeasure.kicker}
+            title={dict.visuals.captures.photoMeasure.title}
+            alt={dict.visuals.captures.photoMeasure.alt}
+            caption={dict.visuals.captures.photoMeasure.caption}
+          />
+          <DiagramFigure
+            type="capture"
+            srcBase="/visuals/captures/protractor-overlay"
+            width={1200}
+            height={534}
+            kicker={dict.visuals.captures.protractorOverlay.kicker}
+            title={dict.visuals.captures.protractorOverlay.title}
+            alt={dict.visuals.captures.protractorOverlay.alt}
+            caption={dict.visuals.captures.protractorOverlay.caption}
+          />
         </div>
       </div>
     </section>

@@ -2615,5 +2615,132 @@
     "cmAria": "Convert centimeters",
     "inAria": "Convert inches",
     "pxAria": "Convert CSS pixels"
+  },
+  "visuals": {
+    "walkthrough": {
+      "kicker": "Interactive Motion Guide",
+      "heading": "See Every Measurement Mechanics in Motion",
+      "tablistAria": "Measurement motion demonstrations",
+      "playLabel": "Play Motion",
+      "pauseLabel": "Pause Motion",
+      "statusPlaying": "Motion playing",
+      "statusPaused": "Motion paused",
+      "scenes": {
+        "ticks": {
+          "label": "Tick Progression",
+          "summary": "Major centimeter divisions subdivide cleanly into 5 mm half-marks and 1 mm fine graduations.",
+          "formula": "1 cm = 10 mm"
+        },
+        "line": {
+          "label": "Span Expansion",
+          "summary": "Anchor the left edge on the inset zero datum and expand the span reading to the far object boundary.",
+          "formula": "ΔX = X₂ − X₁"
+        },
+        "drag": {
+          "label": "X/Y Drag Guides",
+          "summary": "Drop vertical X and horizontal Y guides together to inspect width, height, and true diagonal distance.",
+          "formula": "Diag = √(ΔX² + ΔY²)"
+        },
+        "protractor": {
+          "label": "Protractor Sweep",
+          "summary": "Sweep the second ray around the center vertex to read primary, supplementary, and reflex angles simultaneously.",
+          "formula": "θ = atan2(ΔY, ΔX)"
+        },
+        "calibration": {
+          "label": "Card Calibration",
+          "summary": "Align a physical ISO/IEC 7810 ID-1 bank card against the (0, 0) datum and drag the border handle flush.",
+          "formula": "85.60 × 53.98 mm"
+        }
+      }
+    },
+    "diagrams": {
+      "d01": {
+        "kicker": "FIG. 01 · WORKFLOW",
+        "title": "How to Use an Online Ruler",
+        "alt": "Technical diagram showing inset zero datum away from the bezel, an object placed against the screen, and ΔX subtraction between X1 and X2 guides.",
+        "caption": "Align objects with the inset 0 datum—never the outer bezel—or subtract X1 from X2 anywhere along the stage."
+      },
+      "d02": {
+        "kicker": "FIG. 02 · CALIBRATION",
+        "title": "Credit Card & Custom Reference Calibration",
+        "alt": "Diagram of an ISO/IEC 7810 ID-1 bank card (85.60 x 53.98 mm) aligned to the top-left (0,0) corner with an optical parallax illustration.",
+        "caption": "Use any standard ISO ID-1 card (85.60 × 53.98 mm) or known reference object, viewing straight-on at 90° to avoid parallax shift."
+      },
+      "d03": {
+        "kicker": "FIG. 03 · SCALE COMPARISON",
+        "title": "Centimeters, Millimeters & Inches",
+        "alt": "Aligned dual-scale technical drawing comparing centimeter/millimeter markings against fractional inch ticks with exact 25.4 mm conversion.",
+        "caption": "Direct visual mapping between metric (10 mm = 1 cm) and imperial scales anchored on 1 inch = 25.40 mm exact."
+      },
+      "d04": {
+        "kicker": "FIG. 04 · SUBDIVISIONS",
+        "title": "Fractions of an Inch",
+        "alt": "Hierarchical binary fraction diagram from whole inch to halves, quarters, eighths, sixteenths, and thirty-seconds with decimal equivalents.",
+        "caption": "Every halving step increases tick precision and doubles denominator resolution from 1/2\" (0.500\") down to 1/32\" (0.0313\")."
+      },
+      "d05": {
+        "kicker": "FIG. 05 · PHOTO MODE",
+        "title": "Measuring Objects Using Photo Measurement",
+        "alt": "Three-step diagram illustrating local photo upload, 2-point reference calibration on a known object, and true-scale measurement on target geometry.",
+        "caption": "Photo Mode runs 100% locally in your browser: define a 2-point reference span first, then measure any edge or box on the same plane."
+      },
+      "d06": {
+        "kicker": "FIG. 06 · 2D STAGE",
+        "title": "X/Y Guides & Crosshair Measurement",
+        "alt": "Workspace blueprint showing paired X and Y draggable guide lines forming a shaded ΔX by ΔY rectangle, diagonal span, and live crosshair badge.",
+        "caption": "Combine vertical X guides, horizontal Y guides, and live cursor crosshairs to capture rectangular and diagonal spans in one pass."
+      },
+      "d07": {
+        "kicker": "FIG. 07 · ANGLES",
+        "title": "Protractor & Angle Measurement",
+        "alt": "Dual-ray protractor diagram reading a 42.0 degree primary angle alongside 138.0 degree supplementary and 318.0 degree reflex readouts.",
+        "caption": "Measure acute, obtuse, and 360° reflex angles with live supplementary and inverse telemetry anchored at any movable vertex."
+      },
+      "d08": {
+        "kicker": "FIG. 08 · TOOL SELECTION",
+        "title": "Ruler vs Measuring Tape vs Caliper",
+        "alt": "Three-column engineering comparison between a calibrated on-screen ruler, flexible measuring tape, and Vernier caliper.",
+        "caption": "Match the instrument to task tolerance: on-screen ruler for flat sub-millimeter objects, tape for long curves, and caliper for bores."
+      },
+      "d09": {
+        "kicker": "FIG. 09 · DISPLAY PHYSICS",
+        "title": "Screen DPI/PPI & Physical Accuracy",
+        "alt": "Comparison chart showing a 378 CSS px line rendering at 11.76 cm on an 81.6 PPI monitor, 6.80 cm on a 141.2 PPI laptop, and 10.00 cm when calibrated.",
+        "caption": "Uncalibrated browsers assume 96 CSS px/in, introducing up to 32% error across panels until calibrated to true physical pixel density."
+      }
+    },
+    "captures": {
+      "workspaceGuides": {
+        "kicker": "LIVE UI · X/Y GUIDES",
+        "title": "Precision X/Y Guide Box & Crosshair Readout",
+        "alt": "Captured workspace view showing vertical and horizontal blue guide lines isolating a rectangular span with live ΔX, ΔY, and diagonal readout.",
+        "caption": "Draggable X and Y guides lock rectangular spans directly onto the calibrated canvas with instant diagonal calculation."
+      },
+      "photoMeasure": {
+        "kicker": "LIVE UI · PHOTO MODE",
+        "title": "Two-Point Reference Calibration on Local Photos",
+        "alt": "Photo measurement interface showing an orange reference calibration line across a card and a blue 12.04 cm measurement line across a metal plate.",
+        "caption": "Calibrate from an ID-1 card or known dimension inside any photo and measure parts privately without uploading files."
+      },
+      "protractorOverlay": {
+        "kicker": "LIVE UI · 360° PROTRACTOR",
+        "title": "Transparent 360° Protractor Overlay",
+        "alt": "Screen ruler workspace displaying the interactive transparent 360 degree circular protractor dial set to 45.0 degrees.",
+        "caption": "Overlay the interactive 360° dial directly on top of diagrams, schematics, or pasted screenshots."
+      }
+    },
+    "sections": {
+      "howToHubKicker": "Visual Measurement Field Guide",
+      "howToHubHeading": "Diagrams, Live Motion & Workspace Captures",
+      "howToHubLead": "Every core concept illustrated clearly so you can calibrate once, align accurately, and measure with confidence.",
+      "calibrationVisualKicker": "Visual Calibration Blueprint",
+      "calibrationVisualHeading": "See True-Scale Calibration Step by Step",
+      "calibrationVisualLead": "Understand why 96 PPI defaults drift across displays and how single-card alignment locks physical accuracy.",
+      "faqVisualKicker": "Visual Quick Reference",
+      "faqVisualHeading": "Instrument Tolerances & Display Scaling at a Glance",
+      "detectorVisualKicker": "Display Scale Reference",
+      "detectorVisualHeading": "Why Effective CSS PPI Governs Physical Size",
+      "detectorVisualLead": "Compare how identical CSS pixel counts stretch or shrink across uncalibrated monitors and high-DPI laptop screens."
+    }
   }
 }

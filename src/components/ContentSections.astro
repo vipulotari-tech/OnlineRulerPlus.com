@@ -1,13 +1,17 @@
 ---
 import { DEFAULT_LOCALE, localizedPath, type Locale } from '../i18n/config.ts';
 import { getDict, renderInlineMarkup } from '../i18n/index.ts';
+import DiagramFigure from './DiagramFigure.astro';
+import MotionWalkthrough from './MotionWalkthrough.astro';
 
 interface Props {
   locale?: Locale;
 }
 
 const { locale = DEFAULT_LOCALE } = Astro.props;
-const c = getDict(locale).home;
+const dict = getDict(locale);
+const c = dict.home;
+const v = dict.visuals;
 ---
 
 <!-- SECTION 1: ONLINE RULER GUIDE -->
@@ -57,6 +61,10 @@ const c = getDict(locale).home;
           </article>
         ))
       }
+    </div>
+
+    <div class="mt-8">
+      <MotionWalkthrough locale={locale} id="home-motion-walkthrough" />
     </div>
   </div>
 </section>
@@ -162,6 +170,23 @@ const c = getDict(locale).home;
           set:html={renderInlineMarkup(c.ppiFormula, locale)}
         />
       </div>
+    </div>
+
+    <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
+      <DiagramFigure
+        svgSrc="/visuals/diagrams/08-ruler-tape-caliper-comparison.svg"
+        kicker={v.diagrams.d08.kicker}
+        title={v.diagrams.d08.title}
+        alt={v.diagrams.d08.alt}
+        caption={v.diagrams.d08.caption}
+      />
+      <DiagramFigure
+        svgSrc="/visuals/diagrams/09-screen-dpi-ppi-accuracy.svg"
+        kicker={v.diagrams.d09.kicker}
+        title={v.diagrams.d09.title}
+        alt={v.diagrams.d09.alt}
+        caption={v.diagrams.d09.caption}
+      />
     </div>
   </div>
 </section>

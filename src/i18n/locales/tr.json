@@ -2615,5 +2615,132 @@
     "cmAria": "Santimetre dönüştür",
     "inAria": "İnç dönüştür",
     "pxAria": "CSS piksel dönüştür"
+  },
+  "visuals": {
+    "walkthrough": {
+      "kicker": "Etkileşimli Hareket Rehberi",
+      "heading": "Her Ölçüm Mekaniğini Hareket Halinde Görün",
+      "tablistAria": "Hareketli ölçüm gösterimleri",
+      "playLabel": "Oynat",
+      "pauseLabel": "Duraklat",
+      "statusPlaying": "Animasyon oynatılıyor",
+      "statusPaused": "Animasyon duraklatıldı",
+      "scenes": {
+        "ticks": {
+          "label": "Çizgi Kademesi",
+          "summary": "Ana santimetre çizgileri sırasıyla 5 mm yarım çizgilere ve ince 1 mm aralıklara bölünür.",
+          "formula": "1 cm = 10 mm"
+        },
+        "line": {
+          "label": "Ölçü Çizgisi",
+          "summary": "Sol kenarı içerideki sıfır noktasına yaslayın ve karşı uca kadar net uzunluğu okuyun.",
+          "formula": "ΔX = X₂ − X₁"
+        },
+        "drag": {
+          "label": "X/Y Kılavuzları",
+          "summary": "Dikey X ve yatay Y kılavuz çizgilerini birlikte kullanarak en, boy ve diyagonal ölçün.",
+          "formula": "Diag = √(ΔX² + ΔY²)"
+        },
+        "protractor": {
+          "label": "Açı Taraması",
+          "summary": "İkinci ışını merkez etrafında döndürerek ana, bütünler ve tam açı değerlerini anında görün.",
+          "formula": "θ = atan2(ΔY, ΔX)"
+        },
+        "calibration": {
+          "label": "Kart Kalibrasyonu",
+          "summary": "ISO/IEC 7810 ID-1 banka kartını (0, 0) köşesine dayayın ve kenar tutamacını hizalayın.",
+          "formula": "85.60 × 53.98 mm"
+        }
+      }
+    },
+    "diagrams": {
+      "d01": {
+        "kicker": "ŞEKİL 01 · KULLANIM",
+        "title": "Online Cetvel Nasıl Kullanılır",
+        "alt": "Çerçeveden içerideki sıfır başlangıç çizgisini, nesne hizalamasını ve X1-X2 arası ΔX farkını gösteren teknik çizim.",
+        "caption": "Nesneyi ekran çerçevesine değil içerideki 0 çizgisine dayayın veya çalışma alanındaki X1–X2 farkını okuyun."
+      },
+      "d02": {
+        "kicker": "ŞEKİL 02 · KALİBRASYON",
+        "title": "Kredi Kartı ve Özel Referans Kalibrasyonu",
+        "alt": "Sol üst (0,0) noktasına hizalanmış ISO/IEC 7810 ID-1 kartı (85.60 x 53.98 mm) ve paralaks hata şeması.",
+        "caption": "Standart bir ID-1 kart (85.60 × 53.98 mm) kullanın ve paralaks kaymasını önlemek için tam 90° dik bakın."
+      },
+      "d03": {
+        "kicker": "ŞEKİL 03 · ÖLÇEK KARŞILAŞTIRMASI",
+        "title": "Santimetre, Milimetre ve İnç",
+        "alt": "1 inç = 25.40 mm kesin oranıyla santimetre/milimetre ve kesirli inç ölçeklerini karşılaştıran teknik çizim.",
+        "caption": "Metrik (10 mm = 1 cm) ile inç (1 in = 25.40 mm kesin) birimleri arasındaki birebir görsel karşılık."
+      },
+      "d04": {
+        "kicker": "ŞEKİL 04 · KESİRLER",
+        "title": "İnç Kesirlerini Okuma",
+        "alt": "Tam inçten 1/2, 1/4, 1/8, 1/16 ve 1/32 kesirlerine ikili bölünme ve ondalık karşılık diyagramı.",
+        "caption": "Her yarıya bölme adımı çizgi hassasiyetini iki katına çıkararak 1/2\"’den 1/32\"’ye kadar okuma sağlar."
+      },
+      "d05": {
+        "kicker": "ŞEKİL 05 · FOTOĞRAF MODU",
+        "title": "Fotoğraf Üzerinden Nesne Ölçme",
+        "alt": "Yerel fotoğraf açma, 2 noktalı referans kalibrasyonu ve gerçek ölçekli ölçümü gösteren 3 adımlı diyagram.",
+        "caption": "Fotoğraf Modu %100 tarayıcınızda çalışır: bilinen iki noktayı işaretleyin ve aynı düzlemdeki her kenarı ölçün."
+      },
+      "d06": {
+        "kicker": "ŞEKİL 06 · 2D ALAN",
+        "title": "X/Y Kılavuzlar ve Artı İmleç",
+        "alt": "Sürüklenebilir X ve Y kılavuz çizgileri, ΔX × ΔY kutusu, diyagonal çizgi ve canlı koordinat rozetini gösteren şema.",
+        "caption": "Dikey/yatay kılavuzlar ve artı imleçle en, boy ve diyagonal mesafeyi tek seferde ölçün."
+      },
+      "d07": {
+        "kicker": "ŞEKİL 07 · AÇILAR",
+        "title": "İletki ve Açı Ölçümü",
+        "alt": "42.0° ana açı, 138.0° bütünler ve 318.0° tam açıyı birlikte gösteren iletki teknik diyagramı.",
+        "caption": "Taşınabilir köşe etrafında dar, geniş ve 360° tam açıları bütünler okumalarla birlikte ölçün."
+      },
+      "d08": {
+        "kicker": "ŞEKİL 08 · ARAÇ SEÇİMİ",
+        "title": "Cetvel vs Mezura vs Kumpas",
+        "alt": "Ekran cetveli, esnek mezura ve kumpası hassasiyet ve kullanım açısından karşılaştıran 3 sütunlu çizim.",
+        "caption": "İşe uygun alet seçin: düz küçük parçalar için ekran cetveli, kavisler için mezura, delik/mil için kumpas."
+      },
+      "d09": {
+        "kicker": "ŞEKİL 09 · EKRAN FİZİĞİ",
+        "title": "Ekran DPI/PPI ve Fiziksel Doğruluk",
+        "alt": "Aynı 378 CSS pikselin 81.6 PPI ekranda 11.76 cm, 141.2 PPI dizüstünde 6.80 cm ve kalibreli 10.00 cm oluşunu gösteren grafik.",
+        "caption": "Kalibrasyonsuz tarayıcılar 96 PPI varsaydığı için ekranlar arasında %32’ye varan gerçek boyut sapması oluşur."
+      }
+    },
+    "captures": {
+      "workspaceGuides": {
+        "kicker": "CANLI ARAYÜZ · X/Y KILAVUZLAR",
+        "title": "Hassas X/Y Kılavuz Kutusu ve Artı İmleç",
+        "alt": "Mavi X/Y kılavuz çizgileri ve canlı ΔX, ΔY, diyagonal ölçümünü gösteren gerçek çalışma alanı görüntüsü.",
+        "caption": "Sürüklenebilir X ve Y kılavuzları dikdörtgen alanları izole edip diyagonal uzunluğu anında hesaplar."
+      },
+      "photoMeasure": {
+        "kicker": "CANLI ARAYÜZ · FOTOĞRAF MODU",
+        "title": "Yerel Fotoğraflarda 2 Noktalı Kalibrasyon",
+        "alt": "Kart üzerinde turuncu referans çizgisi ve metal plaka üzerinde 12.04 cm mavi ölçüm çizgisini gösteren fotoğraf modu görüntüsü.",
+        "caption": "Dosya yüklemeden fotoğraftaki kart genişliğiyle ölçekleyip parçaları gizlilikle ölçün."
+      },
+      "protractorOverlay": {
+        "kicker": "CANLI ARAYÜZ · 360° İLETKİ",
+        "title": "Şeffaf 360° İletki Katmanı",
+        "alt": "Çalışma alanı üzerinde 45.0 dereceye ayarlı şeffaf 360° dairesel iletki arayüz görüntüsü.",
+        "caption": "Etkileşimli 360° kadranı teknik çizimler veya yapıştırılan görseller üzerine doğrudan oturtun."
+      }
+    },
+    "sections": {
+      "howToHubKicker": "Görsel Ölçüm Rehberi",
+      "howToHubHeading": "Teknik Çizimler, Hareketler ve Gerçek Ekranlar",
+      "howToHubLead": "Bir kez kalibre edip güvenle ölçebilmeniz için her temel mekanizma net şemalarla anlatıldı.",
+      "calibrationVisualKicker": "Görsel Kalibrasyon Planı",
+      "calibrationVisualHeading": "Adım Adım Gerçek Ölçekli Kalibrasyon",
+      "calibrationVisualLead": "96 PPI varsayımının neden şaştığını ve tek bir kartla fiziksel doğruluğun nasıl kilitlendiğini görün.",
+      "faqVisualKicker": "Hızlı Görsel Referans",
+      "faqVisualHeading": "Ölçü Aleti Toleransları ve Ekran Ölçeği",
+      "detectorVisualKicker": "Ekran Ölçeği Referansı",
+      "detectorVisualHeading": "Etkin CSS PPI Fiziksel Boyutu Neden Belirler",
+      "detectorVisualLead": "Aynı CSS piksel sayısının farklı monitör ve dizüstü panellerde gerçekte nasıl uzayıp kısaldığını kıyaslayın."
+    }
   }
 }

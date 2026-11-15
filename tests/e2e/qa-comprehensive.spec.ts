@@ -70,7 +70,24 @@ test.describe('QA Comprehensive — Routes, Semantics, Network & Accessibility',
       });
       expect(missingHashes, `Missing hash targets on ${route}`).toEqual([]);
 
-      // Images (if present) must finish loading cleanly
+      // Trigger all lazy images by scrolling smoothly in one pass, then await completion in parallel
+      await page.evaluate(async () => {
+        for (const img of Array.from(document.images)) {
+          img.scrollIntoView({ behavior: 'instant', block: 'center' });
+        }
+        await Promise.all(
+          Array.from(document.images).map((img) => {
+            if (img.complete) return Promise.resolve();
+            return new Promise<void>((resolve) => {
+              const done = () => resolve();
+              img.addEventListener('load', done, { once: true });
+              img.addEventListener('error', done, { once: true });
+              setTimeout(done, 3000);
+            });
+          }),
+        );
+        window.scrollTo(0, 0);
+      });
       const brokenImages = await page.evaluate(() =>
         Array.from(document.images)
           .filter((img) => !img.complete || img.naturalWidth === 0)

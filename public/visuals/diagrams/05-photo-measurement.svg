@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" fill="none" role="img" aria-label="FIG. 05 · OFFLINE PHOTO MEASUREMENT WORKFLOW">
+  <defs>
+    <pattern id="grid-05" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ededf2" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+  <rect x="1" y="1" width="718" height="398" rx="14" fill="#fafafc" stroke="#d8d8de" stroke-width="1.5"/>
+  <rect x="12" y="12" width="696" height="376" rx="10" fill="url(#grid-05)"/>
+  <g transform="translate(28, 26)">
+    <rect x="0" y="0" width="325.2" height="22" rx="11" fill="#ffffff" stroke="#d8d8de" stroke-width="1"/>
+    <circle cx="12" cy="11" r="3" fill="#0066cc"/>
+    <text x="21" y="14.5" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#5f5f63" letter-spacing="0.4">FIG. 05 · OFFLINE PHOTO MEASUREMENT WORKFLOW</text>
+  </g>
+
+  <!-- Step 1: Local Photo / Clipboard -->
+  <g transform="translate(44, 78)">
+    <rect x="0" y="0" width="194" height="278" rx="12" fill="#ffffff" stroke="#d8d8de" stroke-width="1.5"/>
+    <text x="16" y="26" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#0066cc">01 · LOAD OFFLINE</text>
+    <rect x="16" y="42" width="162" height="142" rx="10" fill="#f5f5f7" stroke="#d8d8de" stroke-dasharray="5 4"/>
+    <rect x="52" y="76" width="90" height="58" rx="8" fill="#ffffff" stroke="#1d1d1f" stroke-width="1.5"/>
+    <circle cx="97" cy="105" r="14" fill="#e6f0fa" stroke="#0066cc" stroke-width="1.5"/>
+    <path d="M97 98 v14 M90 105 h14" stroke="#0066cc" stroke-width="1.75" stroke-linecap="round"/>
+    <text x="97" y="158" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#1d1d1f">Ctrl+V / Local File</text>
+    <rect x="16" y="202" width="162" height="58" rx="8" fill="#eaf7ed" stroke="#b6e0c1"/>
+    <text x="97" y="226" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#1e7e34">0 BYTES UPLOADED</text>
+    <text x="97" y="244" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="11" fill="#1d1d1f">Processed in browser RAM</text>
+  </g>
+
+  <!-- Connector 1 -> 2 -->
+  <path d="M 244 217 h 14 m -5 -5 l 5 5 l -5 5" stroke="#0066cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Step 2: 2-Point Known Reference -->
+  <g transform="translate(263, 78)">
+    <rect x="0" y="0" width="194" height="278" rx="12" fill="#ffffff" stroke="#d8d8de" stroke-width="1.5"/>
+    <text x="16" y="26" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#0066cc">02 · 2-PT SCALE</text>
+    <rect x="16" y="42" width="162" height="142" rx="10" fill="#f5f5f7" stroke="#d8d8de"/>
+    <!-- Card in photo -->
+    <rect x="34" y="72" width="126" height="80" rx="8" fill="#ffffff" stroke="#1d1d1f" stroke-width="1.5"/>
+    <line x1="34" y1="112" x2="160" y2="112" stroke="#0066cc" stroke-width="2.2"/>
+    <circle cx="34" cy="112" r="5" fill="#0066cc" stroke="#ffffff" stroke-width="1.5"/>
+    <circle cx="160" cy="112" r="5" fill="#0066cc" stroke="#ffffff" stroke-width="1.5"/>
+    <text x="97" y="102" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" font-weight="700" fill="#0066cc">P₁ → P₂ = 85.6 mm</text>
+    <rect x="16" y="202" width="162" height="58" rx="8" fill="#e6f0fa" stroke="#8ec0f2"/>
+    <text x="97" y="226" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#0066cc">scale = pxDist / mm</text>
+    <text x="97" y="244" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="11" fill="#1d1d1f">Calibrates entire photo</text>
+  </g>
+
+  <!-- Connector 2 -> 3 -->
+  <path d="M 463 217 h 14 m -5 -5 l 5 5 l -5 5" stroke="#0066cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Step 3: Measure Line & Box + Export -->
+  <g transform="translate(482, 78)">
+    <rect x="0" y="0" width="194" height="278" rx="12" fill="#ffffff" stroke="#d8d8de" stroke-width="1.5"/>
+    <text x="16" y="26" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#0066cc">03 · MEASURE &amp; PNG</text>
+    <rect x="16" y="42" width="162" height="142" rx="10" fill="#f5f5f7" stroke="#d8d8de"/>
+    <!-- Bounding box + diagonal line -->
+    <rect x="44" y="66" width="106" height="84" rx="2" fill="#e6f0fa" fill-opacity="0.7" stroke="#0066cc" stroke-width="1.75" stroke-dasharray="4 3"/>
+    <line x1="44" y1="150" x2="150" y2="66" stroke="#1d1d1f" stroke-width="2"/>
+    <circle cx="44" cy="150" r="4" fill="#1d1d1f"/>
+    <circle cx="150" cy="66" r="4" fill="#1d1d1f"/>
+    <rect x="52" y="156" width="90" height="20" rx="10" fill="#0066cc"/>
+    <text x="97" y="169.5" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" font-weight="700" fill="#ffffff">ΔX · ΔY · Diag</text>
+    <rect x="16" y="202" width="162" height="58" rx="8" fill="#f5f5f7" stroke="#d8d8de"/>
+    <text x="97" y="226" text-anchor="middle" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#1d1d1f">Export Annotated PNG</text>
+    <text x="97" y="244" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="11" fill="#5f5f63">Local download only</text>
+  </g>
+  
+</svg>

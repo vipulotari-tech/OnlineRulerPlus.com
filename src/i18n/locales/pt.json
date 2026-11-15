@@ -2615,5 +2615,132 @@
     "cmAria": "Converter centímetros",
     "inAria": "Converter polegadas",
     "pxAria": "Converter píxeis CSS"
+  },
+  "visuals": {
+    "walkthrough": {
+      "kicker": "Guia Animado Interativo",
+      "heading": "Veja Cada Mecânica de Medição em Movimento",
+      "tablistAria": "Demonstrações animadas de medição",
+      "playLabel": "Reproduzir",
+      "pauseLabel": "Pausar",
+      "statusPlaying": "Animação ativa",
+      "statusPaused": "Animação em pausa",
+      "scenes": {
+        "ticks": {
+          "label": "Progressão de Escala",
+          "summary": "Os centímetros principais subdividem-se em marcas de 5 mm e traços finos de 1 mm.",
+          "formula": "1 cm = 10 mm"
+        },
+        "line": {
+          "label": "Expansão de Linha",
+          "summary": "Alinhe a borda esquerda no zero interno e estenda a leitura até o extremo oposto.",
+          "formula": "ΔX = X₂ − X₁"
+        },
+        "drag": {
+          "label": "Guias X/Y",
+          "summary": "Combine guias verticais X e horizontais Y para medir largura, altura e diagonal real.",
+          "formula": "Diag = √(ΔX² + ΔY²)"
+        },
+        "protractor": {
+          "label": "Varredura Angular",
+          "summary": "Gire o segundo raio ao redor do vértice para ler ângulos principal, suplementar e reentrante.",
+          "formula": "θ = atan2(ΔY, ΔX)"
+        },
+        "calibration": {
+          "label": "Calibração com Cartão",
+          "summary": "Alinhe um cartão ISO/IEC 7810 ID-1 na origem (0, 0) e arraste a borda até coincidir.",
+          "formula": "85.60 × 53.98 mm"
+        }
+      }
+    },
+    "diagrams": {
+      "d01": {
+        "kicker": "FIG. 01 · FLUXO DE USO",
+        "title": "Como Usar uma Régua Online",
+        "alt": "Diagrama técnico exibindo o marco zero afastado da moldura, objeto na tela e subtração ΔX entre X1 e X2.",
+        "caption": "Alinhe objetos ao zero interno — nunca à moldura do monitor — ou subtraia X1 de X2 na área útil."
+      },
+      "d02": {
+        "kicker": "FIG. 02 · CALIBRAÇÃO",
+        "title": "Calibração com Cartão e Referência Própria",
+        "alt": "Desenho de cartão ISO/IEC 7810 ID-1 (85.60 x 53.98 mm) no ponto (0,0) com ilustração de erro de paralaxe.",
+        "caption": "Use qualquer cartão ID-1 padrão (85.60 × 53.98 mm) olhando de frente a 90° para evitar paralaxe."
+      },
+      "d03": {
+        "kicker": "FIG. 03 · ESCALAS",
+        "title": "Centímetros, Milímetros e Polegadas",
+        "alt": "Desenho técnico comparando escala métrica em cm/mm com frações de polegada usando fator exato de 25.4 mm.",
+        "caption": "Correspondência visual direta entre sistema métrico (10 mm = 1 cm) e polegadas (1 in = 25.40 mm)."
+      },
+      "d04": {
+        "kicker": "FIG. 04 · FRAÇÕES",
+        "title": "Frações de Polegada",
+        "alt": "Diagrama binário hierárquico de 1/2, 1/4, 1/8, 1/16 e 1/32 de polegada com valores decimais.",
+        "caption": "Cada divisão ao meio dobra a resolução da régua, de 1/2\" (0.500\") até 1/32\" (0.0313\")."
+      },
+      "d05": {
+        "kicker": "FIG. 05 · MODO FOTO",
+        "title": "Medindo Objetos por Foto",
+        "alt": "Diagrama em 3 etapas: abertura local de foto, calibração em 2 pontos e medição real na peça.",
+        "caption": "Funciona 100% no navegador: calibre dois pontos de uma referência conhecida e meça objetos no mesmo plano."
+      },
+      "d06": {
+        "kicker": "FIG. 06 · PALCO 2D",
+        "title": "Guias X/Y e Mira de Precisão",
+        "alt": "Diagrama com guias X e Y ajustáveis, caixa ΔX por ΔY, diagonal e coordenadas do cursor.",
+        "caption": "Combine guias X/Y e mira ao vivo para obter medidas retangulares e diagonais em uma única etapa."
+      },
+      "d07": {
+        "kicker": "FIG. 07 · ÂNGULOS",
+        "title": "Transferidor e Medição Angular",
+        "alt": "Diagrama de transferidor mostrando 42.0° principal, 138.0° suplementar e 318.0° reflexo.",
+        "caption": "Meça ângulos agudos, obtusos e completos de 360° a partir de qualquer vértice móvel."
+      },
+      "d08": {
+        "kicker": "FIG. 08 · FERRAMENTAS",
+        "title": "Régua vs Trena vs Paquímetro",
+        "alt": "Comparação em três colunas entre régua na tela calibrada, trena flexível e paquímetro.",
+        "caption": "Escolha o instrumento conforme a tolerância: régua na tela para peças planas, trena para curvas e paquímetro para furos."
+      },
+      "d09": {
+        "kicker": "FIG. 09 · FÍSICA DE TELA",
+        "title": "DPI/PPI da Tela e Precisão Física",
+        "alt": "Gráfico mostrando 378 px CSS rendendo 11.76 cm em 81.6 PPI, 6.80 cm em 141.2 PPI e 10.00 cm calibrado.",
+        "caption": "Sem calibração o navegador assume 96 px/pol, causando desvios de até 32% entre diferentes monitores."
+      }
+    },
+    "captures": {
+      "workspaceGuides": {
+        "kicker": "INTERFACE REAL · GUIAS X/Y",
+        "title": "Caixa de Guias X/Y e Mira em Tempo Real",
+        "alt": "Captura real mostrando guias azuis X e Y isolando uma área retangular com ΔX, ΔY e diagonal.",
+        "caption": "Guias móveis X e Y isolam áreas retangulares e exibem a diagonal real instantaneamente."
+      },
+      "photoMeasure": {
+        "kicker": "INTERFACE REAL · MODO FOTO",
+        "title": "Calibração em Dois Pontos em Fotos Locais",
+        "alt": "Captura do modo foto com linha laranja calibrada no cartão e linha azul medindo 12.04 cm em uma peça.",
+        "caption": "Use um cartão ID-1 na foto para calibrar em segundos sem enviar imagens para servidores."
+      },
+      "protractorOverlay": {
+        "kicker": "INTERFACE REAL · TRANSFERIDOR 360°",
+        "title": "Transferidor Circular Transparente 360°",
+        "alt": "Captura da interface exibindo o transferidor circular transparente em 45.0 graus.",
+        "caption": "Sobreponha o transferidor 360° diretamente sobre desenhos técnicos, esquemas ou imagens coladas."
+      }
+    },
+    "sections": {
+      "howToHubKicker": "Guia Visual de Medição",
+      "howToHubHeading": "Diagramas, Animações e Capturas Reais",
+      "howToHubLead": "Cada conceito essencial ilustrado para calibrar uma única vez e medir com precisão real.",
+      "calibrationVisualKicker": "Esquema de Calibração",
+      "calibrationVisualHeading": "Entenda a Calibração em Escala Real Passo a Passo",
+      "calibrationVisualLead": "Veja por que o padrão de 96 PPI varia entre telas e como um cartão fixa a escala física 1:1.",
+      "faqVisualKicker": "Referência Visual Rápida",
+      "faqVisualHeading": "Tolerâncias e Escala de Tela em Um Relance",
+      "detectorVisualKicker": "Referência de Escala",
+      "detectorVisualHeading": "Por Que o PPI Efetivo Define o Tamanho Físico",
+      "detectorVisualLead": "Compare como os mesmos pixels CSS encolhem ou esticam entre monitores e notebooks."
+    }
   }
 }

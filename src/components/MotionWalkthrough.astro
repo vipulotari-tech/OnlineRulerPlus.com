@@ -1,0 +1,333 @@
+---
+import type { Locale } from '../i18n/config.ts';
+import { getDict } from '../i18n/index.ts';
+
+export type WalkthroughSceneId = 'ticks' | 'line' | 'drag' | 'protractor' | 'calibration';
+
+interface Props {
+  locale: Locale;
+  scenes?: WalkthroughSceneId[];
+  defaultScene?: WalkthroughSceneId;
+  compact?: boolean;
+  id?: string;
+}
+
+const {
+  locale,
+  scenes = ['ticks', 'line', 'drag', 'protractor', 'calibration'],
+  defaultScene = scenes[0] ?? 'ticks',
+  compact = false,
+  id,
+} = Astro.props;
+
+const dict = getDict(locale);
+const v = dict.visuals.walkthrough;
+const activeDefault = scenes.includes(defaultScene) ? defaultScene : scenes[0];
+
+const sceneMeta: Record<WalkthroughSceneId, { label: string; summary: string; formula: string }> = {
+  ticks: v.scenes.ticks,
+  line: v.scenes.line,
+  drag: v.scenes.drag,
+  protractor: v.scenes.protractor,
+  calibration: v.scenes.calibration,
+};
+---
+
+<div
+  id={id}
+  data-motion-walkthrough
+  data-motion-paused="false"
+  class={`rounded-[16px] border border-hairline bg-canvas-elevated ${compact ? 'p-4 sm:p-5' : 'p-5 sm:p-6'}`}
+>
+  <div class="flex flex-wrap items-center justify-between gap-3 border-b border-hairline pb-3.5">
+    <div class="min-w-0">
+      <p class="font-mono text-[11px] font-semibold uppercase tracking-wider text-link">{v.kicker}</p>
+      <h3 class="mt-0.5 text-base font-semibold tracking-tight text-ink sm:text-lg">{v.heading}</h3>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <span
+        data-motion-status
+        data-playing-text={v.statusPlaying}
+        data-paused-text={v.statusPaused}
+        class="sr-only"
+      >
+        {v.statusPlaying}
+      </span>
+      <button
+        type="button"
+        data-motion-toggle
+        data-label-play={v.playLabel}
+        data-label-pause={v.pauseLabel}
+        aria-pressed="false"
+        class="apple-btn-pearl h-[32px] px-3 text-xs font-medium inline-flex items-center gap-1.5"
+      >
+        <svg data-icon-pause class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+          <rect x="3.5" y="3" width="3" height="10" rx="0.75" />
+          <rect x="9.5" y="3" width="3" height="10" rx="0.75" />
+        </svg>
+        <svg data-icon-play class="hidden h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+          <path d="M4.5 3.2v9.6a.6.6 0 0 0 .92.5l7.4-4.8a.6.6 0 0 0 0-1L5.42 2.7a.6.6 0 0 0-.92.5Z" />
+        </svg>
+        <span data-toggle-label>{v.pauseLabel}</span>
+      </button>
+    </div>
+  </div>
+
+  {scenes.length > 1 && (
+    <div
+      role="tablist"
+      aria-label={v.tablistAria}
+      class="mt-3.5 flex flex-wrap gap-1.5"
+    >
+      {scenes.map((sceneId) => {
+        const isActive = sceneId === activeDefault;
+        return (
+          <button
+            type="button"
+            role="tab"
+            data-scene={sceneId}
+            aria-selected={isActive ? 'true' : 'false'}
+            tabindex={isActive ? 0 : -1}
+            class={`apple-option-chip text-xs ${isActive ? 'is-active' : ''}`}
+          >
+            {sceneMeta[sceneId].label}
+          </button>
+        );
+      })}
+    </div>
+  )}
+
+  <div class="mt-4">
+    {scenes.map((sceneId) => {
+      const isActive = sceneId === activeDefault;
+      const meta = sceneMeta[sceneId];
+      return (
+        <div
+          role={scenes.length > 1 ? 'tabpanel' : undefined}
+          data-scene-panel={sceneId}
+          data-active={isActive ? 'true' : 'false'}
+          hidden={!isActive}
+          class="orp-scene-panel"
+        >
+          <div
+            class="overflow-hidden rounded-[12px] border border-hairline bg-canvas-parchment workspace-grid-bg"
+            style="aspect-ratio: 640 / 280;"
+          >
+            {sceneId === 'ticks' && (
+              <svg viewBox="0 0 640 280" width="640" height="280" class="block h-full w-full" role="img" aria-label={meta.summary}>
+                <rect x="44" y="54" width="552" height="72" rx="8" fill="var(--surface-elevated)" stroke="var(--border-hairline)" stroke-width="1.5" />
+                {Array.from({ length: 51 }, (_, i) => {
+                  const x = 75 + i * 9.8;
+                  const isCm = i % 10 === 0;
+                  const isHalf = !isCm && i % 5 === 0;
+                  const h = isCm ? 34 : isHalf ? 24 : 14;
+                  const cls = isCm ? 'orp-anim orp-anim-tick-cm' : isHalf ? 'orp-anim orp-anim-tick-half' : 'orp-anim orp-anim-tick-mm';
+                  return (
+                    <g>
+                      <line
+                        x1={x.toFixed(1)}
+                        y1="54"
+                        x2={x.toFixed(1)}
+                        y2={54 + h}
+                        stroke="var(--text-ink)"
+                        stroke-width={isCm ? '1.75' : '1'}
+                        class={cls}
+                      />
+                      {isCm && (
+                        <text
+                          x={x.toFixed(1)}
+                          y="107"
+                          text-anchor="middle"
+                          font-family="'Geist Mono', monospace"
+                          font-size="12"
+                          font-weight="600"
+                          fill="var(--text-ink)"
+                        >
+                          {i / 10}
+                        </text>
+                      )}
+                    </g>
+                  );
+                })}
+                <g class="orp-anim orp-anim-cursor">
+                  <line x1="369" y1="54" x2="369" y2="210" stroke="var(--accent-link)" stroke-width="2" />
+                  <circle cx="369" cy="126" r="4.5" fill="var(--accent-link)" />
+                  <rect x="311" y="182" width="116" height="28" rx="14" fill="var(--accent-link)" />
+                  <text x="369" y="200" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="12" font-weight="700" fill="#ffffff">
+                    3.00 cm
+                  </text>
+                </g>
+                <text x="44" y="246" font-family="'Geist Mono', monospace" font-size="11" fill="var(--text-ink-muted-80)">
+                  0.1 cm = 1 mm · 10 mm = 1 cm
+                </text>
+              </svg>
+            )}
+
+            {sceneId === 'line' && (
+              <svg viewBox="0 0 640 280" width="640" height="280" class="block h-full w-full" role="img" aria-label={meta.summary}>
+                <rect x="44" y="40" width="552" height="38" rx="6" fill="var(--surface-elevated)" stroke="var(--border-hairline)" stroke-width="1.5" />
+                {Array.from({ length: 11 }, (_, i) => {
+                  const x = 100 + i * 44;
+                  return (
+                    <g>
+                      <line x1={x} y1="40" x2={x} y2="62" stroke="var(--text-ink)" stroke-width="1.4" />
+                      <text x={x} y="73" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="10.5" fill="var(--text-ink-muted-80)">
+                        {i}
+                      </text>
+                    </g>
+                  );
+                })}
+                <line x1="160" y1="40" x2="160" y2="226" stroke="var(--text-ink-muted-80)" stroke-width="1.5" stroke-dasharray="4 4" />
+                <rect x="160" y="106" width="280" height="72" rx="8" fill="var(--surface-elevated)" stroke="var(--text-ink)" stroke-width="1.75" />
+                <text x="300" y="147" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="var(--text-ink)">
+                  Span Object · ΔX
+                </text>
+                <line
+                  x1="160"
+                  y1="204"
+                  x2="440"
+                  y2="204"
+                  stroke="var(--accent-link)"
+                  stroke-width="2.5"
+                  class="orp-anim orp-anim-line"
+                />
+                <g class="orp-anim orp-anim-cursor">
+                  <line x1="440" y1="78" x2="440" y2="224" stroke="var(--accent-link)" stroke-width="1.75" />
+                  <circle cx="440" cy="204" r="4.5" fill="var(--accent-link)" />
+                  <rect x="385" y="230" width="110" height="26" rx="13" fill="var(--accent-link)" />
+                  <text x="440" y="247" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="11.5" font-weight="700" fill="#ffffff">
+                    85.60 mm
+                  </text>
+                </g>
+              </svg>
+            )}
+
+            {sceneId === 'drag' && (
+              <svg viewBox="0 0 640 280" width="640" height="280" class="block h-full w-full" role="img" aria-label={meta.summary}>
+                <rect x="186" y="72" width="248" height="122" rx="6" fill="var(--surface-elevated)" stroke="var(--text-ink)" stroke-width="1.75" />
+                <rect
+                  x="186"
+                  y="72"
+                  width="248"
+                  height="122"
+                  fill="color-mix(in srgb, var(--accent-link) 14%, transparent)"
+                  class="orp-anim orp-anim-zone"
+                />
+                <line x1="186" y1="24" x2="186" y2="256" stroke="var(--accent-link)" stroke-width="1.75" />
+                <line x1="88" y1="72" x2="552" y2="72" stroke="var(--accent-link)" stroke-width="1.75" />
+                <g class="orp-anim orp-anim-guide-x">
+                  <line x1="434" y1="24" x2="434" y2="256" stroke="var(--accent-link)" stroke-width="2" />
+                  <rect x="442" y="34" width="76" height="22" rx="11" fill="var(--accent-link)" />
+                  <text x="480" y="49" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="10.5" font-weight="700" fill="#ffffff">
+                    X2: 8.40
+                  </text>
+                </g>
+                <g class="orp-anim orp-anim-guide-y">
+                  <line x1="88" y1="194" x2="552" y2="194" stroke="var(--accent-link)" stroke-width="2" />
+                  <rect x="96" y="202" width="76" height="22" rx="11" fill="var(--accent-link)" />
+                  <text x="134" y="217" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="10.5" font-weight="700" fill="#ffffff">
+                    Y2: 5.20
+                  </text>
+                </g>
+                <g class="orp-anim orp-anim-zone">
+                  <rect x="220" y="120" width="180" height="28" rx="14" fill="var(--accent-link)" />
+                  <text x="310" y="138" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="11.5" font-weight="700" fill="#ffffff">
+                    ΔX 6.00 · ΔY 3.50
+                  </text>
+                </g>
+              </svg>
+            )}
+
+            {sceneId === 'protractor' && (
+              <svg viewBox="0 0 640 280" width="640" height="280" class="block h-full w-full" role="img" aria-label={meta.summary}>
+                <path
+                  d="M 90 186 A 120 120 0 0 1 330 186 Z"
+                  fill="var(--surface-elevated)"
+                  stroke="var(--border-hairline)"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M 210 186 L 280 186 A 70 70 0 0 0 262 139 Z"
+                  fill="color-mix(in srgb, var(--accent-link) 16%, transparent)"
+                  class="orp-anim orp-anim-zone"
+                />
+                <line x1="80" y1="186" x2="344" y2="186" stroke="var(--text-ink)" stroke-width="1.75" />
+                {[0, 30, 60, 90, 120, 150, 180].map((deg) => {
+                  const rad = (deg * Math.PI) / 180;
+                  const x1 = 210 + 108 * Math.cos(rad);
+                  const y1 = 186 - 108 * Math.sin(rad);
+                  const x2 = 210 + 120 * Math.cos(rad);
+                  const y2 = 186 - 120 * Math.sin(rad);
+                  return <line x1={x1.toFixed(1)} y1={y1.toFixed(1)} x2={x2.toFixed(1)} y2={y2.toFixed(1)} stroke="var(--text-ink)" stroke-width="1.4" />;
+                })}
+                <g class="orp-anim orp-anim-ray">
+                  <line x1="210" y1="186" x2="299.2" y2="105.7" stroke="var(--accent-link)" stroke-width="2.75" />
+                  <circle cx="299.2" cy="105.7" r="5" fill="var(--accent-link)" stroke="var(--surface-elevated)" stroke-width="2" />
+                </g>
+                <circle cx="210" cy="186" r="5" fill="var(--text-ink)" stroke="var(--surface-elevated)" stroke-width="2" />
+                <rect x="386" y="60" width="210" height="156" rx="12" fill="var(--surface-elevated)" stroke="var(--border-hairline)" stroke-width="1.5" />
+                <text x="406" y="92" font-family="'Geist Mono', monospace" font-size="11" font-weight="700" fill="var(--accent-link)">
+                  ANGLE TELEMETRY
+                </text>
+                <text x="406" y="130" font-family="'Geist Mono', monospace" font-size="22" font-weight="700" fill="var(--text-ink)">
+                  θ = 42.0°
+                </text>
+                <text x="406" y="162" font-family="'Geist Mono', monospace" font-size="12" fill="var(--text-ink-muted-80)">
+                  180° − θ = 138.0°
+                </text>
+                <text x="406" y="186" font-family="'Geist Mono', monospace" font-size="12" fill="var(--text-ink-muted-80)">
+                  atan2(ΔY, ΔX) · 1:1 PX
+                </text>
+              </svg>
+            )}
+
+            {sceneId === 'calibration' && (
+              <svg viewBox="0 0 640 280" width="640" height="280" class="block h-full w-full" role="img" aria-label={meta.summary}>
+                <line x1="110" y1="24" x2="110" y2="256" stroke="var(--accent-link)" stroke-width="1.25" stroke-dasharray="4 4" />
+                <line x1="60" y1="54" x2="560" y2="54" stroke="var(--accent-link)" stroke-width="1.25" stroke-dasharray="4 4" />
+                <circle cx="110" cy="54" r="4" fill="var(--accent-link)" />
+                <text x="122" y="42" font-family="'Geist Mono', monospace" font-size="10.5" font-weight="700" fill="var(--accent-link)">
+                  (0, 0) DATUM ANCHOR
+                </text>
+                <rect x="110" y="54" width="256" height="162" rx="12" fill="var(--surface-elevated)" stroke="var(--text-ink)" stroke-width="2" />
+                <rect x="132" y="84" width="38" height="28" rx="4" fill="var(--surface-parchment)" stroke="var(--border-hairline)" />
+                <text x="132" y="148" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="var(--text-ink)">
+                  ISO ID-1 Card
+                </text>
+                <text x="132" y="170" font-family="'Geist Mono', monospace" font-size="12" fill="var(--text-ink-muted-80)">
+                  85.60 × 53.98 mm
+                </text>
+                <g class="orp-anim orp-anim-cal-handle">
+                  <line x1="366" y1="54" x2="366" y2="236" stroke="var(--accent-link)" stroke-width="2" />
+                  <circle cx="366" cy="216" r="13" fill="var(--accent-link)" stroke="var(--surface-elevated)" stroke-width="2" />
+                  <path d="M362 212l8 8m0 0v-5m0 5h-5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+                <rect x="410" y="72" width="184" height="126" rx="12" fill="var(--surface-elevated)" stroke="var(--border-hairline)" stroke-width="1.5" />
+                <text x="428" y="102" font-family="'Geist Mono', monospace" font-size="11" font-weight="700" fill="var(--accent-link)">
+                  TRUE-SCALE LOCK
+                </text>
+                <text x="428" y="130" font-family="Inter, sans-serif" font-size="12.5" fill="var(--text-ink)">
+                  Match right edge flush
+                </text>
+                <text x="428" y="150" font-family="Inter, sans-serif" font-size="12.5" fill="var(--text-ink)">
+                  with physical card
+                </text>
+                <text x="428" y="176" font-family="'Geist Mono', monospace" font-size="11" fill="var(--text-ink-muted-80)">
+                  1 px/mm calibrated
+                </text>
+              </svg>
+            )}
+          </div>
+
+          <div class="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs">
+            <p class="text-ink-muted-80 leading-relaxed">{meta.summary}</p>
+            <span class="font-mono text-[11px] font-medium text-ink bg-canvas-parchment border border-hairline rounded-full px-2.5 py-0.5 shrink-0">
+              {meta.formula}
+            </span>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</div>
