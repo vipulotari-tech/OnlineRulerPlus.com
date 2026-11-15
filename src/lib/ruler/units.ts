@@ -9,6 +9,38 @@ export type Unit = 'cm' | 'mm' | 'in' | 'px';
 
 export const UNITS: readonly Unit[] = ['cm', 'mm', 'in', 'px'];
 
+export type ScalePresetId = '1:1' | '1:10' | '1:20' | '1:48' | '1:50' | '1:100';
+
+export interface ScalePreset {
+  readonly id: ScalePresetId;
+  readonly label: string;
+  readonly factor: number;
+}
+
+export const SCALE_PRESETS: readonly ScalePreset[] = [
+  { id: '1:1', label: '1:1', factor: 1 },
+  { id: '1:10', label: '1:10', factor: 10 },
+  { id: '1:20', label: '1:20', factor: 20 },
+  { id: '1:48', label: '1/4″ = 1′ (1:48)', factor: 48 },
+  { id: '1:50', label: '1:50', factor: 50 },
+  { id: '1:100', label: '1:100', factor: 100 },
+];
+
+export function isScalePresetId(value: unknown): value is ScalePresetId {
+  return typeof value === 'string' && SCALE_PRESETS.some((s) => s.id === value);
+}
+
+export function scaleFactorForPreset(id: ScalePresetId | undefined): number {
+  const found = SCALE_PRESETS.find((s) => s.id === id);
+  return found ? found.factor : 1;
+}
+
+/** Effective screen pixels per real-world mm when measuring an architectural scale drawing. */
+export function effectivePxPerMmForScale(pxPerMm: number, scaleFactor = 1): number {
+  if (!Number.isFinite(scaleFactor) || scaleFactor <= 0) return pxPerMm;
+  return pxPerMm / scaleFactor;
+}
+
 export const MM_PER_INCH = 25.4;
 export const MM_PER_CM = 10;
 /** CSS reference: 1in = 96 CSS px (CSS Values & Units). Not a physical density. */

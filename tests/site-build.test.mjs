@@ -8,6 +8,7 @@ import {
   LOCALES,
   LOCALE_META,
   PAGE_SLUGS,
+  UTILITY_SLUGS,
   localizedPath,
 } from '../src/i18n/config.ts';
 
@@ -56,7 +57,7 @@ test('Build output covers all 156 localized routes, hreflang alternates, JSON-LD
     );
   }
 
-  // Build valid route path set across all 156 URLs
+  // Build valid route path set across all indexable + utility URLs
   const validPaths = new Set();
   const routeEntries = [];
   for (const locale of LOCALES) {
@@ -70,8 +71,15 @@ test('Build output covers all 156 localized routes, hreflang alternates, JSON-LD
         canonical: canonicalForRoute(locale, slug),
       });
     }
+    for (const utilSlug of UTILITY_SLUGS) {
+      validPaths.add(localizedPath(locale, utilSlug));
+    }
   }
-  assert.strictEqual(routeEntries.length, 156, 'Expected 13 routes × 12 locales = 156 entries');
+  assert.strictEqual(
+    routeEntries.length,
+    PAGE_SLUGS.length * LOCALES.length,
+    `Expected ${PAGE_SLUGS.length} routes × ${LOCALES.length} locales = ${PAGE_SLUGS.length * LOCALES.length} entries`,
+  );
 
   // Verify English homepage workspace markup & Apple tokens
   const indexHtml = fs.readFileSync(path.join(distDir, 'index.html'), 'utf-8');
@@ -196,6 +204,21 @@ test('Build output covers all 156 localized routes, hreflang alternates, JSON-LD
       }
       const cleanPath = rawHref.split('#')[0].split('?')[0] || '/';
       assert.ok(validPaths.has(cleanPath), `Broken internal link ${rawHref} in ${relFile}`);
+    }
+  }
+
+  // Verify utility routes (e.g. /embed) exist cleanly with noindex and are excluded from sitemap
+  for (const locale of LOCALES) {
+    for (const utilSlug of UTILITY_SLUGS) {
+      const relFile = distFileForRoute(locale, utilSlug);
+      const canonical = canonicalForRoute(locale, utilSlug);
+      const fullPath = path.join(distDir, relFile);
+      assert.ok(fs.existsSync(fullPath), `Expected utility page ${relFile} to exist`);
+      const html = fs.readFileSync(fullPath, 'utf-8');
+      assert.ok(html.includes('content="noindex, follow"'), `Expected noindex meta in ${relFile}`);
+      assert.ok(!html.includes('<header'), `Expected no header chrome in ${relFile}`);
+      assert.ok(!html.includes('<footer'), `Expected no footer chrome in ${relFile}`);
+      assert.ok(!sitemapXml.includes(`<loc>${canonical}</loc>`), `Expected ${canonical} excluded from sitemap`);
     }
   }
 });

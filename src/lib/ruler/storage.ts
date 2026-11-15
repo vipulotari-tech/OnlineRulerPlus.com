@@ -1,5 +1,6 @@
 import {
   cardWidthPx,
+  cssPpi,
   fromDevicePxPerMm,
   isPlausiblePxPerMm,
   toDevicePxPerMm,
@@ -7,7 +8,7 @@ import {
 } from './calibration.ts';
 import { type DisplayInfo, displaySignature, sortedSize } from './display.ts';
 import type { InchDivisor } from './ticks.ts';
-import { isUnit, type Unit } from './units.ts';
+import { isScalePresetId, isUnit, type ScalePresetId, type Unit } from './units.ts';
 
 export type CalibrationMethod = 'auto-detect' | 'diagonal' | 'card';
 export type CalibrationStatus = 'detected' | 'estimated' | 'manual';
@@ -19,6 +20,8 @@ export const STATUS_LABELS: Readonly<Record<CalibrationStatus, string>> = {
 };
 
 export interface CalibrationProfile {
+  readonly id?: string;
+  readonly customName?: string;
   readonly signature: string;
   readonly cssLong: number;
   readonly cssShort: number;
@@ -38,6 +41,8 @@ export interface CalibrationProfile {
 export interface CalibrationStore {
   readonly version: 1;
   readonly profiles: Readonly<Record<string, CalibrationProfile>>;
+  readonly namedProfiles?: readonly CalibrationProfile[];
+  readonly activeNamedProfileId?: string;
 }
 
 export interface EdgeState {
@@ -61,6 +66,16 @@ export interface RulerPreferences {
   readonly crosshairEnabled: boolean;
   readonly shortcutsEnabled?: boolean;
   readonly focusMode?: boolean;
+  readonly scalePreset?: ScalePresetId;
+}
+
+export interface PersistedFloatingRuler {
+  readonly id: string;
+  readonly orientation: 'horizontal' | 'vertical';
+  readonly x: number;
+  readonly y: number;
+  readonly lengthPx: number;
+  readonly angleDeg: number;
 }
 
 export interface MeasurementRecord {
@@ -76,6 +91,7 @@ export const STORAGE_KEYS = {
   calibration: 'orp:calibration:v1',
   preferences: 'orp:preferences:v1',
   history: 'orp:history:v1',
+  overlays: 'orp:overlays:v1',
   theme: 'orp:theme',
 } as const;
 
@@ -137,6 +153,8 @@ export function createManualProfile(
   method: 'diagonal' | 'card',
   label: string,
   extra?: {
+    readonly id?: string;
+    readonly customName?: string;
     readonly diagonalIn?: number;
     readonly cardWidthPx?: number;
     readonly referencePresetId?: ReferencePresetId;
@@ -146,6 +164,8 @@ export function createManualProfile(
 ): CalibrationProfile {
   const [cssLong, cssShort] = sortedSize(info);
   return {
+    ...(extra?.id ? { id: extra.id } : {}),
+    ...(extra?.customName ? { customName: extra.customName.slice(0, 60) } : {}),
     signature: displaySignature(info),
     cssLong,
     cssShort,
@@ -176,7 +196,27 @@ export function parseCalibrationStore(raw: string | null | undefined): Calibrati
         clean[key] = val;
       }
     }
-    return { version: 1, profiles: clean };
+    const namedProfiles: CalibrationProfile[] = [];
+    if (Array.isArray(parsed.namedProfiles)) {
+      for (const np of parsed.namedProfiles) {
+        if (isValidProfile(np) && typeof np.id === 'string' && np.id.length > 0) {
+          namedProfiles.push(np);
+        }
+        if (namedProfiles.length >= 12) break;
+      }
+    }
+    const activeNamedProfileId =
+      typeof parsed.activeNamedProfileId === 'string' &&
+      namedProfiles.some((np) => np.id === parsed.activeNamedProfileId)
+        ? parsed.activeNamedProfileId
+        : undefined;
+
+    return {
+      version: 1,
+      profiles: clean,
+      ...(namedProfiles.length > 0 ? { namedProfiles } : {}),
+      ...(activeNamedProfileId !== undefined ? { activeNamedProfileId } : {}),
+    };
   } catch {
     return EMPTY_CALIBRATION_STORE;
   }
@@ -187,11 +227,100 @@ export function saveProfileToStore(
   profile: CalibrationProfile,
 ): CalibrationStore {
   return {
+    ...store,
     version: 1,
     profiles: {
       ...store.profiles,
       [profile.signature]: profile,
     },
+  };
+}
+
+/** Save a named monitor profile so users can switch between identical-resolution displays. */
+export function saveNamedProfileToStore(
+  store: CalibrationStore,
+  info: DisplayInfo,
+  pxPerMm: number,
+  customName: string,
+  method: 'diagonal' | 'card' = 'card',
+  id = `np-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+  now = Date.now(),
+): CalibrationStore {
+  const cleanName = customName.trim().slice(0, 48) || `Monitor ${displaySignature(info)}`;
+  const named = createManualProfile(
+    info,
+    pxPerMm,
+    method,
+    cleanName,
+    {
+      id,
+      customName: cleanName,
+      cardWidthPx: cardWidthPx(pxPerMm),
+    },
+    now,
+  );
+  const existing = store.namedProfiles ?? [];
+  const nextNamed = [named, ...existing.filter((p) => p.id !== id && p.customName !== cleanName)].slice(0, 12);
+  return {
+    ...store,
+    version: 1,
+    profiles: {
+      ...store.profiles,
+      [named.signature]: named,
+    },
+    namedProfiles: nextNamed,
+    activeNamedProfileId: named.id,
+  };
+}
+
+/** Activate a saved named profile for the current display (rescaling across DPR differences cleanly). */
+export function selectNamedProfileInStore(
+  store: CalibrationStore,
+  profileId: string,
+  info: DisplayInfo,
+  now = Date.now(),
+): CalibrationStore {
+  const found = (store.namedProfiles ?? []).find((p) => p.id === profileId);
+  if (!found) return store;
+  const sig = displaySignature(info);
+  const [cssLong, cssShort] = sortedSize(info);
+  const nextPxPerMm = isPlausiblePxPerMm(fromDevicePxPerMm(found.devicePxPerMm, info.dpr))
+    ? fromDevicePxPerMm(found.devicePxPerMm, info.dpr)
+    : found.pxPerMm;
+
+  const activated: CalibrationProfile = {
+    ...found,
+    signature: sig,
+    cssLong,
+    cssShort,
+    dpr: info.dpr,
+    pxPerMm: nextPxPerMm,
+    devicePxPerMm: toDevicePxPerMm(nextPxPerMm, info.dpr),
+    cardWidthPx: cardWidthPx(nextPxPerMm),
+    updatedAt: now,
+  };
+  return {
+    ...store,
+    version: 1,
+    profiles: {
+      ...store.profiles,
+      [sig]: activated,
+    },
+    activeNamedProfileId: profileId,
+  };
+}
+
+export function deleteNamedProfileFromStore(
+  store: CalibrationStore,
+  profileId: string,
+): CalibrationStore {
+  const nextNamed = (store.namedProfiles ?? []).filter((p) => p.id !== profileId);
+  const nextActive = store.activeNamedProfileId === profileId ? undefined : store.activeNamedProfileId;
+  return {
+    ...store,
+    version: 1,
+    namedProfiles: nextNamed,
+    ...(nextActive !== undefined ? { activeNamedProfileId: nextActive } : { activeNamedProfileId: undefined }),
   };
 }
 
@@ -214,7 +343,12 @@ export function removeProfileFromStore(
   for (const [key, value] of Object.entries(store.profiles)) {
     if (key !== signature) next[key] = value;
   }
-  return { version: 1, profiles: next };
+  return {
+    ...store,
+    version: 1,
+    profiles: next,
+    activeNamedProfileId: undefined,
+  };
 }
 
 export function removeProfileForDisplay(
@@ -228,7 +362,12 @@ export function removeProfileForDisplay(
       next[key] = value;
     }
   }
-  return { version: 1, profiles: next };
+  return {
+    ...store,
+    version: 1,
+    profiles: next,
+    activeNamedProfileId: undefined,
+  };
 }
 
 /**
@@ -314,6 +453,7 @@ export function parsePreferences(raw: string | null | undefined): RulerPreferenc
       parsed.inchDivisor === 8 || parsed.inchDivisor === 16 || parsed.inchDivisor === 32
         ? parsed.inchDivisor
         : undefined;
+    const scalePreset = isScalePresetId(parsed.scalePreset) ? parsed.scalePreset : undefined;
 
     return {
       unit,
@@ -327,9 +467,52 @@ export function parsePreferences(raw: string | null | undefined): RulerPreferenc
       crosshairEnabled,
       ...(parsed.shortcutsEnabled !== undefined ? { shortcutsEnabled } : {}),
       ...(parsed.focusMode !== undefined ? { focusMode } : {}),
+      ...(scalePreset !== undefined ? { scalePreset } : {}),
     };
   } catch {
     return DEFAULT_PREFERENCES;
+  }
+}
+
+export function parseFloatingRulers(raw: string | null | undefined): readonly PersistedFloatingRuler[] {
+  if (!raw) return [];
+  try {
+    const parsed: unknown = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    const clean: PersistedFloatingRuler[] = [];
+    for (const item of parsed) {
+      if (
+        isRecord(item) &&
+        typeof item.id === 'string' &&
+        (item.orientation === 'horizontal' || item.orientation === 'vertical') &&
+        typeof item.x === 'number' &&
+        Number.isFinite(item.x) &&
+        typeof item.y === 'number' &&
+        Number.isFinite(item.y) &&
+        typeof item.lengthPx === 'number' &&
+        Number.isFinite(item.lengthPx) &&
+        item.lengthPx >= 100 &&
+        item.lengthPx <= 2000
+      ) {
+        const rawAngle = typeof item.angleDeg === 'number' && Number.isFinite(item.angleDeg)
+          ? ((item.angleDeg % 360) + 360) % 360
+          : item.orientation === 'vertical'
+            ? 90
+            : 0;
+        clean.push({
+          id: item.id,
+          orientation: item.orientation,
+          x: Math.max(0, Math.round(item.x * 10) / 10),
+          y: Math.max(0, Math.round(item.y * 10) / 10),
+          lengthPx: Math.round(item.lengthPx),
+          angleDeg: Math.round(rawAngle * 10) / 10,
+        });
+      }
+      if (clean.length >= 4) break;
+    }
+    return clean;
+  } catch {
+    return [];
   }
 }
 
@@ -377,4 +560,78 @@ export function appendHistoryRecord(
   record: MeasurementRecord,
 ): readonly MeasurementRecord[] {
   return [record, ...history.filter((r) => r.id !== record.id)].slice(0, MAX_HISTORY_ITEMS);
+}
+
+export interface HistoryExportContext {
+  readonly status: CalibrationStatus;
+  readonly label: string;
+  readonly pxPerMm: number;
+}
+
+function escapeCsvCell(val: string | number): string {
+  const s = String(val);
+  if (/[",\r\n]/.test(s)) {
+    return `"${s.replace(/"/g, '""')}"`;
+  }
+  return s;
+}
+
+export function formatHistoryCsv(
+  history: readonly MeasurementRecord[],
+  ctx: HistoryExportContext,
+): string {
+  const headers = ['id', 'label', 'cm', 'mm', 'in', 'px', 'unit', 'calibration_status', 'px_per_mm', 'css_ppi', 'created_at'];
+  const ppi = cssPpi(ctx.pxPerMm).toFixed(2);
+  const pxMm = ctx.pxPerMm.toFixed(4);
+  const rows = history.map((item) => {
+    const cm = (item.lengthMm / 10).toFixed(2);
+    const mm = item.lengthMm.toFixed(1);
+    const inches = (item.lengthMm / 25.4).toFixed(3);
+    const px = Math.round(item.lengthPx);
+    const iso = new Date(item.createdAt).toISOString();
+    return [
+      item.id,
+      item.label,
+      cm,
+      mm,
+      inches,
+      px,
+      item.unit,
+      ctx.status,
+      pxMm,
+      ppi,
+      iso,
+    ].map(escapeCsvCell).join(',');
+  });
+  return [headers.join(','), ...rows].join('\n');
+}
+
+export function formatHistoryJson(
+  history: readonly MeasurementRecord[],
+  ctx: HistoryExportContext,
+): string {
+  return JSON.stringify(
+    {
+      exportedAt: new Date().toISOString(),
+      source: 'OnlineRulerPlus.com',
+      calibration: {
+        status: ctx.status,
+        label: ctx.label,
+        pxPerMm: Number(ctx.pxPerMm.toFixed(4)),
+        cssPpi: Number(cssPpi(ctx.pxPerMm).toFixed(2)),
+      },
+      measurements: history.map((item) => ({
+        id: item.id,
+        label: item.label,
+        cm: Number((item.lengthMm / 10).toFixed(3)),
+        mm: Number(item.lengthMm.toFixed(2)),
+        inches: Number((item.lengthMm / 25.4).toFixed(4)),
+        px: Math.round(item.lengthPx),
+        unit: item.unit,
+        createdAt: new Date(item.createdAt).toISOString(),
+      })),
+    },
+    null,
+    2,
+  );
 }

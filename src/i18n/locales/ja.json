@@ -40,7 +40,11 @@
       "about": "このサイトについて",
       "contact": "お問い合わせ",
       "privacy": "プライバシーポリシー",
-      "terms": "利用規約"
+      "terms": "利用規約",
+      "screenDetector": "画面PPI検出",
+      "printableRuler": "印刷用定規",
+      "circleRuler": "円・指輪ゲージ",
+      "quadrant": "4象限座標グリッド"
     },
     "subNav": {
       "workspace": "ワークスペース",
@@ -72,13 +76,18 @@
     "toolGuides": "ドラッグ可能なガイド線 (G)",
     "toolFractions": "分数インチ表示",
     "toolPx": "CSSピクセル計測 (px)",
-    "toolProtractor": "180°分度器ツール (P)",
+    "toolProtractor": "360°分度器ツール (P)",
     "legalAbout": "Online Ruler Plusについて",
     "legalContact": "お問い合わせ・プロファイル投稿",
     "legalPrivacy": "プライバシーポリシー",
     "legalTerms": "利用規約",
     "copyright": "Copyright © {year} OnlineRulerPlus.com. All rights reserved.",
-    "constants": "1 in = 25.4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85.60 × 53.98 mm)"
+    "constants": "1 in = 25.4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85.60 × 53.98 mm)",
+    "toolPhoto": "写真・Ctrl+V定規",
+    "toolCircle": "円・指輪・ボルトゲージ",
+    "toolQuadrant": "4象限座標グリッド",
+    "toolPrintable": "1:1 印刷用SVG定規",
+    "toolDetector": "画面サイズ・PPI判定"
   },
   "helpModal": {
     "kicker": "クイックリファレンス",
@@ -221,7 +230,13 @@
     "photoExportBtn": "PNG保存",
     "photoCloseBtn": "閉じる",
     "photoEmptyTitle": "100% ローカル写真・クリップボード定規",
-    "photoEmptyDesc": "Ctrl+V で画像を貼り付けるか、ファイルをドロップ・選択してください。外部送信は行いません。"
+    "photoEmptyDesc": "Ctrl+V で画像を貼り付けるか、ファイルをドロップ・選択してください。外部送信は行いません。",
+    "popoutBtn": "別ウィンドウ",
+    "popoutTitle": "コンパクトな別ウィンドウで定規を開く",
+    "embedBtn": "埋め込み",
+    "embedTitle": "iframe埋め込みコードを取得",
+    "scaleLabel": "縮尺",
+    "scaleAria": "建築・図面スケール選択"
   },
   "calibration": {
     "kicker": "画面ピクセル密度較正 · 画面ごとにローカル保存",
@@ -313,7 +328,11 @@
     "refCustomUnitAria": "任意オブジェクト単位",
     "refDragHint": "右下の青いハンドルをドラッグして合わせます",
     "cardDragHandleAria": "角をドラッグして実物サイズに合わせる",
-    "cardDragHandleTitle": "角をドラッグしてサイズ調整"
+    "cardDragHandleTitle": "角をドラッグしてサイズ調整",
+    "namedProfilesLabel": "モニタープロファイル:",
+    "namedProfilePlaceholder": "例: 職場 27\" / ノートPC",
+    "namedProfileInputAria": "モニタープロファイル名",
+    "namedProfileSaveBtn": "保存"
   },
   "runtime": {
     "statusLabels": {
@@ -1841,6 +1860,11 @@
           "kicker": "スマホ狭幅対応",
           "heading": "モバイル端末で縦向きカード較正 (53.98 mm) を使う理由",
           "body": "スマホ縦持ち幅は約58〜72 mmしかなく横カード(85.60 mm)がはみ出します。[[strong:縦向きカードモード]]で短辺 [[strong:53.98 mm]] に合わせることで高精度に較正できます。"
+        },
+        {
+          "kicker": "Windows 125%/150% ＆ Android Chrome",
+          "heading": "Windows拡大設定ノートPCとAndroid端末の校正方法",
+          "body": "[[code:125%]]や[[code:150%]]のClearType拡大を使うWindows 10/11ノートPCやAndroid Chrome（幅約360〜412 CSS px）では、ブラウザ倍率を[[strong:100%]]に保ち、Androidでは縦向きカードモード（[[code:53.98 mm]]）を選んで実物カードと合わせてください。"
         }
       ],
       "s7Kicker": "Section 07 · 表示物理と誤差限界",
@@ -2142,6 +2166,454 @@
           "body": "操作UI外の広告およびNIST・BIPM・ISO・W3Cへの外部リンクが含まれる場合があります。詳細は [[link:/privacy|プライバシーポリシー]] をご覧ください。お問い合わせ: [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]。"
         }
       ]
+    },
+    "embed": {
+      "title": "埋め込み用オンライン定規 — Online Ruler Plus",
+      "description": "cm・mm・インチ・ピクセル対応の埋め込み用オンライン定規ウィジェット。",
+      "heading": "Online Ruler Plus コンパクト画面"
+    },
+    "screenDetector": {
+      "title": "画面サイズ・解像度・PPI測定ツール | Online Ruler Plus",
+      "description": "CSS解像度・DPR・ズーム倍率を確認し、ディスプレイの実寸幅・CSS PPI・画素ピッチ(mm)を自動計算します。",
+      "schemaName": "画面サイズ・PPI測定ツール",
+      "subNavTitle": "画面サイズ・PPI測定",
+      "breadcrumbLabel": "画面PPI検出",
+      "heroKicker": "ローカル画面テレメトリ・外部送信なし",
+      "heroHeadline": "画面サイズ・解像度・PPI検出",
+      "heroSummary": "ブラウザのCSSビューポートとDPRを確認し、画面の対角インチ数から正確なスケールを計算して定規の校正にそのまま適用できます。",
+      "openRulerBtn": "オンライン定規を開く",
+      "presetsLabel": "画面サイズ（対角インチ）を選択",
+      "customDiagLabel": "または任意のインチ数を入力 (3″–100″)",
+      "applyBtn": "この対角サイズで定規を校正",
+      "savedBanner": "対角サイズによる校正を保存しました。定規画面で実寸計測できます。",
+      "liveCardKicker": "ブラウザ検出値",
+      "liveCardHeading": "現在のディスプレイ情報",
+      "labelCssRes": "CSS画面解像度",
+      "labelPhysRes": "推定物理解像度",
+      "labelViewport": "ブラウザ表示領域",
+      "labelDpr": "デバイスピクセル比 (DPR)",
+      "labelAspect": "アスペクト比",
+      "labelZoom": "ビジュアルズーム倍率",
+      "labelCalStatus": "現在の校正状態",
+      "labelCalBasis": "校正の根拠",
+      "geomCardKicker": "幾何計算結果",
+      "geomCardHeading": "選択した対角サイズでの物理寸法",
+      "labelCalcWidth": "表示パネル幅",
+      "labelCalcHeight": "表示パネル高さ",
+      "labelCalcCssPpi": "CSS密度 (px / inch)",
+      "labelCalcDevPpi": "物理パネル密度 (PPI)",
+      "labelCalcPitch": "物理ピクセルピッチ",
+      "guideCards": [
+        {
+          "kicker": "CSSと物理値",
+          "heading": "ブラウザが実寸を直接取得できない理由",
+          "body": "プライバシー保護のためWeb標準ではモニターEDIDの物理寸法やOS拡大率を直接読み取れません。"
+        },
+        {
+          "kicker": "OSスケーリング",
+          "heading": "Windows 125%・150%やRetina表示",
+          "body": "OS拡大率を上げるとCSS解像度が下がりDPRが増加します。計測時はブラウザズームを100%に保ってください。"
+        },
+        {
+          "kicker": "精度確認",
+          "heading": "実物カードでの最終確認を推奨",
+          "body": "対角線から算出したPPIでも、校正セクションの標準カード枠(85.6mm)で一度一致を確認してください。"
+        }
+      ]
+    },
+    "printableRuler": {
+      "title": "印刷用 1:1 原寸SVG定規ジェネレーター (A4・レター) | Online Ruler Plus",
+      "description": "100mm検算バー付きの原寸大ペーパー定規・1cm方眼紙・360°分度器をベクターSVGで生成・印刷できます。",
+      "schemaName": "印刷用原寸SVG定規",
+      "subNavTitle": "印刷用原寸定規",
+      "breadcrumbLabel": "印刷用定規",
+      "heroKicker": "実寸ベクターSVG · 1単位 = 1mm",
+      "heroHeadline": "印刷用定規・方眼紙・分度器",
+      "heroSummary": "A4・USレター用の1:1ベクターシートを作成。印刷縮小を検知できる100.0 mm / 4.00 in検証バー付きです。",
+      "templateLabel": "テンプレート",
+      "templates": {
+        "ruler15cm": "15 cm / 6 in 定規",
+        "ruler25cm": "25 cm / 10 in 定規",
+        "ruler30cmSplit": "30 cm 分割 (2×15 cm)",
+        "ruler12inSplit": "12 in 分割 (2×6 in)",
+        "grid1cm": "1 cm 方眼グリッド",
+        "protractor360": "360° 分度器"
+      },
+      "paperLabel": "用紙サイズ",
+      "paperA4": "A4 (210 × 297 mm)",
+      "paperLetter": "US Letter (8.5 × 11 in)",
+      "printBtn": "印刷する（倍率100%）",
+      "downloadBtn": "SVGをダウンロード",
+      "warningTitle": "必須設定：印刷倍率は必ず「実際のサイズ / 100%」を選択",
+      "warningBody": "「用紙に合わせる」が有効だと3〜6%縮小されます。印刷後に100.0 mm検算バーを実測して縮みがないか確認してください。"
+    },
+    "circleRuler": {
+      "title": "実寸 円・指輪・ネジ(M3–M12)・硬貨 直径ゲージ (1–150 mm) | Online Ruler Plus",
+      "description": "指輪サイズ（US/EU）、ISO規格ネジ、ワッシャー、硬貨の実寸直径を校正済み画面上で直接測定できます。",
+      "schemaName": "実寸 円・直径ゲージ",
+      "subNavTitle": "円・直径ゲージ",
+      "breadcrumbLabel": "円・指輪ゲージ",
+      "heroKicker": "実寸同心円メトロロジー · 1.00 mm – 150.00 mm",
+      "heroHeadline": "円・指輪・ネジ・硬貨 直径ゲージ",
+      "heroSummary": "指輪・硬貨・ボルトなどを画面の青い円の上に直接重ねるか、円周をドラッグして直径をぴったり合わせます。",
+      "diameterLabel": "直径 (mm)",
+      "presetsLabel": "クイック参照プリセット (ISOボルト / 指輪 / 硬貨 / CD)",
+      "readoutTitle": "幾何計測値",
+      "labelDiameter": "直径",
+      "labelRadius": "半径 (r)",
+      "labelCircumference": "円周 (π·d)",
+      "labelArea": "面積 (π·r²)",
+      "labelDiameterIn": "直径 (インチ)",
+      "labelPixels": "画面ピクセル径 (px)",
+      "labelRingSize": "近似指輪サイズ",
+      "guideCards": [
+        {
+          "kicker": "リングサイズ",
+          "heading": "指輪の内径を測定",
+          "body": "指輪の内側の輪に青い円を合わせると、US規格・EU周長サイズを即表示します。"
+        },
+        {
+          "kicker": "ねじ・部品",
+          "heading": "M3〜M12ボルト・Oリング確認",
+          "body": "1 mmから150 mmまでのねじ頭、ワッシャー、ドリル径を比較できます。"
+        },
+        {
+          "kicker": "画面校正",
+          "heading": "実寸には事前の画面校正が必要",
+          "body": "より正確な測定にはトップページの標準カード校正を済ませてください。"
+        }
+      ]
+    },
+    "quadrant": {
+      "title": "実寸4象限座標平面・ベクトル計測グリッド | Online Ruler Plus",
+      "description": "画面中心を原点(0, 0)とした4象限の符号付き(±X, ±Y)座標・距離r・極座標角θを実寸スケールで測定します。",
+      "schemaName": "4象限座標グリッド",
+      "subNavTitle": "4象限座標平面",
+      "breadcrumbLabel": "4象限座標",
+      "heroKicker": "校正済み直交座標 · (±X, ±Y) & 極座標 (r, θ)",
+      "heroHeadline": "インタラクティブ4象限座標・ベクトル計測",
+      "heroSummary": "中心原点(0, 0)を基準に平面をクリックまたはドラッグし、X/Yオフセット、距離r、角度θ(0°–360°)を計測します。",
+      "hint": "グリッド上をクリック・ドラッグすると中心原点(0, 0)からのベクトル座標を表示します。",
+      "resetOriginBtn": "原点(0, 0)へ戻す",
+      "labelX": "X 座標",
+      "labelY": "Y 座標",
+      "labelRadius": "距離 (r)",
+      "labelAngle": "極角度 (θ)",
+      "labelQuadrant": "現在の象限",
+      "guideCards": [
+        {
+          "kicker": "4象限対応",
+          "heading": "第I〜第IV象限を完全カバー",
+          "body": "中心基準の対称チェックや図面位置の読み取りに最適です。"
+        },
+        {
+          "kicker": "極座標変換",
+          "heading": "ユークリッド距離 r = √(X² + Y²)",
+          "body": "直交座標と同時に極半径rと反時計回り角度θを自動算出します。"
+        },
+        {
+          "kicker": "実寸グリッド",
+          "heading": "cm・mm・インチ・px切替",
+          "body": "保存済みPPIを使って実寸方眼を描画します。"
+        }
+      ]
+    },
+    "photoRuler": {
+      "title": "写真・スクリーンショット定規 | 画像内の長さをオンライン計測",
+      "description": "アップロード写真やCtrl+V画像を2点基準校正、バウンディングボックス、注釈付きPNG保存でブラウザ内計測。",
+      "schemaName": "オンライン写真・クリップボード定規",
+      "featureList": [
+        "100%ローカル処理＆Ctrl+V貼り付け",
+        "写真内の2点基準長校正",
+        "ΔX/ΔY・バウンディングボックス表示",
+        "校正バー付きPNGダウンロード"
+      ],
+      "subNavTitle": "写真定規",
+      "breadcrumbLabel": "写真定規",
+      "hero": {
+        "eyebrow": "画像計測 · 100%ローカル · Ctrl+V対応",
+        "headline": "写真やスクリーンショットの長さをオンライン計測",
+        "description": "画像を開くかCtrl+Vで貼り付け、写真内の基準物の長さを指定するだけでブラウザ上で安全に実寸計測できます。"
+      },
+      "guideKicker": "サーバー送信ゼロの安全計測",
+      "guideHeading": "写真内の長さと枠を測る手順",
+      "guideLead": "図面、部品写真、UI画面のピクセル計測まで端末内で完結します。",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "ローカル · Ctrl+V",
+          "heading": "写真を開く／貼り付ける",
+          "body": "画像はサーバーへ送信されずブラウザメモリ内のみで処理されます。",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "写真モードを開く"
+        },
+        {
+          "step": "2",
+          "kicker": "2点基準校正",
+          "heading": "写真内の基準物を指定",
+          "body": "写っているカードや硬貨の2点を指定し実寸を入力します。",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "基準サイズ一覧"
+        },
+        {
+          "step": "3",
+          "kicker": "PNG出力",
+          "heading": "計測結果をPNG保存",
+          "body": "平行ガイドとΔX/ΔYを添えて注釈付きPNGを保存できます。",
+          "linkHref": "/protractor",
+          "linkLabel": "360°分度器を開く"
+        }
+      ],
+      "darkKicker": "撮影時の基準物",
+      "darkHeading": "写真校正に向く身近な基準アイテム",
+      "darkLead": "被写体のすぐ横に同じ高さで置くとズーム誤差を補正できます。",
+      "darkCards": [
+        {
+          "heading": "真上から撮影する",
+          "body": "斜め撮影による遠近歪みを防げます。"
+        },
+        {
+          "heading": "Ctrl+Vで即計測",
+          "body": "スクリーンショットは等倍ピクセルのまま貼り付きます。"
+        },
+        {
+          "heading": "クラウド保存なし",
+          "body": "タブを閉じるとメモリから自動消去されます。"
+        }
+      ],
+      "table": {
+        "kicker": "写真基準リスト",
+        "heading": "2点校正に使える国際規格サイズ一覧",
+        "headers": [
+          "基準アイテム",
+          "実寸 (mm)",
+          "インチ",
+          "用途"
+        ],
+        "rows": [
+          [
+            "クレジットカード ID-1（横）",
+            "85.60 mm",
+            "3.370 in",
+            "机上部品"
+          ],
+          [
+            "クレジットカード ID-1（縦）",
+            "53.98 mm",
+            "2.125 in",
+            "小型部品"
+          ],
+          [
+            "1ユーロ硬貨",
+            "23.25 mm",
+            "0.915 in",
+            "マクロ撮影"
+          ],
+          [
+            "2ユーロ硬貨",
+            "25.75 mm",
+            "1.014 in",
+            "指輪・金具"
+          ],
+          [
+            "US 25セント硬貨",
+            "24.26 mm",
+            "0.955 in",
+            "マクロ計測"
+          ],
+          [
+            "単三乾電池（IEC R6）",
+            "50.50 mm",
+            "1.988 in",
+            "工作写真"
+          ],
+          [
+            "USレター用紙（短辺）",
+            "215.90 mm",
+            "8.500 in",
+            "家具"
+          ],
+          [
+            "A4用紙（短辺）",
+            "210.00 mm",
+            "8.268 in",
+            "図面・梱包"
+          ]
+        ],
+        "footnote": "基準物と計測対象を同じピント面に配置してください。"
+      },
+      "faqKicker": "写真計測FAQ",
+      "faqHeading": "写真・画像定規に関する質問",
+      "faqs": [
+        {
+          "q": "画像はサーバーへ送信されますか？",
+          "a": "いいえ。デコードからPNG書き出しまでブラウザ内だけで完結します。"
+        },
+        {
+          "q": "2点校正の精度は？",
+          "a": "真上からの平面写真では1〜2ピクセル以内の精度で計測できます。"
+        },
+        {
+          "q": "縦横同時計測はできますか？",
+          "a": "はい。バウンディングボックスやΔX/ΔYガイドで読み取れます。"
+        },
+        {
+          "q": "対応画像形式は？",
+          "a": "PNG・JPEG・WebP・GIF・SVGおよびCtrl+V貼り付け画像です。"
+        }
+      ]
+    },
+    "protractor": {
+      "title": "オンライン分度器 360° | 画面上で角度計測",
+      "description": "頂点移動と2本の独立した光線で0°〜360°の角度を画面や写真上で直接測れる無料オンライン分度器。",
+      "schemaName": "オンライン360°二線式分度器",
+      "featureList": [
+        "全周0°〜360°対応",
+        "頂点移動＆光線A/B独立回転",
+        "写真・PDF図面上で計測",
+        "角度付き定規と併用可能"
+      ],
+      "subNavTitle": "360°分度器",
+      "breadcrumbLabel": "分度器",
+      "hero": {
+        "eyebrow": "幾何計測 0°–360° · 2本の可動光線",
+        "headline": "インタラクティブ360°オンライン分度器",
+        "description": "中心リングを頂点へドラッグし、2本のラインを360°自由に回して内角・優角を正確に読み取ります。"
+      },
+      "guideKicker": "画面角度計測",
+      "guideHeading": "画面や画像上の角度の測り方",
+      "guideLead": "図形学習、留め切り加工、屋根勾配、CAD確認に最適です。",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "ショートカット P",
+          "heading": "頂点に中心を合わせる",
+          "body": "中心ハブを角の頂点へドラッグします。",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "分度器を使う"
+        },
+        {
+          "step": "2",
+          "kicker": "360°二線回転",
+          "heading": "斜めの図もそのまま測定",
+          "body": "光線AとBがどちらも360°回転するため画像を回す手間が不要です。",
+          "linkHref": "/photo-ruler",
+          "linkLabel": "写真の下で測る"
+        },
+        {
+          "step": "3",
+          "kicker": "角度＋長さ同時",
+          "heading": "回転定規と併用する",
+          "body": "任意の角度で固定できる定規と同時に使えます。",
+          "linkHref": "/quadrant",
+          "linkLabel": "4象限グラフへ"
+        }
+      ],
+      "darkKicker": "角度リファレンス",
+      "darkHeading": "よく使う設計・木工の角度",
+      "darkLead": "正方ピクセルのモニターではPPI校正前でも角度比率は正確です。",
+      "darkCards": [
+        {
+          "heading": "明快な扇形表示",
+          "body": "2本のライン間の角度を視覚的に示します。"
+        },
+        {
+          "heading": "キーボード微調整",
+          "body": "矢印キーで細かく回転調整できます。"
+        },
+        {
+          "heading": "留め切り計算",
+          "body": "角の角度を半分に割ればのこぎりの設定角になります。"
+        }
+      ],
+      "table": {
+        "kicker": "基準角度",
+        "heading": "製図・DIYの代表角度一覧",
+        "headers": [
+          "種類",
+          "角度 (°)",
+          "勾配・補角",
+          "用途"
+        ],
+        "rows": [
+          [
+            "直角",
+            "90.0°",
+            "垂直",
+            "木工・基板"
+          ],
+          [
+            "留め角",
+            "45.0°",
+            "1:1 (100%)",
+            "額縁"
+          ],
+          [
+            "六角形内角",
+            "120.0°",
+            "外角60°",
+            "六角ボルト"
+          ],
+          [
+            "等角投影軸",
+            "30.0°",
+            "57.7%",
+            "3D製図"
+          ],
+          [
+            "八角形留め",
+            "22.5°",
+            "内角135°",
+            "装飾枠"
+          ],
+          [
+            "屋根4寸勾配",
+            "18.4°",
+            "33.3%",
+            "垂木"
+          ],
+          [
+            "五角形内角",
+            "108.0°",
+            "外角72°",
+            "多角形"
+          ],
+          [
+            "平角",
+            "180.0°",
+            "一直線",
+            "水平確認"
+          ]
+        ],
+        "footnote": "現代のLCD/OLEDが採用する1:1正方ピクセルで正確な角度を算出します。"
+      },
+      "faqKicker": "分度器FAQ",
+      "faqHeading": "角度計測のよくある質問",
+      "faqs": [
+        {
+          "q": "角度計測前にPPI校正は必要ですか？",
+          "a": "いいえ。正方ピクセル表示の画面なら初期状態でも正確な角度が出ます。"
+        },
+        {
+          "q": "写真の上で使えますか？",
+          "a": "はい。Ctrl+Vで画像を貼り付けた上で分度器を重ねられます。"
+        },
+        {
+          "q": "180°分度器との違いは？",
+          "a": "両方の線が360°自由に動くため斜め図形の基準合わせが簡単です。"
+        },
+        {
+          "q": "長さも同時に測れますか？",
+          "a": "はい。ΔX/ΔYガイドや回転定規を同時に表示できます。"
+        }
+      ]
     }
+  },
+  "converter": {
+    "title": "単位換算",
+    "mmAria": "ミリメートルを入力",
+    "cmAria": "センチメートルを入力",
+    "inAria": "インチを入力",
+    "pxAria": "CSSピクセルを入力"
   }
 }

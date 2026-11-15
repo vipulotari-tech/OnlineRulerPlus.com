@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import HelpModal from '../../components/HelpModal.astro';
+import Footer from '../../components/Footer.astro';
+import {
+  LOCALE_META,
+  getLocaleStaticPaths,
+  localizedPath,
+  type Locale,
+} from '../../i18n/config.ts';
+import { getDict } from '../../i18n/index.ts';
+
+export function getStaticPaths() {
+  return getLocaleStaticPaths();
+}
+
+const { locale } = Astro.props as { locale: Locale };
+const dict = getDict(locale);
+const page = dict.pages.quadrant;
+const meta = LOCALE_META[locale];
+
+const siteOrigin = Astro.site ? Astro.site.origin : 'https://onlinerulerplus.com';
+const routePath = localizedPath(locale, '/quadrant');
+const canonicalUrl = `${siteOrigin}${routePath}`;
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    '@id': `${canonicalUrl}#app`,
+    name: page.schemaName,
+    url: canonicalUrl,
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'Any',
+    inLanguage: meta.bcp47,
+    isAccessibleForFree: true,
+    description: page.description,
+    publisher: { '@id': `${siteOrigin}/#organization` },
+  },
+];
+---
+
+<BaseLayout
+  locale={locale}
+  title={page.title}
+  description={page.description}
+  canonicalPath="/quadrant"
+  breadcrumbLabel={page.breadcrumbLabel}
+  structuredData={structuredData}
+>
+  <Header
+    locale={locale}
+    subNavTitle={page.subNavTitle}
+    subNavCtaHref={localizedPath(locale, '/#calibration')}
+    subNavCtaLabel={dict.nav.defaultSubNavCta}
+  />
+  <main id="main-content" class="flex-1">
+    <section class="apple-page-hero border-b border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div class="max-w-3xl">
+            <p class="type-kicker">{page.heroKicker}</p>
+            <h1 class="mt-2 type-hero-display text-ink">{page.heroHeadline}</h1>
+            <p class="speakable-summary mt-3 max-w-[62ch] type-lead-airy text-ink-muted-80">
+              {page.heroSummary}
+            </p>
+          </div>
+          <a href={localizedPath(locale, '/#ruler-tool')} class="apple-btn-primary shrink-0">
+            {dict.pages.screenDetector.openRulerBtn}
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="quadrant-app" class="apple-tile-parchment border-b border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 space-y-6">
+        <div class="apple-utility-card space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div class="apple-segmented-pod" role="group" aria-label={dict.workspace.unitGroupAria}>
+              <button type="button" data-quad-unit="cm" data-active="true" aria-pressed="true" class="apple-option-chip font-mono text-xs">cm</button>
+              <button type="button" data-quad-unit="mm" data-active="false" aria-pressed="false" class="apple-option-chip font-mono text-xs">mm</button>
+              <button type="button" data-quad-unit="in" data-active="false" aria-pressed="false" class="apple-option-chip font-mono text-xs">in</button>
+              <button type="button" data-quad-unit="px" data-active="false" aria-pressed="false" class="apple-option-chip font-mono text-xs">px</button>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <span id="quad-cal-ppi" class="font-mono text-xs text-ink-muted-80">96.0 PPI</span>
+              <button id="btn-quadrant-reset" type="button" class="apple-btn-pearl font-mono text-xs">
+                {page.resetOriginBtn}
+              </button>
+            </div>
+          </div>
+
+          <div class="overflow-hidden rounded-[14px] border border-hairline bg-canvas">
+            <canvas id="quadrant-canvas" class="block w-full cursor-crosshair touch-none"></canvas>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 sm:grid-cols-5 font-mono text-xs">
+            <div class="rounded-[12px] border border-hairline bg-canvas px-3 py-2.5">
+              <span class="block text-[11px] text-ink-muted-48">{page.labelX}</span>
+              <strong id="quad-x-val" class="mt-0.5 block text-sm text-ink">+3.00 cm</strong>
+            </div>
+            <div class="rounded-[12px] border border-hairline bg-canvas px-3 py-2.5">
+              <span class="block text-[11px] text-ink-muted-48">{page.labelY}</span>
+              <strong id="quad-y-val" class="mt-0.5 block text-sm text-ink">+2.00 cm</strong>
+            </div>
+            <div class="rounded-[12px] border border-hairline bg-canvas px-3 py-2.5">
+              <span class="block text-[11px] text-ink-muted-48">{page.labelRadius}</span>
+              <strong id="quad-r-val" class="mt-0.5 block text-sm text-link">3.61 cm</strong>
+            </div>
+            <div class="rounded-[12px] border border-hairline bg-canvas px-3 py-2.5">
+              <span class="block text-[11px] text-ink-muted-48">{page.labelAngle}</span>
+              <strong id="quad-angle-val" class="mt-0.5 block text-sm text-ink">33.7°</strong>
+            </div>
+            <div class="col-span-2 sm:col-span-1 rounded-[12px] border border-hairline bg-canvas px-3 py-2.5">
+              <span class="block text-[11px] text-ink-muted-48">{page.labelQuadrant}</span>
+              <strong id="quad-label-val" class="mt-0.5 block text-sm text-ink">I (+, +)</strong>
+            </div>
+          </div>
+
+          <p class="type-caption text-ink-muted-80">{page.hint}</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {page.guideCards.map((card) => (
+            <article class="apple-utility-card">
+              <p class="type-kicker">{card.kicker}</p>
+              <h2 class="mt-1 type-body-strong text-ink">{card.heading}</h2>
+              <p class="mt-2 type-caption text-ink-muted-80">{card.body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <HelpModal locale={locale} />
+  <Footer locale={locale} />
+  <script src="../../scripts/app.ts"></script>
+</BaseLayout>

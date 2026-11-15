@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RulerWorkspace from '../../components/RulerWorkspace.astro';
+import HelpModal from '../../components/HelpModal.astro';
+import { getLocaleStaticPaths, type Locale } from '../../i18n/config.ts';
+import { getDict } from '../../i18n/index.ts';
+
+export function getStaticPaths() {
+  return getLocaleStaticPaths();
+}
+
+const { locale } = Astro.props as { locale: Locale };
+const dict = getDict(locale);
+const page = dict.pages.embed;
+---
+
+<BaseLayout
+  locale={locale}
+  title={page.title}
+  description={page.description}
+  canonicalPath="/embed"
+  robots="noindex, follow"
+  skipHref="#ruler-tool"
+  bodyClass="min-h-screen flex flex-col bg-canvas text-body"
+>
+  <main id="main-content" class="flex-1 flex flex-col justify-center py-2">
+    <h1 class="sr-only">{page.heading}</h1>
+    <RulerWorkspace locale={locale} compactEmbed={true} />
+  </main>
+  <HelpModal locale={locale} />
+  <script src="../../scripts/app.ts"></script>
+</BaseLayout>

@@ -73,7 +73,7 @@ const SCHEMES: Readonly<Record<Unit, TickScheme>> = {
 export const MIN_TICK_GAP_PX = 3;
 /** Minimum distance between numeric labels (CSS px). */
 export const MIN_LABEL_GAP_PX = 28;
-const LABEL_STRIDES = [1, 2, 5, 10, 20, 50] as const;
+const LABEL_STRIDES = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000] as const;
 
 export interface GenerateTicksOptions {
   readonly inchDivisor?: InchDivisor;
@@ -105,7 +105,7 @@ export function generateTicks(
   const usable = subdivisions.filter((s) => majorPx / s.divisor >= effectiveMinGap);
   const finest = usable.length > 0 ? usable[usable.length - 1].divisor : 1;
   const stepPx = majorPx / finest;
-  const labelStride = LABEL_STRIDES.find((k) => majorPx * k >= MIN_LABEL_GAP_PX) ?? 100;
+  const labelStride = LABEL_STRIDES.find((k) => majorPx * k >= MIN_LABEL_GAP_PX) ?? 2000;
 
   const count = Math.floor(lengthPx / stepPx + 1e-9);
   const ticks: Tick[] = [];

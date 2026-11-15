@@ -8,6 +8,7 @@ import {
   classifyDisplayChange,
   createManualProfile,
   cssPpi,
+  deleteNamedProfileFromStore,
   detectCalibration,
   getReferencePreset,
   parseDiagonal,
@@ -17,7 +18,9 @@ import {
   pxPerMmFromReference,
   readDisplayInfo,
   removeProfileForDisplay,
+  saveNamedProfileToStore,
   saveProfileToStore,
+  selectNamedProfileInStore,
   type CalibrationMethod,
   type DisplayInfo,
   type ReferencePresetId,
@@ -60,6 +63,7 @@ export class CalibrationController {
     this.bindDiagonalControls();
     this.bindCardControls();
     this.bindResetButtons();
+    this.bindNamedProfileControls();
     this.bindDisplayWatchers();
 
     window.addEventListener('orp:calibration-changed', () => {
@@ -154,6 +158,7 @@ export class CalibrationController {
         : Math.round(activeRefMm * cal.pxPerMm * 10) / 10;
     this.renderCardBox();
     this.renderVerificationShapes(cal.pxPerMm);
+    this.renderNamedProfiles();
   }
 
   private bindTabs(): void {
@@ -783,6 +788,70 @@ export class CalibrationController {
         checkDisplay();
       }
     }, 1500);
+  }
+
+  private bindNamedProfileControls(): void {
+    const input = document.getElementById('input-profile-name') as HTMLInputElement | null;
+    const saveBtn = document.getElementById('btn-save-named-profile');
+    saveBtn?.addEventListener('click', () => {
+      const disp = readDisplayInfo(window);
+      const cal = this.workspace.getCalibration();
+      const customName =
+        input?.value.trim() ||
+        `${cal.cssPpi.toFixed(0)} PPI (${disp.screenWidth}×${disp.screenHeight})`;
+      const nextStore = saveNamedProfileToStore(
+        this.workspace.getStore(),
+        disp,
+        cal.pxPerMm,
+        customName,
+        cal.method === 'diagonal' ? 'diagonal' : 'card',
+      );
+      this.workspace.updateCalibrationStore(nextStore, disp);
+      if (input) input.value = '';
+    });
+  }
+
+  private renderNamedProfiles(): void {
+    const listEl = document.getElementById('saved-profiles-list');
+    if (!listEl) return;
+    const store = this.workspace.getStore();
+    const named = store.namedProfiles ?? [];
+    listEl.innerHTML = '';
+
+    for (const np of named) {
+      const id = np.id ?? '';
+      const active = store.activeNamedProfileId === id;
+      const chipWrap = document.createElement('div');
+      chipWrap.className = 'inline-flex items-center rounded-full border border-hairline bg-canvas pl-2.5 pr-1 py-0.5 text-[11px] font-mono gap-1 data-[active=true]:border-primary-focus data-[active=true]:bg-link-soft';
+      chipWrap.dataset.active = String(active);
+
+      const selectBtn = document.createElement('button');
+      selectBtn.type = 'button';
+      selectBtn.dataset.selectProfileId = id;
+      selectBtn.className = 'text-ink hover:text-link font-semibold cursor-pointer';
+      selectBtn.textContent = `${np.customName ?? np.label} (${cssPpi(np.pxPerMm).toFixed(0)} PPI)`;
+      selectBtn.addEventListener('click', () => {
+        const disp = readDisplayInfo(window);
+        const nextStore = selectNamedProfileInStore(this.workspace.getStore(), id, disp);
+        this.workspace.updateCalibrationStore(nextStore, disp);
+      });
+
+      const delBtn = document.createElement('button');
+      delBtn.type = 'button';
+      delBtn.dataset.deleteProfileId = id;
+      delBtn.setAttribute('aria-label', `Delete ${np.customName ?? np.label}`);
+      delBtn.className = 'inline-flex h-5 w-5 items-center justify-center rounded-full text-ink-muted-80 hover:text-error cursor-pointer';
+      delBtn.textContent = '×';
+      delBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const nextStore = deleteNamedProfileFromStore(this.workspace.getStore(), id);
+        this.workspace.updateCalibrationStore(nextStore);
+      });
+
+      chipWrap.appendChild(selectBtn);
+      chipWrap.appendChild(delBtn);
+      listEl.appendChild(chipWrap);
+    }
   }
 
   private showBanner(message: string, tone: 'info' | 'warning'): void {

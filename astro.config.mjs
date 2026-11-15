@@ -31,6 +31,7 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
+      filter: (page) => !/\/embed\/?$/.test(page),
       i18n: {
         defaultLocale: 'en',
         locales: LOCALE_MAP,

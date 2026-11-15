@@ -1,12 +1,16 @@
 ---
-import { DEFAULT_LOCALE, type Locale } from '../i18n/config.ts';
+import { DEFAULT_LOCALE, localizedPath, type Locale } from '../i18n/config.ts';
 import { getDict, renderInlineMarkup } from '../i18n/index.ts';
+import UnitConverterBar from './UnitConverterBar.astro';
 
 interface Props {
   locale?: Locale;
   defaultUnit?: 'cm' | 'mm' | 'in' | 'px';
   forceUnit?: 'cm' | 'mm' | 'in' | 'px';
   forceEdges?: 'horizontal' | 'vertical' | 'all' | 'top-left';
+  initialPhotoMode?: boolean;
+  initialProtractor?: boolean;
+  compactEmbed?: boolean;
 }
 
 const {
@@ -14,10 +18,14 @@ const {
   defaultUnit = 'cm',
   forceUnit,
   forceEdges,
+  initialPhotoMode = false,
+  initialProtractor = false,
+  compactEmbed = false,
 } = Astro.props;
 
 const dict = getDict(locale);
 const w = dict.workspace;
+const embedRoute = localizedPath(locale, '/embed');
 
 const initUnit = forceUnit ?? defaultUnit;
 const initEdges = {
@@ -56,7 +64,14 @@ const offRight = initEdges.right ? initThickness : 0;
       <span id="display-change-text" class="font-semibold"></span>
     </div>
     <div class="flex items-center gap-3 shrink-0">
-      <a href="#calibration" class="font-semibold text-link underline">{w.verifyCalibrationLink}</a>
+      <a
+        href={compactEmbed ? localizedPath(locale, '/#calibration') : '#calibration'}
+        target={compactEmbed ? '_blank' : undefined}
+        rel={compactEmbed ? 'noopener noreferrer' : undefined}
+        class="font-semibold text-link underline"
+      >
+        {w.verifyCalibrationLink}
+      </a>
       <button
         id="btn-dismiss-banner"
         type="button"
@@ -69,11 +84,11 @@ const offRight = initEdges.right ? initThickness : 0;
   </div>
 
   <!-- Workspace Control Bar (Grouped Segmented Instrument Pods) -->
-  <div class="rounded-t-[18px] border border-b-0 border-hairline bg-canvas-parchment px-2 py-1.5 sm:px-4 sm:py-2.5">
-    <div class="flex flex-nowrap sm:flex-wrap items-center justify-start sm:justify-between gap-1.5 sm:gap-2 overflow-x-auto sm:overflow-visible pb-0.5 sm:pb-0">
+  <div class="rounded-t-[18px] border border-b-0 border-hairline bg-canvas-parchment px-2 py-1.5 sm:px-3 sm:py-1.5">
+    <div class="flex flex-nowrap sm:flex-wrap items-center justify-start sm:justify-between gap-1 sm:gap-1.5 overflow-x-auto sm:overflow-visible pb-0.5 sm:pb-0">
       <!-- Pod 1: Unit Selector -->
-      <div class="apple-segmented-pod flex-nowrap! shrink-0 sm:flex-wrap!" role="group" aria-label={w.unitGroupAria}>
-        <span class="hidden sm:inline px-1.5 font-mono text-[11px] font-semibold text-ink-muted-48">{w.unitLabel}</span>
+      <div class="apple-segmented-pod flex-nowrap! shrink-0 sm:shrink sm:max-w-full sm:flex-wrap!" role="group" aria-label={w.unitGroupAria}>
+        <span class="hidden 2xl:inline px-1.5 font-mono text-[11px] font-semibold text-ink-muted-48">{w.unitLabel}</span>
         <button
           type="button"
           data-unit-btn="cm"
@@ -162,8 +177,8 @@ const offRight = initEdges.right ? initThickness : 0;
       </div>
 
       <!-- Pod 2: Edge Selector -->
-      <div class="apple-segmented-pod flex-nowrap! shrink-0 sm:flex-wrap!" role="group" aria-label={w.edgesGroupAria}>
-        <span class="hidden sm:inline px-1.5 font-mono text-[11px] font-semibold text-ink-muted-48">{w.edgesLabel}</span>
+      <div class="apple-segmented-pod flex-nowrap! shrink-0 sm:shrink sm:max-w-full sm:flex-wrap!" role="group" aria-label={w.edgesGroupAria}>
+        <span class="hidden 2xl:inline px-1.5 font-mono text-[11px] font-semibold text-ink-muted-48">{w.edgesLabel}</span>
         <button
           type="button"
           data-edge-btn="top"
@@ -212,7 +227,7 @@ const offRight = initEdges.right ? initThickness : 0;
       </div>
 
       <!-- Pod 3: Precision Overlay Tools -->
-      <div class="apple-segmented-pod flex-nowrap! shrink-0 sm:flex-wrap!" role="group" aria-label={w.toolsGroupAria}>
+      <div class="apple-segmented-pod flex-nowrap! shrink-0 sm:shrink sm:max-w-full sm:flex-wrap!" role="group" aria-label={w.toolsGroupAria}>
         <button
           id="btn-toggle-guides"
           type="button"
@@ -222,7 +237,7 @@ const offRight = initEdges.right ? initThickness : 0;
           title={w.guidesTitle}
         >
           <span>{w.guides}</span>
-          <kbd class="hidden sm:inline font-mono text-[10px] text-ink-muted-48">G</kbd>
+          <kbd class="hidden xl:inline font-mono text-[10px] text-ink-muted-48">G</kbd>
         </button>
         <button
           id="btn-toggle-crosshair"
@@ -233,7 +248,7 @@ const offRight = initEdges.right ? initThickness : 0;
           title={w.crosshairTitle}
         >
           <span>{w.crosshair}</span>
-          <kbd class="hidden sm:inline font-mono text-[10px] text-ink-muted-48">C</kbd>
+          <kbd class="hidden xl:inline font-mono text-[10px] text-ink-muted-48">C</kbd>
         </button>
         <button
           id="btn-add-floating-ruler"
@@ -252,7 +267,7 @@ const offRight = initEdges.right ? initThickness : 0;
           title={w.protractorTitle}
         >
           <span>{w.protractor}</span>
-          <kbd class="hidden sm:inline font-mono text-[10px] text-ink-muted-48">P</kbd>
+          <kbd class="hidden xl:inline font-mono text-[10px] text-ink-muted-48">P</kbd>
         </button>
         <button
           id="btn-photo-mode"
@@ -286,8 +301,32 @@ const offRight = initEdges.right ? initThickness : 0;
           title={w.fullscreenTitle}
         >
           <span>{w.fullscreen}</span>
-          <kbd class="hidden sm:inline font-mono text-[10px] text-ink-muted-48">F</kbd>
+          <kbd class="hidden xl:inline font-mono text-[10px] text-ink-muted-48">F</kbd>
         </button>
+        {!compactEmbed && (
+          <>
+            <button
+              id="btn-popout-ruler"
+              type="button"
+              data-embed-href={embedRoute}
+              class="hidden md:inline-flex apple-btn-pearl font-mono text-xs"
+              title={w.popoutTitle ?? 'Open compact pop-out ruler window'}
+            >
+              {w.popoutBtn ?? 'Pop-Out'}
+            </button>
+            <button
+              id="btn-embed-code"
+              type="button"
+              data-embed-href={embedRoute}
+              aria-expanded="false"
+              aria-controls="embed-snippet-popover"
+              class="hidden md:inline-flex apple-btn-pearl font-mono text-xs"
+              title={w.embedTitle ?? 'Get iframe embed code'}
+            >
+              {w.embedBtn ?? 'Embed'}
+            </button>
+          </>
+        )}
         <button
           id="btn-clear-guides"
           type="button"
@@ -300,8 +339,8 @@ const offRight = initEdges.right ? initThickness : 0;
     </div>
 
     <!-- Secondary Row: Calibration Telemetry, Guide Axis, Thickness & Opacity -->
-    <div class="mt-1.5 sm:mt-2.5 flex flex-nowrap sm:flex-wrap items-center justify-between gap-2 border-t border-hairline pt-1.5 sm:pt-2 type-caption overflow-x-auto sm:overflow-visible">
-      <div class="flex flex-nowrap sm:flex-wrap items-center gap-2 shrink-0">
+    <div class="mt-1 sm:mt-1.5 flex flex-nowrap sm:flex-wrap items-center justify-between gap-1.5 border-t border-hairline pt-1 sm:pt-1.5 type-caption overflow-x-auto sm:overflow-visible">
+      <div class="flex flex-nowrap sm:flex-wrap items-center gap-1.5 shrink-0 sm:shrink sm:max-w-full">
         <span
           data-cal-status-label
           data-status="estimated"
@@ -315,7 +354,9 @@ const offRight = initEdges.right ? initThickness : 0;
           <span data-cal-device-label class="hidden sm:inline text-ink-muted-48">{w.calDefaultDevice}</span>
         </span>
         <a
-          href="#calibration"
+          href={compactEmbed ? localizedPath(locale, '/#calibration') : '#calibration'}
+          target={compactEmbed ? '_blank' : undefined}
+          rel={compactEmbed ? 'noopener noreferrer' : undefined}
           data-open-calibration="card"
           class="inline-flex items-center gap-1 whitespace-nowrap rounded-full border border-primary/30 bg-link-soft px-2.5 py-0.5 font-mono text-[11px] font-semibold text-link hover:border-primary-focus transition-colors"
         >
@@ -324,7 +365,7 @@ const offRight = initEdges.right ? initThickness : 0;
         </a>
       </div>
 
-      <div class="flex flex-nowrap sm:flex-wrap items-center gap-2 sm:gap-3 text-ink-muted-80 shrink-0">
+      <div class="flex flex-nowrap sm:flex-wrap items-center gap-1.5 sm:gap-2 text-ink-muted-80 shrink-0 sm:shrink sm:max-w-full">
         <!-- Guide placement axis -->
         <div class="flex flex-wrap items-center gap-1" role="group" aria-label={w.guideAxisAria}>
           <span class="font-mono text-[11px] text-ink-muted-48">{w.guideAxisLabel}</span>
@@ -356,6 +397,37 @@ const offRight = initEdges.right ? initThickness : 0;
             {w.axisBoth}
           </button>
         </div>
+
+        <!-- Architectural & Engineering Scale Selector (P3) -->
+        <label class="flex items-center gap-1.5 font-mono text-[11px]">
+          <span class="text-ink-muted-48">{w.scaleLabel ?? 'Scale'}</span>
+          <select
+            id="select-arch-scale"
+            aria-label={w.scaleAria ?? 'Architectural and engineering drawing scale'}
+            class="rounded-[8px] border border-hairline bg-canvas px-2 py-0.5 font-mono text-[11px] text-ink cursor-pointer"
+          >
+            <option value="1:1" selected>1:1 (Actual)</option>
+            <option value="1:10">1:10</option>
+            <option value="1:20">1:20</option>
+            <option value="1:48">1/4″ = 1′ (1:48)</option>
+            <option value="1:50">1:50</option>
+            <option value="1:100">1:100</option>
+          </select>
+        </label>
+
+        <span
+          id="scale-active-badge"
+          class="hidden items-center gap-1.5 rounded-full border border-warning bg-warning-soft px-2.5 py-0.5 font-mono text-[11px] font-semibold text-warning-deep whitespace-nowrap"
+        >
+          <span id="scale-active-text">1:50 ACTIVE</span>
+          <button
+            id="btn-reset-scale"
+            type="button"
+            class="underline hover:no-underline cursor-pointer"
+          >
+            1:1
+          </button>
+        </span>
 
         <!-- Ruler thickness -->
         <label class="flex items-center gap-1.5 font-mono text-[11px]">
@@ -389,14 +461,58 @@ const offRight = initEdges.right ? initThickness : 0;
     </div>
   </div>
 
+  <!-- Embed Iframe Code Generator Drawer (P2.3) -->
+  {!compactEmbed && (
+    <div
+      id="embed-snippet-popover"
+      class="hidden border border-b-0 border-hairline bg-canvas px-4 py-3"
+    >
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+        <span class="font-mono text-xs font-semibold text-ink">
+          {w.embedHeading ?? 'Embed Ad-Free Online Ruler (<iframe>)'}
+        </span>
+        <div class="flex items-center gap-2">
+          <button
+            id="btn-copy-embed"
+            type="button"
+            data-copied-label={w.embedCopied ?? 'Copied!'}
+            class="apple-btn-primary h-[30px] px-3 text-xs"
+          >
+            {w.embedCopyBtn ?? 'Copy Code'}
+          </button>
+          <button
+            id="btn-close-embed"
+            type="button"
+            aria-label={w.dismissAria}
+            class="apple-btn-pearl h-[30px] px-2.5 text-xs"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+      <textarea
+        id="embed-snippet-textarea"
+        readonly
+        rows="2"
+        aria-label={w.embedHeading ?? 'Embed HTML code'}
+        class="w-full rounded-[10px] border border-hairline bg-canvas-parchment px-3 py-2 font-mono text-xs text-ink"
+      ></textarea>
+    </div>
+  )}
+
   <!-- Main Ruler Surface Container -->
   <div
     id="ruler-workspace"
     data-default-unit={defaultUnit}
     data-force-unit={forceUnit}
     data-force-edges={forceEdges}
+    data-init-photo={initialPhotoMode ? 'true' : undefined}
+    data-init-protractor={initialProtractor ? 'true' : undefined}
     data-unit={defaultUnit}
-    class="relative h-[380px] sm:h-[520px] lg:h-[540px] w-full overflow-hidden rounded-b-[18px] border border-hairline bg-canvas select-none"
+    class:list={[
+      'relative w-full overflow-hidden rounded-b-[18px] border border-hairline bg-canvas select-none',
+      compactEmbed ? 'h-[340px] sm:h-[380px]' : 'h-[380px] sm:h-[520px] lg:h-[540px]',
+    ]}
   >
     <!-- 4 Corner Origin Cells -->
     <div
@@ -493,13 +609,13 @@ const offRight = initEdges.right ? initThickness : 0;
       ></div>
 
       <!-- Placed Guide Lines Layer -->
-      <div id="guides-layer" class="absolute inset-0 pointer-events-auto"></div>
+      <div id="guides-layer" class="absolute inset-0 pointer-events-none"></div>
 
       <!-- Draggable Floating Rulers Layer -->
-      <div id="floating-rulers-layer" class="absolute inset-0 pointer-events-auto"></div>
+      <div id="floating-rulers-layer" class="absolute inset-0 pointer-events-none"></div>
 
-      <!-- Optional 180° Protractor Layer -->
-      <div id="protractor-layer" class="hidden absolute inset-0 pointer-events-auto"></div>
+      <!-- Optional 180°/360° Protractor Layer (backdrop click-through; widget itself receives pointer events) -->
+      <div id="protractor-layer" class="hidden absolute inset-0 pointer-events-none"></div>
 
       <!-- Cursor-Following Crosshair -->
       <div
@@ -567,8 +683,8 @@ const offRight = initEdges.right ? initThickness : 0;
       aria-label={w.photoPanelAria ?? 'Client-side photo and clipboard measurement tool'}
       class="hidden absolute inset-0 z-40 flex flex-col bg-canvas"
     >
-      <div class="flex flex-nowrap sm:flex-wrap items-center justify-between gap-1.5 sm:gap-2 border-b border-hairline bg-canvas-parchment px-2 py-1.5 sm:px-3 sm:py-2 overflow-x-auto sm:overflow-visible shrink-0">
-        <div class="flex flex-nowrap sm:flex-wrap items-center gap-1.5 shrink-0">
+      <div class="flex flex-nowrap sm:flex-wrap items-center justify-between gap-1.5 sm:gap-2 border-b border-hairline bg-canvas-parchment px-2 py-1.5 sm:px-3 sm:py-2 overflow-x-auto sm:overflow-visible shrink-0 sm:shrink sm:max-w-full">
+        <div class="flex flex-nowrap sm:flex-wrap items-center gap-1.5 shrink-0 sm:shrink sm:max-w-full">
           <input
             id="photo-file-input"
             type="file"
@@ -614,7 +730,7 @@ const offRight = initEdges.right ? initThickness : 0;
           </button>
         </div>
 
-        <div class="flex flex-nowrap sm:flex-wrap items-center gap-1.5 shrink-0">
+        <div class="flex flex-nowrap sm:flex-wrap items-center gap-1.5 shrink-0 sm:shrink sm:max-w-full">
           <label class="inline-flex items-center gap-1 font-mono text-xs text-ink">
             <span class="sr-only">{w.photoRefLenAria ?? 'Known reference length'}</span>
             <input
@@ -677,4 +793,6 @@ const offRight = initEdges.right ? initThickness : 0;
       </div>
     </div>
   </div>
+
+  {!compactEmbed && <UnitConverterBar locale={locale} />}
 </section>

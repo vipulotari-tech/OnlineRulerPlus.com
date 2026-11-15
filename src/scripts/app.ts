@@ -153,6 +153,22 @@ export function bootstrapRulerApp(): void {
   initHelpDialog();
   initMobileNav();
 
+  if (document.getElementById('screen-detector-app')) {
+    void import('./screen-detector-controller.ts').then((m) => m.initScreenDetector());
+  }
+  if (document.getElementById('printable-ruler-app')) {
+    void import('./printable-controller.ts').then((m) => m.initPrintableRuler());
+  }
+  if (document.getElementById('circle-gauge-app')) {
+    void import('./circle-gauge-controller.ts').then((m) => m.initCircleGauge());
+  }
+  if (document.getElementById('quadrant-app')) {
+    void import('./quadrant-controller.ts').then((m) => m.initQuadrantPlotter());
+  }
+  if (document.getElementById('unit-converter-bar')) {
+    void import('./unit-converter.ts').then((m) => m.initUnitConverter());
+  }
+
   if (!workspaceEl) {
     initTheme();
     window.addEventListener('keydown', (e) => {
@@ -202,6 +218,13 @@ export function bootstrapRulerApp(): void {
     workspace.setEdgePreset(queryEdges, false);
   } else if (isEdgePreset(forceEdges)) {
     workspace.setEdgePreset(forceEdges, false);
+  }
+
+  if (workspaceEl.dataset.initProtractor === 'true') {
+    workspace.toggleProtractor(true, '360');
+  }
+  if (workspaceEl.dataset.initPhoto === 'true') {
+    void workspace.togglePhotoMode(true);
   }
 
   initTheme(() => {

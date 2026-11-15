@@ -7,4 +7,6 @@ export * from './storage.ts';
 export * from './resolve.ts';
 export * from './protractor.ts';
 export * from './photo-measure.ts';
+export * from './print-svg.ts';
+export * from './circle-gauge.ts';
 

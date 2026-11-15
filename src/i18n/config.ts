@@ -52,6 +52,12 @@ export const PAGE_SLUGS = [
   'inch-ruler',
   'horizontal-ruler',
   'vertical-ruler',
+  'photo-ruler',
+  'protractor',
+  'circle-ruler',
+  'quadrant',
+  'screen-size-detector',
+  'printable-ruler',
   'how-to-use',
   'calibration-guide',
   'faq',
@@ -60,6 +66,8 @@ export const PAGE_SLUGS = [
   'privacy',
   'terms',
 ] as const;
+
+export const UTILITY_SLUGS = ['embed'] as const;
 
 export function isLocale(value: string | undefined | null): value is Locale {
   return typeof value === 'string' && (LOCALES as readonly string[]).includes(value);

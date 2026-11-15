@@ -40,7 +40,11 @@
       "about": "Acerca de",
       "contact": "Contacto",
       "privacy": "Política de Privacidad",
-      "terms": "Términos de Uso"
+      "terms": "Términos de Uso",
+      "screenDetector": "Detector de pantalla",
+      "printableRuler": "Regla imprimible",
+      "circleRuler": "Calibrador circular",
+      "quadrant": "Plano 4 cuadrantes"
     },
     "subNav": {
       "workspace": "Área de Trabajo",
@@ -72,13 +76,18 @@
     "toolGuides": "Guías Arrastrables (G)",
     "toolFractions": "Lectura en Fracciones (1/16″)",
     "toolPx": "Inspector de Píxeles CSS (px)",
-    "toolProtractor": "Transportador de 180° (P)",
+    "toolProtractor": "Transportador 360° (P)",
     "legalAbout": "Acerca de Online Ruler Plus",
     "legalContact": "Contacto y Envíos",
     "legalPrivacy": "Política de Privacidad",
     "legalTerms": "Términos de Uso",
     "copyright": "Copyright © {year} OnlineRulerPlus.com. Todos los derechos reservados.",
-    "constants": "1 in = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)"
+    "constants": "1 in = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)",
+    "toolPhoto": "Regla para Fotos y Ctrl+V",
+    "toolCircle": "Medidor de Círculos y Anillos",
+    "toolQuadrant": "Plano de 4 Cuadrantes",
+    "toolPrintable": "Regla SVG Imprimible 1:1",
+    "toolDetector": "Detector de Pantalla y PPI"
   },
   "helpModal": {
     "kicker": "Referencia Rápida",
@@ -221,7 +230,13 @@
     "photoExportBtn": "Exportar PNG",
     "photoCloseBtn": "Salir",
     "photoEmptyTitle": "Regla para fotos y portapapeles 100 % local",
-    "photoEmptyDesc": "Pulsa Ctrl+V para pegar una captura, suelta una imagen o elige un archivo. Nada se sube a servidores."
+    "photoEmptyDesc": "Pulsa Ctrl+V para pegar una captura, suelta una imagen o elige un archivo. Nada se sube a servidores.",
+    "popoutBtn": "Ventana flotante",
+    "popoutTitle": "Abrir regla en ventana compacta",
+    "embedBtn": "Insertar",
+    "embedTitle": "Obtener código iframe",
+    "scaleLabel": "Escala",
+    "scaleAria": "Escala arquitectónica y de planos"
   },
   "calibration": {
     "kicker": "Calibración de Densidad · Guardada Localmente por Pantalla",
@@ -313,7 +328,11 @@
     "refCustomUnitAria": "Unidad personalizada",
     "refDragHint": "Arrastra la esquina azul o usa el deslizador para ajustar",
     "cardDragHandleAria": "Arrastra la esquina para redimensionar el cuadro al tamaño real",
-    "cardDragHandleTitle": "Arrastra la esquina para ajustar al tamaño físico"
+    "cardDragHandleTitle": "Arrastra la esquina para ajustar al tamaño físico",
+    "namedProfilesLabel": "Perfiles de pantalla:",
+    "namedProfilePlaceholder": "ej. Monitor 27\" / Portátil",
+    "namedProfileInputAria": "Nombre personalizado del perfil",
+    "namedProfileSaveBtn": "Guardar perfil"
   },
   "runtime": {
     "statusLabels": {
@@ -1841,6 +1860,11 @@
           "kicker": "Móviles · Pantallas Estrechas",
           "heading": "Por qué los teléfonos usan Calibración Vertical con Tarjeta (53,98 mm)",
           "body": "Un móvil en retrato mide entre 360 y 430 CSS px (~58 a 72 mm), por lo que una tarjeta horizontal de 85,60 mm no cabe. El [[strong:Modo Tarjeta Vertical]] ajusta los [[strong:53,98 mm]] del lado corto ([[code:pxPerMm = cardShortEdgePx / 53.98]]) para lograr escala 1:1 en móviles."
+        },
+        {
+          "kicker": "Windows 125%/150% y Android Chrome",
+          "heading": "Cómo calibrar portátiles Windows escalados y móviles Android",
+          "body": "En portátiles Windows 10/11 con escala ClearType del [[code:125%]] o [[code:150%]], o en Android Chrome (~360–412 px CSS de ancho), la densidad CSS varía respecto al cristal físico. Mantén el zoom del navegador al [[strong:100%]], usa el modo Tarjeta Vertical ([[code:53.98 mm]]) en Android y ajusta los bordes con una tarjeta física."
         }
       ],
       "s7Kicker": "Sección 07 · Física de Pantalla y Límites de Precisión",
@@ -2142,6 +2166,454 @@
           "body": "Podemos mostrar anuncios claramente identificados fuera de los controles de medición y enlazar a organismos de estándares (NIST, BIPM, ISO, W3C). Consulta nuestra [[link:/privacy|Política de Privacidad]] o escribe a [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] ante cualquier duda."
         }
       ]
+    },
+    "embed": {
+      "title": "Widget de regla online — Online Ruler Plus",
+      "description": "Widget compacto de regla en pantalla compatible con cm, mm, pulgadas y píxeles.",
+      "heading": "Espacio compacto de Online Ruler Plus"
+    },
+    "screenDetector": {
+      "title": "Detector de tamaño de pantalla y PPI | Online Ruler Plus",
+      "description": "Inspecciona la resolución CSS, DPR, escala de zoom y calcula el PPI exacto y tamaño de píxel de tu monitor.",
+      "schemaName": "Detector de tamaño de pantalla y PPI",
+      "subNavTitle": "Detector de pantalla y PPI",
+      "breadcrumbLabel": "Detector de pantalla",
+      "heroKicker": "Telemetría local de pantalla · 100 % en tu navegador",
+      "heroHeadline": "Detector de resolución, tamaño y PPI",
+      "heroSummary": "Consulta la resolución CSS, el ratio de píxeles (DPR) y las dimensiones estimadas de tu pantalla, y aplica tu diagonal directamente a la calibración.",
+      "openRulerBtn": "Abrir regla online",
+      "presetsLabel": "Seleccionar diagonal (pulgadas)",
+      "customDiagLabel": "O introduce diagonal personalizada (3″–100″)",
+      "applyBtn": "Aplicar diagonal a la calibración",
+      "savedBanner": "Calibración guardada localmente. Vuelve al espacio principal para medir.",
+      "liveCardKicker": "Señal del navegador",
+      "liveCardHeading": "Propiedades detectadas de pantalla",
+      "labelCssRes": "Resolución CSS de pantalla",
+      "labelPhysRes": "Píxeles físicos estimados",
+      "labelViewport": "Ventana del navegador",
+      "labelDpr": "Ratio de píxeles (DPR)",
+      "labelAspect": "Relación de aspecto",
+      "labelZoom": "Escala de viewport visual",
+      "labelCalStatus": "Estado de calibración activo",
+      "labelCalBasis": "Base de calibración",
+      "geomCardKicker": "Geometría calculada",
+      "geomCardHeading": "Dimensiones físicas para la diagonal elegida",
+      "labelCalcWidth": "Ancho visible del panel",
+      "labelCalcHeight": "Alto visible del panel",
+      "labelCalcCssPpi": "Densidad CSS (px / pulg.)",
+      "labelCalcDevPpi": "Densidad física del panel",
+      "labelCalcPitch": "Paso de píxel físico",
+      "guideCards": [
+        {
+          "kicker": "CSS vs Físico",
+          "heading": "Por qué los navegadores ocultan el tamaño real",
+          "body": "Por privacidad, los sitios web no leen dimensiones físicas EDID ni el porcentaje de escala del sistema operativo directamente."
+        },
+        {
+          "kicker": "Escala Windows y macOS",
+          "heading": "Escala del 125 %, 150 % y Retina",
+          "body": "Cuando Windows usa 125 % o macOS escala Retina, la resolución CSS disminuye y el DPR sube. Mantén el zoom del navegador al 100 %."
+        },
+        {
+          "kicker": "Verificación final",
+          "heading": "Confirma con tarjeta ISO ID-1",
+          "body": "Tras aplicar la diagonal aquí, comprueba la escala con una tarjeta bancaria física en la sección de calibración."
+        }
+      ]
+    },
+    "printableRuler": {
+      "title": "Generador de regla imprimible SVG a escala real (A4 y Carta) | Online Ruler Plus",
+      "description": "Imprime reglas en papel a escala 1:1, cuadrículas de 1 cm y transportadores de 360° en formato SVG vectorial con barra de verificación de 100 mm.",
+      "schemaName": "Generador de regla imprimible",
+      "subNavTitle": "Reglas imprimibles 1:1",
+      "breadcrumbLabel": "Regla imprimible",
+      "heroKicker": "Vector SVG a escala real · 1 unidad = 1 mm",
+      "heroHeadline": "Reglas, cuadrículas y transportador imprimibles",
+      "heroSummary": "Descarga láminas vectoriales 1:1 para A4 o Carta US con una barra de comprobación de 100,0 mm / 4,00 pulgadas para confirmar que la impresora no redujo el tamaño.",
+      "templateLabel": "Plantilla",
+      "templates": {
+        "ruler15cm": "Regla 15 cm / 6 pulg.",
+        "ruler25cm": "Regla 25 cm / 10 pulg.",
+        "ruler30cmSplit": "Cinta 30 cm (2×15 cm)",
+        "ruler12inSplit": "Regla 12 pulg. (2×6)",
+        "grid1cm": "Cuadrícula 1 cm",
+        "protractor360": "Transportador 360°"
+      },
+      "paperLabel": "Tamaño de papel",
+      "paperA4": "A4 (210 × 297 mm)",
+      "paperLetter": "Carta US (8,5 × 11 pulg.)",
+      "printBtn": "Imprimir (escala 100 %)",
+      "downloadBtn": "Descargar SVG",
+      "warningTitle": "Comprobación obligatoria: selecciona \"Tamaño real / 100 %\"",
+      "warningBody": "Muchas impresoras activan \"Ajustar a página\" por defecto y reducen la regla un 3–6 %. Mide siempre la barra de 100,0 mm impresa antes de cortar."
+    },
+    "circleRuler": {
+      "title": "Medidor de diámetro de círculos, anillos, tornillos y monedas | Online Ruler Plus",
+      "description": "Mide anillos, monedas, arandelas y tornillos métricos M3–M12 directamente sobre tu pantalla calibrada.",
+      "schemaName": "Medidor de círculos y anillos",
+      "subNavTitle": "Medidor circular",
+      "breadcrumbLabel": "Calibrador circular",
+      "heroKicker": "Metrología circular · 1,00 mm – 150,00 mm",
+      "heroHeadline": "Medidor de diámetro de círculos, anillos y monedas",
+      "heroSummary": "Coloca cualquier anillo, moneda, arandela o tornillo sobre el círculo o arrastra el borde hasta que coincida exactamente.",
+      "diameterLabel": "Diámetro (mm)",
+      "presetsLabel": "Referencias rápidas (Tornillos ISO, Anillos, Monedas)",
+      "readoutTitle": "Lectura geométrica",
+      "labelDiameter": "Diámetro",
+      "labelRadius": "Radio (r)",
+      "labelCircumference": "Circunferencia (π·d)",
+      "labelArea": "Área (π·r²)",
+      "labelDiameterIn": "Diámetro (Pulgadas)",
+      "labelPixels": "Diámetro (px)",
+      "labelRingSize": "Talla de anillo aprox.",
+      "guideCards": [
+        {
+          "kicker": "Talla de anillos",
+          "heading": "Mide el diámetro interior",
+          "body": "Alinea el borde interior de un anillo con el círculo azul para obtener la talla US y EU."
+        },
+        {
+          "kicker": "Ferretería ISO",
+          "heading": "Verifica tornillos M3–M12 y arandelas",
+          "body": "Compara cabezas de tornillos, juntas tóricas y brocas de 1 mm a 150 mm."
+        },
+        {
+          "kicker": "Calibración",
+          "heading": "Requiere pantalla calibrada",
+          "body": "Calibra primero con tarjeta ISO ID-1 o diagonal conocida para exactitud real."
+        }
+      ]
+    },
+    "quadrant": {
+      "title": "Plano cartesiano de 4 cuadrantes y vectores | Online Ruler Plus",
+      "description": "Mide coordenadas (±X, ±Y), distancia euclidiana r y ángulo polar θ sobre cuadrícula física calibrada.",
+      "schemaName": "Plano de 4 cuadrantes",
+      "subNavTitle": "Plano 4 cuadrantes",
+      "breadcrumbLabel": "4 cuadrantes",
+      "heroKicker": "Plano cartesiano calibrado · (±X, ±Y) y polar (r, θ)",
+      "heroHeadline": "Plano de coordenadas de 4 cuadrantes y vectores",
+      "heroSummary": "Haz clic o arrastra en el plano para medir desplazamientos con signo respecto al centro (0, 0), radio r y ángulo θ.",
+      "hint": "Haz clic o arrastra sobre la cuadrícula para situar el punto respecto al origen central (0, 0).",
+      "resetOriginBtn": "Restablecer (0, 0)",
+      "labelX": "Coordenada X",
+      "labelY": "Coordenada Y",
+      "labelRadius": "Distancia (r)",
+      "labelAngle": "Ángulo polar (θ)",
+      "labelQuadrant": "Cuadrante activo",
+      "guideCards": [
+        {
+          "kicker": "Cuatro cuadrantes",
+          "heading": "Signos en los cuadrantes I–IV",
+          "body": "Mide simetrías y desplazamientos centrados en los cuatro cuadrantes."
+        },
+        {
+          "kicker": "Cálculo polar",
+          "heading": "Radio r = √(X² + Y²)",
+          "body": "Obtén coordenadas cartesianas y polares en tiempo real."
+        },
+        {
+          "kicker": "Escala real",
+          "heading": "Cuadrícula en cm, mm, pulgadas o px",
+          "body": "Los ejes utilizan tu densidad PPI guardada."
+        }
+      ]
+    },
+    "photoRuler": {
+      "title": "Regla de Fotos y Capturas | Medir Imágenes Online",
+      "description": "Mide objetos dentro de fotos o capturas pegadas con Ctrl+V mediante calibración de 2 puntos, cuadros delimitadores y exportación PNG.",
+      "schemaName": "Regla Online para Fotos y Portapapeles",
+      "featureList": [
+        "Carga local 100% privada y pegado instantáneo Ctrl+V",
+        "Calibración por referencia de dos puntos dentro de la foto",
+        "Cuadros delimitadores con lectura cm, mm, pulgadas y ΔX/ΔY",
+        "Exportación PNG anotada con barra de escala calibrada"
+      ],
+      "subNavTitle": "Regla de Fotos y Capturas",
+      "breadcrumbLabel": "Regla de Fotos",
+      "hero": {
+        "eyebrow": "Metrología en Imagen · 100% Local · Ctrl+V",
+        "headline": "Mide cualquier foto o captura de pantalla online",
+        "description": "Sube una imagen o pulsa Ctrl+V, marca una referencia conocida y mide longitudes y ángulos directamente en tu navegador."
+      },
+      "guideKicker": "Medición privada en el navegador",
+      "guideHeading": "Cómo medir longitudes dentro de una fotografía",
+      "guideLead": "Convierte planos, fotos de taller o capturas en mediciones exactas sin subir archivos a internet.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Privacidad local · Ctrl+V",
+          "heading": "Sube una foto o pega captura",
+          "body": "Pulsa Ctrl+V para cargar PNG, JPEG o WebP directamente en memoria local.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Abrir modo foto"
+        },
+        {
+          "step": "2",
+          "kicker": "Referencia 2 puntos",
+          "heading": "Fija la escala conocida",
+          "body": "Marca los extremos de una tarjeta o moneda en la imagen e introduce su medida real.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Ver referencias"
+        },
+        {
+          "step": "3",
+          "kicker": "Guías ΔX/ΔY y PNG",
+          "heading": "Mide y descarga PNG anotado",
+          "body": "Coloca guías, activa cajas delimitadoras y guarda una captura con cotas.",
+          "linkHref": "/protractor",
+          "linkLabel": "Abrir transportador 360°"
+        }
+      ],
+      "darkKicker": "Objetos de referencia en fotos",
+      "darkHeading": "Referencias físicas ideales para fotos",
+      "darkLead": "Incluir un objeto rígido plano junto a tu pieza compensa la distancia de la cámara.",
+      "darkCards": [
+        {
+          "heading": "Evita inclinación de perspectiva",
+          "body": "Coloca la cámara perpendicular sobre la mesa y en el mismo plano."
+        },
+        {
+          "heading": "Velocidad con Ctrl+V",
+          "body": "Las capturas pegadas conservan sus píxeles exactos."
+        },
+        {
+          "heading": "Cero envíos a la nube",
+          "body": "Las imágenes permanecen en tu dispositivo y se liberan al cerrar."
+        }
+      ],
+      "table": {
+        "kicker": "Referencias rápidas",
+        "heading": "Objetos estándar para calibración de 2 puntos",
+        "headers": [
+          "Objeto",
+          "Longitud (mm)",
+          "Pulgadas",
+          "Uso recomendado"
+        ],
+        "rows": [
+          [
+            "Tarjeta bancaria ISO ID-1 (ancho)",
+            "85.60 mm",
+            "3.370 in",
+            "Piezas sobre mesa"
+          ],
+          [
+            "Tarjeta bancaria ISO ID-1 (alto)",
+            "53.98 mm",
+            "2.125 in",
+            "Espacios compactos"
+          ],
+          [
+            "Moneda 1 Euro",
+            "23.25 mm",
+            "0.915 in",
+            "Piezas pequeñas y macro"
+          ],
+          [
+            "Moneda 2 Euros",
+            "25.75 mm",
+            "1.014 in",
+            "Ferretería y anillos"
+          ],
+          [
+            "Quarter USD",
+            "24.26 mm",
+            "0.955 in",
+            "Mediciones macro EE. UU."
+          ],
+          [
+            "Pila AA (IEC R6)",
+            "50.50 mm",
+            "1.988 in",
+            "Fotos de taller"
+          ],
+          [
+            "Hoja Carta US (corto)",
+            "215.90 mm",
+            "8.500 in",
+            "Muebles y planos"
+          ],
+          [
+            "Hoja A4 ISO (lado corto)",
+            "210.00 mm",
+            "8.268 in",
+            "Planos y paquetes"
+          ]
+        ],
+        "footnote": "Coloca la referencia en el mismo plano focal para minimizar error por perspectiva."
+      },
+      "faqKicker": "Preguntas sobre fotos",
+      "faqHeading": "Preguntas frecuentes sobre medición de fotos",
+      "faqs": [
+        {
+          "q": "¿Se suben mis fotos a algún servidor?",
+          "a": "No. Todo se procesa localmente en la memoria de tu navegador."
+        },
+        {
+          "q": "¿Qué precisión tiene la calibración de 2 puntos?",
+          "a": "En fotos cenitales planas la precisión ronda 1–2 píxeles en todo el encuadre."
+        },
+        {
+          "q": "¿Puedo medir ancho y alto a la vez?",
+          "a": "Sí, usa las guías ΔX/ΔY o el modo de cuadro delimitador."
+        },
+        {
+          "q": "¿Qué formatos admite?",
+          "a": "PNG, JPEG, WebP, GIF, SVG y capturas pegadas desde el portapapeles con Ctrl+V."
+        }
+      ]
+    },
+    "protractor": {
+      "title": "Transportador Online 360° | Medidor de Ángulos",
+      "description": "Mide ángulos de 0° a 360° sobre pantalla o fotos con dos rayos independientes y vértice desplazable.",
+      "schemaName": "Transportador Dual Online 360°",
+      "featureList": [
+        "Transportador interactivo completo 360°",
+        "Vértice móvil y dos rayos independientes",
+        "Medición angular directa sobre fotos",
+        "Integrado con reglas y escalas métricas"
+      ],
+      "subNavTitle": "Transportador 360°",
+      "breadcrumbLabel": "Transportador",
+      "hero": {
+        "eyebrow": "Geometría 0°–360° · Dos rayos móviles",
+        "headline": "Transportador Online 360° y Medidor de Ángulos",
+        "description": "Arrastra el vértice sobre cualquier figura o foto, gira ambos rayos libremente y lee ángulos agudos, obtusos o cóncavos."
+      },
+      "guideKicker": "Metrología angular en pantalla",
+      "guideHeading": "Cómo medir ángulos en pantalla y en imágenes",
+      "guideLead": "Ideal para geometría, carpintería, pendientes de tejado y verificación CAD.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Atajo P · Vértice libre",
+          "heading": "Sitúa el centro sobre el vértice",
+          "body": "Arrastra el anillo central al vértice deseado y pulsa P cuando quieras ocultarlo.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Abrir transportador 360°"
+        },
+        {
+          "step": "2",
+          "kicker": "Rayo A y Rayo B",
+          "heading": "Mide desde cualquier orientación",
+          "body": "Ambos rayos giran independientemente los 360° sin tener que enderezar la imagen.",
+          "linkHref": "/photo-ruler",
+          "linkLabel": "Medir ángulos en fotos"
+        },
+        {
+          "step": "3",
+          "kicker": "Distancia + Ángulo",
+          "heading": "Combina con reglas inclinadas",
+          "body": "Añade reglas flotantes orientables en el mismo espacio de trabajo.",
+          "linkHref": "/quadrant",
+          "linkLabel": "Probar plano de 4 cuadrantes"
+        }
+      ],
+      "darkKicker": "Referencia angular",
+      "darkHeading": "Ángulos agudos, rectos y de corte",
+      "darkLead": "La medición angular usa píxeles X/Y cuadrados, por lo que mantiene precisión antes de calibrar PPI.",
+      "darkCards": [
+        {
+          "heading": "Arco interior y complemento",
+          "body": "Visualiza el ángulo interior entre ambos rayos de forma clara."
+        },
+        {
+          "heading": "Ajuste fino con teclado",
+          "body": "Usa las flechas con un tirador enfocado para máxima suavidad."
+        },
+        {
+          "heading": "Cortes de inglete",
+          "body": "Divide el ángulo de la esquina por la mitad para ajustar tu sierra."
+        }
+      ],
+      "table": {
+        "kicker": "Ángulos estándar",
+        "heading": "Referencia común de dibujo y carpintería",
+        "headers": [
+          "Ángulo",
+          "Grados (°)",
+          "Equivalencia",
+          "Uso"
+        ],
+        "rows": [
+          [
+            "Recto",
+            "90.0°",
+            "Esquina estándar",
+            "Muebles y PCB"
+          ],
+          [
+            "Inglete clásico",
+            "45.0°",
+            "Pendiente 1:1",
+            "Marcos y zócalos"
+          ],
+          [
+            "Hexágono",
+            "120.0°",
+            "60° exterior",
+            "Tuercas hexagonales"
+          ],
+          [
+            "Eje isométrico",
+            "30.0°",
+            "Pendiente 57.7%",
+            "Dibujo axonométrico"
+          ],
+          [
+            "Octógono",
+            "22.5°",
+            "135° interior",
+            "Molduras octagonales"
+          ],
+          [
+            "Pendiente 4/12",
+            "18.4°",
+            "33.3%",
+            "Cubiertas inclinadas"
+          ],
+          [
+            "Pentágono",
+            "108.0°",
+            "72° exterior",
+            "Polígonos regulares"
+          ],
+          [
+            "Llano",
+            "180.0°",
+            "Línea recta",
+            "Comprobación de colinealidad"
+          ]
+        ],
+        "footnote": "La exactitud requiere píxeles cuadrados 1:1 (estándar en monitores modernos)."
+      },
+      "faqKicker": "Preguntas sobre ángulos",
+      "faqHeading": "Dudas habituales sobre el transportador",
+      "faqs": [
+        {
+          "q": "¿Necesito calibrar el tamaño de pantalla para ángulos?",
+          "a": "No, los ángulos dependen de la proporción entre ejes X/Y y los paneles modernos usan píxeles cuadrados."
+        },
+        {
+          "q": "¿Puedo poner una imagen debajo?",
+          "a": "Sí, pega una imagen con Ctrl+V o abre Modo Foto detrás del transportador."
+        },
+        {
+          "q": "¿En qué mejora a un transportador de 180°?",
+          "a": "Permite girar ambos rayos libremente hasta 360° sin rotar la foto."
+        },
+        {
+          "q": "¿Se pueden medir longitudes a la vez?",
+          "a": "Sí, mediante las guías ΔX/ΔY o las reglas flotantes inclinadas."
+        }
+      ]
     }
+  },
+  "converter": {
+    "title": "Conversor rápido",
+    "mmAria": "Convertir milímetros",
+    "cmAria": "Convertir centímetros",
+    "inAria": "Convertir pulgadas",
+    "pxAria": "Convertir píxeles CSS"
   }
 }

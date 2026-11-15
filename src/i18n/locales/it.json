@@ -40,7 +40,11 @@
       "about": "Chi Siamo",
       "contact": "Contatti",
       "privacy": "Privacy Policy",
-      "terms": "Termini d’Uso"
+      "terms": "Termini d’Uso",
+      "screenDetector": "Rilevatore schermo",
+      "printableRuler": "Righello stampabile",
+      "circleRuler": "Calibro circolare",
+      "quadrant": "Piano 4 quadranti"
     },
     "subNav": {
       "workspace": "Righello",
@@ -72,13 +76,18 @@
     "toolGuides": "Linee Guida Trascinabili (G)",
     "toolFractions": "Lettura Frazioni di Pollice",
     "toolPx": "Ispettore Pixel CSS (px)",
-    "toolProtractor": "Goniometro 180° (P)",
+    "toolProtractor": "Goniometro 360° (P)",
     "legalAbout": "Informazioni su Online Ruler Plus",
     "legalContact": "Contatti e Segnalazioni",
     "legalPrivacy": "Privacy Policy",
     "legalTerms": "Termini d’Uso",
     "copyright": "Copyright © {year} OnlineRulerPlus.com. Tutti i diritti riservati.",
-    "constants": "1 in = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)"
+    "constants": "1 in = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)",
+    "toolPhoto": "Righello Foto & Ctrl+V",
+    "toolCircle": "Calibro Cerchi & Anelli",
+    "toolQuadrant": "Piano 4 Quadranti",
+    "toolPrintable": "Righello SVG Stampabile",
+    "toolDetector": "Rilevatore Schermo & PPI"
   },
   "helpModal": {
     "kicker": "Riferimento Rapido",
@@ -221,7 +230,13 @@
     "photoExportBtn": "Esporta PNG",
     "photoCloseBtn": "Esci",
     "photoEmptyTitle": "Righello foto e appunti 100% locale",
-    "photoEmptyDesc": "Premi Ctrl+V per incollare uno screenshot, trascina un’immagine o scegli un file. Nessun caricamento."
+    "photoEmptyDesc": "Premi Ctrl+V per incollare uno screenshot, trascina un’immagine o scegli un file. Nessun caricamento.",
+    "popoutBtn": "Finestra popup",
+    "popoutTitle": "Apri righello in finestra compatta",
+    "embedBtn": "Incorpora",
+    "embedTitle": "Copia codice iframe",
+    "scaleLabel": "Scala",
+    "scaleAria": "Scala architettonica e tecnica"
   },
   "calibration": {
     "kicker": "Calibrazione Densità · Salvata Localmente per Schermo",
@@ -313,7 +328,11 @@
     "refCustomUnitAria": "Unità personalizzata",
     "refDragHint": "Trascina l’angolo blu o il cursore per adattare",
     "cardDragHandleAria": "Trascina l’angolo per ridimensionare il riquadro",
-    "cardDragHandleTitle": "Trascina l’angolo per adattare le dimensioni"
+    "cardDragHandleTitle": "Trascina l’angolo per adattare le dimensioni",
+    "namedProfilesLabel": "Profili schermo:",
+    "namedProfilePlaceholder": "es. Monitor 27\" / Portatile",
+    "namedProfileInputAria": "Nome profilo display",
+    "namedProfileSaveBtn": "Salva profilo"
   },
   "runtime": {
     "statusLabels": {
@@ -1841,6 +1860,11 @@
           "kicker": "Smartphone Stretti",
           "heading": "Perché i telefoni passano a Carta Verticale (53,98 mm)",
           "body": "Su 360–430 px una carta orizzontale sborda; la [[strong:Modalità Verticale]] usa il lato da [[strong:53,98 mm]]."
+        },
+        {
+          "kicker": "Windows 125%/150% e Android Chrome",
+          "heading": "Calibrare portatili Windows scalati e smartphone Android",
+          "body": "Su Windows 10/11 con scala [[code:125%]]/[[code:150%]] o Android Chrome (~360–412 px CSS), mantieni lo zoom del browser al [[strong:100%]], attiva la modalità Carta Verticale ([[code:53.98 mm]]) su Android e allinea con una carta fisica."
         }
       ],
       "s7Kicker": "07 · Fisica & Limiti di Tolleranza",
@@ -2142,6 +2166,454 @@
           "body": "Vedi la nostra [[link:/privacy|Privacy Policy]]; domande a [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]."
         }
       ]
+    },
+    "embed": {
+      "title": "Widget Righello Online — Online Ruler Plus",
+      "description": "Widget compatto incorporabile con cm, mm, pollici e pixel.",
+      "heading": "Area compatta Online Ruler Plus"
+    },
+    "screenDetector": {
+      "title": "Rilevatore dimensioni schermo e PPI | Online Ruler Plus",
+      "description": "Verifica risoluzione CSS, DPR, fattore di zoom e calcola PPI esatti e passo pixel del tuo display.",
+      "schemaName": "Rilevatore schermo e PPI",
+      "subNavTitle": "Rilevatore schermo e PPI",
+      "breadcrumbLabel": "Rilevatore schermo",
+      "heroKicker": "Telemetria locale · 100 % nel browser",
+      "heroHeadline": "Rilevatore dimensioni, risoluzione e PPI",
+      "heroSummary": "Leggi viewport CSS, DPR e geometria fisica calcolata del display e applica la diagonale direttamente alla calibrazione.",
+      "openRulerBtn": "Apri righello",
+      "presetsLabel": "Diagonale display (pollici)",
+      "customDiagLabel": "O inserisci diagonale personalizzata (3″–100″)",
+      "applyBtn": "Applica diagonale alla calibrazione",
+      "savedBanner": "Calibrazione diagonale salvata in locale.",
+      "liveCardKicker": "Segnale browser",
+      "liveCardHeading": "Proprietà schermo rilevate",
+      "labelCssRes": "Risoluzione CSS schermo",
+      "labelPhysRes": "Pixel fisici stimati",
+      "labelViewport": "Viewport browser",
+      "labelDpr": "Device Pixel Ratio (DPR)",
+      "labelAspect": "Proporzioni",
+      "labelZoom": "Scala viewport visiva",
+      "labelCalStatus": "Calibrazione attiva",
+      "labelCalBasis": "Fonte calibrazione",
+      "geomCardKicker": "Geometria calcolata",
+      "geomCardHeading": "Dimensioni fisiche per la diagonale scelta",
+      "labelCalcWidth": "Larghezza pannello visibile",
+      "labelCalcHeight": "Altezza pannello visibile",
+      "labelCalcCssPpi": "Densità CSS (px / pollice)",
+      "labelCalcDevPpi": "Densità fisica pannello",
+      "labelCalcPitch": "Passo pixel fisico",
+      "guideCards": [
+        {
+          "kicker": "CSS vs Fisico",
+          "heading": "Perché il browser nasconde i mm reali",
+          "body": "Per privacy i browser non espongono i dati EDID né la percentuale esatta di scala del sistema."
+        },
+        {
+          "kicker": "Scala OS",
+          "heading": "Windows 125 %, 150 % e Retina macOS",
+          "body": "Con la scala OS attiva i pixel CSS diminuiscono mentre il DPR sale. Mantieni lo zoom del browser al 100 %."
+        },
+        {
+          "kicker": "Verifica pratica",
+          "heading": "Controlla sempre con una tessera ISO",
+          "body": "Confronta il risultato con una carta di credito reale nella sezione calibrazione."
+        }
+      ]
+    },
+    "printableRuler": {
+      "title": "Generatore righello stampabile SVG 1:1 (A4 e Letter) | Online Ruler Plus",
+      "description": "Stampa righelli in scala reale 1:1, griglie 1 cm e goniometri 360° in SVG vettoriale con barra di verifica da 100 mm.",
+      "schemaName": "Generatore righello stampabile",
+      "subNavTitle": "Righelli stampabili 1:1",
+      "breadcrumbLabel": "Righello stampabile",
+      "heroKicker": "SVG vettoriale 1:1 · 1 unità = 1 mm",
+      "heroHeadline": "Righelli, griglie e goniometro stampabili",
+      "heroSummary": "Scarica fogli vettoriali 1:1 per A4 o US Letter con barra di verifica 100,0 mm / 4,00 pollici integrata.",
+      "templateLabel": "Modello",
+      "templates": {
+        "ruler15cm": "Righello 15 cm / 6 poll.",
+        "ruler25cm": "Righello 25 cm / 10 poll.",
+        "ruler30cmSplit": "Metro 30 cm (2×15 cm)",
+        "ruler12inSplit": "12 pollici (2×6 poll.)",
+        "grid1cm": "Griglia 1 cm",
+        "protractor360": "Goniometro 360°"
+      },
+      "paperLabel": "Formato carta",
+      "paperA4": "A4 (210 × 297 mm)",
+      "paperLetter": "US Letter (8,5 × 11 poll.)",
+      "printBtn": "Stampa (scala 100 %)",
+      "downloadBtn": "Scarica SVG",
+      "warningTitle": "Avviso stampa: imposta la scala su «Dimensioni effettive / 100 %»",
+      "warningBody": "L’opzione «Adatta alla pagina» riduce la scala del 3–6 %. Misura sempre la barra di controllo da 100,0 mm prima di ritagliare."
+    },
+    "circleRuler": {
+      "title": "Calibro circolare per anelli, viti e monete (1–150 mm) | Online Ruler Plus",
+      "description": "Misura diametri di anelli (US/EU), bulloni ISO M3–M12, rondelle e monete sullo schermo calibrato.",
+      "schemaName": "Calibro circolare concentrico",
+      "subNavTitle": "Calibro circolare",
+      "breadcrumbLabel": "Calibro circolare",
+      "heroKicker": "Metrologia circolare · 1,00 mm – 150,00 mm",
+      "heroHeadline": "Misuratore diametro cerchi, anelli e bulloni",
+      "heroSummary": "Appoggia un anello, una moneta o una rondella sullo schermo oppure trascina il bordo blu fino alla misura esatta.",
+      "diameterLabel": "Diametro (mm)",
+      "presetsLabel": "Preset rapidi (Viti ISO, Anelli, Monete)",
+      "readoutTitle": "Valori geometrici",
+      "labelDiameter": "Diametro",
+      "labelRadius": "Raggio (r)",
+      "labelCircumference": "Circonferenza (π·d)",
+      "labelArea": "Area (π·r²)",
+      "labelDiameterIn": "Diametro (Pollici)",
+      "labelPixels": "Diametro (px)",
+      "labelRingSize": "Misura anello",
+      "guideCards": [
+        {
+          "kicker": "Anelli",
+          "heading": "Diametro interno anello",
+          "body": "Allinea il bordo interno dell’anello al cerchio per trovare la taglia US e EU."
+        },
+        {
+          "kicker": "Bulloneria",
+          "heading": "Viti M3–M12 e rondelle",
+          "body": "Controlla viti, dadi, guarnizioni O-ring e punte da 1 a 150 mm."
+        },
+        {
+          "kicker": "Precisione",
+          "heading": "Usa la calibrazione attiva",
+          "body": "Calibra prima lo schermo con una tessera standard ISO per misure reali."
+        }
+      ]
+    },
+    "quadrant": {
+      "title": "Piano cartesiano a 4 quadranti e vettori | Online Ruler Plus",
+      "description": "Traccia coordinate (±X, ±Y), distanza r e angolo polare θ su griglia calibrata.",
+      "schemaName": "Piano a 4 quadranti",
+      "subNavTitle": "Piano 4 quadranti",
+      "breadcrumbLabel": "4 quadranti",
+      "heroKicker": "Piano cartesiano calibrato · (±X, ±Y) e (r, θ)",
+      "heroHeadline": "Griglia cartesiana a 4 quadranti",
+      "heroSummary": "Fai clic o trascina sul piano centrato su (0, 0) per misurare X, Y, raggio r e angolo polare θ.",
+      "hint": "Fai clic o trascina un punto sulla griglia rispetto all’origine centrale (0, 0).",
+      "resetOriginBtn": "Origine (0, 0)",
+      "labelX": "Coordinata X",
+      "labelY": "Coordinata Y",
+      "labelRadius": "Distanza (r)",
+      "labelAngle": "Angolo polare (θ)",
+      "labelQuadrant": "Quadrante attivo",
+      "guideCards": [
+        {
+          "kicker": "4 Quadranti",
+          "heading": "Coordinate I–IV con segno",
+          "body": "Analizza simmetrie e spostamenti dal centro."
+        },
+        {
+          "kicker": "Polari",
+          "heading": "r = √(X² + Y²)",
+          "body": "Calcolo simultaneo cartesiano e polare."
+        },
+        {
+          "kicker": "Scala reale",
+          "heading": "Griglia cm, mm, poll. o px",
+          "body": "Utilizza la densità PPI salvata sul dispositivo."
+        }
+      ]
+    },
+    "photoRuler": {
+      "title": "Righello per Foto e Screenshot | Misura Immagini Online",
+      "description": "Misura oggetti in foto o screenshot Ctrl+V con calibrazione a 2 punti, riquadri di delimitazione ed esportazione PNG annotata.",
+      "schemaName": "Righello Online per Foto e Appunti",
+      "featureList": [
+        "100% locale & Ctrl+V",
+        "Calibrazione a 2 punti su riferimento",
+        "Quote ΔX/ΔY e riquadri",
+        "Esportazione PNG annotata"
+      ],
+      "subNavTitle": "Righello Foto",
+      "breadcrumbLabel": "Righello Foto",
+      "hero": {
+        "eyebrow": "Metrologia Immagine · 100% Locale · Ctrl+V",
+        "headline": "Misura foto e screenshot direttamente online",
+        "description": "Carica un’immagine o premi Ctrl+V, imposta un riferimento noto e misura sul dispositivo in totale privacy."
+      },
+      "guideKicker": "Elaborazione privata nel browser",
+      "guideHeading": "Come misurare dentro una foto",
+      "guideLead": "Perfetto per planimetrie, ferramenta e screenshot UI.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Locale · Ctrl+V",
+          "heading": "Carica o incolla immagine",
+          "body": "Nessun invio esterno: tutto resta nella RAM del browser.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Apri modalità foto"
+        },
+        {
+          "step": "2",
+          "kicker": "Scala a 2 punti",
+          "heading": "Imposta un riferimento noto",
+          "body": "Segna una carta o moneta per fissare i px/mm dell’immagine.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Vedi riferimenti"
+        },
+        {
+          "step": "3",
+          "kicker": "Esporta PNG",
+          "heading": "Esporta immagine quotata",
+          "body": "Aggiungi guide ΔX/ΔY e scarica il PNG annotato.",
+          "linkHref": "/protractor",
+          "linkLabel": "Apri goniometro 360°"
+        }
+      ],
+      "darkKicker": "Riferimenti fotografici",
+      "darkHeading": "Oggetti affidabili nelle foto",
+      "darkLead": "Posiziona l’oggetto campione sullo stesso piano.",
+      "darkCards": [
+        {
+          "heading": "Inquadratura perpendicolare",
+          "body": "Riduce la distorsione prospettica."
+        },
+        {
+          "heading": "Rapidità Ctrl+V",
+          "body": "Gli screenshot incollati mantengono i pixel esatti."
+        },
+        {
+          "heading": "Zero cloud",
+          "body": "I file non lasciano mai il tuo dispositivo."
+        }
+      ],
+      "table": {
+        "kicker": "Misure standard",
+        "heading": "Oggetti comuni per calibrazione a 2 punti",
+        "headers": [
+          "Oggetto",
+          "Lunghezza (mm)",
+          "Pollici",
+          "Uso"
+        ],
+        "rows": [
+          [
+            "Carta ID-1 (larghezza)",
+            "85.60 mm",
+            "3.370 in",
+            "Oggetti da banco"
+          ],
+          [
+            "Carta ID-1 (altezza)",
+            "53.98 mm",
+            "2.125 in",
+            "Spazi stretti"
+          ],
+          [
+            "Moneta 1 Euro",
+            "23.25 mm",
+            "0.915 in",
+            "Macro & minuteria"
+          ],
+          [
+            "Moneta 2 Euro",
+            "25.75 mm",
+            "1.014 in",
+            "Anelli & viti"
+          ],
+          [
+            "Quarter US",
+            "24.26 mm",
+            "0.955 in",
+            "Macro US"
+          ],
+          [
+            "Batteria AA",
+            "50.50 mm",
+            "1.988 in",
+            "Officina"
+          ],
+          [
+            "Foglio US Letter",
+            "215.90 mm",
+            "8.500 in",
+            "Arredi"
+          ],
+          [
+            "Foglio A4 ISO",
+            "210.00 mm",
+            "8.268 in",
+            "Disegni & pacchi"
+          ]
+        ],
+        "footnote": "Mantieni riferimento e soggetto sullo stesso piano focale."
+      },
+      "faqKicker": "FAQ Foto",
+      "faqHeading": "Domande sul righello per foto",
+      "faqs": [
+        {
+          "q": "Le immagini vengono caricate su server?",
+          "a": "No, tutto avviene localmente nel browser."
+        },
+        {
+          "q": "Qual è la precisione?",
+          "a": "Entro 1–2 pixel su foto dall’alto ben piane."
+        },
+        {
+          "q": "Posso leggere larghezza e altezza?",
+          "a": "Sì tramite guide ΔX/ΔY e riquadri."
+        },
+        {
+          "q": "Quali formati sono supportati?",
+          "a": "PNG, JPEG, WebP, GIF, SVG e incolla Ctrl+V."
+        }
+      ]
+    },
+    "protractor": {
+      "title": "Goniometro Online 360° | Misura Angoli su Schermo",
+      "description": "Goniometro interattivo a 360° con vertice mobile e due raggi indipendenti per schermo e foto.",
+      "schemaName": "Goniometro Online 360° a Doppio Raggio",
+      "featureList": [
+        "Scala completa 0°–360°",
+        "Vertice e raggi A/B mobili",
+        "Compatibile con foto",
+        "Abbinabile ai righelli inclinati"
+      ],
+      "subNavTitle": "Goniometro 360°",
+      "breadcrumbLabel": "Goniometro",
+      "hero": {
+        "eyebrow": "Geometria 0°–360° · Due raggi liberi",
+        "headline": "Goniometro Online 360° Interattivo",
+        "description": "Trascina il vertice e ruota liberamente entrambi i raggi per misurare ogni angolo."
+      },
+      "guideKicker": "Metrologia angolare",
+      "guideHeading": "Misurare angoli su schermo o foto",
+      "guideLead": "Per geometria, falegnameria, pendenze e disegno tecnico.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Tasto P",
+          "heading": "Posiziona il vertice",
+          "body": "Sposta l’anello centrale su qualsiasi spigolo.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Apri goniometro"
+        },
+        {
+          "step": "2",
+          "kicker": "2 raggi 360°",
+          "heading": "Ruota senza inclinare la foto",
+          "body": "Entrambi i raggi coprono tutti i 360°.",
+          "linkHref": "/photo-ruler",
+          "linkLabel": "Carica una foto"
+        },
+        {
+          "step": "3",
+          "kicker": "Angoli + Lunghezze",
+          "heading": "Unisci ai righelli orientabili",
+          "body": "Misura distanze e angoli in un unico spazio.",
+          "linkHref": "/quadrant",
+          "linkLabel": "Piano 4 quadranti"
+        }
+      ],
+      "darkKicker": "Riferimenti angolari",
+      "darkHeading": "Angoli comuni e tagli obliqui",
+      "darkLead": "I pixel quadrati mantengono gli angoli esatti anche prima della calibrazione PPI.",
+      "darkCards": [
+        {
+          "heading": "Lettura immediata",
+          "body": "Arco evidenziato tra i due raggi."
+        },
+        {
+          "heading": "Regolazione da tastiera",
+          "body": "Usa le frecce per scatti precisi."
+        },
+        {
+          "heading": "Tagli a 45° / bisettrice",
+          "body": "Dividi a metà l’angolo per la troncatrice."
+        }
+      ],
+      "table": {
+        "kicker": "Angoli standard",
+        "heading": "Tabella angoli comuni",
+        "headers": [
+          "Angolo",
+          "Gradi (°)",
+          "Pendenza / Nota",
+          "Uso"
+        ],
+        "rows": [
+          [
+            "Retto",
+            "90.0°",
+            "Squadra",
+            "Telai & PCB"
+          ],
+          [
+            "Taglio obliquo",
+            "45.0°",
+            "1:1 (100%)",
+            "Cornici"
+          ],
+          [
+            "Esagono",
+            "120.0°",
+            "60° est.",
+            "Bulloni"
+          ],
+          [
+            "Assonometria",
+            "30.0°",
+            "57.7%",
+            "Disegno 3D"
+          ],
+          [
+            "Ottagono",
+            "22.5°",
+            "135° int.",
+            "Modanature"
+          ],
+          [
+            "Falda 4/12",
+            "18.4°",
+            "33.3%",
+            "Tetti"
+          ],
+          [
+            "Pentagono",
+            "108.0°",
+            "72° est.",
+            "Poligoni"
+          ],
+          [
+            "Piatto",
+            "180.0°",
+            "Allineato",
+            "Verifica lineare"
+          ]
+        ],
+        "footnote": "Richiede pixel quadrati 1:1 standard sui pannelli moderni."
+      },
+      "faqKicker": "FAQ Goniometro",
+      "faqHeading": "Domande sul goniometro online",
+      "faqs": [
+        {
+          "q": "Serve calibrare i PPI?",
+          "a": "No, gli angoli restano esatti con pixel quadrati."
+        },
+        {
+          "q": "Posso misurare sopra una foto?",
+          "a": "Sì, incollando con Ctrl+V dietro al goniometro."
+        },
+        {
+          "q": "Perché 360°?",
+          "a": "Permette di allineare raggi su figure inclinate."
+        },
+        {
+          "q": "Posso misurare anche distanze?",
+          "a": "Sì con le guide ΔX/ΔY."
+        }
+      ]
     }
+  },
+  "converter": {
+    "title": "Convertitore rapido",
+    "mmAria": "Converti millimetri",
+    "cmAria": "Converti centimetri",
+    "inAria": "Converti pollici",
+    "pxAria": "Converti pixel CSS"
   }
 }

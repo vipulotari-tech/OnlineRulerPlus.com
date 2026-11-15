@@ -40,7 +40,11 @@
       "about": "Over ons",
       "contact": "Contact",
       "privacy": "Privacybeleid",
-      "terms": "Gebruiksvoorwaarden"
+      "terms": "Gebruiksvoorwaarden",
+      "screenDetector": "Schermdetector",
+      "printableRuler": "Printbare liniaal",
+      "circleRuler": "Cirkelmeter",
+      "quadrant": "4-kwadrantenraster"
     },
     "subNav": {
       "workspace": "Werkruimte",
@@ -72,13 +76,18 @@
     "toolGuides": "Versleepbare Hulplijnen (G)",
     "toolFractions": "Inch-breukenweergave",
     "toolPx": "CSS Pixel Inspecteur (px)",
-    "toolProtractor": "180° Gradenboog (P)",
+    "toolProtractor": "360° Gradenboog (P)",
     "legalAbout": "Over Online Ruler Plus",
     "legalContact": "Contact & Inzendingen",
     "legalPrivacy": "Privacybeleid",
     "legalTerms": "Gebruiksvoorwaarden",
     "copyright": "Copyright © {year} OnlineRulerPlus.com. Alle rechten voorbehouden.",
-    "constants": "1 in = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)"
+    "constants": "1 in = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)",
+    "toolPhoto": "Foto- & Ctrl+V-liniaal",
+    "toolCircle": "Cirkel- & Ringmeter",
+    "toolQuadrant": "4-Kwadrantenraster",
+    "toolPrintable": "1:1 Printbare SVG-liniaal",
+    "toolDetector": "Scherm- & PPI-detector"
   },
   "helpModal": {
     "kicker": "Sneloverzicht",
@@ -221,7 +230,13 @@
     "photoExportBtn": "PNG opslaan",
     "photoCloseBtn": "Sluiten",
     "photoEmptyTitle": "100% lokale foto- en klembordliniaal",
-    "photoEmptyDesc": "Druk op Ctrl+V om een schermafbeelding te plakken of sleep een bestand hierheen. Niets wordt geüpload."
+    "photoEmptyDesc": "Druk op Ctrl+V om een schermafbeelding te plakken of sleep een bestand hierheen. Niets wordt geüpload.",
+    "popoutBtn": "Pop-out",
+    "popoutTitle": "Compact pop-out liniaalvenster openen",
+    "embedBtn": "Insluiten",
+    "embedTitle": "iframe-insluitcode ophalen",
+    "scaleLabel": "Schaal",
+    "scaleAria": "Bouw- en tekeningschaal"
   },
   "calibration": {
     "kicker": "Beeldschermdichtheid Kalibreren · Lokaal Opgeslagen per Scherm",
@@ -313,7 +328,11 @@
     "refCustomUnitAria": "Aangepaste eenheid",
     "refDragHint": "Sleep de blauwe hoekgreep of gebruik de schuif",
     "cardDragHandleAria": "Sleep de hoek om het kader aan te passen",
-    "cardDragHandleTitle": "Sleep hoek om af te stemmen"
+    "cardDragHandleTitle": "Sleep hoek om af te stemmen",
+    "namedProfilesLabel": "Schermprofielen:",
+    "namedProfilePlaceholder": "bijv. Kantoor 27\" / Laptop",
+    "namedProfileInputAria": "Naam van monitorprofiel",
+    "namedProfileSaveBtn": "Profiel opslaan"
   },
   "runtime": {
     "statusLabels": {
@@ -1841,6 +1860,11 @@
           "kicker": "Smartphones · Smalle Schermen",
           "heading": "Waarom telefoons schakelen naar Staande Kaartkalibratie (53,98 mm)",
           "body": "Een liggende bankpas (85,60 mm) is breder dan een staand telefoonscherm (58–72 mm). [[strong:Staande Kaartmodus]] gebruikt daarom exact de korte zijde van [[strong:53,98 mm]]."
+        },
+        {
+          "kicker": "Windows 125%/150% & Android Chrome",
+          "heading": "Geschaalde Windows-laptops en Android-telefoons kalibreren",
+          "body": "Op Windows 10/11 met [[code:125%]]/[[code:150%]] ClearType-schaling of Android Chrome (~360–412 CSS-px): houd browserzoom op [[strong:100%]], kies Staande Kaartmodus ([[code:53.98 mm]]) op Android en stem af met een fysieke pas."
         }
       ],
       "s7Kicker": "Sectie 07 · Schermfysica & Grenzen",
@@ -2142,6 +2166,454 @@
           "body": "Er kunnen advertenties buiten de meetknoppen en links naar norminstanties (NIST, BIPM, ISO, W3C) getoond worden. Raadpleeg het [[link:/privacy|Privacybeleid]]. Vragen: [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]."
         }
       ]
+    },
+    "embed": {
+      "title": "Online Liniaal Widget — Online Ruler Plus",
+      "description": "Compacte insluitbare schermliniaal voor cm, mm, inches en pixels.",
+      "heading": "Online Ruler Plus Compacte Werkruimte"
+    },
+    "screenDetector": {
+      "title": "Schermgrootte & PPI-detector | Online Ruler Plus",
+      "description": "Bekijk uw CSS-resolutie, DPR en zoomniveau en bereken direct de exacte CSS PPI en pixelafstand.",
+      "schemaName": "Schermgrootte & PPI-detector",
+      "subNavTitle": "Scherm- & PPI-detector",
+      "breadcrumbLabel": "Schermdetector",
+      "heroKicker": "Lokale schermtelemetrie · 100% client-side",
+      "heroHeadline": "Schermgrootte, resolutie & PPI-detector",
+      "heroSummary": "Inspecteer uw browser-CSS-resolutie en DPR en pas uw bekende schermdiagonaal direct toe op de liniaalkalibratie.",
+      "openRulerBtn": "Online liniaal openen",
+      "presetsLabel": "Kies schermdiagonaal (inches)",
+      "customDiagLabel": "Of voer aangepaste diagonaal in (3″–100″)",
+      "applyBtn": "Diagonaal toepassen op kalibratie",
+      "savedBanner": "Diagonaalkalibratie lokaal opgeslagen.",
+      "liveCardKicker": "Live browsersignaal",
+      "liveCardHeading": "Gedetecteerde schermeigenschappen",
+      "labelCssRes": "CSS-schermresolutie",
+      "labelPhysRes": "Geschatte fysieke pixels",
+      "labelViewport": "Browser-viewport",
+      "labelDpr": "Device Pixel Ratio (DPR)",
+      "labelAspect": "Beeldverhouding",
+      "labelZoom": "Visuele viewport-schaal",
+      "labelCalStatus": "Actieve liniaalkalibratie",
+      "labelCalBasis": "Kalibratiebasis",
+      "geomCardKicker": "Berekende geometrie",
+      "geomCardHeading": "Fysieke afmetingen bij gekozen diagonaal",
+      "labelCalcWidth": "Zichtbare paneelbreedte",
+      "labelCalcHeight": "Zichtbare paneelhoogte",
+      "labelCalcCssPpi": "CSS-dichtheid (px / inch)",
+      "labelCalcDevPpi": "Fysieke PPI",
+      "labelCalcPitch": "Fysieke pixelafstand",
+      "guideCards": [
+        {
+          "kicker": "CSS vs Fysiek",
+          "heading": "Waarom browsers de echte grootte verbergen",
+          "body": "Vanwege privacy kunnen websites geen hardwarematige EDID-formaten of Windows-schaalfactoren direct uitlezen."
+        },
+        {
+          "kicker": "OS-schaling",
+          "heading": "125%, 150% & macOS Retina-schaling",
+          "body": "Hogere OS-schaling verlaagt CSS-pixels en verhoogt DPR. Houd browserzoom op 100%."
+        },
+        {
+          "kicker": "Controle",
+          "heading": "Bevestig met een ISO ID-1 betaalpas",
+          "body": "Controleer na diagonaalkalibratie altijd even met een echte pas voor maximale zekerheid."
+        }
+      ]
+    },
+    "printableRuler": {
+      "title": "Printbare SVG-liniaal op ware grootte (A4 & Letter) | Online Ruler Plus",
+      "description": "Genereer 1:1 papieren linialen, 1 cm rasters en 360° gradenbogen als vector-SVG met 100 mm controlebalk.",
+      "schemaName": "Printbare liniaal generator",
+      "subNavTitle": "Printbare 1:1 linialen",
+      "breadcrumbLabel": "Printbare liniaal",
+      "heroKicker": "Ware grootte vector-SVG · 1 eenheid = 1 mm",
+      "heroHeadline": "Printbare linialen, rasters & gradenboog",
+      "heroSummary": "Download 1:1 vectorbladen voor A4 of US Letter met een ingebouwde 100,0 mm / 4,00 in controlebalk.",
+      "templateLabel": "Sjabloon",
+      "templates": {
+        "ruler15cm": "15 cm / 6 in liniaal",
+        "ruler25cm": "25 cm / 10 in liniaal",
+        "ruler30cmSplit": "30 cm gedeeld (2×15 cm)",
+        "ruler12inSplit": "12 in gedeeld (2×6 in)",
+        "grid1cm": "1 cm ruitjesraster",
+        "protractor360": "360° gradenboog"
+      },
+      "paperLabel": "Papierformaat",
+      "paperA4": "A4 (210 × 297 mm)",
+      "paperLetter": "US Letter (8,5 × 11 in)",
+      "printBtn": "Printen (100% schaal)",
+      "downloadBtn": "SVG downloaden",
+      "warningTitle": "Belangrijk: stel afdrukschaal in op \"Ware grootte / 100%\"",
+      "warningBody": "Printers schalen vaak automatisch omlaag. Meet na het printen altijd de 100,0 mm controlebalk."
+    },
+    "circleRuler": {
+      "title": "Cirkel-, ring-, bout- & muntdiameter meter (1–150 mm) | Online Ruler Plus",
+      "description": "Meet ringmaten (US/EU), M3–M12 bouten, ringen en munten direct op uw gekalibreerde beeldscherm.",
+      "schemaName": "Cirkel- en ringdiameter meter",
+      "subNavTitle": "Cirkel- & ringmeter",
+      "breadcrumbLabel": "Cirkelmeter",
+      "heroKicker": "Concentrische metrologie · 1,00 mm – 150,00 mm",
+      "heroHeadline": "Cirkel-, ring-, schroef- & muntdiameter",
+      "heroSummary": "Leg een ring, munt of sluitring op de blauwe cirkel of sleep de rand tot de omtrek exact overeenkomt.",
+      "diameterLabel": "Diameter (mm)",
+      "presetsLabel": "Snelle voorinstellingen (ISO bouten, ringen, munten)",
+      "readoutTitle": "Geometrische uitlezing",
+      "labelDiameter": "Diameter",
+      "labelRadius": "Straal (r)",
+      "labelCircumference": "Omtrek (π·d)",
+      "labelArea": "Oppervlak (π·r²)",
+      "labelDiameterIn": "Diameter (Inches)",
+      "labelPixels": "Schermdiameter (px)",
+      "labelRingSize": "Geschatte ringmaat",
+      "guideCards": [
+        {
+          "kicker": "Ringmaat",
+          "heading": "Meet de binnendiameter",
+          "body": "Pas de binnenzijde van een ring rond de cirkel aan en lees direct US/EU maten af."
+        },
+        {
+          "kicker": "Bouten & hardware",
+          "heading": "M3–M12 schroeven en moeren",
+          "body": "Vergelijk boutkoppen, O-ringen en boren van 1 tot 150 mm."
+        },
+        {
+          "kicker": "Kalibratie",
+          "heading": "Gebaseerd op actieve PPI",
+          "body": "Kalibreer eerst met een ISO ID-1 betaalpas voor fysieke nauwkeurigheid."
+        }
+      ]
+    },
+    "quadrant": {
+      "title": "Interactief 4-kwadranten coördinatenstelsel & vectorraster | Online Ruler Plus",
+      "description": "Meet (±X, ±Y) coördinaten, afstand r en poolhoek θ op een gekalibreerd raster.",
+      "schemaName": "4-kwadranten coördinatenstelsel",
+      "subNavTitle": "4-kwadrantenraster",
+      "breadcrumbLabel": "4 kwadranten",
+      "heroKicker": "Gekalibreerd cartesisch vlak · (±X, ±Y) & (r, θ)",
+      "heroHeadline": "Interactief 4-kwadranten coördinatenstelsel",
+      "heroSummary": "Klik of sleep rond de oorsprong (0, 0) om X, Y, vectorafstand r en hoek θ af te lezen.",
+      "hint": "Klik of sleep op het raster om een punt ten opzichte van het middelpunt (0, 0) te meten.",
+      "resetOriginBtn": "Reset naar (0, 0)",
+      "labelX": "X-coördinaat",
+      "labelY": "Y-coördinaat",
+      "labelRadius": "Afstand (r)",
+      "labelAngle": "Poolhoek (θ)",
+      "labelQuadrant": "Actief kwadrant",
+      "guideCards": [
+        {
+          "kicker": "Vier kwadranten",
+          "heading": "Kwadranten I–IV met teken",
+          "body": "Meet symmetrie en offsets rond een centraal nulpunt."
+        },
+        {
+          "kicker": "Poolcoördinaten",
+          "heading": "Euclidische r = √(X² + Y²)",
+          "body": "Toont direct afstand en hoek in graden."
+        },
+        {
+          "kicker": "Ware grootte",
+          "heading": "Metrisch, inch & pixelraster",
+          "body": "Volgt automatisch uw opgeslagen schermkalibratie."
+        }
+      ]
+    },
+    "photoRuler": {
+      "title": "Foto- & Screenshot-liniaal | Afbeeldingen Meten",
+      "description": "Meet objecten op foto’s of Ctrl+V-screenshots lokaal met 2-punts kalibratie, kaders en PNG-export.",
+      "schemaName": "Online Foto- & Klembordliniaal",
+      "featureList": [
+        "100% lokaal & Ctrl+V plakken",
+        "2-punts referentiekalibratie",
+        "ΔX/ΔY & bounding boxes",
+        "Geannoteerde PNG-export"
+      ],
+      "subNavTitle": "Fotoliniaal",
+      "breadcrumbLabel": "Fotoliniaal",
+      "hero": {
+        "eyebrow": "Beeldmeting · 100% Lokaal · Ctrl+V",
+        "headline": "Meet foto’s en screenshots direct online",
+        "description": "Open een foto of druk op Ctrl+V, kies een bekende referentie en meet privé in je browser."
+      },
+      "guideKicker": "Lokale privacy",
+      "guideHeading": "Meten binnen foto’s",
+      "guideLead": "Plattegronden, onderdelen en screenshots zonder serverupload.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Lokaal · Ctrl+V",
+          "heading": "Open of plak foto",
+          "body": "Bestanden verlaten je apparaat niet.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Open fotomodus"
+        },
+        {
+          "step": "2",
+          "kicker": "2-punts schaal",
+          "heading": "Zet bekende referentie",
+          "body": "Selecteer een pas of munt voor exacte px/mm.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Bekijk referenties"
+        },
+        {
+          "step": "3",
+          "kicker": "PNG-export",
+          "heading": "Bewaar PNG met maten",
+          "body": "Voeg hulplijnen toe en download geannoteerd.",
+          "linkHref": "/protractor",
+          "linkLabel": "Open 360°-gradenboog"
+        }
+      ],
+      "darkKicker": "Referentieobjecten",
+      "darkHeading": "Betrouwbare ijkpunten op foto’s",
+      "darkLead": "Plaats een plat referentieobject naast het onderwerp.",
+      "darkCards": [
+        {
+          "heading": "Loodrecht fotograferen",
+          "body": "Beperkt perspectiefvertekening."
+        },
+        {
+          "heading": "Direct via Ctrl+V",
+          "body": "Behoudt exacte schermafbeeldingpixels."
+        },
+        {
+          "heading": "Geen cloudopslag",
+          "body": "Alles draait lokaal in het geheugen."
+        }
+      ],
+      "table": {
+        "kicker": "Snelle maten",
+        "heading": "Standaardobjecten voor 2-punts kalibratie",
+        "headers": [
+          "Object",
+          "Lengte (mm)",
+          "Inches",
+          "Gebruik"
+        ],
+        "rows": [
+          [
+            "Bankpas ID-1 (breedte)",
+            "85.60 mm",
+            "3.370 in",
+            "Tafelmetingen"
+          ],
+          [
+            "Bankpas ID-1 (hoogte)",
+            "53.98 mm",
+            "2.125 in",
+            "Kleine ruimtes"
+          ],
+          [
+            "1-euromunt",
+            "23.25 mm",
+            "0.915 in",
+            "Macro & schroeven"
+          ],
+          [
+            "2-euromunt",
+            "25.75 mm",
+            "1.014 in",
+            "Ringen & bouten"
+          ],
+          [
+            "US Quarter",
+            "24.26 mm",
+            "0.955 in",
+            "Macro"
+          ],
+          [
+            "AA-batterij",
+            "50.50 mm",
+            "1.988 in",
+            "Werkplaats"
+          ],
+          [
+            "US Letter vel",
+            "215.90 mm",
+            "8.500 in",
+            "Meubels"
+          ],
+          [
+            "A4-vel (korte zijde)",
+            "210.00 mm",
+            "8.268 in",
+            "Tekeningen & dozen"
+          ]
+        ],
+        "footnote": "Houd referentie en doel in hetzelfde focusvlak."
+      },
+      "faqKicker": "Foto-FAQ",
+      "faqHeading": "Vragen over de fotoliniaal",
+      "faqs": [
+        {
+          "q": "Worden foto’s geüpload?",
+          "a": "Nee, alles draait 100% lokaal."
+        },
+        {
+          "q": "Hoe nauwkeurig is het?",
+          "a": "Binnen 1–2 pixels op vlakke bovenaanzichten."
+        },
+        {
+          "q": "Kan ik breedte en hoogte tegelijk meten?",
+          "a": "Ja met ΔX/ΔY-hulplijnen en kaders."
+        },
+        {
+          "q": "Welke formaten werken?",
+          "a": "PNG, JPEG, WebP, GIF, SVG en Ctrl+V."
+        }
+      ]
+    },
+    "protractor": {
+      "title": "Online Gradenboog 360° | Hoeken Meten op Scherm",
+      "description": "Interactieve 360°-gradenboog met verplaatsbaar middelpunt en twee vrije benen voor scherm en foto’s.",
+      "schemaName": "Online 360°-Gradenboog",
+      "featureList": [
+        "Volledige 0°–360° meting",
+        "Verplaatsbaar hoekpunt & 2 benen",
+        "Direct over foto’s",
+        "Combineerbaar met zwevende linialen"
+      ],
+      "subNavTitle": "360° Gradenboog",
+      "breadcrumbLabel": "Gradenboog",
+      "hero": {
+        "eyebrow": "Geometrie 0°–360° · Twee vrije benen",
+        "headline": "Interactieve 360° Online Gradenboog",
+        "description": "Sleep het hoekpunt naar wens en draai beide benen vrij over 360°."
+      },
+      "guideKicker": "Hoekmeting",
+      "guideHeading": "Hoeken meten op scherm en foto",
+      "guideLead": "Voor wiskunde, verstekzagen, dakhelling en CAD.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Toets P",
+          "heading": "Plaats het hoekpunt",
+          "body": "Sleep de ring naar elk gewenst hoekpunt.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Open gradenboog"
+        },
+        {
+          "step": "2",
+          "kicker": "2 benen 360°",
+          "heading": "Meten zonder afbeelding te draaien",
+          "body": "Beide benen draaien vrij 360°.",
+          "linkHref": "/photo-ruler",
+          "linkLabel": "Laad foto"
+        },
+        {
+          "step": "3",
+          "kicker": "Hoek + Lengte",
+          "heading": "Combineer met linialen",
+          "body": "Gebruik zwevende schuine linialen erbij.",
+          "linkHref": "/quadrant",
+          "linkLabel": "4-kwadrantenraster"
+        }
+      ],
+      "darkKicker": "Hoekreferentie",
+      "darkHeading": "Standaardhoeken & verstek",
+      "darkLead": "Vierkante monitorpixels houden hoeken direct nauwkeurig.",
+      "darkCards": [
+        {
+          "heading": "Duidelijke boog",
+          "body": "Toont de actieve hoek tussen de twee benen."
+        },
+        {
+          "heading": "Toetsenbordfijnafstelling",
+          "body": "Gebruik pijltjestoetsen voor exacte stappen."
+        },
+        {
+          "heading": "Verstekhulp",
+          "body": "Deel een hoek door twee voor de zaagstand."
+        }
+      ],
+      "table": {
+        "kicker": "Normhoeken",
+        "heading": "Veelgebruikte hoeken in bouw en ontwerp",
+        "headers": [
+          "Type",
+          "Graden (°)",
+          "Helling",
+          "Gebruik"
+        ],
+        "rows": [
+          [
+            "Haakse hoek",
+            "90.0°",
+            "Recht",
+            "Meubels & PCB"
+          ],
+          [
+            "Standaard verstek",
+            "45.0°",
+            "1:1 (100%)",
+            "Lijsten"
+          ],
+          [
+            "Zeshoek",
+            "120.0°",
+            "60° buit.",
+            "Moeren"
+          ],
+          [
+            "Isometrisch",
+            "30.0°",
+            "57.7%",
+            "3D-tekenen"
+          ],
+          [
+            "Achthoek",
+            "22.5°",
+            "135° binn.",
+            "Kozijnen"
+          ],
+          [
+            "Dak 4/12",
+            "18.4°",
+            "33.3%",
+            "Spanten"
+          ],
+          [
+            "Vijfhoek",
+            "108.0°",
+            "72° buit.",
+            "Veelhoeken"
+          ],
+          [
+            "Gestrekt",
+            "180.0°",
+            "Rechte lijn",
+            "Uitlijning"
+          ]
+        ],
+        "footnote": "Vereist standaard 1:1 vierkante schermpixels."
+      },
+      "faqKicker": "Gradenboog-FAQ",
+      "faqHeading": "Vragen over de gradenboog",
+      "faqs": [
+        {
+          "q": "Moet ik eerst PPI kalibreren?",
+          "a": "Nee, hoeken blijven gelijk bij vierkante pixels."
+        },
+        {
+          "q": "Werkt dit over een foto?",
+          "a": "Ja, plak met Ctrl+V achter de gradenboog."
+        },
+        {
+          "q": "Waarom 360°?",
+          "a": "Scheve lijnen hoeven niet eerst horizontaal gezet."
+        },
+        {
+          "q": "Kan ik ook lengtes meten?",
+          "a": "Ja met ΔX/ΔY-hulplijnen en zwevende linialen."
+        }
+      ]
     }
+  },
+  "converter": {
+    "title": "Eenheden-omzetter",
+    "mmAria": "Millimeters omrekenen",
+    "cmAria": "Centimeters omrekenen",
+    "inAria": "Inches omrekenen",
+    "pxAria": "CSS-pixels omrekenen"
   }
 }

@@ -40,7 +40,11 @@
       "about": "Über uns",
       "contact": "Kontakt",
       "privacy": "Datenschutz",
-      "terms": "Nutzung"
+      "terms": "Nutzung",
+      "screenDetector": "Bildschirm-Detektor",
+      "printableRuler": "Druckbares Lineal",
+      "circleRuler": "Kreis-Lehre",
+      "quadrant": "4-Quadranten-Netz"
     },
     "subNav": {
       "workspace": "Lineal",
@@ -72,13 +76,18 @@
     "toolGuides": "Verschiebbare Hilfslinien (G)",
     "toolFractions": "Zollbruch-Anzeige",
     "toolPx": "CSS-Pixel-Inspektor (px)",
-    "toolProtractor": "180°-Winkelmesser (P)",
+    "toolProtractor": "360°-Winkelmesser (P)",
     "legalAbout": "Über Online Ruler Plus",
     "legalContact": "Kontakt & Geräte-Einreichung",
     "legalPrivacy": "Datenschutzerklärung",
     "legalTerms": "Nutzungsbedingungen",
     "copyright": "Copyright © {year} OnlineRulerPlus.com. Alle Rechte vorbehalten.",
-    "constants": "1 in = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)"
+    "constants": "1 in = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)",
+    "toolPhoto": "Foto- & Ctrl+V-Lineal",
+    "toolCircle": "Kreis- & Ring-Lehre",
+    "toolQuadrant": "4-Quadranten-Gitter",
+    "toolPrintable": "1:1 Druckbares SVG-Lineal",
+    "toolDetector": "Display- & PPI-Detektor"
   },
   "helpModal": {
     "kicker": "Kurzübersicht",
@@ -221,7 +230,13 @@
     "photoExportBtn": "PNG exportieren",
     "photoCloseBtn": "Beenden",
     "photoEmptyTitle": "100 % lokales Foto- & Zwischenablage-Lineal",
-    "photoEmptyDesc": "Strg+V für Screenshot drücken, Bild ablegen oder Datei wählen. Es wird nichts hochgeladen."
+    "photoEmptyDesc": "Strg+V für Screenshot drücken, Bild ablegen oder Datei wählen. Es wird nichts hochgeladen.",
+    "popoutBtn": "Pop-out",
+    "popoutTitle": "Kompaktes Linealfenster öffnen",
+    "embedBtn": "Einbetten",
+    "embedTitle": "iframe-Einbettungscode kopieren",
+    "scaleLabel": "Maßstab",
+    "scaleAria": "Architektur- und Zeichenmaßstab"
   },
   "calibration": {
     "kicker": "Pixeldichte-Kalibrierung · Lokal pro Bildschirm gespeichert",
@@ -313,7 +328,11 @@
     "refCustomUnitAria": "Eigene Maßeinheit",
     "refDragHint": "Blauen Eckgriff ziehen oder Regler nutzen",
     "cardDragHandleAria": "Ecke ziehen, um das Referenzfeld anzupassen",
-    "cardDragHandleTitle": "Ecke ziehen zur Größenanpassung"
+    "cardDragHandleTitle": "Ecke ziehen zur Größenanpassung",
+    "namedProfilesLabel": "Monitor-Profile:",
+    "namedProfilePlaceholder": "z. B. Büro 27\" / Laptop",
+    "namedProfileInputAria": "Name des Monitorprofils",
+    "namedProfileSaveBtn": "Profil speichern"
   },
   "runtime": {
     "statusLabels": {
@@ -1841,6 +1860,11 @@
           "kicker": "Schmale Handys",
           "heading": "Warum Smartphones auf Hochformat-Karte (53,98 mm) umschalten",
           "body": "Bei 360–430 px Breite passt 85,60 mm quer nicht ins Bild. Der [[strong:Hochformat-Modus]] kalibriert über die [[strong:53,98 mm]]-Kante."
+        },
+        {
+          "kicker": "Windows 125%/150% & Android Chrome",
+          "heading": "Windows-Skalierung & Android-Smartphones kalibrieren",
+          "body": "Bei Windows 10/11 mit [[code:125%]]/[[code:150%]] ClearType-Skalierung oder Android Chrome (~360–412 CSS-px) weicht die CSS-Dichte vom Glas ab. Browser-Zoom bei [[strong:100%]] halten, auf Android Hochformat-Kartenmodus ([[code:53.98 mm]]) nutzen und mit einer Bankkarte abgleichen."
         }
       ],
       "s7Kicker": "07 · Display-Physik & Toleranzen",
@@ -2142,6 +2166,454 @@
           "body": "Siehe unsere [[link:/privacy|Datenschutzerklärung]]; Fragen bitte an [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]."
         }
       ]
+    },
+    "embed": {
+      "title": "Online-Lineal Widget — Online Ruler Plus",
+      "description": "Kompaktes einbettbares Lineal-Widget für cm, mm, Zoll und Pixel.",
+      "heading": "Online Ruler Plus Kompaktansicht"
+    },
+    "screenDetector": {
+      "title": "Bildschirmgröße & PPI-Detektor | Online Ruler Plus",
+      "description": "CSS-Auflösung, DPR, Zoomfaktor prüfen und exakte CSS-PPI sowie Pixelabstand in Millimetern berechnen.",
+      "schemaName": "Bildschirmgröße & PPI-Detektor",
+      "subNavTitle": "Bildschirm- & PPI-Detektor",
+      "breadcrumbLabel": "Bildschirm-Detektor",
+      "heroKicker": "Lokale Display-Telemetrie · 100 % privat",
+      "heroHeadline": "Bildschirmgröße, Auflösung & PPI-Detektor",
+      "heroSummary": "Lesen Sie CSS-Viewport, Device Pixel Ratio und berechnete Displaymaße aus und übernehmen Sie Ihre Bildschirmdiagonale direkt in die Kalibrierung.",
+      "openRulerBtn": "Online-Lineal öffnen",
+      "presetsLabel": "Diagonale wählen (Zoll)",
+      "customDiagLabel": "Oder eigene Diagonale eingeben (3″–100″)",
+      "applyBtn": "Diagonale zur Kalibrierung übernehmen",
+      "savedBanner": "Diagonal-Kalibrierung lokal gespeichert. Zurück zum Lineal.",
+      "liveCardKicker": "Live-Browserdaten",
+      "liveCardHeading": "Erkannte Display-Eigenschaften",
+      "labelCssRes": "CSS-Bildschirmauflösung",
+      "labelPhysRes": "Geschätzte physische Pixel",
+      "labelViewport": "Browser-Viewport",
+      "labelDpr": "Device Pixel Ratio (DPR)",
+      "labelAspect": "Seitenverhältnis",
+      "labelZoom": "Visuelle Viewport-Skala",
+      "labelCalStatus": "Aktive Lineal-Kalibrierung",
+      "labelCalBasis": "Kalibrierungsbasis",
+      "geomCardKicker": "Berechnete Geometrie",
+      "geomCardHeading": "Physische Maße bei gewählter Diagonale",
+      "labelCalcWidth": "Sichtbare Panelbreite",
+      "labelCalcHeight": "Sichtbare Panelhöhe",
+      "labelCalcCssPpi": "CSS-Dichte (px / Zoll)",
+      "labelCalcDevPpi": "Physische Panel-PPI",
+      "labelCalcPitch": "Physischer Pixelabstand",
+      "guideCards": [
+        {
+          "kicker": "CSS vs. Physisch",
+          "heading": "Warum Browser die Monitorgröße verbergen",
+          "body": "Datenschutzstandards verhindern direkten Zugriff auf Monitor-EDID-Daten oder Windows-Skalierungsprozente."
+        },
+        {
+          "kicker": "OS-Skalierung",
+          "heading": "125 %, 150 % & macOS Retina verstehen",
+          "body": "Bei aktiver OS-Skalierung sinken die CSS-Pixel und DPR steigt. Lassen Sie den Browser-Zoom stets auf 100 %."
+        },
+        {
+          "kicker": "Gegenprüfung",
+          "heading": "Mit Bankkarte im Format ISO ID-1 prüfen",
+          "body": "Überprüfen Sie die berechnete Diagonale immer mit einer echten Scheckkarte für millimetergenaue Ergebnisse."
+        }
+      ]
+    },
+    "printableRuler": {
+      "title": "Druckbares SVG-Lineal (1:1 Maßstab, A4 & US Letter) | Online Ruler Plus",
+      "description": "Maßstabsgetreue 1:1 Papierlineale, 1-cm-Raster und 360°-Winkelmesser als Vektor-SVG mit 100-mm-Kontrollbalken drucken.",
+      "schemaName": "Druckbares Lineal Generator",
+      "subNavTitle": "Druckbare 1:1-Lineale",
+      "breadcrumbLabel": "Druckbares Lineal",
+      "heroKicker": "Vektor-SVG · 1 Einheit = 1 mm",
+      "heroHeadline": "Druckbare Lineale, Raster & Winkelmesser",
+      "heroSummary": "Laden Sie exakte 1:1 Vektorbögen für A4 oder US Letter herunter — inklusive 100,0 mm / 4,00 in Druck-Kontrollbalken.",
+      "templateLabel": "Vorlage",
+      "templates": {
+        "ruler15cm": "15 cm / 6 Zoll Lineal",
+        "ruler25cm": "25 cm / 10 Zoll Lineal",
+        "ruler30cmSplit": "30 cm geteilt (2×15 cm)",
+        "ruler12inSplit": "12 Zoll geteilt (2×6)",
+        "grid1cm": "1-cm-Millimeterraster",
+        "protractor360": "360°-Winkelmesser"
+      },
+      "paperLabel": "Papierformat",
+      "paperA4": "DIN A4 (210 × 297 mm)",
+      "paperLetter": "US Letter (8,5 × 11 Zoll)",
+      "printBtn": "Drucken (100 % Größe)",
+      "downloadBtn": "SVG herunterladen",
+      "warningTitle": "Wichtiger Druckhinweis: Skalierung auf „Tatsächliche Größe / 100 %“ stellen",
+      "warningBody": "Drucker verkleinern oft automatisch („An Seite anpassen“). Prüfen Sie den gedruckten 100,0-mm-Balken vor der Verwendung."
+    },
+    "circleRuler": {
+      "title": "Kreis-, Ring-, Schrauben- & Münz-Durchmesserlehre (1–150 mm) | Online Ruler Plus",
+      "description": "Durchmesser von Ringen (US/EU-Größen), M3–M12 Schrauben, Unterlegscheiben und Münzen auf dem kalibrierten Bildschirm messen.",
+      "schemaName": "Kreis- & Ring-Durchmesserlehre",
+      "subNavTitle": "Kreis-Durchmesserlehre",
+      "breadcrumbLabel": "Kreis-Lehre",
+      "heroKicker": "Konzentrische Messtechnik · 1,00 mm – 150,00 mm",
+      "heroHeadline": "Kreis-, Ring-, Schrauben- & Münzmesser",
+      "heroSummary": "Legen Sie einen Ring, eine Münze oder Unterlegscheibe direkt auf den blauen Kreis oder ziehen Sie den Rand passgenau.",
+      "diameterLabel": "Durchmesser (mm)",
+      "presetsLabel": "Schnellvorgaben (ISO-Schrauben, Ringe, Münzen)",
+      "readoutTitle": "Geometrische Werte",
+      "labelDiameter": "Durchmesser",
+      "labelRadius": "Radius (r)",
+      "labelCircumference": "Umfang (π·d)",
+      "labelArea": "Fläche (π·r²)",
+      "labelDiameterIn": "Durchmesser (Zoll)",
+      "labelPixels": "Bildschirmdurchmesser (px)",
+      "labelRingSize": "Nächste Ringgröße",
+      "guideCards": [
+        {
+          "kicker": "Ringgrößen",
+          "heading": "Innendurchmesser bestimmen",
+          "body": "Innenkante des Rings an den blauen Kreis anpassen und US/EU-Ringgröße ablesen."
+        },
+        {
+          "kicker": "Normteile",
+          "heading": "M3–M12 Schrauben & Scheiben",
+          "body": "Vergleichen Sie Schraubenköpfe, O-Ringe und Bohrer von 1 bis 150 mm."
+        },
+        {
+          "kicker": "Kalibrierung",
+          "heading": "Verwendet Ihre Display-Kalibrierung",
+          "body": "Für exakte Millimeter vorab per Scheckkarte im Format ISO ID-1 kalibrieren."
+        }
+      ]
+    },
+    "quadrant": {
+      "title": "Interaktives 4-Quadranten-Koordinatensystem & Vektorplotter | Online Ruler Plus",
+      "description": "Messen Sie vorzeichenbehaftete Koordinaten (±X, ±Y), Abstand r und Polarwinkel θ auf kalibriertem Gitter.",
+      "schemaName": "4-Quadranten-Koordinatensystem",
+      "subNavTitle": "4-Quadranten-System",
+      "breadcrumbLabel": "4-Quadranten-Netz",
+      "heroKicker": "Kalibriertes kartesisches Gitter · (±X, ±Y) & (r, θ)",
+      "heroHeadline": "4-Quadranten-Koordinaten- & Vektorebene",
+      "heroSummary": "Klicken oder ziehen Sie auf das Gitter um den Ursprung (0, 0), um X, Y, Radius r und Polarwinkel θ direkt abzulesen.",
+      "hint": "Klicken oder ziehen Sie den Punkt im Koordinatennetz relativ zum Ursprung (0, 0).",
+      "resetOriginBtn": "Auf Ursprung (0, 0)",
+      "labelX": "X-Koordinate",
+      "labelY": "Y-Koordinate",
+      "labelRadius": "Abstand (r)",
+      "labelAngle": "Polarwinkel (θ)",
+      "labelQuadrant": "Aktiver Quadrant",
+      "guideCards": [
+        {
+          "kicker": "Vier Quadranten",
+          "heading": "Symmetrie um den Nullpunkt",
+          "body": "Prüfen Sie Vorzeichen und Koordinaten in allen vier Quadranten I–IV."
+        },
+        {
+          "kicker": "Polarkoordinaten",
+          "heading": "Abstand r = √(X² + Y²)",
+          "body": "Berechnet gleichzeitig kartesische und polare Vektorwerte."
+        },
+        {
+          "kicker": "Echter Maßstab",
+          "heading": "Metrische, Zoll- & Pixelraster",
+          "body": "Nutzt Ihre aktiv gespeicherte PPI-Kalibrierung."
+        }
+      ]
+    },
+    "photoRuler": {
+      "title": "Foto- & Screenshot-Lineal | Maße im Bild messen",
+      "description": "Messen Sie Objekte auf hochgeladenen Fotos oder Strg+V-Screenshots lokal mit Zweipunkt-Kalibrierung, Bounding-Boxen und PNG-Export.",
+      "schemaName": "Online Foto- & Zwischenablage-Lineal",
+      "featureList": [
+        "100% lokales Laden & Strg+V Einfügen",
+        "Zweipunkt-Referenzkalibrierung im Foto",
+        "ΔX/ΔY-Bemaßung & Bounding-Boxen",
+        "Annotierter PNG-Export"
+      ],
+      "subNavTitle": "Foto-Lineal",
+      "breadcrumbLabel": "Foto-Lineal",
+      "hero": {
+        "eyebrow": "Bild-Messtechnik · 100% Lokal · Strg+V",
+        "headline": "Längen in Fotos & Screenshots online messen",
+        "description": "Bild öffnen oder Strg+V drücken, bekannte Referenzstrecke festlegen und privat im Browser messen."
+      },
+      "guideKicker": "Lokale Bildauswertung",
+      "guideHeading": "Maße in Fotos korrekt erfassen",
+      "guideLead": "Für Grundrisse, Werkstattfotos und UI-Screenshots ohne Cloud-Upload.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Lokal & Strg+V",
+          "heading": "Foto laden oder einfügen",
+          "body": "Alle Dateien bleiben lokal im Arbeitsspeicher Ihres Browsers.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Foto-Modus öffnen"
+        },
+        {
+          "step": "2",
+          "kicker": "2-Punkt-Skala",
+          "heading": "Bekannte Referenz markieren",
+          "body": "Referenzstrecke wie Bankkarte oder Münze eingeben, um px/mm im Foto zu setzen.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Referenzen ansehen"
+        },
+        {
+          "step": "3",
+          "kicker": "PNG-Export",
+          "heading": "Messen & als PNG sichern",
+          "body": "Hilfslinien, ΔX/ΔY und Bounding-Boxen als annotiertes PNG exportieren.",
+          "linkHref": "/protractor",
+          "linkLabel": "360°-Winkelmesser öffnen"
+        }
+      ],
+      "darkKicker": "Fotoreferenzen",
+      "darkHeading": "Geeignete Vergleichsobjekte",
+      "darkLead": "Legen Sie ein flaches Normobjekt neben Ihr Messobjekt.",
+      "darkCards": [
+        {
+          "heading": "Senkrechte Kameraperspektive",
+          "body": "Kamera gerade von oben ausrichten, um Verzerrungen gering zu halten."
+        },
+        {
+          "heading": "Sofort-Screenshots per Strg+V",
+          "body": "Direktes Einfügen ohne Zwischenspeichern auf der Festplatte."
+        },
+        {
+          "heading": "Keine Server-Übertragung",
+          "body": "Datensparsam und vollständig clientseitig."
+        }
+      ],
+      "table": {
+        "kicker": "Referenzgrößen",
+        "heading": "Normmaße für die Zweipunkt-Kalibrierung",
+        "headers": [
+          "Referenzobjekt",
+          "Länge (mm)",
+          "Zoll (in)",
+          "Einsatzbereich"
+        ],
+        "rows": [
+          [
+            "Bankkarte ISO ID-1 (Breite)",
+            "85.60 mm",
+            "3.370 in",
+            "Tischaufnahmen"
+          ],
+          [
+            "Bankkarte ISO ID-1 (Höhe)",
+            "53.98 mm",
+            "2.125 in",
+            "Kompakte Abstände"
+          ],
+          [
+            "1-Euro-Münze",
+            "23.25 mm",
+            "0.915 in",
+            "Kleine Bauteile"
+          ],
+          [
+            "2-Euro-Münze",
+            "25.75 mm",
+            "1.014 in",
+            "Ringe & Schrauben"
+          ],
+          [
+            "US-Quarter-Münze",
+            "24.26 mm",
+            "0.955 in",
+            "Makro-Referenz"
+          ],
+          [
+            "AA-Batterie (IEC R6)",
+            "50.50 mm",
+            "1.988 in",
+            "Werkstattfotos"
+          ],
+          [
+            "US-Letter-Blatt",
+            "215.90 mm",
+            "8.500 in",
+            "Möbel & Pakete"
+          ],
+          [
+            "DIN-A4-Blatt (Breite)",
+            "210.00 mm",
+            "8.268 in",
+            "Pläne & Pakete"
+          ]
+        ],
+        "footnote": "Referenz und Zielobjekt in derselben Fokusebene platzieren."
+      },
+      "faqKicker": "Foto-FAQ",
+      "faqHeading": "Häufige Fragen zum Foto-Lineal",
+      "faqs": [
+        {
+          "q": "Werden Fotos hochgeladen?",
+          "a": "Nein, die komplette Verarbeitung erfolgt lokal im Browser."
+        },
+        {
+          "q": "Wie genau ist die 2-Punkt-Messung?",
+          "a": "Auf geraden Draufsichten auf 1–2 Pixel genau."
+        },
+        {
+          "q": "Kann ich Breite und Höhe zugleich ablesen?",
+          "a": "Ja, über Bounding-Boxen und ΔX/ΔY-Hilfslinien."
+        },
+        {
+          "q": "Welche Bildformate funktionieren?",
+          "a": "PNG, JPEG, WebP, GIF, SVG und Zwischenablage per Strg+V."
+        }
+      ]
+    },
+    "protractor": {
+      "title": "Online-Winkelmesser 360° | Winkel am Bildschirm messen",
+      "description": "Interaktiver 360°-Winkelmesser mit verschiebbarem Scheitelpunkt und zwei frei drehbaren Schenkeln.",
+      "schemaName": "Interaktiver 360°-Winkelmesser",
+      "featureList": [
+        "Vollkreis-Winkelmesser 0°–360°",
+        "Beweglicher Scheitelpunkt & 2 Schenkel",
+        "Direkt über Fotos einsetzbar",
+        "Kombinierbar mit drehbaren Linealen"
+      ],
+      "subNavTitle": "360°-Winkelmesser",
+      "breadcrumbLabel": "Winkelmesser",
+      "hero": {
+        "eyebrow": "Geometrie 0°–360° · Zwei freie Schenkel",
+        "headline": "Interaktiver 360°-Online-Winkelmesser",
+        "description": "Scheitelpunkt frei verschieben, beide Schenkel unabhängig drehen und Innen- sowie Überstumpfwinkel direkt ablesen."
+      },
+      "guideKicker": "Winkelmesstechnik",
+      "guideHeading": "Winkel am Bildschirm und im Bild bestimmen",
+      "guideLead": "Für Geometrie, Gehrungsschnitte, Dachneigungen und CAD-Prüfungen.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Taste P",
+          "heading": "Scheitelpunkt positionieren",
+          "body": "Ring auf jede beliebige Ecke ziehen.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Winkelmesser starten"
+        },
+        {
+          "step": "2",
+          "kicker": "2 Schenkel 360°",
+          "heading": "Ohne Drehen der Vorlage messen",
+          "body": "Beide Schenkel drehen frei um volle 360°.",
+          "linkHref": "/photo-ruler",
+          "linkLabel": "Foto darunter laden"
+        },
+        {
+          "step": "3",
+          "kicker": "Winkel + Strecke",
+          "heading": "Mit Schwenklinealen kombinieren",
+          "body": "Frei drehbare Zusatzlineale gleichzeitig nutzen.",
+          "linkHref": "/quadrant",
+          "linkLabel": "4-Quadranten-Gitter"
+        }
+      ],
+      "darkKicker": "Winkeltypen",
+      "darkHeading": "Wichtige Winkel für Handwerk & CAD",
+      "darkLead": "Durch quadratische Monitorpixel stimmen Winkel auch ohne PPI-Kalibrierung.",
+      "darkCards": [
+        {
+          "heading": "Klarer Kreisbogen",
+          "body": "Zeigt den aktiven Winkel zwischen den Schenkeln an."
+        },
+        {
+          "heading": "Feinjustierung per Tastatur",
+          "body": "Pfeiltasten erlauben präzises Nachführen."
+        },
+        {
+          "heading": "Gehrungshilfe",
+          "body": "Eckenwinkel halbieren für den exakten Sägeschnitt."
+        }
+      ],
+      "table": {
+        "kicker": "Normwinkel",
+        "heading": "Häufige Winkel in Technik & Holzbau",
+        "headers": [
+          "Winkel",
+          "Grad (°)",
+          "Steigung / Bezug",
+          "Anwendung"
+        ],
+        "rows": [
+          [
+            "Rechter Winkel",
+            "90.0°",
+            "Rechtecke",
+            "Rahmen & Platinen"
+          ],
+          [
+            "Standard-Gehrung",
+            "45.0°",
+            "1:1 (100%)",
+            "Bilderrahmen"
+          ],
+          [
+            "Sechseck",
+            "120.0°",
+            "60° außen",
+            "Sechskantschrauben"
+          ],
+          [
+            "Isometrie-Achse",
+            "30.0°",
+            "57.7%",
+            "3D-Skizzen"
+          ],
+          [
+            "Achteck-Gehrung",
+            "22.5°",
+            "135° innen",
+            "Erker & Leisten"
+          ],
+          [
+            "Dachneigung 4/12",
+            "18.4°",
+            "33.3%",
+            "Sparren"
+          ],
+          [
+            "Fünfeck",
+            "108.0°",
+            "72° außen",
+            "Polygone"
+          ],
+          [
+            "Gestreckter Winkel",
+            "180.0°",
+            "Gerade Linie",
+            "Ausrichtung"
+          ]
+        ],
+        "footnote": "Setzt quadratische 1:1-Bildschirmpixel voraus (Standard bei LCD/OLED)."
+      },
+      "faqKicker": "Winkel-FAQ",
+      "faqHeading": "Fragen zum 360°-Winkelmesser",
+      "faqs": [
+        {
+          "q": "Muss der Bildschirm erst kalibriert werden?",
+          "a": "Nein, bei quadratischen Pixeln stimmen Winkelverhältnisse direkt."
+        },
+        {
+          "q": "Funktioniert er über Fotos?",
+          "a": "Ja, Foto per Strg+V laden und den Winkelmesser darüberziehen."
+        },
+        {
+          "q": "Was ist der Vorteil gegenüber 180°?",
+          "a": "Beide Schenkel drehen frei über 360°."
+        },
+        {
+          "q": "Lassen sich Längen mitmessen?",
+          "a": "Ja, per ΔX/ΔY-Hilfslinien und drehbaren Linealen."
+        }
+      ]
     }
+  },
+  "converter": {
+    "title": "Einheiten-Umrechner",
+    "mmAria": "Millimeter umrechnen",
+    "cmAria": "Zentimeter umrechnen",
+    "inAria": "Zoll umrechnen",
+    "pxAria": "CSS-Pixel umrechnen"
   }
 }

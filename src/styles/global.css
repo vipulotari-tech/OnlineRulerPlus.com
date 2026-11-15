@@ -786,12 +786,20 @@
     linear-gradient(to bottom, color-mix(in srgb, var(--border-hairline) 55%, transparent) 1px, transparent 1px);
 }
 
+@page {
+  size: auto;
+  margin: 8mm;
+}
+
 @media print {
   header,
   footer,
+  .no-print,
   #help-shortcuts-modal,
   #display-change-banner,
   #locale-suggestion-banner,
+  [data-hero-section],
+  #calibration,
   [data-stage-interactive] {
     display: none !important;
   }
@@ -803,10 +811,25 @@
     border: 1px solid #000000 !important;
     page-break-inside: avoid;
   }
+  #printable-svg-sheet {
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
 }
 
 html[data-focus-mode="true"] [data-hero-section] {
   display: none;
+}
+
+html[data-embed-mode="true"] header,
+html[data-embed-mode="true"] footer,
+html[data-embed-mode="true"] [data-hero-section],
+html[data-embed-mode="true"] #calibration,
+html[data-embed-mode="true"] #locale-suggestion-banner,
+html[data-embed-mode="true"] .order-3 {
+  display: none !important;
 }
 
 /* Smooth Language Selector Dropdown Motion */

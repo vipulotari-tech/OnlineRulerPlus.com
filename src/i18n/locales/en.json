@@ -40,7 +40,11 @@
       "about": "About",
       "contact": "Contact",
       "privacy": "Privacy Policy",
-      "terms": "Terms of Use"
+      "terms": "Terms of Use",
+      "screenDetector": "Screen Detector",
+      "printableRuler": "Printable Ruler",
+      "circleRuler": "Circle Gauge",
+      "quadrant": "4-Quadrant Graph"
     },
     "subNav": {
       "workspace": "Workspace",
@@ -72,13 +76,18 @@
     "toolGuides": "Draggable Guide Lines (G)",
     "toolFractions": "Fractional Inch Readout",
     "toolPx": "CSS Pixel Inspector (px)",
-    "toolProtractor": "180° Angle Protractor (P)",
+    "toolProtractor": "360° Protractor Tool (P)",
     "legalAbout": "About Online Ruler Plus",
     "legalContact": "Contact & Submissions",
     "legalPrivacy": "Privacy Policy",
     "legalTerms": "Terms of Use",
     "copyright": "Copyright © {year} OnlineRulerPlus.com. All rights reserved.",
-    "constants": "1 in = 25.4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85.60 × 53.98 mm)"
+    "constants": "1 in = 25.4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85.60 × 53.98 mm)",
+    "toolPhoto": "Photo & Clipboard Ruler",
+    "toolCircle": "Circle, Ring & Bolt Gauge",
+    "toolQuadrant": "4-Quadrant Coordinate Plane",
+    "toolPrintable": "1:1 Printable SVG Ruler",
+    "toolDetector": "Screen Size & PPI Detector"
   },
   "helpModal": {
     "kicker": "Quick Reference",
@@ -221,7 +230,13 @@
     "photoExportBtn": "Export PNG",
     "photoCloseBtn": "Exit",
     "photoEmptyTitle": "100% Client-Side Photo & Clipboard Ruler",
-    "photoEmptyDesc": "Press Ctrl+V to paste a screenshot, drop an image here, or choose a file. Nothing is ever uploaded."
+    "photoEmptyDesc": "Press Ctrl+V to paste a screenshot, drop an image here, or choose a file. Nothing is ever uploaded.",
+    "popoutBtn": "Pop-Out",
+    "popoutTitle": "Open compact pop-out ruler window",
+    "embedBtn": "Embed",
+    "embedTitle": "Get iframe embed code",
+    "scaleLabel": "Scale",
+    "scaleAria": "Architectural and engineering drawing scale"
   },
   "calibration": {
     "kicker": "Display Density Calibration · Saved Locally Per Screen",
@@ -313,7 +328,11 @@
     "refCustomUnitAria": "Custom object unit",
     "refDragHint": "Drag the blue corner handle or slider to match your object",
     "cardDragHandleAria": "Drag corner to resize reference box to match physical object",
-    "cardDragHandleTitle": "Drag corner or edge to match physical size"
+    "cardDragHandleTitle": "Drag corner or edge to match physical size",
+    "namedProfilesLabel": "Display Profiles:",
+    "namedProfilePlaceholder": "e.g. Office 27\" / Laptop",
+    "namedProfileInputAria": "Custom display profile name",
+    "namedProfileSaveBtn": "Save Profile"
   },
   "runtime": {
     "statusLabels": {
@@ -1841,6 +1860,11 @@
           "kicker": "Smartphone Constraints · Narrow Viewports",
           "heading": "Why mobile phones switch to Portrait Card Calibration (53.98 mm)",
           "body": "A smartphone in portrait orientation typically measures 360 to 430 CSS pixels across (~58 to 72 mm physically). Because a landscape bank card is 85.60 mm wide, holding it horizontally overflows the phone screen and clips the alignment border. Whenever viewport width drops below landscape card bounds, Online Ruler Plus provides a dedicated [[strong:Portrait Card Mode]] calibrated to the card’s short [[strong:53.98 mm]] height ([[code:pxPerMm = cardShortEdgePx / 53.98]]), letting mobile users achieve crisp 1:1 physical accuracy vertically or rotate to landscape for longer runs."
+        },
+        {
+          "kicker": "Windows 125%/150% & Android Chrome",
+          "heading": "How to Calibrate Windows Scaled Laptops & Android Phones",
+          "body": "On Windows 10/11 laptops running [[code:125%]] or [[code:150%]] ClearType display scaling, or Android Chrome viewports (~360–412 CSS px wide), browser PPI defaults shift away from physical glass pitch. Keep browser zoom at [[strong:100%]], open Calibration below, switch Android devices to Portrait Card Mode ([[code:53.98 mm]] width), and drag until an ISO ID-1 card matches edge-to-edge."
         }
       ],
       "s7Kicker": "Section 07 · Display Physics & Accuracy Bounds",
@@ -2142,6 +2166,454 @@
           "body": "OnlineRulerPlus.com may display clearly labeled third-party advertisements (such as Google AdSense units placed strictly outside interactive measurement controls) and link to external standards organizations (NIST, BIPM, ISO, W3C) for user verification. We are not responsible for the content or privacy practices of external websites; please review our [[link:/privacy|Privacy Policy]] for advertising and cookie controls. We may update these Terms of Use as standards or site capabilities evolve; continued use constitutes acceptance of the posted terms. Questions may be sent to [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]."
         }
       ]
+    },
+    "embed": {
+      "title": "Embedded Online Ruler Widget — Online Ruler Plus",
+      "description": "Compact embeddable screen ruler widget supporting cm, mm, fractional inches, and pixels.",
+      "heading": "Online Ruler Plus Compact Workspace"
+    },
+    "screenDetector": {
+      "title": "Screen Size & PPI Detector — Live Display Resolution & Pixel Pitch | Online Ruler Plus",
+      "description": "Inspect your display CSS resolution, physical resolution, Device Pixel Ratio (DPR), zoom scale, and calculate exact CSS PPI and pixel pitch in millimeters.",
+      "schemaName": "Screen Size & PPI Detector",
+      "subNavTitle": "Screen Size & PPI Detector",
+      "breadcrumbLabel": "Screen Detector",
+      "heroKicker": "Display Metrology Telemetry · 100% Local",
+      "heroHeadline": "Screen Size, Resolution & PPI Detector",
+      "heroSummary": "Read your browser’s live CSS viewport, device pixel ratio, and physical dimensions, then apply your screen diagonal straight into Online Ruler Plus calibration.",
+      "openRulerBtn": "Open Online Ruler",
+      "presetsLabel": "Select Display Diagonal (Inches)",
+      "customDiagLabel": "Or Enter Custom Diagonal (3″–100″)",
+      "applyBtn": "Apply Diagonal to Ruler Calibration",
+      "savedBanner": "Saved diagonal calibration locally. Return to the Online Ruler workspace to measure.",
+      "liveCardKicker": "Live Browser Signal",
+      "liveCardHeading": "Reported Display Properties",
+      "labelCssRes": "Screen CSS Resolution",
+      "labelPhysRes": "Estimated Physical Pixels",
+      "labelViewport": "Browser Viewport",
+      "labelDpr": "Device Pixel Ratio (DPR)",
+      "labelAspect": "Aspect Ratio",
+      "labelZoom": "Visual Viewport Scale",
+      "labelCalStatus": "Active Ruler Calibration",
+      "labelCalBasis": "Calibration Basis",
+      "geomCardKicker": "Calculated Display Geometry",
+      "geomCardHeading": "Physical Dimensions at Selected Diagonal",
+      "labelCalcWidth": "Visible Panel Width",
+      "labelCalcHeight": "Visible Panel Height",
+      "labelCalcCssPpi": "CSS Density (px / inch)",
+      "labelCalcDevPpi": "Physical Panel Density",
+      "labelCalcPitch": "Physical Pixel Pitch",
+      "guideCards": [
+        {
+          "kicker": "CSS vs Physical",
+          "heading": "Why Browsers Hide True Monitor Size",
+          "body": "Privacy standards prevent websites from reading monitor EDID dimensions or OS DPI percentages directly. Online browsers report CSS reference pixels and Device Pixel Ratio."
+        },
+        {
+          "kicker": "Windows & macOS Scaling",
+          "heading": "Understanding 125%, 150% & Retina Scaling",
+          "body": "When Windows scales at 125% or macOS uses Retina “Looks like” resolution, CSS pixel counts shrink while DPR increases—keep browser zoom at 100% when measuring."
+        },
+        {
+          "kicker": "Best Verification",
+          "heading": "Combine Diagonal With Physical Card Check",
+          "body": "Even after applying a panel diagonal here, verify against an ISO/IEC 7810 ID-1 bank card in the calibration workspace for sub-millimeter certainty."
+        }
+      ]
+    },
+    "printableRuler": {
+      "title": "Printable True-Scale SVG Ruler Generator (A4 & US Letter) | Online Ruler Plus",
+      "description": "Generate 1:1 true-scale printable paper rulers, cm grids, and 360° protractors as vector SVG or PDF with an integrated 100 mm / 4 in print verification bar.",
+      "schemaName": "Printable Ruler Generator",
+      "subNavTitle": "Printable True-Scale Rulers",
+      "breadcrumbLabel": "Printable Ruler",
+      "heroKicker": "True-Scale Vector SVG · 1 SVG Unit = 1 mm",
+      "heroHeadline": "Printable Rulers, Grids & Protractor",
+      "heroSummary": "Download clean 1:1 vector sheets formatted for A4 or US Letter paper, complete with a built-in 100.0 mm / 4.00 in calibration check bar so you can verify your printer did not shrink the scale.",
+      "templateLabel": "Sheet Template",
+      "templates": {
+        "ruler15cm": "15 cm / 6 in Ruler",
+        "ruler25cm": "25 cm / 10 in Ruler",
+        "ruler30cmSplit": "30 cm Split Tape (2×15 cm)",
+        "ruler12inSplit": "12 in Split Ruler (2×6 in)",
+        "grid1cm": "1 cm Graph Grid",
+        "protractor360": "360° Vector Protractor"
+      },
+      "paperLabel": "Paper Size",
+      "paperA4": "A4 (210 × 297 mm)",
+      "paperLetter": "US Letter (8.5 × 11 in)",
+      "printBtn": "Print Sheet (100% Scale)",
+      "downloadBtn": "Download SVG",
+      "warningTitle": "Mandatory Printer Check: Set Scale to \"Actual Size / 100%\"",
+      "warningBody": "Printers often enable \"Fit to Printable Area\" by default, shrinking a ruler by 3–6%. After printing, verify the printed 100.0 mm / 4.00 in verification bar against your calibrated screen or physical card before cutting."
+    },
+    "circleRuler": {
+      "title": "Online Circle, Ring, Bolt & Coin Diameter Gauge (1–150 mm) | Online Ruler Plus",
+      "description": "Measure circles, rings (US & EU sizes), ISO metric bolts (M3–M12), washers, coins, and drill bits directly on your calibrated screen.",
+      "schemaName": "Concentric Circle & Ring Diameter Gauge",
+      "subNavTitle": "Circle & Diameter Gauge",
+      "breadcrumbLabel": "Circle Gauge",
+      "heroKicker": "True-Scale Concentric Metrology · 1.00 mm – 150.00 mm",
+      "heroHeadline": "Circle, Ring, Bolt & Coin Diameter Gauge",
+      "heroSummary": "Place any ring, washer, screw head, coin, or pipe gasket directly onto the calibrated live circle—or drag the rim until it fits flush.",
+      "diameterLabel": "Diameter (mm)",
+      "presetsLabel": "Quick Reference Presets (ISO Bolts, US Rings, Coins, Discs)",
+      "readoutTitle": "Live Geometric Readout",
+      "labelDiameter": "Diameter",
+      "labelRadius": "Radius (r)",
+      "labelCircumference": "Circumference (π·d)",
+      "labelArea": "Area (π·r²)",
+      "labelDiameterIn": "Diameter (Inches)",
+      "labelPixels": "Screen Diameter (px)",
+      "labelRingSize": "Nearest Ring Size",
+      "guideCards": [
+        {
+          "kicker": "Ring Sizing",
+          "heading": "Measure Inside Ring Diameter",
+          "body": "Lay a ring flat on the screen so the inner band encloses the blue circle. Read US half-sizes (3–13) and EU circumference sizes automatically."
+        },
+        {
+          "kicker": "Hardware & Bolts",
+          "heading": "Check M3–M12 Clearance & Washers",
+          "body": "Compare metric machine screw heads, nylon washers, O-rings, and drill shanks from 1 mm up to 150 mm."
+        },
+        {
+          "kicker": "Calibration Accuracy",
+          "heading": "Requires Display Calibration",
+          "body": "Like any optical overlay, circle diameter accuracy depends on prior ISO ID-1 card or diagonal screen calibration."
+        }
+      ]
+    },
+    "quadrant": {
+      "title": "Interactive 4-Quadrant Coordinate Plane & Vector Plotter | Online Ruler Plus",
+      "description": "Plot signed (X, Y) coordinates across all 4 quadrants on a calibrated metric or inch grid with live Euclidean radius and polar angle θ.",
+      "schemaName": "Calibrated 4-Quadrant Coordinate Plane",
+      "subNavTitle": "4-Quadrant Coordinate Grid",
+      "breadcrumbLabel": "4-Quadrant Grid",
+      "heroKicker": "Calibrated Cartesian Plane · (±X, ±Y) & Polar (r, θ)",
+      "heroHeadline": "Interactive 4-Quadrant Coordinate & Vector Grid",
+      "heroSummary": "Click or drag anywhere on the calibrated center-origin plane to measure signed X/Y offsets, Euclidean vector distance r, and polar angle θ from 0° to 360°.",
+      "hint": "Click or drag anywhere inside the coordinate grid to place the vector tip relative to the center origin (0, 0).",
+      "resetOriginBtn": "Reset to Origin (0, 0)",
+      "labelX": "X Coordinate",
+      "labelY": "Y Coordinate",
+      "labelRadius": "Distance (r)",
+      "labelAngle": "Polar Angle (θ)",
+      "labelQuadrant": "Active Quadrant",
+      "guideCards": [
+        {
+          "kicker": "Four Quadrants",
+          "heading": "Signed (+X, +Y) Down to (−X, −Y)",
+          "body": "Inspect symmetry, center-referenced CAD sketches, and two-axis offsets around a centered physical datum."
+        },
+        {
+          "kicker": "Polar Math",
+          "heading": "Euclidean r = √(X² + Y²)",
+          "body": "Simultaneously outputs Cartesian coordinates and polar magnitude plus counterclockwise angle θ in degrees."
+        },
+        {
+          "kicker": "True Screen Scale",
+          "heading": "Metric, Inch & Pixel Grids",
+          "body": "Grid lines automatically adapt to 10 mm metric intervals, 0.5 in imperial spacing, or 50 CSS pixels using your saved PPI."
+        }
+      ]
+    },
+    "photoRuler": {
+      "title": "Photo & Clipboard Image Ruler | Measure Pictures Online",
+      "description": "Measure objects inside any uploaded photo or Ctrl+V clipboard screenshot using two-point reference calibration, bounding boxes, and annotated PNG export.",
+      "schemaName": "Online Photo & Clipboard Image Ruler — Online Ruler Plus",
+      "featureList": [
+        "100% client-side photo upload & Ctrl+V clipboard screenshot measurement",
+        "Two-point known-length reference calibration inside images",
+        "Bounding-box pixel, millimeter & ΔX/ΔY dimension overlays",
+        "Annotated PNG download with calibrated scale bar"
+      ],
+      "subNavTitle": "Photo & Clipboard Ruler",
+      "breadcrumbLabel": "Photo Ruler",
+      "hero": {
+        "eyebrow": "Image Metrology · 100% Client-Side · Ctrl+V Clipboard Support",
+        "headline": "Measure Any Photo or Clipboard Screenshot Online",
+        "description": "Drop an image or press Ctrl+V, mark any known reference length (credit card, coin, or A4 sheet), and measure spans, bounding boxes, and angles privately in your browser."
+      },
+      "guideKicker": "Private Browser Image Metrology · Zero Server Upload",
+      "guideHeading": "How to Measure Lengths & Bounding Boxes Inside Photos",
+      "guideLead": "Turn floor plans, hardware photos, microscopy snaps, and UI screenshots into scaled measurements locally on your device.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Local Privacy · Ctrl+V Paste",
+          "heading": "Upload a Photo or Paste a Screenshot",
+          "body": "Click Open Photo Mode or press Ctrl+V anywhere in the workspace to load PNG, JPEG, or WebP images straight from memory without uploading files to a remote server.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Open photo workspace"
+        },
+        {
+          "step": "2",
+          "kicker": "2-Point Image Scale",
+          "heading": "Set Reference Scale Inside the Picture",
+          "body": "Pick two points spanning a known object in the photo (for example 85.60 mm across a bank card or 25.0 mm along a ruler tick) and enter its real length to lock in photo px/mm.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "View reference object widths"
+        },
+        {
+          "step": "3",
+          "kicker": "Guides, ΔX/ΔY & Export",
+          "heading": "Measure Spans & Export Annotated PNG",
+          "body": "Drop parallel guides, inspect bounding-box width × height in cm/mm/in/px, adjust image opacity, and save an annotated PNG with embedded measurements.",
+          "linkHref": "/protractor",
+          "linkLabel": "Open 360° Protractor tool"
+        }
+      ],
+      "darkKicker": "Photo Calibration References · Common Benchmarks",
+      "darkHeading": "Accurate Known-Size Objects to Include in Photos",
+      "darkLead": "Including one rigid flat reference next to your subject compensates for camera distance and lens zoom in any smartphone photo.",
+      "darkCards": [
+        {
+          "heading": "Avoid perspective tilt",
+          "body": "Hold the smartphone camera directly perpendicular above both the reference card and the target object on the same flat table plane."
+        },
+        {
+          "heading": "Pinch-zoom & Ctrl+V speed",
+          "body": "Screenshots pasted with Ctrl+V retain exact pixel dimensions, making UI mockups, CAD exports, and PDF clippings effortless to measure."
+        },
+        {
+          "heading": "Zero cloud storage",
+          "body": "Images are decoded via URL.createObjectURL inside browser RAM and discarded automatically when you clear or close the tab."
+        }
+      ],
+      "table": {
+        "kicker": "Quick Photo Reference Lengths",
+        "heading": "Standard Everyday Reference Objects for Two-Point Calibration",
+        "headers": [
+          "Reference Object",
+          "Exact Length (mm)",
+          "Inches (in)",
+          "Best Use Case"
+        ],
+        "rows": [
+          [
+            "ISO ID-1 Bank / Credit Card Width",
+            "85.60 mm",
+            "3.370 in",
+            "Tabletop parts & crafts"
+          ],
+          [
+            "ISO ID-1 Bank / Credit Card Height",
+            "53.98 mm",
+            "2.125 in",
+            "Compact vertical spacing"
+          ],
+          [
+            "US Quarter Coin Diameter",
+            "24.26 mm",
+            "0.955 in",
+            "Coins, rings & small PCB boards"
+          ],
+          [
+            "US Penny Coin Diameter",
+            "19.05 mm",
+            "0.750 in",
+            "Macro close-up fasteners"
+          ],
+          [
+            "1 Euro Coin Diameter",
+            "23.25 mm",
+            "0.915 in",
+            "European macro tabletop parts"
+          ],
+          [
+            "AA Battery Length (IEC R6)",
+            "50.50 mm",
+            "1.988 in",
+            "Workshop & tool photos"
+          ],
+          [
+            "US Letter Sheet Short Edge",
+            "215.90 mm",
+            "8.500 in",
+            "Furniture & floor mats"
+          ],
+          [
+            "ISO A4 Sheet Short Edge",
+            "210.00 mm",
+            "8.268 in",
+            "Architectural sketches & parcels"
+          ]
+        ],
+        "footnote": "Place reference object flat beside target at equal camera distance to keep foreshortening below 1%."
+      },
+      "faqKicker": "Photo Measurement FAQ",
+      "faqHeading": "Questions About Measuring Photos & Screenshots",
+      "faqs": [
+        {
+          "q": "Are uploaded photos or Ctrl+V images sent to any server?",
+          "a": "No. Image decoding, zoom/opacity controls, reference line math, and annotated PNG canvas export all execute locally inside your browser tab."
+        },
+        {
+          "q": "How accurate is two-point photo reference calibration?",
+          "a": "On flat overhead photos with the reference object in the same focus plane, errors are typically within 1–2 pixels across the span. Lens barrel distortion or angled shots reduce accuracy toward corners."
+        },
+        {
+          "q": "Can I measure width and height of rectangular UI elements?",
+          "a": "Yes. Toggle Bounding Boxes or ΔX/ΔY guides to read simultaneous horizontal and vertical dimensions in CSS pixels, mm, cm, or fractional inches."
+        },
+        {
+          "q": "What image formats work with Online Ruler Plus?",
+          "a": "Standard browser image formats including PNG, JPEG, WebP, GIF, and SVG files, plus direct clipboard bitmap screenshots via Ctrl+V or Cmd+V."
+        }
+      ]
+    },
+    "protractor": {
+      "title": "Online Protractor 360° | Interactive Angle Measurement Tool",
+      "description": "Measure interior, reflex, and compass angles from 0° to 360° with dual movable draggable rays, vertex positioning, and live photo angle overlay.",
+      "schemaName": "Online 360° Dual-Ray Protractor — Online Ruler Plus",
+      "featureList": [
+        "Full 360° dual-ray interactive screen protractor overlay",
+        "Movable vertex hub plus independent Ray A & Ray B handles",
+        "Measures angles directly over uploaded photos or CAD drawings",
+        "Switchable metric/inch screen rulers with architectural scale presets"
+      ],
+      "subNavTitle": "360° Protractor Tool",
+      "breadcrumbLabel": "Protractor",
+      "hero": {
+        "eyebrow": "0° – 360° Geometry · Dual Movable Rays · Reflex & Interior Readout",
+        "headline": "Interactive 360° Online Protractor & Angle Meter",
+        "description": "Drag the vertex center anywhere on screen or over a photo, sweep Ray A and Ray B independently across 360°, and read exact interior and reflex angles."
+      },
+      "guideKicker": "Screen Angle Metrology · Dual-Ray Precision",
+      "guideHeading": "How to Measure Angles on Screen & Inside Images",
+      "guideLead": "Built for geometry homework, woodworking miter cuts, slope roof pitches, CAD verification, and X-ray or anatomical angle checks.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Shortcut: P · Movable Center",
+          "heading": "Place Vertex Directly Over Any Corner",
+          "body": "Drag the protractor hub ring over the vertex of an on-screen diagram, CAD PDF, or pasted photo. Press P anytime to show or hide the protractor.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Use 360° protractor now"
+        },
+        {
+          "step": "2",
+          "kicker": "Independent Ray A & Ray B",
+          "heading": "Align Zero Reference & Measure Sweep",
+          "body": "Unlike fixed 180° templates, both Ray A and Ray B rotate independently around 360° so you never have to tilt slanted drawings upright first.",
+          "linkHref": "/photo-ruler",
+          "linkLabel": "Load photo under protractor"
+        },
+        {
+          "step": "3",
+          "kicker": "Linear + Angular Combined",
+          "heading": "Combine With Floating Arbitrary-Angle Rulers",
+          "body": "Add angled floating rulers alongside the protractor to measure mitered board lengths and angles in one workspace, saved automatically in local storage.",
+          "linkHref": "/quadrant",
+          "linkLabel": "Try 4-Quadrant Polar Graph"
+        }
+      ],
+      "darkKicker": "Angle Classification & Geometry Guide",
+      "darkHeading": "Acute, Right, Obtuse & Reflex Angle Reference",
+      "darkLead": "Angle measurement depends strictly on XY pixel coordinates, so circular angle readings stay exact even before running screen PPI calibration.",
+      "darkCards": [
+        {
+          "heading": "Interior vs. Reflex angle readout",
+          "body": "The subtle arc highlights the interior sweep (0°–180°) while letting you inspect supplementary 180°−θ complements and full 360° bearings."
+        },
+        {
+          "heading": "Keyboard fine adjustments",
+          "body": "Focus either draggable ray handle and use arrow keys for precise single-step rotation tuning without mouse slip."
+        },
+        {
+          "heading": "Woodworking miter & bevel help",
+          "body": "For a 90° corner joint, split your measured vertex angle in half to find the exact chop-saw miter setting."
+        }
+      ],
+      "table": {
+        "kicker": "Standard Reference Angles",
+        "heading": "Common Carpentry, Drafting & Compass Angles",
+        "headers": [
+          "Angle Type",
+          "Degrees (°)",
+          "Complement / Slope",
+          "Common Application"
+        ],
+        "rows": [
+          [
+            "Right Angle (Square)",
+            "90.0°",
+            "90° corner",
+            "Cabinetry, framing & PCB orthogonals"
+          ],
+          [
+            "Standard Miter Cut",
+            "45.0°",
+            "1:1 slope (100%)",
+            "Picture frames & 90° baseboard corners"
+          ],
+          [
+            "Hexagon Interior",
+            "120.0°",
+            "60° exterior",
+            "Hex bolts, honeycomb & isometric grid"
+          ],
+          [
+            "Isometric Axis",
+            "30.0°",
+            "57.7% pitch",
+            "3D technical axonometric drafting"
+          ],
+          [
+            "Octagon Miter",
+            "22.5°",
+            "135° interior",
+            "Bay windows & octagonal trim"
+          ],
+          [
+            "Roof Pitch 4/12",
+            "18.4°",
+            "33.3% slope",
+            "Residential gable rafters"
+          ],
+          [
+            "Pentagon Interior",
+            "108.0°",
+            "72° exterior",
+            "Polygon star & tile geometry"
+          ],
+          [
+            "Straight Angle",
+            "180.0°",
+            "Flat line",
+            "Edge collinearity alignment check"
+          ]
+        ],
+        "footnote": "Protractor accuracy requires isotropic 1:1 square monitor pixels (standard on modern LCD/OLED panels)."
+      },
+      "faqKicker": "Protractor FAQ",
+      "faqHeading": "Common Questions About Measuring Angles Online",
+      "faqs": [
+        {
+          "q": "Do I need to calibrate PPI to measure accurate angles?",
+          "a": "No. Because modern displays use square pixels (1:1 aspect ratio), atan2(ΔY, ΔX) angular measurements remain accurate regardless of monitor diagonal size or OS scaling."
+        },
+        {
+          "q": "Can I place an image behind the protractor?",
+          "a": "Yes! Paste an image with Ctrl+V or click Photo inside the toolbar, then keep the Protractor active to measure joints, roof slopes, or CAD parts."
+        },
+        {
+          "q": "How is this different from basic 180° screen protractors?",
+          "a": "Both rays move freely through all 360° and the vertex can be dragged anywhere over the stage, removing the need to rotate tilted objects horizontally."
+        },
+        {
+          "q": "Can I measure distance and angle simultaneously?",
+          "a": "Yes. Combine the 360° Protractor with draggable ΔX/ΔY guides or floating angled rulers inside the same calibrated workspace."
+        }
+      ]
     }
+  },
+  "converter": {
+    "title": "Live Unit Converter",
+    "mmAria": "Convert millimeters",
+    "cmAria": "Convert centimeters",
+    "inAria": "Convert inches",
+    "pxAria": "Convert CSS pixels"
   }
 }

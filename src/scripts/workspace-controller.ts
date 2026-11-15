@@ -4,16 +4,22 @@ import {
   EMPTY_CALIBRATION_STORE,
   STORAGE_KEYS,
   appendHistoryRecord,
+  effectivePxPerMmForScale,
+  formatHistoryCsv,
+  formatHistoryJson,
   formatInchFraction,
   formatNumber,
   formatValue,
+  isScalePresetId,
   isUnit,
   parseCalibrationStore,
+  parseFloatingRulers,
   parseHistory,
   parsePreferences,
   pxToUnit,
   readDisplayInfo,
   resolveCalibration,
+  scaleFactorForPreset,
   type ActiveCalibration,
   type CalibrationStore,
   type DisplayInfo,
@@ -21,6 +27,7 @@ import {
   type MeasurementRecord,
   type RulerPreferences,
   type RulerThickness,
+  type ScalePresetId,
   type Unit,
 } from '../lib/ruler/index.ts';
 import type { PhotoMeasureController } from './photo-measure-controller.ts';
@@ -50,7 +57,7 @@ export class WorkspaceController {
   private cursorY: number | null = null;
   private guidePlacementAxis: 'both' | 'x' | 'y' = 'x';
   private pseudoFullscreen = false;
-  private protractor: ProtractorState = { enabled: false, angleDeg: 45 };
+  private protractor: ProtractorState = { enabled: false, angleDeg: 45, baseDeg: 0, mode: '180' };
   private cursorRafId: number | null = null;
   private cursorRedrawQueued = false;
   private photoCtrl: PhotoMeasureController | null = null;
@@ -144,10 +151,28 @@ export class WorkspaceController {
       this.prefs = parsePreferences(localStorage.getItem(STORAGE_KEYS.preferences));
       this.store = parseCalibrationStore(localStorage.getItem(STORAGE_KEYS.calibration));
       this.history = parseHistory(localStorage.getItem(STORAGE_KEYS.history));
+      this.floatingRulers = parseFloatingRulers(localStorage.getItem(STORAGE_KEYS.overlays));
     } catch {
       this.prefs = DEFAULT_PREFERENCES;
       this.store = EMPTY_CALIBRATION_STORE;
       this.history = [];
+      this.floatingRulers = [];
+    }
+  }
+
+  private saveOverlays(): void {
+    try {
+      const clean = this.floatingRulers.map((r) => ({
+        id: r.id,
+        orientation: r.orientation,
+        x: r.x,
+        y: r.y,
+        lengthPx: r.lengthPx,
+        angleDeg: r.angleDeg ?? (r.orientation === 'vertical' ? 90 : 0),
+      }));
+      localStorage.setItem(STORAGE_KEYS.overlays, JSON.stringify(clean));
+    } catch {
+      // Ignore storage errors
     }
   }
 
@@ -196,6 +221,19 @@ export class WorkspaceController {
     this.savePreferences();
     this.syncAll();
     this.photoCtrl?.refreshUnit();
+  }
+
+  public setScalePreset(scalePreset: ScalePresetId): void {
+    this.prefs = { ...this.prefs, scalePreset };
+    this.savePreferences();
+    this.syncAll();
+  }
+
+  private getEffectivePxPerMm(): number {
+    return effectivePxPerMmForScale(
+      this.activeCal.pxPerMm,
+      scaleFactorForPreset(this.prefs.scalePreset),
+    );
   }
 
   private async ensurePhotoController(): Promise<PhotoMeasureController> {
@@ -303,8 +341,13 @@ export class WorkspaceController {
     this.syncAll();
   }
 
-  public toggleProtractor(): void {
-    this.protractor = { ...this.protractor, enabled: !this.protractor.enabled };
+  public toggleProtractor(forceEnabled?: boolean, mode?: '180' | '360'): void {
+    const nextEnabled = forceEnabled !== undefined ? forceEnabled : !this.protractor.enabled;
+    this.protractor = {
+      ...this.protractor,
+      enabled: nextEnabled,
+      ...(mode !== undefined ? { mode } : {}),
+    };
     this.syncAll();
   }
 
@@ -340,20 +383,26 @@ export class WorkspaceController {
         x,
         y,
         lengthPx: maxLen,
+        angleDeg: 0,
       },
     ];
+    this.saveOverlays();
     this.syncOverlays();
   }
 
   public recordMeasurement(lengthPx: number, label: string): void {
     if (!(lengthPx > 0)) return;
-    const lengthMm = pxToUnit(lengthPx, 'mm', this.activeCal.pxPerMm);
+    const lengthMm = pxToUnit(lengthPx, 'mm', this.getEffectivePxPerMm());
+    const scaleTag =
+      this.prefs.scalePreset && this.prefs.scalePreset !== '1:1'
+        ? ` [${this.prefs.scalePreset}]`
+        : '';
     const rec: MeasurementRecord = {
       id: `m-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
       lengthMm,
       lengthPx,
       unit: this.prefs.unit,
-      label,
+      label: `${label}${scaleTag}`,
       createdAt: Date.now(),
     };
     this.history = appendHistoryRecord(this.history, rec);
@@ -365,6 +414,29 @@ export class WorkspaceController {
     this.history = [];
     this.saveHistory();
     renderHistoryList(this.history);
+  }
+
+  public exportHistory(format: 'csv' | 'json'): void {
+    if (this.history.length === 0) return;
+    const ctx = {
+      status: this.activeCal.status,
+      label: this.activeCal.label,
+      pxPerMm: this.activeCal.pxPerMm,
+    };
+    const content =
+      format === 'csv'
+        ? formatHistoryCsv(this.history, ctx)
+        : formatHistoryJson(this.history, ctx);
+    const mime = format === 'csv' ? 'text/csv;charset=utf-8' : 'application/json;charset=utf-8';
+    const blob = new Blob([content], { type: mime });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `onlinerulerplus-measurements-${Date.now()}.${format}`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
 
   public async toggleFullscreen(): Promise<void> {
@@ -514,6 +586,21 @@ export class WorkspaceController {
     const thicknessSelect = document.getElementById('select-thickness') as HTMLSelectElement | null;
     if (thicknessSelect) thicknessSelect.value = String(thickness);
 
+    const activeScalePreset = this.prefs.scalePreset ?? '1:1';
+    const scaleFactor = scaleFactorForPreset(activeScalePreset);
+    const scaleSelect = document.getElementById('select-arch-scale') as HTMLSelectElement | null;
+    if (scaleSelect) scaleSelect.value = activeScalePreset;
+    const scaleBadge = document.getElementById('scale-active-badge');
+    const scaleBadgeText = document.getElementById('scale-active-text');
+    if (scaleBadge) {
+      const nonUnit = scaleFactor !== 1;
+      scaleBadge.classList.toggle('hidden', !nonUnit);
+      scaleBadge.classList.toggle('inline-flex', nonUnit);
+      if (scaleBadgeText && nonUnit) {
+        scaleBadgeText.textContent = `${activeScalePreset} ACTIVE`;
+      }
+    }
+
     const opacitySlider = document.getElementById('slider-opacity') as HTMLInputElement | null;
     if (opacitySlider) opacitySlider.value = String(Math.round(opacity * 100));
     const opacityLabel = document.getElementById('label-opacity');
@@ -529,6 +616,8 @@ export class WorkspaceController {
     this.stageEl.style.bottom = `${layout.bottomOffset}px`;
 
     this.workspaceEl.dataset.unit = unit;
+    this.workspaceEl.dataset.scalePreset = activeScalePreset;
+    this.workspaceEl.dataset.scaleFactor = String(scaleFactor);
     this.workspaceEl.dataset.pxPerMm = this.activeCal.pxPerMm.toFixed(4);
     this.workspaceEl.dataset.cssPpi = this.activeCal.cssPpi.toFixed(2);
     this.workspaceEl.dataset.calibrationStatus = this.activeCal.status;
@@ -569,7 +658,7 @@ export class WorkspaceController {
       stageEl: this.stageEl,
       rulers: this.floatingRulers,
       prefs: this.prefs,
-      pxPerMm: this.activeCal.pxPerMm,
+      pxPerMm: this.getEffectivePxPerMm(),
       originInsetPx: ORIGIN_INSET_PX,
       dark,
       onRotate: (id) => {
@@ -583,10 +672,19 @@ export class WorkspaceController {
           return {
             ...r,
             orientation: nextOrient,
+            angleDeg: nextOrient === 'vertical' ? 90 : 0,
             x: Math.max(0, Math.min(r.x, Math.max(0, stageW - Math.min(nextW, 48)))),
             y: Math.max(0, Math.min(r.y, Math.max(0, stageH - Math.min(nextH, 48)))),
           };
         });
+        this.saveOverlays();
+        this.syncOverlays();
+      },
+      onSetAngle: (id, nextDeg) => {
+        this.floatingRulers = this.floatingRulers.map((r) =>
+          r.id === id ? { ...r, orientation: 'horizontal', angleDeg: nextDeg } : r,
+        );
+        this.saveOverlays();
         this.syncOverlays();
       },
       onMove: (id, x, y) => {
@@ -594,18 +692,25 @@ export class WorkspaceController {
           r.id === id ? { ...r, x, y } : r,
         );
       },
+      onCommit: () => {
+        this.saveOverlays();
+      },
       onRemove: (id) => {
         this.floatingRulers = this.floatingRulers.filter((r) => r.id !== id);
+        this.saveOverlays();
         this.syncOverlays();
       },
     });
 
     renderProtractorOverlay(
       this.protractorLayerEl,
+      this.stageEl,
       this.protractor,
       dark,
-      (nextDeg) => {
-        this.protractor = { ...this.protractor, angleDeg: nextDeg };
+      (patch) => {
+        const modeChanged = patch.mode !== undefined && patch.mode !== this.protractor.mode;
+        this.protractor = { ...this.protractor, ...patch };
+        if (modeChanged) this.syncOverlays();
       },
       () => {
         this.protractor = { ...this.protractor, enabled: false };
@@ -771,7 +876,7 @@ export class WorkspaceController {
       dualUnit: this.prefs.dualUnit,
       dualPair: this.prefs.dualPair,
       inchDivisor: this.prefs.inchDivisor,
-      pxPerMm: this.activeCal.pxPerMm,
+      pxPerMm: this.getEffectivePxPerMm(),
       dpr: window.devicePixelRatio || 1,
       dark: geom.dark,
       cursorPosPx: geom.cursorPosPx,
@@ -785,8 +890,9 @@ export class WorkspaceController {
   }
 
   private formatCoord(px: number): string {
+    const effPxPerMm = this.getEffectivePxPerMm();
     const divisor = this.prefs.inchDivisor ?? 16;
-    const val = pxToUnit(px, this.prefs.unit, this.activeCal.pxPerMm);
+    const val = pxToUnit(px, this.prefs.unit, effPxPerMm);
     const primary = formatValue(val, this.prefs.unit);
     if (this.prefs.unit === 'in') {
       const base = `${primary} (${formatInchFraction(val, divisor)})`;
@@ -798,7 +904,7 @@ export class WorkspaceController {
       if (this.prefs.dualPair === 'px' && this.prefs.unit !== 'px') {
         return `${primary} · ${Math.round(px)} px`;
       }
-      const inches = pxToUnit(px, 'in', this.activeCal.pxPerMm);
+      const inches = pxToUnit(px, 'in', effPxPerMm);
       return `${primary} · ${formatInchFraction(inches, divisor)}`;
     }
     return primary;
@@ -807,19 +913,20 @@ export class WorkspaceController {
   private updateReadoutDOM(): void {
     const readoutEl = document.getElementById('live-cursor-readout');
     if (!readoutEl) return;
+    const effPxPerMm = this.getEffectivePxPerMm();
     const divisor = this.prefs.inchDivisor ?? 16;
 
     if (this.cursorX === null || this.cursorY === null) {
       const maxW = Math.max(0, this.stageEl.clientWidth - ORIGIN_INSET_PX - 8);
       const maxH = Math.max(0, this.stageEl.clientHeight - ORIGIN_INSET_PX - 8);
-      const wVal = formatValue(pxToUnit(maxW, this.prefs.unit, this.activeCal.pxPerMm), this.prefs.unit);
-      const hVal = formatValue(pxToUnit(maxH, this.prefs.unit, this.activeCal.pxPerMm), this.prefs.unit);
+      const wVal = formatValue(pxToUnit(maxW, this.prefs.unit, effPxPerMm), this.prefs.unit);
+      const hVal = formatValue(pxToUnit(maxH, this.prefs.unit, effPxPerMm), this.prefs.unit);
       readoutEl.textContent = `${getRuntimeDict().rangeLabel} ${wVal} × ${hVal}`;
       return;
     }
 
-    const xVal = pxToUnit(this.cursorX, this.prefs.unit, this.activeCal.pxPerMm);
-    const yVal = pxToUnit(this.cursorY, this.prefs.unit, this.activeCal.pxPerMm);
+    const xVal = pxToUnit(this.cursorX, this.prefs.unit, effPxPerMm);
+    const yVal = pxToUnit(this.cursorY, this.prefs.unit, effPxPerMm);
     const xStr = formatNumber(xVal, this.prefs.unit);
     const yStr = formatNumber(yVal, this.prefs.unit);
     const pxSuffix =
@@ -919,6 +1026,73 @@ export class WorkspaceController {
     });
 
     document.getElementById('btn-clear-history')?.addEventListener('click', () => this.clearHistory());
+    document.getElementById('btn-export-history-csv')?.addEventListener('click', () => this.exportHistory('csv'));
+    document.getElementById('btn-export-history-json')?.addEventListener('click', () => this.exportHistory('json'));
+
+    document.getElementById('btn-popout-ruler')?.addEventListener('click', () => {
+      const targetUrl = document.getElementById('btn-popout-ruler')?.dataset.embedHref || '/embed?popup=1';
+      const popup = window.open(
+        `${targetUrl}${targetUrl.includes('?') ? '&' : '?'}unit=${this.prefs.unit}`,
+        'OnlineRulerPlusPopout',
+        'width=960,height=420,menubar=no,toolbar=no,location=no,status=no,resizable=yes',
+      );
+      if (!popup) {
+        const embedPanel = document.getElementById('embed-snippet-popover');
+        if (embedPanel) {
+          embedPanel.classList.remove('hidden');
+        }
+      }
+    });
+
+    const embedToggleBtn = document.getElementById('btn-embed-code');
+    const embedPopover = document.getElementById('embed-snippet-popover');
+    const embedCodeBox = document.getElementById('embed-snippet-textarea') as HTMLTextAreaElement | null;
+    const embedCopyBtn = document.getElementById('btn-copy-embed');
+    const embedCloseBtn = document.getElementById('btn-close-embed');
+    const syncEmbedSnippet = () => {
+      if (!embedCodeBox) return;
+      const basePath = embedToggleBtn?.dataset.embedHref || '/embed';
+      const src = `${window.location.origin}${basePath}?embed=1&unit=${this.prefs.unit}`;
+      embedCodeBox.value = `<iframe src="${src}" width="100%" height="460" style="border:1px solid #e0e0e0;border-radius:14px;" title="Online Ruler Plus" loading="lazy"></iframe>`;
+    };
+    embedToggleBtn?.addEventListener('click', () => {
+      if (!embedPopover) return;
+      const opening = embedPopover.classList.contains('hidden');
+      if (opening) syncEmbedSnippet();
+      embedPopover.classList.toggle('hidden', !opening);
+      embedToggleBtn.setAttribute('aria-expanded', String(opening));
+    });
+    embedCloseBtn?.addEventListener('click', () => {
+      embedPopover?.classList.add('hidden');
+      embedToggleBtn?.setAttribute('aria-expanded', 'false');
+    });
+    embedCopyBtn?.addEventListener('click', async () => {
+      if (!embedCodeBox) return;
+      syncEmbedSnippet();
+      try {
+        await navigator.clipboard.writeText(embedCodeBox.value);
+        if (embedCopyBtn) {
+          const orig = embedCopyBtn.dataset.origLabel || embedCopyBtn.textContent || 'Copy';
+          embedCopyBtn.dataset.origLabel = orig;
+          embedCopyBtn.textContent = embedCopyBtn.dataset.copiedLabel || 'Copied!';
+          window.setTimeout(() => {
+            embedCopyBtn.textContent = orig;
+          }, 1800);
+        }
+      } catch {
+        embedCodeBox.select();
+      }
+    });
+
+    const scaleSelect = document.getElementById('select-arch-scale') as HTMLSelectElement | null;
+    scaleSelect?.addEventListener('change', () => {
+      if (isScalePresetId(scaleSelect.value)) {
+        this.setScalePreset(scaleSelect.value);
+      }
+    });
+    document.getElementById('btn-reset-scale')?.addEventListener('click', () => {
+      this.setScalePreset('1:1');
+    });
 
     const thicknessSelect = document.getElementById('select-thickness') as HTMLSelectElement | null;
     thicknessSelect?.addEventListener('change', () => {

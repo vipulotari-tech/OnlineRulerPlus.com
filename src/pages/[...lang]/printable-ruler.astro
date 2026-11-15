@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import HelpModal from '../../components/HelpModal.astro';
+import Footer from '../../components/Footer.astro';
+import {
+  LOCALE_META,
+  getLocaleStaticPaths,
+  localizedPath,
+  type Locale,
+} from '../../i18n/config.ts';
+import { getDict } from '../../i18n/index.ts';
+
+export function getStaticPaths() {
+  return getLocaleStaticPaths();
+}
+
+const { locale } = Astro.props as { locale: Locale };
+const dict = getDict(locale);
+const page = dict.pages.printableRuler;
+const meta = LOCALE_META[locale];
+
+const siteOrigin = Astro.site ? Astro.site.origin : 'https://onlinerulerplus.com';
+const routePath = localizedPath(locale, '/printable-ruler');
+const canonicalUrl = `${siteOrigin}${routePath}`;
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    '@id': `${canonicalUrl}#app`,
+    name: page.schemaName,
+    url: canonicalUrl,
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'Any',
+    inLanguage: meta.bcp47,
+    isAccessibleForFree: true,
+    description: page.description,
+    publisher: { '@id': `${siteOrigin}/#organization` },
+  },
+];
+
+const TEMPLATES = [
+  { id: 'ruler-15cm', label: page.templates.ruler15cm },
+  { id: 'ruler-25cm', label: page.templates.ruler25cm },
+  { id: 'ruler-30cm-split', label: page.templates.ruler30cmSplit },
+  { id: 'ruler-12in-split', label: page.templates.ruler12inSplit },
+  { id: 'grid-1cm', label: page.templates.grid1cm },
+  { id: 'protractor-360', label: page.templates.protractor360 },
+] as const;
+---
+
+<BaseLayout
+  locale={locale}
+  title={page.title}
+  description={page.description}
+  canonicalPath="/printable-ruler"
+  breadcrumbLabel={page.breadcrumbLabel}
+  structuredData={structuredData}
+>
+  <Header
+    locale={locale}
+    subNavTitle={page.subNavTitle}
+    subNavCtaHref={localizedPath(locale, '/#ruler-tool')}
+    subNavCtaLabel={dict.pages.screenDetector.openRulerBtn}
+  />
+  <main id="main-content" class="flex-1">
+    <section class="print-hide apple-page-hero border-b border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="type-kicker">{page.heroKicker}</p>
+          <h1 class="mt-2 type-hero-display text-ink">{page.heroHeadline}</h1>
+          <p class="speakable-summary mt-3 max-w-[62ch] type-lead-airy text-ink-muted-80">
+            {page.heroSummary}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="printable-ruler-app" class="apple-tile-parchment">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 space-y-6">
+        <!-- Print Controls (hidden when printing) -->
+        <div class="print-hide apple-utility-card space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <span class="block font-mono text-[11px] font-semibold text-ink-muted-48">{page.templateLabel}</span>
+              <div class="mt-2 flex flex-wrap gap-2">
+                {TEMPLATES.map((tpl, idx) => (
+                  <button
+                    type="button"
+                    data-print-template={tpl.id}
+                    data-active={idx === 0 ? 'true' : 'false'}
+                    aria-pressed={idx === 0 ? 'true' : 'false'}
+                    class="apple-option-chip font-mono text-xs"
+                  >
+                    {tpl.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-end gap-3">
+              <div>
+                <label for="select-print-paper" class="block font-mono text-[11px] font-semibold text-ink-muted-48">
+                  {page.paperLabel}
+                </label>
+                <select
+                  id="select-print-paper"
+                  class="mt-1.5 h-[38px] rounded-full border border-hairline bg-canvas px-4 font-mono text-xs text-ink cursor-pointer"
+                >
+                  <option value="a4" selected>{page.paperA4}</option>
+                  <option value="letter">{page.paperLetter}</option>
+                </select>
+              </div>
+
+              <span id="print-sheet-dims" class="font-mono text-xs text-ink-muted-80 px-2 py-2">
+                210 × 297 mm
+              </span>
+
+              <button id="btn-print-sheet" type="button" class="apple-btn-primary">
+                {page.printBtn}
+              </button>
+              <button id="btn-download-svg" type="button" class="apple-btn-secondary-pill">
+                {page.downloadBtn}
+              </button>
+            </div>
+          </div>
+
+          <div class="rounded-[12px] border border-warning bg-warning-soft px-4 py-3 text-warning-deep">
+            <p class="font-mono text-xs font-semibold">{page.warningTitle}</p>
+            <p class="mt-1 type-caption">{page.warningBody}</p>
+          </div>
+        </div>
+
+        <!-- SVG Sheet Container -->
+        <div class="rounded-[18px] border border-hairline bg-white p-3 sm:p-6 shadow-sm overflow-x-auto">
+          <div id="printable-svg-sheet" class="min-w-[280px]"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <HelpModal locale={locale} />
+  <Footer locale={locale} />
+  <script src="../../scripts/app.ts"></script>
+</BaseLayout>

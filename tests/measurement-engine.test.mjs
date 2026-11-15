@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   CARD_HEIGHT_MM,
   CARD_WIDTH_MM,
+  CIRCLE_PRESETS,
   CSS_PX_PER_INCH,
   CSS_REFERENCE_PX_PER_MM,
   DEFAULT_PREFERENCES,
@@ -10,32 +11,45 @@ import {
   MM_PER_CM,
   MM_PER_INCH,
   REFERENCE_PRESETS,
+  SCALE_PRESETS,
   STATUS_LABELS,
   appendHistoryRecord,
   calibrateScaleFromTwoPoints,
   cardHeightForWidth,
   cardWidthPx,
+  clampCircleDiameterMm,
   classifyDisplayChange,
+  computeCircleMetrics,
+  computeQuadrantMetrics,
   createManualProfile,
   cssPpi,
+  deleteNamedProfileFromStore,
   deltaStatsPx,
   detectCalibration,
   detectPlatform,
   displaySignature,
   distancePx,
+  effectivePxPerMmForScale,
   findProfileForDisplay,
   fitContainRect,
+  formatHistoryCsv,
+  formatHistoryJson,
   formatInchFraction,
   formatPhotoLength,
   formatValue,
   fromDevicePxPerMm,
   generateTicks,
   getReferencePreset,
+  interiorAngleDeg,
+  isScalePresetId,
+  normalizeFullAngleDeg,
   parseCalibrationStore,
   parseDiagonal,
+  parseFloatingRulers,
   parseHistory,
   parsePreferences,
   photoPxToUnit,
+  pointToFullAngle,
   pointToProtractorAngle,
   pxPerMmFromCardHeight,
   pxPerMmFromCardWidth,
@@ -43,14 +57,20 @@ import {
   pxPerMmFromReference,
   pxPerUnit,
   pxToUnit,
+  raySweepAngleDeg,
   removeProfileForDisplay,
   removeProfileFromStore,
   resolveCalibration,
+  saveNamedProfileToStore,
   saveProfileToStore,
+  scaleFactorForPreset,
+  selectNamedProfileInStore,
+  supplementaryAngleDeg,
   toDevicePxPerMm,
   toFraction,
   unitToPx,
 } from '../src/lib/ruler/index.ts';
+import { buildPrintableRulerSvg, PAPER_DIMENSIONS_MM } from '../src/lib/ruler/print-svg.ts';
 
 test('Unit constants & conversions preserve physical invariants', () => {
   assert.strictEqual(MM_PER_INCH, 25.4);
@@ -405,4 +425,108 @@ test('P1 reference calibration presets, inch divisors (1/8-1/32), and client-sid
 
   const fit = fitContainRect(2000, 1000, 800, 500, 20);
   assert.ok(fit.scale > 0 && fit.drawW <= 760 && fit.drawH <= 460);
+});
+
+test('P2 protractor 360°/dual-ray math, named monitor profiles, floating angles, history CSV/JSON & printable SVG', () => {
+  // 360-degree & dual-ray protractor math
+  assert.strictEqual(normalizeFullAngleDeg(-45), 315);
+  assert.strictEqual(normalizeFullAngleDeg(405), 45);
+  assert.strictEqual(pointToFullAngle(100, 100, 200, 100), 0);
+  assert.strictEqual(pointToFullAngle(100, 100, 100, 0), 90);
+  assert.strictEqual(pointToFullAngle(100, 100, 100, 200), 270);
+  assert.strictEqual(raySweepAngleDeg(30, 120), 90);
+  assert.strictEqual(raySweepAngleDeg(350, 20), 30);
+  assert.strictEqual(interiorAngleDeg(350, 20), 30);
+  assert.strictEqual(interiorAngleDeg(20, 350), 30);
+  assert.strictEqual(supplementaryAngleDeg(45), 135);
+
+  // Named dual-monitor profiles (same resolution, distinguished by customName)
+  const mon = { screenWidth: 1920, screenHeight: 1080, dpr: 1, platform: 'windows', touch: false };
+
+  let store = saveNamedProfileToStore(EMPTY_CALIBRATION_STORE, mon, 3.6, 'Office 27', 'card', 'office-27');
+  store = saveNamedProfileToStore(store, mon, 4.2, 'Home 24', 'diagonal', 'home-24');
+  assert.strictEqual(store.namedProfiles?.length, 2);
+  assert.strictEqual(resolveCalibration(store, mon).pxPerMm, 4.2);
+
+  store = selectNamedProfileInStore(store, 'office-27', mon);
+  assert.strictEqual(resolveCalibration(store, mon).pxPerMm, 3.6);
+
+  store = deleteNamedProfileFromStore(store, 'home-24');
+  assert.strictEqual(store.namedProfiles?.length, 1);
+
+  // Floating ruler persistence with arbitrary angleDeg
+  const parsedFloating = parseFloatingRulers(
+    JSON.stringify([
+      { id: 'fr-1', x: 40, y: 80, lengthPx: 320, orientation: 'horizontal', angleDeg: 30 },
+      { id: 'bad', x: 'nope' },
+    ]),
+  );
+  assert.strictEqual(parsedFloating.length, 1);
+  assert.strictEqual(parsedFloating[0].angleDeg, 30);
+
+  // History CSV / JSON exports with CSV injection-safe escaping
+  const records = appendHistoryRecord([], {
+    id: 'rec-1',
+    lengthMm: 85.6,
+    lengthPx: 323.5,
+    unit: 'cm',
+    label: 'ID-1 "Credit" Card',
+    createdAt: 1700000000000,
+  });
+  const ctx = { status: 'manual', label: 'ID-1 Card', pxPerMm: 3.779527559 };
+  const csv = formatHistoryCsv(records, ctx);
+  assert.ok(csv.includes('"ID-1 ""Credit"" Card"'));
+  assert.ok(csv.includes('8.56'));
+  const jsonText = formatHistoryJson(records, ctx);
+  const parsedJson = JSON.parse(jsonText);
+  assert.strictEqual(parsedJson.calibration.status, 'manual');
+  assert.strictEqual(parsedJson.measurements[0].id, 'rec-1');
+  assert.strictEqual(parsedJson.measurements[0].mm, 85.6);
+
+  // Printable vector SVG sheets & mandatory 100mm / 4in check bar
+  assert.strictEqual(PAPER_DIMENSIONS_MM.a4.widthMm, 210);
+  assert.strictEqual(PAPER_DIMENSIONS_MM.letter.heightMm, 279.4);
+  const sheet15 = buildPrintableRulerSvg('ruler-15cm', 'a4');
+  assert.ok(sheet15.svg.includes('width="210mm"') && sheet15.svg.includes('height="297mm"'));
+  assert.ok(sheet15.svg.includes('100.0 mm') && sheet15.svg.includes('4.00 in'));
+  const sheet360 = buildPrintableRulerSvg('protractor-360', 'letter');
+  assert.ok(sheet360.svg.includes('viewBox="0 0 215.9 279.4"'));
+  assert.ok(sheet360.svg.includes('330°'));
+});
+
+test('P3 architectural scales, circle/ring/bolt gauge metrics, and 4-quadrant vector geometry', () => {
+  assert.strictEqual(SCALE_PRESETS.length, 6);
+  assert.strictEqual(isScalePresetId('1:50'), true);
+  assert.strictEqual(isScalePresetId('1:999'), false);
+  assert.strictEqual(scaleFactorForPreset('1:48'), 48);
+
+  // At 1:50 scale and base 4 px/mm: 40 CSS px (=10mm on screen) equals 500 mm (50 cm) in blueprint reality
+  const eff = effectivePxPerMmForScale(4.0, 50);
+  assert.strictEqual(pxToUnit(40, 'cm', eff), 50);
+  // px unit remains unscaled (40px = 40px)
+  assert.strictEqual(pxToUnit(40, 'px', eff), 40);
+
+  // Preferences round-trip with scalePreset
+  assert.strictEqual(parsePreferences('{"unit":"cm","scalePreset":"1:50"}').scalePreset, '1:50');
+  assert.strictEqual(parsePreferences('{"unit":"cm","scalePreset":"1:999"}').scalePreset, undefined);
+
+  // Circle gauge clamping & ring sizes
+  assert.ok(CIRCLE_PRESETS.length >= 12);
+  assert.strictEqual(clampCircleDiameterMm(0.2), 1);
+  assert.strictEqual(clampCircleDiameterMm(999), 150);
+  const ring7 = computeCircleMetrics(17.35);
+  assert.strictEqual(ring7.nearestUsRing, 'US 7');
+  assert.strictEqual(ring7.nearestEuRing, Math.round(Math.PI * 17.35));
+  assert.ok(Math.abs(computeCircleMetrics(10).areaMm2 - Math.PI * 25) < 1e-6);
+
+  // 4-quadrant vector & polar readout
+  const q2 = computeQuadrantMetrics(-3, 4);
+  assert.strictEqual(q2.rUnit, 5);
+  assert.strictEqual(q2.quadrantLabel, 'II (−, +)');
+  assert.ok(q2.angleDeg > 126 && q2.angleDeg < 127);
+
+  const q4 = computeQuadrantMetrics(3, -3);
+  assert.strictEqual(q4.quadrantLabel, 'IV (+, −)');
+  assert.strictEqual(Math.round(q4.angleDeg), 315);
+  assert.strictEqual(computeQuadrantMetrics(0, 0).quadrantLabel, 'Origin');
 });

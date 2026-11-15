@@ -338,8 +338,8 @@ test.describe('QA Comprehensive — Online Ruler Functional, Calibration, Math &
     const updatedAngle = await protWidget.getAttribute('data-angle-deg');
     expect(updatedAngle).not.toBe(initialAngle);
 
-    // Clear all guides removes added guides
-    await page.locator('#ruler-stage').click({ position: { x: 140, y: 120 } });
+    // Clear all guides removes added guides (pick empty stage coordinate clear of persisted floating ruler)
+    await page.locator('#ruler-stage').click({ position: { x: 140, y: 350 } });
     await expect(page.locator('.guide-line')).toHaveCount(1);
     await page.locator('#btn-clear-guides').click();
     await expect(page.locator('.guide-line')).toHaveCount(0);

@@ -40,7 +40,11 @@
       "about": "Hakkında",
       "contact": "İletişim",
       "privacy": "Gizlilik Politikası",
-      "terms": "Kullanım Koşulları"
+      "terms": "Kullanım Koşulları",
+      "screenDetector": "Ekran Algılayıcı",
+      "printableRuler": "Yazdırılabilir Cetvel",
+      "circleRuler": "Daire Ölçer",
+      "quadrant": "4 Kadran Koordinat"
     },
     "subNav": {
       "workspace": "Çalışma Alanı",
@@ -72,13 +76,18 @@
     "toolGuides": "Sürüklenebilir Kılavuz Çizgileri (G)",
     "toolFractions": "Kesirli İnç Okuması",
     "toolPx": "CSS Piksel Denetçisi (px)",
-    "toolProtractor": "180° Açıölçer (P)",
+    "toolProtractor": "360° Açıölçer (P)",
     "legalAbout": "Online Ruler Plus Hakkında",
     "legalContact": "İletişim ve Bildirimler",
     "legalPrivacy": "Gizlilik Politikası",
     "legalTerms": "Kullanım Koşulları",
     "copyright": "Telif Hakkı © {year} OnlineRulerPlus.com. Tüm hakları saklıdır.",
-    "constants": "1 in = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)"
+    "constants": "1 in = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)",
+    "toolPhoto": "Fotoğraf & Ctrl+V Cetveli",
+    "toolCircle": "Çember & Yüzük Ölçer",
+    "toolQuadrant": "4 Bölgeli Koordinat",
+    "toolPrintable": "1:1 Yazdırılabilir SVG Cetvel",
+    "toolDetector": "Ekran & PPI Algılayıcı"
   },
   "helpModal": {
     "kicker": "Hızlı Başvuru",
@@ -221,7 +230,13 @@
     "photoExportBtn": "PNG Dışa Aktar",
     "photoCloseBtn": "Çıkış",
     "photoEmptyTitle": "%100 Yerel Fotoğraf ve Pano Cetveli",
-    "photoEmptyDesc": "Ekran görüntüsü yapıştırmak için Ctrl+V tuşlarına basın veya dosya seçin. Sunucuya yüklenmez."
+    "photoEmptyDesc": "Ekran görüntüsü yapıştırmak için Ctrl+V tuşlarına basın veya dosya seçin. Sunucuya yüklenmez.",
+    "popoutBtn": "Ayrı Pencere",
+    "popoutTitle": "Kompakt açılır pencerede aç",
+    "embedBtn": "Göm (Embed)",
+    "embedTitle": "iframe yerleştirme kodunu al",
+    "scaleLabel": "Ölçek",
+    "scaleAria": "Mimari ve teknik çizim ölçeği"
   },
   "calibration": {
     "kicker": "Ekran Yoğunluğu Kalibrasyonu · Ekran Başına Yerel Kaydedilir",
@@ -313,7 +328,11 @@
     "refCustomUnitAria": "Özel nesne birimi",
     "refDragHint": "Mavi köşe tutamacını sürükleyerek eşleştirin",
     "cardDragHandleAria": "Boyutu eşleştirmek için köşeyi sürükleyin",
-    "cardDragHandleTitle": "Köşeyi sürükleyerek boyutlandır"
+    "cardDragHandleTitle": "Köşeyi sürükleyerek boyutlandır",
+    "namedProfilesLabel": "Ekran Profilleri:",
+    "namedProfilePlaceholder": "ör. Ofis 27\" / Dizüstü",
+    "namedProfileInputAria": "Özel ekran profili adı",
+    "namedProfileSaveBtn": "Profili Kaydet"
   },
   "runtime": {
     "statusLabels": {
@@ -1841,6 +1860,11 @@
           "kicker": "Akıllı Telefonlar · Dar Ekranlar",
           "heading": "Telefonlar neden Dikey Kart Kalibrasyonuna (53,98 mm) geçer?",
           "body": "Dikey telefon genişliği (~58–72 mm) 85,60 mm yatay karttan dardır. [[strong:Dikey Kart Modu]] kısa kenar olan [[strong:53,98 mm]] üzerinden tam 1:1 kalibrasyon sağlar."
+        },
+        {
+          "kicker": "Windows %125/%150 ve Android Chrome",
+          "heading": "Ölçekli Windows Dizüstü ve Android Telefon Kalibrasyonu",
+          "body": "[[code:%125]] veya [[code:%150]] ClearType ölçekli Windows 10/11 bilgisayarlarda ve Android Chrome (~360–412 CSS px) tarayıcılarda yakınlaştırmayı [[strong:%100]] tutun; Android cihazlarda Dikey Kart Modunu ([[code:53.98 mm]]) seçip fiziksel kartla eşleştirin."
         }
       ],
       "s7Kicker": "Bölüm 07 · Ekran Fiziği ve Doğruluk Sınırları",
@@ -2142,6 +2166,454 @@
           "body": "Ölçüm kontrolleri dışında reklamlar ve NIST/BIPM/ISO/W3C bağlantıları yer alabilir. [[link:/privacy|Gizlilik Politikamızı]] inceleyin. Sorular: [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]."
         }
       ]
+    },
+    "embed": {
+      "title": "Gömülü Çevrimiçi Cetvel — Online Ruler Plus",
+      "description": "cm, mm, inç ve piksel destekli kompakt gömülebilir cetvel aracı.",
+      "heading": "Online Ruler Plus Kompakt Alan"
+    },
+    "screenDetector": {
+      "title": "Ekran Boyutu ve PPI Algılayıcı | Online Ruler Plus",
+      "description": "CSS çözünürlüğü, DPR ve yakınlaştırma oranını görün; kesin CSS PPI ve piksel aralığını hesaplayın.",
+      "schemaName": "Ekran Boyutu ve PPI Algılayıcı",
+      "subNavTitle": "Ekran ve PPI Algılayıcı",
+      "breadcrumbLabel": "Ekran Algılayıcı",
+      "heroKicker": "Yerel Ekran Telemetrisi · %100 İstemci Taraflı",
+      "heroHeadline": "Ekran Boyutu, Çözünürlük ve PPI Algılayıcı",
+      "heroSummary": "Tarayıcınızın CSS ekran boyutunu ve DPR değerini inceleyin, bilinen köşegen boyutunu doğrudan kalibrasyona uygulayın.",
+      "openRulerBtn": "Çevrimiçi Cetveli Aç",
+      "presetsLabel": "Ekran Köşegeni Seçin (İnç)",
+      "customDiagLabel": "Veya Özel Köşegen Girin (3″–100″)",
+      "applyBtn": "Köşegeni Kalibrasyona Uygula",
+      "savedBanner": "Köşegen kalibrasyonu yerel olarak kaydedildi.",
+      "liveCardKicker": "Canlı Tarayıcı Sinyali",
+      "liveCardHeading": "Algılanan Ekran Özellikleri",
+      "labelCssRes": "Ekran CSS Çözünürlüğü",
+      "labelPhysRes": "Tahmini Fiziksel Piksel",
+      "labelViewport": "Tarayıcı Görünüm Alanı",
+      "labelDpr": "Cihaz Piksel Oranı (DPR)",
+      "labelAspect": "En Boy Oranı",
+      "labelZoom": "Görsel Alan Ölçeği",
+      "labelCalStatus": "Etkin Kalibrasyon",
+      "labelCalBasis": "Kalibrasyon Temeli",
+      "geomCardKicker": "Hesaplanan Geometri",
+      "geomCardHeading": "Seçilen Köşegende Fiziksel Boyutlar",
+      "labelCalcWidth": "Görünür Panel Genişliği",
+      "labelCalcHeight": "Görünür Panel Yüksekliği",
+      "labelCalcCssPpi": "CSS Yoğunluğu (px / inç)",
+      "labelCalcDevPpi": "Fiziksel Panel PPI",
+      "labelCalcPitch": "Fiziksel Piksel Aralığı",
+      "guideCards": [
+        {
+          "kicker": "CSS ve Fiziksel",
+          "heading": "Tarayıcılar Gerçek Boyutu Neden Gizler?",
+          "body": "Gizlilik standartları nedeniyle web siteleri monitör EDID boyutlarını veya işletim sistemi ölçeğini doğrudan okuyamaz."
+        },
+        {
+          "kicker": "OS Ölçekleme",
+          "heading": "%125, %150 Windows ve macOS Retina",
+          "body": "İşletim sistemi ölçeği arttıkça CSS piksel sayısı azalır ve DPR artar. Tarayıcı yakınlaştırmasını %100 tutun."
+        },
+        {
+          "kicker": "Doğrulama",
+          "heading": "ISO ID-1 Kart ile Doğrulayın",
+          "body": "Köşegen hesabını uyguladıktan sonra kalibrasyon bölümünde gerçek bir banka kartı ile kontrol edin."
+        }
+      ]
+    },
+    "printableRuler": {
+      "title": "Yazdırılabilir 1:1 Gerçek Ölçekli SVG Cetvel (A4/Letter) | Online Ruler Plus",
+      "description": "100 mm doğrulama çubuklu gerçek boyutlu kağıt cetvel, 1 cm ızgara ve 360° açıölçer SVG çıktısı alın.",
+      "schemaName": "Yazdırılabilir Cetvel Oluşturucu",
+      "subNavTitle": "Yazdırılabilir 1:1 Cetvel",
+      "breadcrumbLabel": "Yazdırılabilir Cetvel",
+      "heroKicker": "Gerçek Ölçek Vektör SVG · 1 Birim = 1 mm",
+      "heroHeadline": "Yazdırılabilir Cetvel, Izgara ve Açıölçer",
+      "heroSummary": "A4 veya US Letter kağıda uygun 1:1 vektör sayfalar ve yazıcı küçültmesini kontrol eden 100.0 mm / 4.00 inç doğrulama çubuğu.",
+      "templateLabel": "Şablon",
+      "templates": {
+        "ruler15cm": "15 cm / 6 inç Cetvel",
+        "ruler25cm": "25 cm / 10 inç Cetvel",
+        "ruler30cmSplit": "30 cm Bölünmüş (2×15 cm)",
+        "ruler12inSplit": "12 inç Bölünmüş (2×6 inç)",
+        "grid1cm": "1 cm Kare Izgara",
+        "protractor360": "360° Açıölçer"
+      },
+      "paperLabel": "Kağıt Boyutu",
+      "paperA4": "A4 (210 × 297 mm)",
+      "paperLetter": "US Letter (8.5 × 11 inç)",
+      "printBtn": "Yazdır (%100 Gerçek Boyut)",
+      "downloadBtn": "SVG İndir",
+      "warningTitle": "Zorunlu Kontrol: Yazıcı ölçeğini \"Gerçek Boyut / %100\" yapın",
+      "warningBody": "Yazıcıların \"Sayfaya Sığdır\" ayarı cetveli %3–6 küçültebilir. Yazdırdıktan sonra 100.0 mm çubuğu mutlaka ölçün."
+    },
+    "circleRuler": {
+      "title": "Daire, Yüzük, Vida ve Bozuk Para Çap Ölçer (1–150 mm) | Online Ruler Plus",
+      "description": "Kalibre edilmiş ekranınızda yüzük ölçüsü (US/EU), M3–M12 metrik vida, pul ve madeni para çapını ölçün.",
+      "schemaName": "Daire ve Yüzük Çap Ölçer",
+      "subNavTitle": "Daire Çap Ölçer",
+      "breadcrumbLabel": "Daire Ölçer",
+      "heroKicker": "Eşmerkezli Ölçüm · 1.00 mm – 150.00 mm",
+      "heroHeadline": "Daire, Yüzük, Vida ve Madeni Para Ölçer",
+      "heroSummary": "Yüzük, madeni para veya civatayı doğrudan mavi dairenin üzerine koyun ya da kenarı tam oturana kadar sürükleyin.",
+      "diameterLabel": "Çap (mm)",
+      "presetsLabel": "Hızlı Şablonlar (ISO Vidalar, Yüzük, Para)",
+      "readoutTitle": "Geometrik Değerler",
+      "labelDiameter": "Çap",
+      "labelRadius": "Yarıçap (r)",
+      "labelCircumference": "Çevre (π·d)",
+      "labelArea": "Alan (π·r²)",
+      "labelDiameterIn": "Çap (İnç)",
+      "labelPixels": "Ekran Çapı (px)",
+      "labelRingSize": "Yaklaşık Yüzük Ölçüsü",
+      "guideCards": [
+        {
+          "kicker": "Yüzük Ölçüsü",
+          "heading": "İç Çap ile Yüzük Numarası",
+          "body": "Yüzüğün iç halkasını mavi çembere hizalayarak US ve EU numarasını öğrenin."
+        },
+        {
+          "kicker": "Hırdavat",
+          "heading": "M3–M12 Civata ve Pullar",
+          "body": "1 mm’den 150 mm’ye kadar civata başı, conta ve matkap uçlarını karşılaştırın."
+        },
+        {
+          "kicker": "Kalibrasyon",
+          "heading": "Doğru Ölçüm için Ekran Kalibrasyonu",
+          "body": "Gerçek boyut için önce kredi kartı ile ekranınızı kalibre edin."
+        }
+      ]
+    },
+    "quadrant": {
+      "title": "4 Kadranlı Koordinat Düzlemi ve Vektör Ölçer | Online Ruler Plus",
+      "description": "Kalibre edilmiş ızgarada merkez (0, 0) noktasından (±X, ±Y) koordinatlarını, uzaklık r ve açı θ değerini ölçün.",
+      "schemaName": "4 Kadranlı Koordinat Düzlemi",
+      "subNavTitle": "4 Kadran Koordinat",
+      "breadcrumbLabel": "4 Kadran",
+      "heroKicker": "Kalibre Kartezyen Düzlem · (±X, ±Y) & (r, θ)",
+      "heroHeadline": "Etkileşimli 4 Kadranlı Koordinat Düzlemi",
+      "heroSummary": "Merkez (0, 0) noktasına göre X/Y koordinatlarını, Öklid mesafesi r ve kutup açısı θ değerini ölçmek için ızgaraya tıklayın veya sürükleyin.",
+      "hint": "Merkez orijine (0, 0) göre vektörü yerleştirmek için koordinat ızgarasına tıklayın veya sürükleyin.",
+      "resetOriginBtn": "Sıfırla (0, 0)",
+      "labelX": "X Koordinatı",
+      "labelY": "Y Koordinatı",
+      "labelRadius": "Uzaklık (r)",
+      "labelAngle": "Kutup Açısı (θ)",
+      "labelQuadrant": "Etkin Kadran",
+      "guideCards": [
+        {
+          "kicker": "4 Bölge",
+          "heading": "I–IV Kadran Ölçümü",
+          "body": "Merkez eksenli simetri ve sapmaları ölçün."
+        },
+        {
+          "kicker": "Kutup Hesabı",
+          "heading": "r = √(X² + Y²)",
+          "body": "Kartezyen değerlerle birlikte uzaklık ve derece cinsinden açı verir."
+        },
+        {
+          "kicker": "Gerçek Ölçek",
+          "heading": "cm, mm, inç ve px ızgarası",
+          "body": "Kayıtlı ekran PPI kalibrasyonunuzu kullanır."
+        }
+      ]
+    },
+    "photoRuler": {
+      "title": "Fotoğraf & Ekran Görüntüsü Cetveli | Resim Üzerinde Ölçüm",
+      "description": "Yüklenen fotoğrafları ve Ctrl+V ekran görüntülerini 2 noktalı referans kalibrasyonu ve açıklamalı PNG indirmeyle tarayıcıda ölçün.",
+      "schemaName": "Online Fotoğraf & Pano Cetveli",
+      "featureList": [
+        "%100 yerel & Ctrl+V yapıştırma",
+        "2 noktalı referans kalibrasyonu",
+        "ΔX/ΔY & sınırlayıcı kutular",
+        "Ölçekli PNG indirme"
+      ],
+      "subNavTitle": "Fotoğraf Cetveli",
+      "breadcrumbLabel": "Fotoğraf Cetveli",
+      "hero": {
+        "eyebrow": "Görüntü Ölçümü · %100 Yerel · Ctrl+V",
+        "headline": "Fotoğraflar ve Ekran Görüntüleri Üzerinde Ölçüm",
+        "description": "Görsel açın veya Ctrl+V ile yapıştırın, bilinen bir referans uzunluğu işaretleyin ve tamamen gizli biçimde ölçün."
+      },
+      "guideKicker": "Sunucusuz gizlilik",
+      "guideHeading": "Fotoğraf içinde nasıl ölçüm yapılır",
+      "guideLead": "Planlar, donanım fotoğrafları ve UI ekran görüntüleri için.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Yerel · Ctrl+V",
+          "heading": "Görsel yükleyin veya yapıştırın",
+          "body": "Dosyalar tarayıcı belleğinden dışarı çıkmaz.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Fotoğraf modunu aç"
+        },
+        {
+          "step": "2",
+          "kicker": "2 nokta referansı",
+          "heading": "Bilinen nesneyle kalibre edin",
+          "body": "Kart veya madeni para uçlarını seçerek px/mm oranını kilitleyin.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Referansları gör"
+        },
+        {
+          "step": "3",
+          "kicker": "PNG Dışa Aktar",
+          "heading": "Ölçülü PNG kaydedin",
+          "body": "ΔX/ΔY kılavuzlarıyla açıklamalı PNG indirin.",
+          "linkHref": "/protractor",
+          "linkLabel": "360° Açıölçeri aç"
+        }
+      ],
+      "darkKicker": "Fotoğraf referansları",
+      "darkHeading": "Güvenilir referans nesneleri",
+      "darkLead": "Referansı hedef nesneyle aynı düzleme koyun.",
+      "darkCards": [
+        {
+          "heading": "Dik açıdan çekim",
+          "body": "Perspektif sapmasını en aza indirir."
+        },
+        {
+          "heading": "Ctrl+V hızı",
+          "body": "Ekran görüntüleri birebir piksel korunumu sağlar."
+        },
+        {
+          "heading": "Buluta yükleme yok",
+          "body": "Veriler sekme kapanınca silinir."
+        }
+      ],
+      "table": {
+        "kicker": "Hızlı ölçüler",
+        "heading": "2 noktalı kalibrasyon için standart nesneler",
+        "headers": [
+          "Nesne",
+          "Uzunluk (mm)",
+          "İnç",
+          "Kullanım"
+        ],
+        "rows": [
+          [
+            "Banka Kartı ID-1 (en)",
+            "85.60 mm",
+            "3.370 in",
+            "Masaüstü çekim"
+          ],
+          [
+            "Banka Kartı ID-1 (boy)",
+            "53.98 mm",
+            "2.125 in",
+            "Dar alanlar"
+          ],
+          [
+            "1 Euro Madeni Para",
+            "23.25 mm",
+            "0.915 in",
+            "Makro & vida"
+          ],
+          [
+            "2 Euro Madeni Para",
+            "25.75 mm",
+            "1.014 in",
+            "Yüzük & somun"
+          ],
+          [
+            "US Quarter",
+            "24.26 mm",
+            "0.955 in",
+            "Makro referans"
+          ],
+          [
+            "AA Pil (IEC R6)",
+            "50.50 mm",
+            "1.988 in",
+            "Atölye"
+          ],
+          [
+            "US Letter Kağıt",
+            "215.90 mm",
+            "8.500 in",
+            "Mobilya"
+          ],
+          [
+            "A4 Kağıt (kısa kenar)",
+            "210.00 mm",
+            "8.268 in",
+            "Çizimler"
+          ]
+        ],
+        "footnote": "Referansı ölçülecek nesneyle aynı odak düzleminde tutun."
+      },
+      "faqKicker": "Fotoğraf SSS",
+      "faqHeading": "Fotoğraf cetveli hakkında sorular",
+      "faqs": [
+        {
+          "q": "Fotoğraflar sunucuya gönderiliyor mu?",
+          "a": "Hayır, tüm işlemler tarayıcınızda yerel çalışır."
+        },
+        {
+          "q": "Ne kadar hassas?",
+          "a": "Düz üstten çekimlerde 1–2 piksel hassasiyet sunar."
+        },
+        {
+          "q": "En ve boyu aynı anda ölçebilir miyim?",
+          "a": "Evet, ΔX/ΔY ve sınırlayıcı kutularla."
+        },
+        {
+          "q": "Hangi biçimler destekleniyor?",
+          "a": "PNG, JPEG, WebP, GIF, SVG ve Ctrl+V."
+        }
+      ]
+    },
+    "protractor": {
+      "title": "Online Açıölçer 360° | Ekranda Açı Ölçme",
+      "description": "Hareketli köşe noktası ve bağımsız iki kolla 0°–360° arası açıları ekranda veya fotoğrafta ölçün.",
+      "schemaName": "Online 360° Çift Kollu Açıölçer",
+      "featureList": [
+        "Tam 0°–360° açı ölçümü",
+        "Taşınabilir köşe & 2 serbest kol",
+        "Fotoğraf üzerinde kullanım",
+        "Dönebilen cetvellerle uyumlu"
+      ],
+      "subNavTitle": "360° Açıölçer",
+      "breadcrumbLabel": "Açıölçer",
+      "hero": {
+        "eyebrow": "Geometri 0°–360° · İki Serbest Kol",
+        "headline": "Etkileşimli 360° Online Açıölçer",
+        "description": "Köşe halkasını sürükleyin, A ve B kollarını serbestçe çevirin ve açıyı anında okuyun."
+      },
+      "guideKicker": "Açı ölçümü",
+      "guideHeading": "Ekranda ve görselde açı ölçme",
+      "guideLead": "Geometri, gönye kesimler, çatı eğimi ve CAD kontrolü için.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Kısayol P",
+          "heading": "Köşeyi hizalayın",
+          "body": "Merkez halkayı istediğiniz köşeye taşıyın.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Açıölçeri aç"
+        },
+        {
+          "step": "2",
+          "kicker": "2 serbest kol",
+          "heading": "Görseli döndürmeden ölçün",
+          "body": "İki kol da 360° bağımsız döner.",
+          "linkHref": "/photo-ruler",
+          "linkLabel": "Fotoğraf yükle"
+        },
+        {
+          "step": "3",
+          "kicker": "Açı + Uzunluk",
+          "heading": "Açılı cetvellerle birleştirin",
+          "body": "Aynı alanda yüzer cetveller ekleyin.",
+          "linkHref": "/quadrant",
+          "linkLabel": "4 Bölge Grafiği"
+        }
+      ],
+      "darkKicker": "Açı rehberi",
+      "darkHeading": "Yaygın açı ve kesim değerleri",
+      "darkLead": "Kare ekran pikselleri sayesinde PPI kalibrasyonu olmadan da açılar doğrudur.",
+      "darkCards": [
+        {
+          "heading": "Net yay gösterimi",
+          "body": "İki kol arasındaki iç açıyı net gösterir."
+        },
+        {
+          "heading": "Klavye hassas ayarı",
+          "body": "Ok tuşlarıyla ince döndürme yapın."
+        },
+        {
+          "heading": "Gönye kesim yardımı",
+          "body": "Testere açısı için köşe açısını ikiye bölün."
+        }
+      ],
+      "table": {
+        "kicker": "Standart açılar",
+        "heading": "Atölye ve çizim referans açıları",
+        "headers": [
+          "Tür",
+          "Derece (°)",
+          "Eğim",
+          "Kullanım"
+        ],
+        "rows": [
+          [
+            "Dik açı",
+            "90.0°",
+            "Köşe",
+            "Dolap & PCB"
+          ],
+          [
+            "Gönye kesim",
+            "45.0°",
+            "1:1 (%100)",
+            "Çerçeve"
+          ],
+          [
+            "Altıgen",
+            "120.0°",
+            "60° dış",
+            "Civata"
+          ],
+          [
+            "İzometrik",
+            "30.0°",
+            "%57.7",
+            "3B çizim"
+          ],
+          [
+            "Sekizgen",
+            "22.5°",
+            "135° iç",
+            "Çıta"
+          ],
+          [
+            "Çatı 4/12",
+            "18.4°",
+            "%33.3",
+            "Mertek"
+          ],
+          [
+            "Beşgen",
+            "108.0°",
+            "72° dış",
+            "Çokgenler"
+          ],
+          [
+            "Doğru açı",
+            "180.0°",
+            "Düz çizgi",
+            "Hizalama"
+          ]
+        ],
+        "footnote": "Modern ekranlarda standart 1:1 kare piksel oranıyla çalışır."
+      },
+      "faqKicker": "Açıölçer SSS",
+      "faqHeading": "Açı ölçümü hakkında sorular",
+      "faqs": [
+        {
+          "q": "Açılar için PPI kalibrasyonu gerekir mi?",
+          "a": "Hayır, kare pikselli ekranlarda açılar doğrudan doğrudur."
+        },
+        {
+          "q": "Fotoğraf üzerinde çalışır mı?",
+          "a": "Evet, Ctrl+V ile görsel yapıştırıp açıölçeri kullanın."
+        },
+        {
+          "q": "180° yerine neden 360°?",
+          "a": "Eğik çizimleri düzeltmeden doğrudan ölçebilmek için."
+        },
+        {
+          "q": "Uzunluğu aynı anda ölçebilir miyim?",
+          "a": "Evet, ΔX/ΔY kılavuzları ve açılı cetvellerle."
+        }
+      ]
     }
+  },
+  "converter": {
+    "title": "Birim Dönüştürücü",
+    "mmAria": "Milimetre dönüştür",
+    "cmAria": "Santimetre dönüştür",
+    "inAria": "İnç dönüştür",
+    "pxAria": "CSS piksel dönüştür"
   }
 }

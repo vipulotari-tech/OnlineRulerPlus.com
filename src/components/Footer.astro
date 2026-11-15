@@ -67,10 +67,14 @@ const copyrightLine = formatTemplate(f.copyright, { year });
           {f.colTools}
         </p>
         <ul class="mt-3 space-y-2.5 type-caption text-ink-muted-80">
+          <li><a href={localizedPath(locale, '/photo-ruler')} class="hover:text-link hover:underline">{f.toolPhoto}</a></li>
+          <li><a href={localizedPath(locale, '/protractor')} class="hover:text-link hover:underline">{f.toolProtractor}</a></li>
+          <li><a href={localizedPath(locale, '/circle-ruler')} class="hover:text-link hover:underline">{f.toolCircle}</a></li>
+          <li><a href={localizedPath(locale, '/quadrant')} class="hover:text-link hover:underline">{f.toolQuadrant}</a></li>
+          <li><a href={localizedPath(locale, '/printable-ruler')} class="hover:text-link hover:underline">{f.toolPrintable}</a></li>
+          <li><a href={localizedPath(locale, '/screen-size-detector')} class="hover:text-link hover:underline">{f.toolDetector}</a></li>
           <li><a href={localizedPath(locale, '/cm-ruler#ruler-tool')} class="hover:text-link hover:underline">{f.toolGuides}</a></li>
-          <li><a href={localizedPath(locale, '/inch-ruler#ruler-tool')} class="hover:text-link hover:underline">{f.toolFractions}</a></li>
           <li><a href={localizedPath(locale, '/horizontal-ruler#ruler-tool')} class="hover:text-link hover:underline">{f.toolPx}</a></li>
-          <li><a href={localizedPath(locale, '/#ruler-tool')} class="hover:text-link hover:underline">{f.toolProtractor}</a></li>
         </ul>
       </div>
 

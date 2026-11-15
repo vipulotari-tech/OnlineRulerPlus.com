@@ -40,7 +40,11 @@
       "about": "Tentang",
       "contact": "Kontak",
       "privacy": "Kebijakan Privasi",
-      "terms": "Ketentuan Penggunaan"
+      "terms": "Ketentuan Penggunaan",
+      "screenDetector": "Detektor Layar",
+      "printableRuler": "Penggaris Cetak",
+      "circleRuler": "Pengukur Lingkaran",
+      "quadrant": "Grafik 4 Kuadran"
     },
     "subNav": {
       "workspace": "Penggaris",
@@ -72,13 +76,18 @@
     "toolGuides": "Garis Panduan Geser (G)",
     "toolFractions": "Pembacaan Pecahan Inci",
     "toolPx": "Inspektor Piksel CSS (px)",
-    "toolProtractor": "Busur Derajat 180° (P)",
+    "toolProtractor": "Busur Derajat 360° (P)",
     "legalAbout": "Tentang Online Ruler Plus",
     "legalContact": "Kontak & Pengiriman Profil",
     "legalPrivacy": "Kebijakan Privasi",
     "legalTerms": "Ketentuan Penggunaan",
     "copyright": "Hak Cipta © {year} OnlineRulerPlus.com. Seluruh hak cipta dilindungi.",
-    "constants": "1 in = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)"
+    "constants": "1 in = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)",
+    "toolPhoto": "Penggaris Foto & Ctrl+V",
+    "toolCircle": "Pengukur Lingkaran & Cincin",
+    "toolQuadrant": "Bidang Koordinat 4 Kuadran",
+    "toolPrintable": "Penggaris SVG Cetak 1:1",
+    "toolDetector": "Detektor Layar & PPI"
   },
   "helpModal": {
     "kicker": "Referensi Cepat",
@@ -221,7 +230,13 @@
     "photoExportBtn": "Ekspor PNG",
     "photoCloseBtn": "Tutup",
     "photoEmptyTitle": "Penggaris Foto & Papan Klip 100% Lokal",
-    "photoEmptyDesc": "Tekan Ctrl+V untuk menempel gambar atau pilih file. Tidak ada gambar yang diunggah."
+    "photoEmptyDesc": "Tekan Ctrl+V untuk menempel gambar atau pilih file. Tidak ada gambar yang diunggah.",
+    "popoutBtn": "Jendela Pop-Out",
+    "popoutTitle": "Buka penggaris di jendela ringkas",
+    "embedBtn": "Sematkan",
+    "embedTitle": "Salin kode embed iframe",
+    "scaleLabel": "Skala",
+    "scaleAria": "Skala arsitektur dan gambar teknik"
   },
   "calibration": {
     "kicker": "Kalibrasi Kerapatan Layar · Disimpan Lokal per Layar",
@@ -313,7 +328,11 @@
     "refCustomUnitAria": "Satuan objek kustom",
     "refDragHint": "Seret sudut biru atau penggeser untuk mencocokkan",
     "cardDragHandleAria": "Seret sudut untuk menyesuaikan kotak referensi",
-    "cardDragHandleTitle": "Seret sudut untuk ubah ukuran"
+    "cardDragHandleTitle": "Seret sudut untuk ubah ukuran",
+    "namedProfilesLabel": "Profil Layar:",
+    "namedProfilePlaceholder": "mis. Monitor 27\" / Laptop",
+    "namedProfileInputAria": "Nama profil layar",
+    "namedProfileSaveBtn": "Simpan Profil"
   },
   "runtime": {
     "statusLabels": {
@@ -1841,6 +1860,11 @@
           "kicker": "Kendala Ponsel · Layar Sempit",
           "heading": "Mengapa ponsel memakai Kalibrasi Kartu Potret (53,98 mm)",
           "body": "Lebar ponsel potret (58–72 mm) lebih sempit dari kartu lanskap (85,60 mm). [[strong:Mode Kartu Potret]] mengkalibrasi sisi pendek [[strong:53,98 mm]] dengan presisi 1:1."
+        },
+        {
+          "kicker": "Windows 125%/150% & Android Chrome",
+          "heading": "Cara Kalibrasi Laptop Windows Berskala & HP Android",
+          "body": "Pada laptop Windows 10/11 dengan skala ClearType [[code:125%]]/[[code:150%]] atau Chrome Android (~360–412 px CSS), pertahankan zoom browser di [[strong:100%]], pilih Mode Kartu Potret ([[code:53.98 mm]]) di Android, lalu sesuaikan tepinya dengan kartu fisik."
         }
       ],
       "s7Kicker": "Bagian 07 · Fisika Layar & Batas Ketelitian",
@@ -2142,6 +2166,454 @@
           "body": "Iklan di luar kontrol penggaris dan tautan ke lembaga standar (NIST, BIPM, ISO, W3C) dapat ditampilkan. Lihat [[link:/privacy|Kebijakan Privasi]]. Pertanyaan: [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]."
         }
       ]
+    },
+    "embed": {
+      "title": "Widget Penggaris Online — Online Ruler Plus",
+      "description": "Widget penggaris layar ringkas untuk cm, mm, inci pecahan, dan piksel.",
+      "heading": "Area Ringkas Online Ruler Plus"
+    },
+    "screenDetector": {
+      "title": "Detektor Ukuran Layar & PPI | Online Ruler Plus",
+      "description": "Periksa resolusi CSS, DPR, skala zoom, dan hitung PPI CSS serta jarak piksel fisik layar Anda.",
+      "schemaName": "Detektor Ukuran Layar & PPI",
+      "subNavTitle": "Detektor Layar & PPI",
+      "breadcrumbLabel": "Detektor Layar",
+      "heroKicker": "Telemetri Layar Lokal · 100% di Browser",
+      "heroHeadline": "Detektor Ukuran, Resolusi & PPI Layar",
+      "heroSummary": "Baca resolusi CSS dan DPR browser Anda, lalu terapkan ukuran diagonal layar langsung ke kalibrasi penggaris.",
+      "openRulerBtn": "Buka Penggaris Online",
+      "presetsLabel": "Pilih Diagonal Layar (Inci)",
+      "customDiagLabel": "Atau Masukkan Diagonal (3″–100″)",
+      "applyBtn": "Terapkan ke Kalibrasi",
+      "savedBanner": "Kalibrasi diagonal tersimpan secara lokal.",
+      "liveCardKicker": "Sinyal Browser Langsung",
+      "liveCardHeading": "Properti Layar Terdeteksi",
+      "labelCssRes": "Resolusi CSS Layar",
+      "labelPhysRes": "Perkiraan Piksel Fisik",
+      "labelViewport": "Viewport Browser",
+      "labelDpr": "Device Pixel Ratio (DPR)",
+      "labelAspect": "Rasio Aspek",
+      "labelZoom": "Skala Viewport Visual",
+      "labelCalStatus": "Kalibrasi Penggaris Aktif",
+      "labelCalBasis": "Dasar Kalibrasi",
+      "geomCardKicker": "Geometri Terhitung",
+      "geomCardHeading": "Dimensi Fisik pada Diagonal Terpilih",
+      "labelCalcWidth": "Lebar Panel Terlihat",
+      "labelCalcHeight": "Tinggi Panel Terlihat",
+      "labelCalcCssPpi": "Kepadatan CSS (px / inci)",
+      "labelCalcDevPpi": "Kepadatan Fisik (PPI)",
+      "labelCalcPitch": "Jarak Piksel Fisik",
+      "guideCards": [
+        {
+          "kicker": "CSS vs Fisik",
+          "heading": "Mengapa Browser Menyembunyikan Ukuran Asli",
+          "body": "Aturan privasi web mencegah situs membaca ukuran fisik EDID atau persentase skala OS secara langsung."
+        },
+        {
+          "kicker": "Skala Windows/macOS",
+          "heading": "Memahami Skala 125%, 150% & Retina",
+          "body": "Saat skala OS meningkat, resolusi CSS mengecil dan DPR naik. Pastikan zoom browser tetap 100%."
+        },
+        {
+          "kicker": "Verifikasi",
+          "heading": "Cocokkan dengan Kartu ISO ID-1",
+          "body": "Setelah menerapkan diagonal, verifikasi hasilnya menggunakan kartu bank standar di panel kalibrasi."
+        }
+      ]
+    },
+    "printableRuler": {
+      "title": "Generator Penggaris Cetak SVG Skala Asli 1:1 (A4 & Letter) | Online Ruler Plus",
+      "description": "Cetak penggaris kertas skala 1:1, grid 1 cm, dan busur 360° dalam format vektor SVG lengkap dengan bilah uji 100 mm.",
+      "schemaName": "Generator Penggaris Cetak",
+      "subNavTitle": "Penggaris Cetak 1:1",
+      "breadcrumbLabel": "Penggaris Cetak",
+      "heroKicker": "Vektor SVG Skala Asli · 1 Unit = 1 mm",
+      "heroHeadline": "Penggaris, Grid & Busur Cetak",
+      "heroSummary": "Unduh lembar vektor 1:1 untuk kertas A4 atau US Letter dilengkapi bilah cek 100.0 mm / 4.00 in untuk memastikan printer tidak mengecilkan ukuran.",
+      "templateLabel": "Templat",
+      "templates": {
+        "ruler15cm": "Penggaris 15 cm / 6 in",
+        "ruler25cm": "Penggaris 25 cm / 10 in",
+        "ruler30cmSplit": "30 cm Terbagi (2×15 cm)",
+        "ruler12inSplit": "12 in Terbagi (2×6 in)",
+        "grid1cm": "Grid Kotak 1 cm",
+        "protractor360": "Busur 360°"
+      },
+      "paperLabel": "Ukuran Kertas",
+      "paperA4": "A4 (210 × 297 mm)",
+      "paperLetter": "US Letter (8.5 × 11 in)",
+      "printBtn": "Cetak (Skala 100%)",
+      "downloadBtn": "Unduh SVG",
+      "warningTitle": "Wajib Dicek: Atur Skala Printer ke \"Actual Size / 100%\"",
+      "warningBody": "Mode \"Fit to Page\" sering mengecilkan penggaris 3–6%. Selalu ukur bilah 100.0 mm hasil cetak sebelum dipotong."
+    },
+    "circleRuler": {
+      "title": "Pengukur Diameter Lingkaran, Cincin, Baut & Koin (1–150 mm) | Online Ruler Plus",
+      "description": "Ukur diameter cincin (US/EU), baut metrik M3–M12, ring, dan koin langsung di layar terkalibrasi.",
+      "schemaName": "Pengukur Diameter Lingkaran & Cincin",
+      "subNavTitle": "Pengukur Lingkaran",
+      "breadcrumbLabel": "Pengukur Lingkaran",
+      "heroKicker": "Metrologi Lingkaran · 1,00 mm – 150,00 mm",
+      "heroHeadline": "Pengukur Diameter Lingkaran, Cincin & Baut",
+      "heroSummary": "Letakkan cincin, koin, atau baut langsung ke lingkaran biru atau seret tepinya hingga pas.",
+      "diameterLabel": "Diameter (mm)",
+      "presetsLabel": "Preset Cepat (Baut ISO, Cincin, Koin)",
+      "readoutTitle": "Hasil Geometri",
+      "labelDiameter": "Diameter",
+      "labelRadius": "Radius (r)",
+      "labelCircumference": "Keliling (π·d)",
+      "labelArea": "Luas (π·r²)",
+      "labelDiameterIn": "Diameter (Inci)",
+      "labelPixels": "Diameter Layar (px)",
+      "labelRingSize": "Ukuran Cincin",
+      "guideCards": [
+        {
+          "kicker": "Ukuran Cincin",
+          "heading": "Ukur Diameter Dalam Cincin",
+          "body": "Cocokkan sisi dalam cincin dengan lingkaran biru untuk ukuran US dan EU."
+        },
+        {
+          "kicker": "Baut & Ring",
+          "heading": "Cek Baut M3–M12 & O-Ring",
+          "body": "Bandingkan baut, washer, dan mata bor dari 1 mm hingga 150 mm."
+        },
+        {
+          "kicker": "Kalibrasi",
+          "heading": "Gunakan Kalibrasi Layar Aktif",
+          "body": "Kalibrasi dengan kartu standar ISO ID-1 lebih dulu agar akurat secara fisik."
+        }
+      ]
+    },
+    "quadrant": {
+      "title": "Bidang Koordinat 4 Kuadran & Vektor Interaktif | Online Ruler Plus",
+      "description": "Plot koordinat (±X, ±Y), jarak r, dan sudut kutub θ pada grid metrik atau inci terkalibrasi.",
+      "schemaName": "Bidang Koordinat 4 Kuadran",
+      "subNavTitle": "Grafik 4 Kuadran",
+      "breadcrumbLabel": "4 Kuadran",
+      "heroKicker": "Bidang Kartesius Terkalibrasi · (±X, ±Y) & (r, θ)",
+      "heroHeadline": "Grid Koordinat 4 Kuadran & Vektor",
+      "heroSummary": "Klik atau seret di grid berpusat (0, 0) untuk membaca koordinat X/Y, jarak r, dan sudut θ (0°–360°).",
+      "hint": "Klik atau seret pada grid untuk mengukur koordinat terhadap pusat asal (0, 0).",
+      "resetOriginBtn": "Reset ke (0, 0)",
+      "labelX": "Koordinat X",
+      "labelY": "Koordinat Y",
+      "labelRadius": "Jarak (r)",
+      "labelAngle": "Sudut Kutub (θ)",
+      "labelQuadrant": "Kuadran Aktif",
+      "guideCards": [
+        {
+          "kicker": "Empat Kuadran",
+          "heading": "Kuadran I–IV Bertanda",
+          "body": "Cocok untuk mengukur simetri dan pergeseran dari titik pusat."
+        },
+        {
+          "kicker": "Matematika Kutub",
+          "heading": "Jarak r = √(X² + Y²)",
+          "body": "Menampilkan koordinat Kartesius sekaligus jarak dan sudut kutub."
+        },
+        {
+          "kicker": "Skala Nyata",
+          "heading": "Grid cm, mm, inci, atau px",
+          "body": "Menggunakan nilai PPI layar Anda yang tersimpan."
+        }
+      ]
+    },
+    "photoRuler": {
+      "title": "Penggaris Foto & Tangkapan Layar | Ukur Gambar Online",
+      "description": "Ukur objek pada foto unggahan atau tangkapan layar Ctrl+V memakai kalibrasi 2 titik, kotak batas, dan ekspor PNG beranotasi.",
+      "schemaName": "Penggaris Foto & Papan Klip Online",
+      "featureList": [
+        "100% lokal di perangkat & tempel Ctrl+V",
+        "Kalibrasi referensi 2 titik di foto",
+        "Dimensi ΔX/ΔY & kotak batas",
+        "Unduh PNG beranotasi"
+      ],
+      "subNavTitle": "Penggaris Foto",
+      "breadcrumbLabel": "Penggaris Foto",
+      "hero": {
+        "eyebrow": "Metrologi Gambar · 100% Lokal · Dukungan Ctrl+V",
+        "headline": "Ukur Foto atau Tangkapan Layar Secara Online",
+        "description": "Buka gambar atau tekan Ctrl+V, tandai panjang referensi yang diketahui, dan ukur langsung secara pribadi di browser."
+      },
+      "guideKicker": "Privasi tanpa unggah server",
+      "guideHeading": "Cara mengukur panjang di dalam foto",
+      "guideLead": "Ideal untuk denah, foto komponen, dan tangkapan layar UI.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Lokal · Ctrl+V",
+          "heading": "Unggah atau tempel gambar",
+          "body": "File diproses di RAM browser tanpa dikirim ke server.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Buka mode foto"
+        },
+        {
+          "step": "2",
+          "kicker": "Skala 2 titik",
+          "heading": "Tandai objek referensi",
+          "body": "Pilih kartu atau koin pada foto dan masukkan ukuran aslinya.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Lihat daftar referensi"
+        },
+        {
+          "step": "3",
+          "kicker": "Ekspor PNG",
+          "heading": "Unduh PNG beranotasi",
+          "body": "Simpan garis ukur dan batang skala menjadi PNG.",
+          "linkHref": "/protractor",
+          "linkLabel": "Buka busur 360°"
+        }
+      ],
+      "darkKicker": "Referensi foto",
+      "darkHeading": "Benda referensi terbaik dalam foto",
+      "darkLead": "Letakkan benda datar standar di samping objek target.",
+      "darkCards": [
+        {
+          "heading": "Foto tegak lurus",
+          "body": "Mengurangi distorsi perspektif."
+        },
+        {
+          "heading": "Tempel cepat Ctrl+V",
+          "body": "Tangkapan layar mempertahankan piksel persis."
+        },
+        {
+          "heading": "Tanpa penyimpanan cloud",
+          "body": "Data terhapus saat tab ditutup."
+        }
+      ],
+      "table": {
+        "kicker": "Ukuran cepat",
+        "heading": "Benda standar untuk kalibrasi 2 titik",
+        "headers": [
+          "Benda Referensi",
+          "Panjang (mm)",
+          "Inci",
+          "Kegunaan"
+        ],
+        "rows": [
+          [
+            "Kartu Bank ID-1 (lebar)",
+            "85.60 mm",
+            "3.370 in",
+            "Foto meja kerja"
+          ],
+          [
+            "Kartu Bank ID-1 (tinggi)",
+            "53.98 mm",
+            "2.125 in",
+            "Ruang sempit"
+          ],
+          [
+            "Koin 1 Euro",
+            "23.25 mm",
+            "0.915 in",
+            "Makro & baut"
+          ],
+          [
+            "Koin 2 Euro",
+            "25.75 mm",
+            "1.014 in",
+            "Cincin & mur"
+          ],
+          [
+            "Koin Quarter US",
+            "24.26 mm",
+            "0.955 in",
+            "Makro"
+          ],
+          [
+            "Baterai AA (IEC R6)",
+            "50.50 mm",
+            "1.988 in",
+            "Bengkel"
+          ],
+          [
+            "Kertas US Letter",
+            "215.90 mm",
+            "8.500 in",
+            "Furnitur"
+          ],
+          [
+            "Kertas A4 ISO",
+            "210.00 mm",
+            "8.268 in",
+            "Denah & paket"
+          ]
+        ],
+        "footnote": "Letakkan referensi sejajar di bidang fokus yang sama."
+      },
+      "faqKicker": "FAQ Foto",
+      "faqHeading": "Pertanyaan tentang penggaris foto",
+      "faqs": [
+        {
+          "q": "Apakah foto dikirim ke server?",
+          "a": "Tidak, semua pemrosesan berjalan lokal di browser."
+        },
+        {
+          "q": "Seberapa akurat?",
+          "a": "Sekitar 1–2 piksel pada foto datar dari atas."
+        },
+        {
+          "q": "Bisakah mengukur lebar dan tinggi sekaligus?",
+          "a": "Ya, memakai panduan ΔX/ΔY dan kotak batas."
+        },
+        {
+          "q": "Format apa saja yang didukung?",
+          "a": "PNG, JPEG, WebP, GIF, SVG, serta tempel Ctrl+V."
+        }
+      ]
+    },
+    "protractor": {
+      "title": "Busur Derajat Online 360° | Ukur Sudut di Layar",
+      "description": "Busur derajat interaktif 360° dengan titik sudut geser dan dua garis bebas di atas layar maupun foto.",
+      "schemaName": "Busur Derajat 360° Online",
+      "featureList": [
+        "Rentang penuh 0°–360°",
+        "Titik pusat & dua garis bergerak",
+        "Langsung di atas foto",
+        "Gabung dengan penggaris miring"
+      ],
+      "subNavTitle": "Busur 360°",
+      "breadcrumbLabel": "Busur Derajat",
+      "hero": {
+        "eyebrow": "Geometri 0°–360° · Dua Garis Bebas",
+        "headline": "Busur Derajat Online 360° Interaktif",
+        "description": "Geser titik pusat ke sudut mana pun dan putar kedua garis bebas hingga 360°."
+      },
+      "guideKicker": "Pengukuran sudut",
+      "guideHeading": "Mengukur sudut pada layar & gambar",
+      "guideLead": "Cocok untuk geometri, potongan siku kayu, kemiringan atap, dan CAD.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Tombol P",
+          "heading": "Posisikan titik sudut",
+          "body": "Seret cincin pusat ke titik sudut mana saja.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Buka busur derajat"
+        },
+        {
+          "step": "2",
+          "kicker": "2 garis 360°",
+          "heading": "Tanpa memutar gambar",
+          "body": "Kedua garis berputar bebas penuh 360°.",
+          "linkHref": "/photo-ruler",
+          "linkLabel": "Muat foto"
+        },
+        {
+          "step": "3",
+          "kicker": "Sudut + Panjang",
+          "heading": "Gabung dengan penggaris miring",
+          "body": "Tambahkan penggaris mengambang di layar.",
+          "linkHref": "/quadrant",
+          "linkLabel": "Grafik 4 Kuadran"
+        }
+      ],
+      "darkKicker": "Referensi sudut",
+      "darkHeading": "Sudut standar teknik & pertukangan",
+      "darkLead": "Piksel persegi menjaga sudut tetap tepat sebelum kalibrasi PPI.",
+      "darkCards": [
+        {
+          "heading": "Busur jelas",
+          "body": "Menampilkan sudut di antara kedua garis."
+        },
+        {
+          "heading": "Atur halus via keyboard",
+          "body": "Gunakan tombol panah untuk presisi tinggi."
+        },
+        {
+          "heading": "Potongan miter",
+          "body": "Bagi dua sudut pojok untuk setelan gergaji."
+        }
+      ],
+      "table": {
+        "kicker": "Sudut standar",
+        "heading": "Daftar sudut umum pertukangan & gambar",
+        "headers": [
+          "Jenis",
+          "Derajat (°)",
+          "Kemiringan",
+          "Aplikasi"
+        ],
+        "rows": [
+          [
+            "Siku 90°",
+            "90.0°",
+            "Tegak lurus",
+            "Kabinet & PCB"
+          ],
+          [
+            "Miter standar",
+            "45.0°",
+            "1:1 (100%)",
+            "Bingkai"
+          ],
+          [
+            "Segienam",
+            "120.0°",
+            "60° luar",
+            "Baut heksagonal"
+          ],
+          [
+            "Isometrik",
+            "30.0°",
+            "57.7%",
+            "Gambar 3D"
+          ],
+          [
+            "Segidelapan",
+            "22.5°",
+            "135° dalam",
+            "Lis sudut"
+          ],
+          [
+            "Atap 4/12",
+            "18.4°",
+            "33.3%",
+            "Kuda-kuda"
+          ],
+          [
+            "Segilima",
+            "108.0°",
+            "72° luar",
+            "Poligon"
+          ],
+          [
+            "Sudut lurus",
+            "180.0°",
+            "Garis lurus",
+            "Cek kelurusan"
+          ]
+        ],
+        "footnote": "Mengandalkan piksel layar persegi 1:1 standar panel modern."
+      },
+      "faqKicker": "FAQ Busur",
+      "faqHeading": "Pertanyaan tentang busur 360°",
+      "faqs": [
+        {
+          "q": "Apakah harus kalibrasi PPI dulu?",
+          "a": "Tidak, layar berpiksel persegi sudah akurat untuk sudut."
+        },
+        {
+          "q": "Bisa dipakai di atas foto?",
+          "a": "Ya, tempel foto dengan Ctrl+V lalu aktifkan busur."
+        },
+        {
+          "q": "Apa bedanya dengan busur 180°?",
+          "a": "Kedua garis bergerak bebas 360° penuh."
+        },
+        {
+          "q": "Bisa ukur jarak sekaligus?",
+          "a": "Ya, dengan panduan ΔX/ΔY dan penggaris miring."
+        }
+      ]
     }
+  },
+  "converter": {
+    "title": "Konverter Satuan",
+    "mmAria": "Konversi milimeter",
+    "cmAria": "Konversi sentimeter",
+    "inAria": "Konversi inci",
+    "pxAria": "Konversi piksel CSS"
   }
 }

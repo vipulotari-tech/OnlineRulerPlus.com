@@ -40,7 +40,11 @@
       "about": "O nas",
       "contact": "Kontakt",
       "privacy": "Polityka Prywatności",
-      "terms": "Regulamin"
+      "terms": "Regulamin",
+      "screenDetector": "Detektor ekranu",
+      "printableRuler": "Linijka do druku",
+      "circleRuler": "Miernik okręgów",
+      "quadrant": "Układ 4-ćwiartkowy"
     },
     "subNav": {
       "workspace": "Linijka",
@@ -72,13 +76,18 @@
     "toolGuides": "Przeciągane Linie Pomocnicze (G)",
     "toolFractions": "Odczyt Ułamków Calowych",
     "toolPx": "Inspektor Pikseli CSS (px)",
-    "toolProtractor": "Kątomierz 180° (P)",
+    "toolProtractor": "Kątomierz 360° (P)",
     "legalAbout": "O Online Ruler Plus",
     "legalContact": "Kontakt i Zgłoszenia",
     "legalPrivacy": "Polityka Prywatności",
     "legalTerms": "Regulamin i Wyłączenia",
     "copyright": "Copyright © {year} OnlineRulerPlus.com. Wszelkie prawa zastrzeżone.",
-    "constants": "1 cal = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)"
+    "constants": "1 cal = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)",
+    "toolPhoto": "Linijka do Zdjęć i Ctrl+V",
+    "toolCircle": "Miernik Kół i Pierścionków",
+    "toolQuadrant": "Siatka 4 Ćwiartek",
+    "toolPrintable": "Linijka SVG do Druku 1:1",
+    "toolDetector": "Detektor Ekranu i PPI"
   },
   "helpModal": {
     "kicker": "Szybka Pomoc",
@@ -221,7 +230,13 @@
     "photoExportBtn": "Eksportuj PNG",
     "photoCloseBtn": "Zamknij",
     "photoEmptyTitle": "W 100% lokalna linijka do zdjęć i schowka",
-    "photoEmptyDesc": "Naciśnij Ctrl+V, aby wkleić zrzut ekranu, lub wybierz plik. Nic nie jest wysyłane."
+    "photoEmptyDesc": "Naciśnij Ctrl+V, aby wkleić zrzut ekranu, lub wybierz plik. Nic nie jest wysyłane.",
+    "popoutBtn": "Osobne okno",
+    "popoutTitle": "Otwórz kompaktowe okno linijki",
+    "embedBtn": "Osadź",
+    "embedTitle": "Pobierz kod iframe",
+    "scaleLabel": "Skala",
+    "scaleAria": "Skala architektoniczna i techniczna"
   },
   "calibration": {
     "kicker": "Kalibracja Gęstości Ekranu · Zapis Lokalny Dla Monitora",
@@ -313,7 +328,11 @@
     "refCustomUnitAria": "Jednostka własnego obiektu",
     "refDragHint": "Przeciągnij niebieski uchwyt narożnika lub użyj suwaka",
     "cardDragHandleAria": "Przeciągnij róg, aby dopasować rozmiar",
-    "cardDragHandleTitle": "Przeciągnij róg, aby dopasować"
+    "cardDragHandleTitle": "Przeciągnij róg, aby dopasować",
+    "namedProfilesLabel": "Profile ekranów:",
+    "namedProfilePlaceholder": "np. Biuro 27\" / Laptop",
+    "namedProfileInputAria": "Własna nazwa profilu monitora",
+    "namedProfileSaveBtn": "Zapisz profil"
   },
   "runtime": {
     "statusLabels": {
@@ -1841,6 +1860,11 @@
           "kicker": "Smartfony · Wąskie Ekrany",
           "heading": "Dlaczego telefony używają Trybu Karty Pionowej (53,98 mm)",
           "body": "Ekran telefonu w pionie ma ok. 58–72 mm szerokości, więc karta pozioma (85,60 mm) się nie mieści. [[strong:Tryb Karty Pionowej]] wykorzystuje krótszy bok [[strong:53,98 mm]]."
+        },
+        {
+          "kicker": "Windows 125%/150% i Android Chrome",
+          "heading": "Kalibracja skalowanego systemu Windows oraz Androida",
+          "body": "Na laptopach Windows 10/11 ze skalowaniem [[code:125%]]/[[code:150%]] oraz w Android Chrome (~360–412 px CSS) zachowaj zoom przeglądarki [[strong:100%]], przełącz telefon na tryb pionowy karty ([[code:53.98 mm]]) i dopasuj do fizycznej karty."
         }
       ],
       "s7Kicker": "Sekcja 07 · Fizyka Ekranu i Granice Błędu",
@@ -2142,6 +2166,454 @@
           "body": "Poza kontrolkami pomiarowymi mogą być wyświetlane oznaczone reklamy oraz linki do instytucji normalizacyjnych (NIST, BIPM, ISO, W3C). Zobacz [[link:/privacy|Politykę Prywatności]]. Kontakt: [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]."
         }
       ]
+    },
+    "embed": {
+      "title": "Widżet linijki online — Online Ruler Plus",
+      "description": "Kompaktowy widżet linijki ekranowej obsługujący cm, mm, cale i piksele.",
+      "heading": "Kompaktowa linijka Online Ruler Plus"
+    },
+    "screenDetector": {
+      "title": "Detektor rozmiaru ekranu i PPI | Online Ruler Plus",
+      "description": "Sprawdź rozdzielczość CSS, DPR, powiększenie i oblicz dokładne PPI oraz rozmiar piksela swojego monitora.",
+      "schemaName": "Detektor ekranu i PPI",
+      "subNavTitle": "Detektor ekranu i PPI",
+      "breadcrumbLabel": "Detektor ekranu",
+      "heroKicker": "Lokalna telemetria ekranu · 100% po stronie klienta",
+      "heroHeadline": "Detektor rozmiaru, rozdzielczości i PPI",
+      "heroSummary": "Odczytaj parametry viewportu CSS oraz DPR i zastosuj znaną przekątną ekranu bezpośrednio w kalibracji linijki.",
+      "openRulerBtn": "Otwórz linijkę online",
+      "presetsLabel": "Wybierz przekątną ekranu (cale)",
+      "customDiagLabel": "Lub wpisz własną przekątną (3″–100″)",
+      "applyBtn": "Zastosuj przekątną do kalibracji",
+      "savedBanner": "Zapisano kalibrację przekątnej lokalnie.",
+      "liveCardKicker": "Sygnał przeglądarki",
+      "liveCardHeading": "Wykryte właściwości ekranu",
+      "labelCssRes": "Rozdzielczość CSS ekranu",
+      "labelPhysRes": "Szacowane piksele fizyczne",
+      "labelViewport": "Obszar roboczy przeglądarki",
+      "labelDpr": "Device Pixel Ratio (DPR)",
+      "labelAspect": "Proporcje obrazu",
+      "labelZoom": "Skala viewportu wizualnego",
+      "labelCalStatus": "Aktywna kalibracja linijki",
+      "labelCalBasis": "Podstawa kalibracji",
+      "geomCardKicker": "Obliczona geometria",
+      "geomCardHeading": "Wymiary fizyczne dla wybranej przekątnej",
+      "labelCalcWidth": "Widoczna szerokość matrycy",
+      "labelCalcHeight": "Widoczna wysokość matrycy",
+      "labelCalcCssPpi": "Gęstość CSS (px / cal)",
+      "labelCalcDevPpi": "Gęstość fizyczna (PPI)",
+      "labelCalcPitch": "Fizyczny rozmiar piksela",
+      "guideCards": [
+        {
+          "kicker": "CSS a fizyka",
+          "heading": "Dlaczego przeglądarki ukrywają rozmiar monitora",
+          "body": "Standardy prywatności blokują bezpośredni odczyt danych EDID oraz skali systemowej."
+        },
+        {
+          "kicker": "Skalowanie OS",
+          "heading": "Windows 125%, 150% i macOS Retina",
+          "body": "Wyższa skala systemu zmniejsza piksele CSS i podnosi DPR. Przy pomiarze ustaw zoom przeglądarki na 100%."
+        },
+        {
+          "kicker": "Weryfikacja",
+          "heading": "Sprawdź kartą ISO ID-1",
+          "body": "Po zapisaniu przekątnej porównaj skalę ze zwykłą kartą płatniczą w sekcji kalibracji."
+        }
+      ]
+    },
+    "printableRuler": {
+      "title": "Generator linijki SVG do druku w skali 1:1 (A4 i Letter) | Online Ruler Plus",
+      "description": "Wydrukuj papierową linijkę w skali 1:1, siatkę 1 cm oraz kątomierz 360° jako wektor SVG z paskiem kontrolnym 100 mm.",
+      "schemaName": "Generator linijki do druku",
+      "subNavTitle": "Linijki do druku 1:1",
+      "breadcrumbLabel": "Linijka do druku",
+      "heroKicker": "Wektor SVG 1:1 · 1 jednostka = 1 mm",
+      "heroHeadline": "Linijki, siatki i kątomierz do druku",
+      "heroSummary": "Pobierz arkusze wektorowe 1:1 dla A4 lub US Letter z wbudowanym paskiem kontrolnym 100,0 mm / 4,00 cala.",
+      "templateLabel": "Szablon",
+      "templates": {
+        "ruler15cm": "Linijka 15 cm / 6 cali",
+        "ruler25cm": "Linijka 25 cm / 10 cali",
+        "ruler30cmSplit": "30 cm dzielona (2×15 cm)",
+        "ruler12inSplit": "12 cali dzielona (2×6)",
+        "grid1cm": "Siatka 1 cm",
+        "protractor360": "Kątomierz 360°"
+      },
+      "paperLabel": "Format papieru",
+      "paperA4": "A4 (210 × 297 mm)",
+      "paperLetter": "US Letter (8,5 × 11 cali)",
+      "printBtn": "Drukuj (skala 100%)",
+      "downloadBtn": "Pobierz SVG",
+      "warningTitle": "Ważne: ustaw skalę drukowania na „Rzeczywisty rozmiar / 100%”",
+      "warningBody": "Opcja „Dopasuj do strony” często zmniejsza wydruk o 3–6%. Zawsze zmierz wydrukowany pasek 100,0 mm przed wycięciem."
+    },
+    "circleRuler": {
+      "title": "Miernik średnicy okręgów, pierścionków, śrub i monet (1–150 mm) | Online Ruler Plus",
+      "description": "Zmierz rozmiar pierścionka (US/EU), śruby M3–M12, podkładki lub monety bezpośrednio na skalibrowanym ekranie.",
+      "schemaName": "Miernik średnicy okręgów",
+      "subNavTitle": "Miernik okręgów",
+      "breadcrumbLabel": "Miernik okręgów",
+      "heroKicker": "Metrologia kołowa · 1,00 mm – 150,00 mm",
+      "heroHeadline": "Miernik średnicy okręgów, obrączek i śrub",
+      "heroSummary": "Połóż pierścionek, monetę lub podkładkę na niebieskim okręgu albo przeciągnij krawędź do idealnego dopasowania.",
+      "diameterLabel": "Średnica (mm)",
+      "presetsLabel": "Szybkie wzorce (Śruby ISO, Pierścionki, Monety)",
+      "readoutTitle": "Odczyt geometryczny",
+      "labelDiameter": "Średnica",
+      "labelRadius": "Promień (r)",
+      "labelCircumference": "Obwód (π·d)",
+      "labelArea": "Pole (π·r²)",
+      "labelDiameterIn": "Średnica (Cale)",
+      "labelPixels": "Średnica na ekranie (px)",
+      "labelRingSize": "Rozmiar pierścionka",
+      "guideCards": [
+        {
+          "kicker": "Pierścionki",
+          "heading": "Pomiar średnicy wewnętrznej",
+          "body": "Dopasuj wnętrze obrączki do okręgu, aby odczytać rozmiar US i EU."
+        },
+        {
+          "kicker": "Śruby i elementy",
+          "heading": "Śruby M3–M12 i podkładki",
+          "body": "Sprawdź łby śrub, oringi i wiertła od 1 mm do 150 mm."
+        },
+        {
+          "kicker": "Kalibracja",
+          "heading": "Wykorzystuje zapisane PPI",
+          "body": "Dla pełnej dokładności wykonaj najpierw kalibrację kartą ISO ID-1."
+        }
+      ]
+    },
+    "quadrant": {
+      "title": "Interaktywny 4-ćwiartkowy układ współrzędnych i wektorów | Online Ruler Plus",
+      "description": "Mierz współrzędne (±X, ±Y), odległość r i kąt biegunowy θ na skalibrowanej siatce.",
+      "schemaName": "Układ współrzędnych 4-ćwiartkowy",
+      "subNavTitle": "Układ 4-ćwiartkowy",
+      "breadcrumbLabel": "4 ćwiartki",
+      "heroKicker": "Skalibrowana płaszczyzna · (±X, ±Y) i (r, θ)",
+      "heroHeadline": "Interaktywny układ 4 ćwiartek i wektorów",
+      "heroSummary": "Kliknij lub przeciągnij punkt względem środka (0, 0), aby odczytać X, Y, odległość r oraz kąt θ.",
+      "hint": "Kliknij lub przeciągnij na siatce, aby umieścić wektor względem punktu (0, 0).",
+      "resetOriginBtn": "Resetuj (0, 0)",
+      "labelX": "Współrzędna X",
+      "labelY": "Współrzędna Y",
+      "labelRadius": "Odległość (r)",
+      "labelAngle": "Kąt biegunowy (θ)",
+      "labelQuadrant": "Aktywna ćwiartka",
+      "guideCards": [
+        {
+          "kicker": "Cztery ćwiartki",
+          "heading": "Ćwiartki I–IV ze znakiem",
+          "body": "Sprawdzaj symetrię i przesunięcia od środka układu."
+        },
+        {
+          "kicker": "Biegunowe",
+          "heading": "r = √(X² + Y²)",
+          "body": "Jednoczesny odczyt współrzędnych kartezjańskich i biegunowych."
+        },
+        {
+          "kicker": "Prawdziwa skala",
+          "heading": "Siatka cm, mm, cale lub px",
+          "body": "Korzysta z Twojej aktywnej kalibracji PPI."
+        }
+      ]
+    },
+    "photoRuler": {
+      "title": "Linijka do Zdjęć i Zrzutów Ekranu | Mierz Obrazy Online",
+      "description": "Mierz obiekty na zdjęciach i zrzutach Ctrl+V dzięki kalibracji 2-punktowej, ramkom i eksportowi PNG z wymiarami.",
+      "schemaName": "Linijka Online do Zdjęć i Schowka",
+      "featureList": [
+        "100% lokalnie i Ctrl+V",
+        "Kalibracja 2-punktowa",
+        "Wymiary ΔX/ΔY i ramki",
+        "Eksport PNG ze skalą"
+      ],
+      "subNavTitle": "Linijka do Zdjęć",
+      "breadcrumbLabel": "Linijka Foto",
+      "hero": {
+        "eyebrow": "Pomiary Obrazów · 100% Lokalnie · Ctrl+V",
+        "headline": "Mierz zdjęcia i zrzuty ekranu online",
+        "description": "Wczytaj zdjęcie lub wklej Ctrl+V, zaznacz znany wymiar odniesienia i mierz bez wysyłania plików."
+      },
+      "guideKicker": "Prywatne pomiary w przeglądarce",
+      "guideHeading": "Jak mierzyć obiekty na zdjęciach",
+      "guideLead": "Do rzutów, zdjęć warsztatowych i zrzutów UI.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Lokalnie · Ctrl+V",
+          "heading": "Wczytaj lub wklej obraz",
+          "body": "Wszystko zostaje w pamięci RAM przeglądarki.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Otwórz tryb foto"
+        },
+        {
+          "step": "2",
+          "kicker": "Skala 2-punktowa",
+          "heading": "Zaznacz znany odcinek",
+          "body": "Wpisz długość karty lub monety na zdjęciu.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Zobacz wzorce"
+        },
+        {
+          "step": "3",
+          "kicker": "Eksport PNG",
+          "heading": "Zapisz PNG z adnotacjami",
+          "body": "Dodaj linie i pobierz gotowy obraz z wymiarami.",
+          "linkHref": "/protractor",
+          "linkLabel": "Otwórz kątomierz 360°"
+        }
+      ],
+      "darkKicker": "Wzorce odniesienia",
+      "darkHeading": "Najlepsze wzorce na zdjęciach",
+      "darkLead": "Umieść płaski wzorzec obok mierzonego przedmiotu.",
+      "darkCards": [
+        {
+          "heading": "Kąt prosty aparatu",
+          "body": "Ogranicza błędy perspektywy."
+        },
+        {
+          "heading": "Szybkie wklejanie Ctrl+V",
+          "body": "Zrzuty ekranu zachowują dokładne piksele."
+        },
+        {
+          "heading": "Zero chmury",
+          "body": "Pełne przetwarzanie po stronie klienta."
+        }
+      ],
+      "table": {
+        "kicker": "Wzorce długości",
+        "heading": "Popularne obiekty do kalibracji 2-punktowej",
+        "headers": [
+          "Obiekt",
+          "Długość (mm)",
+          "Cale",
+          "Zastosowanie"
+        ],
+        "rows": [
+          [
+            "Karta płatnicza ID-1 (szer.)",
+            "85.60 mm",
+            "3.370 in",
+            "Przedmioty na stole"
+          ],
+          [
+            "Karta ID-1 (wys.)",
+            "53.98 mm",
+            "2.125 in",
+            "Małe odstępy"
+          ],
+          [
+            "Moneta 1 Euro",
+            "23.25 mm",
+            "0.915 in",
+            "Śruby i makro"
+          ],
+          [
+            "Moneta 2 Euro",
+            "25.75 mm",
+            "1.014 in",
+            "Pierścionki"
+          ],
+          [
+            "Quarter US",
+            "24.26 mm",
+            "0.955 in",
+            "Makro"
+          ],
+          [
+            "Bateria AA",
+            "50.50 mm",
+            "1.988 in",
+            "Warsztat"
+          ],
+          [
+            "Arkusz US Letter",
+            "215.90 mm",
+            "8.500 in",
+            "Meble"
+          ],
+          [
+            "Arkusz A4 ISO",
+            "210.00 mm",
+            "8.268 in",
+            "Projekty i paczki"
+          ]
+        ],
+        "footnote": "Umieść wzorzec na tej samej płaszczyźnie co obiekt."
+      },
+      "faqKicker": "FAQ Foto",
+      "faqHeading": "Pytania o pomiary zdjęć",
+      "faqs": [
+        {
+          "q": "Czy zdjęcia są wysyłane na serwer?",
+          "a": "Nie, przetwarzanie jest w 100% lokalne."
+        },
+        {
+          "q": "Jaka jest dokładność?",
+          "a": "Około 1–2 pikseli na płaskich zdjęciach z góry."
+        },
+        {
+          "q": "Czy zmierzę szerokość i wysokość naraz?",
+          "a": "Tak, przez ΔX/ΔY oraz ramki."
+        },
+        {
+          "q": "Jakie formaty działają?",
+          "a": "PNG, JPEG, WebP, GIF, SVG oraz zrzuty Ctrl+V."
+        }
+      ]
+    },
+    "protractor": {
+      "title": "Kątomierz Online 360° | Pomiar Kątów na Ekranie",
+      "description": "Interaktywny kątomierz 360° z ruchomym wierzchołkiem i dwoma ramionami na ekranie oraz zdjęciach.",
+      "schemaName": "Kątomierz Online 360°",
+      "featureList": [
+        "Pełny zakres 0°–360°",
+        "Ruchomy środek i dwa ramiona",
+        "Praca na zdjęciach",
+        "Współpraca z linijkami skośnymi"
+      ],
+      "subNavTitle": "Kątomierz 360°",
+      "breadcrumbLabel": "Kątomierz",
+      "hero": {
+        "eyebrow": "Geometria 0°–360° · Dwa ruchome ramiona",
+        "headline": "Interaktywny Kątomierz Online 360°",
+        "description": "Przeciągnij wierzchołek i obracaj niezależnie oba ramiona w zakresie 360°."
+      },
+      "guideKicker": "Pomiary kątowe",
+      "guideHeading": "Pomiar kątów na ekranie i obrazach",
+      "guideLead": "Do geometrii, cięcia pod kątem, dachów i rysunków CAD.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Klawisz P",
+          "heading": "Ustaw wierzchołek",
+          "body": "Przeciągnij pierścień na dowolny narożnik.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Uruchom kątomierz"
+        },
+        {
+          "step": "2",
+          "kicker": "2 ramiona 360°",
+          "heading": "Bez obracania zdjęcia",
+          "body": "Oba ramiona obracają się o pełne 360°.",
+          "linkHref": "/photo-ruler",
+          "linkLabel": "Wczytaj zdjęcie"
+        },
+        {
+          "step": "3",
+          "kicker": "Kąt + Długość",
+          "heading": "Połącz z linijkami",
+          "body": "Dodaj ukośne linijki pływające.",
+          "linkHref": "/quadrant",
+          "linkLabel": "Siatka 4 ćwiartek"
+        }
+      ],
+      "darkKicker": "Wartości kątów",
+      "darkHeading": "Typowe kąty stolarskie i techniczne",
+      "darkLead": "Kwadratowe piksele zachowują dokładność kątów przed kalibracją PPI.",
+      "darkCards": [
+        {
+          "heading": "Czytelny łuk kąta",
+          "body": "Pokazuje kąt między ramionami."
+        },
+        {
+          "heading": "Precyzja klawiaturą",
+          "body": "Strzałki ułatwiają drobne korekty."
+        },
+        {
+          "heading": "Cięcia ukośne",
+          "body": "Podziel kąt narożnika na pół dla piły."
+        }
+      ],
+      "table": {
+        "kicker": "Kąty referencyjne",
+        "heading": "Popularne kąty robocze",
+        "headers": [
+          "Nazwa",
+          "Stopnie (°)",
+          "Nachylenie",
+          "Zastosowanie"
+        ],
+        "rows": [
+          [
+            "Kąt prosty",
+            "90.0°",
+            "Prostopadły",
+            "Stolarka i PCB"
+          ],
+          [
+            "Skos 45°",
+            "45.0°",
+            "1:1 (100%)",
+            "Ramy"
+          ],
+          [
+            "Sześciokąt",
+            "120.0°",
+            "60° zew.",
+            "Nakrętki"
+          ],
+          [
+            "Izometria",
+            "30.0°",
+            "57.7%",
+            "Rysunek 3D"
+          ],
+          [
+            "Ośmiokąt",
+            "22.5°",
+            "135° wew.",
+            "Listwy"
+          ],
+          [
+            "Dach 4/12",
+            "18.4°",
+            "33.3%",
+            "Krokwie"
+          ],
+          [
+            "Pięciokąt",
+            "108.0°",
+            "72° zew.",
+            "Wielokąty"
+          ],
+          [
+            "Półpełny",
+            "180.0°",
+            "Linia prosta",
+            "Współliniowość"
+          ]
+        ],
+        "footnote": "Wymaga standardowych kwadratowych pikseli ekranu 1:1."
+      },
+      "faqKicker": "FAQ Kątomierza",
+      "faqHeading": "Pytania o kątomierz 360°",
+      "faqs": [
+        {
+          "q": "Czy muszę kalibrować PPI do kątów?",
+          "a": "Nie, przy kwadratowych pikselach kąty są od razu dokładne."
+        },
+        {
+          "q": "Czy działa na wklejonym zdjęciu?",
+          "a": "Tak, użyj Ctrl+V i zostaw włączony kątomierz."
+        },
+        {
+          "q": "Dlaczego 360° zamiast 180°?",
+          "a": "Oba ruchome ramiona eliminują potrzebę prostowania obiektu."
+        },
+        {
+          "q": "Czy mogę mierzyć też długości?",
+          "a": "Tak, za pomocą linii ΔX/ΔY i ukośnych linijek."
+        }
+      ]
     }
+  },
+  "converter": {
+    "title": "Przelicznik jednostek",
+    "mmAria": "Przelicz milimetry",
+    "cmAria": "Przelicz centymetry",
+    "inAria": "Przelicz cale",
+    "pxAria": "Przelicz piksele CSS"
   }
 }

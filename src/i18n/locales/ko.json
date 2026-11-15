@@ -40,7 +40,11 @@
       "about": "소개",
       "contact": "문의하기",
       "privacy": "개인정보 처리방침",
-      "terms": "이용약관"
+      "terms": "이용약관",
+      "screenDetector": "화면 PPI 감지기",
+      "printableRuler": "인쇄용 눈금자",
+      "circleRuler": "원·반지 게이지",
+      "quadrant": "4사분면 좌표"
     },
     "subNav": {
       "workspace": "눈금자",
@@ -72,13 +76,18 @@
     "toolGuides": "드래그 가이드선 (G)",
     "toolFractions": "분수 인치 표시",
     "toolPx": "CSS 픽셀 검사기 (px)",
-    "toolProtractor": "180° 각도기 오버레이 (P)",
+    "toolProtractor": "360° 각도기 도구 (P)",
     "legalAbout": "Online Ruler Plus 소개",
     "legalContact": "문의 및 디스플레이 제보",
     "legalPrivacy": "개인정보 처리방침",
     "legalTerms": "이용약관",
     "copyright": "Copyright © {year} OnlineRulerPlus.com. All rights reserved.",
-    "constants": "1 in = 25.4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85.60 × 53.98 mm)"
+    "constants": "1 in = 25.4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85.60 × 53.98 mm)",
+    "toolPhoto": "사진 & Ctrl+V 자",
+    "toolCircle": "원·반지·볼트 게이지",
+    "toolQuadrant": "4사분면 좌표 평면",
+    "toolPrintable": "1:1 인쇄용 SVG 자",
+    "toolDetector": "화면 크기 & PPI 감지기"
   },
   "helpModal": {
     "kicker": "빠른 참조",
@@ -221,7 +230,13 @@
     "photoExportBtn": "PNG 내보내기",
     "photoCloseBtn": "닫기",
     "photoEmptyTitle": "100% 로컬 사진 및 클립보드 자",
-    "photoEmptyDesc": "Ctrl+V로 스크린샷을 붙여넣거나 이미지를 드롭하세요. 서버로 업로드되지 않습니다."
+    "photoEmptyDesc": "Ctrl+V로 스크린샷을 붙여넣거나 이미지를 드롭하세요. 서버로 업로드되지 않습니다.",
+    "popoutBtn": "새 창 열기",
+    "popoutTitle": "컴팩트 팝업 창으로 자 열기",
+    "embedBtn": "임베드",
+    "embedTitle": "iframe 임베드 코드 복사",
+    "scaleLabel": "축척",
+    "scaleAria": "건축 및 도면 축척 선택"
   },
   "calibration": {
     "kicker": "화면 픽셀 밀도 교정 · 디스플레이별 로컬 저장",
@@ -313,7 +328,11 @@
     "refCustomUnitAria": "사용자 지정 단위",
     "refDragHint": "파란 모서리 핸들이나 슬라이더로 맞추세요",
     "cardDragHandleAria": "모서리를 드래그하여 기준 크기 맞추기",
-    "cardDragHandleTitle": "모서리 드래그 크기 조절"
+    "cardDragHandleTitle": "모서리 드래그 크기 조절",
+    "namedProfilesLabel": "디스플레이 프로필:",
+    "namedProfilePlaceholder": "예: 사무실 27\" / 노트북",
+    "namedProfileInputAria": "모니터 프로필 이름",
+    "namedProfileSaveBtn": "프로필 저장"
   },
   "runtime": {
     "statusLabels": {
@@ -1841,6 +1860,11 @@
           "kicker": "스마트폰 제약 · 좁은 화면",
           "heading": "모바일에서 세로 카드 교정(53.98 mm)을 쓰는 이유",
           "body": "세로 스마트폰 폭은 약 58–72 mm라 가로 카드(85.60 mm)가 화면 밖으로 넘칩니다. [[strong:세로 카드 모드]]는 짧은 변 [[strong:53.98 mm]] 기준으로 정확히 1:1 교정합니다."
+        },
+        {
+          "kicker": "Windows 125%/150% 및 Android Chrome",
+          "heading": "Windows 배율 노트북 및 Android 휴대폰 보정 방법",
+          "body": "[[code:125%]] 또는 [[code:150%]] 배율을 사용하는 Windows 10/11 노트북과 Android Chrome(~360–412 CSS px)에서는 브라우저 확대/축소를 [[strong:100%]]로 유지하고 Android에서는 세로 카드 모드([[code:53.98 mm]])를 선택해 실물 카드와 맞추세요."
         }
       ],
       "s7Kicker": "Section 07 · 디스플레이 물리 및 허용 오차",
@@ -2142,6 +2166,454 @@
           "body": "측정 UI 외부 영역에 광고가 표시되거나 NIST·BIPM·ISO·W3C 표준 링크가 제공될 수 있습니다. [[link:/privacy|개인정보 처리방침]]을 참고하시고 문의는 [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]으로 보내주세요."
         }
       ]
+    },
+    "embed": {
+      "title": "임베드용 온라인 자 — Online Ruler Plus",
+      "description": "cm, mm, 인치, 픽셀을 지원하는 컴팩트 화면 자 위젯입니다.",
+      "heading": "Online Ruler Plus 컴팩트 작업공간"
+    },
+    "screenDetector": {
+      "title": "화면 크기·해상도·PPI 감지기 | Online Ruler Plus",
+      "description": "CSS 해상도, DPR, 확대/축소 배율을 확인하고 화면의 실제 크기(cm)와 CSS PPI, 픽셀 피치를 계산합니다.",
+      "schemaName": "화면 크기 및 PPI 감지기",
+      "subNavTitle": "화면 크기 & PPI 감지기",
+      "breadcrumbLabel": "화면 PPI 감지기",
+      "heroKicker": "로컬 디스플레이 원격 측정 · 100% 클라이언트",
+      "heroHeadline": "화면 크기, 해상도 및 PPI 감지기",
+      "heroSummary": "브라우저의 CSS 뷰포트와 DPR을 확인하고 대각선 인치를 선택해 온라인 자 보정에 바로 적용하세요.",
+      "openRulerBtn": "온라인 자 열기",
+      "presetsLabel": "화면 대각선 길이 선택 (인치)",
+      "customDiagLabel": "또는 직접 대각선 입력 (3″–100″)",
+      "applyBtn": "보정값으로 적용하기",
+      "savedBanner": "대각선 보정값이 로컬에 저장되었습니다.",
+      "liveCardKicker": "실시간 브라우저 신호",
+      "liveCardHeading": "감지된 디스플레이 속성",
+      "labelCssRes": "CSS 화면 해상도",
+      "labelPhysRes": "추정 물리 픽셀",
+      "labelViewport": "브라우저 뷰포트",
+      "labelDpr": "디바이스 픽셀 비율 (DPR)",
+      "labelAspect": "화면 비율",
+      "labelZoom": "시각적 뷰포트 배율",
+      "labelCalStatus": "현재 자 보정 상태",
+      "labelCalBasis": "보정 기준",
+      "geomCardKicker": "계산된 디스플레이 기하학",
+      "geomCardHeading": "선택한 대각선 기준 실제 크기",
+      "labelCalcWidth": "가시 패널 너비",
+      "labelCalcHeight": "가시 패널 높이",
+      "labelCalcCssPpi": "CSS 밀도 (px / inch)",
+      "labelCalcDevPpi": "물리 패널 밀도 (PPI)",
+      "labelCalcPitch": "물리 픽셀 피치",
+      "guideCards": [
+        {
+          "kicker": "CSS vs 물리 크기",
+          "heading": "브라우저가 실제 모니터 크기를 숨기는 이유",
+          "body": "개인정보 보호 표준상 웹사이트는 모니터 EDID 크기나 OS 배율(%)을 직접 읽을 수 없습니다."
+        },
+        {
+          "kicker": "OS 배율",
+          "heading": "Windows 125%, 150% 및 macOS Retina",
+          "body": "OS 배율이 높아지면 CSS 픽셀은 줄고 DPR은 올라갑니다. 측정 시 브라우저 확대/축소는 100%로 유지하세요."
+        },
+        {
+          "kicker": "최종 검증",
+          "heading": "실물 신용카드로 재확인 권장",
+          "body": "대각선 보정 후에도 85.60mm 표준 카드 윤곽선과 대조하면 오차 없는 정밀도를 얻을 수 있습니다."
+        }
+      ]
+    },
+    "printableRuler": {
+      "title": "인쇄용 1:1 실물 크기 SVG 눈금자 생성기 (A4/Letter) | Online Ruler Plus",
+      "description": "100mm 확인 바가 포함된 1:1 실물 비율 종이 자, 1cm 모눈종이, 360° 각도기를 벡터 SVG로 인쇄하세요.",
+      "schemaName": "인쇄용 눈금자 생성기",
+      "subNavTitle": "인쇄용 1:1 눈금자",
+      "breadcrumbLabel": "인쇄용 눈금자",
+      "heroKicker": "실물 비율 벡터 SVG · 1 단위 = 1 mm",
+      "heroHeadline": "인쇄용 눈금자, 격자 및 각도기",
+      "heroSummary": "A4 또는 US Letter 용지에 맞춘 1:1 벡터 도안을 생성하며, 프린터 축소 여부를 확인할 수 있는 100.0mm / 4.00인치 검증 바가 포함됩니다.",
+      "templateLabel": "시트 템플릿",
+      "templates": {
+        "ruler15cm": "15 cm / 6 in 자",
+        "ruler25cm": "25 cm / 10 in 자",
+        "ruler30cmSplit": "30 cm 분할 (2×15 cm)",
+        "ruler12inSplit": "12 in 분할 (2×6 in)",
+        "grid1cm": "1 cm 모눈 격자",
+        "protractor360": "360° 각도기"
+      },
+      "paperLabel": "용지 규격",
+      "paperA4": "A4 (210 × 297 mm)",
+      "paperLetter": "US Letter (8.5 × 11 in)",
+      "printBtn": "인쇄하기 (100% 실제 크기)",
+      "downloadBtn": "SVG 다운로드",
+      "warningTitle": "필수 확인: 인쇄 배율을 \"실제 크기 / 100%\"로 설정하세요",
+      "warningBody": "프린터 기본값인 \"페이지에 맞춤\"은 3~6% 축소될 수 있습니다. 인쇄 후 100.0mm 검증 바 길이를 꼭 확인하세요."
+    },
+    "circleRuler": {
+      "title": "원·반지·볼트(M3–M12)·동전 직경 게이지 (1–150 mm) | Online Ruler Plus",
+      "description": "보정된 화면에서 반지 호수(US/EU), ISO 미터 나사, 와셔, 동전의 실제 지름을 즉시 측정하세요.",
+      "schemaName": "동심원 및 직경 게이지",
+      "subNavTitle": "원·반지 직경 게이지",
+      "breadcrumbLabel": "원·반지 게이지",
+      "heroKicker": "실물 비율 동심원 측정 · 1.00 mm – 150.00 mm",
+      "heroHeadline": "원·반지·볼트·동전 직경 게이지",
+      "heroSummary": "반지, 동전, 나사 머리, 와셔를 화면 원 위에 올리거나 파란 테두리를 드래그해 실제 지름을 맞추세요.",
+      "diameterLabel": "지름 (mm)",
+      "presetsLabel": "빠른 프리셋 (ISO 볼트, 반지, 동전, 디스크)",
+      "readoutTitle": "기하학 측정값",
+      "labelDiameter": "지름",
+      "labelRadius": "반지름 (r)",
+      "labelCircumference": "원둘레 (π·d)",
+      "labelArea": "넓이 (π·r²)",
+      "labelDiameterIn": "지름 (인치)",
+      "labelPixels": "화면 픽셀 지름 (px)",
+      "labelRingSize": "근사 반지 호수",
+      "guideCards": [
+        {
+          "kicker": "반지 호수",
+          "heading": "반지 내경 측정",
+          "body": "반지 안쪽 둘레를 파란 원에 맞추면 US 및 EU 호수를 자동으로 안내합니다."
+        },
+        {
+          "kicker": "공구/나사",
+          "heading": "M3–M12 볼트 및 와셔 확인",
+          "body": "1mm~150mm 범위의 나사, O링, 드릴 비트를 실물로 비교할 수 있습니다."
+        },
+        {
+          "kicker": "화면 보정",
+          "heading": "보정된 PPI 기반 정밀도",
+          "body": "정확한 실측을 위해 표준 신용카드 보정을 먼저 완료하세요."
+        }
+      ]
+    },
+    "quadrant": {
+      "title": "4사분면 데카르트 좌표 평면 & 벡터 플로터 | Online Ruler Plus",
+      "description": "보정된 격자 위에서 원점 (0, 0) 기준 부호 있는 (±X, ±Y) 좌표, 거리 r, 극각도 θ를 측정하세요.",
+      "schemaName": "4사분면 좌표 평면",
+      "subNavTitle": "4사분면 좌표계",
+      "breadcrumbLabel": "4사분면 좌표",
+      "heroKicker": "보정된 직교 좌표계 · (±X, ±Y) & 극좌표 (r, θ)",
+      "heroHeadline": "인터랙티브 4사분면 좌표 및 벡터 그리드",
+      "heroSummary": "중앙 원점(0, 0) 기준으로 평면을 클릭하거나 드래그해 X/Y 오프셋, 거리 r, 각도 θ(0°–360°)를 읽습니다.",
+      "hint": "좌표 격자 위를 클릭하거나 드래그해 중앙 원점(0, 0) 기준 벡터를 배치하세요.",
+      "resetOriginBtn": "원점(0, 0) 초기화",
+      "labelX": "X 좌표",
+      "labelY": "Y 좌표",
+      "labelRadius": "거리 (r)",
+      "labelAngle": "극각도 (θ)",
+      "labelQuadrant": "활성 사분면",
+      "guideCards": [
+        {
+          "kicker": "4개 사분면",
+          "heading": "I–IV 사분면 정밀 판독",
+          "body": "중심 기준 대칭 측정과 다축 오프셋 확인에 적합합니다."
+        },
+        {
+          "kicker": "극좌표 수학",
+          "heading": "유클리드 거리 r = √(X² + Y²)",
+          "body": "직교 좌표와 함께 극거리 및 각도 θ를 실시간 출력합니다."
+        },
+        {
+          "kicker": "실물 스케일",
+          "heading": "cm · mm · 인치 · px 그리드",
+          "body": "저장된 화면 PPI 보정값을 그대로 반영합니다."
+        }
+      ]
+    },
+    "photoRuler": {
+      "title": "사진 & 스크린샷 자 | 이미지 길이 온라인 측정",
+      "description": "업로드한 사진과 Ctrl+V 캡처 이미지를 2점 기준 보정, 경계 상자 및 주석 포함 PNG 저장으로 브라우저에서 안전하게 측정하세요.",
+      "schemaName": "온라인 사진 & 클립보드 자",
+      "featureList": [
+        "100% 로컬 처리 & Ctrl+V 붙여넣기",
+        "이미지 내 2점 기준 길이 보정",
+        "ΔX/ΔY 및 경계 상자 치수",
+        "보정 스케일 바 포함 PNG 내보내기"
+      ],
+      "subNavTitle": "사진 자",
+      "breadcrumbLabel": "사진 자",
+      "hero": {
+        "eyebrow": "이미지 계측 · 100% 로컬 · Ctrl+V 지원",
+        "headline": "사진 및 스크린샷 길이를 온라인에서 측정",
+        "description": "이미지를 불러오거나 Ctrl+V로 붙여넣고 알려진 기준 길이를 지정해 서버 전송 없이 바로 측정하세요."
+      },
+      "guideKicker": "100% 브라우저 내부 처리",
+      "guideHeading": "사진 속 길이와 크기를 측정하는 방법",
+      "guideLead": "도면, 부품 사진, UI 스크린샷을 안전하게 계측합니다.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "로컬 · Ctrl+V",
+          "heading": "사진 열기 또는 붙여넣기",
+          "body": "모든 이미지는 브라우저 메모리에만 머무릅니다.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "사진 모드 열기"
+        },
+        {
+          "step": "2",
+          "kicker": "2점 기준 보정",
+          "heading": "알려진 기준물 지정",
+          "body": "카드나 동전의 양 끝을 찍고 실제 mm를 입력하세요.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "기준 크기 보기"
+        },
+        {
+          "step": "3",
+          "kicker": "PNG 내보내기",
+          "heading": "치수 표시 PNG 저장",
+          "body": "안내선과 치수를 포함한 PNG 파일로 다운로드하세요.",
+          "linkHref": "/protractor",
+          "linkLabel": "360° 각도기 열기"
+        }
+      ],
+      "darkKicker": "촬영 기준물",
+      "darkHeading": "사진 보정에 적합한 표준 물체",
+      "darkLead": "측정 대상 옆 같은 평면에 놓아 원근 오차를 줄이세요.",
+      "darkCards": [
+        {
+          "heading": "수직 위에서 촬영",
+          "body": "카메라 기울기 왜곡을 줄여줍니다."
+        },
+        {
+          "heading": "Ctrl+V 즉시 측정",
+          "body": "스크린샷은 픽셀 손실 없이 바로 측정됩니다."
+        },
+        {
+          "heading": "클라우드 저장 없음",
+          "body": "탭을 닫으면 자동으로 비워집니다."
+        }
+      ],
+      "table": {
+        "kicker": "사진 기준 크기",
+        "heading": "2점 보정용 표준 규격 목록",
+        "headers": [
+          "기준 물체",
+          "길이 (mm)",
+          "인치",
+          "용도"
+        ],
+        "rows": [
+          [
+            "신용카드 ID-1 (가로)",
+            "85.60 mm",
+            "3.370 in",
+            "탁상 부품"
+          ],
+          [
+            "신용카드 ID-1 (세로)",
+            "53.98 mm",
+            "2.125 in",
+            "작은 간격"
+          ],
+          [
+            "1유로 동전",
+            "23.25 mm",
+            "0.915 in",
+            "매크로 촬영"
+          ],
+          [
+            "2유로 동전",
+            "25.75 mm",
+            "1.014 in",
+            "반지·나사"
+          ],
+          [
+            "미국 쿼터 동전",
+            "24.26 mm",
+            "0.955 in",
+            "근접 측정"
+          ],
+          [
+            "AA 건전지 (IEC R6)",
+            "50.50 mm",
+            "1.988 in",
+            "작업 사진"
+          ],
+          [
+            "US 레터 용지",
+            "215.90 mm",
+            "8.500 in",
+            "가구·도면"
+          ],
+          [
+            "A4 용지 (짧은 변)",
+            "210.00 mm",
+            "8.268 in",
+            "포장·도면"
+          ]
+        ],
+        "footnote": "기준물과 측정 대상을 동일한 초점 평면에 두세요."
+      },
+      "faqKicker": "사진 측정 FAQ",
+      "faqHeading": "사진 자 자주 묻는 질문",
+      "faqs": [
+        {
+          "q": "사진이 서버로 전송되나요?",
+          "a": "아니요. 디코딩부터 PNG 저장까지 로컬에서만 실행됩니다."
+        },
+        {
+          "q": "정확도는 어느 정도인가요?",
+          "a": "수직 평면 사진에서는 전체 화면 대비 1~2픽셀 이내 정확도를 보입니다."
+        },
+        {
+          "q": "가로·세로를 동시에 잴 수 있나요?",
+          "a": "네, ΔX/ΔY 안내선과 경계 상자로 확인할 수 있습니다."
+        },
+        {
+          "q": "지원되는 이미지 형식은 무엇인가요?",
+          "a": "PNG, JPEG, WebP, GIF, SVG 및 Ctrl+V 캡처를 지원합니다."
+        }
+      ]
+    },
+    "protractor": {
+      "title": "온라인 각도기 360° | 화면·사진 각도 측정",
+      "description": "이동 가능한 꼭짓점과 독립 회전하는 두 반직선으로 0°~360° 각도를 화면이나 사진 위에서 직접 측정하세요.",
+      "schemaName": "온라인 360° 이중 반직선 각도기",
+      "featureList": [
+        "전체 0°~360° 측정",
+        "꼭짓점 이동 및 A/B 반직선 회전",
+        "사진 위 직접 측정",
+        "회전 자와 동시 사용"
+      ],
+      "subNavTitle": "360° 각도기",
+      "breadcrumbLabel": "각도기",
+      "hero": {
+        "eyebrow": "기하 측정 0°–360° · 자유 반직선 2개",
+        "headline": "인터랙티브 360° 온라인 각도기",
+        "description": "꼭짓점 링을 원하는 위치로 끌어다 놓고 두 선을 360° 회전해 예각·둔각·반사각을 즉시 읽으세요."
+      },
+      "guideKicker": "화면 각도 계측",
+      "guideHeading": "화면과 이미지 위에서 각도 측정하기",
+      "guideLead": "수학 기하학, 마이터 절단, 지붕 경사, CAD 검증에 적합합니다.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "단축키 P",
+          "heading": "꼭짓점에 중심 맞추기",
+          "body": "중심 링을 원하는 모서리 꼭짓점으로 드래그하세요.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "각도기 열기"
+        },
+        {
+          "step": "2",
+          "kicker": "360° 양선 회전",
+          "heading": "도형을 돌리지 않고 측정",
+          "body": "두 반직선이 각각 360° 회전해 기울어진 이미지도 바로 측정됩니다.",
+          "linkHref": "/photo-ruler",
+          "linkLabel": "사진 불러오기"
+        },
+        {
+          "step": "3",
+          "kicker": "각도 + 길이",
+          "heading": "회전 자와 함께 사용",
+          "body": "원하는 각도의 부동 자를 함께 배치해 보세요.",
+          "linkHref": "/quadrant",
+          "linkLabel": "4사분면 좌표 보기"
+        }
+      ],
+      "darkKicker": "각도 참고표",
+      "darkHeading": "자주 쓰는 제도 및 목공 각도",
+      "darkLead": "정사각 픽셀 모니터에서는 PPI 보정 전에도 각도가 정확합니다.",
+      "darkCards": [
+        {
+          "heading": "선명한 호 표시",
+          "body": "두 선 사이의 내각을 시각적으로 나타냅니다."
+        },
+        {
+          "heading": "키보드 미세 조정",
+          "body": "방향키로 정밀하게 회전할 수 있습니다."
+        },
+        {
+          "heading": "마이터 톱 계산",
+          "body": "모서리 각도를 반으로 나누면 톱 설정 각도가 됩니다."
+        }
+      ],
+      "table": {
+        "kicker": "표준 각도",
+        "heading": "설계 및 목공 주요 각도표",
+        "headers": [
+          "종류",
+          "각도 (°)",
+          "기울기/참고",
+          "용도"
+        ],
+        "rows": [
+          [
+            "직각",
+            "90.0°",
+            "수직",
+            "가구·PCB"
+          ],
+          [
+            "마이터 컷",
+            "45.0°",
+            "1:1 (100%)",
+            "액자 프레임"
+          ],
+          [
+            "육각형 내각",
+            "120.0°",
+            "외각 60°",
+            "육각 볼트"
+          ],
+          [
+            "등각투상 축",
+            "30.0°",
+            "57.7%",
+            "3D 도면"
+          ],
+          [
+            "팔각형 이음",
+            "22.5°",
+            "내각 135°",
+            "몰딩"
+          ],
+          [
+            "지붕 경사 4/12",
+            "18.4°",
+            "33.3%",
+            "서까래"
+          ],
+          [
+            "오각형 내각",
+            "108.0°",
+            "외각 72°",
+            "다각형"
+          ],
+          [
+            "평각",
+            "180.0°",
+            "일직선",
+            "수평 확인"
+          ]
+        ],
+        "footnote": "최신 모니터의 1:1 정사각 픽셀 비율을 기준으로 계산됩니다."
+      },
+      "faqKicker": "각도기 FAQ",
+      "faqHeading": "각도 측정 자주 묻는 질문",
+      "faqs": [
+        {
+          "q": "각도를 재기 전에 PPI 보정이 필요한가요?",
+          "a": "아니요. 정사각 픽셀 화면에서는 보정 없이도 각도가 정확합니다."
+        },
+        {
+          "q": "사진 위에서도 쓸 수 있나요?",
+          "a": "네, Ctrl+V로 이미지를 붙여넣고 각도기를 겹쳐 측정할 수 있습니다."
+        },
+        {
+          "q": "180° 각도기와 무엇이 다른가요?",
+          "a": "두 반직선 모두 360° 자유 회전하므로 도형을 회전시킬 필요가 없습니다."
+        },
+        {
+          "q": "길이도 함께 잴 수 있나요?",
+          "a": "네, ΔX/ΔY 안내선과 회전 자를 동시에 사용할 수 있습니다."
+        }
+      ]
     }
+  },
+  "converter": {
+    "title": "실시간 단위 변환",
+    "mmAria": "밀리미터 변환",
+    "cmAria": "센티미터 변환",
+    "inAria": "인치 변환",
+    "pxAria": "CSS 픽셀 변환"
   }
 }
