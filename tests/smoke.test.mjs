@@ -26,11 +26,13 @@ test('Smoke Test 2: Astro configuration integrity', () => {
 });
 
 test('Smoke Test 3: Core index page existence and structure', () => {
-    const indexPath = path.join(projectRoot, 'src', 'pages', 'index.astro');
-    assert.ok(fs.existsSync(indexPath), 'src/pages/index.astro must exist');
-    const content = fs.readFileSync(indexPath, 'utf-8');
-    assert.match(content, /<html/i, 'index.astro must contain <html> tag');
-    assert.match(content, /<\/html>/i, 'index.astro must contain </html> tag');
+    const indexPath = path.join(projectRoot, 'src', 'pages', '[...lang]', 'index.astro');
+    const layoutPath = path.join(projectRoot, 'src', 'layouts', 'BaseLayout.astro');
+    assert.ok(fs.existsSync(indexPath), 'src/pages/[...lang]/index.astro must exist');
+    assert.ok(fs.existsSync(layoutPath), 'src/layouts/BaseLayout.astro must exist');
+    const layoutContent = fs.readFileSync(layoutPath, 'utf-8');
+    assert.match(layoutContent, /<html/i, 'BaseLayout.astro must contain <html> tag');
+    assert.match(layoutContent, /<\/html>/i, 'BaseLayout.astro must contain </html> tag');
 });
 
 test('Smoke Test 4: Unified GEMINI.md project guidelines existence', () => {

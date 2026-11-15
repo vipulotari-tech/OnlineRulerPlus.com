@@ -1,0 +1,1449 @@
+{
+  "meta": {
+    "ogImageAlt": "Online Ruler Plus regla en línea gratuita a tamaño real calibrada en pulgadas (1/16″), cm y mm",
+    "orgDescription": "Plataforma web gratuita de regla en pantalla a tamaño real y calibración de pantalla en el cliente, compatible con centímetros (cm), milímetros (mm), fracciones de pulgada (1/16″) y píxeles CSS.",
+    "knowsAbout": [
+      "Calibración de regla en pantalla en línea",
+      "Metrología de densidad de píxeles de pantalla (PPI)",
+      "Calibración estándar con tarjeta ISO/IEC 7810:2019 ID-1",
+      "Medición en centímetros, milímetros y pulgadas fraccionarias",
+      "Píxel de referencia CSS W3C Values and Units"
+    ]
+  },
+  "nav": {
+    "skipToMain": "Ir al contenido principal",
+    "skipToWorkspace": "Ir al área de trabajo de la regla",
+    "brandHomeAria": "Inicio de Online Ruler Plus",
+    "defaultSubNavTitle": "Área de Regla en Pantalla",
+    "defaultSubNavCta": "Calibrar",
+    "globalNavAria": "Navegación principal",
+    "mobileNavAria": "Navegación móvil",
+    "mobileMenuAria": "Abrir o cerrar menú de navegación",
+    "homeWorkspaceLabel": "Área Principal",
+    "shortcutsBtn": "Atajos",
+    "shortcutsBtnTitle": "Atajos de teclado e instrucciones (H)",
+    "themeBtn": "Tema",
+    "themeBtnAria": "Cambiar tema (D)",
+    "themeBtnTitle": "Alternar modo oscuro (D)",
+    "languageLabel": "Idioma",
+    "languageTriggerAria": "Seleccionar idioma del sitio web",
+    "languageMenuAria": "Idiomas disponibles",
+    "links": {
+      "cmRuler": "Regla en cm",
+      "mmRuler": "Regla en mm",
+      "inchRuler": "Regla en Pulgadas",
+      "horizontal": "Horizontal",
+      "vertical": "Vertical",
+      "howToUse": "Cómo Usar",
+      "calibrationGuide": "Guía de Calibración",
+      "faq": "Preguntas",
+      "about": "Acerca de",
+      "contact": "Contacto",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Uso"
+    },
+    "subNav": {
+      "workspace": "Área de Trabajo",
+      "calibration": "Calibración",
+      "howItWorks": "Cómo Funciona",
+      "ppiTable": "Tabla PPI"
+    }
+  },
+  "footer": {
+    "footnote": "1. La precisión física real requiere calibrar la pantalla con una tarjeta estándar ISO/IEC 7810 ID-1 (85,60 × 53,98 mm) o la diagonal visible de tu pantalla al 100 % de zoom del navegador. Sin calibrar, los navegadores usan 96 píxeles CSS por pulgada.",
+    "tagline": "Espacio de metrología en pantalla de precisión para medir objetos físicos en centímetros, milímetros y pulgadas fraccionarias de 1/16″. Mediciones 100 % en el cliente y perfiles locales.",
+    "colModes": "Modos de Regla",
+    "colGuides": "Calibración y Guías",
+    "colTools": "Herramientas",
+    "colLegal": "Empresa y Legal",
+    "modeAllEdge": "Regla en Todos los Bordes",
+    "modeCm": "Regla en Centímetros (cm)",
+    "modeMm": "Regla en Milímetros (mm)",
+    "modeInch": "Regla en Pulgadas (1/16″)",
+    "modeHorizontal": "Regla Horizontal",
+    "modeVertical": "Regla Vertical",
+    "guideCard": "Calibración con Tarjeta",
+    "guideHowTo": "Manual de Uso",
+    "guidePpi": "Referencia PPI de Pantalla",
+    "guideFaq": "Preguntas Frecuentes",
+    "toolGuides": "Guías Arrastrables (G)",
+    "toolFractions": "Lectura en Fracciones (1/16″)",
+    "toolPx": "Inspector de Píxeles CSS (px)",
+    "toolProtractor": "Transportador de 180° (P)",
+    "legalAbout": "Acerca de Online Ruler Plus",
+    "legalContact": "Contacto y Envíos",
+    "legalPrivacy": "Política de Privacidad",
+    "legalTerms": "Términos de Uso",
+    "copyright": "Copyright © {year} OnlineRulerPlus.com. Todos los derechos reservados.",
+    "constants": "1 in = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)"
+  },
+  "helpModal": {
+    "kicker": "Referencia Rápida",
+    "title": "Atajos de Teclado y Controles",
+    "closeAria": "Cerrar ventana de atajos",
+    "escLabel": "Esc",
+    "enableShortcuts": "Activar atajos de una tecla (G, C, P, F, 1–4, D, H)",
+    "gotIt": "Entendido",
+    "shortcuts": [
+      { "key": "G", "action": "Activar o desactivar líneas guía al hacer clic" },
+      { "key": "C", "action": "Activar o desactivar mira del cursor" },
+      { "key": "P", "action": "Abrir o cerrar transportador de ángulo de 180°" },
+      { "key": "F", "action": "Entrar o salir de pantalla completa" },
+      { "key": "1", "action": "Cambiar unidad a Centímetros (cm)" },
+      { "key": "2", "action": "Cambiar unidad a Pulgadas (in)" },
+      { "key": "3", "action": "Cambiar unidad a Píxeles CSS (px)" },
+      { "key": "4 / M", "action": "Cambiar unidad a Milímetros (mm)" },
+      { "key": "D", "action": "Alternar modo claro y oscuro" },
+      { "key": "H", "action": "Abrir o cerrar este diálogo de atajos" },
+      { "key": "Esc", "action": "Borrar guías colocadas o cerrar diálogos" },
+      { "key": "← / →", "action": "Ajustar tamaño de tarjeta en 1 px (Shift para 5 px)" }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Referencia ISO/IEC 7810 ID-1 · 1 in = 25,4 mm",
+    "headline": "Regla Online a Tamaño Real en Pulgadas, cm y mm",
+    "description": "Herramienta calibrada de medición en pantalla para ordenadores, portátiles, tabletas y móviles. Ajusta una tarjeta bancaria estándar o introduce la diagonal de tu pantalla para medir a escala real.",
+    "primaryCta": "Calibrar tu Pantalla",
+    "secondaryCta": "Cómo Medir"
+  },
+  "workspace": {
+    "srHeading": "Área Interactiva de Regla en Pantalla",
+    "verifyCalibrationLink": "Verificar Calibración",
+    "dismissAria": "Cerrar notificación",
+    "unitGroupAria": "Unidades de medida",
+    "unitLabel": "Unidad",
+    "unitCmTitle": "Centímetros con marcas de milímetro (Atajo: 1)",
+    "unitMmTitle": "Milímetros (Atajo: 4 o M)",
+    "unitInTitle": "Pulgadas con divisiones fraccionarias de 1/16 (Atajo: 2)",
+    "unitPxTitle": "Píxeles CSS (Atajo: 3)",
+    "dualUnit": "Doble cm/in",
+    "dualUnitTitle": "Mostrar escalas en cm y pulgadas simultáneamente",
+    "edgesGroupAria": "Ubicación de bordes de regla",
+    "edgesLabel": "Bordes",
+    "edgeTop": "Superior",
+    "edgeBottom": "Inferior",
+    "edgeLeft": "Izquierdo",
+    "edgeRight": "Derecho",
+    "edgeAll": "Todos",
+    "toolsGroupAria": "Herramientas de precisión",
+    "guides": "Guías",
+    "guidesTitle": "Activar líneas guía con clic (Atajo: G)",
+    "crosshair": "Mira",
+    "crosshairTitle": "Activar mira del cursor (Atajo: C)",
+    "addFloating": "+ Regla Flotante",
+    "addFloatingTitle": "Añadir una regla flotante arrastrable",
+    "protractor": "Transportador",
+    "protractorTitle": "Activar transportador de ángulos de 180° (Atajo: P)",
+    "fullscreen": "Pantalla Completa",
+    "fullscreenExit": "Salir de Pantalla Completa",
+    "fullscreenTitle": "Alternar pantalla completa (Atajo: F)",
+    "clearGuides": "Borrar Guías",
+    "clearGuidesTitle": "Eliminar todas las líneas guía (Atajo: Esc)",
+    "calDefaultStatus": "Calibración estimada",
+    "calDefaultDevice": "Pantalla de escritorio",
+    "calibrateBtn": "Calibrar",
+    "guideAxisAria": "Eje de las líneas guía",
+    "guideAxisLabel": "Eje Guía:",
+    "axisVertical": "Vertical",
+    "axisHorizontal": "Horizontal",
+    "axisBoth": "Ambos",
+    "thicknessLabel": "Grosor",
+    "thicknessAria": "Grosor de la regla",
+    "opacityLabel": "Opacidad",
+    "opacityAria": "Porcentaje de opacidad de la regla",
+    "canvasTopAria": "Regla horizontal superior — haz clic para colocar una guía vertical",
+    "canvasBottomAria": "Regla horizontal inferior — haz clic para colocar una guía vertical",
+    "canvasLeftAria": "Regla vertical izquierda — haz clic para colocar una guía horizontal",
+    "canvasRightAria": "Regla vertical derecha — haz clic para colocar una guía horizontal",
+    "datumTitle": "Origen (0, 0) · Referencia Discontinua Superior Izquierda",
+    "datumBody": "Alinea tu objeto con la marca [[strong:0]]. Haz clic en cualquier regla o cuadrícula para colocar guías de medición arrastrables.",
+    "liveCursorInit": "X: 0.00 cm · Y: 0.00 cm",
+    "saveToHistory": "Guardar en Historial",
+    "keysHint": "Teclas: [[kbd:1]] cm · [[kbd:2]] in · [[kbd:3]] px · [[kbd:G]] guías · [[kbd:C]] mira · [[kbd:F]] pantalla completa"
+  },
+  "calibration": {
+    "kicker": "Calibración de Densidad · Guardada Localmente por Pantalla",
+    "heading": "Calibra tu Pantalla para Escala Física Real",
+    "lead": "Los navegadores usan por defecto 96 píxeles CSS por pulgada, lo cual rara vez coincide con el panel físico real. Elige uno de los tres métodos siguientes para que cada milímetro y fracción de pulgada corresponda a su longitud física exacta.",
+    "activeScale": "Escala Activa",
+    "defaultStatus": "Calibración estimada",
+    "defaultBasis": "Escala de referencia CSS (96 px por pulgada)",
+    "resetBtn": "Restablecer Calibración",
+    "methodsAria": "Métodos de calibración de pantalla",
+    "tabCard": "1. Tarjeta Bancaria (Recomendado)",
+    "tabDiagonal": "2. Diagonal de Pantalla (Pulgadas)",
+    "tabAutoDetect": "3. Detección Automática",
+    "cardKicker": "Estándar ISO/IEC 7810 ID-1 · 85,60 × 53,98 mm",
+    "cardHeading": "Alinea una Tarjeta Bancaria, de Crédito o DNI",
+    "cardDesc": "Coloca cualquier tarjeta de pago, carné de conducir o documento de identidad estándar sobre el contorno inferior y ajusta su ancho físico.",
+    "cardOrientTitle": "Alternar entre orientación horizontal y vertical de la tarjeta para pantallas estrechas",
+    "cardOrientLandscape": "Horizontal (85.60 × 53.98 mm)",
+    "cardOrientPortrait": "Vertical (53.98 × 85.60 mm)",
+    "cardStageAria": "Área interactiva de calibración con tarjeta. Usa las flechas izquierda y derecha para redimensionar.",
+    "cardDatumNote": "Referencia superior izquierda de tarjeta · Contorno físico 1:1",
+    "cardPlaceTitle": "Coloca la Tarjeta Física Aquí",
+    "cardPlaceSub": "Alinea bordes izquierdo y superior · Iguala el borde exterior",
+    "checklistTitle": "Lista de Alineación Óptica",
+    "checklistSteps": [
+      "[[strong:Sujeta la tarjeta plana:]] Coloca una tarjeta real pegada a la esquina superior izquierda del recuadro.",
+      "[[strong:Iguala el borde exterior:]] Mueve el deslizador o pulsa las teclas [[kbd:←]] [[kbd:→]] hasta alinear exactamente el borde derecho.",
+      "[[strong:Evita el paralaje:]] Mantén la vista perpendicular al borde derecho de la tarjeta."
+    ],
+    "cardMinusAria": "Reducir ancho de tarjeta en 1 píxel",
+    "cardSliderAria": "Ajustar ancho de la tarjeta en píxeles",
+    "cardPlusAria": "Aumentar ancho de tarjeta en 1 píxel",
+    "widthPxLabel": "Ancho (px):",
+    "longEdgePxLabel": "Lado Largo (px):",
+    "computedScaleLabel": "Escala Calculada:",
+    "shortcutNote": "Ajuste fino con teclado: haz clic en el área de tarjeta y pulsa [[kbd:←]] [[kbd:→]] ([[kbd:Shift]] para pasos de 5 px).",
+    "applyBtn": "Aplicar Calibración",
+    "diagKicker": "Cálculo Geométrico de Pantalla · √(W² + H²) / Diagonal",
+    "diagHeading": "Calibrar por Diagonal Visible de la Pantalla",
+    "diagDesc": "Introduce la medida diagonal del área visible de tu panel en pulgadas (de esquina a esquina dentro del marco, no el chasis exterior). Asegúrate de que el zoom del navegador esté al 100 %.",
+    "diagPresetsLabel": "Diagonales Comunes de Pantalla (Pulgadas)",
+    "diagInputLabel": "Diagonal Visible de Pantalla (pulgadas)",
+    "diagPlaceholder": "ej. 15.6 o 27",
+    "diagResetBtn": "Restablecer",
+    "diagFormula": "Fórmula: PPI CSS = √(anchoPantalla² + altoPantalla²) / pulgadasDiagonal",
+    "diagNotesTitle": "Notas de precisión para calibración por diagonal:",
+    "diagNotes": [
+      "[[strong:Pantalla frente a carcasa:]] Introduce la diagonal activa del panel (por ejemplo, 13,6″ o 15,6″), no las medidas exteriores del equipo.",
+      "[[strong:Píxeles CSS lógicos frente a píxeles físicos:]] Los sistemas operativos escalan pantallas HiDPI (como 125 % o 150 % en Windows, o escala Retina en macOS). El navegador informa los píxeles CSS lógicos al 100 % de zoom, usados directamente en este cálculo."
+    ],
+    "autoKicker": "Telemetría del Navegador y Base de Datos de Hardware",
+    "autoHeading": "Detección Automática de Dispositivo y Densidad",
+    "autoDesc": "Online Ruler Plus inspecciona las dimensiones lógicas de pantalla, la relación de píxeles del dispositivo (DPR), la orientación y la plataforma para buscar perfiles conocidos o calcular una estimación inicial.",
+    "autoDtProfile": "Perfil Detectado",
+    "autoDtStatus": "Estado de Detección",
+    "autoDtDensity": "Densidad Estimada",
+    "autoDtSize": "Tamaño CSS de Pantalla",
+    "autoDtDpr": "Relación de Píxeles (DPR)",
+    "autoDtOrient": "Orientación",
+    "autoChecking": "Comprobando pantalla…",
+    "autoWhyTitle": "¿Por qué verificar manualmente?",
+    "autoWhyBody": "[[strong:¿Por qué verificar manualmente?]] Los navegadores web no revelan el tamaño físico del monitor por HDMI/DisplayPort ni factores personalizados del SO. Verifica siempre con una tarjeta física o diagonal conocida antes de mediciones críticas.",
+    "autoApplyBtn": "Usar Escala Autodetectada",
+    "verifyKicker": "Medidor de Verificación Física",
+    "verifyHeading": "Comprueba con Objetos Cotidianos",
+    "verifyDesc": "Coloca una moneda real sobre estas siluetas escaladas en vivo para confirmar tu calibración al instante.",
+    "coinQuarter": "Cuarto USD",
+    "coinEuro": "1 Euro €",
+    "coinPenny": "Centavo USD",
+    "verifyBarLabel": "Barra de Referencia de 50,0 mm (5,0 cm)",
+    "historyKicker": "Registro Local de Sesión",
+    "historyHeading": "Historial de Mediciones",
+    "historyClearBtn": "Borrar",
+    "historyEmpty": "Coloca dos líneas guía paralelas en la regla y pulsa [[strong:Guardar en Historial]] para registrar distancias entre puntos ([[code:ΔX]] / [[code:ΔY]]) localmente en tu dispositivo.",
+    "historyFooterLeft": "Almacenamiento: solo localStorage",
+    "historyFooterRight": "Cero sincronización en red"
+  },
+  "runtime": {
+    "statusLabels": {
+      "detected": "Dispositivo detectado",
+      "estimated": "Calibración estimada",
+      "manual": "Calibración manual"
+    },
+    "orientLandscape": "Horizontal",
+    "orientPortrait": "Vertical",
+    "rangeLabel": "Rango:",
+    "angleLabel": "Ángulo:",
+    "removeGuideAria": "Eliminar línea guía",
+    "rotateFloatingTitle": "Girar 90°",
+    "rotateFloatingAria": "Girar regla flotante",
+    "removeFloatingTitle": "Quitar regla flotante",
+    "removeFloatingAria": "Quitar regla flotante",
+    "closeProtractorAria": "Cerrar transportador",
+    "spanSaved": "Guardado",
+    "spanGuideLabel": "Tramo de guía {axis}",
+    "autoAppliedBanner": "Detección automática aplicada para la pantalla actual.",
+    "cardSavedBanner": "Calibración con tarjeta guardada ({ppi} CSS PPI · {pxPerMm} px/mm).",
+    "diagonalSavedBanner": "Calibrado a pantalla de {diag}″ ({ppi} CSS PPI · {pxPerMm} px/mm).",
+    "resetBanner": "Calibración restablecida a la estimación automática.",
+    "displayOrientationBanner": "Orientación de pantalla actualizada; dimensiones de la regla ajustadas.",
+    "displayZoomManualBanner": "Zoom o escala cambiados; calibración manual reajustada automáticamente.",
+    "displayZoomAutoBanner": "Escala de pantalla cambiada; regla reescalada automáticamente.",
+    "displaySwitchedBanner": "Cambio de monitor detectado ({w}×{h}). Verifica de nuevo la calibración en esta pantalla.",
+    "enterDiagonalPrompt": "Introduce la diagonal para pantalla de {w} × {h} CSS px",
+    "calculatedScale": "Escala calculada: {ppi} CSS PPI ({pxPerMm} px/mm)",
+    "basisMap": {
+      "CSS reference scale (96 px per inch)": "Escala de referencia CSS (96 px por pulgada)",
+      "Matched a known screen configuration": "Coincide con una configuración de pantalla conocida",
+      "Several devices share this configuration": "Varios dispositivos comparten esta configuración",
+      "Typical iPhone density": "Densidad típica de iPhone",
+      "Typical iPad density": "Densidad típica de iPad",
+      "Android nominal density (160 dp per inch)": "Densidad nominal de Android (160 dp por pulgada)",
+      "Typical Retina Mac at a scaled resolution": "Mac Retina típico con resolución escalada",
+      "Typical density at default OS scaling": "Densidad típica con escala predeterminada del sistema",
+      "Manual calibration adjusted for current zoom or scaling": "Calibración manual ajustada al zoom o escala actual",
+      "Calibrated against an ISO/IEC 7810 ID-1 card (85.60 × 53.98 mm)": "Calibrado con tarjeta ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)",
+      "Calibrated from entered display diagonal": "Calibrado a partir de la diagonal de pantalla introducida"
+    },
+    "deviceLabelMap": {
+      "Desktop display": "Pantalla de escritorio",
+      "iPhone (model not identified)": "iPhone (modelo no identificado)",
+      "iPad (model not identified)": "iPad (modelo no identificado)",
+      "Android device": "Dispositivo Android",
+      "Mac with Retina display": "Mac con pantalla Retina",
+      "Scaled laptop or desktop display": "Portátil o monitor con escala",
+      "Credit card calibration": "Calibración con tarjeta"
+    },
+    "errorMap": {
+      "Enter your screen diagonal in inches.": "Introduce la diagonal de tu pantalla en pulgadas.",
+      "Use a number such as 15.6.": "Usa un número válido, como 15.6.",
+      "The diagonal must be greater than zero.": "La diagonal debe ser mayor que cero.",
+      "Enter a diagonal between 4 and 120 inches.": "Introduce una diagonal entre 4 y 120 pulgadas.",
+      "Screen dimensions are unavailable.": "Las dimensiones de la pantalla no están disponibles.",
+      "That diagonal gives an implausible pixel density. Check the value and your browser zoom.": "Esa diagonal produce una densidad de píxeles inverosímil. Revisa el valor y el zoom del navegador.",
+      "Card width must be greater than zero.": "El ancho de la tarjeta debe ser mayor que cero.",
+      "Card size must be greater than zero.": "El tamaño de la tarjeta debe ser mayor que cero.",
+      "That card size is outside the plausible range.": "Ese tamaño de tarjeta está fuera del rango posible."
+    },
+    "displaySizeSuffix": "Pantalla {long}×{short}",
+    "typMonitorBasis": "Supone una pantalla típica de {diag}″ con esta resolución",
+    "manualDiagBasis": "Diagonal de Pantalla {diag}″"
+  },
+  "home": {
+    "title": "Regla Online | Regla Gratis a Tamaño Real en Pulgadas, cm y mm",
+    "description": "Mide longitud física real en pulgadas (1/16″), cm y mm con nuestra regla online gratuita a tamaño real. Calibra a escala con una tarjeta bancaria o la diagonal del monitor.",
+    "featureList": [
+      "Reglas en pulgadas fraccionarias (1/16″), centímetros (cm), milímetros (mm) y píxeles CSS (px)",
+      "Calibración con tarjeta bancaria ISO/IEC 7810 ID-1 (85,60 × 53,98 mm / 3,370 × 2,125 in)",
+      "Calibración por diagonal de pantalla y detección automática de densidad del dispositivo",
+      "Reglas superior, inferior, izquierda, derecha y regla flotante arrastrable",
+      "Líneas guía al hacer clic, mira del cursor, transportador de 180° y modo pantalla completa"
+    ],
+    "howKicker": "Metrología Práctica en Pantalla · Guía de Pulgadas, cm y mm",
+    "howHeading": "Guía de Regla Online: Pulgadas, cm y mm a Tamaño Real",
+    "howManualBtn": "Manual Completo",
+    "howCards": [
+      {
+        "kicker": "01 · Resumen",
+        "heading": "¿Qué es una regla online?",
+        "body": "Una regla online gratuita es un instrumento calibrado en el navegador que dibuja marcas a escala real directamente sobre el cristal de tu pantalla en pulgadas, centímetros, milímetros y píxeles CSS. Como los navegadores usan por defecto 96 píxeles CSS por pulgada sin importar el tamaño del monitor, las herramientas sin calibrar distorsionan las medidas. La calibración local asigna el paso real de píxeles a una escala 1:1 sin descargas."
+      },
+      {
+        "kicker": "02 · Pasos Rápidos",
+        "heading": "Cómo usar la regla online",
+        "body": "Calibra una vez más abajo, elige tu unidad preferida y apoya cualquier objeto plano sobre el área de trabajo. Empieza desde la línea 0 interior y no contra el bisel del monitor para evitar errores de borde. Haz clic en cualquier regla o en el lienzo para colocar guías azules arrastrables que calculan automáticamente la distancia entre inicio y fin.",
+        "linkHref": "#ruler-tool",
+        "linkLabel": "Medir en el área de trabajo"
+      },
+      {
+        "kicker": "03 · Sistema Imperial",
+        "heading": "Medición en pulgadas",
+        "body": "En el [[link:/inch-ruler|modo Pulgadas]], cada pulgada (25,4 mm) se divide en fracciones clásicas de 1/2, 1/4, 1/8 y 1/16 para carpintería, paquetes y manualidades. La altura de cada trazo indica el denominador reducido automáticamente. Los monitores y portátiles anchos muestran una regla continua de hasta 12 pulgadas (o más en pantalla completa [[kbd:F]]).",
+        "linkHref": "/inch-ruler",
+        "linkLabel": "Abrir Regla en Pulgadas 1/16″"
+      },
+      {
+        "kicker": "04 · Escala Métrica",
+        "heading": "Medición en centímetros y milímetros",
+        "body": "Cambia a [[link:/cm-ruler|cm]] para papelería, tarjetas y envases (1 cm = 10 mm), o abre la [[link:/mm-ruler|regla en mm]] para medir tornillos métricos, pasadores de reloj o tolerancias de impresión 3D. ¿Necesitas ambos sistemas a la vez? Activa Doble cm/in en la barra para ver escalas métricas e imperiales juntas.",
+        "linkHref": "/cm-ruler",
+        "linkLabel": "Abrir Reglas de cm y mm"
+      },
+      {
+        "kicker": "05 · Calibración",
+        "heading": "Cómo calibrar una regla online",
+        "body": "Por privacidad, los navegadores no revelan el tamaño físico exacto del monitor. Para obtener una regla online a escala exacta, apoya una tarjeta bancaria, de débito o DNI estándar (ISO/IEC 7810 ID-1: 85,60 × 53,98 mm / 3,370 × 2,125 in) sobre el recuadro de calibración, o introduce las pulgadas diagonales con zoom al 100 %.",
+        "linkHref": "#calibration",
+        "linkLabel": "Calibrar con tarjeta bancaria",
+        "isCardOpen": true
+      },
+      {
+        "kicker": "06 · Consejos 1:1",
+        "heading": "Cómo obtener medidas a tamaño real",
+        "body": "Para lecturas fiables, mira perpendicularmente sobre la marca deseada: observar de lado a través del vidrio de protección provoca un ligero desvío por paralaje óptico. Verifica la escala rápidamente con monedas: una moneda de 1 Euro mide 23,25 mm y un cuarto de dólar 24,26 mm (0,955 in). Usa pie de rey mecánico para tolerancias industriales.",
+        "linkHref": "/calibration-guide",
+        "linkLabel": "Leer guía de calibración"
+      },
+      {
+        "kicker": "07 · Dispositivos",
+        "heading": "Usar la regla online en móvil y ordenador",
+        "body": "Los monitores de escritorio ofrecen regletas horizontales anchas de hasta 12 pulgadas, atajos de teclado y perfiles independientes por monitor. En teléfonos y tabletas con pantalla estrecha, cambia a Calibración Vertical con Tarjeta (borde corto de 53,98 mm) y arrastra guías con el dedo.",
+        "linkHref": "/vertical-ruler",
+        "linkLabel": "Probar modo vertical móvil"
+      },
+      {
+        "kicker": "08 · Respuestas Rápidas",
+        "heading": "Dudas frecuentes de medición",
+        "body": "¿Te preguntas si las pantallas de móvil, el zoom del navegador o la cámara sirven para medir, o cómo mostrar la regla en Microsoft Word Online y PowerPoint Online? Desplázate más abajo para consultar respuestas directas sobre límites de móvil, comprobaciones de 1 pulgada, conversiones y editores web.",
+        "linkHref": "#faq",
+        "linkLabel": "Ir a preguntas frecuentes ↓"
+      }
+    ],
+    "accuracyKicker": "Óptica de Pantalla · Píxel CSS W3C vs. PPI de Hardware",
+    "accuracyHeading": "¿Por Qué las Reglas en Pantalla Necesitan Calibración PPI?",
+    "accuracyLead": "El diseño web trata 1 pulgada como 96 píxeles CSS (3,780 px/mm), pero las pantallas reales van desde 81,6 CSS PPI en monitores de 27 pulgadas 1080p hasta más de 140 CSS PPI en portátiles compactos y móviles. Esa diferencia desvía 10 cm sin calibrar entre un 10 % y un 35 %.",
+    "accuracyGuideBtn": "Guía Completa de Calibración",
+    "objectsTitle": "Objetos Físicos de Verificación",
+    "objectsBody": "Verifica tu regla online calibrada en cualquier momento con referencias cotidianas normalizadas: una tarjeta ISO/IEC 7810 ID-1 (85,60 × 53,98 mm / 3,370 × 2,125 in), una moneda de 1 Euro (23,25 mm), una de 2 Euros (25,75 mm), un cuarto USD (24,26 mm) o un centavo USD (19,05 mm).",
+    "limitsTitle": "Límites de Hardware y Tolerancia",
+    "limitsBody": "La medición en pantalla está limitada por el ancho visible del monitor, el grosor del cristal protector (paralaje al mirar en ángulo) y el redondeo de píxel (~0,1–0,3 mm). Úsala para objetos diarios, envíos, manualidades y control UI, nunca en lugar de calibradores certificados.",
+    "ppiKicker": "Referencia de Densidad de Hardware",
+    "ppiHeading": "Pantallas Comunes y Error de 96 PPI sin Calibrar en 10 cm",
+    "ppiHeaders": [
+      "Panel / Escala del Sistema",
+      "Viewport CSS",
+      "CSS PPI Efectivo",
+      "CSS px/mm",
+      "Error 96 PPI sin Calibrar"
+    ],
+    "ppiRows": [
+      { "device": "13.3\" MacBook Air / Pro (Retina)", "res": "1440 × 900 CSS (2×)", "ppi": "127.7 PPI", "pxMm": "5.027 px/mm", "err": "−24,8 % (dibuja 7,52 cm)" },
+      { "device": "14.2\" MacBook Pro (Liquid Retina XDR)", "res": "1512 × 982 CSS (2×)", "ppi": "127.0 PPI", "pxMm": "5.000 px/mm", "err": "−24,4 % (dibuja 7,56 cm)" },
+      { "device": "Portátil 15.6\" Full HD (Escala Windows 100 %)", "res": "1920 × 1080 CSS (1×)", "ppi": "141.2 PPI", "pxMm": "5.559 px/mm", "err": "−32,0 % (dibuja 6,80 cm)" },
+      { "device": "Portátil 15.6\" Full HD (Escala Windows 125 %)", "res": "1536 × 864 CSS (1.25×)", "ppi": "113.0 PPI", "pxMm": "4.448 px/mm", "err": "−15,0 % (dibuja 8,50 cm)" },
+      { "device": "Monitor 24\" Full HD (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "91.8 PPI", "pxMm": "3.614 px/mm", "err": "+4,6 % (dibuja 10,46 cm)" },
+      { "device": "Monitor 27\" Full HD (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "81.6 PPI", "pxMm": "3.212 px/mm", "err": "+17,6 % (dibuja 11,76 cm)" },
+      { "device": "Monitor 27\" QHD (2560 × 1440, 100 %)", "res": "2560 × 1440 CSS (1×)", "ppi": "108.8 PPI", "pxMm": "4.283 px/mm", "err": "−11,8 % (dibuja 8,82 cm)" },
+      { "device": "Monitor 27\" 4K UHD (Escala HiDPI 200 %)", "res": "1920 × 1080 CSS (2×)", "ppi": "81.6 CSS PPI", "pxMm": "3.212 px/mm", "err": "+17,6 % (dibuja 11,76 cm)" }
+    ],
+    "ppiFormula": "Fórmula: [[code:CSS PPI efectivo = √(W_css² + H_css²) / pulgadasDiagonal]] · [[code:pxPerMm = CSS_PPI / 25.4]]. Por estándar internacional NIST / BIPM, 1 pulgada equivale exactamente a 25,4 mm.",
+    "modesKicker": "Vistas Especializadas · Escalas Métricas, Imperiales y Píxeles",
+    "modesHeading": "Explora los Modos Dedicados de Regla Online",
+    "modesLead": "Tu calibración guardada se aplica automáticamente en cada vista por unidad y orientación.",
+    "modeCards": [
+      {
+        "kicker": "Imperial · 1 in = 25,4 mm · Marcas 1/16″",
+        "heading": "Regla Online en Pulgadas (12″ y 1/16″)",
+        "body": "Escala imperial preseleccionada con lectura automática de fracciones reducidas de 1/16″, guía de 12 pulgadas y tabla a mm.",
+        "href": "/inch-ruler",
+        "linkLabel": "Abrir Regla en Pulgadas"
+      },
+      {
+        "kicker": "Métrico · 1 cm = 10 mm = 0,3937 in",
+        "heading": "Regla Online en Centímetros (cm)",
+        "body": "Escala métrica a tamaño real con divisiones de 1 mm y 5 mm, tabla de conversión 1–30 cm y dimensiones cotidianas.",
+        "href": "/cm-ruler",
+        "linkLabel": "Abrir Regla en cm"
+      },
+      {
+        "kicker": "Paso Fino · Subdivisiones de 1 mm y 5 mm",
+        "heading": "Regla Online en Milímetros (mm)",
+        "body": "Escala métrica fina pensada para tornillos M2–M10, correas de reloj, monedas, juntas tóricas y componentes PCB.",
+        "href": "/mm-ruler",
+        "linkLabel": "Abrir Regla en mm"
+      },
+      {
+        "kicker": "Bordes Superior e Inferior · Píxeles CSS",
+        "heading": "Regla Horizontal de Pantalla y Píxeles",
+        "body": "Regletas horizontales simultáneas arriba y abajo para objetos anchos, monitores y comprobación de píxeles CSS.",
+        "href": "/horizontal-ruler",
+        "linkLabel": "Abrir Regla Horizontal"
+      },
+      {
+        "kicker": "Bordes Izquierdo y Derecho · Altura Vertical",
+        "heading": "Regla Vertical en Pantalla",
+        "body": "Bordes verticales emparejados para medir objetos de pie, teléfonos en vertical y alturas de contenedores.",
+        "href": "/vertical-ruler",
+        "linkLabel": "Abrir Regla Vertical"
+      },
+      {
+        "kicker": "Superposiciones Interactivas · Atajos G, C, P",
+        "heading": "Regla Flotante, Guías y Transportador 180°",
+        "body": "Coloca guías paralelas ΔX/ΔY, gira una regla flotante 360° sobre el lienzo o abre el transportador óptico de 180°.",
+        "href": "#ruler-tool",
+        "linkLabel": "Abrir herramientas arriba"
+      }
+    ],
+    "faqKicker": "Preguntas Frecuentes · Uso, Calibración y Compatibilidad",
+    "faqHeading": "Preguntas Frecuentes sobre Reglas Online",
+    "faqViewAllBtn": "Ver las 20 Preguntas",
+    "faqs": [
+      {
+        "q": "¿Existe una regla online para medir objetos reales en pantalla?",
+        "a": "Sí. Online Ruler Plus convierte cualquier monitor de escritorio, portátil, tableta o teléfono móvil en una regla online gratuita a tamaño real calibrada en pulgadas (con fracciones de 1/16″), centímetros y milímetros. Al ajustar una tarjeta bancaria estándar o introducir la diagonal de tu pantalla, el espaciado de marcas se adapta al paso físico real de tus píxeles."
+      },
+      {
+        "q": "¿Cómo se usa una regla online?",
+        "a": "Primero, calibra tu pantalla en la sección Calibra tu Pantalla usando una tarjeta ISO/IEC 7810 ID-1 (85,60 × 53,98 mm) o la diagonal con zoom al 100 %. Segundo, elige cm, mm, in o px en la barra superior. Tercero, alinea el inicio del objeto con la línea visible del 0 (separada 16 px del borde para evitar el marco) y lee la longitud o coloca guías arrastrables."
+      },
+      {
+        "q": "¿Cómo se lee una regla online en pulgadas, cm y mm?",
+        "a": "Empieza en la línea 0, localiza el número entero justo antes del final del objeto y cuenta las divisiones menores siguientes. En centímetros, cada bloque se divide en diez marcas de 1 mm con trazo intermedio en 5 mm. En pulgadas, la altura del trazo distingue 1/2″, 1/4″, 1/8″ y 1/16″. Además, la barra inferior muestra la lectura numérica exacta al instante."
+      },
+      {
+        "q": "¿Cómo identificar 1 pulgada en una regla online?",
+        "a": "Cambia el área de trabajo a Pulgadas (atajo 2) tras calibrar tu pantalla y observa la distancia de 0 a 1: equivale exactamente a 25,4 milímetros (2,54 cm). No cuentes 96 píxeles CSS en un monitor sin calibrar, porque la densidad real varía mucho. Como comprobación rápida, un centavo de dólar mide exactamente 0,75 pulgadas (19,05 mm) y una moneda de 1 Euro mide 23,25 mm."
+      },
+      {
+        "q": "¿Cómo medir centímetros y milímetros online?",
+        "a": "Pulsa cm (atajo 1) o mm (atajo 4) en la barra de herramientas, o abre las páginas dedicadas de Regla en cm o Regla en mm. Apoya el objeto suavemente sobre la pantalla comenzando en la línea 0 y cuenta los centímetros enteros y las marcas de 1 mm. También puedes activar Doble cm/in para comparar escalas métricas e imperiales a la vez."
+      },
+      {
+        "q": "¿Puedo usar mi móvil como regla y qué límites tiene?",
+        "a": "Sí, dentro de la longitud física de la pantalla de tu smartphone. Los móviles modernos tienen paneles de alta densidad (2x o 3x), por lo que 96 PPI sin calibrar dibujan escalas demasiado pequeñas. Usa primero la calibración con tarjeta en modo Vertical (borde corto de 53,98 mm) para ajustar tu móvil; podrás medir monedas, tornillos o tarjetas con precisión en un rango de unos 13 a 16 cm."
+      },
+      {
+        "q": "¿Puedo usar la cámara del dispositivo como regla?",
+        "a": "Online Ruler Plus no accede a tu cámara ni procesa fotografías; todas las mediciones se realizan directamente sobre el cristal calibrado dentro del navegador. Las apps de cámara con AR sufren errores por perspectiva, distancia e iluminación, mientras que apoyar piezas pequeñas sobre la pantalla calibrada evita el error de profundidad."
+      },
+      {
+        "q": "¿Cómo ver o activar la regla en Word Online?",
+        "a": "Online Ruler Plus es una herramienta web independiente, no un complemento de Office. En Microsoft Word para la web (Word Online), cambia al modo Edición en lugar de Vista de lectura, haz clic en la pestaña Vista de la cinta superior y marca la casilla Regla en el grupo Mostrar para ver los márgenes horizontales del documento."
+      },
+      {
+        "q": "¿Cómo mostrar la regla en PowerPoint Online?",
+        "a": "En Microsoft PowerPoint para la web, abre tu presentación en vista Edición, ve a la pestaña Vista y activa Regla junto a Líneas de cuadrícula o Guías si está disponible en tu versión web. Ten en cuenta que las reglas de diapositivas miden coordenadas virtuales de la diapositiva y no milímetros físicos reales sobre tu monitor."
+      },
+      {
+        "q": "¿Por qué las reglas online requieren calibración y el zoom rompe la precisión?",
+        "a": "Los navegadores dibujan por defecto a 96 píxeles CSS por pulgada y ocultan el tamaño físico real del monitor por privacidad, lo que introduce errores del 10 % al 35 % sin calibrar. Online Ruler Plus guarda tu densidad hardware real (devicePxPerMm) en localStorage y detecta cambios de devicePixelRatio para reescalar las marcas automáticamente cuando cambias el zoom."
+      },
+      {
+        "q": "¿La calibración se mantiene entre varios monitores y es privada?",
+        "a": "Cada calibración manual se guarda localmente en localStorage vinculada a la resolución, devicePixelRatio y plataforma de cada pantalla. Al mover la ventana a un monitor externo, el sistema carga o solicita su perfil específico. Nunca enviamos medidas, cámara ni datos de calibración a servidores externos."
+      }
+    ]
+  },
+  "spokeShared": {
+    "calibrationGuideBtn": "Guía de Calibración y PPI",
+    "modesKicker": "Cambiar Eje o Escala de la Regla",
+    "modesHeading": "Explora Otros Modos Calibrados de Regla Online",
+    "modesAllEdgeBtn": "Vista Todos los Bordes",
+    "modeTiles": [
+      { "href": "/cm-ruler", "kicker": "Métrico · cm", "title": "Regla en Centímetros", "desc": "Escala de 1 cm y 0,5 cm + tabla cm a in" },
+      { "href": "/inch-ruler", "kicker": "Imperial · 1/16″", "title": "Regla en Pulgadas (12″)", "desc": "Fracciones 1/2, 1/4, 1/8, 1/16″" },
+      { "href": "/mm-ruler", "kicker": "Paso Fino · mm", "title": "Regla en Milímetros", "desc": "Escala de hardware de 1 mm y 5 mm" },
+      { "href": "/horizontal-ruler", "kicker": "Arriba y Abajo", "title": "Regla Horizontal", "desc": "Tramos anchos y escala píxeles CSS (px)" },
+      { "href": "/vertical-ruler", "kicker": "Izquierda y Derecha", "title": "Regla Vertical", "desc": "Altura vertical y móvil en retrato" }
+    ],
+    "allFaqsBtn": "Todas las Preguntas Frecuentes"
+  },
+  "pages": {
+    "cmRuler": {
+      "title": "Regla en CM Online | Centímetros a Tamaño Real y Tabla cm a in",
+      "description": "Regla online en centímetros (cm) calibrada a tamaño real con marcas de 1 mm y 5 mm, tabla de conversión 1–30 cm a pulgadas y calibración ISO/IEC 7810.",
+      "schemaName": "Regla Online en Centímetros (cm) — Online Ruler Plus",
+      "featureList": [
+        "Regla en centímetros (cm) calibrada a tamaño real con graduaciones de 1 mm y 5 mm",
+        "Escala comparativa simultánea Doble cm/pulgadas",
+        "Calibración con tarjeta estándar ISO/IEC 7810 ID-1 (8,56 × 5,40 cm)",
+        "Tabla de conversión de 1 a 30 cm a pulgadas decimales y fracciones 1/16"
+      ],
+      "subNavTitle": "Regla en Centímetros (cm)",
+      "breadcrumbLabel": "Regla en Centímetros (cm)",
+      "hero": {
+        "eyebrow": "Escala Métrica · 1 cm = 10 mm · Subdivisiones 0,5 cm y 1 mm",
+        "headline": "Regla Online en Centímetros (cm) a Tamaño Real",
+        "description": "Regla métrica calibrada en pantalla con números cada 1 cm, marcas intermedias de 0,5 cm y subdivisiones de 1 mm. Incluye tabla completa de conversión de cm a pulgadas."
+      },
+      "guideKicker": "Metrología Métrica en Pantalla · Escala SI Base 10",
+      "guideHeading": "Cómo Medir en Centímetros y Convertir cm a Pulgadas",
+      "guideLead": "Una regla online calibrada en centímetros convierte tu portátil, monitor de sobremesa o smartphone en una escala métrica 1:1 con precisión de 1 mm.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Escala Métrica · 1 cm = 10 mm",
+          "heading": "¿Cómo se subdivide una regla online en centímetros?",
+          "body": "Una regla online en centímetros divide cada unidad numerada (1 cm = 10 mm = 0,3937 pulgadas) en 10 trazos iguales de 1 milímetro y marca el punto medio de 0,5 cm (5 mm) con un trazo mediano para facilitar la lectura rápida. Primero, abre el panel de calibración de Online Ruler Plus y ajusta el recuadro a una tarjeta bancaria de 8,56 cm. Después, alinea el objeto en la línea 0 cm para garantizar que 10 cm en pantalla coincidan físicamente con 100,0 mm.",
+          "linkHref": "#calibration",
+          "linkLabel": "Calibrar escala en centímetros"
+        },
+        {
+          "step": "2",
+          "kicker": "Conversión SI · 1 in = 2,54 cm",
+          "heading": "¿Cómo convertir centímetros a pulgadas con exactitud?",
+          "body": "La conversión entre centímetros y pulgadas sigue una razón matemática exacta definida por el acuerdo internacional de 1959 (NIST y BIPM): 1 pulgada equivale exactamente a 2,54 centímetros (25,4 mm). Para pasar de cm a pulgadas decimales, divide por 2,54 (o multiplica por 0,3937008). Por ejemplo, 15 cm equivalen a 5,9055 pulgadas y 30 cm equivalen a 11,8110 pulgadas. Además, puedes pulsar el botón Doble cm/in en la barra para ver ambas escalas simultáneamente.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Ver tabla de cm a pulgadas"
+        },
+        {
+          "step": "3",
+          "kicker": "Verificación Física · Objetos Cotidianos",
+          "heading": "¿Qué objetos cotidianos verifican una regla en centímetros?",
+          "body": "Puedes comprobar la calibración 1:1 sosteniendo artículos normalizados contra la pantalla: según la norma ISO/IEC 7810:2019, una tarjeta bancaria o documento ID-1 mide 8,56 cm de ancho por 5,40 cm de alto. Como verificación adicional, una pila AA (IEC R6) mide 5,05 cm de largo, una moneda de 1 Euro mide 2,325 cm de diámetro y el lado corto de una hoja A4 (ISO 216) mide exactamente 21,0 cm.",
+          "linkHref": "/mm-ruler",
+          "linkLabel": "Cambiar a regla fina de 1 mm"
+        }
+      ],
+      "darkKicker": "Conversión de Centímetros a Pulgadas · 1 in = 2,54 cm (Exacto)",
+      "darkHeading": "Guía de Referencia de Centímetros (cm) a Pulgadas y Milímetros",
+      "darkLead": "Tanto si revisas dimensiones de paquetes, patrones de costura o papelería, utiliza las constantes exactas del SI junto con la regla interactiva.",
+      "darkCards": [
+        {
+          "heading": "¿Por qué 1 pulgada equivale exactamente a 2,54 cm?",
+          "body": "El factor exacto 1 pulgada = 2,54 cm fue adoptado en 1959 por los laboratorios nacionales de metrología de EE. UU., Reino Unido, Canadá y otros países, y ratificado por NIST y BIPM. Online Ruler Plus calcula todas sus coordenadas a partir de una base única en milímetros (pxPerMm), evitando errores de redondeo al cambiar de unidad."
+        },
+        {
+          "heading": "¿Cuántos centímetros de regla caben en un portátil o monitor?",
+          "body": "Una regla completa de 30 cm (300 mm) requiere al menos 300 mm de ancho activo de pantalla. En un portátil de 14 pulgadas en modo pantalla completa (tecla F) caben casi 30 cm; en portátiles de 15,6 pulgadas (34,5 cm de ancho) y monitores de 24 o 27 pulgadas (53 a 59 cm) cabe la regla completa de 30 cm con holgura."
+        },
+        {
+          "heading": "¿Cuándo usar el modo cm frente al modo mm?",
+          "body": "El modo Centímetros (cm) etiqueta los números cada 1 cm y formatea las lecturas con dos decimales (ej. 8,56 cm), ideal para sobres, libros y cajas. Para tornillería métrica (M3–M8), correas de reloj o piezas 3D donde conviene lectura directa en milímetros (85,6 mm), pulsa la tecla 4 o M."
+        }
+      ],
+      "table": {
+        "kicker": "Tabla de Referencia Métrica a Imperial (Constantes Exactas NIST / BIPM)",
+        "heading": "Centímetros (cm) a Milímetros (mm), Pulgadas Decimales y Fracción de 1/16″",
+        "headers": ["Centímetros (cm)", "Milímetros (mm)", "Pulgadas Decimales (in)", "Fracción 1/16″ Cercana", "Referencia Física Común"],
+        "rows": [
+          ["1 cm", "10.0 mm", "0.3937 in", "3/8 in (0.375″)", "Diámetro aproximado de pila AAA (~1,05 cm)"],
+          ["2 cm", "20.0 mm", "0.7874 in", "13/16 in (0.813″)", "Moneda de 1 centavo USD: 1,905 cm (19,05 mm)"],
+          ["2.54 cm", "25.4 mm", "1.0000 in", "1 in (exacto)", "Definición exacta de 1 pulgada imperial"],
+          ["5 cm", "50.0 mm", "1.9685 in", "1 15/16 in (1.938″)", "Longitud de pila AA estándar (5,05 cm)"],
+          ["5.40 cm", "53.98 mm", "2.1252 in", "2 1/8 in (2.125″)", "Alto de tarjeta bancaria ISO/IEC 7810 ID-1"],
+          ["8.56 cm", "85.60 mm", "3.3701 in", "3 3/8 in (3.375″)", "Ancho de tarjeta bancaria ISO/IEC 7810 ID-1"],
+          ["10 cm", "100.0 mm", "3.9370 in", "3 15/16 in (3.938″)", "1 decímetro (referencia de 100 mm)"],
+          ["15 cm", "150.0 mm", "5.9055 in", "5 7/8 in (5.875″)", "Regla escolar de bolsillo / billete USD (15,6 cm)"],
+          ["20 cm", "200.0 mm", "7.8740 in", "7 7/8 in (7.875″)", "El ancho de hoja A4 es 21,0 cm (210 mm)"],
+          ["25 cm", "250.0 mm", "9.8425 in", "9 13/16 in (9.813″)", "Cuarto de metro para costura y manualidades"],
+          ["30 cm", "300.0 mm", "11.8110 in", "11 13/16 in (11.813″)", "Regla estándar escolar y de oficina de 30 cm"],
+          ["30.48 cm", "304.8 mm", "12.0000 in", "12 in (1 pie exacto)", "Equivalencia métrica de una regla de 12 pulgadas"]
+        ],
+        "footnote": "Fórmulas: mm = cm × 10 · in = cm ÷ 2,54 · cm = in × 2,54. Valores calculados con constantes exactas SI/NIST."
+      },
+      "faqKicker": "Preguntas sobre la Regla Métrica · Calibración y Conversión",
+      "faqHeading": "Preguntas Comunes sobre la Regla Online en Centímetros",
+      "faqs": [
+        {
+          "q": "¿Cómo consigo una regla en centímetros a tamaño real en mi pantalla?",
+          "a": "Desplázate a la sección Calibra tu Pantalla de Online Ruler Plus, apoya una tarjeta bancaria estándar de 8,56 cm (85,60 mm) sobre el contorno y ajusta el control hasta que los bordes coincidan exactamente. Eso sustituye la estimación genérica de 96 PPI por el paso real de tu pantalla."
+        },
+        {
+          "q": "¿Cuántos centímetros tiene una pulgada y una regla de 12 pulgadas?",
+          "a": "Una pulgada equivale exactamente a 2,54 cm (25,4 mm). Una regla de 12 pulgadas equivale a 30,48 cm, es decir, 4,8 mm más larga que una regla métrica estándar de 30 cm. Puedes activar Doble cm/in para compararlas directamente."
+        },
+        {
+          "q": "¿Cómo se leen los milímetros en una regla en centímetros?",
+          "a": "Cada centímetro se divide en 10 partes iguales de 1 milímetro (0,1 cm). La marca mediana intermedia indica 0,5 cm (5 mm). Por ejemplo, tres marcas pequeñas después del 4 cm equivalen a 4,3 cm o 43 mm."
+        },
+        {
+          "q": "¿Puedo medir en centímetros con un iPhone, iPad o Android?",
+          "a": "Sí. En teléfonos móviles con pantalla estrecha, cambia la tarjeta de calibración al modo Vertical (5,40 cm de ancho × 8,56 cm de alto), ajusta el contorno con tu tarjeta y pulsa Aplicar Calibración para medir con escala real."
+        }
+      ]
+    },
+    "mmRuler": {
+      "title": "Regla en MM Online | Regla Calibrada en Milímetros (mm)",
+      "description": "Regla online en milímetros (mm) a tamaño real con trazos de 1 mm y 5 mm, tabla de tornillos M2–M10 y asas de reloj, y calibración por tarjeta.",
+      "schemaName": "Regla Online en Milímetros (mm) — Online Ruler Plus",
+      "featureList": [
+        "Regla calibrada a tamaño real en milímetros (mm) con marcas cada 1 mm y 5 mm",
+        "Lectura de 0,1 mm para cursor y distancia ΔX/ΔY entre guías paralelas",
+        "Tabla de tornillos métricos (M2–M10), ancho de correas de reloj (18–22 mm) y pasos PCB",
+        "Calibración con tarjeta ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)"
+      ],
+      "subNavTitle": "Regla en Milímetros (mm)",
+      "breadcrumbLabel": "Regla en Milímetros (mm)",
+      "hero": {
+        "eyebrow": "Escala Métrica de Precisión · Marcas de 1 mm y 5 mm · Etiquetas cada 10 mm",
+        "headline": "Regla Online en Milímetros (mm) a Tamaño Real",
+        "description": "Regla de pantalla de alta densidad en milímetros con graduaciones de 1 mm y 5 mm, resolución de 0,1 mm entre guías y tabla de referencia para tornillos M2–M10 y relojería."
+      },
+      "guideKicker": "Metrología Fina en Milímetros · Resolución de 0,1 mm",
+      "guideHeading": "Cómo Medir Tornillos, Correas de Reloj y Piezas en Milímetros",
+      "guideLead": "Pensada para ingeniería, relojería, impresión 3D y electrónica donde las cotas se expresan directamente en milímetros.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Paso Fino · Marcas de 1 mm y 5 mm",
+          "heading": "¿Para qué sirve una regla online en milímetros?",
+          "body": "La regla online en milímetros numera cada 10 mm (10, 20, 30… mm) y muestra trazos finos cada 1 mm y medios cada 5 mm. En ingeniería, impresión 3D y relojería, las medidas se especifican siempre en milímetros. Online Ruler Plus formatea el cursor y las guías con resolución de 0,1 mm (por ejemplo, 24,3 mm) para identificar tornillos M2–M10 o anchos de correa.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Ver tabla de tornillos y relojes en mm"
+        },
+        {
+          "step": "2",
+          "kicker": "Precisión Óptica · Control de Paralaje",
+          "heading": "¿Cómo evitar el error de paralaje al medir marcas de 1 mm?",
+          "body": "El cristal protector de los monitores y móviles tiene entre 0,5 y 1,5 mm de espesor sobre los píxeles luminosos, por lo que mirar en diagonal puede desplazar la lectura hasta 0,5–1,0 mm. Apoya el objeto plano sobre la pantalla, sitúa tu ojo perpendicularmente (90°) sobre la marca y usa dos líneas guía paralelas para leer ΔX.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Colocar guías paralelas en mm"
+        },
+        {
+          "step": "3",
+          "kicker": "Matemática Submilimétrica · pxPerMm",
+          "heading": "¿Cuántos píxeles equivalen a 1 milímetro en pantalla?",
+          "body": "La densidad en píxeles por milímetro (pxPerMm) define cuántos píxeles CSS equivalen a 1,00 mm físico. Un monitor 1080p de 27 pulgadas tiene unos 3,212 CSS px/mm, mientras un MacBook Pro Retina de 14 pulgadas alcanza 5,000 CSS px/mm (10 píxeles físicos/mm). Calibra con tu tarjeta bancaria de 85,60 mm para fijar la constante exacta de tu panel.",
+          "linkHref": "#calibration",
+          "linkLabel": "Calibrar paso en milímetros"
+        }
+      ],
+      "darkKicker": "Referencia de Ingeniería y Ferretería · 25,40 mm = 1,000 in",
+      "darkHeading": "Tabla de Tornillos (M2–M10), Asas de Reloj y Conversión en mm",
+      "darkLead": "Compara medidas habituales en milímetros con pulgadas decimales, fracciones de 1/16″ y especificaciones estándar ISO.",
+      "darkCards": [
+        {
+          "heading": "¿Cómo medir tornillos métricos (M2 a M10) en pantalla?",
+          "body": "En tornillería métrica ISO 261, la cifra indica el diámetro exterior de la rosca en mm (ej. M3 = 3,0 mm, M5 = 5,0 mm). Para medir el largo útil, alinea la parte inferior de la cabeza (o la superficie superior en tornillos avellanados) con la línea 0 mm y coloca una guía en la punta."
+        },
+        {
+          "heading": "¿Cómo medir el ancho entre asas de reloj (18, 20, 22 mm)?",
+          "body": "Las correas y pasadores de reloj suelen medir 18, 19, 20, 21 o 22 mm entre las asas de la caja. Como 1 mm de error impide el montaje, calibra primero con una tarjeta y usa dos guías verticales tocando los bordes interiores de las asas."
+        },
+        {
+          "heading": "¿Cómo convertir milímetros a pulgadas y fracciones de 1/16″?",
+          "body": "Como 1 pulgada equivale exactamente a 25,4 mm, divide los milímetros entre 25,4 para obtener pulgadas decimales, o entre 1,5875 mm para hallar la fracción de 1/16″ más próxima. También puedes pulsar in en la barra para convertir las guías activas al instante."
+        }
+      ],
+      "table": {
+        "kicker": "Tabla de Referencia en Milímetros para Ingeniería y Relojería",
+        "heading": "Medidas Comunes en Milímetros (mm), cm, Pulgadas y Estándares",
+        "headers": ["Milímetros (mm)", "Centímetros (cm)", "Pulgadas Decimales", "1/16″ Cercano", "Referencia Estándar / Objeto"],
+        "rows": [
+          ["1.00 mm", "0.10 cm", "0.0394 in", "1/16 in (1.59 mm)", "Cable sólido 18 AWG (~1,02 mm)"],
+          ["1.59 mm", "0.16 cm", "0.0625 in", "1/16 in (exacto)", "Equivalencia métrica exacta de 1/16 pulgada"],
+          ["2.00 mm", "0.20 cm", "0.0787 in", "1/16 in", "Diámetro nominal rosca ISO M2"],
+          ["2.54 mm", "0.254 cm", "0.1000 in", "3/32 in", "Paso estándar 0.100″ de pines electrónicos PCB"],
+          ["3.00 mm", "0.30 cm", "0.1181 in", "1/8 in (3.18 mm)", "Tornillo ISO M3 / separador estándar de placa PC"],
+          ["4.00 mm", "0.40 cm", "0.1575 in", "5/32 in", "Tornillo ISO M4 / punta de destornillador de precisión"],
+          ["5.00 mm", "0.50 cm", "0.1969 in", "3/16 in (4.76 mm)", "Tornillo ISO M5 / diámetro LED estándar de 5 mm"],
+          ["6.00 mm", "0.60 cm", "0.2362 in", "1/4 in (6.35 mm)", "Tornillo ISO M6 (punta hexagonal 1/4″ = 6,35 mm)"],
+          ["8.00 mm", "0.80 cm", "0.3150 in", "5/16 in (7.94 mm)", "Perno ISO M8 / eje interior rodamiento 608"],
+          ["10.00 mm", "1.00 cm", "0.3937 in", "3/8 in (9.53 mm)", "Perno ISO M10 / referencia de 1 centímetro"],
+          ["18.00 mm", "1.80 cm", "0.7087 in", "11/16 in", "Ancho clásico de correa de reloj de vestir"],
+          ["20.00 mm", "2.00 cm", "0.7874 in", "13/16 in", "Ancho de correa de reloj estándar más común"],
+          ["22.00 mm", "2.20 cm", "0.8661 in", "7/8 in (22.23 mm)", "Correa de reloj deportivo / diámetro ext. rodamiento 608"],
+          ["25.40 mm", "2.54 cm", "1.0000 in", "1 in (exacto)", "Definición SI exacta de 1 pulgada imperial"],
+          ["53.98 mm", "5.40 cm", "2.1252 in", "2 1/8 in", "Lado corto de tarjeta bancaria ISO/IEC 7810 ID-1"],
+          ["85.60 mm", "8.56 cm", "3.3701 in", "3 3/8 in", "Lado largo de tarjeta bancaria ISO/IEC 7810 ID-1"]
+        ],
+        "footnote": "Fórmulas: in = mm ÷ 25,4 · cm = mm ÷ 10 · 1/16″ = 1,5875 mm · 1/8″ = 3,175 mm · 1/4″ = 6,35 mm."
+      },
+      "faqKicker": "Preguntas sobre la Regla en Milímetros · Paso Fino y Ferretería",
+      "faqHeading": "Preguntas Comunes sobre la Regla Online en Milímetros",
+      "faqs": [
+        {
+          "q": "¿Puede una regla online medir con precisión de 1 mm?",
+          "a": "Sí, una vez calibrada. Las pantallas actuales operan entre 3,2 y 6,0 píxeles CSS por milímetro (hasta 18 píxeles físicos por mm en pantallas móviles 3x), lo que permite distinguir cada marca de 1 mm con nitidez una vez calibrado el panel con una tarjeta de 85,60 mm."
+        },
+        {
+          "q": "¿Cómo medir el diámetro de una moneda, anillo o arandela en milímetros?",
+          "a": "Coloca el objeto plano sobre la cuadrícula central del área de trabajo y haz clic dos veces en la regla horizontal superior para colocar dos guías verticales tangentes a los bordes izquierdo y derecho del círculo. La barra inferior calculará ΔX automáticamente en milímetros."
+        },
+        {
+          "q": "¿Por qué la regla en milímetros parece ligeramente desfasada antes de calibrar?",
+          "a": "Sin calibración, los navegadores fuerzan 96 píxeles CSS por pulgada (3,7795 px/mm), lo que genera un error del 10 % al 35 % en la mayoría de monitores y portátiles. Calibrar con una tarjeta de 85,60 mm sustituye ese valor genérico por la densidad real de tu pantalla."
+        },
+        {
+          "q": "¿Cómo cambio entre milímetros (mm), centímetros (cm) y pulgadas?",
+          "a": "Haz clic en mm, cm, in o px en la esquina superior izquierda del espacio de trabajo o usa las teclas 4 / M (mm), 1 (cm), 2 (in) y 3 (px). Tus guías e historial conservarán la misma longitud física reformateada al instante."
+        }
+      ]
+    },
+    "inchRuler": {
+      "title": "Regla en Pulgadas Online | Escala 12 Pulgadas y 1/16″ Real",
+      "description": "Regla online en pulgadas calibrada a tamaño real con divisiones de 1/2, 1/4, 1/8 y 1/16″, soporte de hasta 12 pulgadas y tabla de fracciones a mm.",
+      "schemaName": "Regla Online en Pulgadas (1/16″ y 12 Pulgadas) — Online Ruler Plus",
+      "featureList": [
+        "Regla imperial calibrada a tamaño real con marcas de 1/2, 1/4, 1/8 y 1/16 de pulgada",
+        "Reducción automática de fracciones de 1/16″ y lectura decimal en vivo",
+        "Soporte completo de regla de 12 pulgadas (1 pie) en portátiles y monitores",
+        "Tabla completa de 1/16″ a pulgadas decimales, milímetros y centímetros"
+      ],
+      "subNavTitle": "Regla en Pulgadas (1/16″)",
+      "breadcrumbLabel": "Regla en Pulgadas (1/16″)",
+      "hero": {
+        "eyebrow": "Escala Imperial · 1 in = 25,4 mm · Fracciones 1/2, 1/4, 1/8 y 1/16″",
+        "headline": "Regla Online en Pulgadas a Tamaño Real (1/16″ y 12″)",
+        "description": "Regla imperial calibrada en pantalla con trazos diferenciados para 1/2, 1/4, 1/8 y 1/16 de pulgada, reducción automática de fracciones y tabla de conversión a mm."
+      },
+      "guideKicker": "Metrología Imperial en Pantalla · Fracciones Diádicas 1/16″",
+      "guideHeading": "Cómo Leer una Regla en Pulgadas y Medir Hasta 12 Pulgadas",
+      "guideLead": "Cada pulgada completa de la escala calibrada se divide en 16 fracciones (1/16″) con cuatro alturas de trazo distintas y simplificación automática en tiempo real.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Fracciones Diádicas · 1/2″, 1/4″, 1/8″, 1/16″",
+          "heading": "¿Cómo leer fracciones de 1/16″ en una regla online?",
+          "body": "Una regla en pulgadas divide cada pulgada (25,40 mm) en 16 incrementos de 1/16″ (1,5875 mm). La longitud de cada trazo corresponde al denominador reducido: los trazos más largos marcan 1/2″, los siguientes marcan cuartos (1/4″ y 3/4″), los medianos indican octavos impares (1/8″, 3/8″, 5/8″, 7/8″) y los cortos marcan dieciseisavos impares. Online Ruler Plus reduce y muestra automáticamente la fracción exacta bajo el cursor.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Ver tabla 1/16″ a decimal y mm"
+        },
+        {
+          "step": "2",
+          "kicker": "Escala de 12 Pulgadas · 1 ft = 12 in = 30,48 cm",
+          "heading": "¿Cómo mostrar una regla completa de 12 pulgadas en pantalla?",
+          "body": "Una regla de 12 pulgadas (1 pie = 304,80 mm) requiere al menos 12 pulgadas de ancho físico de pantalla. Un portátil 16:9 de 15,6 pulgadas ofrece unos 345 mm (13,6 in) de ancho útil y los monitores de 24 o 27 pulgadas superan las 20 pulgadas. Calibra con tu tarjeta y pulsa F para activar pantalla completa y visualizar las 12 pulgadas continuas a escala 1:1.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Abrir espacio de 12 pulgadas en pantalla completa"
+        },
+        {
+          "step": "3",
+          "kicker": "Estándares de Moneda y Tarjeta · Comprobación Rápida",
+          "heading": "¿Cómo verificar la regla en pulgadas con monedas o tarjetas?",
+          "body": "Según la norma ISO/IEC 7810:2019, una tarjeta bancaria mide 3,370 pulgadas de ancho por 2,125 pulgadas (2 1/8″ exactas) de alto. Asimismo, una moneda de 1 centavo de EE. UU. mide exactamente 0,750 pulgadas (3/4″) de diámetro y un cuarto de dólar mide 0,955 pulgadas.",
+          "linkHref": "#calibration",
+          "linkLabel": "Calibrar regla en pulgadas ahora"
+        }
+      ],
+      "darkKicker": "Referencia de Fracciones de Pulgada · 1 in = 25,40 mm (Exacto)",
+      "darkHeading": "Tabla de Fracciones de 1/16″ a Pulgadas Decimales y Milímetros",
+      "darkLead": "Usa esta tabla de equivalencias para convertir dieciseisavos, octavos, cuartos y mitades de pulgada en decimales, milímetros y centímetros sin error.",
+      "darkCards": [
+        {
+          "heading": "¿Por qué fallan las reglas en pulgadas sin calibrar en Windows y Mac?",
+          "body": "Los navegadores dibujan 1 pulgada CSS como 96 píxeles CSS independientemente del tamaño del monitor. En un portátil Mac o Windows típico (113 a 141 CSS PPI), 96 px miden solo entre 0,68 y 0,85 pulgadas reales, haciendo que una regla de 12 pulgadas quede entre 2 y 3,8 pulgadas demasiado corta."
+        },
+        {
+          "heading": "¿Cómo funciona la reducción automática de fracciones en la barra?",
+          "body": "Al mover el puntero o medir un tramo entre dos guías en modo Pulgadas (in), Online Ruler Plus convierte la distancia en pulgadas decimales, redondea al 1/16″ más cercano y simplifica la fracción por su máximo común divisor (por ejemplo, 6/16″ se muestra como 3/8 in y 8/16″ como 1/2 in)."
+        },
+        {
+          "heading": "¿Qué ocurre si mi pantalla es demasiado estrecha para marcas de 1/16″?",
+          "body": "El motor de graduaciones garantiza una separación mínima de 3,0 píxeles CSS entre trazos contiguos. A densidades normales (80–150 CSS PPI), cada marca de 1/16″ está separada entre 5 y 9,5 px; si haces mucho zoom alejando la vista, pasa de forma limpia a 1/8″ o 1/4″."
+        }
+      ],
+      "table": {
+        "kicker": "Tabla Imperial de Fracciones (1/16″ a 1″ · 1 in = 25,4 mm)",
+        "heading": "Dieciseisavos de Pulgada (1/16″) a Fracción Reducida, Decimal, mm y cm",
+        "headers": ["Dieciseisavos", "Fracción Reducida", "Decimal (in)", "Milímetros (mm)", "Centímetros (cm)"],
+        "rows": [
+          ["1/16″", "1/16 in", "0.0625 in", "1.588 mm", "0.159 cm"],
+          ["2/16″", "1/8 in", "0.1250 in", "3.175 mm", "0.318 cm"],
+          ["3/16″", "3/16 in", "0.1875 in", "4.763 mm", "0.476 cm"],
+          ["4/16″", "1/4 in", "0.2500 in", "6.350 mm", "0.635 cm"],
+          ["5/16″", "5/16 in", "0.3125 in", "7.938 mm", "0.794 cm"],
+          ["6/16″", "3/8 in", "0.3750 in", "9.525 mm", "0.953 cm"],
+          ["7/16″", "7/16 in", "0.4375 in", "11.113 mm", "1.111 cm"],
+          ["8/16″", "1/2 in", "0.5000 in", "12.700 mm", "1.270 cm"],
+          ["9/16″", "9/16 in", "0.5625 in", "14.288 mm", "1.429 cm"],
+          ["10/16″", "5/8 in", "0.6250 in", "15.875 mm", "1.588 cm"],
+          ["11/16″", "11/16 in", "0.6875 in", "17.463 mm", "1.746 cm"],
+          ["12/16″", "3/4 in (Centavo USD)", "0.7500 in", "19.050 mm", "1.905 cm"],
+          ["13/16″", "13/16 in", "0.8125 in", "20.638 mm", "2.064 cm"],
+          ["14/16″", "7/8 in", "0.8750 in", "22.225 mm", "2.223 cm"],
+          ["15/16″", "15/16 in (~Cuarto USD)", "0.9375 in", "23.813 mm", "2.381 cm"],
+          ["16/16″", "1 in (Pulgada Completa)", "1.0000 in", "25.400 mm", "2.540 cm"]
+        ],
+        "footnote": "Constantes exactas: 1 in = 25,4 mm · 1/2 in = 12,7 mm · 1/4 in = 6,35 mm · 1/8 in = 3,175 mm · 1/16 in = 1,5875 mm · 12 in (1 ft) = 304,8 mm."
+      },
+      "faqKicker": "Preguntas sobre la Regla Imperial · Escala 12 Pulgadas y 1/16″",
+      "faqHeading": "Preguntas Comunes sobre la Regla Online en Pulgadas",
+      "faqs": [
+        {
+          "q": "¿Cómo obtengo una regla de 12 pulgadas a tamaño real en mi pantalla?",
+          "a": "Calibra tu monitor con una tarjeta bancaria (3,370 × 2,125 in) o la diagonal de pantalla en un equipo de al menos 14 pulgadas de ancho visible y pulsa F para abrir pantalla completa."
+        },
+        {
+          "q": "¿Qué significan las 4 longitudes de marca en una regla en pulgadas?",
+          "a": "Las marcas siguen una jerarquía binaria: la más larga indica 1/2 pulgada; las siguientes dividen en cuartos (1/4 y 3/4″); las medianas indican octavos impares (1/8, 3/8, 5/8, 7/8″); y las más cortas señalan los dieciseisavos (1/16″)."
+        },
+        {
+          "q": "¿Cómo convierto fracciones como 3/8″ o 7/16″ a milímetros?",
+          "a": "Divide el numerador entre el denominador para pasar a decimal (3 ÷ 8 = 0,375 in) y multiplica por 25,4 (0,375 × 25,4 = 9,525 mm). En Online Ruler Plus también puedes medir con guías y pulsar 1 o 4 para ver el equivalente exacto en cm o mm."
+        },
+        {
+          "q": "¿Puedo medir pulgadas en la pantalla de un móvil de menos de 6 pulgadas?",
+          "a": "Sí, resulta ideal para tornillos, joyas o monedas de hasta 5 pulgadas usando calibración con tarjeta en modo Vertical (2,125 × 3,370 in). Para objetos más largos usa un monitor o mide por tramos con una marca."
+        }
+      ]
+    },
+    "horizontalRuler": {
+      "title": "Regla Horizontal Online | Regla Superior e Inferior y Píxeles CSS",
+      "description": "Regla horizontal de ancho completo con bordes superior e inferior simultáneos en cm, mm, pulgadas y píxeles CSS (px) para objetos anchos y diseño web.",
+      "schemaName": "Regla Horizontal de Pantalla y Píxeles — Online Ruler Plus",
+      "featureList": [
+        "Bordes horizontales superior e inferior simultáneos a todo lo ancho",
+        "Escalas en centímetros (cm), milímetros (mm), pulgadas (1/16″) y píxeles CSS (px)",
+        "Líneas guía verticales a altura completa con cálculo automático ΔX",
+        "Modo pantalla completa para medir tramos de 30 cm / 12 pulgadas o más"
+      ],
+      "subNavTitle": "Regla Horizontal",
+      "breadcrumbLabel": "Regla Horizontal",
+      "hero": {
+        "eyebrow": "Eje Horizontal · Bordes Superior e Inferior Simultáneos · cm, mm, in y px",
+        "headline": "Regla Horizontal de Pantalla y Píxeles de Ancho Completo",
+        "description": "Regletas horizontales superior e inferior simultáneas para medir objetos anchos, tramos de 30 cm / 12 pulgadas y anchos de diseño en píxeles CSS (px)."
+      },
+      "guideKicker": "Metrología en Eje Horizontal · Escalas Paralelas Superior e Inferior",
+      "guideHeading": "Cómo Medir Objetos Anchos y Distancias en Píxeles CSS",
+      "guideLead": "Preconfigurada con los bordes superior e inferior activos para alinear piezas anchas, comprobar paralelismo e inspeccionar medidas CSS en píxeles.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Doble Eje Horizontal · Regletas Superior e Inferior",
+          "heading": "¿Por qué usar reglas horizontales superior e inferior a la vez?",
+          "body": "Al medir objetos rectangulares anchos como sobres, teclados o cajas, una sola regleta facilita una inclinación de 3° a 5°. Activar simultáneamente los bordes Superior e Inferior junto con guías verticales garantiza que el mismo valor X coincida arriba y abajo sin error angular.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Medir con bordes Superior e Inferior"
+        },
+        {
+          "step": "2",
+          "kicker": "Regla de Píxeles CSS · Inspección de Viewport W3C",
+          "heading": "¿Cómo funciona el modo Píxeles CSS (px) para diseñadores?",
+          "body": "El modo píxeles CSS (Atajo: 3) mide distancias en píxeles lógicos W3C (marcas cada 10 px, 50 px y números cada 100 px) independientemente de los milímetros físicos. Es muy útil para revisar anchos de contenedores y puntos de corte responsivos (375, 768, 1024, 1440 px) directamente en el navegador.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Ver tabla de ancho horizontal por monitor"
+        },
+        {
+          "step": "3",
+          "kicker": "Tramo a Pantalla Completa · Máxima Anchura",
+          "heading": "¿Cómo aprovechar la máxima longitud horizontal en tu pantalla?",
+          "body": "En paneles 16:9 el ancho activo equivale al 87,2 % de la diagonal (34,5 cm en portátiles de 15,6″ y 59,8 cm en monitores de 27″). Calibra tu densidad primero y pulsa F para abrir pantalla completa y medir 30 cm o más sin recortes.",
+          "linkHref": "#calibration",
+          "linkLabel": "Calibrar ancho horizontal"
+        }
+      ],
+      "darkKicker": "Geometría Panorámica · Paneles 16:9, 16:10 y Ultrapanorámicos",
+      "darkHeading": "Longitud Horizontal Máxima según la Diagonal de Pantalla",
+      "darkLead": "Consulta cuántos centímetros, milímetros y pulgadas caben horizontalmente en móviles, tabletas, portátiles y monitores.",
+      "darkCards": [
+        {
+          "heading": "¿Cuánto mide de ancho un monitor 16:9 o 16:10 en cm y pulgadas?",
+          "body": "Por el teorema de Pitágoras, el ancho activo de un panel 16:9 equivale al 87,16 % de su diagonal (34,54 cm en 15,6″; 59,77 cm en 27″) y en un panel 16:10 equivale al 84,80 %."
+        },
+        {
+          "heading": "¿Cómo funcionan las guías verticales con la regla horizontal?",
+          "body": "Al hacer clic en la regla superior o inferior se coloca una guía vertical de lado a lado. Con dos guías (extremo izquierdo y derecho del objeto), la barra inferior calcula automáticamente ΔX en la unidad elegida."
+        },
+        {
+          "heading": "¿Puedo girar el móvil en horizontal para tener una regla más larga?",
+          "body": "Sí. Girar un smartphone 90° a apaisado duplica aproximadamente el ancho medible de ~6,5 cm a ~14–15 cm, manteniendo tu calibración guardada."
+        }
+      ],
+      "table": {
+        "kicker": "Referencia Geométrica de Pantallas (16:9, 16:10 y 21:9)",
+        "heading": "Ancho Máximo de Pantalla Horizontal en Pulgadas, cm, mm y Píxeles CSS",
+        "headers": ["Panel y Relación de Aspecto", "Ancho Activo (in)", "Ancho Activo (cm / mm)", "Viewport CSS Típico", "Regla Máxima que Cabe"],
+        "rows": [
+          ["Smartphone 6.1\" (19.5:9 Apaisado)", "5.55 in", "14.1 cm (141 mm)", "844 – 852 CSS px", "Hasta 13 cm / 5 in"],
+          ["Tableta 11.0\" (iPad / Android, 4:3)", "8.80 in", "22.4 cm (224 mm)", "1024 – 1194 CSS px", "Regla de 15 cm / 6 in"],
+          ["Portátil 13.3\" (16:10 Retina)", "11.28 in", "28.6 cm (286 mm)", "1440 CSS px", "Hasta 27 cm / 10.5 in"],
+          ["MacBook Pro 14.2\" (16:10)", "11.97 in", "30.4 cm (304 mm)", "1512 CSS px", "Regla completa de 30 cm / 11.5 in"],
+          ["Portátil 15.6\" Full HD (16:9)", "13.60 in", "34.5 cm (345 mm)", "1536 – 1920 CSS px", "Regla 30 cm y 12 pulgadas"],
+          ["Monitor 24.0\" (16:9 1080p)", "20.92 in", "53.1 cm (531 mm)", "1920 CSS px", "Regla de 50 cm / 18 pulgadas"],
+          ["Monitor 27.0\" (16:9 QHD / 4K)", "23.53 in", "59.8 cm (598 mm)", "1920 – 2560 CSS px", "Regla de 58 cm / 22 pulgadas"],
+          ["Monitor Ultrapanorámico 34.0\" (21:9)", "31.36 in", "79.7 cm (797 mm)", "3440 CSS px", "Regla de 75 cm / 30 pulgadas"]
+        ],
+        "footnote": "Fórmulas de ancho horizontal: 16:9 Ancho = Diagonal × 0,87158 · 16:10 Ancho = Diagonal × 0,84800 · 21:9 Ancho = Diagonal × 0,92246."
+      },
+      "faqKicker": "Preguntas sobre la Regla Horizontal y de Píxeles",
+      "faqHeading": "Preguntas Comunes sobre la Regla Horizontal en Pantalla",
+      "faqs": [
+        {
+          "q": "¿Qué ventaja tiene una regla horizontal con bordes superior e inferior?",
+          "a": "Evita la inclinación angular al alinear objetos largos y permite elegir el borde más cómodo (por ejemplo, el superior cuando la bisagra o teclado del portátil estorba abajo)."
+        },
+        {
+          "q": "¿Cómo uso la regla horizontal como regla de píxeles CSS (px)?",
+          "a": "Pulsa el botón px en la barra o la tecla 3 para cambiar a píxeles lógicos W3C (0 px en adelante) y coloca guías verticales para medir tarjetas, columnas o imágenes."
+        },
+        {
+          "q": "¿Por qué la regla horizontal empieza 16 píxeles dentro del borde izquierdo?",
+          "a": "Para dejar el 0 completamente visible sobre cristal plano y evitar que el marco físico elevado del monitor tape o incline el borde inicial del objeto."
+        },
+        {
+          "q": "¿Puedo alternar la regla horizontal entre centímetros, milímetros y pulgadas?",
+          "a": "Sí. Aunque esta página preselecciona los bordes Superior e Inferior, todas las escalas siguen activas con las teclas 1 (cm), 2 (in), 3 (px) y 4 / M (mm), además de Doble cm/in."
+        }
+      ]
+    },
+    "verticalRuler": {
+      "title": "Regla Vertical Online | Escala en Bordes Izquierdo y Derecho",
+      "description": "Regla vertical online calibrada con escalas simultáneas en los bordes izquierdo y derecho en centímetros (cm), milímetros (mm) y pulgadas (1/16″).",
+      "schemaName": "Regla Vertical en Pantalla — Online Ruler Plus",
+      "featureList": [
+        "Bordes verticales izquierdo y derecho simultáneos para objetos de pie y uso móvil",
+        "Guías horizontales a todo lo ancho con cálculo automático de altura vertical ΔY",
+        "Calibración vertical de tarjeta ISO/IEC 7810 ID-1 (53,98 × 85,60 mm) para smartphones",
+        "Escalas verticales en cm, mm, pulgadas fraccionarias 1/16″ y píxeles CSS (px)"
+      ],
+      "subNavTitle": "Regla Vertical",
+      "breadcrumbLabel": "Regla Vertical",
+      "hero": {
+        "eyebrow": "Eje Vertical · Bordes Izquierdo y Derecho · Escala Vertical y Retrato",
+        "headline": "Regla Vertical Online Calibrada en Pantalla",
+        "description": "Regletas verticales izquierda y derecha diseñadas para medir alturas en posición vertical, objetos cilíndricos apoyados en el escritorio y uso ergonómico en móviles."
+      },
+      "guideKicker": "Metrología en Eje Vertical · Escalas Paralelas Izquierda y Derecha",
+      "guideHeading": "Cómo Medir Alturas Verticales y Tramos en Móviles en Retrato",
+      "guideLead": "Preconfigurada con los bordes izquierdo y derecho activos para medir piezas de pie o sujetar objetos cómodamente junto a cualquier lado del teléfono.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Doble Eje Vertical · Bordes Izquierdo y Derecho",
+          "heading": "¿Cuándo conviene usar la regla vertical?",
+          "body": "En un móvil en posición vertical hay más del doble de longitud medible (~14–15,5 cm) que en horizontal (~6,5–7 cm). En ordenadores también resulta ideal para comprobar la altura de botellas, pilas AA (50,5 mm) o piezas apoyadas de pie junto a la pantalla.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Medir en bordes Izquierdo y Derecho"
+        },
+        {
+          "step": "2",
+          "kicker": "Guías Horizontales · Lectura de Altura ΔY",
+          "heading": "¿Cómo miden la altura las líneas guía horizontales?",
+          "body": "Haz clic en la regleta izquierda o derecha para trazar una guía horizontal de extremo a extremo. Al colocar una guía en la base y otra en la parte superior del objeto, la barra inferior resta automáticamente ambas coordenadas y muestra la altura exacta ΔY.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Ver tabla de altura vertical"
+        },
+        {
+          "step": "3",
+          "kicker": "Ergonomía Móvil · Uso para Diestros y Zurdos",
+          "heading": "¿Por qué están activos ambos bordes verticales a la vez?",
+          "body": "Al sujetar una pieza contra el móvil con una mano, el pulgar o el borde de la funda suele tapar un lateral. Tener escala calibrada a izquierda y derecha permite apoyar el objeto por el lado más despejado tanto a diestros como a zurdos.",
+          "linkHref": "#calibration",
+          "linkLabel": "Calibrar escala vertical"
+        }
+      ],
+      "darkKicker": "Geometría Vertical · Móviles en Retrato y Monitores",
+      "darkHeading": "Altura Útil Vertical según Dispositivo y Objetos Comunes",
+      "darkLead": "Compara la capacidad vertical de smartphones, tabletas, portátiles y monitores de escritorio.",
+      "darkCards": [
+        {
+          "heading": "¿Por qué el modo vertical es el mejor diseño de regla en smartphones?",
+          "body": "Los móviles modernos (19.5:9 o 20:9) ofrecen entre 13,5 y 15,2 cm de altura útil en retrato frente a apenas 6,4–7,1 cm de ancho horizontal, duplicando el tramo continuo sin girar el teléfono."
+        },
+        {
+          "heading": "¿Cómo calibrar la regla vertical en un teléfono estrecho?",
+          "body": "Como una tarjeta bancaria horizontal mide 85,60 mm y supera el ancho de un móvil en retrato, pulsa el botón de orientación en el panel de tarjeta para cambiarla a Vertical (53,98 × 85,60 mm) y ajusta el alto de la tarjeta."
+        },
+        {
+          "heading": "¿Cuánta altura vertical cabe en un portátil o monitor?",
+          "body": "La altura activa supone el 49,03 % de la diagonal en paneles 16:9 (19,4 cm en un portátil de 15,6″ y 33,6 cm en un monitor de 27″) y hasta 59,8 cm si giras un monitor de 27″ a 90°."
+        }
+      ],
+      "table": {
+        "kicker": "Tabla de Altura Vertical y Objetos de Referencia",
+        "heading": "Altura Activa por Dispositivo y Objetos Verticales Compatibles",
+        "headers": ["Dispositivo / Orientación", "Altura Activa (cm / mm)", "Altura Activa (in)", "Viewport CSS", "Objetos Verticales que Caben"],
+        "rows": [
+          ["Smartphone 6.1\" (Retrato)", "14.1 cm (141 mm)", "5.55 in", "844 – 852 CSS px", "Pilas AA/AAA (50,5 mm), tarjeta (85,6 mm), lata (122 mm)"],
+          ["Smartphone 6.7\" Pro / Ultra (Retrato)", "15.5 cm (155 mm)", "6.10 in", "926 – 932 CSS px", "Pasaporte (125 mm), bolígrafo (~140 mm), regla 15 cm"],
+          ["Tableta 11.0\" (Retrato 4:3)", "22.4 cm (224 mm)", "8.80 in", "1024 – 1194 CSS px", "Cuaderno A5 (210 mm), botella, libro de bolsillo"],
+          ["MacBook Pro 14.2\" (16:10)", "19.0 cm (190 mm)", "7.48 in", "982 CSS px", "Altura de móvil, regla 15 cm, caja pequeña"],
+          ["Portátil 15.6\" (16:9)", "19.4 cm (194 mm)", "7.65 in", "864 – 1080 CSS px", "Caja DVD/Blu-ray (190 mm), taza, figura"],
+          ["Monitor 24.0\" (16:9)", "29.9 cm (299 mm)", "11.77 in", "1080 CSS px", "Altura hoja A4 (297 mm) o Carta US (279,4 mm)"],
+          ["Monitor 27.0\" (16:9)", "33.6 cm (336 mm)", "13.24 in", "1080 – 1440 CSS px", "Regla vertical completa de 30 cm / 12 pulgadas"],
+          ["Monitor 24–27\" (Pivote 90°)", "53.1 – 59.8 cm", "20.9 – 23.5 in", "1920 – 2560 CSS px", "Torres PC, altavoces altos, escala vertical 50 cm"]
+        ],
+        "footnote": "Fórmulas de altura vertical: 16:9 Alto = Diagonal × 0,49026 · 16:10 Alto = Diagonal × 0,53000."
+      },
+      "faqKicker": "Preguntas sobre la Regla Vertical y Retrato",
+      "faqHeading": "Preguntas Comunes sobre la Regla Vertical en Pantalla",
+      "faqs": [
+        {
+          "q": "¿Cómo mido la altura de un objeto apoyado en la mesa usando la regla vertical?",
+          "a": "Coloca el objeto junto a la pantalla y traza dos guías horizontales haciendo clic en la regleta izquierda (una en la base y otra en la cima del objeto) para leer la diferencia ΔY exacta."
+        },
+        {
+          "q": "¿Por qué la regla vertical cuenta de arriba (0) hacia abajo?",
+          "a": "Porque en sistemas de coordenadas web (HTML5 Canvas y CSS) el origen (0, 0) está fijo arriba a la izquierda, evitando que el 0 se desplace al hacer scroll. Para medir desde abajo hacia arriba basta usar dos guías horizontales."
+        },
+        {
+          "q": "¿Cómo calibro la regla vertical en un móvil en modo retrato?",
+          "a": "Abre el panel de Tarjeta Bancaria, cambia el botón a Vertical (53,98 × 85,60 mm), alinea tu tarjeta verticalmente contra la pantalla y pulsa Aplicar Calibración."
+        },
+        {
+          "q": "¿Puedo mostrar reglas horizontales y verticales a la vez?",
+          "a": "Sí. Pulsa Superior, Inferior o Todos en el selector de bordes de la barra para combinar reglas horizontales y verticales en un cuadro de medición 2D."
+        }
+      ]
+    },
+    "howToUse": {
+      "title": "Cómo Usar una Regla Online | Manual de Medición en Pantalla",
+      "description": "Guía paso a paso para calibrar la pantalla con tarjeta o diagonal, colocar líneas guía, leer fracciones de 1/16″ e imprimir reglas al 100 %.",
+      "schemaHeadline": "Cómo Usar Online Ruler Plus: Manual Paso a Paso de Medición en Pantalla",
+      "subNavTitle": "Cómo Usar",
+      "breadcrumbLabel": "Cómo Usar",
+      "heroKicker": "Manual de Usuario · Metrología de Precisión · Actualizado en noviembre de 2026",
+      "heroHeadline": "Cómo Usar Online Ruler Plus",
+      "heroSummary": "Online Ruler Plus convierte tu pantalla en una regla física calibrada 1:1 en el propio navegador. Sigue estos pasos para calibrar una vez y medir en centímetros, milímetros y pulgadas 1/16″.",
+      "openRulerBtn": "Abrir Regla Online",
+      "goCalBtn": "Ir a Calibración",
+      "steps": [
+        {
+          "badge": "1",
+          "kicker": "Paso 01 · Calibración",
+          "heading": "¿Cómo calibrar primero la densidad de pantalla?",
+          "body": "La calibración reemplaza el valor por defecto de 96 CSS PPI del navegador por el paso físico real de tu pantalla. Ve a Calibra tu Pantalla y ajusta el rectángulo usando una tarjeta bancaria o DNI (85,60 × 53,98 mm), introduce la diagonal visible en pulgadas con zoom al 100 %, o usa Detección Automática. Pulsa Aplicar Calibración para guardarla localmente.",
+          "links": [{ "href": "/#calibration", "label": "Abrir calibración con tarjeta →" }]
+        },
+        {
+          "badge": "2",
+          "kicker": "Paso 02 · Unidades y Bordes",
+          "heading": "¿Cómo elegir unidades de medida y bordes activos?",
+          "body": "Usa los botones superiores o atajos de teclado: tecla 1 para Centímetros (cm), 2 para Pulgadas (1/16″), 3 para Píxeles CSS (px) o 4 / M para Milímetros (mm). También puedes activar Doble cm/in y combinar los bordes Superior, Inferior, Izquierdo o Derecho.",
+          "links": [
+            { "href": "/cm-ruler", "label": "Regla cm" },
+            { "href": "/inch-ruler", "label": "Regla Pulgadas" },
+            { "href": "/mm-ruler", "label": "Regla mm" }
+          ]
+        },
+        {
+          "badge": "3",
+          "kicker": "Paso 03 · Alineación en Cero y Guías",
+          "heading": "¿Cómo alinear en el cero y medir tramos con guías?",
+          "body": "Coloca el extremo inicial del objeto sobre la línea discontinua del 0 dentro del lienzo (separada 16 px del marco físico del monitor). Haz clic en cualquier regleta o cuadrícula para añadir guías arrastrables y calcula automáticamente ΔX o ΔY entre dos guías paralelas.",
+          "links": [{ "href": "/calibration-guide", "label": "Leer guía de calibración y PPI →" }]
+        }
+      ],
+      "advancedCards": [
+        {
+          "kicker": "Instrumentos Flotantes · Regla Móvil y Transportador",
+          "heading": "¿Cómo usar la regla flotante y el transportador de 180°?",
+          "body": "Pulsa + Regla Flotante para crear una regla independiente que puedes arrastrar y girar 360° sobre piezas inclinadas. Pulsa P (o Transportador) para activar el semicírculo de 0° a 180° con resolución de 0,1° y medir ángulos y chaflanes. Pulsa C para la mira o Esc para limpiar guías."
+        },
+        {
+          "kicker": "Regla Imprimible a Tamaño Real · Escala 100 %",
+          "heading": "¿Cómo imprimir una regla a escala real del 100 %?",
+          "body": "Al imprimir desde el navegador (Ctrl+P o Cmd+P), abre Más ajustes y cambia Escala a Tamaño real o 100 % personalizado (sin «Ajustar al área imprimible», que encoge la página entre un 3 % y un 8 %). Comprueba después la impresión con una tarjeta bancaria de 85,60 mm."
+        }
+      ],
+      "recipesKicker": "Flujos Prácticos · Ferretería, Manualidades y Diseño",
+      "recipesHeading": "Recetas Paso a Paso para Mediciones Habituales",
+      "recipesLead": "Cada objeto físico plantea retos distintos. Utiliza estos métodos verificados para obtener lecturas repetibles sin rayar el cristal de tu pantalla.",
+      "recipes": [
+        {
+          "kicker": "Receta 01 · Piezas Circulares, Monedas y Anillos",
+          "heading": "Medición de diámetro exterior con guías verticales tangentes",
+          "body": "Coloca la moneda, arandela o anillo sobre una lámina transparente en el centro del lienzo y coloca dos guías verticales en la regleta superior rozando los bordes izquierdo y derecho del círculo. La barra inferior calculará ΔX sin necesidad de alinear con el 0."
+        },
+        {
+          "kicker": "Receta 02 · Tornillos, Pernos y Correas de Reloj",
+          "heading": "Medición de roscas métricas y ancho de asas",
+          "body": "Abre la [[link:/mm-ruler|Regla en Milímetros (mm)]] y protege la pantalla con papel fino o acetato para que las roscas no rayen el recubrimiento antirreflejos. Mide desde la base de la cabeza hasta la punta de la rosca mediante dos guías."
+        },
+        {
+          "kicker": "Receta 03 · Carpintería y Fracciones de 1/16″",
+          "heading": "Lectura fiable de fracciones imperiales reducidas",
+          "body": "Cambia a la [[link:/inch-ruler|Regla en Pulgadas (1/16″)]] para ver los cuatro niveles de marcas (1/2, 1/4, 1/8 y 1/16″) y obtener la fracción simplificada automática junto al valor decimal."
+        },
+        {
+          "kicker": "Receta 04 · Objetos de Pie y Piezas Largas",
+          "heading": "Uso de bordes verticales y medición por tramos",
+          "body": "Usa la [[link:/vertical-ruler|Regla Vertical]] en pantalla completa (tecla F). Para objetos más largos que tu monitor, alinea con 0, marca con cinta adhesiva una cifra redonda como 25,0 cm, traslada esa marca al 0 y suma el segundo tramo."
+        }
+      ],
+      "shortcutsKicker": "Controles del Workspace · Referencia de Teclado",
+      "shortcutsHeading": "Tabla Completa de Atajos de Teclado",
+      "shortcutsLead": "Cambiar de unidad o lanzar guías con una tecla te permite sujetar el objeto con la otra mano sin moverlo.",
+      "shortcutsHeaders": ["Tecla", "Acción en el Workspace", "Cuándo Usarla"],
+      "shortcuts": [
+        { "key": "1", "action": "Cambiar a Centímetros (cm)", "useCase": "Mediciones diarias con trazos de 1 mm y 0,5 cm" },
+        { "key": "2", "action": "Cambiar a Pulgadas (in)", "useCase": "Medidas imperiales, madera y fracciones de 1/16″" },
+        { "key": "3", "action": "Cambiar a Píxeles CSS (px)", "useCase": "Diseño UI, breakpoints y anchos en píxeles" },
+        { "key": "4 / M", "action": "Cambiar a Milímetros (mm)", "useCase": "Tornillos M2–M10, joyería y correas de reloj" },
+        { "key": "D", "action": "Alternar Tema Claro / Oscuro", "useCase": "Reducir reflejos según la luz de la habitación" },
+        { "key": "G", "action": "Activar / Añadir Guías", "useCase": "Trazar líneas paralelas para medir ΔX o ΔY" },
+        { "key": "C", "action": "Alternar Mira del Cursor", "useCase": "Seguir coordenadas X/Y exactas sobre el lienzo" },
+        { "key": "P", "action": "Alternar Transportador 180°", "useCase": "Medir ángulos y chaflanes con paso de 0,1°" },
+        { "key": "F", "action": "Entrar / Salir Pantalla Completa", "useCase": "Aprovechar todo el ancho de la pantalla" },
+        { "key": "Esc", "action": "Limpiar Guías y Diálogos", "useCase": "Reiniciar rápidamente antes de la siguiente pieza" }
+      ],
+      "checklistKicker": "Verificación Previa · Lista de 6 Puntos",
+      "checklistHeading": "Seis Comprobaciones Antes de Dar por Buena una Medida",
+      "checklistLead": "Antes de anotar medidas críticas para soportes impresos en 3D, marcos o repuestos, repasa estos seis puntos:",
+      "checklistItems": [
+        "[[strong:1. Revisa la insignia de escala:]] Confirma que indica calibración manual verificada y no solo la estimación inicial de 96 PPI.",
+        "[[strong:2. Comprueba el zoom al 100 % al introducir diagonal:]] Pulsa [[code:Ctrl+0]] o [[code:Cmd+0]] antes de introducir las pulgadas de pantalla; después puedes hacer zoom libremente porque [[code:devicePxPerMm]] compensa la escala.",
+        "[[strong:3. Verifica al cambiar de monitor:]] Si arrastras la ventana a otro monitor, vuelve a calibrar o comprobar con tu tarjeta (85,60 mm).",
+        "[[strong:4. Mira totalmente perpendicular:]] El cristal protector crea paralaje de 0,3–1,0 mm si lees en diagonal.",
+        "[[strong:5. Respeta el grosor del bisel:]] Usa siempre el 0 interior discontinuo o dos guías paralelas (ΔX / ΔY).",
+        "[[strong:6. Protege la pantalla frente a arañazos:]] Coloca papel o acetato bajo piezas metálicas afiladas; usa pie de rey para tolerancias menores de ±0,2 mm."
+      ]
+    },
+    "calibrationGuide": {
+      "title": "Guía de Calibración de Pantalla y PPI | Online Ruler Plus",
+      "description": "Guía técnica sobre densidad de píxeles (PPI), píxeles CSS W3C, calibración con tarjeta ISO/IEC 7810, matemáticas de escala HiDPI y paralaje.",
+      "schemaHeadline": "Guía Completa de Calibración de Pantalla y Medición PPI",
+      "subNavTitle": "Guía de Calibración",
+      "subNavCtaLabel": "Calibrar Ahora",
+      "breadcrumbLabel": "Guía de Calibración",
+      "heroKicker": "Referencia Técnica · Óptica de Pantalla y Unidades CSS W3C · Noviembre 2026",
+      "heroHeadline": "Guía Completa de Calibración de Pantalla y Medición PPI",
+      "heroSummary": "La calibración de pantalla conecta los píxeles de referencia CSS abstractos de 96 PPI del W3C con el paso físico real en milímetros de tu panel hardware.",
+      "calibrateBtn": "Calibrar tu Pantalla",
+      "openRulerBtn": "Abrir Regla Online",
+      "topCards": [
+        {
+          "kicker": "Sección 01 · Matemática de Píxeles",
+          "heading": "¿Qué diferencia hay entre PPI físico y píxeles CSS?",
+          "body": "Los PPI físicos dependen de la resolución nativa y la diagonal del panel ([[code:PPI físico = √(W² + H²) / diagonalInches]]). En cambio, un píxel CSS es una unidad angular definida por el estándar W3C CSS Values Level 4 a 1/96 de pulgada CSS (3,7795 CSS px/mm). Con escalado HiDPI del sistema (como [[code:devicePixelRatio = 2]] en Mac Retina o [[code:1.25]]–[[code:1.5]] en Windows), Online Ruler Plus calibra en [[code:pxPerMm]] y guarda la densidad física invariante [[code:devicePxPerMm = pxPerMm × dpr]]."
+        },
+        {
+          "kicker": "Sección 02 · Estándar Físico",
+          "heading": "¿Por qué la tarjeta ISO/IEC 7810 ID-1 es ideal para calibrar?",
+          "body": "La norma ISO/IEC 7810:2019 ID-1 rige mundialmente tarjetas bancarias, permisos de conducir y carnés de identidad con dimensiones exactas de 85,60 mm de ancho por 53,98 mm de alto y radio de esquina de 3,18 mm. Igualar un rectángulo en pantalla a esa tarjeta mide directamente [[code:pxPerMm = cardWidthPx / 85.60]] evitando errores de escala del SO o privacidad del navegador."
+        },
+        {
+          "kicker": "Sección 03 · Subdivisiones",
+          "heading": "¿Cómo se calculan las graduaciones en mm y fracciones de 1/16″?",
+          "body": "Siguiendo la equivalencia exacta NIST/BIPM de 1 pulgada = 25,4 mm, los modos [[link:/cm-ruler|cm]] y [[link:/mm-ruler|mm]] dibujan marcas cada 1,0 mm, 5,0 mm y 10,0 mm. El modo [[link:/inch-ruler|Pulgadas]] divide cada 25,4 mm en 16 pasos de 1,5875 mm con jerarquía visual para 1/2, 1/4, 1/8 y 1/16″."
+        }
+      ],
+      "midCards": [
+        {
+          "kicker": "Sección 04 · Referencias Secundarias",
+          "heading": "¿Qué monedas, billetes y tamaños de papel verifican la calibración?",
+          "body": "Según el Banco Central Europeo, una moneda de 1 Euro mide 23,25 mm y una de 2 Euros mide 25,75 mm. Según la Casa de la Moneda de EE. UU., un centavo mide 19,05 mm (3/4″) y un cuarto de dólar 24,26 mm. Una pila AA IEC R6 mide 50,50 mm de largo y el lado corto de una hoja A4 ISO 216 mide exactamente 210,0 mm."
+        },
+        {
+          "kicker": "Sección 05 · Zoom y Multimonitor",
+          "heading": "¿Cómo gestiona Online Ruler Plus el zoom y los monitores externos?",
+          "body": "Online Ruler Plus almacena tu densidad física [[code:devicePxPerMm = pxPerMm × dpr]] en [[code:localStorage]] asociada a la firma de resolución del monitor. Al cambiar el zoom en el mismo monitor, divide [[code:devicePxPerMm]] entre el nuevo DPR al instante; si mueves la ventana a otro monitor, un aviso te invita a verificar la nueva pantalla."
+        }
+      ],
+      "s6Kicker": "Sección 06 · Cálculos Prácticos y Matriz HiDPI",
+      "s6Heading": "Relación entre CSS PPI, PPI Físico y devicePxPerMm según Pantalla",
+      "s6Lead": "Los navegadores exponen píxeles CSS lógicos cuando hay escalado HiDPI del sistema. Aplicando el teorema de Pitágoras al 100 % de zoom se obtiene [[code:CSS px/mm]], y multiplicando por [[code:window.devicePixelRatio]] resulta [[code:devicePxPerMm]].",
+      "s6TableHeading": "Tabla Práctica de Densidad por Pantalla y Escala del Sistema",
+      "s6Headers": ["Configuración de Pantalla", "Resolución CSS", "CSS PPI Efectivo", "CSS px/mm", "devicePxPerMm"],
+      "workedExamples": [
+        { "panel": "Portátil 14.2\" (Mac Retina / DPR 2×)", "cssRes": "1512 × 982 CSS px (DPR 2.0)", "cssPpi": "127.0 CSS PPI", "pxPerMm": "5.000 CSS px/mm", "devicePxPerMm": "10.000 device px/mm" },
+        { "panel": "Portátil Windows 15.6\" (Escala 125 %)", "cssRes": "1536 × 864 CSS px (DPR 1.25)", "cssPpi": "113.0 CSS PPI", "pxPerMm": "4.448 CSS px/mm", "devicePxPerMm": "5.560 device px/mm" },
+        { "panel": "Monitor 24\" 1080p (100 %)", "cssRes": "1920 × 1080 CSS px (DPR 1.0)", "cssPpi": "91.8 CSS PPI", "pxPerMm": "3.614 CSS px/mm", "devicePxPerMm": "3.614 device px/mm" },
+        { "panel": "Monitor 27\" 4K UHD (Escala 150 %)", "cssRes": "2560 × 1440 CSS px (DPR 1.5)", "cssPpi": "108.8 CSS PPI", "pxPerMm": "4.283 CSS px/mm", "devicePxPerMm": "6.425 device px/mm" },
+        { "panel": "Smartphone OLED 6.1\" (DPR 3×)", "cssRes": "390 × 844 CSS px (DPR 3.0)", "cssPpi": "152.4 CSS PPI", "pxPerMm": "6.000 CSS px/mm", "devicePxPerMm": "18.000 device px/mm" }
+      ],
+      "caveats": [
+        {
+          "kicker": "Advertencia de Escala del SO · PPI Fraccionario",
+          "heading": "Por qué la calibración con tarjeta supera al cálculo estimado por diagonal",
+          "body": "Muchos paneles reales miden 15,6″ o 26,9″ y reciben escalado fraccionario del SO (125 %, 150 % en Windows, Wayland o modos «Más espacio» en macOS) que alteran el CSS PPI efectivo. Alinear una tarjeta física de 85,60 mm mide directamente el ratio real renderizado en menos de 15 segundos."
+        },
+        {
+          "kicker": "Móviles · Pantallas Estrechas",
+          "heading": "Por qué los teléfonos usan Calibración Vertical con Tarjeta (53,98 mm)",
+          "body": "Un móvil en retrato mide entre 360 y 430 CSS px (~58 a 72 mm), por lo que una tarjeta horizontal de 85,60 mm no cabe. El [[strong:Modo Tarjeta Vertical]] ajusta los [[strong:53,98 mm]] del lado corto ([[code:pxPerMm = cardShortEdgePx / 53.98]]) para lograr escala 1:1 en móviles."
+        }
+      ],
+      "s7Kicker": "Sección 07 · Física de Pantalla y Límites de Precisión",
+      "s7Heading": "Paralaje del Cristal Protector y Márgenes de Tolerancia",
+      "s7Body1": "El cristal protector de cualquier panel LCD u OLED separa el objeto entre 0,5 y 1,5 mm del plano de subpíxeles. Al mirar en ángulo [[code:θ]], la refracción (índice [[code:n ≈ 1.5]]) desplaza la alineación aparente aproximadamente [[code:espesor × sin(θ) / n]], provocando errores de 0,3 a 0,5 mm con solo 30° de inclinación.",
+      "s7Body2": "Para mantener la repetibilidad: alinea tu vista totalmente perpendicular (90°) sobre la marca 0 y sobre la segunda guía, calibra con una tarjeta rígida y usa pie de rey o micrómetro para tolerancias inferiores a ±0,25 mm.",
+      "s7TableHeading": "Tabla Oficial de Objetos Físicos de Verificación",
+      "s7TableLead": "Tras guardar la calibración, apoya suavemente cualquiera de estos artículos sobre la pantalla para comprobar la escala:",
+      "s7Headers": ["Objeto de Referencia", "Métrico (mm)", "Imperial (in)", "Norma Oficial"],
+      "referenceItems": [
+        { "item": "Tarjeta Bancaria / Crédito ISO/IEC 7810 ID-1 (Ancho)", "mm": "85.60 mm", "inches": "3.370 in", "standard": "ISO/IEC 7810:2019 ID-1" },
+        { "item": "Tarjeta ISO/IEC 7810 ID-1 (Alto)", "mm": "53.98 mm", "inches": "2.125 in", "standard": "ISO/IEC 7810:2019 ID-1" },
+        { "item": "Moneda 1 Centavo USD (Diámetro)", "mm": "19.05 mm", "inches": "0.750 in (3/4″)", "standard": "Especificación US Mint" },
+        { "item": "Moneda 5 Centavos USD (Diámetro)", "mm": "21.21 mm", "inches": "0.835 in", "standard": "Especificación US Mint" },
+        { "item": "Moneda de 1 Euro (Diámetro)", "mm": "23.25 mm", "inches": "0.915 in", "standard": "Banco Central Europeo" },
+        { "item": "Moneda 25 Centavos USD (Diámetro)", "mm": "24.26 mm", "inches": "0.955 in", "standard": "Especificación US Mint" },
+        { "item": "Moneda de 2 Euros (Diámetro)", "mm": "25.75 mm", "inches": "1.014 in", "standard": "Banco Central Europeo" },
+        { "item": "Pila AA Estándar (Largo)", "mm": "50.50 mm", "inches": "1.988 in", "standard": "IEC R6 / ANSI 15" },
+        { "item": "Billete Dólar EE. UU. (Ancho)", "mm": "155.96 mm", "inches": "6.140 in", "standard": "Bureau of Engraving & Printing" },
+        { "item": "Papel A4 ISO 216 (Lado Corto)", "mm": "210.00 mm", "inches": "8.268 in", "standard": "Serie ISO 216" }
+      ]
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes Regla Online | Calibración, PPI y 1/16″",
+      "description": "Respuestas a 20 preguntas comunes sobre calibración de reglas en pantalla, límites en móviles y cámaras, reglas de Word y PowerPoint y escalas en cm/mm.",
+      "subNavTitle": "Preguntas Frecuentes",
+      "breadcrumbLabel": "Preguntas Frecuentes",
+      "heroKicker": "Base de Conocimiento · Soporte y Metrología · 20 Preguntas Verificadas",
+      "heroHeadline": "Preguntas Frecuentes",
+      "heroSummary": "Respuestas técnicas completas sobre calibración PPI de pantalla, alineación con tarjeta ISO/IEC 7810, escalas métricas y de 1/16″, uso multimonitor y smartphones.",
+      "openRulerBtn": "Abrir Regla Online",
+      "guideBtn": "Guía de Calibración",
+      "cat1Kicker": "Categoría 01 · Calibración, PPI y Privacidad",
+      "cat1Heading": "Calibración de Pantalla, Zoom y Compatibilidad",
+      "cat2Kicker": "Categoría 02 · Técnicas de Medición y Conversiones",
+      "cat2Heading": "Conversiones, Guías, Transportador e Impresión",
+      "extendedFaqs": [
+        {
+          "q": "¿Cuántos centímetros tiene 1 pulgada y una regla de 12 pulgadas?",
+          "a": "Según el acuerdo internacional NIST/BIPM de 1959, 1 pulgada equivale exactamente a 2,54 cm (25,4 mm). Una regla estándar de 12 pulgadas (1 pie) equivale por tanto a 30,48 cm (304,8 mm), es decir, 4,8 mm más que una regla métrica de 30 cm."
+        },
+        {
+          "q": "¿Por qué la marca 0 está separada 16 píxeles del borde del espacio de trabajo?",
+          "a": "El 0 está desplazado 16 píxeles CSS hacia el interior para quedar completamente sobre el cristal plano y evitar la sombra o el escalón del bisel físico de los monitores."
+        },
+        {
+          "q": "¿Cómo mido el diámetro de una moneda, anillo u objeto circular en pantalla?",
+          "a": "Apoya el objeto sobre la cuadrícula central, coloca una guía vertical tangente al borde izquierdo y otra tangente al borde derecho. La barra inferior calcula la distancia ΔX exacta al instante."
+        },
+        {
+          "q": "¿Puedo medir objetos más largos que la pantalla de mi portátil o móvil?",
+          "a": "Pulsa F para entrar en pantalla completa y usar todo el ancho del panel. Si el objeto sigue excediendo la pantalla, marca una cifra entera con cinta adhesiva (como 25,0 cm), desplaza la marca de nuevo al 0 y suma el segundo tramo."
+        },
+        {
+          "q": "¿Cómo uso el transportador de 180° y la regla flotante?",
+          "a": "Haz clic en + Regla Flotante para arrastrar y girar 360° una regleta auxiliar dentro del área de trabajo, o pulsa P para abrir el transportador semicircular de 0° a 180° con resolución de 0,1°."
+        },
+        {
+          "q": "¿Cómo imprimo una regla a tamaño real del 100 % sin que se encoja?",
+          "a": "En el cuadro de impresión del navegador (Ctrl+P / Cmd+P), abre Más ajustes y selecciona Escala 100 % o Tamaño real desactivando «Ajustar al área de impresión». Comprueba el resultado con una tarjeta bancaria de 85,60 mm."
+        },
+        {
+          "q": "¿Qué es el error de paralaje óptico y cómo evitarlo al medir?",
+          "a": "Es el desplazamiento visual entre el objeto y la marca luminosa por el grosor del cristal protector cuando miras de lado. Coloca siempre el ojo exactamente perpendicular (90°) sobre la marca."
+        },
+        {
+          "q": "¿Cómo uso la regla en modo Píxeles CSS (px) para diseño web y QA?",
+          "a": "Pulsa la tecla 3 o elige px en la barra superior para medir píxeles lógicos del viewport con marcas cada 10, 50 y 100 px sin escala física."
+        },
+        {
+          "q": "¿Cómo restablezco la calibración guardada o borro el historial?",
+          "a": "Pulsa Restablecer Calibración en la tarjeta Escala Activa o Borrar en el cuadro Historial de Mediciones; todos los datos viven localmente en tu navegador (localStorage)."
+        }
+      ]
+    },
+    "about": {
+      "title": "Acerca de Online Ruler Plus | Metrología de Pantalla de Precisión",
+      "description": "Descubre cómo Online Ruler Plus convierte pantallas en reglas físicas calibradas basadas en normas NIST, ISO/IEC 7810 y W3C CSS.",
+      "schemaName": "Acerca de Online Ruler Plus",
+      "subNavTitle": "Acerca de",
+      "breadcrumbLabel": "Acerca de",
+      "heroKicker": "Sobre la Plataforma · Metodología Metrológica y Transparencia Editorial",
+      "heroHeadline": "Acerca de Online Ruler Plus",
+      "heroSummary": "Online Ruler Plus es una aplicación web independiente que se ejecuta localmente en tu navegador para convertir cualquier monitor, portátil, tableta o smartphone en un instrumento físico calibrado sin usar cámara.",
+      "returnBtn": "Volver a la Regla Online",
+      "topCards": [
+        {
+          "kicker": "01 · Por Qué la Creamos",
+          "heading": "¿Qué es la falacia de los 96 CSS PPI en las reglas online?",
+          "body": "La mayoría de reglas web asumen erróneamente que 96 píxeles CSS equivalen a 1 pulgada física en todas las pantallas. En realidad, los paneles oscilan entre 81,6 CSS PPI y más de 150 CSS PPI, provocando errores del 10 % al 35 %. Online Ruler Plus sitúa la calibración física ISO/IEC 7810 en el núcleo del motor de dibujo."
+        },
+        {
+          "kicker": "02 · Estándares Metrológicos",
+          "heading": "¿Qué estándares internacionales rigen nuestros cálculos?",
+          "body": "Cada coordenada sigue estándares publicados: 1 pulgada = 25,4 mm exactos (NIST/BIPM 1959), tarjeta ID-1 de 85,60 × 53,98 mm (ISO/IEC 7810:2019), y referencias de monedas del Banco Central Europeo (1 Euro: 23,25 mm) y US Mint (Penny: 19,05 mm, Quarter: 24,26 mm)."
+        },
+        {
+          "kicker": "03 · Principios de Ingeniería",
+          "heading": "¿Cómo protege Online Ruler Plus la precisión y tu privacidad?",
+          "body": "Nuestras insignias distinguen siempre entre estimación de 96 PPI y calibración manual verificada. Todos los perfiles ([[code:orp:calibration:v1]]) e historial ([[code:orp:history:v1]]) permanecen únicamente en tu [[code:localStorage]], sin cámara ni subida de mediciones. Además, el trazado HTML5 escalado por [[code:window.devicePixelRatio]] garantiza graduaciones nítidas de 1 mm y 1/16″."
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Responsabilidad Editorial y Verificación",
+          "heading": "¿Quién publica OnlineRulerPlus.com y cómo se verifican las guías?",
+          "body": "OnlineRulerPlus.com es mantenido como utilidad web abierta en el cliente. Cada constante matemática y ejemplo de densidad se deriva de fuentes primarias (NIST, ISO/IEC 7810, W3C CSS Level 4 e ISO 216) y se valida con pruebas automáticas de unidad y navegador."
+        },
+        {
+          "kicker": "05 · Correcciones, Accesibilidad y Soporte",
+          "heading": "¿Cómo informar de un error o enviar comentarios de pantalla?",
+          "body": "Revisamos continuamente la accesibilidad WCAG 2.2 AA y las densidades de nuevos monitores. Si detectas cualquier errata o discrepancia de escala, escríbenos a [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] o visita la página de [[link:/contact|Contacto y Envíos]]."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contacto y Envío de Perfiles de Pantalla | Online Ruler Plus",
+      "description": "Contacta con Online Ruler Plus para enviar perfiles de densidad de pantalla, reportar errores de calibración o plantear dudas de metrología.",
+      "schemaName": "Contacto de Online Ruler Plus y Envío de Perfiles",
+      "subNavTitle": "Contacto",
+      "breadcrumbLabel": "Contacto",
+      "heroKicker": "Contacto y Contribuciones a la Base de Pantallas",
+      "heroHeadline": "Contacto Online Ruler Plus",
+      "heroSummary": "Escríbenos para aportar un perfil de densidad de pantalla verificado, informar de un problema de calibración o resolver dudas técnicas de metrología en pantalla.",
+      "openBtn": "Abrir Regla Online",
+      "topCards": [
+        {
+          "kicker": "01 · Soporte Técnico",
+          "heading": "¿Cómo contactar con el soporte de Online Ruler Plus?",
+          "body": "Atendemos consultas sobre calibración, accesibilidad WCAG 2.2 y renderizado en Chrome, Safari, Edge y Firefox. Indica tu sistema operativo, navegador, porcentaje de zoom y método de calibración usado. No recopilamos diagnósticos automáticamente porque todo ocurre en tu navegador.",
+          "footerHref": "support@onlinerulerplus.com",
+          "footerLabel": "support@onlinerulerplus.com",
+          "isMailto": true
+        },
+        {
+          "kicker": "02 · Base de Datos de Hardware",
+          "heading": "¿Cómo enviar un nuevo perfil de pantalla?",
+          "body": "Calibra primero tu pantalla al 100 % de zoom con una tarjeta ISO/IEC 7810 ID-1 (85,60 × 53,98 mm). Después abre la pestaña 3. Detección Automática y envíanos [[code:screen.width × screen.height]], [[code:devicePixelRatio]], plataforma y tu lectura CSS PPI / [[code:pxPerMm]].",
+          "footerHref": "/#calibration",
+          "footerLabel": "Inspeccionar telemetría en Detección Automática →"
+        },
+        {
+          "kicker": "03 · Resolución Inmediata",
+          "heading": "¿Dónde resolver problemas habituales al instante?",
+          "body": "La mayoría de desajustes se deben al zoom del navegador, escalado HiDPI del sistema o cambio a un monitor secundario. Consulta la [[link:/calibration-guide|Guía de Calibración y PPI]], nuestras [[link:/faq|Preguntas Frecuentes]] o el [[link:/how-to-use|Manual de Uso]].",
+          "footerHref": "/faq",
+          "footerLabel": "Explorar Preguntas de Calibración y PPI →"
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Qué Incluir en un Aviso",
+          "heading": "¿Qué datos ayudan a resolver un fallo más rápido?",
+          "body": "Al escribir a [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]], incluye: (1) modelo exacto de equipo o monitor, (2) escala de pantalla del SO (ej. 125 %), (3) navegador y zoom, (4) valor mostrado en la insignia de Escala Activa y (5) pasos para reproducirlo."
+        },
+        {
+          "kicker": "05 · Privacidad, Legal y Accesibilidad",
+          "heading": "¿Cómo se gestionan las solicitudes de privacidad y cumplimiento?",
+          "body": "Todas las consultas sobre derechos de privacidad, consentimiento de cookies y accesibilidad se atienden en [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]. Consulta nuestra [[link:/privacy|Política de Privacidad]] y [[link:/terms|Términos de Uso]]."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Política de Privacidad y Divulgación AdSense | Online Ruler Plus",
+      "description": "Política de Privacidad de OnlineRulerPlus.com sobre ejecución local, claves localStorage, cookies de Google AdSense y derechos de privacidad.",
+      "schemaName": "Política de Privacidad — Online Ruler Plus",
+      "subNavTitle": "Política de Privacidad",
+      "breadcrumbLabel": "Política de Privacidad",
+      "heroKicker": "Gobernanza de Datos · Ejecución Local y Divulgaciones Publicitarias",
+      "heroHeadline": "Política de Privacidad",
+      "heroSummary": "Online Ruler Plus procesa el 100 % de las calibraciones y mediciones localmente en tu navegador web sin subir medidas ni pedir permisos de cámara. Aquí detallamos nuestras claves locales, cookies publicitarias de Google AdSense y tus derechos.",
+      "effectiveDate": "Fecha de entrada en vigor: 14 de noviembre de 2026 · Última revisión: 14 de noviembre de 2026",
+      "topCards": [
+        {
+          "kicker": "01 · Ejecución Local de Mediciones",
+          "heading": "¿Cómo se procesan las mediciones y calibraciones?",
+          "body": "Todas las operaciones de medición en OnlineRulerPlus.com se ejecutan estrictamente en tu navegador mediante JavaScript estático y HTML5 Canvas. Tus medidas, calibraciones y registros guardados nunca se transmiten ni almacenan en servidores propios."
+        },
+        {
+          "kicker": "02 · Almacenamiento Local del Navegador",
+          "heading": "¿Qué datos se guardan en window.localStorage?",
+          "body": "Guardamos tus ajustes localmente bajo claves limitadas en [[code:window.localStorage]]: [[code:orp:calibration:v1]], [[code:orp:preferences:v1]], [[code:orp:history:v1]], [[code:orp:theme]] y [[code:orp:locale:v1]]. Puedes borrarlos en cualquier momento con Restablecer Calibración, Borrar o desde los ajustes de tu navegador."
+        },
+        {
+          "kicker": "03 · Permisos y Correo de Soporte",
+          "heading": "¿Accede Online Ruler Plus a sensores o recopila datos personales?",
+          "body": "Nunca solicitamos acceso a cámara, micrófono, GPS, contactos ni portapapeles. Si nos escribes voluntariamente a [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]], solo usaremos tu correo para responder a tu consulta."
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Google AdSense y Cookies de Terceros",
+          "heading": "¿Cómo se utilizan las cookies publicitarias de terceros?",
+          "body": "Para ofrecer Online Ruler Plus de forma gratuita, proveedores externos incluido Google pueden mostrar anuncios en áreas de contenido elegibles y emplear cookies o identificadores según visitas previas, mostrando publicidad personalizada o no personalizada según tu región y elección de consentimiento."
+        },
+        {
+          "kicker": "05 · Exclusión Publicitaria y Política de Google",
+          "heading": "¿Cómo desactivar la publicidad personalizada?",
+          "body": "Puedes gestionar o desactivar anuncios personalizados en [[ext:https://myadcenter.google.com/|Mi Centro de Anuncios de Google]] o en [[ext:https://www.aboutads.info/choices/|www.aboutads.info/choices]]. Más información en [[ext:https://policies.google.com/technologies/partner-sites|Cómo utiliza Google la información de sitios que usan sus servicios]]."
+        },
+        {
+          "kicker": "06 · Consentimiento, Menores y Derechos Regionales",
+          "heading": "¿Qué normativas regionales de privacidad se aplican?",
+          "body": "En el EEE, Reino Unido y Suiza el consentimiento se recoge mediante plataforma certificada (IAB TCF v2.2) antes de activar cookies no esenciales. Los residentes en California/EE. UU. conservan sus derechos bajo CCPA/CPRA. La herramienta no está dirigida a menores de 13 años. Contacto: [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Términos de Uso y Aviso Metrológico | Online Ruler Plus",
+      "description": "Términos de Uso y exención de responsabilidad metrológica de Online Ruler Plus sobre calibración, paralaje, uso aceptable y cuidado de la pantalla.",
+      "schemaName": "Términos de Uso y Aviso Metrológico — Online Ruler Plus",
+      "subNavTitle": "Términos de Uso",
+      "breadcrumbLabel": "Términos de Uso",
+      "heroKicker": "Términos del Servicio y Exención de Precisión Metrológica",
+      "heroHeadline": "Términos de Uso y Aviso Metrológico",
+      "heroSummary": "Consulta las condiciones del servicio, responsabilidades de calibración, límites por paralaje óptico, uso aceptable y cuidado de pantalla al utilizar OnlineRulerPlus.com.",
+      "lastUpdated": "Última actualización: 14 de noviembre de 2026",
+      "topCards": [
+        {
+          "kicker": "01 · Condiciones Generales",
+          "heading": "¿Cuáles son las condiciones de acceso a Online Ruler Plus?",
+          "body": "Al acceder a OnlineRulerPlus.com aceptas estos Términos de Uso. La aplicación se ofrece gratuitamente para mediciones personales, educativas, de diseño y referencia general «tal cual» y «según disponibilidad», sin garantías expresas o implícitas para usos industriales o clínicos críticos."
+        },
+        {
+          "kicker": "02 · Alcance Metrológico",
+          "heading": "¿Qué limitaciones de precisión tiene una regla en pantalla?",
+          "body": "La exactitud física depende de la calibración realizada por el usuario, el escalado del sistema operativo, el zoom y el ángulo de visión. Nunca utilices una regla web en pantalla para dosificación médica, cálculo estructural, metrología legal ni mecanizado de seguridad crítica donde se exigen calibres físicos certificados."
+        },
+        {
+          "kicker": "03 · Seguridad de la Pantalla",
+          "heading": "¿Cómo proteger tu pantalla al medir objetos físicos?",
+          "body": "Evita presionar objetos duros, tornillos o piezas metálicas con rebabas contra el cristal del monitor en el [[link:/#ruler-tool|área de trabajo]]. Apóyalos suavemente o interpone una lámina transparente protectora; Online Ruler Plus no asume responsabilidad por daños físicos derivados de la manipulación de objetos."
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Propiedad Intelectual y Uso Aceptable",
+          "heading": "¿Cómo pueden utilizarse el contenido y las herramientas?",
+          "body": "El código, las guías y los elementos de interfaz de OnlineRulerPlus.com están protegidos por derechos de autor. Puedes usar libremente las herramientas y tablas para fines personales, educativos o profesionales; quedan prohibidos la extracción masiva automatizada y la duplicación engañosa."
+        },
+        {
+          "kicker": "05 · Anuncios, Enlaces y Actualizaciones",
+          "heading": "¿Cómo se regulan los anuncios externos y cambios de condiciones?",
+          "body": "Podemos mostrar anuncios claramente identificados fuera de los controles de medición y enlazar a organismos de estándares (NIST, BIPM, ISO, W3C). Consulta nuestra [[link:/privacy|Política de Privacidad]] o escribe a [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] ante cualquier duda."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1453 @@
+{
+  "meta": {
+    "ogImageAlt": "Online Ruler Plus inç (1/16″), cm ve mm birimlerinde kalibre edilmiş ücretsiz gerçek boyutlu çevrimiçi cetvel",
+    "orgDescription": "Santimetre (cm), milimetre (mm), 1/16 inç kesirleri ve W3C CSS referans piksellerini destekleyen tamamen tarayıcı tabanlı gerçek boyutlu çevrimiçi ekran cetveli ve ekran kalibrasyon platformu.",
+    "knowsAbout": [
+      "Çevrimiçi Ekran Cetveli Kalibrasyonu",
+      "Ekran Piksel Yoğunluğu (PPI) Metrolojisi",
+      "ISO/IEC 7810:2019 ID-1 Standart Kart Kalibrasyonu",
+      "Santimetre, Milimetre ve Kesirli İnç Ölçümü",
+      "W3C CSS Values and Units Referans Pikseli"
+    ]
+  },
+  "nav": {
+    "skipToMain": "Ana içeriğe geç",
+    "skipToWorkspace": "Çevrimiçi cetvel çalışma alanına geç",
+    "brandHomeAria": "Online Ruler Plus Ana Sayfa",
+    "defaultSubNavTitle": "Ekran Cetveli Alanı",
+    "defaultSubNavCta": "Kalibre Et",
+    "globalNavAria": "Genel gezinme",
+    "mobileNavAria": "Mobil gezinme",
+    "mobileMenuAria": "Gezinme menüsünü aç/kapat",
+    "homeWorkspaceLabel": "Ana Çalışma Alanı",
+    "shortcutsBtn": "Kısayollar",
+    "shortcutsBtnTitle": "Klavye kısayolları ve talimatlar (H)",
+    "themeBtn": "Tema",
+    "themeBtnAria": "Temayı değiştir (D)",
+    "themeBtnTitle": "Koyu modu aç/kapat (D)",
+    "languageLabel": "Dil",
+    "languageTriggerAria": "Web sitesi dilini seçin",
+    "languageMenuAria": "Desteklenen diller",
+    "links": {
+      "cmRuler": "cm Cetvel",
+      "mmRuler": "mm Cetvel",
+      "inchRuler": "İnç Cetvel",
+      "horizontal": "Yatay",
+      "vertical": "Dikey",
+      "howToUse": "Nasıl Kullanılır",
+      "calibrationGuide": "Kalibrasyon Rehberi",
+      "faq": "SSS",
+      "about": "Hakkında",
+      "contact": "İletişim",
+      "privacy": "Gizlilik Politikası",
+      "terms": "Kullanım Koşulları"
+    },
+    "subNav": {
+      "workspace": "Çalışma Alanı",
+      "calibration": "Kalibrasyon",
+      "howItWorks": "Nasıl Çalışır",
+      "ppiTable": "PPI Tablosu"
+    }
+  },
+  "footer": {
+    "footnote": "1. Gerçek fiziksel doğruluk için %100 tarayıcı yakınlaştırmasında standart bir ISO/IEC 7810 ID-1 kartı (85,60 × 53,98 mm) veya bilinen ekran köşegeni ile ekran kalibrasyonu gerekir. Kalibrasyonsuz tarayıcılar varsayılan olarak inç başına 96 CSS pikseli kullanır.",
+    "tagline": "Fiziksel nesneleri santimetre, milimetre ve 1/16″ kesirli inç cinsinden ölçmek için hassas ekran metrolojisi çalışma alanı. %100 tarayıcı içi ölçümler ve yerel kalibrasyon profilleri.",
+    "colModes": "Cetvel Modları",
+    "colGuides": "Kalibrasyon ve Rehberler",
+    "colTools": "Hassas Araçlar",
+    "colLegal": "Kurumsal ve Yasal",
+    "modeAllEdge": "Tüm Kenarlar Alanı",
+    "modeCm": "Santimetre Cetveli (cm)",
+    "modeMm": "Milimetre Cetveli (mm)",
+    "modeInch": "İnç Cetveli (1/16″)",
+    "modeHorizontal": "Yatay Cetvel",
+    "modeVertical": "Dikey Cetvel",
+    "guideCard": "Kredi Kartı Kalibrasyonu",
+    "guideHowTo": "Kullanım Kılavuzu",
+    "guidePpi": "Ekran PPI Referansı",
+    "guideFaq": "Sıkça Sorulan Sorular",
+    "toolGuides": "Sürüklenebilir Kılavuz Çizgileri (G)",
+    "toolFractions": "Kesirli İnç Okuması",
+    "toolPx": "CSS Piksel Denetçisi (px)",
+    "toolProtractor": "180° Açıölçer (P)",
+    "legalAbout": "Online Ruler Plus Hakkında",
+    "legalContact": "İletişim ve Bildirimler",
+    "legalPrivacy": "Gizlilik Politikası",
+    "legalTerms": "Kullanım Koşulları",
+    "copyright": "Telif Hakkı © {year} OnlineRulerPlus.com. Tüm hakları saklıdır.",
+    "constants": "1 in = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)"
+  },
+  "helpModal": {
+    "kicker": "Hızlı Başvuru",
+    "title": "Klavye Kısayolları ve Cetvel Kontrolleri",
+    "closeAria": "Kısayollar penceresini kapat",
+    "escLabel": "Esc",
+    "enableShortcuts": "Tek tuş kısayollarını etkinleştir (G, C, P, F, 1–4, D, H)",
+    "gotIt": "Anladım",
+    "shortcuts": [
+      { "key": "G", "action": "Tıklamayla kılavuz çizgisi yerleştirmeyi aç/kapat" },
+      { "key": "C", "action": "İmleç takipli artı işaretini aç/kapat" },
+      { "key": "P", "action": "180° açıölçer katmanını aç/kapat" },
+      { "key": "F", "action": "Tam ekran ölçüm alanını aç/kapat" },
+      { "key": "1", "action": "Birimi Santimetre (cm) yap" },
+      { "key": "2", "action": "Birimi İnç (in) yap" },
+      { "key": "3", "action": "Birimi CSS Piksel (px) yap" },
+      { "key": "4 / M", "action": "Birimi Milimetre (mm) yap" },
+      { "key": "D", "action": "Açık ve koyu tema arasında geçiş yap" },
+      { "key": "H", "action": "Bu klavye kısayolları penceresini aç/kapat" },
+      { "key": "Esc", "action": "Eklenen kılavuz çizgilerini temizle veya pencereleri kapat" },
+      { "key": "← / →", "action": "Kart kalibrasyon boyutunu 1px ayarla (5px için Shift)" }
+    ]
+  },
+  "hero": {
+    "eyebrow": "ISO/IEC 7810 ID-1 Referansı · 1 in = 25,4 mm",
+    "headline": "İnç, cm ve mm Cinsinden Gerçek Boyutlu Çevrimiçi Cetvel",
+    "description": "Masaüstü, dizüstü bilgisayar, tablet ve telefonlar için kalibre edilmiş ekran ölçüm aracı. Nesneleri gerçek ölçekte ölçmek için standart bir banka kartını eşleştirin veya ekran köşegeninizi girin.",
+    "primaryCta": "Ekranınızı Kalibre Edin",
+    "secondaryCta": "Nasıl Ölçülür"
+  },
+  "workspace": {
+    "srHeading": "Etkileşimli Çevrimiçi Ekran Cetveli Çalışma Alanı",
+    "verifyCalibrationLink": "Kalibrasyonu Doğrula",
+    "dismissAria": "Bildirimi kapat",
+    "unitGroupAria": "Ölçü birimleri",
+    "unitLabel": "Birim",
+    "unitCmTitle": "Milimetre çizgili santimetre (Kısayol: 1)",
+    "unitMmTitle": "Milimetre (Kısayol: 4 veya M)",
+    "unitInTitle": "1/16 kesirli inç (Kısayol: 2)",
+    "unitPxTitle": "CSS Pikseli (Kısayol: 3)",
+    "dualUnit": "Çift cm/in",
+    "dualUnitTitle": "cm ve inç ölçeklerini aynı anda göster",
+    "edgesGroupAria": "Cetvel kenar yerleşimi",
+    "edgesLabel": "Kenarlar",
+    "edgeTop": "Üst",
+    "edgeBottom": "Alt",
+    "edgeLeft": "Sol",
+    "edgeRight": "Sağ",
+    "edgeAll": "Tüm Kenarlar",
+    "toolsGroupAria": "Hassas katman araçları",
+    "guides": "Kılavuzlar",
+    "guidesTitle": "Tıklayarak kılavuz çizgisi yerleştirmeyi aç/kapat (Kısayol: G)",
+    "crosshair": "Artı İşareti",
+    "crosshairTitle": "İmleç artı işaretini aç/kapat (Kısayol: C)",
+    "addFloating": "+ Yüzen Cetvel",
+    "addFloatingTitle": "Çalışma alanına sürüklenebilir yüzen cetvel ekle",
+    "protractor": "Açıölçer",
+    "protractorTitle": "180° açıölçer katmanını aç/kapat (Kısayol: P)",
+    "fullscreen": "Tam Ekran",
+    "fullscreenExit": "Tam Ekrandan Çık",
+    "fullscreenTitle": "Tam ekran ölçüm alanını aç/kapat (Kısayol: F)",
+    "clearGuides": "Çizgileri Temizle",
+    "clearGuidesTitle": "Tüm kılavuz çizgilerini temizle (Kısayol: Esc)",
+    "calDefaultStatus": "Tahmini kalibrasyon",
+    "calDefaultDevice": "Masaüstü ekran",
+    "calibrateBtn": "Kalibre Et",
+    "guideAxisAria": "Kılavuz tıklama ekseni",
+    "guideAxisLabel": "Kılavuz Ekseni:",
+    "axisVertical": "Dikey",
+    "axisHorizontal": "Yatay",
+    "axisBoth": "Her İkisi",
+    "thicknessLabel": "Kalınlık",
+    "thicknessAria": "Cetvel kalınlığı",
+    "opacityLabel": "Opaklık",
+    "opacityAria": "Cetvel opaklık yüzdesi",
+    "canvasTopAria": "Üst yatay cetvel — dikey kılavuz çizgisi eklemek için tıklayın",
+    "canvasBottomAria": "Alt yatay cetvel — dikey kılavuz çizgisi eklemek için tıklayın",
+    "canvasLeftAria": "Sol dikey cetvel — yatay kılavuz çizgisi eklemek için tıklayın",
+    "canvasRightAria": "Sağ dikey cetvel — yatay kılavuz çizgisi eklemek için tıklayın",
+    "datumTitle": "Başlangıç (0, 0) · Sol Üst Kesikli Referans Çizgisi",
+    "datumBody": "Nesnenizi [[strong:0]] çizgisiyle hizalayın. Sürüklenebilir ölçüm kılavuzları eklemek için herhangi bir cetvele veya ızgaraya tıklayın.",
+    "liveCursorInit": "X: 0.00 cm · Y: 0.00 cm",
+    "saveToHistory": "Geçmişe Kaydet",
+    "keysHint": "Tuşlar: [[kbd:1]] cm · [[kbd:2]] in · [[kbd:3]] px · [[kbd:G]] kılavuz · [[kbd:C]] artı · [[kbd:F]] tam ekran"
+  },
+  "calibration": {
+    "kicker": "Ekran Yoğunluğu Kalibrasyonu · Ekran Başına Yerel Kaydedilir",
+    "heading": "Ekranınızı Gerçek Fiziksel Ölçeğe Kalibre Edin",
+    "lead": "Tarayıcılar varsayılan olarak inç başına 96 CSS pikseli kullanır ve bu nadiren gerçek ekran panelleriyle uyuşur. Her milimetrenin ve inçin gerçek fiziksel uzunluğa eşit olması için aşağıdaki üç yöntemden birini seçin.",
+    "activeScale": "Etkin Ölçek",
+    "defaultStatus": "Tahmini kalibrasyon",
+    "defaultBasis": "CSS referans ölçeği (inç başına 96 px)",
+    "resetBtn": "Kalibrasyonu Sıfırla",
+    "methodsAria": "Ekran kalibrasyon yöntemleri",
+    "tabCard": "1. Kredi Kartı (Önerilen)",
+    "tabDiagonal": "2. Ekran Köşegeni (İnç)",
+    "tabAutoDetect": "3. Cihazı Otomatik Algıla",
+    "cardKicker": "ISO/IEC 7810 ID-1 Standardı · 85,60 × 53,98 mm",
+    "cardHeading": "Fiziksel Banka, Kredi veya Kimlik Kartını Hizalayın",
+    "cardDesc": "Standart bir ödeme kartını, ehliyeti veya kimlik kartını aşağıdaki çerçevenin üzerine düz tutun ve fiziksel genişliğini eşleştirin.",
+    "cardOrientTitle": "Dar ekranlar için yatay ve dikey kart hizalama arasında geçiş yapın",
+    "cardOrientLandscape": "Yatay (85,60 × 53,98 mm)",
+    "cardOrientPortrait": "Dikey (53,98 × 85,60 mm)",
+    "cardStageAria": "Etkileşimli kredi kartı kalibrasyon alanı. Boyutlandırmak için sol ve sağ ok tuşlarını kullanın.",
+    "cardDatumNote": "Sol üst kart hizalama referansı · 1:1 fiziksel çerçeve",
+    "cardPlaceTitle": "Fiziksel Kartı Buraya Yerleştirin",
+    "cardPlaceSub": "Sol ve üst kenarları hizalayın · Sağ dış sınırı eşleştirin",
+    "checklistTitle": "Optik Hizalama Kontrol Listesi",
+    "checklistSteps": [
+      "[[strong:Kartı düz tutun:]] Gerçek kartı kutunun sol üst köşesine sıfır dayayın.",
+      "[[strong:Dış kenarı eşleştirin:]] Kaydırıcıyı sürükleyin veya [[kbd:←]] [[kbd:→]] tuşlarıyla sağ kenarı tam eşleştirin.",
+      "[[strong:Paralaksı önleyin:]] Gözünüzü kartın sağ kenarına tam dik (90°) hizalayın."
+    ],
+    "cardMinusAria": "Kart genişliğini 1 piksel azalt",
+    "cardSliderAria": "Kredi kartı genişliğini piksel olarak ayarla",
+    "cardPlusAria": "Kart genişliğini 1 piksel artır",
+    "widthPxLabel": "Genişlik (px):",
+    "longEdgePxLabel": "Uzun Kenar (px):",
+    "computedScaleLabel": "Hesaplanan Ölçek:",
+    "shortcutNote": "Klavye ince ayarı: kart alanına tıklayıp [[kbd:←]] [[kbd:→]] basın (5px adım için [[kbd:Shift]]).",
+    "applyBtn": "Kalibrasyonu Uygula",
+    "diagKicker": "Geometrik Ekran Hesaplaması · √(W² + H²) / Köşegen",
+    "diagHeading": "Görünür Ekran Köşegenine Göre Kalibre Et",
+    "diagDesc": "Görünür ekran panelinin köşegen uzunluğunu inç cinsinden girin (çerçeve dış gövdesi değil, köşeden köşeye görüntü alanı). Tarayıcı yakınlaştırmasının %100 olduğundan emin olun.",
+    "diagPresetsLabel": "Yaygın Ekran Köşegenleri (İnç)",
+    "diagInputLabel": "Görünür Ekran Köşegeni (inç)",
+    "diagPlaceholder": "örn. 15.6 veya 27",
+    "diagResetBtn": "Sıfırla",
+    "diagFormula": "Formül: CSS PPI = √(screenWidth² + screenHeight²) / köşegenİnç",
+    "diagNotesTitle": "Köşegen kalibrasyonu için doğruluk notları:",
+    "diagNotes": [
+      "[[strong:Ekran Paneli vs. Cihaz Kasası:]] Dış kasa boyutunu değil aktif panel köşegenini (ör. 13,6″ veya 15,6″) girin.",
+      "[[strong:Mantıksal CSS vs. Fiziksel Piksel:]] İşletim sistemleri HiDPI panelleri ölçekler (Windows %125/%150 veya macOS Retina). Tarayıcı %100 yakınlaştırmada mantıksal CSS pikseli bildirir ve hesaplama bunu doğrudan kullanır."
+    ],
+    "autoKicker": "Tarayıcı Ekran Telemetrisi ve Donanım Veritabanı",
+    "autoHeading": "Otomatik Cihaz ve Ekran Yoğunluğu Algılama",
+    "autoDesc": "Online Ruler Plus, bilinen donanım profilleriyle eşleştirmek veya tutarlı bir ilk tahmin oluşturmak için tarayıcınızın mantıksal ekran boyutlarını, DPR değerini, yönünü ve platformunu inceler.",
+    "autoDtProfile": "Algılanan Profil",
+    "autoDtStatus": "Algılama Durumu",
+    "autoDtDensity": "Tahmini Yoğunluk",
+    "autoDtSize": "Ekran CSS Boyutu",
+    "autoDtDpr": "Cihaz Piksel Oranı",
+    "autoDtOrient": "Yönlendirme",
+    "autoChecking": "Ekran kontrol ediliyor…",
+    "autoWhyTitle": "Neden elle doğrulamalı?",
+    "autoWhyBody": "[[strong:Neden elle doğrulamalısınız?]] Web tarayıcıları HDMI/DisplayPort üzerinden fiziksel monitör boyutlarını veya özel işletim sistemi ölçeklerini okuyamaz. Kritik ölçümlerden önce daima fiziksel kart veya bilinen köşegenle doğrulayın.",
+    "autoApplyBtn": "Algılanan Ölçeği Kullan",
+    "verifyKicker": "Fiziksel Doğrulama Göstergesi",
+    "verifyHeading": "Günlük Nesnelerle Doğrulayın",
+    "verifyDesc": "Kalibrasyonunuzu anında doğrulamak için gerçek bir madeni parayı bu canlı ölçekli referans dairelerine tutun.",
+    "coinQuarter": "ABD Çeyrek",
+    "coinEuro": "1 Euro (€)",
+    "coinPenny": "ABD Penny",
+    "verifyBarLabel": "50,0 mm Referans Çubuğu (5,0 cm)",
+    "historyKicker": "Yerel Oturum Günlüğü",
+    "historyHeading": "Ölçüm Geçmişi",
+    "historyClearBtn": "Temizle",
+    "historyEmpty": "Cetvel alanına iki paralel kılavuz çizgisi yerleştirin ve noktalar arası mesafeyi ([[code:ΔX]] / [[code:ΔY]]) cihazınıza kaydetmek için [[strong:Geçmişe Kaydet]] düğmesine tıklayın.",
+    "historyFooterLeft": "Depolama: yalnızca localStorage",
+    "historyFooterRight": "Ağ aktarımı yok"
+  },
+  "runtime": {
+    "statusLabels": {
+      "detected": "Cihaz algılandı",
+      "estimated": "Tahmini kalibrasyon",
+      "manual": "Manuel kalibrasyon"
+    },
+    "orientLandscape": "Yatay",
+    "orientPortrait": "Dikey",
+    "rangeLabel": "Aralık:",
+    "angleLabel": "Açı:",
+    "removeGuideAria": "Kılavuz çizgisini kaldır",
+    "rotateFloatingTitle": "90° döndür",
+    "rotateFloatingAria": "Yüzen cetveli döndür",
+    "removeFloatingTitle": "Yüzen cetveli kaldır",
+    "removeFloatingAria": "Yüzen cetveli kaldır",
+    "closeProtractorAria": "Açıölçeri kapat",
+    "spanSaved": "Kaydedildi",
+    "spanGuideLabel": "{axis} kılavuz aralığı",
+    "autoAppliedBanner": "Geçerli ekran için otomatik algılama uygulandı.",
+    "cardSavedBanner": "Kredi kartı kalibrasyonu kaydedildi ({ppi} CSS PPI · {pxPerMm} px/mm).",
+    "diagonalSavedBanner": "{diag}″ ekran için kalibre edildi ({ppi} CSS PPI · {pxPerMm} px/mm).",
+    "resetBanner": "Kalibrasyon otomatik ekran tahminine sıfırlandı.",
+    "displayOrientationBanner": "Ekran yönü güncellendi; cetvel boyutları ayarlandı.",
+    "displayZoomManualBanner": "Tarayıcı yakınlaştırma veya ölçeği değişti; manuel kalibrasyon otomatik uyarlandı.",
+    "displayZoomAutoBanner": "Ekran ölçeği değişti; cetvel otomatik yeniden ölçeklendi.",
+    "displaySwitchedBanner": "Monitör değişikliği algılandı ({w}×{h}). Bu ekranda kalibrasyonu yeniden doğrulayın.",
+    "enterDiagonalPrompt": "{w} × {h} CSS px ekran için köşegen girin",
+    "calculatedScale": "Hesaplanan ölçek: {ppi} CSS PPI ({pxPerMm} px/mm)",
+    "basisMap": {
+      "CSS reference scale (96 px per inch)": "CSS referans ölçeği (inç başına 96 px)",
+      "Matched a known screen configuration": "Bilinen bir ekran yapılandırmasıyla eşleşti",
+      "Several devices share this configuration": "Birden fazla cihaz bu yapılandırmayı paylaşıyor",
+      "Typical iPhone density": "Tipik iPhone piksel yoğunluğu",
+      "Typical iPad density": "Tipik iPad piksel yoğunluğu",
+      "Android nominal density (160 dp per inch)": "Android nominal yoğunluğu (inç başına 160 dp)",
+      "Typical Retina Mac at a scaled resolution": "Ölçeklenmiş çözünürlükte tipik Retina Mac",
+      "Typical density at default OS scaling": "Varsayılan OS ölçeğinde tipik yoğunluk",
+      "Manual calibration adjusted for current zoom or scaling": "Mevcut yakınlaştırma veya ölçeğe uyarlanmış manuel kalibrasyon",
+      "Calibrated against an ISO/IEC 7810 ID-1 card (85.60 × 53.98 mm)": "ISO/IEC 7810 ID-1 kartıyla (85,60 × 53,98 mm) kalibre edildi",
+      "Calibrated from entered display diagonal": "Girilen ekran köşegeninden kalibre edildi"
+    },
+    "deviceLabelMap": {
+      "Desktop display": "Masaüstü ekran",
+      "iPhone (model not identified)": "iPhone (model tanımlanamadı)",
+      "iPad (model not identified)": "iPad (model tanımlanamadı)",
+      "Android device": "Android cihaz",
+      "Mac with Retina display": "Retina ekranlı Mac",
+      "Scaled laptop or desktop display": "Ölçeklenmiş dizüstü veya masaüstü ekran",
+      "Credit card calibration": "Kredi kartı kalibrasyonu"
+    },
+    "errorMap": {
+      "Enter your screen diagonal in inches.": "Ekran köşegeninizi inç olarak girin.",
+      "Use a number such as 15.6.": "15.6 gibi bir sayı girin.",
+      "The diagonal must be greater than zero.": "Köşegen sıfırdan büyük olmalıdır.",
+      "Enter a diagonal between 4 and 120 inches.": "4 ile 120 inç arasında bir değer girin.",
+      "Screen dimensions are unavailable.": "Ekran boyutları kullanılamıyor.",
+      "That diagonal gives an implausible pixel density. Check the value and your browser zoom.": "Bu köşegen olağan dışı bir piksel yoğunluğu veriyor. Değeri ve tarayıcı yakınlaştırmasını kontrol edin.",
+      "Card width must be greater than zero.": "Kart genişliği sıfırdan büyük olmalıdır.",
+      "Card size must be greater than zero.": "Kart boyutu sıfırdan büyük olmalıdır.",
+      "That card size is outside the plausible range.": "Bu kart boyutu makul aralığın dışında."
+    },
+    "displaySizeSuffix": "{long}×{short} ekran",
+    "typMonitorBasis": "Bu çözünürlükte tipik {diag}″ ekran varsayılır",
+    "manualDiagBasis": "{diag}″ Ekran Köşegeni"
+  },
+  "home": {
+    "title": "Çevrimiçi Cetvel | İnç, cm ve mm Gerçek Boyutlu Ücretsiz Cetvel",
+    "description": "Ücretsiz gerçek boyutlu çevrimiçi cetvelimizle inç (1/16″), cm ve mm cinsinden gerçek uzunlukları ölçün. Banka kartı veya ekran köşegeni ile ölçeğe kalibre edin.",
+    "featureList": [
+      "Kesirli inç (1/16″), santimetre (cm), milimetre (mm) ve CSS piksel (px) cetvelleri",
+      "ISO/IEC 7810 ID-1 kredi kartı kalibrasyonu (85,60 × 53,98 mm / 3,370 × 2,125 in)",
+      "Ekran köşegeni kalibrasyonu ve otomatik cihaz yoğunluğu algılama",
+      "Üst, Alt, Sol, Sağ ve sürüklenebilir yüzen cetveller",
+      "Tıklamayla eklenen kılavuz çizgileri, artı işareti, 180° açıölçer ve tam ekran"
+    ],
+    "howKicker": "Pratik Ekran Metrolojisi · İnç, cm ve mm Rehberi",
+    "howHeading": "Çevrimiçi Cetvel Rehberi: Gerçek Boyutlu İnç, cm ve mm",
+    "howManualBtn": "Tam Kullanıcı Kılavuzu",
+    "howCards": [
+      {
+        "kicker": "01 · Genel Bakış",
+        "heading": "Çevrimiçi cetvel nedir?",
+        "body": "Ücretsiz çevrimiçi cetvel, ekran camınıza inç, santimetre, milimetre ve CSS pikseli cinsinden gerçek ölçekli çizgiler çizen kalibre edilmiş bir tarayıcı aracıdır. Tarayıcılar monitör boyutundan bağımsız olarak 96 CSS PPI varsaydığından, yerel kalibrasyon kurulum gerekmeden 1:1 fiziksel uzunluk sağlar."
+      },
+      {
+        "kicker": "02 · Hızlı Adımlar",
+        "heading": "Çevrimiçi cetvel nasıl kullanılır?",
+        "body": "Aşağıdan bir kez kalibre edin, biriminizi seçin ve nesneyi çalışma alanına düz tutun. Yükseltilmiş çerçevelerin engel olmaması için monitör çerçevesi yerine içerideki 0 çizgisinden başlayın. Mesafeyi otomatik hesaplayan sürüklenebilir mavi kılavuzlar eklemek için cetvele tıklayın.",
+        "linkHref": "#ruler-tool",
+        "linkLabel": "Çalışma alanında ölç"
+      },
+      {
+        "kicker": "03 · İnç Sistemi",
+        "heading": "İnç cinsinden ölçüm",
+        "body": "[[link:/inch-ruler|İnç modunda]] her inç (25,4 mm), ahşap işleri ve el sanatları için 1/2, 1/4, 1/8 ve 1/16 çizgilerine bölünür. Geniş ekranlarda tam ekran ([[kbd:F]]) ile 12 inçlik tam cetvel kesintisiz ve sadeleştirilmiş kesirlerle gösterilir.",
+        "linkHref": "/inch-ruler",
+        "linkLabel": "1/16″ İnç Cetvelini Aç"
+      },
+      {
+        "kicker": "04 · Metrik Ölçek",
+        "heading": "Santimetre ve milimetre ölçümü",
+        "body": "Kırtasiye ve paketler için [[link:/cm-ruler|cm]] (1 cm = 10 mm), metrik vidalar, saat kordonu aralığı ve 3D baskı toleransları için [[link:/mm-ruler|mm çevrimiçi cetvelini]] seçin. Çift cm/in modu ile iki sistemi aynı anda görün.",
+        "linkHref": "/cm-ruler",
+        "linkLabel": "cm ve mm Cetvellerini Aç"
+      },
+      {
+        "kicker": "05 · Kalibrasyon",
+        "heading": "Çevrimiçi cetvel nasıl kalibre edilir?",
+        "body": "Tarayıcı gizliliği sitelerin fiziksel monitör boyutunu doğrudan okumasını engeller. Standart bir banka kartı veya kimlik kartını (ISO/IEC 7810 ID-1: 85,60 × 53,98 mm) kalibrasyon kutusuna hizalayın veya %100 yakınlaştırmada ekran köşegeninizi girin.",
+        "linkHref": "#calibration",
+        "linkLabel": "Banka kartıyla kalibre et",
+        "isCardOpen": true
+      },
+      {
+        "kicker": "06 · Gerçek 1:1 İpuçları",
+        "heading": "Gerçek boyutlu ölçümler nasıl elde edilir?",
+        "body": "Ekran camının yol açtığı optik paralaksı önlemek için çizgiye tam dik (90°) bakın. 1 Euro (23,25 mm) veya ABD Çeyrek (24,26 mm) madeni paralarıyla hızlıca doğrulama yapabilirsiniz.",
+        "linkHref": "/calibration-guide",
+        "linkLabel": "Kalibrasyon rehberini oku"
+      },
+      {
+        "kicker": "07 · Cihazlar",
+        "heading": "Mobil ve masaüstünde kullanım",
+        "body": "Masaüstü monitörler 12 inçlik geniş yatay ölçek ve kısayollar sunar. Dar akıllı telefon ekranlarında Dikey Kart Kalibrasyonuna (53,98 mm kısa kenar) geçin ve kılavuzları parmağınızla sürükleyin.",
+        "linkHref": "/vertical-ruler",
+        "linkLabel": "Mobil uyumlu dikey modu dene"
+      },
+      {
+        "kicker": "08 · Hızlı Yanıtlar",
+        "heading": "Sık sorulan ölçüm soruları",
+        "body": "Akıllı telefon limitleri, tarayıcı yakınlaştırma, kamera kıyaslamaları veya Microsoft Word Online ve PowerPoint Online içinde cetvel açma konularındaki yanıtlar için aşağı kaydırın.",
+        "linkHref": "#faq",
+        "linkLabel": "SSS bölümüne git ↓"
+      }
+    ],
+    "accuracyKicker": "Ekran Optiği · W3C CSS Referans Pikseli vs. Donanım PPI",
+    "accuracyHeading": "Ekran Cetvelleri Neden PPI Kalibrasyonuna İhtiyaç Duyar?",
+    "accuracyLead": "Web düzenleri 1 inçi 96 CSS pikseli (3,780 px/mm) kabul eder ancak gerçek paneller 27 inç 1080p monitörde 81,6 CSS PPI'den dizüstü bilgisayar ve telefonlarda 140+ CSS PPI'ye kadar değişir. Kalibrasyonsuz 10 cm çizgi %10 ile %35 arası sapar.",
+    "accuracyGuideBtn": "Tam Kalibrasyon Rehberi",
+    "objectsTitle": "Fiziksel Doğrulama Nesneleri",
+    "objectsBody": "Kalibre edilmiş cetveli standart nesnelerle kontrol edin: ISO/IEC 7810 ID-1 kartı (85,60 × 53,98 mm), 1 Euro (23,25 mm), ABD Çeyrek (24,26 mm), ABD Nikel (21,21 mm) veya ABD Penny (19,05 mm).",
+    "limitsTitle": "Donanım Sınırları ve Tolerans",
+    "limitsBody": "Ekran ölçümü görünür genişlik, kapak camı kalınlığı ve tam piksel yuvarlaması (~0,1–0,3 mm) ile sınırlıdır. Günlük işler, kargo ve arayüz kontrolleri için uygundur; sertifikalı kumpas yerine geçmez.",
+    "ppiKicker": "Donanım Yoğunluğu Referansı",
+    "ppiHeading": "Yaygın Ekranlar ve 10 cm Çizgide Kalibrasyonsuz 96 PPI Hatası",
+    "ppiHeaders": [
+      "Ekran Paneli / Ölçek",
+      "CSS Görünüm Alanı",
+      "Etkin CSS PPI",
+      "CSS px/mm",
+      "Kalibrasyonsuz 96 PPI Hatası"
+    ],
+    "ppiRows": [
+      { "device": "13,3\" MacBook Air / Pro (Retina)", "res": "1440 × 900 CSS (2×)", "ppi": "127,7 PPI", "pxMm": "5,027 px/mm", "err": "−%24,8 (7,52 cm çizer)" },
+      { "device": "14,2\" MacBook Pro (Liquid Retina XDR)", "res": "1512 × 982 CSS (2×)", "ppi": "127,0 PPI", "pxMm": "5,000 px/mm", "err": "−%24,4 (7,56 cm çizer)" },
+      { "device": "15,6\" Full HD Dizüstü (%100 Windows)", "res": "1920 × 1080 CSS (1×)", "ppi": "141,2 PPI", "pxMm": "5,559 px/mm", "err": "−%32,0 (6,80 cm çizer)" },
+      { "device": "15,6\" Full HD Dizüstü (%125 Windows)", "res": "1536 × 864 CSS (1,25×)", "ppi": "113,0 PPI", "pxMm": "4,448 px/mm", "err": "−%15,0 (8,50 cm çizer)" },
+      { "device": "24\" Full HD Masaüstü Monitör (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "91,8 PPI", "pxMm": "3,614 px/mm", "err": "+%4,6 (10,46 cm çizer)" },
+      { "device": "27\" Full HD Masaüstü Monitör (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "81,6 PPI", "pxMm": "3,212 px/mm", "err": "+%17,6 (11,76 cm çizer)" },
+      { "device": "27\" QHD Monitör (2560 × 1440, %100)", "res": "2560 × 1440 CSS (1×)", "ppi": "108,8 PPI", "pxMm": "4,283 px/mm", "err": "−%11,8 (8,82 cm çizer)" },
+      { "device": "27\" 4K UHD Monitör (%200 HiDPI)", "res": "1920 × 1080 CSS (2×)", "ppi": "81,6 CSS PPI", "pxMm": "3,212 px/mm", "err": "+%17,6 (11,76 cm çizer)" }
+    ],
+    "ppiFormula": "Formül: [[code:Etkin CSS PPI = √(W_css² + H_css²) / köşegenİnç]] · [[code:pxPerMm = CSS_PPI / 25.4]]. Uluslararası NIST / BIPM standardına göre 1 inç tam olarak 25,4 mm'dir.",
+    "modesKicker": "Özel Ölçüm Görünümleri · Metrik, İnç ve Piksel Ölçekleri",
+    "modesHeading": "Özel Çevrimiçi Cetvel Görünümlerini Keşfedin",
+    "modesLead": "Kayıtlı ekran kalibrasyonunuz aşağıdaki tüm birim ve yön görünümlerine otomatik olarak uygulanır.",
+    "modeCards": [
+      {
+        "kicker": "İnç · 1 in = 25,4 mm · 1/16″ Çizgiler",
+        "heading": "İnç Çevrimiçi Cetvel (12 İnç ve 1/16″ Ölçeği)",
+        "body": "Sadeleştirilmiş 1/16″ kesirler, 12 inç masaüstü rehberi ve eksiksiz kesir-milimetre dönüşüm tablosu içerir.",
+        "href": "/inch-ruler",
+        "linkLabel": "İnç Cetvelini Aç"
+      },
+      {
+        "kicker": "Metrik · 1 cm = 10 mm = 0,3937 in",
+        "heading": "Çevrimiçi Santimetre Cetveli (cm)",
+        "body": "1 mm ve 5 mm çizgiler ile 1–30 cm arası inç dönüşüm tablosuna sahip gerçek boyutlu metrik cetvel.",
+        "href": "/cm-ruler",
+        "linkLabel": "cm Cetvelini Aç"
+      },
+      {
+        "kicker": "İnce Adım · 1 mm ve 5 mm Bölmeler",
+        "heading": "Çevrimiçi Milimetre Cetveli (mm)",
+        "body": "M2–M10 vidalar, saat kordonları, madeni paralar ve küçük elektronik parçalar için hassas mm cetveli.",
+        "href": "/mm-ruler",
+        "linkLabel": "mm Cetvelini Aç"
+      },
+      {
+        "kicker": "Üst ve Alt Kenar · CSS Piksel Denetçisi",
+        "heading": "Yatay Ekran ve Piksel Cetveli",
+        "body": "Geniş fiziksel nesneler, monitörler ve CSS piksel düzeni kontrolleri için üst ve alt eşzamanlı şeritler.",
+        "href": "/horizontal-ruler",
+        "linkLabel": "Yatay Cetveli Aç"
+      },
+      {
+        "kicker": "Sol ve Sağ Kenar · Dikey Hizalama",
+        "heading": "Dikey Çevrimiçi Ekran Cetveli",
+        "body": "Dik duran nesneler ve dikey tutulan akıllı telefon ekranları için eşleşen sol ve sağ dikey cetveller.",
+        "href": "/vertical-ruler",
+        "linkLabel": "Dikey Cetveli Aç"
+      },
+      {
+        "kicker": "Etkileşimli Katmanlar · Kısayollar G, C, P",
+        "heading": "Yüzen Cetvel, Kılavuzlar ve 180° Açıölçer",
+        "body": "Paralel ΔX/ΔY kılavuz çizgileri ekleyin, 360° dönebilen yüzen cetveli veya 180° açıölçeri açın.",
+        "href": "#ruler-tool",
+        "linkLabel": "Araçları çalışma alanında aç"
+      }
+    ],
+    "faqKicker": "Sıkça Sorulan Sorular · Kullanım, Kalibrasyon ve Uyumluluk",
+    "faqHeading": "Çevrimiçi Cetveller Hakkında Sıkça Sorulan Sorular",
+    "faqViewAllBtn": "Tüm 20 Soruyu Görüntüle",
+    "faqs": [
+      {
+        "q": "Gerçek nesneleri ölçmek için kullanabileceğim bir çevrimiçi cetvel var mı?",
+        "a": "Evet. Online Ruler Plus herhangi bir masaüstü, dizüstü, tablet veya akıllı telefon ekranını inç (1/16″ kesirli), santimetre ve milimetre cinsinden gerçek boyutlu ücretsiz bir cetvele dönüştürür. Bir banka kartı veya ekran köşegeniyle kalibre ettikten sonra nesneleri doğrudan cam üzerinde ölçebilirsiniz."
+      },
+      {
+        "q": "Çevrimiçi cetvel nasıl kullanılır?",
+        "a": "Önce 'Ekranınızı Kalibre Edin' bölümünde bir ISO/IEC 7810 ID-1 kartı (85,60 × 53,98 mm) veya %100 yakınlaştırmada ekran köşegeniniz ile kalibrasyon yapın. Ardından araç çubuğundan cm, mm, in veya px seçip nesnenizi içerideki 0 çizgisine dayayın."
+      },
+      {
+        "q": "Çevrimiçi cetvelde inç, cm ve mm nasıl okunur?",
+        "a": "0 çizgisinden başlayıp nesnenin bittiği yerden önceki tam sayıyı okuyun ve küçük çizgileri sayın. Metrikte her 1 cm on adet 1 mm çizgisine ayrılır (5 mm orta uzunlukta); inçte çizgi boyları 1/2″, 1/4″, 1/8″ ve 1/16″ kesirlerini gösterir."
+      },
+      {
+        "q": "Çevrimiçi cetvelde 1 inç nasıl anlaşılır?",
+        "a": "Kalibrasyon sonrası İnç (kısayol 2) moduna geçin; 0 ile 1 arası tam 25,4 mm'dir (2,54 cm). Kalibrasyonsuz 96 CSS pikselini saymayın çünkü ekran yoğunlukları çok değişkendir."
+      },
+      {
+        "q": "Çevrimiçi olarak cm ve mm nasıl ölçülür?",
+        "a": "Araç çubuğunda cm (tuş 1) veya mm (tuş 4) seçin, nesneyi 0 işaretine düz tutun veya iki kılavuz çizgisi yerleştirerek tam farkı okuyun. Çift cm/in ile iki ölçeği yan yana görebilirsiniz."
+      },
+      {
+        "q": "Telefonumu cetvel olarak kullanabilir ve nesne ölçebilir miyim?",
+        "a": "Evet, telefon ekranınızın fiziksel uzunluğu dahilinde (~13–16 cm). Önce telefonunuzda Dikey Kart Kalibrasyonu (53,98 mm kısa kenar) yapın, ardından bozuk para, vida veya kartları cam üzerine koyup ölçün."
+      },
+      {
+        "q": "Kameramı cetvel olarak kullanabilir miyim?",
+        "a": "Online Ruler Plus kameranıza erişmez veya fotoğraf işlemez; kamera tabanlı AR uygulamaları ışık ve perspektif hatasına açıkken, kalibre edilmiş ekran camı küçük parçalarda derinlik hatasını ortadan kaldırır."
+      },
+      {
+        "q": "Word Online içinde cetvel nasıl açılır veya eklenir?",
+        "a": "Online Ruler Plus bağımsız bir web aracıdır. Microsoft Word Online içinde Düzenleme moduna geçin, üst şeritteki Görünüm sekmesini tıklayın ve Göster grubundan Cetvel onay kutusunu işaretleyin."
+      },
+      {
+        "q": "PowerPoint Online'da cetvel nasıl gösterilir?",
+        "a": "Microsoft PowerPoint Online'da Düzenleme görünümünde Görünüm sekmesine tıklayıp Cetvel seçeneğini etkinleştirin. PowerPoint cetveli monitör milimetresi yerine sanal slayt koordinatlarını ölçer."
+      },
+      {
+        "q": "Çevrimiçi cetveller neden kalibrasyon ister ve tarayıcı yakınlaştırması doğruluğu bozar mı?",
+        "a": "Tarayıcılar gizlilik nedeniyle gerçek monitör boyutunu gizleyip 96 CSS PPI kullanır, bu da %10–35 hata doğurur. Online Ruler Plus donanım yoğunluğunu (devicePxPerMm) localStorage'a kaydeder ve yakınlaştırma değişikliklerinde otomatik yeniden ölçekler."
+      },
+      {
+        "q": "Kalibrasyon farklı monitörlerde korunur mu ve gizli kalır mı?",
+        "a": "Her manuel kalibrasyon ekran çözünürlüğü ve DPR anahtarıyla yalnızca tarayıcının localStorage alanında saklanır. Başka monitöre taşındığında doğrulama ister ve hiçbir veri sunucuya gönderilmez."
+      }
+    ]
+  },
+  "spokeShared": {
+    "calibrationGuideBtn": "Kalibrasyon ve PPI Rehberi",
+    "modesKicker": "Cetvel Eksenini veya Birimi Değiştir",
+    "modesHeading": "Diğer Kalibre Edilmiş Çevrimiçi Cetvel Modlarını Keşfedin",
+    "modesAllEdgeBtn": "Tüm Kenarlar Alanı",
+    "modeTiles": [
+      { "href": "/cm-ruler", "kicker": "Metrik · cm", "title": "Santimetre Cetveli", "desc": "1 cm ve 0,5 cm ölçeği + cm-inç tablosu" },
+      { "href": "/inch-ruler", "kicker": "İnç · 1/16″", "title": "İnç Cetveli (12″)", "desc": "1/2, 1/4, 1/8, 1/16″ kesirler" },
+      { "href": "/mm-ruler", "kicker": "İnce Adım · mm", "title": "Milimetre Cetveli", "desc": "1 mm ve 5 mm donanım ölçeği" },
+      { "href": "/horizontal-ruler", "kicker": "Üst ve Alt", "title": "Yatay Cetvel", "desc": "Geniş ölçüm ve CSS piksel (px)" },
+      { "href": "/vertical-ruler", "kicker": "Sol ve Sağ", "title": "Dikey Cetvel", "desc": "Dikey yükseklik ve dikey mobil" }
+    ],
+    "allFaqsBtn": "Tüm Sıkça Sorulan Sorular"
+  },
+  "pages": {
+    "cmRuler": {
+      "title": "CM Cetvel Çevrimiçi | Gerçek Boyutlu Santimetre Cetveli & cm-inç",
+      "description": "1 mm ve 5 mm çizgili kalibre edilmiş gerçek boyutlu çevrimiçi santimetre cetveli (cm), 1–30 cm inç dönüşüm tablosu ve ISO/IEC 7810 kart kalibrasyonu.",
+      "schemaName": "Çevrimiçi Santimetre Cetveli (cm) — Online Ruler Plus",
+      "featureList": [
+        "1 mm ve 5 mm çizgili kalibre edilmiş gerçek boyutlu santimetre (cm) cetveli",
+        "Eşzamanlı çift cm/inç karşılaştırma ölçeği",
+        "ISO/IEC 7810 ID-1 kredi kartı kalibrasyonu (8,56 × 5,40 cm)",
+        "1–30 cm'den ondalık ve 1/16 kesirli inçe dönüşüm tablosu"
+      ],
+      "subNavTitle": "Santimetre Cetveli (cm)",
+      "breadcrumbLabel": "Santimetre Cetveli (cm)",
+      "hero": {
+        "eyebrow": "Metrik Ölçek · 1 cm = 10 mm · 0,5 cm ve 1 mm Bölmeler",
+        "headline": "Gerçek Boyutlu Çevrimiçi Santimetre Cetveli (cm)",
+        "description": "Her 1 cm numaralı, 0,5 cm orta çizgili ve 1 mm hassas çizgili kalibre edilmiş metrik ekran cetveli. Eksiksiz 1–30 cm inç dönüşüm tablosu içerir."
+      },
+      "guideKicker": "Metrik Ekran Metrolojisi · SI Onluk Ölçek",
+      "guideHeading": "Santimetre ile Ölçme ve cm'yi İnçe Doğru Çevirme",
+      "guideLead": "Dizüstü, monitör veya akıllı telefonunuzu 1 mm hassasiyetli gerçek boyutlu bir santimetre cetveline dönüştürün.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Metrik Ölçek · 1 cm = 10 mm",
+          "heading": "Çevrimiçi santimetre cetveli nasıl bölünmüştür?",
+          "body": "Her 1 cm aralığı 10 eşit 1 mm çizgisine ayrılır ve tam ortadaki 0,5 cm (5 mm) daha uzun çizilir. 8,56 cm banka kartıyla kalibre ettiğinizde ekrandaki 10 cm fiziksel olarak tam 100,0 mm olur.",
+          "linkHref": "#calibration",
+          "linkLabel": "Santimetre ölçeğini kalibre et"
+        },
+        {
+          "step": "2",
+          "kicker": "SI Dönüşümü · 1 in = 2,54 cm",
+          "heading": "Santimetre inçe hatasız nasıl çevrilir?",
+          "body": "1959 uluslararası anlaşmasına göre 1 inç tam olarak 2,54 cm'dir. Santimetreyi 2,54'e bölerek ondalık inç bulabilirsiniz: 15 cm = 5,9055 in ve 30 cm = 11,8110 in. Çift cm/in düğmesi iki ölçeği birden gösterir.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "cm-inç dönüşüm tablosunu gör"
+        },
+        {
+          "step": "3",
+          "kicker": "Fiziksel Doğrulama · Günlük Nesneler",
+          "heading": "Santimetre cetvelini hangi günlük nesneler doğrular?",
+          "body": "ISO/IEC 7810 banka kartı 8,56 × 5,40 cm, AA pil 5,05 cm, 1 Euro madeni para 2,325 cm ve A4 kağıt kısa kenarı 21,0 cm'dir.",
+          "linkHref": "/mm-ruler",
+          "linkLabel": "Hassas 1 mm cetvele geç"
+        }
+      ],
+      "darkKicker": "Santimetreden İnçe · 1 in = 2,54 cm (Kesin)",
+      "darkHeading": "Santimetre (cm) - İnç ve Milimetre Başvuru Rehberi",
+      "darkLead": "Kargo boyutları, kalıp ölçüleri ve kırtasiye işleri için aşağıdaki kesin SI sabitlerini kullanın.",
+      "darkCards": [
+        {
+          "heading": "Uluslararası standartlarda 1 inç neden tam 2,54 cm'dir?",
+          "body": "1959'da NIST ve BIPM tarafından benimsenen kesin tanımdır. Online Ruler Plus tüm koordinatları tek bir milimetre tabanından (pxPerMm) hesapladığı için birim değiştirirken yuvarlama hatası birikmez."
+        },
+        {
+          "heading": "Dizüstü bilgisayar veya monitöre 30 cm cetvelin ne kadarı sığar?",
+          "body": "13,3″ ve 14″ dizüstü bilgisayarlarda tam ekranda (tuş F) 29–30 cm, 15,6″ dizüstüler (~34,5 cm) ve 24″–27″ masaüstü monitörlerde 30 cm'nin tamamı tek seferde sığar."
+        },
+        {
+          "heading": "Ne zaman cm modu yerine mm modu kullanılmalıdır?",
+          "body": "cm modu iki ondalık basamak (8,56 cm) ile paket ve günlük ölçüler için idealdir; metrik vida (M3, M4, M5), saat kordonu ve 3D baskı toleranslarında 4 veya M tuşuyla mm moduna geçin."
+        }
+      ],
+      "table": {
+        "kicker": "Metrik-İnç Başvuru Tablosu (NIST / BIPM Kesin Sabitleri)",
+        "heading": "Santimetre (cm) → Milimetre (mm), Ondalık İnç ve En Yakın 1/16″ Kesir",
+        "headers": ["Santimetre (cm)", "Milimetre (mm)", "Ondalık İnç (in)", "En Yakın 1/16″ Kesir", "Yaygın Fiziksel Referans"],
+        "rows": [
+          ["1 cm", "10,0 mm", "0,3937 in", "3/8 in (0,375″)", "Standart AAA pil çapı (~1,05 cm)"],
+          ["2 cm", "20,0 mm", "0,7874 in", "13/16 in (0,813″)", "ABD Penny çapı 1,905 cm (19,05 mm)"],
+          ["2,54 cm", "25,4 mm", "1,0000 in", "1 in (tam)", "1 İmperyal inçin kesin tanımı"],
+          ["5 cm", "50,0 mm", "1,9685 in", "1 15/16 in (1,938″)", "Standart AA pil uzunluğu (5,05 cm)"],
+          ["5,40 cm", "53,98 mm", "2,1252 in", "2 1/8 in (2,125″)", "ISO/IEC 7810 ID-1 kredi kartı yüksekliği"],
+          ["8,56 cm", "85,60 mm", "3,3701 in", "3 3/8 in (3,375″)", "ISO/IEC 7810 ID-1 kredi kartı genişliği"],
+          ["10 cm", "100,0 mm", "3,9370 in", "3 15/16 in (3,938″)", "1 desimetre (100 mm metrik ölçüt)"],
+          ["15 cm", "150,0 mm", "5,9055 in", "5 7/8 in (5,875″)", "Standart 15 cm cep cetveli / ABD banknotu (15,6 cm)"],
+          ["20 cm", "200,0 mm", "7,8740 in", "7 7/8 in (7,875″)", "A4 kağıt genişliği 21,0 cm (210 mm)"],
+          ["25 cm", "250,0 mm", "9,8425 in", "9 13/16 in (9,813″)", "Çeyrek metre dikiş ve el işi ölçüsü"],
+          ["30 cm", "300,0 mm", "11,8110 in", "11 13/16 in (11,813″)", "Standart 30 cm okul ve ofis cetveli"],
+          ["30,48 cm", "304,8 mm", "12,0000 in", "12 in (tam 1 fit)", "12 inçlik cetvelin kesin metrik karşılığı"]
+        ],
+        "footnote": "Dönüşüm formülleri: mm = cm × 10 · in = cm ÷ 2,54 · cm = in × 2,54."
+      },
+      "faqKicker": "Metrik Cetvel SSS · Kalibrasyon ve Dönüşüm",
+      "faqHeading": "Çevrimiçi Santimetre Cetveli Hakkında Sık Sorulan Sorular",
+      "faqs": [
+        {
+          "q": "Ekranımda gerçek boyutlu santimetre cetvelini nasıl elde ederim?",
+          "a": "Ekranınızı Kalibre Edin bölümüne inin, standart 8,56 cm banka kartını ekrana dayayıp çerçeveyi eşleştirin; böylece varsayılan 96 PPI tarayıcı sapması ortadan kalkar."
+        },
+        {
+          "q": "1 inç ve 12 inçlik cetvel kaç santimetredir?",
+          "a": "1 inç tam 2,54 cm (25,4 mm) ve 12 inçlik cetvel 30,48 cm'dir (30 cm okul cetvelinden 4,8 mm daha uzun)."
+        },
+        {
+          "q": "Santimetre (cm) cetvelinde milimetre (mm) nasıl okunur?",
+          "a": "Her 1 cm aralığı 10 küçük 1 mm çizgisine ayrılır; ortadaki orta boy çizgi 0,5 cm'dir (5 mm). 4'ten sonra 3 küçük çizgi 4,3 cm (43 mm) demektir."
+        },
+        {
+          "q": "iPhone, iPad veya Android telefonda santimetre ölçebilir miyim?",
+          "a": "Evet, uygulama indirmeden mobil tarayıcıda ölçebilirsiniz. Dar ekranda kart kalibrasyonunu Dikey moda (5,40 × 8,56 cm) geçirip uygulayın."
+        }
+      ]
+    },
+    "mmRuler": {
+      "title": "MM Cetvel Çevrimiçi | Kalibre Edilmiş Milimetre Ekran Cetveli",
+      "description": "1 mm ve 5 mm çizgili, M2–M10 vida ve saat kordonu tablolu, ISO/IEC 7810 kart kalibrasyonlu gerçek boyutlu çevrimiçi milimetre (mm) cetveli.",
+      "schemaName": "Çevrimiçi Milimetre Cetveli (mm) — Online Ruler Plus",
+      "featureList": [
+        "1 mm ve 5 mm çizgili kalibre edilmiş gerçek boyutlu milimetre (mm) cetveli",
+        "0,1 mm çözünürlüklü canlı imleç ve paralel ΔX/ΔY kılavuz okuması",
+        "M2–M10 vida, saat kordonu genişliği (18–22 mm) ve PCB adım tablosu",
+        "ISO/IEC 7810 ID-1 banka kartı kalibrasyonu (85,60 × 53,98 mm)"
+      ],
+      "subNavTitle": "Milimetre Cetveli (mm)",
+      "breadcrumbLabel": "Milimetre Cetveli (mm)",
+      "hero": {
+        "eyebrow": "Hassas Metrik Ölçek · 1 mm & 5 mm Çizgiler · Her 10 mm Sayı",
+        "headline": "Gerçek Boyutlu Çevrimiçi Milimetre Cetveli (mm)",
+        "description": "1 mm ve 5 mm bölmeli, 0,1 mm kılavuz aralığı okumalı, M2–M10 vida ve saat kordonu ölçüm tablolu yüksek yoğunluklu milimetre cetveli."
+      },
+      "guideKicker": "Hassas Milimetre Metrolojisi · 0,1 mm Okuma",
+      "guideHeading": "Vidalar, Saat Kordonları ve Küçük Parçalar Milimetreyle Nasıl Ölçülür",
+      "guideLead": "Ölçülerin cm veya inç yerine doğrudan milimetre verildiği mühendislik, saatçilik, 3D baskı ve elektronik işleri için tasarlanmıştır.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "İnce Adım · 1 mm & 5 mm",
+          "heading": "Çevrimiçi milimetre cetveli ne işe yarar?",
+          "body": "Her 10 mm'de bir sayı (10, 20, 30…) yazılırken her 1 mm ve 5 mm noktası net çizilir. Kart kalibrasyonu sonrasında 0,1 mm hassasiyetli ΔX/ΔY kılavuzları M2–M10 cıvata ve saat kayışlarını kolayca ölçer.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Vida ve saat mm tablosunu gör"
+        },
+        {
+          "step": "2",
+          "kicker": "Optik Hassasiyet · Paralaks Kontrolü",
+          "heading": "1 mm çizgilerde paralaks hatası nasıl önlenir?",
+          "body": "Ekran camı piksellerin 0,5–1,5 mm üzerinde olduğu için yan açıdan bakmak 1 mm'ye kadar kayma yaratır. Daima tam dik (90°) üstten bakın ve paralel iki kılavuz çizgisi kullanın.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Paralel mm kılavuzları ekle"
+        },
+        {
+          "step": "3",
+          "kicker": "Milimetre Altı Matematik · pxPerMm",
+          "heading": "Kalibre edilmiş ekranda 1 milimetre kaç pikseldir?",
+          "body": "27″ 1080p monitörde yaklaşık 3,212 CSS px/mm, 14″ Retina MacBook Pro'da 5,000 CSS px/mm (10 fiziksel piksel/mm) çizilir. Banka kartı kalibrasyonu kendi panelinizin pxPerMm değerini hesaplar.",
+          "linkHref": "#calibration",
+          "linkLabel": "Milimetre ölçeğini kalibre et"
+        }
+      ],
+      "darkKicker": "Donanım ve Mühendislik Referansı · 25,40 mm = 1,000 in",
+      "darkHeading": "Milimetre (mm) Vida, Saat Kordonu ve İnç Dönüşüm Tablosu",
+      "darkLead": "Yaygın milimetre ölçülerini ondalık inç, 1/16″ kesir ve ISO donanım standartlarıyla karşılaştırın.",
+      "darkCards": [
+        {
+          "heading": "Metrik vida dişleri (M2–M10) ekranda nasıl ölçülür?",
+          "body": "M3 vida 3,0 mm dış çapa, M5 vida 5,0 mm dış çapa sahiptir. Uzunluk için silindirik/bombeli baş altını 0 mm çizgisine koyup diş ucuna kılavuz çizgisi bırakın."
+        },
+        {
+          "heading": "Saat kordonu aralığı (18, 20, 22 mm) nasıl ölçülür?",
+          "body": "Kordon değişiminde saat kasasının iki boynuzu arasındaki iç açıklık ölçülür; 1 mm fark bile uyumu bozacağından kartla kalibre edip iç kenarlar arasını okuyun."
+        },
+        {
+          "heading": "Milimetre inçe ve 1/16″ kesirlere nasıl çevrilir?",
+          "body": "Milimetreyi 25,4'e bölerek ondalık inç, 1,5875 mm'ye bölerek yaklaşık onaltılık kesir elde edebilir veya araç çubuğunda 'in' düğmesine basabilirsiniz."
+        }
+      ],
+      "table": {
+        "kicker": "Mühendislik, Saatçilik ve Bağlantı Elemanı Tablosu (mm)",
+        "heading": "Yaygın Milimetre (mm) Ölçüleri, Santimetre, İnç ve Standartlar",
+        "headers": ["Milimetre (mm)", "Santimetre (cm)", "Ondalık İnç", "En Yakın 1/16″", "Standart Donanım / Nesne Referansı"],
+        "rows": [
+          ["1,00 mm", "0,10 cm", "0,0394 in", "1/16 in (1,59 mm)", "18 AWG tek damar kablo çapı (~1,02 mm)"],
+          ["1,59 mm", "0,16 cm", "0,0625 in", "1/16 in (tam)", "1/16 inçin tam metrik karşılığı"],
+          ["2,00 mm", "0,20 cm", "0,0787 in", "1/16 in", "ISO M2 makine vidası anma çapı"],
+          ["2,54 mm", "0,254 cm", "0,1000 in", "3/32 in", "Standart 0,100″ PCB pin başlığı adımı"],
+          ["3,00 mm", "0,30 cm", "0,1181 in", "1/8 in (3,18 mm)", "ISO M3 vida / PC kasa yükseltme dişi"],
+          ["4,00 mm", "0,40 cm", "0,1575 in", "5/32 in", "ISO M4 vida / 4 mm hassas tornavida ucu"],
+          ["5,00 mm", "0,50 cm", "0,1969 in", "3/16 in (4,76 mm)", "ISO M5 cıvata / standart 5 mm LED"],
+          ["6,00 mm", "0,60 cm", "0,2362 in", "1/4 in (6,35 mm)", "ISO M6 cıvata; 1/4″ altıgen uç 6,35 mm"],
+          ["8,00 mm", "0,80 cm", "0,3150 in", "5/16 in (7,94 mm)", "ISO M8 cıvata / 608 rulman iç çapı"],
+          ["10,00 mm", "1,00 cm", "0,3937 in", "3/8 in (9,53 mm)", "ISO M10 cıvata / 1 santimetre ölçütü"],
+          ["18,00 mm", "1,80 cm", "0,7087 in", "11/16 in", "Klasik saat kayışı aralığı (18 mm)"],
+          ["20,00 mm", "2,00 cm", "0,7874 in", "13/16 in", "Standart kol saati kayışı aralığı (20 mm)"],
+          ["22,00 mm", "2,20 cm", "0,8661 in", "7/8 in (22,23 mm)", "Dalgıç saati aralığı / 608 rulman dış çapı"],
+          ["25,40 mm", "2,54 cm", "1,0000 in", "1 in (tam)", "1 İmperyal inçin kesin SI tanımı"],
+          ["53,98 mm", "5,40 cm", "2,1252 in", "2 1/8 in", "ISO/IEC 7810 ID-1 banka kartı kısa kenarı"],
+          ["85,60 mm", "8,56 cm", "3,3701 in", "3 3/8 in", "ISO/IEC 7810 ID-1 banka kartı uzun kenarı"]
+        ],
+        "footnote": "Formüller: in = mm ÷ 25,4 · cm = mm ÷ 10 · 1/16″ = 1,5875 mm."
+      },
+      "faqKicker": "mm Cetvel SSS · İnce Adım ve Donanım",
+      "faqHeading": "Çevrimiçi Milimetre Cetveli Hakkında Sık Sorulan Sorular",
+      "faqs": [
+        {
+          "q": "Çevrimiçi milimetre cetveli 1 mm aralıkları doğru gösterebilir mi?",
+          "a": "Evet. Modern ekranlarda milimetre başına 3,2 ila 6,0 CSS pikseli bulunur; 85,60 mm kartla kalibrasyon sonrası her 1 mm ve 5 mm çizgisi net biçimde ayrılır."
+        },
+        {
+          "q": "Madeni para, yüzük veya pul çapını milimetre cinsinden nasıl ölçerim?",
+          "a": "Dairesel parçayı ızgara alanına bırakın ve üst yatay cetvele iki kez tıklayarak dairenin sol ve sağ teğetine dikey kılavuzlar koyun; alt çubuk ΔX çapını mm olarak verir."
+        },
+        {
+          "q": "Kalibre etmeden önce milimetre cetveli neden biraz farklı görünüyor?",
+          "a": "Kalibrasyon öncesi tarayıcılar 96 PPI (3,7795 px/mm) varsayar; bu da gerçek monitör yoğunluğunuza göre ölçünün küçülmesine veya büyümesine yol açar."
+        },
+        {
+          "q": "Milimetre (mm), santimetre (cm) ve inç arasında nasıl geçiş yaparım?",
+          "a": "Araç çubuğundaki birim düğmelerine tıklayın veya 4 / M (mm), 1 (cm), 2 (in), 3 (px) kısayollarına basın."
+        }
+      ]
+    },
+    "inchRuler": {
+      "title": "İnç Cetveli Çevrimiçi | Gerçek Boyutlu 12 İnç & 1/16″ Cetvel",
+      "description": "1/2, 1/4, 1/8 ve 1/16″ çizgili kalibre edilmiş gerçek boyutlu çevrimiçi inç cetveli, 12 inç rehberi ve kesir-mm dönüşüm tablosu.",
+      "schemaName": "Çevrimiçi İnç Cetveli (1/16″ ve 12 İnç) — Online Ruler Plus",
+      "featureList": [
+        "1/2, 1/4, 1/8 ve 1/16 inç bölmeli gerçek boyutlu inç cetveli",
+        "Otomatik sadeleştirilmiş 1/16″ kesir ve ondalık inç okuması",
+        "Dizüstü ve masaüstü monitörlerde tam 12 inç (1 fit) görünüm desteği",
+        "Eksiksiz 1/16″ → ondalık inç, mm ve cm dönüşüm tablosu"
+      ],
+      "subNavTitle": "İnç Cetveli (1/16″)",
+      "breadcrumbLabel": "İnç Cetveli (1/16″)",
+      "hero": {
+        "eyebrow": "İmperyal Ölçek · 1 in = 25,4 mm · 1/2, 1/4, 1/8 & 1/16″ Kesirleri",
+        "headline": "Gerçek Boyutlu Çevrimiçi İnç Cetveli (1/16″ ve 12 İnç)",
+        "description": "Dört farklı çizgi boyuyla 1/2, 1/4, 1/8 ve 1/16 inç bölmeleri, otomatik sadeleştirilmiş kesir okuması ve eksiksiz mm dönüşüm tablosu sunar."
+      },
+      "guideKicker": "İmperyal Ekran Metrolojisi · 1/16″ İkili Kesirler",
+      "guideHeading": "İnç Cetveli Nasıl Okunur ve 12 İnç Tam Boy Nasıl Gösterilir",
+      "guideLead": "Her tam inç 16 parçaya ayrılır ve çizgi uzunlukları kesrin sadeleşmiş paydasını görsel olarak gösterir.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Kesirler · 1/2″, 1/4″, 1/8″, 1/16″",
+          "heading": "Çevrimiçi inç cetvelinde 1/16″ kesirler nasıl okunur?",
+          "body": "En uzun orta çizgi 1/2″, bir sonraki boy 1/4″ ve 3/4″, orta boylar 1/8″ katlarını, en kısa çizgiler ise 1/16″ bölmelerini gösterir. İmleç çubuğu kesirleri otomatik sadeleştirir.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "1/16″ → mm tablosunu gör"
+        },
+        {
+          "step": "2",
+          "kicker": "12 İnç Ölçeği · 1 ft = 30,48 cm",
+          "heading": "Ekranda tam 12 inçlik cetvel nasıl gösterilir?",
+          "body": "En az 12 inç fiziksel genişliğe sahip 14″ / 15,6″ dizüstü veya masaüstü monitörde kalibrasyon sonrası F tuşuna basıp tam ekrana geçerek tüm 12 inçi tek seferde görün.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "12 inç alanını tam ekranda aç"
+        },
+        {
+          "step": "3",
+          "kicker": "Kart ve Madeni Para Kontrolü",
+          "heading": "İnç cetvelinin doğruluğunu madeni parayla nasıl anlarsınız?",
+          "body": "Standart kredi kartı 3,370 inç genişlik × 2,125 inç (2 1/8″) yüksekliktir. ABD Penny tam 0,750 in (3/4″), 1 Euro ise 0,915 inçtir.",
+          "linkHref": "#calibration",
+          "linkLabel": "İnç cetvelini şimdi kalibre et"
+        }
+      ],
+      "darkKicker": "Kesirli İnç Referansı · 1 in = 25,40 mm",
+      "darkHeading": "1/16″ Kesirli İnç → Ondalık ve Milimetre Dönüşüm Tablosu",
+      "darkLead": "Onaltılık, sekizlik, çeyrek ve yarım inçleri mm ve cm değerine kolayca çevirin.",
+      "darkCards": [
+        {
+          "heading": "Kalibrasyonsuz inç cetvelleri Windows ve Mac dizüstülerde neden yanılır?",
+          "body": "Tarayıcılar varsayılan 96 CSS PPI kullandığından 113–141 CSS PPI'li dizüstü ekranlarda 12 inç gerçekte 2 ila 3,8 inç daha kısa çizilir."
+        },
+        {
+          "heading": "Okuma çubuğunda otomatik kesir sadeleştirme nasıl çalışır?",
+          "body": "Ölçülen mesafe en yakın 1/16″ birimine yuvarlanır ve EBOB ile bölünerek 6/16″ yerine 3/8 in, 8/16″ yerine 1/2 in yazılır."
+        },
+        {
+          "heading": "Ekran 1/16″ çizgileri için fazla dar veya düşük yoğunlukluysa ne olur?",
+          "body": "Çizgilerin birbirine girmemesi için en az 3,0 CSS piksel boşluk korunur ve 48 PPI altında otomatik olarak 1/8″ veya 1/4″ adımlara geçilir."
+        }
+      ],
+      "table": {
+        "kicker": "İmperyal Kesir Tablosu (1/16″ – 1″ · 1 in = 25,4 mm)",
+        "heading": "İnç Onaltılıkları (1/16″) → Sadeleşmiş Kesir, Ondalık, mm ve cm",
+        "headers": ["Onaltılık", "Sadeleşmiş Kesir", "Ondalık (in)", "Milimetre (mm)", "Santimetre (cm)"],
+        "rows": [
+          ["1/16″", "1/16 in", "0,0625 in", "1,588 mm", "0,159 cm"],
+          ["2/16″", "1/8 in", "0,1250 in", "3,175 mm", "0,318 cm"],
+          ["3/16″", "3/16 in", "0,1875 in", "4,763 mm", "0,476 cm"],
+          ["4/16″", "1/4 in", "0,2500 in", "6,350 mm", "0,635 cm"],
+          ["5/16″", "5/16 in", "0,3125 in", "7,938 mm", "0,794 cm"],
+          ["6/16″", "3/8 in", "0,3750 in", "9,525 mm", "0,953 cm"],
+          ["7/16″", "7/16 in", "0,4375 in", "11,113 mm", "1,111 cm"],
+          ["8/16″", "1/2 in", "0,5000 in", "12,700 mm", "1,270 cm"],
+          ["9/16″", "9/16 in", "0,5625 in", "14,288 mm", "1,429 cm"],
+          ["10/16″", "5/8 in", "0,6250 in", "15,875 mm", "1,588 cm"],
+          ["11/16″", "11/16 in", "0,6875 in", "17,463 mm", "1,746 cm"],
+          ["12/16″", "3/4 in (ABD Penny)", "0,7500 in", "19,050 mm", "1,905 cm"],
+          ["13/16″", "13/16 in", "0,8125 in", "20,638 mm", "2,064 cm"],
+          ["14/16″", "7/8 in", "0,8750 in", "22,225 mm", "2,223 cm"],
+          ["15/16″", "15/16 in (~ABD Çeyrek)", "0,9375 in", "23,813 mm", "2,381 cm"],
+          ["16/16″", "1 in (Tam İnç)", "1,0000 in", "25,400 mm", "2,540 cm"]
+        ],
+        "footnote": "Kesin sabitler: 1 in = 25,4 mm · 1/2 in = 12,7 mm · 1/4 in = 6,35 mm · 1/8 in = 3,175 mm · 1/16 in = 1,5875 mm."
+      },
+      "faqKicker": "İnç Cetveli SSS",
+      "faqHeading": "Çevrimiçi İnç Cetveli Hakkında Sık Sorulan Sorular",
+      "faqs": [
+        {
+          "q": "Bilgisayar ekranımda gerçek boyutlu 12 inçlik cetveli nasıl gösteririm?",
+          "a": "En az 12 inç genişliğe sahip 14″/15,6″ dizüstü veya masaüstü monitörünüzü kalibre edip tam ekran için F tuşuna basın."
+        },
+        {
+          "q": "İnç cetvelindeki 4 farklı çizgi uzunluğu ne anlama gelir?",
+          "a": "Uzundan kısaya 1/2″, 1/4″ (ve 3/4″), 1/8″ ve 1/16″ bölmelerini belirtir."
+        },
+        {
+          "q": "3/8″ veya 7/16″ gibi kesirli inçler milimetreye nasıl çevrilir?",
+          "a": "Payı paydaya bölüp 25,4 ile çarpın (ör. 3 ÷ 8 × 25,4 = 9,525 mm) — veya 4 tuşuyla hemen mm birimine geçin."
+        },
+        {
+          "q": "6 inçten küçük telefon ekranında inç ölçebilir miyim?",
+          "a": "Evet, yatay konumda yaklaşık 5 inçe kadar ölçebilirsiniz. Telefonda önce Dikey Kart Kalibrasyonu (2,125 × 3,370 in) kullanın."
+        }
+      ]
+    },
+    "horizontalRuler": {
+      "title": "Yatay Çevrimiçi Cetvel | Üst ve Alt Kenar & Piksel Cetveli",
+      "description": "Geniş nesneler ve arayüz genişlikleri için cm, mm, inç ve CSS piksel (px) birimlerinde eşzamanlı üst ve alt kenarlı tam genişlikte yatay ekran cetveli.",
+      "schemaName": "Yatay Ekran ve Piksel Cetveli — Online Ruler Plus",
+      "featureList": [
+        "Tam genişlikte eşzamanlı Üst ve Alt yatay cetvel kenarları",
+        "cm, mm, 1/16″ inç ve CSS piksel (px) ölçekleri",
+        "Otomatik ΔX yatay aralık hesaplayan tam boy dikey kılavuzlar",
+        "30 cm / 12 inç ve daha uzun nesneler için geniş tam ekran modu"
+      ],
+      "subNavTitle": "Yatay Cetvel",
+      "breadcrumbLabel": "Yatay Cetvel",
+      "hero": {
+        "eyebrow": "Yatay Eksen · Eşzamanlı Üst & Alt Kenarlar · cm, mm, in & px",
+        "headline": "Tam Genişlikte Yatay Ekran ve Piksel Cetveli",
+        "description": "Geniş fiziksel nesneleri, 30 cm / 12 inç aralıkları ve CSS piksel (px) viewport genişliklerini ölçmek için üst ve alt eşzamanlı yatay cetveller."
+      },
+      "guideKicker": "Yatay Eksen Metrolojisi · Paralel Üst ve Alt Ölçekler",
+      "guideHeading": "Geniş Nesneler ve CSS Piksel Aralıkları Yatay Nasıl Ölçülür",
+      "guideLead": "Paralellik kontrolü ve geniş nesne hizalaması için Üst ve Alt kenarlar varsayılan olarak aktiftir.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Çift Yatay Eksen · Üst & Alt",
+          "heading": "Neden hem üst hem alt yatay cetvel birlikte kullanılır?",
+          "body": "Geniş zarflar, kitaplar veya klavyeler tek kenardan ölçülürken eğilebilir ve dizüstü menteşesi alt kenarı engelleyebilir. Her iki kenarı kesen dikey kılavuzlar açısal hatayı tamamen giderir.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Üst ve Alt kenarla ölç"
+        },
+        {
+          "step": "2",
+          "kicker": "CSS Piksel Cetveli (px)",
+          "heading": "Tasarımcılar için CSS Piksel (px) modu nasıl çalışır?",
+          "body": "3 tuşuna basarak W3C mantıksal CSS piksel modunu (10, 50, 100 px çizgileri) açın; duyarlı kırılma noktalarını (375, 768, 1024, 1440 px) ve konteyner genişliklerini doğrudan denetleyin.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Ekran yatay kapasite tablosunu gör"
+        },
+        {
+          "step": "3",
+          "kicker": "Tam Ekran Uzunluğu",
+          "heading": "Ekranda yatay ölçüm uzunluğu nasıl en üst düzeye çıkarılır?",
+          "body": "16:9 bir monitörde yatay genişlik köşegenin %87,2'sidir (15,6″ laptopta 34,5 cm, 27″ monitörde 59,8 cm). Kalibre ettikten sonra F tuşuyla tam ekrana geçin.",
+          "linkHref": "#calibration",
+          "linkLabel": "Yatay genişliği kalibre et"
+        }
+      ],
+      "darkKicker": "Geniş Ekran Geometrisi · 16:9, 16:10 & Ultrawide",
+      "darkHeading": "Ekran Köşegenine Göre Maksimum Yatay Ölçüm Uzunluğu",
+      "darkLead": "Akıllı telefon, tablet, dizüstü bilgisayar ve monitörlerde yatay sığan maksimum cm ve inç değerlerini görün.",
+      "darkCards": [
+        {
+          "heading": "16:9 veya 16:10 monitör kaç cm ve inç genişliğindedir?",
+          "body": "Pisagor teoremine göre 16:9 genişlik = Köşegen × 0,8716, 16:10 genişlik = Köşegen × 0,8480'dir (15,6″ = 34,54 cm; 27″ = 59,77 cm)."
+        },
+        {
+          "heading": "Yatay cetvelle dikey kılavuz çizgileri nasıl çalışır?",
+          "body": "Üst veya alt cetvele tıklayarak nesnenin sol ve sağ kenarına iki dikey çizgi koyun; alt çubuk ΔX mesafesini otomatik hesaplar."
+        },
+        {
+          "heading": "Daha geniş cetvel için telefonumu yan çevirebilir miyim?",
+          "body": "Evet. Yatay konuma çevrilen akıllı telefonda kullanılabilir uzunluk ~6,5 cm'den ~13,5–15,0 cm'ye çıkar ve kalibrasyon korunur."
+        }
+      ],
+      "table": {
+        "kicker": "Ekran Panel Geometrisi Referansı (16:9, 16:10 ve 21:9)",
+        "heading": "Ekran Köşegenine Göre Maksimum Yatay Genişlik",
+        "headers": ["Ekran ve En-Boy Oranı", "Genişlik (in)", "Genişlik (cm / mm)", "Tipik CSS Genişliği", "Sığan Standart Cetvel"],
+        "rows": [
+          ["6,1\" Telefon (19,5:9 Yatay)", "5,55 in", "14,1 cm (141 mm)", "844 – 852 CSS px", "13 cm / 5 in'e kadar"],
+          ["11,0\" Tablet (4:3)", "8,80 in", "22,4 cm (224 mm)", "1024 – 1194 CSS px", "15 cm / 6 in cep cetveli"],
+          ["13,3\" Dizüstü (16:10 Retina)", "11,28 in", "28,6 cm (286 mm)", "1440 CSS px", "27 cm / 10,5 in'e kadar"],
+          ["14,2\" MacBook Pro (16:10)", "11,97 in", "30,4 cm (304 mm)", "1512 CSS px", "Tam 30 cm / 11,5 in"],
+          ["15,6\" Full HD Dizüstü (16:9)", "13,60 in", "34,5 cm (345 mm)", "1536 – 1920 CSS px", "Tam 30 cm ve 12 inç"],
+          ["24,0\" Monitör (16:9 1080p)", "20,92 in", "53,1 cm (531 mm)", "1920 CSS px", "50 cm / 18 inç cetvel"],
+          ["27,0\" Monitör (16:9 QHD/4K)", "23,53 in", "59,8 cm (598 mm)", "1920 – 2560 CSS px", "58 cm / 22 inç cetvel"],
+          ["34,0\" Ultrawide (21:9)", "31,36 in", "79,7 cm (797 mm)", "3440 CSS px", "75 cm / 30 inç cetvel"]
+        ],
+        "footnote": "Genişlik formülleri: 16:9 = Köşegen × 0,87158 · 16:10 = Köşegen × 0,84800 · 21:9 = Köşegen × 0,92246."
+      },
+      "faqKicker": "Yatay ve Piksel Cetvel SSS",
+      "faqHeading": "Yatay Ekran Cetveli Hakkında Sık Sorulan Sorular",
+      "faqs": [
+        {
+          "q": "Hem üst hem alt kenarlı yatay cetvelin avantajı nedir?",
+          "a": "Dizüstülerde alt menteşe engeli olduğunda üst şeridi kullanabilmenizi ve iki dikey kılavuzla eğrilik hatasını sıfırlamanızı sağlar."
+        },
+        {
+          "q": "CSS piksel (px) ekran cetveli olarak nasıl kullanılır?",
+          "a": "Araç çubuğundan px seçin veya 3 tuşuna basın; böylece tam viewport genişliği 0 px'ten itibaren gösterilir."
+        },
+        {
+          "q": "Yatay cetvel neden sol kenardan 16 piksel içeride başlar?",
+          "a": "Monitör çerçevesinin gölgesi ve çıkıntısı 0 çizgisini kapatmasın diye düz cam üzerinde 16 CSS piksel içeride başlatılır."
+        },
+        {
+          "q": "Yatay cetveli cm, mm ve inç arasında değiştirebilir miyim?",
+          "a": "Evet, 1, 2, 3, 4 / M kısayolları veya Çift cm/in her zaman aktiftir."
+        }
+      ]
+    },
+    "verticalRuler": {
+      "title": "Dikey Çevrimiçi Cetvel | Sol ve Sağ Kenar Ekran Ölçeği",
+      "description": "Santimetre (cm), milimetre (mm) ve 1/16″ inç cinsinden eşzamanlı Sol ve Sağ kenar ölçekli kalibre edilmiş dikey çevrimiçi ekran cetveli.",
+      "schemaName": "Dikey Çevrimiçi Ekran Cetveli — Online Ruler Plus",
+      "featureList": [
+        "Dik duran nesneler ve dikey telefon kullanımı için eşzamanlı Sol ve Sağ dikey kenarlar",
+        "Otomatik ΔY dikey yükseklik hesaplayan tam genişlikte yatay kılavuzlar",
+        "Akıllı telefonlar için dikey ISO/IEC 7810 ID-1 kart kalibrasyonu (53,98 × 85,60 mm)",
+        "cm, mm, 1/16″ inç ve CSS piksel (px) dikey ölçekleri"
+      ],
+      "subNavTitle": "Dikey Cetvel",
+      "breadcrumbLabel": "Dikey Cetvel",
+      "hero": {
+        "eyebrow": "Dikey Eksen · Eşzamanlı Sol & Sağ Kenarlar · Dik & Dikey Ölçek",
+        "headline": "Kalibre Edilmiş Dikey Çevrimiçi Ekran Cetveli",
+        "description": "Masanızda dik duran nesnelerin yüksekliğini ölçmek ve akıllı telefonları dikey konumda tek elle rahatça kullanmak için tasarlanmıştır."
+      },
+      "guideKicker": "Dikey Eksen Metrolojisi · Sol ve Sağ Paralel Ölçekler",
+      "guideHeading": "Dik Nesne Yükseklikleri ve Dikey Akıllı Telefon Ölçümleri",
+      "guideLead": "Sol ve sağ kenarların ikisi de açık olduğundan sağlak veya solak kullanımda eliniz ölçeği kapatmaz.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Çift Dikey Eksen",
+          "heading": "Dikey çevrimiçi ekran cetveli ne zaman kullanılmalıdır?",
+          "body": "Dikey tutulan akıllı telefon yataydan iki kat uzun (~14–15,5 cm) alan sunar. Masaüstünde ise şişe, AA pil (50,5 mm) gibi dik duran 3B nesnelerin yüksekliğini ölçebilirsiniz.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Sol ve Sağ kenarlarla ölç"
+        },
+        {
+          "step": "2",
+          "kicker": "Yatay Kılavuz Çizgileri · ΔY Yüksekliği",
+          "heading": "Yatay kılavuzlar dik duran nesne yüksekliğini nasıl ölçer?",
+          "body": "Sol veya sağ dikey cetvele tıklayarak taban ve tepe hizasına iki yatay kılavuz yerleştirin; alt çubuk aradaki ΔY yüksekliğini otomatik hesaplar.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Dikey ekran yüksekliği tablosunu gör"
+        },
+        {
+          "step": "3",
+          "kicker": "Dikey Telefon Ergonomisi",
+          "heading": "Neden hem sol hem sağ dikey kenar birlikte aktiftir?",
+          "body": "Telefonu tek elle tutarken başparmak veya kılıf bir kenarı örter; iki kenarda da ölçek bulunması her zaman açık tarafı okumanızı sağlar.",
+          "linkHref": "#calibration",
+          "linkLabel": "Dikey ölçeği kalibre et"
+        }
+      ],
+      "darkKicker": "Dikey Ekran Geometrisi · Mobil ve Masaüstü Yükseklikleri",
+      "darkHeading": "Cihazlara Göre Etkin Dikey Ekran Yüksekliği",
+      "darkLead": "Dikey akıllı telefon, tablet, dizüstü ve monitörlerin ölçüm kapasitelerini karşılaştırın.",
+      "darkCards": [
+        {
+          "heading": "Dikey mod akıllı telefonlar için neden en ideal düzendir?",
+          "body": "19,5:9 oranlı telefonlarda dikey yükseklik 13,5–15,2 cm iken yatay genişlik sadece 6,4–7,1 cm'dir."
+        },
+        {
+          "heading": "Dar bir telefon ekranında dikey cetvel nasıl kalibre edilir?",
+          "body": "Kredi kartı bölümünde Dikey (53,98 × 85,60 mm) düğmesine dokunarak şablonu dikey çevirin ve gerçek kartı dikey hizalayın."
+        },
+        {
+          "heading": "Dizüstü veya masaüstü monitörde ne kadar dikey yükseklik sığar?",
+          "body": "16:9 ekranda yükseklik köşegenin %49,03'üdür: 15,6″ laptopta 19,4 cm, 27″ monitörde 33,6 cm, 90° dik döndürülmüş 27″ monitörde 59,8 cm."
+        }
+      ],
+      "table": {
+        "kicker": "Dikey Ekran Yüksekliği ve Nesne Referans Tablosu",
+        "heading": "Cihazlara Göre Etkin Dikey Ekran Yüksekliği",
+        "headers": ["Cihaz / Yön", "Yükseklik (cm / mm)", "Yükseklik (in)", "CSS Yüksekliği", "Sığan Yaygın Dik Nesneler"],
+        "rows": [
+          ["6,1\" Telefon (Dikey)", "14,1 cm (141 mm)", "5,55 in", "844 – 852 CSS px", "AA/AAA piller, banka kartı (85,6 mm), içecek kutusu (122 mm)"],
+          ["6,7\" Pro Max / Ultra (Dikey)", "15,5 cm (155 mm)", "6,10 in", "926 – 932 CSS px", "Pasaport (125 mm), tükenmez kalem (~140 mm), 15 cm cetvel"],
+          ["11,0\" Tablet (Dikey 4:3)", "22,4 cm (224 mm)", "8,80 in", "1024 – 1194 CSS px", "A5 defter (210 mm), su şişesi, cep kitabı"],
+          ["14,2\" MacBook Pro (16:10)", "19,0 cm (190 mm)", "7,48 in", "982 CSS px", "Telefon boyu, 15 cm cetvel"],
+          ["15,6\" Dizüstü (16:9)", "19,4 cm (194 mm)", "7,65 in", "864 – 1080 CSS px", "DVD kutusu (190 mm), kahve kupası"],
+          ["24,0\" Monitör (16:9)", "29,9 cm (299 mm)", "11,77 in", "1080 CSS px", "A4 kağıt yüksekliği (297 mm)"],
+          ["27,0\" Monitör (16:9)", "33,6 cm (336 mm)", "13,24 in", "1080 – 1440 CSS px", "Tam 30 cm / 12 inç dikey boy, şarap şişesi (300 mm)"],
+          ["24–27\" Monitör (90° Dikey)", "53,1 – 59,8 cm", "20,9 – 23,5 in", "1920 – 2560 CSS px", "Hoparlör, kasa yüksekliği, 50 cm dikey ölçek"]
+        ],
+        "footnote": "Yükseklik formülleri: 16:9 = Köşegen × 0,49026 · 16:10 = Köşegen × 0,53000."
+      },
+      "faqKicker": "Dikey Cetvel SSS",
+      "faqHeading": "Dikey Ekran Cetveli Hakkında Sık Sorulan Sorular",
+      "faqs": [
+        {
+          "q": "Dikey cetvelle dik duran bir nesnenin yüksekliği nasıl ölçülür?",
+          "a": "Sol veya sağ cetvele tıklayarak tabana ve üste iki yatay kılavuz koyun; ΔY yüksekliği otomatik hesaplanır."
+        },
+        {
+          "q": "Dikey cetvel neden yukarıdan (0) aşağıya doğru ölçer?",
+          "a": "HTML5 Canvas ve W3C CSS koordinatlarında (0, 0) sol üst köşededir; pencere yeniden boyutlandırılsa da sıfır noktası kaymaz."
+        },
+        {
+          "q": "Dikey modda cep telefonunda kalibrasyon nasıl yapılır?",
+          "a": "Kart üstündeki Dikey (53,98 × 85,60 mm) düğmesine dokunun ve fiziksel kartınızı dikey hizalayın."
+        },
+        {
+          "q": "Yatay ve dikey cetvelleri aynı anda gösterebilir miyim?",
+          "a": "Evet, araç çubuğunda Kenarlar grubundan Üst, Alt veya Tüm Kenarlar'ı seçebilirsiniz."
+        }
+      ]
+    },
+    "howToUse": {
+      "title": "Çevrimiçi Cetvel Nasıl Kullanılır | Ekran Ölçüm Kılavuzu",
+      "description": "Kredi kartı veya köşegenle ekran kalibrasyonu, kılavuz ekleme, 1/16″ kesir okuma ve %100 ölçekli yazdırma için adım adım kılavuz.",
+      "schemaHeadline": "Online Ruler Plus Nasıl Kullanılır: Adım Adım Ölçüm Kılavuzu",
+      "subNavTitle": "Nasıl Kullanılır",
+      "breadcrumbLabel": "Nasıl Kullanılır",
+      "heroKicker": "Kullanıcı Kılavuzu · Hassas Ekran Metrolojisi · Kasım 2026 Güncel",
+      "heroHeadline": "Online Ruler Plus Nasıl Kullanılır",
+      "heroSummary": "Online Ruler Plus ekranınızı 1:1 kalibre edilmiş bir cetvele dönüştürür. Tek seferlik kalibrasyonun ardından cm, mm ve 1/16″ inçle hemen ölçün.",
+      "openRulerBtn": "Çevrimiçi Cetveli Aç",
+      "goCalBtn": "Kalibrasyona Git",
+      "steps": [
+        {
+          "badge": "1",
+          "kicker": "Adım 01 · Kalibrasyon",
+          "heading": "Önce ekran piksel yoğunluğunu kalibre edin",
+          "body": "Ekranınızı Kalibre Edin bölümünde ISO/IEC 7810 ID-1 banka kartını (85,60 × 53,98 mm) eşleştirin veya %100 yakınlaştırmada ekran köşegeninizi girip Kalibrasyonu Uygula düğmesine basın.",
+          "links": [
+            { "href": "/#calibration", "label": "Kredi Kartı Kalibrasyonunu Aç →" }
+          ]
+        },
+        {
+          "badge": "2",
+          "kicker": "Adım 02 · Birimler ve Kenarlar",
+          "heading": "Ölçü birimini ve etkin kenarları seçin",
+          "body": "1 (cm), 2 (inç), 3 (CSS px), 4/M (mm) veya Çift cm/in ile biriminizi, ardından Üst, Alt, Sol, Sağ ya da Tüm Kenarlar seçeneğini belirleyin.",
+          "links": [
+            { "href": "/cm-ruler", "label": "cm Cetveli" },
+            { "href": "/inch-ruler", "label": "İnç Cetveli" },
+            { "href": "/mm-ruler", "label": "mm Cetveli" }
+          ]
+        },
+        {
+          "badge": "3",
+          "kicker": "Adım 03 · Sıfır Hizalama ve Kılavuzlar",
+          "heading": "Sıfıra hizalayın ve kılavuzlarla mesafe ölçün",
+          "body": "Nesneyi çerçeveden 16 px içerideki kesikli 0 çizgisine dayayın veya paralel iki mavi kılavuz çizgisi bırakarak ΔX/ΔY ölçüsünü Geçmişe Kaydet düğmesiyle saklayın.",
+          "links": [
+            { "href": "/calibration-guide", "label": "Kalibrasyon & PPI Rehberini Oku →" }
+          ]
+        }
+      ],
+      "advancedCards": [
+        {
+          "kicker": "Katman Araçları · Yüzen Cetvel & Açıölçer",
+          "heading": "Yüzen cetvel ve 180° açıölçer nasıl kullanılır?",
+          "body": "+ Yüzen Cetvel ile 360° dönebilen cetveli sahneye ekleyin veya P tuşuyla 0,1° hassasiyetli 180° açıölçeri açın. C ile artı işaretini açın, Esc ile kılavuzları temizleyin."
+        },
+        {
+          "kicker": "Yazdırılabilir Cetvel · %100 Ölçek Kontrolü",
+          "heading": "%100 gerçek boyutta cetvel nasıl yazdırılır?",
+          "body": "Yazdırma penceresinde (Ctrl+P / Cmd+P) Diğer Ayarlar'dan Ölçek ayarını Sayfaya Sığdır yerine Gerçek Boyut / %100 yapın ve çıktıyı 85,60 mm banka kartıyla doğrulayın."
+        }
+      ],
+      "recipesKicker": "Pratik Tarifler · Madeni Para, Vida, Ahşap ve Büyük Parçalar",
+      "recipesHeading": "Yaygın Ölçüm Görevleri İçin Adım Adım Yöntemler",
+      "recipesLead": "Yuvarlak, küçük veya ekrandan uzun nesneleri tekrarlanabilir hassasiyetle ölçün:",
+      "recipes": [
+        {
+          "kicker": "Yöntem 01 · Dairesel Parçalar & Yüzükler",
+          "heading": "Teğet dikey kılavuzlarla dış çap ölçümü",
+          "body": "Parçayı ızgara ortasına koyun ve üst cetvele iki kez tıklayıp dairenin sol ve sağ teğetine iki dikey çizgi hizalayın; ΔX çapı sıfıra dayamadan hesaplar."
+        },
+        {
+          "kicker": "Yöntem 02 · Vidalar & Saat Kordonları",
+          "heading": "Metrik diş boyu ve kordon aralığı ölçümü",
+          "body": "[[link:/mm-ruler|Milimetre Cetvelini]] açın, keskin uçların camı çizmemesi için ince film veya kağıt koyun ve iki kılavuz çizgisi arasını okuyun."
+        },
+        {
+          "kicker": "Yöntem 03 · Ahşap İşleri & 1/16″ Kesirler",
+          "heading": "Sadeleşmiş 1/16″ kesirleri hatasız okuma",
+          "body": "[[link:/inch-ruler|İnç Cetveli]] imleç ve kılavuzlarda 10/16″ yerine otomatik 5/8 in göstererek sayma hatasını önler."
+        },
+        {
+          "kicker": "Yöntem 04 · Dik Nesneler & Uzun Parçalar",
+          "heading": "Dikey kenarlar ve kademeli uzunluk ölçümü",
+          "body": "[[link:/vertical-ruler|Dikey Cetveli]] F tam ekranla kullanın. Ekrandan uzun nesnelerde 25,0 cm noktasına maskeleme bandı yapıştırıp o işareti 0'a kaydırarak devamını ekleyin."
+        }
+      ],
+      "shortcutsKicker": "Çalışma Alanı Kontrolleri · Klavye Kısayolları",
+      "shortcutsHeading": "Tam Klavye Kısayolları Tablosu",
+      "shortcutsLead": "Bir elinizle nesneyi sabit tutarken diğer elinizle tek tuşla birim ve araç değiştirin:",
+      "shortcutsHeaders": ["Kısayol Tuşu", "İşlem", "Kullanım Durumu"],
+      "shortcuts": [
+        { "key": "1", "action": "Santimetreye (cm) geç", "useCase": "1 mm ve 0,5 cm bölmeli günlük ölçümler" },
+        { "key": "2", "action": "Kesirli İnce (in) geç", "useCase": "Ahşap işleri ve 1/16″ kesir okuması" },
+        { "key": "3", "action": "CSS Pikseline (px) geç", "useCase": "Arayüz tasarımı ve kırılma noktası kontrolü" },
+        { "key": "4 / M", "action": "Milimetreye (mm) geç", "useCase": "M2–M10 vidalar, saatler, hassas boşluklar" },
+        { "key": "D", "action": "Açık / Koyu Tema Değiştir", "useCase": "Ekran parlamasını azaltma" },
+        { "key": "G", "action": "Kılavuz Çizgisi Modunu Aç/Kapat", "useCase": "ΔX / ΔY sınır çizgileri yerleştirme" },
+        { "key": "C", "action": "Artı İşaretini Aç/Kapat", "useCase": "Canlı X/Y koordinatlarını izleme" },
+        { "key": "P", "action": "180° Açıölçeri Aç/Kapat", "useCase": "0,1° hassasiyetle açı ölçme" },
+        { "key": "F", "action": "Tam Ekrana Gir / Çık", "useCase": "Kullanılabilir ölçüm uzunluğunu maksimize etme" },
+        { "key": "Esc", "action": "Kılavuzları ve Pencereleri Temizle", "useCase": "Sonraki ölçüm için hızlı sıfırlama" }
+      ],
+      "checklistKicker": "Ölçüm Öncesi Kontrol · 6 Madde",
+      "checklistHeading": "Kritik Bir Ölçüme Güvenmeden Önce 6 Kontrol",
+      "checklistLead": "3D baskı veya hassas parça siparişi öncesi şu altı adımı doğrulayın:",
+      "checklistItems": [
+        "[[strong:1. Etkin Ölçek rozetini kontrol edin:]] Tahmini değer yerine [[code:Manuel kalibrasyon]] göstermelidir.",
+        "[[strong:2. Köşegen girerken %100 yakınlaştırma:]] Önce [[code:Ctrl+0]] / [[code:Cmd+0]] basın; sonrasında [[code:devicePxPerMm]] yakınlaştırmayı telafi eder.",
+        "[[strong:3. Harici monitörde tekrar doğrulayın:]] Pencereyi başka ekrana taşırsanız ID-1 kartıyla kontrol edin.",
+        "[[strong:4. Çizgilere tam dik (90°) bakın:]] Yan açı 0,3–1,0 mm cam paralaksına yol açar.",
+        "[[strong:5. Çerçeve kenarına dayamayın:]] İçerideki 0 çizgisini veya iki kılavuzu (ΔX/ΔY) kullanın.",
+        "[[strong:6. Ekran camını koruyun:]] Keskin metal altına ince kağıt/film koyun; ±0,25 mm altı toleranslar için kumpas kullanın."
+      ]
+    },
+    "calibrationGuide": {
+      "title": "Ekran Kalibrasyonu ve PPI Rehberi | Online Ruler Plus",
+      "description": "Ekran piksel yoğunluğu (PPI), W3C CSS pikselleri, ISO/IEC 7810 kart kalibrasyonu, PPI matematiği, OS ölçekleme ve paralaks sınırları teknik rehberi.",
+      "schemaHeadline": "Tam Ekran Kalibrasyonu ve PPI Ölçüm Rehberi",
+      "subNavTitle": "Kalibrasyon Rehberi",
+      "subNavCtaLabel": "Şimdi Kalibre Et",
+      "breadcrumbLabel": "Kalibrasyon Rehberi",
+      "heroKicker": "Teknik Başvuru · Ekran Optiği ve W3C CSS Birimleri · Kasım 2026",
+      "heroHeadline": "Tam Ekran Kalibrasyonu ve PPI Ölçüm Rehberi",
+      "heroSummary": "Ekran kalibrasyonu, soyut W3C 96-PPI CSS pikselleri ile ekran panelinizin gerçek milimetre piksel aralığı arasındaki bağı kurar.",
+      "calibrateBtn": "Ekranınızı Kalibre Edin",
+      "openRulerBtn": "Çevrimiçi Cetveli Aç",
+      "topCards": [
+        {
+          "kicker": "Bölüm 01 · Piksel Matematiği",
+          "heading": "Fiziksel PPI ile CSS pikselleri arasındaki fark nedir?",
+          "body": "Fiziksel PPI donanıma özgüdür ([[code:√(W² + H²) / köşegenİnç]]); CSS pikseli ise W3C standardına göre 1/96 CSS inçidir (3,7795 px/mm). HiDPI ölçeklemede ([[code:devicePixelRatio]]) aracımız [[code:pxPerMm]] ve yakınlaştırmadan bağımsız [[code:devicePxPerMm = pxPerMm × dpr]] değerini hesaplar."
+        },
+        {
+          "kicker": "Bölüm 02 · Fiziksel Standart",
+          "heading": "ISO/IEC 7810 ID-1 kart standardı kalibrasyon için neden idealdir?",
+          "body": "Dünya genelindeki banka ve kimlik kartları tam 85,60 × 53,98 mm boyutundadır. Ekrandaki kutuyu fiziksel karta eşleştirmek OS ölçek bozulmalarını atlayarak [[code:pxPerMm = cardWidthPx / 85.60]] değerini doğrudan ölçer."
+        },
+        {
+          "kicker": "Bölüm 03 · Ölçek Bölmeleri",
+          "heading": "Milimetre ve 1/16″ kesir çizgileri nasıl hesaplanır?",
+          "body": "NIST/BIPM 1 in = 25,4 mm tanımına göre [[link:/cm-ruler|cm]] / [[link:/mm-ruler|mm]] 1,0 / 5,0 / 10,0 mm aralıklarla, [[link:/inch-ruler|İnç]] modu ise 25,4 mm'yi 1,5875 mm'lik 16 dilimle çizer."
+        }
+      ],
+      "midCards": [
+        {
+          "kicker": "Bölüm 04 · İkincil Doğrulama Nesneleri",
+          "heading": "Kalibrasyonu hangi madeni para ve kağıtlarla doğrulayabilirsiniz?",
+          "body": "ABD Penny (19,05 mm), 1 Euro (23,25 mm), ABD Çeyrek (24,26 mm), AA pil (50,50 mm) ve ISO A4 kısa kenarı (210,0 mm) ile hızlıca doğrulama yapabilirsiniz."
+        },
+        {
+          "kicker": "Bölüm 05 · Yakınlaştırma ve Çoklu Monitör",
+          "heading": "Tarayıcı yakınlaştırması ve harici monitörler nasıl yönetilir?",
+          "body": "Kayıtlı [[code:devicePxPerMm]] değeri ekran imzasıyla [[code:localStorage]]'da tutulur; aynı ekranda yakınlaştırmayı otomatik dengeler, başka ekrana geçildiğinde uyarır."
+        }
+      ],
+      "s6Kicker": "Bölüm 06 · Çözümlü Hesaplamalar ve HiDPI Matrisi",
+      "s6Heading": "Ekranlarda CSS PPI, Fiziksel PPI ve devicePxPerMm İlişkisi",
+      "s6Lead": "%100 yakınlaştırmadaki CSS piksellerine Pisagor formülü uygulanınca [[code:CSS px/mm]], [[code:window.devicePixelRatio]] ile çarpılınca da sabit [[code:devicePxPerMm]] bulunur.",
+      "s6TableHeading": "Ekran ve OS Ölçeğine Göre Yoğunluk Tablosu",
+      "s6Headers": ["Ekran Yapılandırması", "CSS Çözünürlüğü", "Etkin CSS PPI", "CSS px/mm", "devicePxPerMm"],
+      "workedExamples": [
+        { "panel": "14,2\" Dizüstü (Mac Retina / 2× DPR)", "cssRes": "1512 × 982 CSS px (DPR 2,0)", "cssPpi": "127,0 CSS PPI", "pxPerMm": "5,000 CSS px/mm", "devicePxPerMm": "10,000 device px/mm" },
+        { "panel": "15,6\" Windows Dizüstü (%125 Ölçek)", "cssRes": "1536 × 864 CSS px (DPR 1,25)", "cssPpi": "113,0 CSS PPI", "pxPerMm": "4,448 CSS px/mm", "devicePxPerMm": "5,560 device px/mm" },
+        { "panel": "24\" 1080p Masaüstü Monitör (%100)", "cssRes": "1920 × 1080 CSS px (DPR 1,0)", "cssPpi": "91,8 CSS PPI", "pxPerMm": "3,614 CSS px/mm", "devicePxPerMm": "3,614 device px/mm" },
+        { "panel": "27\" 4K UHD Monitör (%150 Ölçek)", "cssRes": "2560 × 1440 CSS px (DPR 1,5)", "cssPpi": "108,8 CSS PPI", "pxPerMm": "4,283 CSS px/mm", "devicePxPerMm": "6,425 device px/mm" },
+        { "panel": "6,1\" OLED Akıllı Telefon (3× DPR)", "cssRes": "390 × 844 CSS px (DPR 3,0)", "cssPpi": "152,4 CSS PPI", "pxPerMm": "6,000 CSS px/mm", "devicePxPerMm": "18,000 device px/mm" }
+      ],
+      "caveats": [
+        {
+          "kicker": "OS Ölçekleme Uyarısı",
+          "heading": "Kart kalibrasyonu ölçekli masaüstlerinde neden tahmin edilen köşegenden iyidir?",
+          "body": "Windows %125/%150 veya macOS ölçekli çözünürlükler sanal ara bellek kullanarak etkin CSS PPI'yi değiştirir. 85,60 mm kartla doğrudan ölçüm tahmin gerektirmez."
+        },
+        {
+          "kicker": "Akıllı Telefonlar · Dar Ekranlar",
+          "heading": "Telefonlar neden Dikey Kart Kalibrasyonuna (53,98 mm) geçer?",
+          "body": "Dikey telefon genişliği (~58–72 mm) 85,60 mm yatay karttan dardır. [[strong:Dikey Kart Modu]] kısa kenar olan [[strong:53,98 mm]] üzerinden tam 1:1 kalibrasyon sağlar."
+        }
+      ],
+      "s7Kicker": "Bölüm 07 · Ekran Fiziği ve Doğruluk Sınırları",
+      "s7Heading": "Ön Cam Paralaksı ve Pratik Tolerans Sınırları",
+      "s7Body1": "Koruyucu cam (0,5–1,5 mm kalınlık, kırılma indisi [[code:n ≈ 1,5]]) yüzünden 30° yan açıdan bakmak 0,3–0,5 mm görsel kaymaya yol açar.",
+      "s7Body2": "Çizgilerin tam tepesinden (90°) bakın; ±0,25 mm'den dar mühendislik toleransları için sertifikalı kumpas kullanın.",
+      "s7TableHeading": "Resmi Fiziksel Doğrulama Nesneleri Referans Tablosu",
+      "s7TableLead": "Kalibrasyon sonrası ölçeği onaylamak için aşağıdaki nesnelerden birini hafifçe ekrana tutun:",
+      "s7Headers": ["Referans Nesne", "Metrik (mm)", "İnç (in)", "Yönetici Standart"],
+      "referenceItems": [
+        { "item": "ISO/IEC 7810 ID-1 Banka / Kredi Kartı (Genişlik)", "mm": "85,60 mm", "inches": "3,370 in", "standard": "ISO/IEC 7810:2019 ID-1" },
+        { "item": "ISO/IEC 7810 ID-1 Kart (Yükseklik)", "mm": "53,98 mm", "inches": "2,125 in", "standard": "ISO/IEC 7810:2019 ID-1" },
+        { "item": "ABD 1 Sent Penny (Çap)", "mm": "19,05 mm", "inches": "0,750 in (3/4″)", "standard": "ABD Darphanesi" },
+        { "item": "ABD 5 Sent Nikel (Çap)", "mm": "21,21 mm", "inches": "0,835 in", "standard": "ABD Darphanesi" },
+        { "item": "1 Euro Madeni Para (Çap)", "mm": "23,25 mm", "inches": "0,915 in", "standard": "Avrupa Merkez Bankası" },
+        { "item": "ABD Çeyrek Dolar (Çap)", "mm": "24,26 mm", "inches": "0,955 in", "standard": "ABD Darphanesi" },
+        { "item": "2 Euro Madeni Para (Çap)", "mm": "25,75 mm", "inches": "1,014 in", "standard": "Avrupa Merkez Bankası" },
+        { "item": "Standart AA Pil (Uzunluk)", "mm": "50,50 mm", "inches": "1,988 in", "standard": "IEC R6 / ANSI 15" },
+        { "item": "ABD Dolar Banknotu (Genişlik)", "mm": "155,96 mm", "inches": "6,140 in", "standard": "Gravür ve Baskı Bürosu" },
+        { "item": "ISO 216 A4 Kağıt (Kısa Kenar)", "mm": "210,00 mm", "inches": "8,268 in", "standard": "ISO 216 Kağıt Serisi" }
+      ]
+    },
+    "faq": {
+      "title": "Çevrimiçi Cetvel SSS | Kalibrasyon, PPI ve 1/16″ Rehberi",
+      "description": "Ekran cetveli kalibrasyonu, telefon ve kamera sınırları, Word/PowerPoint cetvelleri, 1/16″ inç ve cm/mm dönüşümü hakkında 20 sık sorulan soru ve cevap.",
+      "subNavTitle": "SSS",
+      "breadcrumbLabel": "SSS",
+      "heroKicker": "Destek ve Metroloji Bilgi Tabanı · 20 Doğrulanmış Soru-Cevap",
+      "heroHeadline": "Sıkça Sorulan Sorular",
+      "heroSummary": "Ekran PPI kalibrasyonu, ISO/IEC 7810 kart hizalama, metrik ve 1/16″ kesirli inç ölçekleri, çoklu monitör kalıcılığı ve mobil kullanım hakkında teknik yanıtlar.",
+      "openRulerBtn": "Çevrimiçi Cetveli Aç",
+      "guideBtn": "Kalibrasyon Rehberi",
+      "cat1Kicker": "Kategori 01 · Kalibrasyon, PPI ve Gizlilik",
+      "cat1Heading": "Ekran Kalibrasyonu, Yakınlaştırma ve Cihaz Uyumluluğu",
+      "cat2Kicker": "Kategori 02 · Ölçüm Teknikleri ve Dönüşümler",
+      "cat2Heading": "Birim Dönüşümleri, Kılavuz Çizgileri, Katmanlar ve Yazdırma",
+      "extendedFaqs": [
+        {
+          "q": "1 inç ve 12 inçlik cetvel kaç santimetredir?",
+          "a": "1 inç tam 2,54 cm (25,4 mm) ve 12 inçlik cetvel tam 30,48 cm (304,8 mm)'dir; yani 30 cm cetvelden 4,8 mm uzundur."
+        },
+        {
+          "q": "0 işareti neden cetvel çalışma alanı kenarından 16 piksel içeride?",
+          "a": "Monitör çerçevesinin gölgesi ve çıkıntısı 0 çizgisini kapatmasın diye düz cam içinde 16 CSS pikseli pay bırakılmıştır."
+        },
+        {
+          "q": "Madeni para, yüzük veya dairesel nesne çapı nasıl ölçülür?",
+          "a": "Nesneyi ızgaraya koyup üst cetvele iki kez tıklayarak dairenin sol ve sağ teğetine iki dikey kılavuz yerleştirin; ΔX çapı otomatik gösterir."
+        },
+        {
+          "q": "Ekranımdan uzun nesneleri ölçebilir miyim?",
+          "a": "Tam ekran için F tuşuna basın. Yine sığmazsa 25,0 cm noktasına maskeleme bandı yapıştırıp o noktayı 0'a kaydırarak toplam ölçüm yapabilirsiniz."
+        },
+        {
+          "q": "180° açıölçer ve yüzen cetvel katmanları nasıl kullanılır?",
+          "a": "+ Yüzen Cetvel ile 360° dönebilen cetvel ekleyebilir veya P tuşuyla 0,1° adımlı 180° açıölçeri açabilirsiniz."
+        },
+        {
+          "q": "Cetveli küçültmeden %100 gerçek boyutta nasıl yazdırırım?",
+          "a": "Yazdırma penceresinde (Ctrl+P / Cmd+P) Diğer Ayarlar'da ölçeği Gerçek Boyut / %100 seçip çıktıyı 85,60 mm kartla kontrol edin."
+        },
+        {
+          "q": "Optik Paralaks Hatası nedir ve nasıl önlenir?",
+          "a": "Kapak camından yan açıyla bakıldığında çizginin kaymış görünmesidir; daima tam dik (90°) üstten bakın."
+        },
+        {
+          "q": "Web tasarımı ve QA için CSS Piksel (px) modu nasıl kullanılır?",
+          "a": "3 tuşuna basarak 10, 50 ve 100 px çizgili 1:1 mantıksal W3C CSS piksel cetveline geçebilirsiniz."
+        },
+        {
+          "q": "Kayıtlı ekran kalibrasyonunu veya ölçüm geçmişini nasıl sıfırlarım?",
+          "a": "Tüm ayarlar localStorage'dadır; Kalibrasyonu Sıfırla veya Ölçüm Geçmişi'ndeki Temizle düğmesini kullanın."
+        }
+      ]
+    },
+    "about": {
+      "title": "Online Ruler Plus Hakkında | Hassas Ekran Metrolojisi",
+      "description": "Online Ruler Plus'ın NIST, ISO/IEC 7810 ve W3C CSS standartlarına dayalı kalibre edilmiş ekran cetvelini nasıl sunduğunu öğrenin.",
+      "schemaName": "Online Ruler Plus Hakkında",
+      "subNavTitle": "Hakkında",
+      "breadcrumbLabel": "Hakkında",
+      "heroKicker": "Platform Hakkında · Metroloji Yöntemi ve Yayıncı Sorumluluğu",
+      "heroHeadline": "Online Ruler Plus Hakkında",
+      "heroSummary": "Online Ruler Plus, kamera izni istemeden herhangi bir ekranı kalibre edilmiş fiziksel bir ölçüm aracına dönüştüren bağımsız, istemci taraflı bir web uygulamasıdır.",
+      "returnBtn": "Çevrimiçi Cetvele Dön",
+      "topCards": [
+        {
+          "kicker": "01 · Neden Geliştirdik",
+          "heading": "Çevrimiçi cetvellerde 96 CSS PPI yanılgısı nedir?",
+          "body": "Tüm ekranlarda 96 CSS pikselini 1 inç saymak %10–35 hata üretir. Online Ruler Plus, ISO/IEC 7810 fiziksel kalibrasyonu doğrudan çizim motorunun merkezine koyar."
+        },
+        {
+          "kicker": "02 · Metroloji Standartları",
+          "heading": "Hesaplamalarımız hangi uluslararası standartlara dayanır?",
+          "body": "1959 NIST/BIPM anlaşması (1 in = 25,4 mm), ISO/IEC 7810:2019 ID-1 kart standardı (85,60 × 53,98 mm) ve resmi ABD Darphanesi / Avrupa Merkez Bankası madeni para ölçüleri esas alınır."
+        },
+        {
+          "kicker": "03 · Mühendislik İlkeleri",
+          "heading": "Doğruluk ve kullanıcı gizliliği nasıl korunur?",
+          "body": "Tahmini ve manuel kalibrasyon rozetleri açıkça ayrılır; tüm profiller [[code:localStorage]] ([[code:orp:calibration:v1]], [[code:orp:history:v1]]) içinde kalır ve sunucuya gönderilmez."
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Yayıncı Hesap Verebilirliği ve Doğrulama",
+          "heading": "OnlineRulerPlus.com kim tarafından yayımlanır ve rehberler nasıl doğrulanır?",
+          "body": "Online Ruler Plus mühendislik projesi tarafından açık bir web aracı olarak sürdürülür. Tüm matematiksel sabitler birincil standartlardan (NIST, ISO/IEC 7810, W3C CSS Level 4) türetilip otomatik testlerle doğrulanır."
+        },
+        {
+          "kicker": "05 · Düzeltmeler, Erişilebilirlik ve Destek",
+          "heading": "Hata bildirimi veya ekran geri bildirimi nasıl gönderilir?",
+          "body": "WCAG 2.2 AA erişilebilirliği ve doküman doğruluğu sürekli önceliğimizdir. Bildirimler için [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] adresine yazın veya [[link:/contact|İletişim sayfamızı]] ziyaret edin."
+        }
+      ]
+    },
+    "contact": {
+      "title": "İletişim ve Ekran Profili Gönderimi | Online Ruler Plus",
+      "description": "Ekran yoğunluğu profili göndermek, kalibrasyon hatası bildirmek veya metroloji soruları sormak için Online Ruler Plus ile iletişime geçin.",
+      "schemaName": "Online Ruler Plus İletişim ve Ekran Profili Gönderimi",
+      "subNavTitle": "İletişim",
+      "breadcrumbLabel": "İletişim",
+      "heroKicker": "İletişim ve Donanım Veritabanı Katkıları",
+      "heroHeadline": "Online Ruler Plus İletişim",
+      "heroSummary": "Doğrulanmış bir ekran yoğunluğu profili paylaşmak, kalibrasyon hatası bildirmek veya teknik soru sormak için ekibimize ulaşın.",
+      "openBtn": "Çevrimiçi Cetveli Aç",
+      "topCards": [
+        {
+          "kicker": "01 · Teknik Destek",
+          "heading": "Destek ekibine nasıl ulaşılır?",
+          "body": "Kalibrasyon soruları, WCAG 2.2 geri bildirimleri ve tarayıcı raporları için OS, tarayıcı sürümü, yakınlaştırma yüzdesi ve kalibrasyon yöntemini belirterek bize yazabilirsiniz.",
+          "footerHref": "support@onlinerulerplus.com",
+          "footerLabel": "support@onlinerulerplus.com",
+          "isMailto": true
+        },
+        {
+          "kicker": "02 · Donanım Veritabanı",
+          "heading": "Yeni cihaz ekran profili nasıl gönderilir?",
+          "body": "%100 yakınlaştırmada ID-1 kartıyla kalibre ettikten sonra 3. Otomatik Algıla sekmesindeki [[code:screen.width × screen.height]], [[code:devicePixelRatio]], platform ve doğrulanmış [[code:pxPerMm]] değerlerini gönderin.",
+          "footerHref": "/#calibration",
+          "footerLabel": "Otomatik Algıla sekmesinde değerlerinizi görün →"
+        },
+        {
+          "kicker": "03 · Hızlı Çözümler",
+          "heading": "Yaygın kalibrasyon sorunlarını nerede çözebilirsiniz?",
+          "body": "[[link:/calibration-guide|Ekran Kalibrasyonu & PPI Rehberi]], 20 soruluk [[link:/faq|Sıkça Sorulan Sorular]] ve [[link:/how-to-use|Nasıl Kullanılır kılavuzu]] hemen yanıt sunar.",
+          "footerHref": "/faq",
+          "footerLabel": "Kalibrasyon ve PPI SSS'lerini incele →"
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Hata Raporu Kontrol Listesi",
+          "heading": "Sorunların hızlı çözülmesine hangi bilgiler yardımcı olur?",
+          "body": "[[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] adresine (1) cihaz/monitör modeli, (2) OS ölçek yüzdesi, (3) tarayıcı ve zoom, (4) Etkin Ölçek okunan değeri ve (5) yeniden oluşturma adımlarını iletin."
+        },
+        {
+          "kicker": "05 · Gizlilik, Yasal ve Erişilebilirlik",
+          "heading": "Gizlilik, yasal ve erişilebilirlik talepleri nasıl işlenir?",
+          "body": "Tüm talepler [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] üzerinden doğrudan incelenir. Ayrıntılar için [[link:/privacy|Gizlilik Politikası]] ve [[link:/terms|Kullanım Koşulları]] sayfalarına bakın."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Gizlilik Politikası ve AdSense Açıklamaları | Online Ruler Plus",
+      "description": "OnlineRulerPlus.com Gizlilik Politikası. Yerel ölçüm işleme, localStorage anahtarları, Google AdSense çerez açıklamaları ve gizlilik hakları.",
+      "schemaName": "Gizlilik Politikası — Online Ruler Plus",
+      "subNavTitle": "Gizlilik Politikası",
+      "breadcrumbLabel": "Gizlilik Politikası",
+      "heroKicker": "Yasal ve Veri Yönetişimi · Yerel Ölçüm ve Reklam Açıklamaları",
+      "heroHeadline": "Gizlilik Politikası",
+      "heroSummary": "Online Ruler Plus tüm ekran kalibrasyonlarını ve ölçümlerini sunucuya yükleme veya kamera izni olmadan %100 tarayıcınızda yerel olarak yürütür.",
+      "effectiveDate": "Yürürlük Tarihi: 14 Kasım 2026 · Son İnceleme: 14 Kasım 2026",
+      "topCards": [
+        {
+          "kicker": "01 · Yerel Ölçüm Yürütme",
+          "heading": "Cetvel ölçümleri ve kalibrasyonlar nasıl işlenir?",
+          "body": "Tüm hesaplamalar ve HTML5 Canvas çizimleri yalnızca yerel tarayıcınızda çalışır; ölçülen boyutlar ve profiller sunucularımıza iletilmez."
+        },
+        {
+          "kicker": "02 · Tarayıcı Yerel Depolama",
+          "heading": "window.localStorage alanında hangi veriler saklanır?",
+          "body": "Yalnızca [[code:orp:calibration:v1]], [[code:orp:preferences:v1]], [[code:orp:history:v1]], [[code:orp:theme]] ve [[code:orp:locale:v1]] anahtarları cihazınızda saklanır ve istediğiniz an silinebilir."
+        },
+        {
+          "kicker": "03 · İzinler ve Destek E-postası",
+          "heading": "Sensörlere erişilir mi veya kişisel veri (PII) toplanır mı?",
+          "body": "Kamera, mikrofon, GPS, kişiler veya pano izni istenmez. [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] adresine gönderilen e-postalar yalnızca yanıtlamak için kullanılır."
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Google AdSense ve Üçüncü Taraf Çerezleri",
+          "heading": "Üçüncü taraf reklam çerezleri ve iş ortakları nasıl kullanılır?",
+          "body": "Hizmeti ücretsiz sunmak için Google dahil üçüncü taraf satıcılar uygun alanlarda reklam gösterebilir ve izin seçiminize bağlı olarak çerez veya cihaz tanımlayıcıları kullanabilir."
+        },
+        {
+          "kicker": "05 · Kişiselleştirilmiş Reklamları Devre Dışı Bırakma",
+          "heading": "Kişiselleştirilmiş reklamlardan nasıl çıkabilirsiniz?",
+          "body": "[[ext:https://myadcenter.google.com/|Google Reklam Merkezim]] veya [[ext:https://www.aboutads.info/choices/|www.aboutads.info/choices]] üzerinden tercihinizi güncelleyebilir, [[ext:https://policies.google.com/technologies/partner-sites|Google iş ortağı siteler politikasını]] okuyabilirsiniz."
+        },
+        {
+          "kicker": "06 · Onay, Çocuk Gizliliği ve Bölgesel Haklar",
+          "heading": "Hangi bölgesel gizlilik ve onay standartları geçerlidir?",
+          "body": "AEA, Birleşik Krallık ve İsviçre ziyaretçilerinden Google sertifikalı CMP (IAB TCF v2.2) ile onay alınır. Kaliforniya sakinleri CCPA/CPRA haklarına sahiptir. 13 yaş altına yönelik değildir. İletişim: [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Kullanım Koşulları ve Metroloji Uyarısı | Online Ruler Plus",
+      "description": "Online Ruler Plus için kalibrasyon sorumlulukları, paralaks sınırları, kabul edilebilir kullanım ve ekran güvenliğini kapsayan Kullanım Koşulları.",
+      "schemaName": "Kullanım Koşulları ve Metroloji Uyarısı — Online Ruler Plus",
+      "subNavTitle": "Kullanım Koşulları",
+      "breadcrumbLabel": "Kullanım Koşulları",
+      "heroKicker": "Hizmet Koşulları ve Metrolojik Doğruluk Uyarısı",
+      "heroHeadline": "Kullanım Koşulları ve Metroloji Uyarısı",
+      "heroSummary": "OnlineRulerPlus.com hizmet koşullarını, ekran kalibrasyon sorumluluklarını, optik paralaks sınırlarını ve ekran koruma yönergelerini inceleyin.",
+      "lastUpdated": "Son Güncelleme: 14 Kasım 2026",
+      "topCards": [
+        {
+          "kicker": "01 · Genel Koşullar",
+          "heading": "Online Ruler Plus erişim koşulları nelerdir?",
+          "body": "Siteyi kullanarak bu koşulları kabul etmiş olursunuz. Araç kişisel, eğitimsel ve genel referans kullanımı için \"olduğu gibi\" ücretsiz sunulur; ticari veya klinik amaçlı garanti verilmez."
+        },
+        {
+          "kicker": "02 · Metroloji Kapsamı",
+          "heading": "Ekran cetvelinin doğruluk sınırları nelerdir?",
+          "body": "Doğruluk kullanıcı kalibrasyonuna, OS ölçeğine ve bakış açısına bağlıdır. [[code:1 in = 25,4 mm]] ve [[code:ISO/IEC 7810 ID-1]] sabitleri uygulansa da tıbbi dozaj, yapı mühendisliği veya resmi ticari ölçüm için kullanmayın."
+        },
+        {
+          "kicker": "03 · Ekran Güvenliği",
+          "heading": "Ölçüm yaparken ekranınızı nasıl korumalısınız?",
+          "body": "[[link:/#ruler-tool|Çevrimiçi cetvel çalışma alanında]] metal vidalar veya keskin aletler tutarken cama bastırmayın; çizilmeyi önlemek için ince şeffaf koruyucu film koyun."
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Fikri Mülkiyet ve Kabul Edilebilir Kullanım",
+          "heading": "İçerik ve araçlar nasıl kullanılabilir?",
+          "body": "Kaynak kodu, rehberler ve arayüz telif hakkıyla korunur. Bireysel ve eğitim amaçlı serbestçe kullanılabilir; toplu otomatik veri kazıma veya izinsiz yansıtma yasaktır."
+        },
+        {
+          "kicker": "05 · Reklamlar, Dış Bağlantılar ve Güncellemeler",
+          "heading": "Üçüncü taraf reklamlar ve güncellemeler nasıl yönetilir?",
+          "body": "Ölçüm kontrolleri dışında reklamlar ve NIST/BIPM/ISO/W3C bağlantıları yer alabilir. [[link:/privacy|Gizlilik Politikamızı]] inceleyin. Sorular: [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]."
+        }
+      ]
+    }
+  }
+}

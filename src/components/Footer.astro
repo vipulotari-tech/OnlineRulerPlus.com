@@ -1,17 +1,30 @@
 ---
+import { DEFAULT_LOCALE, localizedPath, type Locale } from '../i18n/config.ts';
+import { getDict } from '../i18n/index.ts';
+import { formatTemplate } from '../i18n/runtime.ts';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const dict = getDict(locale);
+const f = dict.footer;
+const year = new Date().getFullYear();
+const copyrightLine = formatTemplate(f.copyright, { year });
 ---
 
 <!-- Apple footer component: #f5f5f7 Parchment background, 56px-64px vertical padding, aligned to 1440px grid -->
 <footer class="mt-auto bg-canvas-parchment py-[56px] sm:py-[64px] text-ink-muted-80">
   <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
     <p class="border-b border-hairline pb-5 type-fine-print text-ink-muted-48">
-      1. Actual physical accuracy requires display calibration using a standard ISO/IEC 7810 ID-1 card (85.60 × 53.98 mm) or known active screen diagonal at 100% browser zoom. Browsers default to 96 CSS pixels per inch when uncalibrated.
+      {f.footnote}
     </p>
 
     <div class="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-12">
       <!-- Brand Summary Column (4 cols) -->
       <div class="lg:col-span-4 pr-4">
-        <a href="/" class="inline-flex items-center gap-2 text-ink type-body-strong">
+        <a href={localizedPath(locale, '/')} class="inline-flex items-center gap-2 text-ink type-body-strong">
           <svg class="h-4 w-4 text-link shrink-0" viewBox="0 0 20 20" fill="none" aria-hidden="true">
             <rect x="1.5" y="4.5" width="17" height="11" rx="2" stroke="currentColor" stroke-width="1.5" />
             <path d="M5 4.5V10M8.5 4.5V8M12 4.5V10.5M15.5 4.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
@@ -19,65 +32,65 @@
           <span>Online Ruler Plus</span>
         </a>
         <p class="mt-2.5 max-w-xs type-caption text-ink-muted-80">
-          Precision screen metrology workspace for measuring physical objects in centimeters, millimeters, and 1/16″ fractional inches. 100% client-side measurements and local calibration profiles.
+          {f.tagline}
         </p>
       </div>
 
       <div class="lg:col-span-2">
         <p class="type-caption-strong text-ink">
-          Ruler Modes
+          {f.colModes}
         </p>
         <ul class="mt-3 space-y-2.5 type-caption text-ink-muted-80">
-          <li><a href="/" class="hover:text-link hover:underline">All-Edge Workspace</a></li>
-          <li><a href="/cm-ruler" class="hover:text-link hover:underline">Centimeter Ruler (cm)</a></li>
-          <li><a href="/mm-ruler" class="hover:text-link hover:underline">Millimeter Ruler (mm)</a></li>
-          <li><a href="/inch-ruler" class="hover:text-link hover:underline">Inch Ruler (1/16″)</a></li>
-          <li><a href="/horizontal-ruler" class="hover:text-link hover:underline">Horizontal Ruler</a></li>
-          <li><a href="/vertical-ruler" class="hover:text-link hover:underline">Vertical Ruler</a></li>
+          <li><a href={localizedPath(locale, '/')} class="hover:text-link hover:underline">{f.modeAllEdge}</a></li>
+          <li><a href={localizedPath(locale, '/cm-ruler')} class="hover:text-link hover:underline">{f.modeCm}</a></li>
+          <li><a href={localizedPath(locale, '/mm-ruler')} class="hover:text-link hover:underline">{f.modeMm}</a></li>
+          <li><a href={localizedPath(locale, '/inch-ruler')} class="hover:text-link hover:underline">{f.modeInch}</a></li>
+          <li><a href={localizedPath(locale, '/horizontal-ruler')} class="hover:text-link hover:underline">{f.modeHorizontal}</a></li>
+          <li><a href={localizedPath(locale, '/vertical-ruler')} class="hover:text-link hover:underline">{f.modeVertical}</a></li>
         </ul>
       </div>
 
       <div class="lg:col-span-2">
         <p class="type-caption-strong text-ink">
-          Calibration &amp; Guides
+          {f.colGuides}
         </p>
         <ul class="mt-3 space-y-2.5 type-caption text-ink-muted-80">
-          <li><a href="/#calibration" class="hover:text-link hover:underline">Credit Card Calibration</a></li>
-          <li><a href="/how-to-use" class="hover:text-link hover:underline">How to Use Guide</a></li>
-          <li><a href="/calibration-guide" class="hover:text-link hover:underline">Screen PPI Reference</a></li>
-          <li><a href="/faq" class="hover:text-link hover:underline">Frequently Asked Questions</a></li>
+          <li><a href={localizedPath(locale, '/#calibration')} class="hover:text-link hover:underline">{f.guideCard}</a></li>
+          <li><a href={localizedPath(locale, '/how-to-use')} class="hover:text-link hover:underline">{f.guideHowTo}</a></li>
+          <li><a href={localizedPath(locale, '/calibration-guide')} class="hover:text-link hover:underline">{f.guidePpi}</a></li>
+          <li><a href={localizedPath(locale, '/faq')} class="hover:text-link hover:underline">{f.guideFaq}</a></li>
         </ul>
       </div>
 
       <div class="lg:col-span-2">
         <p class="type-caption-strong text-ink">
-          Precision Tools
+          {f.colTools}
         </p>
         <ul class="mt-3 space-y-2.5 type-caption text-ink-muted-80">
-          <li><a href="/cm-ruler#ruler-tool" class="hover:text-link hover:underline">Draggable Guide Lines (G)</a></li>
-          <li><a href="/inch-ruler#ruler-tool" class="hover:text-link hover:underline">Fractional Inch Readout</a></li>
-          <li><a href="/horizontal-ruler#ruler-tool" class="hover:text-link hover:underline">CSS Pixel Inspector (px)</a></li>
-          <li><a href="/#ruler-tool" class="hover:text-link hover:underline">180° Angle Protractor (P)</a></li>
+          <li><a href={localizedPath(locale, '/cm-ruler#ruler-tool')} class="hover:text-link hover:underline">{f.toolGuides}</a></li>
+          <li><a href={localizedPath(locale, '/inch-ruler#ruler-tool')} class="hover:text-link hover:underline">{f.toolFractions}</a></li>
+          <li><a href={localizedPath(locale, '/horizontal-ruler#ruler-tool')} class="hover:text-link hover:underline">{f.toolPx}</a></li>
+          <li><a href={localizedPath(locale, '/#ruler-tool')} class="hover:text-link hover:underline">{f.toolProtractor}</a></li>
         </ul>
       </div>
 
       <div class="lg:col-span-2">
         <p class="type-caption-strong text-ink">
-          Company &amp; Legal
+          {f.colLegal}
         </p>
         <ul class="mt-3 space-y-2.5 type-caption text-ink-muted-80">
-          <li><a href="/about" class="hover:text-link hover:underline">About Online Ruler Plus</a></li>
-          <li><a href="/contact" class="hover:text-link hover:underline">Contact &amp; Submissions</a></li>
-          <li><a href="/privacy" class="hover:text-link hover:underline">Privacy Policy</a></li>
-          <li><a href="/terms" class="hover:text-link hover:underline">Terms of Use</a></li>
+          <li><a href={localizedPath(locale, '/about')} class="hover:text-link hover:underline">{f.legalAbout}</a></li>
+          <li><a href={localizedPath(locale, '/contact')} class="hover:text-link hover:underline">{f.legalContact}</a></li>
+          <li><a href={localizedPath(locale, '/privacy')} class="hover:text-link hover:underline">{f.legalPrivacy}</a></li>
+          <li><a href={localizedPath(locale, '/terms')} class="hover:text-link hover:underline">{f.legalTerms}</a></li>
         </ul>
       </div>
     </div>
 
     <div class="mt-10 flex flex-col items-start justify-between gap-3 border-t border-hairline pt-5 type-fine-print text-ink-muted-48 sm:flex-row sm:items-center">
-      <p>Copyright © {new Date().getFullYear()} OnlineRulerPlus.com. All rights reserved.</p>
+      <p>{copyrightLine}</p>
       <p class="font-mono text-[11px]">
-        1 in = 25.4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85.60 × 53.98 mm)
+        {f.constants}
       </p>
     </div>
   </div>

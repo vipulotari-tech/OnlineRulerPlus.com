@@ -1,7 +1,7 @@
 # Google Search Console & Indexing Audit — OnlineRulerPlus.com
 
-> **Audit Date:** 2026-11-14  
-> **Tooling Used:** `search-console` (`gsc.mjs check`, `gsc.mjs audit`, `gsc.mjs sites`), `claude-seo` (`google_auth.py --check`, `page_checks.py`), `adsense-site-auditor` (`check_technical.py`, `crawl_site.py`), DNS check (`Resolve-DnsName`)  
+> **Audit Date:** 2026-11-15 (Phase 2 Post-Commit `a60d23e` Verification)  
+> **Tooling Used:** `search-console` (`gsc.mjs sites`, `gsc.mjs check`, `gsc.mjs audit`), `claude-seo` (`google_auth.py --check`, `page_checks.py`), `adsense-site-auditor` (`check_technical.py`, `crawl_site.py`), DNS check (`Resolve-DnsName`)  
 > **Scope & Authorization Rule:** Read-only inspection only. **No indexing requests were submitted and no GSC property settings were modified.**
 
 ---
@@ -12,7 +12,7 @@
 | :--- | :--- | :--- | :---: | :--- |
 | **GSC API Credentials** | `gsc.mjs sites` & `google_auth.py --check` | `No credential found` / `Credential Tier: -1 -- No credentials configured` (`GSC_SERVICE_ACCOUNT_KEY` unset, no OAuth JSON, `gcloud` absent). | `UNKNOWN` | Per `search-console/SKILL.md`, authenticated GSC Search Analytics, URL Inspection API, and Sitemap List API calls cannot run without owner credentials; never bypassed. |
 | **Public Domain DNS** | `Resolve-DnsName onlinerulerplus.com` | `DNS_ERROR_RCODE_NAME_ERROR` (`NXDOMAIN`) — `https://onlinerulerplus.com/` does not resolve publicly yet. | `FAIL` | Site exists locally (`dist/` + `http://localhost:4321/`) and awaits public hosting & DNS A/AAAA/CNAME cutover. |
-| **Local Server Reachability** | `gsc.mjs check --site http://localhost:4321 ...` | All `13/13` canonical route paths returned `HTTP 200`, `0` redirects, `0` `noindex` tags. | `PASS` | Local static site and Astro routing are healthy. |
+| **Local Server Reachability** | `gsc.mjs check http://localhost:4321/ ...` (13 routes) | All `13/13` local routes returned `HTTP 200`, `0` redirects, `0` `X-Robots-Tag: noindex`, `0` HTML `noindex` tags. | `PASS` | Local static site and Astro routing are healthy; note `gsc.mjs audit --site http://localhost:4321 --sitemap http://localhost:4321/sitemap.xml` follows sitemap `<loc>` URLs to `https://onlinerulerplus.com/...` which fail DNS (`fetch failed`) until live deploy. |
 | **GSC Indexing Requests / Settings Changes** | Policy constraint | `0` write calls attempted or executed. | `PASS` | Strict read-only compliance preserved. |
 
 ---

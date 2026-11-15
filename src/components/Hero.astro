@@ -1,15 +1,20 @@
 ---
+import { DEFAULT_LOCALE, type Locale } from '../i18n/config.ts';
+import { getDict } from '../i18n/index.ts';
+
 interface Props {
+  locale?: Locale;
   eyebrow?: string;
   headline?: string;
   description?: string;
 }
 
-const {
-  eyebrow = 'ISO/IEC 7810 ID-1 Reference · 1 in = 25.4 mm',
-  headline = 'Actual-Size Online Ruler in Inches, cm & mm',
-  description = 'Calibrated on-screen measurement tool for desktops, laptops, tablets, and phones. Match a standard bank card or enter your display diagonal to measure objects to scale.',
-} = Astro.props;
+const { locale = DEFAULT_LOCALE, eyebrow, headline, description } = Astro.props;
+const hero = getDict(locale).hero;
+
+const displayEyebrow = eyebrow ?? hero.eyebrow;
+const displayHeadline = headline ?? hero.headline;
+const displayDescription = description ?? hero.description;
 ---
 
 <section class="bg-canvas pt-3 pb-2 sm:pt-5 sm:pb-3">
@@ -18,13 +23,13 @@ const {
       <div class="max-w-3xl">
         <div class="inline-flex items-center gap-2 rounded-full border border-hairline bg-canvas-parchment px-3 py-0.5 font-mono text-[11px] font-medium text-ink-muted-80">
           <span class="h-1.5 w-1.5 rounded-full bg-link" aria-hidden="true"></span>
-          <span>{eyebrow}</span>
+          <span>{displayEyebrow}</span>
         </div>
         <h1 class="mt-1.5 type-display-md text-ink">
-          {headline}
+          {displayHeadline}
         </h1>
         <p class="speakable-summary mt-1 max-w-2xl text-xs sm:text-sm leading-snug text-ink-muted-80">
-          {description}
+          {displayDescription}
         </p>
       </div>
 
@@ -34,10 +39,10 @@ const {
           data-open-calibration="card"
           class="apple-btn-primary"
         >
-          Calibrate Your Screen
+          {hero.primaryCta}
         </a>
         <a href="#how-it-works" class="apple-btn-secondary-pill">
-          How to Measure
+          {hero.secondaryCta}
         </a>
       </div>
     </div>

@@ -1,0 +1,239 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import HelpModal from '../../components/HelpModal.astro';
+import Footer from '../../components/Footer.astro';
+import {
+  LOCALE_META,
+  getLocaleStaticPaths,
+  localizedPath,
+  type Locale,
+} from '../../i18n/config.ts';
+import { getDict, renderInlineMarkup } from '../../i18n/index.ts';
+
+export function getStaticPaths() {
+  return getLocaleStaticPaths();
+}
+
+const { locale } = Astro.props as { locale: Locale };
+const dict = getDict(locale);
+const page = dict.pages.calibrationGuide;
+const meta = LOCALE_META[locale];
+
+const siteOrigin = Astro.site ? Astro.site.origin : 'https://onlinerulerplus.com';
+const routePath = localizedPath(locale, '/calibration-guide');
+const canonicalUrl = `${siteOrigin}${routePath}`;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  '@id': `${canonicalUrl}#article`,
+  headline: page.schemaHeadline,
+  description: page.description,
+  url: canonicalUrl,
+  datePublished: '2026-11-14',
+  dateModified: '2026-11-14',
+  inLanguage: meta.bcp47,
+  author: {
+    '@id': `${siteOrigin}/#organization`,
+  },
+  publisher: {
+    '@id': `${siteOrigin}/#organization`,
+  },
+  mainEntityOfPage: canonicalUrl,
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['h1', '.speakable-summary'],
+  },
+};
+---
+
+<BaseLayout
+  locale={locale}
+  title={page.title}
+  description={page.description}
+  canonicalPath="/calibration-guide"
+  breadcrumbLabel={page.breadcrumbLabel}
+  ogType="article"
+  structuredData={structuredData}
+>
+  <Header
+    locale={locale}
+    subNavTitle={page.subNavTitle}
+    subNavCtaHref={localizedPath(locale, '/#calibration')}
+    subNavCtaLabel={page.subNavCtaLabel}
+  />
+  <main id="main-content" class="flex-1">
+    <section class="apple-page-hero border-b border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div class="max-w-3xl">
+            <p class="type-kicker">{page.heroKicker}</p>
+            <h1 class="mt-2 type-hero-display text-ink">{page.heroHeadline}</h1>
+            <p class="speakable-summary mt-3 max-w-[62ch] type-lead-airy text-ink-muted-80">
+              {page.heroSummary}
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-3 shrink-0">
+            <a href={localizedPath(locale, '/#calibration')} class="apple-btn-primary">
+              {page.calibrateBtn}
+            </a>
+            <a href={localizedPath(locale, '/#ruler-tool')} class="apple-btn-secondary-pill">
+              {page.openRulerBtn}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="apple-tile-parchment">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          {
+            page.topCards.map((card) => (
+              <article class="apple-utility-card flex flex-col justify-between">
+                <div>
+                  <p class="type-kicker">{card.kicker}</p>
+                  <h2 class="mt-2 type-tagline text-ink">{card.heading}</h2>
+                  <p
+                    class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80"
+                    set:html={renderInlineMarkup(card.body, locale)}
+                  />
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="apple-tile-light border-t border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          {
+            page.midCards.map((card) => (
+              <article class="apple-utility-card">
+                <p class="type-kicker">{card.kicker}</p>
+                <h2 class="mt-2 type-tagline text-ink">{card.heading}</h2>
+                <p
+                  class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80"
+                  set:html={renderInlineMarkup(card.body, locale)}
+                />
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="apple-tile-parchment border-t border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="type-kicker">{page.s6Kicker}</p>
+          <h2 class="mt-1.5 type-display-lg text-ink">{page.s6Heading}</h2>
+          <p
+            class="mt-3 max-w-2xl type-body text-ink-muted-80"
+            set:html={renderInlineMarkup(page.s6Lead, locale)}
+          />
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-12">
+          <div class="lg:col-span-7 overflow-x-auto rounded-[18px] border border-hairline bg-surface-primary p-4 sm:p-6">
+            <h3 class="type-tagline text-ink">{page.s6TableHeading}</h3>
+            <div class="mt-4 overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-hairline font-mono text-[11px] text-ink-muted-48">
+                    <th class="py-2.5 pr-3 font-semibold">{page.s6Headers[0]}</th>
+                    <th class="py-2.5 px-3 font-semibold">{page.s6Headers[1]}</th>
+                    <th class="py-2.5 px-3 font-semibold">{page.s6Headers[2]}</th>
+                    <th class="py-2.5 px-3 font-semibold">{page.s6Headers[3]}</th>
+                    <th class="py-2.5 pl-3 font-semibold">{page.s6Headers[4]}</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-hairline font-mono text-xs text-ink-muted-80">
+                  {
+                    page.workedExamples.map((row) => (
+                      <tr>
+                        <td class="py-3 pr-3 font-sans font-medium text-ink">{row.panel}</td>
+                        <td class="py-3 px-3">{row.cssRes}</td>
+                        <td class="py-3 px-3 text-link font-semibold">{row.cssPpi}</td>
+                        <td class="py-3 px-3 text-ink">{row.pxPerMm}</td>
+                        <td class="py-3 pl-3">{row.devicePxPerMm}</td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 space-y-6">
+            {
+              page.caveats.map((card) => (
+                <article class="apple-utility-card">
+                  <p class="type-kicker">{card.kicker}</p>
+                  <h3 class="mt-2 type-tagline text-ink">{card.heading}</h3>
+                  <p
+                    class="mt-2.5 type-body text-ink-muted-80"
+                    set:html={renderInlineMarkup(card.body, locale)}
+                  />
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="apple-tile-light border-t border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
+          <div class="lg:col-span-5 space-y-6">
+            <article class="apple-utility-card">
+              <p class="type-kicker">{page.s7Kicker}</p>
+              <h2 class="mt-2 type-tagline text-ink">{page.s7Heading}</h2>
+              <p
+                class="mt-2.5 type-body text-ink-muted-80"
+                set:html={renderInlineMarkup(page.s7Body1, locale)}
+              />
+              <p class="mt-3 type-body text-ink-muted-80">{page.s7Body2}</p>
+            </article>
+          </div>
+
+          <div class="lg:col-span-7 overflow-x-auto rounded-[18px] border border-hairline bg-canvas-parchment p-4 sm:p-6">
+            <h3 class="type-tagline text-ink">{page.s7TableHeading}</h3>
+            <p class="mt-1 type-caption text-ink-muted-80">{page.s7TableLead}</p>
+            <div class="mt-4 overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-hairline font-mono text-[11px] text-ink-muted-48">
+                    <th class="py-2.5 pr-3 font-semibold">{page.s7Headers[0]}</th>
+                    <th class="py-2.5 px-3 font-semibold">{page.s7Headers[1]}</th>
+                    <th class="py-2.5 px-3 font-semibold">{page.s7Headers[2]}</th>
+                    <th class="py-2.5 pl-3 font-semibold">{page.s7Headers[3]}</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-hairline font-mono text-xs text-ink-muted-80">
+                  {
+                    page.referenceItems.map((row) => (
+                      <tr>
+                        <td class="py-2.5 pr-3 font-sans font-medium text-ink">{row.item}</td>
+                        <td class="py-2.5 px-3 text-link font-semibold">{row.mm}</td>
+                        <td class="py-2.5 px-3 text-ink">{row.inches}</td>
+                        <td class="py-2.5 pl-3 font-sans">{row.standard}</td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <HelpModal locale={locale} />
+  <Footer locale={locale} />
+  <script src="../../scripts/app.ts"></script>
+</BaseLayout>

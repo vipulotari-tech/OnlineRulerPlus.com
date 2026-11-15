@@ -5,6 +5,7 @@ import {
   type MeasurementRecord,
   type RulerPreferences,
 } from '../lib/ruler/index.ts';
+import { formatTemplate, getRuntimeDict } from '../i18n/runtime.ts';
 
 export interface GuideLine {
   readonly id: string;
@@ -91,11 +92,12 @@ export function renderGuidesLayer(opts: RenderGuidesOptions): void {
     textSpan.textContent = formatCoord(guide.px);
     pill.appendChild(textSpan);
 
+    const rt = getRuntimeDict();
     const removeBtn = document.createElement('button');
     removeBtn.type = 'button';
     removeBtn.className =
       'ml-0.5 inline-flex min-h-[24px] min-w-[24px] items-center justify-center opacity-80 hover:opacity-100 font-sans font-semibold text-xs leading-none';
-    removeBtn.setAttribute('aria-label', 'Remove guide line');
+    removeBtn.setAttribute('aria-label', rt.removeGuideAria);
     removeBtn.textContent = '×';
     removeBtn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -126,9 +128,11 @@ export function renderGuidesLayer(opts: RenderGuidesOptions): void {
       const onUp = () => {
         line.removeEventListener('pointermove', onMove);
         line.removeEventListener('pointerup', onUp);
+        line.removeEventListener('pointercancel', onUp);
       };
       line.addEventListener('pointermove', onMove);
       line.addEventListener('pointerup', onUp);
+      line.addEventListener('pointercancel', onUp);
     });
 
     layerEl.appendChild(line);
@@ -146,25 +150,40 @@ export function updateGuideSpanBadge(
   const xGuides = guides.filter((g) => g.axis === 'x').sort((a, b) => a.px - b.px);
   const yGuides = guides.filter((g) => g.axis === 'y').sort((a, b) => a.px - b.px);
 
-  let spanPx: number | null = null;
-  let axisLabel = '';
-  if (xGuides.length >= 2) {
-    spanPx = xGuides[xGuides.length - 1].px - xGuides[xGuides.length - 2].px;
-    axisLabel = 'ΔX';
-  } else if (yGuides.length >= 2) {
-    spanPx = yGuides[yGuides.length - 1].px - yGuides[yGuides.length - 2].px;
-    axisLabel = 'ΔY';
-  }
+  const xSpanPx = xGuides.length >= 2 ? xGuides[xGuides.length - 1].px - xGuides[xGuides.length - 2].px : 0;
+  const ySpanPx = yGuides.length >= 2 ? yGuides[yGuides.length - 1].px - yGuides[yGuides.length - 2].px : 0;
 
-  if (spanPx !== null && spanPx > 0) {
+  const parts: string[] = [];
+  if (xSpanPx > 0) parts.push(`ΔX: ${formatCoord(xSpanPx)}`);
+  if (ySpanPx > 0) parts.push(`ΔY: ${formatCoord(ySpanPx)}`);
+
+  if (parts.length > 0) {
     badge.classList.remove('hidden');
     const valText = document.getElementById('guide-span-value');
-    if (valText) valText.textContent = `${axisLabel}: ${formatCoord(spanPx)}`;
-    badge.dataset.spanPx = String(spanPx);
-    badge.dataset.spanLabel = `${axisLabel} guide span`;
+    if (valText) valText.textContent = parts.join(' · ');
+    const rt = getRuntimeDict();
+    if (xSpanPx > 0 && ySpanPx > 0) {
+      badge.dataset.spanPx = String(xSpanPx);
+      badge.dataset.spanLabel = formatTemplate(rt.spanGuideLabel, { axis: 'ΔX' });
+      badge.dataset.spanYPx = String(ySpanPx);
+      badge.dataset.spanYLabel = formatTemplate(rt.spanGuideLabel, { axis: 'ΔY' });
+    } else if (xSpanPx > 0) {
+      badge.dataset.spanPx = String(xSpanPx);
+      badge.dataset.spanLabel = formatTemplate(rt.spanGuideLabel, { axis: 'ΔX' });
+      delete badge.dataset.spanYPx;
+      delete badge.dataset.spanYLabel;
+    } else {
+      badge.dataset.spanPx = String(ySpanPx);
+      badge.dataset.spanLabel = 'ΔY guide span';
+      delete badge.dataset.spanYPx;
+      delete badge.dataset.spanYLabel;
+    }
   } else {
     badge.classList.add('hidden');
     delete badge.dataset.spanPx;
+    delete badge.dataset.spanLabel;
+    delete badge.dataset.spanYPx;
+    delete badge.dataset.spanYLabel;
   }
 }
 
@@ -230,12 +249,13 @@ export function renderFloatingRulersLayer(opts: RenderFloatingRulersOptions): vo
     controls.className =
       'absolute right-1 top-1 flex items-center gap-0.5 rounded-full bg-canvas-parchment border border-hairline px-1.5 py-0.5 text-[11px] font-mono';
 
+    const rt = getRuntimeDict();
     const rotateBtn = document.createElement('button');
     rotateBtn.type = 'button';
     rotateBtn.className =
       'inline-flex min-h-[24px] min-w-[24px] items-center justify-center text-ink hover:text-link';
-    rotateBtn.title = 'Rotate 90°';
-    rotateBtn.setAttribute('aria-label', 'Rotate floating ruler');
+    rotateBtn.title = rt.rotateFloatingTitle;
+    rotateBtn.setAttribute('aria-label', rt.rotateFloatingAria);
     rotateBtn.textContent = '↻';
     rotateBtn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -246,8 +266,8 @@ export function renderFloatingRulersLayer(opts: RenderFloatingRulersOptions): vo
     closeBtn.type = 'button';
     closeBtn.className =
       'inline-flex min-h-[24px] min-w-[24px] items-center justify-center text-ink hover:text-error';
-    closeBtn.title = 'Remove floating ruler';
-    closeBtn.setAttribute('aria-label', 'Remove floating ruler');
+    closeBtn.title = rt.removeFloatingTitle;
+    closeBtn.setAttribute('aria-label', rt.removeFloatingAria);
     closeBtn.textContent = '×';
     closeBtn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -278,9 +298,11 @@ export function renderFloatingRulersLayer(opts: RenderFloatingRulersOptions): vo
       const onPointerUp = () => {
         wrapper.removeEventListener('pointermove', onPointerMove);
         wrapper.removeEventListener('pointerup', onPointerUp);
+        wrapper.removeEventListener('pointercancel', onPointerUp);
       };
       wrapper.addEventListener('pointermove', onPointerMove);
       wrapper.addEventListener('pointerup', onPointerUp);
+      wrapper.addEventListener('pointercancel', onPointerUp);
     });
 
     layerEl.appendChild(wrapper);
@@ -339,22 +361,23 @@ export function renderProtractorOverlay(
 
   const wrapper = document.createElement('div');
   wrapper.className =
-    'protractor-widget apple-product-shadow absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center rounded-[18px] border border-hairline bg-canvas-elevated p-4 select-none';
+    'protractor-widget apple-product-shadow absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center rounded-[18px] border border-hairline bg-canvas-elevated p-3 sm:p-4 select-none max-w-[calc(100%-16px)]';
   wrapper.dataset.angleDeg = state.angleDeg.toFixed(1);
 
   const header = document.createElement('div');
   header.className = 'mb-1.5 flex w-full items-center justify-between gap-4 font-mono text-xs';
 
+  const rt = getRuntimeDict();
   const readout = document.createElement('span');
   readout.id = 'protractor-angle-readout';
   readout.className = 'font-semibold text-ink';
-  readout.textContent = `Angle: ${state.angleDeg.toFixed(1)}°`;
+  readout.textContent = `${rt.angleLabel} ${state.angleDeg.toFixed(1)}°`;
 
   const closeBtn = document.createElement('button');
   closeBtn.type = 'button';
   closeBtn.className =
     'inline-flex min-h-[28px] min-w-[28px] items-center justify-center rounded-full border border-hairline bg-canvas-parchment px-2 text-ink hover:text-link';
-  closeBtn.setAttribute('aria-label', 'Close protractor');
+  closeBtn.setAttribute('aria-label', rt.closeProtractorAria);
   closeBtn.textContent = '×';
   closeBtn.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -366,8 +389,11 @@ export function renderProtractorOverlay(
   wrapper.appendChild(header);
 
   const canvas = document.createElement('canvas');
-  const cssW = 320;
-  const cssH = 180;
+  const stageAvail = layerEl.clientWidth > 0 ? layerEl.clientWidth - 40 : 320;
+  const cssW = Math.min(320, Math.max(180, stageAvail));
+  const scale = cssW / 320;
+  const cssH = Math.round(180 * scale);
+  const cyOffset = Math.round(18 * scale);
   const dpr = window.devicePixelRatio || 1;
   canvas.width = Math.round(cssW * dpr);
   canvas.height = Math.round(cssH * dpr);
@@ -383,8 +409,8 @@ export function renderProtractorOverlay(
     ctx.scale(dpr, dpr);
 
     const cx = cssW / 2;
-    const cy = cssH - 18;
-    const r = 136;
+    const cy = cssH - cyOffset;
+    const r = Math.round(136 * scale);
 
     // Outer arc & baseline
     ctx.strokeStyle = dark ? '#ffffff' : '#1d1d1f';
@@ -420,8 +446,9 @@ export function renderProtractorOverlay(
       ctx.stroke();
 
       if (isMajor) {
-        const lx = cx + Math.cos(rad) * (r - 24);
-        const ly = cy - Math.sin(rad) * (r - 24);
+        const labelOffset = Math.round(24 * scale);
+        const lx = cx + Math.cos(rad) * (r - labelOffset);
+        const ly = cy - Math.sin(rad) * (r - labelOffset);
         ctx.fillStyle = dark ? '#ffffff' : '#1d1d1f';
         ctx.fillText(`${d}°`, lx, ly);
       }
@@ -453,9 +480,9 @@ export function renderProtractorOverlay(
     const rect = canvas.getBoundingClientRect();
     const px = e.clientX - rect.left;
     const py = e.clientY - rect.top;
-    const nextDeg = pointToProtractorAngle(cssW / 2, cssH - 18, px, py);
+    const nextDeg = pointToProtractorAngle(cssW / 2, cssH - cyOffset, px, py);
     wrapper.dataset.angleDeg = nextDeg.toFixed(1);
-    readout.textContent = `Angle: ${nextDeg.toFixed(1)}°`;
+    readout.textContent = `${rt.angleLabel} ${nextDeg.toFixed(1)}°`;
     draw(nextDeg);
     onChangeAngle(nextDeg);
   };
@@ -469,9 +496,11 @@ export function renderProtractorOverlay(
     const onUp = () => {
       canvas.removeEventListener('pointermove', onMove);
       canvas.removeEventListener('pointerup', onUp);
+      canvas.removeEventListener('pointercancel', onUp);
     };
     canvas.addEventListener('pointermove', onMove);
     canvas.addEventListener('pointerup', onUp);
+    canvas.addEventListener('pointercancel', onUp);
   });
 
   wrapper.appendChild(canvas);

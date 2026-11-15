@@ -1,4 +1,13 @@
 ---
+import { DEFAULT_LOCALE, type Locale } from '../i18n/config.ts';
+import { getDict, renderInlineMarkup } from '../i18n/index.ts';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const c = getDict(locale).calibration;
 ---
 
 <section id="calibration" aria-labelledby="calibration-heading" class="apple-tile-parchment">
@@ -7,16 +16,16 @@
     <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
       <div class="max-w-3xl">
         <p class="type-kicker">
-          Display Density Calibration · Saved Locally Per Screen
+          {c.kicker}
         </p>
         <h2
           id="calibration-heading"
           class="mt-1.5 type-display-lg text-ink"
         >
-          Calibrate Your Screen for True Physical Scale
+          {c.heading}
         </h2>
         <p class="mt-3 max-w-2xl type-body text-ink-muted-80">
-          Browsers default to 96 CSS pixels per inch, which rarely matches physical display panels. Choose one of the three calibration methods below so every millimeter and fractional inch tick corresponds to actual physical length.
+          {c.lead}
         </p>
       </div>
 
@@ -24,13 +33,13 @@
       <div class="apple-utility-card flex flex-wrap items-center justify-between gap-4 shrink-0">
         <div>
           <div class="flex items-center gap-2">
-            <span class="font-mono text-[11px] font-semibold text-ink-muted-48">Active Scale</span>
+            <span class="font-mono text-[11px] font-semibold text-ink-muted-48">{c.activeScale}</span>
             <span
               data-cal-status-label
               data-status="estimated"
               class="rounded-full border border-hairline bg-canvas-parchment px-3 py-0.5 font-mono text-xs font-semibold text-ink data-[status=manual]:border-primary-focus data-[status=manual]:text-link"
             >
-              Estimated calibration
+              {c.defaultStatus}
             </span>
           </div>
           <p class="mt-1.5 font-mono text-sm font-semibold text-ink">
@@ -39,7 +48,7 @@
             <span data-cal-px-per-mm class="text-ink-muted-80">3.780 px/mm</span>
           </p>
           <p data-cal-basis class="mt-0.5 type-fine-print text-ink-muted-48">
-            CSS reference scale (96 px per inch)
+            {c.defaultBasis}
           </p>
         </div>
 
@@ -48,7 +57,7 @@
           data-reset-calibration
           class="apple-btn-pearl"
         >
-          Reset Calibration
+          {c.resetBtn}
         </button>
       </div>
     </div>
@@ -56,7 +65,7 @@
     <!-- Calibration Method Tabs (Apple configurator-option-chip pills) -->
     <div
       role="tablist"
-      aria-label="Screen calibration methods"
+      aria-label={c.methodsAria}
       class="mt-8 flex flex-wrap gap-2.5 border-b border-hairline pb-4"
     >
       <button
@@ -70,7 +79,7 @@
         data-active="true"
         class="apple-option-chip"
       >
-        <span>1. Credit Card (Recommended)</span>
+        <span>{c.tabCard}</span>
       </button>
       <button
         type="button"
@@ -83,7 +92,7 @@
         data-active="false"
         class="apple-option-chip"
       >
-        <span>2. Screen Diagonal (Inches)</span>
+        <span>{c.tabDiagonal}</span>
       </button>
       <button
         type="button"
@@ -96,7 +105,7 @@
         data-active="false"
         class="apple-option-chip"
       >
-        <span>3. Auto-Detect Device</span>
+        <span>{c.tabAutoDetect}</span>
       </button>
     </div>
 
@@ -117,22 +126,24 @@
             <div class="flex flex-wrap items-start justify-between gap-3">
               <div class="max-w-xl">
                 <span class="type-kicker">
-                  ISO/IEC 7810 ID-1 Standard · 85.60 × 53.98 mm
+                  {c.cardKicker}
                 </span>
                 <h3 class="mt-1 type-tagline text-ink">
-                  Align a Physical Bank, Credit, or ID Card
+                  {c.cardHeading}
                 </h3>
                 <p class="mt-1.5 type-caption text-ink-muted-80">
-                  Hold any standard payment card, driver’s license, or national ID card flat against the outline below and match its physical width.
+                  {c.cardDesc}
                 </p>
               </div>
               <button
                 id="btn-card-orientation"
                 type="button"
+                data-label-landscape={c.cardOrientLandscape}
+                data-label-portrait={c.cardOrientPortrait}
                 class="apple-btn-pearl font-mono text-xs shrink-0"
-                title="Switch between landscape and portrait card alignment for narrow screens"
+                title={c.cardOrientTitle}
               >
-                Landscape (85.60 × 53.98 mm)
+                {c.cardOrientLandscape}
               </button>
             </div>
 
@@ -140,13 +151,13 @@
             <div
               id="card-interactive-area"
               tabindex="0"
-              aria-label="Interactive credit card calibration stage. Use left and right arrow keys to resize."
+              aria-label={c.cardStageAria}
               class="workspace-grid-bg mt-5 flex flex-col xl:flex-row xl:items-center xl:justify-between gap-6 overflow-x-auto rounded-[18px] border border-hairline bg-canvas-parchment p-5 sm:p-6"
             >
               <div class="flex flex-col items-start shrink-0">
                 <div class="mb-2 flex items-center gap-2 font-mono text-[11px] text-ink-muted-80">
                   <span class="inline-block h-2 w-2 rounded-full bg-link" aria-hidden="true"></span>
-                  <span>Top-left card alignment datum · 1:1 physical outline</span>
+                  <span>{c.cardDatumNote}</span>
                 </div>
                 <div
                   id="card-calibration-box"
@@ -167,9 +178,9 @@
                   </div>
 
                   <div class="my-auto text-left">
-                    <p class="font-mono text-xs font-semibold text-ink">Place Physical Card Here</p>
+                    <p class="font-mono text-xs font-semibold text-ink">{c.cardPlaceTitle}</p>
                     <p class="mt-0.5 font-mono text-[11px] text-ink-muted-48">
-                      Align left &amp; top edges · Match outer border
+                      {c.cardPlaceSub}
                     </p>
                   </div>
 
@@ -180,21 +191,15 @@
                 </div>
               </div>
 
-              <!-- Contextual Alignment Checklist inside Stage (fills desktop right-side void cleanly) -->
+              <!-- Contextual Alignment Checklist inside Stage -->
               <div class="xl:max-w-[270px] rounded-[14px] border border-hairline bg-canvas/90 p-4 type-caption">
                 <p class="font-mono text-[11px] font-semibold text-link">
-                  Optical Alignment Checklist
+                  {c.checklistTitle}
                 </p>
                 <ol class="mt-2.5 space-y-2 text-xs text-ink-muted-80 list-decimal pl-4">
-                  <li>
-                    <strong class="font-semibold text-ink">Hold card flat:</strong> Place a real credit or ID card flush against the top-left corner of the box.
-                  </li>
-                  <li>
-                    <strong class="font-semibold text-ink">Match outer edge:</strong> Drag the slider or press <kbd class="font-mono font-semibold text-ink">←</kbd> <kbd class="font-mono font-semibold text-ink">→</kbd> keys until the right edge aligns exactly.
-                  </li>
-                  <li>
-                    <strong class="font-semibold text-ink">Avoid parallax:</strong> Keep your eyes perpendicular to the right edge of the card.
-                  </li>
+                  {c.checklistSteps.map((step) => (
+                    <li set:html={renderInlineMarkup(step, locale)} />
+                  ))}
                 </ol>
               </div>
             </div>
@@ -207,7 +212,7 @@
                 <button
                   id="btn-card-minus"
                   type="button"
-                  aria-label="Decrease card width by 1 pixel"
+                  aria-label={c.cardMinusAria}
                   class="inline-flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-full border border-hairline bg-surface-pearl font-mono text-sm font-semibold text-ink hover:border-primary-focus cursor-pointer"
                 >
                   −1
@@ -220,14 +225,14 @@
                   max="900"
                   step="0.5"
                   value="323.5"
-                  aria-label="Adjust credit card width in pixels"
+                  aria-label={c.cardSliderAria}
                   class="flex-1 accent-primary min-w-[120px] cursor-pointer"
                 />
 
                 <button
                   id="btn-card-plus"
                   type="button"
-                  aria-label="Increase card width by 1 pixel"
+                  aria-label={c.cardPlusAria}
                   class="inline-flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-full border border-hairline bg-surface-pearl font-mono text-sm font-semibold text-ink hover:border-primary-focus cursor-pointer"
                 >
                   +1
@@ -235,7 +240,13 @@
               </div>
 
               <label class="flex items-center gap-2 font-mono text-xs text-ink-muted-80 shrink-0">
-                <span id="label-card-px">Width (px):</span>
+                <span
+                  id="label-card-px"
+                  data-label-width={c.widthPxLabel}
+                  data-label-long={c.longEdgePxLabel}
+                >
+                  {c.widthPxLabel}
+                </span>
                 <input
                   id="input-card-px"
                   type="number"
@@ -251,11 +262,12 @@
             <div class="flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-4">
               <div>
                 <p class="font-mono text-xs font-semibold text-ink">
-                  Computed Scale: <span id="card-scale-readout" class="text-link">96.0 CSS PPI · 3.780 px/mm</span>
+                  {c.computedScaleLabel} <span id="card-scale-readout" class="text-link">96.0 CSS PPI · 3.780 px/mm</span>
                 </p>
-                <p class="mt-1 type-fine-print text-ink-muted-48">
-                  Keyboard fine-tuning: click the card stage and press <kbd class="font-mono font-semibold text-ink">←</kbd> <kbd class="font-mono font-semibold text-ink">→</kbd> (<kbd class="font-mono font-semibold text-ink">Shift</kbd> for 5px steps).
-                </p>
+                <p
+                  class="mt-1 type-fine-print text-ink-muted-48"
+                  set:html={renderInlineMarkup(c.shortcutNote, locale)}
+                />
               </div>
 
               <button
@@ -263,7 +275,7 @@
                 type="button"
                 class="apple-btn-primary"
               >
-                Apply Calibration
+                {c.applyBtn}
               </button>
             </div>
           </div>
@@ -280,19 +292,19 @@
         >
           <div>
             <span class="type-kicker">
-              Geometric Display Calculation · √(W² + H²) / Diagonal
+              {c.diagKicker}
             </span>
             <h3 class="mt-1 type-tagline text-ink">
-              Calibrate by Visible Display Diagonal
+              {c.diagHeading}
             </h3>
             <p class="mt-2 type-caption text-ink-muted-80">
-              Enter the diagonal measurement of your visible screen panel in inches (corner to corner inside the bezel, not the outer laptop chassis). Ensure browser page zoom is at 100%.
+              {c.diagDesc}
             </p>
 
             <!-- Quick Common Diagonal Presets -->
             <div class="mt-5">
               <span class="block font-mono text-[11px] font-semibold text-ink-muted-48">
-                Common Display Diagonals (Inches)
+                {c.diagPresetsLabel}
               </span>
               <div class="mt-2.5 flex flex-wrap gap-2">
                 {
@@ -315,14 +327,14 @@
               <div class="flex flex-wrap items-end gap-3">
                 <div class="flex-1 min-w-[220px]">
                   <label for="input-diagonal" class="block type-caption-strong text-ink">
-                    Visible Screen Diagonal (inches)
+                    {c.diagInputLabel}
                   </label>
                   <input
                     id="input-diagonal"
                     name="diagonal"
                     type="text"
                     inputmode="decimal"
-                    placeholder="e.g. 15.6 or 27"
+                    placeholder={c.diagPlaceholder}
                     aria-describedby="diagonal-preview diagonal-error"
                     class="mt-2 apple-input-pill w-full font-mono placeholder:text-ink-muted-48"
                   />
@@ -333,34 +345,31 @@
                     type="submit"
                     class="apple-btn-primary"
                   >
-                    Apply Calibration
+                    {c.applyBtn}
                   </button>
                   <button
                     type="button"
                     data-reset-calibration
                     class="apple-btn-secondary-pill"
                   >
-                    Reset
+                    {c.diagResetBtn}
                   </button>
                 </div>
               </div>
 
               <p id="diagonal-error" role="alert" class="hidden font-mono text-xs font-semibold text-error"></p>
               <p id="diagonal-preview" class="font-mono text-xs text-ink-muted-80">
-                Formula: CSS PPI = √(screenWidth² + screenHeight²) / diagonalInches
+                {c.diagFormula}
               </p>
             </form>
           </div>
 
           <div class="mt-6 rounded-[14px] border border-hairline bg-canvas-parchment p-4 type-caption text-ink-muted-80 space-y-1.5">
-            <p class="font-semibold text-ink">Accuracy notes for diagonal calibration:</p>
+            <p class="font-semibold text-ink">{c.diagNotesTitle}</p>
             <ul class="list-disc pl-5 space-y-1">
-              <li>
-                <strong class="font-semibold text-ink">Display vs. Device Body:</strong> Enter the active panel diagonal (e.g., 13.6″ or 15.6″), not the external case dimensions.
-              </li>
-              <li>
-                <strong class="font-semibold text-ink">Logical CSS Pixels vs. Physical Pixels:</strong> Operating systems often scale HiDPI panels (such as 125% or 150% on Windows, or “Looks like” Retina scaling on macOS). The browser reports logical CSS pixels at 100% browser zoom, which this calculation uses directly.
-              </li>
+              {c.diagNotes.map((note) => (
+                <li set:html={renderInlineMarkup(note, locale)} />
+              ))}
             </ul>
           </div>
         </div>
@@ -376,48 +385,48 @@
         >
           <div>
             <span class="type-kicker">
-              Browser Display Telemetry &amp; Hardware Database
+              {c.autoKicker}
             </span>
             <h3 class="mt-1 type-tagline text-ink">
-              Automatic Device &amp; Screen Density Detection
+              {c.autoHeading}
             </h3>
             <p class="mt-2 type-caption text-ink-muted-80">
-              Online Ruler Plus inspects your browser’s reported logical screen dimensions, device pixel ratio, orientation, and platform to match known hardware profiles or compute a sensible initial estimate.
+              {c.autoDesc}
             </p>
 
             <dl class="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
               <div class="rounded-[14px] border border-hairline bg-canvas-parchment p-4">
-                <dt class="font-mono text-[11px] font-semibold text-ink-muted-48">Detected Profile</dt>
+                <dt class="font-mono text-[11px] font-semibold text-ink-muted-48">{c.autoDtProfile}</dt>
                 <dd id="auto-detected-device" class="mt-1.5 font-mono text-xs font-semibold text-ink">
-                  Checking display…
+                  {c.autoChecking}
                 </dd>
               </div>
               <div class="rounded-[14px] border border-hairline bg-canvas-parchment p-4">
-                <dt class="font-mono text-[11px] font-semibold text-ink-muted-48">Detection Status</dt>
+                <dt class="font-mono text-[11px] font-semibold text-ink-muted-48">{c.autoDtStatus}</dt>
                 <dd id="auto-detected-kind" class="mt-1.5 font-mono text-xs font-semibold text-link">
-                  Estimated calibration
+                  {c.defaultStatus}
                 </dd>
               </div>
               <div class="rounded-[14px] border border-hairline bg-canvas-parchment p-4">
-                <dt class="font-mono text-[11px] font-semibold text-ink-muted-48">Estimated Density</dt>
+                <dt class="font-mono text-[11px] font-semibold text-ink-muted-48">{c.autoDtDensity}</dt>
                 <dd id="auto-detected-ppi" class="mt-1.5 font-mono text-xs font-semibold text-ink">
                   96.0 CSS px/in
                 </dd>
               </div>
               <div class="rounded-[14px] border border-hairline bg-canvas-parchment p-4">
-                <dt class="font-mono text-[11px] font-semibold text-ink-muted-48">Screen CSS Size</dt>
+                <dt class="font-mono text-[11px] font-semibold text-ink-muted-48">{c.autoDtSize}</dt>
                 <dd id="auto-detected-resolution" class="mt-1.5 font-mono text-xs text-ink">
                   —
                 </dd>
               </div>
               <div class="rounded-[14px] border border-hairline bg-canvas-parchment p-4">
-                <dt class="font-mono text-[11px] font-semibold text-ink-muted-48">Device Pixel Ratio</dt>
+                <dt class="font-mono text-[11px] font-semibold text-ink-muted-48">{c.autoDtDpr}</dt>
                 <dd id="auto-detected-dpr" class="mt-1.5 font-mono text-xs text-ink">
                   —
                 </dd>
               </div>
               <div class="rounded-[14px] border border-hairline bg-canvas-parchment p-4">
-                <dt class="font-mono text-[11px] font-semibold text-ink-muted-48">Orientation</dt>
+                <dt class="font-mono text-[11px] font-semibold text-ink-muted-48">{c.autoDtOrient}</dt>
                 <dd id="auto-detected-orientation" class="mt-1.5 font-mono text-xs text-ink">
                   —
                 </dd>
@@ -426,15 +435,16 @@
           </div>
 
           <div class="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-4">
-            <p class="max-w-lg type-fine-print text-ink-muted-48">
-              <strong class="font-semibold text-ink">Why verify manually?</strong> Web browsers do not expose physical monitor sizes over HDMI/DisplayPort or custom OS scaling factors. Always verify with a physical card or known diagonal before critical measurements.
-            </p>
+            <p
+              class="max-w-lg type-fine-print text-ink-muted-48"
+              set:html={renderInlineMarkup(c.autoWhyBody, locale)}
+            />
             <button
               id="btn-apply-autodetect"
               type="button"
               class="apple-btn-primary"
             >
-              Use Auto-Detected Scale
+              {c.autoApplyBtn}
             </button>
           </div>
         </div>
@@ -445,13 +455,13 @@
         <!-- Quick Calibration Verification Card -->
         <div class="apple-utility-card p-4 sm:p-6">
           <p class="type-kicker">
-            Physical Verification Gauge
+            {c.verifyKicker}
           </p>
           <h3 class="mt-1 type-body-strong text-ink">
-            Verify With Everyday Objects
+            {c.verifyHeading}
           </h3>
           <p class="mt-1.5 type-caption text-ink-muted-80">
-            Hold a real coin against these live-scaled reference outlines to confirm your calibration immediately.
+            {c.verifyDesc}
           </p>
 
           <div class="mt-5 grid grid-cols-3 gap-1.5 sm:gap-2 items-end justify-items-center rounded-[14px] border border-hairline bg-canvas-parchment px-2 py-3.5 sm:p-3.5">
@@ -463,7 +473,7 @@
               >
                 24.26 mm
               </div>
-              <span class="font-mono text-[11px] text-ink-muted-80">US Quarter</span>
+              <span class="font-mono text-[11px] text-ink-muted-80">{c.coinQuarter}</span>
             </div>
 
             <div class="flex flex-col items-center gap-1.5">
@@ -474,7 +484,7 @@
               >
                 23.25 mm
               </div>
-              <span class="font-mono text-[11px] text-ink-muted-80">€1 Euro</span>
+              <span class="font-mono text-[11px] text-ink-muted-80">{c.coinEuro}</span>
             </div>
 
             <div class="flex flex-col items-center gap-1.5">
@@ -485,13 +495,13 @@
               >
                 19.05 mm
               </div>
-              <span class="font-mono text-[11px] text-ink-muted-80">US Penny</span>
+              <span class="font-mono text-[11px] text-ink-muted-80">{c.coinPenny}</span>
             </div>
           </div>
 
           <div class="mt-4 pt-3.5 border-t border-hairline">
             <div class="flex items-center justify-between font-mono text-[11px] text-ink-muted-80 mb-1.5">
-              <span>50.0 mm Reference Bar (5.0 cm)</span>
+              <span>{c.verifyBarLabel}</span>
               <span>1.969 in</span>
             </div>
             <div
@@ -502,16 +512,16 @@
           </div>
         </div>
 
-        <!-- Local Measurement History Card (stretches to align bottom edge with left panel) -->
+        <!-- Local Measurement History Card -->
         <div class="apple-utility-card flex-1 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between gap-2">
               <div>
                 <p class="type-kicker">
-                  Local Session Log
+                  {c.historyKicker}
                 </p>
                 <h3 class="mt-1 type-body-strong text-ink">
-                  Measurement History
+                  {c.historyHeading}
                 </h3>
               </div>
               <button
@@ -519,19 +529,21 @@
                 type="button"
                 class="hidden apple-btn-pearl text-xs text-error"
               >
-                Clear
+                {c.historyClearBtn}
               </button>
             </div>
 
-            <p id="measurement-history-empty" class="mt-3 type-caption text-ink-muted-80">
-              Place two parallel guide lines in the ruler workspace and click <strong class="font-semibold text-ink">Save to History</strong> to record point-to-point spans (<code class="font-mono text-ink">ΔX</code> / <code class="font-mono text-ink">ΔY</code>) locally on your device.
-            </p>
+            <p
+              id="measurement-history-empty"
+              class="mt-3 type-caption text-ink-muted-80"
+              set:html={renderInlineMarkup(c.historyEmpty, locale)}
+            />
             <ul id="measurement-history-list" class="mt-3 space-y-2"></ul>
           </div>
 
           <div class="mt-4 border-t border-hairline pt-3 flex items-center justify-between font-mono text-[11px] text-ink-muted-48">
-            <span>Storage: localStorage only</span>
-            <span>Zero network sync</span>
+            <span>{c.historyFooterLeft}</span>
+            <span>{c.historyFooterRight}</span>
           </div>
         </div>
       </div>

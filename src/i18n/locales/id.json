@@ -1,0 +1,1453 @@
+{
+  "meta": {
+    "ogImageAlt": "Online Ruler Plus penggaris online ukuran asli gratis terkalibrasi dalam inci (1/16″), cm, dan mm",
+    "orgDescription": "Penggaris layar online ukuran asli sisi-klien dan platform kalibrasi layar yang mendukung sentimeter (cm), milimeter (mm), pecahan 1/16 inci, serta piksel referensi CSS W3C.",
+    "knowsAbout": [
+      "Kalibrasi Penggaris Layar Online",
+      "Metrologi Kerapatan Piksel Layar (PPI)",
+      "Kalibrasi Kartu Standar ISO/IEC 7810:2019 ID-1",
+      "Pengukuran Sentimeter, Milimeter, dan Inci Pecahan",
+      "Piksel Referensi W3C CSS Values and Units"
+    ]
+  },
+  "nav": {
+    "skipToMain": "Langsung ke konten utama",
+    "skipToWorkspace": "Langsung ke area penggaris online",
+    "brandHomeAria": "Beranda Online Ruler Plus",
+    "defaultSubNavTitle": "Area Penggaris Layar",
+    "defaultSubNavCta": "Kalibrasi",
+    "globalNavAria": "Navigasi global",
+    "mobileNavAria": "Navigasi seluler",
+    "mobileMenuAria": "Buka atau tutup menu navigasi",
+    "homeWorkspaceLabel": "Area Utama",
+    "shortcutsBtn": "Pintasan",
+    "shortcutsBtnTitle": "Pintasan keyboard & petunjuk (H)",
+    "themeBtn": "Tema",
+    "themeBtnAria": "Ganti tema (D)",
+    "themeBtnTitle": "Aktifkan atau nonaktifkan mode gelap (D)",
+    "languageLabel": "Bahasa",
+    "languageTriggerAria": "Pilih bahasa situs web",
+    "languageMenuAria": "Bahasa yang didukung",
+    "links": {
+      "cmRuler": "Penggaris cm",
+      "mmRuler": "Penggaris mm",
+      "inchRuler": "Penggaris Inci",
+      "horizontal": "Horizontal",
+      "vertical": "Vertikal",
+      "howToUse": "Cara Pakai",
+      "calibrationGuide": "Panduan Kalibrasi",
+      "faq": "FAQ",
+      "about": "Tentang",
+      "contact": "Kontak",
+      "privacy": "Kebijakan Privasi",
+      "terms": "Ketentuan Penggunaan"
+    },
+    "subNav": {
+      "workspace": "Penggaris",
+      "calibration": "Kalibrasi",
+      "howItWorks": "Cara Kerja",
+      "ppiTable": "Tabel PPI"
+    }
+  },
+  "footer": {
+    "footnote": "1. Akurasi fisik sebenarnya memerlukan kalibrasi layar menggunakan kartu standar ISO/IEC 7810 ID-1 (85,60 × 53,98 mm) atau diagonal layar yang diketahui pada zoom browser 100%. Tanpa kalibrasi, browser menggunakan standar 96 piksel CSS per inci.",
+    "tagline": "Ruang metrologi layar presisi untuk mengukur benda fisik dalam sentimeter, milimeter, dan inci pecahan 1/16″. Pengukuran 100% di sisi klien dan profil kalibrasi tersimpan secara lokal.",
+    "colModes": "Mode Penggaris",
+    "colGuides": "Kalibrasi & Panduan",
+    "colTools": "Alat Presisi",
+    "colLegal": "Tentang & Hukum",
+    "modeAllEdge": "Area Semua Sisi",
+    "modeCm": "Penggaris Sentimeter (cm)",
+    "modeMm": "Penggaris Milimeter (mm)",
+    "modeInch": "Penggaris Inci (1/16″)",
+    "modeHorizontal": "Penggaris Horizontal",
+    "modeVertical": "Penggaris Vertikal",
+    "guideCard": "Kalibrasi Kartu Kredit/ATM",
+    "guideHowTo": "Panduan Penggunaan",
+    "guidePpi": "Referensi PPI Layar",
+    "guideFaq": "Pertanyaan Umum (FAQ)",
+    "toolGuides": "Garis Panduan Geser (G)",
+    "toolFractions": "Pembacaan Pecahan Inci",
+    "toolPx": "Inspektor Piksel CSS (px)",
+    "toolProtractor": "Busur Derajat 180° (P)",
+    "legalAbout": "Tentang Online Ruler Plus",
+    "legalContact": "Kontak & Pengiriman Profil",
+    "legalPrivacy": "Kebijakan Privasi",
+    "legalTerms": "Ketentuan Penggunaan",
+    "copyright": "Hak Cipta © {year} OnlineRulerPlus.com. Seluruh hak cipta dilindungi.",
+    "constants": "1 in = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)"
+  },
+  "helpModal": {
+    "kicker": "Referensi Cepat",
+    "title": "Pintasan Keyboard & Kontrol Penggaris",
+    "closeAria": "Tutup dialog pintasan",
+    "escLabel": "Esc",
+    "enableShortcuts": "Aktifkan pintasan satu tombol (G, C, P, F, 1–4, D, H)",
+    "gotIt": "Mengerti",
+    "shortcuts": [
+      { "key": "G", "action": "Aktifkan/nonaktifkan garis panduan klik" },
+      { "key": "C", "action": "Aktifkan/nonaktifkan garis silang kursor" },
+      { "key": "P", "action": "Aktifkan/nonaktifkan busur derajat 180°" },
+      { "key": "F", "action": "Masuk atau keluar mode layar penuh" },
+      { "key": "1", "action": "Ubah satuan ke Sentimeter (cm)" },
+      { "key": "2", "action": "Ubah satuan ke Inci (in)" },
+      { "key": "3", "action": "Ubah satuan ke Piksel CSS (px)" },
+      { "key": "4 / M", "action": "Ubah satuan ke Milimeter (mm)" },
+      { "key": "D", "action": "Ganti mode terang dan gelap" },
+      { "key": "H", "action": "Buka atau tutup dialog pintasan keyboard ini" },
+      { "key": "Esc", "action": "Hapus semua garis panduan atau tutup dialog aktif" },
+      { "key": "← / →", "action": "Sesuaikan ukuran kalibrasi kartu 1px (Shift untuk 5px)" }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Referensi ISO/IEC 7810 ID-1 · 1 in = 25,4 mm",
+    "headline": "Penggaris Online Ukuran Asli dalam Inci, cm & mm",
+    "description": "Alat ukur layar terkalibrasi untuk desktop, laptop, tablet, dan ponsel. Cocokkan kartu bank standar atau masukkan diagonal layar untuk mengukur benda sesuai skala asli.",
+    "primaryCta": "Kalibrasi Layar Anda",
+    "secondaryCta": "Cara Mengukur"
+  },
+  "workspace": {
+    "srHeading": "Ruang Kerja Penggaris Layar Online Interaktif",
+    "verifyCalibrationLink": "Verifikasi Kalibrasi",
+    "dismissAria": "Tutup notifikasi",
+    "unitGroupAria": "Satuan pengukuran",
+    "unitLabel": "Satuan",
+    "unitCmTitle": "Sentimeter dengan garis milimeter (Pintasan: 1)",
+    "unitMmTitle": "Milimeter (Pintasan: 4 atau M)",
+    "unitInTitle": "Inci dengan pembagian pecahan 1/16 (Pintasan: 2)",
+    "unitPxTitle": "Piksel CSS (Pintasan: 3)",
+    "dualUnit": "Ganda cm/in",
+    "dualUnitTitle": "Tampilkan skala cm dan inci secara bersamaan",
+    "edgesGroupAria": "Posisi tepi penggaris",
+    "edgesLabel": "Tepi",
+    "edgeTop": "Atas",
+    "edgeBottom": "Bawah",
+    "edgeLeft": "Kiri",
+    "edgeRight": "Kanan",
+    "edgeAll": "Semua Sisi",
+    "toolsGroupAria": "Alat lapisan presisi",
+    "guides": "Garis Bantu",
+    "guidesTitle": "Aktifkan penempatan garis panduan dengan klik (Pintasan: G)",
+    "crosshair": "Garis Silang",
+    "crosshairTitle": "Aktifkan garis silang mengikuti kursor (Pintasan: C)",
+    "addFloating": "+ Penggaris Mengambang",
+    "addFloatingTitle": "Tambahkan penggaris mengambang yang bisa digeser dan diputar",
+    "protractor": "Busur Derajat",
+    "protractorTitle": "Aktifkan busur derajat 180° (Pintasan: P)",
+    "fullscreen": "Layar Penuh",
+    "fullscreenExit": "Keluar Layar Penuh",
+    "fullscreenTitle": "Ubah tampilan layar penuh (Pintasan: F)",
+    "clearGuides": "Hapus Garis",
+    "clearGuidesTitle": "Hapus semua garis panduan (Pintasan: Esc)",
+    "calDefaultStatus": "Kalibrasi perkiraan",
+    "calDefaultDevice": "Layar desktop",
+    "calibrateBtn": "Kalibrasi",
+    "guideAxisAria": "Sumbu klik garis panduan",
+    "guideAxisLabel": "Sumbu Garis:",
+    "axisVertical": "Vertikal",
+    "axisHorizontal": "Horizontal",
+    "axisBoth": "Keduanya",
+    "thicknessLabel": "Ketebalan",
+    "thicknessAria": "Ketebalan penggaris",
+    "opacityLabel": "Opasitas",
+    "opacityAria": "Persentase opasitas penggaris",
+    "canvasTopAria": "Penggaris horizontal atas — klik untuk memasang garis vertikal",
+    "canvasBottomAria": "Penggaris horizontal bawah — klik untuk memasang garis vertikal",
+    "canvasLeftAria": "Penggaris vertikal kiri — klik untuk memasang garis horizontal",
+    "canvasRightAria": "Penggaris vertikal kanan — klik untuk memasang garis horizontal",
+    "datumTitle": "Titik Nol (0, 0) · Garis Putus-putus Kiri Atas",
+    "datumBody": "Sejajarkan benda Anda dengan tanda [[strong:0]]. Klik penggaris atau area kotak untuk memasang garis panduan yang dapat digeser.",
+    "liveCursorInit": "X: 0.00 cm · Y: 0.00 cm",
+    "saveToHistory": "Simpan ke Riwayat",
+    "keysHint": "Tombol: [[kbd:1]] cm · [[kbd:2]] in · [[kbd:3]] px · [[kbd:G]] garis · [[kbd:C]] silang · [[kbd:F]] layar penuh"
+  },
+  "calibration": {
+    "kicker": "Kalibrasi Kerapatan Layar · Disimpan Lokal per Layar",
+    "heading": "Kalibrasi Layar Anda untuk Skala Fisik Sebenarnya",
+    "lead": "Browser secara bawaan memakai 96 piksel CSS per inci yang jarang cocok dengan panel layar fisik. Pilih salah satu dari tiga metode di bawah agar setiap milimeter dan inci sesuai panjang asli.",
+    "activeScale": "Skala Aktif",
+    "defaultStatus": "Kalibrasi perkiraan",
+    "defaultBasis": "Skala referensi CSS (96 px per inci)",
+    "resetBtn": "Reset Kalibrasi",
+    "methodsAria": "Metode kalibrasi layar",
+    "tabCard": "1. Kartu Bank / ATM (Disarankan)",
+    "tabDiagonal": "2. Diagonal Layar (Inci)",
+    "tabAutoDetect": "3. Deteksi Perangkat Otomatis",
+    "cardKicker": "Standar ISO/IEC 7810 ID-1 · 85,60 × 53,98 mm",
+    "cardHeading": "Sejajarkan Kartu Bank, Kredit, atau Kartu Identitas Fisik",
+    "cardDesc": "Tempelkan kartu pembayaran, SIM, atau KTP standar secara rata pada garis tepi di bawah lalu sesuaikan lebar fisiknya.",
+    "cardOrientTitle": "Ganti orientasi kartu lanskap atau potret untuk layar sempit",
+    "cardOrientLandscape": "Lanskap (85,60 × 53,98 mm)",
+    "cardOrientPortrait": "Potret (53,98 × 85,60 mm)",
+    "cardStageAria": "Area kalibrasi kartu kredit interaktif. Gunakan tombol panah kiri dan kanan untuk mengubah ukuran.",
+    "cardDatumNote": "Patokan perataan kiri atas · garis luar fisik 1:1",
+    "cardPlaceTitle": "Tempelkan Kartu Fisik di Sini",
+    "cardPlaceSub": "Sejajarkan tepi kiri & atas · Cocokkan batas kanan",
+    "checklistTitle": "Daftar Periksa Perataan Optik",
+    "checklistSteps": [
+      "[[strong:Tempelkan kartu rata:]] Posisikan kartu asli menempel rapat pada sudut kiri atas kotak.",
+      "[[strong:Cocokkan tepi luar:]] Geser slider atau tekan tombol [[kbd:←]] [[kbd:→]] hingga tepi kanan tepat sejajar.",
+      "[[strong:Hindari paralaks:]] Arahkan pandangan mata tegak lurus (90°) ke tepi kanan kartu."
+    ],
+    "cardMinusAria": "Kurangi lebar kartu 1 piksel",
+    "cardSliderAria": "Atur lebar kartu kredit dalam piksel",
+    "cardPlusAria": "Tambah lebar kartu 1 piksel",
+    "widthPxLabel": "Lebar (px):",
+    "longEdgePxLabel": "Sisi Panjang (px):",
+    "computedScaleLabel": "Skala Terhitung:",
+    "shortcutNote": "Penyetelan keyboard: klik area kartu lalu tekan [[kbd:←]] [[kbd:→]] ([[kbd:Shift]] untuk langkah 5px).",
+    "applyBtn": "Terapkan Kalibrasi",
+    "diagKicker": "Perhitungan Geometris Layar · √(W² + H²) / Diagonal",
+    "diagHeading": "Kalibrasi Berdasarkan Diagonal Layar Tampak",
+    "diagDesc": "Masukkan ukuran diagonal panel layar aktif dalam inci (dari sudut ke sudut di dalam bezel, bukan bodi luar laptop). Pastikan zoom browser berada di 100%.",
+    "diagPresetsLabel": "Ukuran Diagonal Layar Umum (Inci)",
+    "diagInputLabel": "Diagonal Layar Tampak (inci)",
+    "diagPlaceholder": "mis. 15.6 atau 27",
+    "diagResetBtn": "Reset",
+    "diagFormula": "Rumus: CSS PPI = √(screenWidth² + screenHeight²) / diagonalInci",
+    "diagNotesTitle": "Catatan akurasi kalibrasi diagonal:",
+    "diagNotes": [
+      "[[strong:Panel Layar vs. Bodi Perangkat:]] Masukkan diagonal panel tampilan aktif (mis. 13,6″ atau 15,6″), bukan ukuran rangka luar.",
+      "[[strong:Piksel CSS Logis vs. Fisik:]] Sistem operasi sering menskalakan layar HiDPI (seperti 125% atau 150% di Windows, atau penskalaan Retina di macOS). Browser melaporkan piksel CSS logis pada zoom 100% yang langsung dipakai rumus ini."
+    ],
+    "autoKicker": "Telemetri Layar Browser & Basis Data Perangkat Keras",
+    "autoHeading": "Deteksi Otomatis Perangkat & Kerapatan Layar",
+    "autoDesc": "Online Ruler Plus memeriksa dimensi layar logis, devicePixelRatio, orientasi, dan platform browser Anda untuk mencocokkan profil perangkat keras atau menghitung estimasi awal.",
+    "autoDtProfile": "Profil Terdeteksi",
+    "autoDtStatus": "Status Deteksi",
+    "autoDtDensity": "Perkiraan Kerapatan",
+    "autoDtSize": "Ukuran CSS Layar",
+    "autoDtDpr": "Device Pixel Ratio",
+    "autoDtOrient": "Orientasi",
+    "autoChecking": "Memeriksa layar…",
+    "autoWhyTitle": "Mengapa perlu verifikasi manual?",
+    "autoWhyBody": "[[strong:Mengapa verifikasi manual?]] Browser web tidak mengetahui ukuran fisik monitor eksternal via HDMI/DisplayPort atau penskalaan OS khusus. Selalu verifikasi dengan kartu fisik atau diagonal sebelum pengukuran penting.",
+    "autoApplyBtn": "Gunakan Skala Terdeteksi",
+    "verifyKicker": "Pengukur Verifikasi Fisik",
+    "verifyHeading": "Verifikasi dengan Benda Sehari-hari",
+    "verifyDesc": "Tempelkan koin asli ke lingkaran referensi berskala langsung ini untuk memastikan kalibrasi Anda tepat.",
+    "coinQuarter": "Quarter AS",
+    "coinEuro": "€1 Euro",
+    "coinPenny": "Penny AS",
+    "verifyBarLabel": "Bilah Referensi 50,0 mm (5,0 cm)",
+    "historyKicker": "Catatan Sesi Lokal",
+    "historyHeading": "Riwayat Pengukuran",
+    "historyClearBtn": "Hapus",
+    "historyEmpty": "Pasang dua garis panduan sejajar di area penggaris lalu klik [[strong:Simpan ke Riwayat]] untuk menyimpan jarak ([[code:ΔX]] / [[code:ΔY]]) secara lokal di perangkat Anda.",
+    "historyFooterLeft": "Penyimpanan: hanya localStorage",
+    "historyFooterRight": "Tanpa sinkronisasi jaringan"
+  },
+  "runtime": {
+    "statusLabels": {
+      "detected": "Perangkat terdeteksi",
+      "estimated": "Kalibrasi perkiraan",
+      "manual": "Kalibrasi manual"
+    },
+    "orientLandscape": "Lanskap",
+    "orientPortrait": "Potret",
+    "rangeLabel": "Rentang:",
+    "angleLabel": "Sudut:",
+    "removeGuideAria": "Hapus garis panduan",
+    "rotateFloatingTitle": "Putar 90°",
+    "rotateFloatingAria": "Putar penggaris mengambang",
+    "removeFloatingTitle": "Hapus penggaris mengambang",
+    "removeFloatingAria": "Hapus penggaris mengambang",
+    "closeProtractorAria": "Tutup busur derajat",
+    "spanSaved": "Tersimpan",
+    "spanGuideLabel": "Rentang garis {axis}",
+    "autoAppliedBanner": "Deteksi otomatis diterapkan untuk layar saat ini.",
+    "cardSavedBanner": "Kalibrasi kartu tersimpan ({ppi} CSS PPI · {pxPerMm} px/mm).",
+    "diagonalSavedBanner": "Terkalibrasi untuk layar {diag}″ ({ppi} CSS PPI · {pxPerMm} px/mm).",
+    "resetBanner": "Kalibrasi dikembalikan ke perkiraan layar otomatis.",
+    "displayOrientationBanner": "Orientasi layar diperbarui; dimensi penggaris disesuaikan.",
+    "displayZoomManualBanner": "Zoom atau skala browser berubah; kalibrasi manual disesuaikan otomatis.",
+    "displayZoomAutoBanner": "Skala layar berubah; penggaris diskalakan ulang otomatis.",
+    "displaySwitchedBanner": "Perpindahan monitor terdeteksi ({w}×{h}). Verifikasi ulang kalibrasi pada layar ini.",
+    "enterDiagonalPrompt": "Masukkan diagonal untuk layar {w} × {h} CSS px",
+    "calculatedScale": "Skala terhitung: {ppi} CSS PPI ({pxPerMm} px/mm)",
+    "basisMap": {
+      "CSS reference scale (96 px per inch)": "Skala referensi CSS (96 px per inci)",
+      "Matched a known screen configuration": "Cocok dengan konfigurasi layar yang dikenal",
+      "Several devices share this configuration": "Beberapa perangkat memiliki konfigurasi ini",
+      "Typical iPhone density": "Kerapatan umum iPhone",
+      "Typical iPad density": "Kerapatan umum iPad",
+      "Android nominal density (160 dp per inch)": "Kerapatan nominal Android (160 dp per inci)",
+      "Typical Retina Mac at a scaled resolution": "Mac Retina umum pada resolusi terskala",
+      "Typical density at default OS scaling": "Kerapatan umum pada skala bawaan OS",
+      "Manual calibration adjusted for current zoom or scaling": "Kalibrasi manual disesuaikan dengan zoom atau skala saat ini",
+      "Calibrated against an ISO/IEC 7810 ID-1 card (85.60 × 53.98 mm)": "Dikalibrasi memakai kartu ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)",
+      "Calibrated from entered display diagonal": "Dikalibrasi dari diagonal layar yang dimasukkan"
+    },
+    "deviceLabelMap": {
+      "Desktop display": "Layar desktop",
+      "iPhone (model not identified)": "iPhone (model tidak teridentifikasi)",
+      "iPad (model not identified)": "iPad (model tidak teridentifikasi)",
+      "Android device": "Perangkat Android",
+      "Mac with Retina display": "Mac dengan layar Retina",
+      "Scaled laptop or desktop display": "Laptop atau monitor terskala",
+      "Credit card calibration": "Kalibrasi kartu bank"
+    },
+    "errorMap": {
+      "Enter your screen diagonal in inches.": "Masukkan diagonal layar Anda dalam inci.",
+      "Use a number such as 15.6.": "Gunakan angka seperti 15.6.",
+      "The diagonal must be greater than zero.": "Diagonal harus lebih besar dari nol.",
+      "Enter a diagonal between 4 and 120 inches.": "Masukkan diagonal antara 4 dan 120 inci.",
+      "Screen dimensions are unavailable.": "Dimensi layar tidak tersedia.",
+      "That diagonal gives an implausible pixel density. Check the value and your browser zoom.": "Diagonal tersebut menghasilkan kerapatan piksel yang tidak wajar. Periksa nilai dan zoom browser Anda.",
+      "Card width must be greater than zero.": "Lebar kartu harus lebih besar dari nol.",
+      "Card size must be greater than zero.": "Ukuran kartu harus lebih besar dari nol.",
+      "That card size is outside the plausible range.": "Ukuran kartu berada di luar rentang wajar."
+    },
+    "displaySizeSuffix": "Layar {long}×{short}",
+    "typMonitorBasis": "Mengasumsikan layar umum {diag}″ pada resolusi ini",
+    "manualDiagBasis": "Diagonal Layar {diag}″"
+  },
+  "home": {
+    "title": "Penggaris Online | Penggaris Ukuran Asli Gratis (Inci, cm & mm)",
+    "description": "Ukur panjang fisik asli dalam inci (1/16″), cm, dan mm dengan penggaris online ukuran asli gratis. Kalibrasi sesuai skala memakai kartu ATM/kredit atau diagonal monitor.",
+    "featureList": [
+      "Penggaris pecahan inci (1/16″), sentimeter (cm), milimeter (mm), dan piksel CSS (px)",
+      "Kalibrasi kartu ISO/IEC 7810 ID-1 (85,60 × 53,98 mm / 3,370 × 2,125 in)",
+      "Kalibrasi diagonal layar dan deteksi otomatis kerapatan perangkat",
+      "Penggaris tepi Atas, Bawah, Kiri, Kanan, serta penggaris mengambang",
+      "Garis panduan klik, garis silang, busur derajat 180°, dan layar penuh"
+    ],
+    "howKicker": "Metrologi Layar Praktis · Panduan Inci, cm & mm",
+    "howHeading": "Panduan Penggaris Online: Ukuran Asli Inci, cm & mm",
+    "howManualBtn": "Panduan Lengkap",
+    "howCards": [
+      {
+        "kicker": "01 · Ringkasan",
+        "heading": "Apa itu penggaris online?",
+        "body": "Penggaris online gratis adalah instrumen browser terkalibrasi yang menggambar skala ukuran asli langsung di kaca layar Anda dalam inci, sentimeter, milimeter, dan piksel CSS. Karena browser memakai standar 96 piksel CSS per inci tanpa memperhatikan ukuran layar, kalibrasi lokal memetakan jarak piksel fisik ke rasio 1:1 tanpa perlu mengunduh aplikasi."
+      },
+      {
+        "kicker": "02 · Langkah Cepat",
+        "heading": "Bagaimana cara menggunakan penggaris online?",
+        "body": "Lakukan kalibrasi sekali di bawah, pilih satuan yang diinginkan, lalu tempelkan benda rata pada area penggaris. Mulailah dari garis 0 di bagian dalam layar agar bingkai monitor tidak menghalangi. Klik penggaris atau kotak kisi untuk memasang garis panduan biru yang otomatis menghitung selisih jarak.",
+        "linkHref": "#ruler-tool",
+        "linkLabel": "Ukur di ruang kerja"
+      },
+      {
+        "kicker": "03 · Skala Imperial",
+        "heading": "Mengukur dalam inci",
+        "body": "Pada [[link:/inch-ruler|mode Inci]], setiap inci (25,4 mm) terbagi menjadi garis 1/2, 1/4, 1/8, dan 1/16 untuk pertukangan, kotak paket, dan kerajinan. Layar lebar menampilkan rentang penuh 12 inci (atau via layar penuh [[kbd:F]]) dengan angka desimal serta pecahan sederhana.",
+        "linkHref": "/inch-ruler",
+        "linkLabel": "Buka Penggaris Inci 1/16″"
+      },
+      {
+        "kicker": "04 · Skala Metrik",
+        "heading": "Mengukur dalam sentimeter dan milimeter",
+        "body": "Ganti ke [[link:/cm-ruler|cm]] untuk amplop, kartu, dan kemasan (1 cm = 10 mm), atau pilih [[link:/mm-ruler|penggaris mm online]] untuk baut metrik, tali jam tangan, dan toleransi cetak 3D. Aktifkan Ganda cm/in untuk melihat kedua satuan sekaligus.",
+        "linkHref": "/cm-ruler",
+        "linkLabel": "Buka Penggaris cm & mm"
+      },
+      {
+        "kicker": "05 · Kalibrasi",
+        "heading": "Bagaimana cara mengkalibrasi penggaris online?",
+        "body": "Batasan privasi browser mencegah situs membaca ukuran panel monitor secara otomatis. Tempelkan kartu ATM/kredit atau SIM/KTP standar (ISO/IEC 7810 ID-1: 85,60 × 53,98 mm) ke kotak kalibrasi atau masukkan ukuran diagonal layar pada zoom 100%.",
+        "linkHref": "#calibration",
+        "linkLabel": "Kalibrasi dengan kartu bank",
+        "isCardOpen": true
+      },
+      {
+        "kicker": "06 · Tips 1:1 Akurat",
+        "heading": "Cara mendapatkan hasil pengukuran ukuran asli",
+        "body": "Lihat tegak lurus tepat di atas garis skala untuk menghindari pergeseran paralaks melalui kaca layar. Periksa cepat kalibrasi Anda memakai koin standar seperti 1 Euro (23,25 mm) atau Quarter AS (24,26 mm).",
+        "linkHref": "/calibration-guide",
+        "linkLabel": "Baca panduan kalibrasi"
+      },
+      {
+        "kicker": "07 · Perangkat",
+        "heading": "Memakai penggaris online di ponsel dan desktop",
+        "body": "Monitor desktop mendukung bentangan horizontal 12 inci dan pintasan keyboard. Pada layar smartphone yang sempit, beralihlah ke Kalibrasi Kartu Potret (sisi pendek 53,98 mm) lalu geser garis panduan dengan sentuhan.",
+        "linkHref": "/vertical-ruler",
+        "linkLabel": "Coba mode vertikal ponsel"
+      },
+      {
+        "kicker": "08 · Jawaban Cepat",
+        "heading": "Pertanyaan pengukuran umum",
+        "body": "Ingin tahu batas layar ponsel, efek zoom browser, perbandingan kamera, atau cara menampilkan penggaris di Microsoft Word Online dan PowerPoint Online? Gulir ke FAQ di bawah.",
+        "linkHref": "#faq",
+        "linkLabel": "Lompat ke FAQ ↓"
+      }
+    ],
+    "accuracyKicker": "Optika Layar · Piksel Referensi W3C CSS vs. PPI Perangkat Keras",
+    "accuracyHeading": "Mengapa Penggaris Layar Memerlukan Kalibrasi PPI?",
+    "accuracyLead": "Tata letak web menganggap 1 inci = 96 piksel CSS (3,780 px/mm), padahal layar fisik berkisar dari 81,6 CSS PPI di monitor 27″ 1080p hingga lebih dari 140 CSS PPI di laptop ringkas dan ponsel. Tanpa kalibrasi, panjang 10 cm bisa meleset 10% sampai 35%.",
+    "accuracyGuideBtn": "Panduan Kalibrasi Lengkap",
+    "objectsTitle": "Benda Verifikasi Fisik",
+    "objectsBody": "Periksa ulang penggaris Anda kapan saja memakai referensi baku: kartu ISO/IEC 7810 ID-1 (85,60 × 53,98 mm), koin 1 Euro (23,25 mm), Quarter AS (24,26 mm), Nikel AS (21,21 mm), atau Penny AS (19,05 mm).",
+    "limitsTitle": "Batasan Perangkat Keras & Toleransi",
+    "limitsBody": "Pengukuran layar dibatasi oleh lebar panel tampak, ketebalan kaca pelindung (paralaks), serta pembulatan piksel (~0,1–0,3 mm). Gunakan untuk benda harian, paket, kerajinan, dan QA antarmuka—bukan pengganti jangka sorong bersertifikat.",
+    "ppiKicker": "Referensi Kerapatan Perangkat Keras",
+    "ppiHeading": "Layar Umum & Kesalahan 96 PPI Tanpa Kalibrasi pada Garis 10 cm",
+    "ppiHeaders": [
+      "Panel Layar / Skala",
+      "Viewport CSS",
+      "CSS PPI Efektif",
+      "CSS px/mm",
+      "Kesalahan 96 PPI Tanpa Kalibrasi"
+    ],
+    "ppiRows": [
+      { "device": "13,3\" MacBook Air / Pro (Retina)", "res": "1440 × 900 CSS (2×)", "ppi": "127,7 PPI", "pxMm": "5,027 px/mm", "err": "−24,8% (menggambar 7,52 cm)" },
+      { "device": "14,2\" MacBook Pro (Liquid Retina XDR)", "res": "1512 × 982 CSS (2×)", "ppi": "127,0 PPI", "pxMm": "5,000 px/mm", "err": "−24,4% (menggambar 7,56 cm)" },
+      { "device": "15,6\" Laptop Full HD (Skala 100% Windows)", "res": "1920 × 1080 CSS (1×)", "ppi": "141,2 PPI", "pxMm": "5,559 px/mm", "err": "−32,0% (menggambar 6,80 cm)" },
+      { "device": "15,6\" Laptop Full HD (Skala 125% Windows)", "res": "1536 × 864 CSS (1,25×)", "ppi": "113,0 PPI", "pxMm": "4,448 px/mm", "err": "−15,0% (menggambar 8,50 cm)" },
+      { "device": "24\" Monitor Desktop Full HD (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "91,8 PPI", "pxMm": "3,614 px/mm", "err": "+4,6% (menggambar 10,46 cm)" },
+      { "device": "27\" Monitor Desktop Full HD (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "81,6 PPI", "pxMm": "3,212 px/mm", "err": "+17,6% (menggambar 11,76 cm)" },
+      { "device": "27\" Monitor QHD (2560 × 1440, 100%)", "res": "2560 × 1440 CSS (1×)", "ppi": "108,8 PPI", "pxMm": "4,283 px/mm", "err": "−11,8% (menggambar 8,82 cm)" },
+      { "device": "27\" Monitor 4K UHD (Skala 200% HiDPI)", "res": "1920 × 1080 CSS (2×)", "ppi": "81,6 CSS PPI", "pxMm": "3,212 px/mm", "err": "+17,6% (menggambar 11,76 cm)" }
+    ],
+    "ppiFormula": "Rumus: [[code:CSS PPI Efektif = √(W_css² + H_css²) / diagonalInci]] · [[code:pxPerMm = CSS_PPI / 25.4]]. Menurut standar internasional NIST / BIPM, 1 inci sama dengan tepat 25,4 mm.",
+    "modesKicker": "Tampilan Pengukuran Khusus · Skala Metrik, Imperial & Piksel",
+    "modesHeading": "Jelajahi Tampilan Penggaris Online Khusus",
+    "modesLead": "Kalibrasi layar yang tersimpan otomatis diterapkan ke setiap tampilan satuan dan orientasi berikut.",
+    "modeCards": [
+      {
+        "kicker": "Imperial · 1 in = 25,4 mm · Garis 1/16″",
+        "heading": "Penggaris Online Inci (12-Inci & Skala 1/16″)",
+        "body": "Skala inci dengan pecahan 1/16″ yang disederhanakan otomatis, panduan 12 inci, serta tabel konversi ke milimeter.",
+        "href": "/inch-ruler",
+        "linkLabel": "Buka Penggaris Inci"
+      },
+      {
+        "kicker": "Metrik · 1 cm = 10 mm = 0,3937 in",
+        "heading": "Penggaris Sentimeter Online (cm)",
+        "body": "Skala metrik ukuran asli dengan garis 1 mm dan 5 mm serta tabel konversi 1–30 cm ke inci.",
+        "href": "/cm-ruler",
+        "linkLabel": "Buka Penggaris cm"
+      },
+      {
+        "kicker": "Skala Halus · Subdivisi 1 mm & 5 mm",
+        "heading": "Penggaris Milimeter Online (mm)",
+        "body": "Skala halus untuk mengukur baut M2–M10, tali jam tangan, koin, O-ring, dan komponen elektronik kecil.",
+        "href": "/mm-ruler",
+        "linkLabel": "Buka Penggaris mm"
+      },
+      {
+        "kicker": "Sisi Atas & Bawah · Inspektor Piksel CSS",
+        "heading": "Penggaris Layar & Piksel Horizontal",
+        "body": "Dua bilah horizontal atas dan bawah untuk benda lebar, layar monitor, dan inspeksi lebar piksel CSS.",
+        "href": "/horizontal-ruler",
+        "linkLabel": "Buka Penggaris Horizontal"
+      },
+      {
+        "kicker": "Sisi Kiri & Kanan · Perataan Tegak",
+        "heading": "Penggaris Layar Online Vertikal",
+        "body": "Tepi vertikal kiri dan kanan bersamaan untuk mengukur tinggi benda berdiri dan ponsel posisi potret.",
+        "href": "/vertical-ruler",
+        "linkLabel": "Buka Penggaris Vertikal"
+      },
+      {
+        "kicker": "Lapisan Interaktif · Pintasan G, C, P",
+        "heading": "Penggaris Mengambang, Garis Bantu & Busur 180°",
+        "body": "Pasang garis panduan ΔX/ΔY, putar penggaris mengambang 360°, atau gunakan busur derajat 180°.",
+        "href": "#ruler-tool",
+        "linkLabel": "Buka alat di ruang kerja"
+      }
+    ],
+    "faqKicker": "Pertanyaan Umum · Penggunaan, Kalibrasi & Kompatibilitas",
+    "faqHeading": "Pertanyaan yang Sering Diajukan Tentang Penggaris Online",
+    "faqViewAllBtn": "Lihat Semua 20 FAQ",
+    "faqs": [
+      {
+        "q": "Apakah ada penggaris online untuk mengukur benda asli di layar?",
+        "a": "Ya. Online Ruler Plus mengubah monitor komputer, laptop, tablet, maupun ponsel menjadi penggaris ukuran asli gratis dalam inci (1/16″), sentimeter, dan milimeter. Setelah kalibrasi memakai kartu ATM/kredit atau diagonal layar, jaraknya langsung akurat 1:1."
+      },
+      {
+        "q": "Bagaimana cara menggunakan penggaris online?",
+        "a": "Pertama, kalibrasi layar dengan kartu ISO/IEC 7810 ID-1 (85,60 × 53,98 mm) atau diagonal layar pada zoom 100%. Kedua, pilih Inci, cm, mm, atau px di bilah atas. Ketiga, sejajarkan ujung benda dengan garis 0 di bagian dalam bingkai lalu pasang garis panduan bila perlu."
+      },
+      {
+        "q": "Bagaimana membaca penggaris online dalam inci, cm, dan mm?",
+        "a": "Mulai dari garis 0, baca angka utuh terakhir sebelum ujung benda, lalu hitung garis kecil sesudahnya. Pada cm/mm setiap sentimeter dibagi 10 tanda 1 mm (garis sedang di 5 mm); pada inci panjang garis membedakan 1/2″, 1/4″, 1/8″, dan 1/16″."
+      },
+      {
+        "q": "Bagaimana memastikan ukuran 1 inci pada penggaris online?",
+        "a": "Pilih satuan Inci (pintasan 2) setelah kalibrasi; jarak 0 ke 1 sama persis dengan 25,4 mm (2,54 cm). Jangan mengandalkan 96 piksel CSS tanpa kalibrasi karena tiap layar berbeda kerapatannya."
+      },
+      {
+        "q": "Bagaimana cara mengukur cm dan mm secara online?",
+        "a": "Klik cm (tombol 1) atau mm (tombol 4), lalu sejajarkan benda ke tanda 0 atau pasang dua garis panduan sejajar. Mode Ganda cm/in juga memungkinkan perbandingan metrik dan inci bersamaan."
+      },
+      {
+        "q": "Bisakah saya memakai ponsel sebagai penggaris?",
+        "a": "Bisa, sesuai panjang layar ponsel (~13–16 cm posisi tegak). Lakukan dulu Kalibrasi Kartu Potret (sisi pendek 53,98 mm) sebelum mengukur koin, baut, atau cincin."
+      },
+      {
+        "q": "Bisakah saya menggunakan kamera sebagai penggaris?",
+        "a": "Online Ruler Plus tidak mengakses kamera atau foto; semua pengukuran terjadi langsung di permukaan kaca layar yang terkalibrasi sehingga bebas dari kesalahan perspektif dan kedalaman kamera."
+      },
+      {
+        "q": "Bagaimana menampilkan atau menambahkan penggaris di Word Online?",
+        "a": "Online Ruler Plus adalah alat browser terpisah, bukan add-in Office. Di Microsoft Word untuk web (Word Online), masuk ke mode Pengeditan, buka tab Tampilan, lalu centang Penggaris di grup Tampilkan."
+      },
+      {
+        "q": "Bagaimana cara menampilkan penggaris di PowerPoint Online?",
+        "a": "Di PowerPoint Online dalam tampilan Edit, klik tab Tampilan lalu aktifkan tombol Penggaris bersama Garis Kisi atau Panduan. Perlu diingat penggaris PowerPoint mengukur tata letak slide virtual, bukan milimeter fisik layar."
+      },
+      {
+        "q": "Mengapa penggaris online butuh kalibrasi dan apakah zoom browser merusak akurasi?",
+        "a": "Browser menyembunyikan ukuran monitor fisik demi privasi dan memakai patokan 96 CSS PPI yang menyimpang 10–35%. Online Ruler Plus menyimpan devicePxPerMm di localStorage dan otomatis menyesuaikan skala saat Anda mengubah zoom."
+      },
+      {
+        "q": "Apakah kalibrasi tersimpan untuk banyak monitor dan tetap privat?",
+        "a": "Ya, setiap kalibrasi disimpan lokal di localStorage berdasarkan resolusi layar dan DPR tanpa pernah dikirim ke server mana pun."
+      }
+    ]
+  },
+  "spokeShared": {
+    "calibrationGuideBtn": "Panduan Kalibrasi & PPI",
+    "modesKicker": "Ubah Sumbu Penggaris atau Skala Satuan",
+    "modesHeading": "Jelajahi Mode Penggaris Online Terkalibrasi Lainnya",
+    "modesAllEdgeBtn": "Area Semua Sisi",
+    "modeTiles": [
+      { "href": "/cm-ruler", "kicker": "Metrik · cm", "title": "Penggaris Sentimeter", "desc": "Skala 1 cm & 0,5 cm + tabel cm ke inci" },
+      { "href": "/inch-ruler", "kicker": "Imperial · 1/16″", "title": "Penggaris Inci (12″)", "desc": "Pecahan 1/2, 1/4, 1/8, 1/16″" },
+      { "href": "/mm-ruler", "kicker": "Skala Halus · mm", "title": "Penggaris Milimeter", "desc": "Skala perangkat keras 1 mm & 5 mm" },
+      { "href": "/horizontal-ruler", "kicker": "Atas & Bawah", "title": "Penggaris Horizontal", "desc": "Rentang lebar & piksel CSS (px)" },
+      { "href": "/vertical-ruler", "kicker": "Kiri & Kanan", "title": "Penggaris Vertikal", "desc": "Tinggi tegak & ponsel potret" }
+    ],
+    "allFaqsBtn": "Semua Pertanyaan Umum"
+  },
+  "pages": {
+    "cmRuler": {
+      "title": "Penggaris CM Online | Penggaris Sentimeter Ukuran Asli & cm-in",
+      "description": "Penggaris sentimeter online (cm) ukuran asli terkalibrasi dengan tanda 1 mm dan 5 mm, tabel konversi 1–30 cm ke inci, serta kalibrasi kartu ISO/IEC 7810.",
+      "schemaName": "Penggaris Sentimeter Online (cm) — Online Ruler Plus",
+      "featureList": [
+        "Penggaris sentimeter (cm) ukuran asli terkalibrasi dengan tanda 1 mm dan 5 mm",
+        "Skala perbandingan ganda cm / inci secara bersamaan",
+        "Kalibrasi kartu kredit ISO/IEC 7810 ID-1 (8,56 × 5,40 cm)",
+        "Tabel konversi 1–30 cm ke inci desimal dan pecahan 1/16"
+      ],
+      "subNavTitle": "Penggaris Sentimeter (cm)",
+      "breadcrumbLabel": "Penggaris Sentimeter (cm)",
+      "hero": {
+        "eyebrow": "Skala Metrik · 1 cm = 10 mm · Pembagian 0,5 cm & 1 mm",
+        "headline": "Penggaris Sentimeter Online Ukuran Asli (cm)",
+        "description": "Penggaris layar metrik terkalibrasi dengan angka per 1 cm, garis sedang 0,5 cm, dan garis halus 1 mm, dilengkapi tabel referensi konversi 1–30 cm ke inci."
+      },
+      "guideKicker": "Metrologi Layar Metrik · Skala Basis-10 SI",
+      "guideHeading": "Cara Mengukur dalam Sentimeter & Mengonversi cm ke Inci",
+      "guideLead": "Ubah laptop, monitor, atau ponsel menjadi penggaris sentimeter ukuran asli dengan ketelitian 1 mm dan konversi langsung ke inci.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Skala Metrik · 1 cm = 10 mm",
+          "heading": "Bagaimana pembagian pada penggaris sentimeter online?",
+          "body": "Setiap 1 cm terbagi atas 10 garis milimeter dengan garis setengah lebih panjang pada 0,5 cm (5 mm). Setelah kalibrasi memakai kartu 8,56 cm, panjang 10 cm di layar tepat sama dengan 100,0 mm fisik.",
+          "linkHref": "#calibration",
+          "linkLabel": "Kalibrasi skala sentimeter"
+        },
+        {
+          "step": "2",
+          "kicker": "Konversi SI · 1 in = 2,54 cm",
+          "heading": "Bagaimana cara mengonversi sentimeter ke inci secara akurat?",
+          "body": "Berdasarkan kesepakatan internasional 1959 (NIST/BIPM), 1 inci tepat sama dengan 2,54 cm. Bagi cm dengan 2,54 untuk mendapat inci desimal: 15 cm = 5,9055 in dan 30 cm = 11,8110 in. Gunakan Ganda cm/in untuk melihat keduanya bersama.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Lihat tabel konversi cm ke inci"
+        },
+        {
+          "step": "3",
+          "kicker": "Verifikasi Fisik · Benda Harian",
+          "heading": "Benda sehari-hari apa yang memverifikasi penggaris sentimeter?",
+          "body": "Kartu bank ISO/IEC 7810 berukuran 8,56 × 5,40 cm, baterai AA 5,05 cm, koin 1 Euro 2,325 cm, dan lebar kertas A4 adalah 21,0 cm.",
+          "linkHref": "/mm-ruler",
+          "linkLabel": "Pindah ke penggaris halus 1 mm"
+        }
+      ],
+      "darkKicker": "Konversi cm ke Inci · 1 in = 2,54 cm (Pasti)",
+      "darkHeading": "Panduan Referensi Sentimeter (cm) ke Inci & Milimeter",
+      "darkLead": "Gunakan konstanta SI berikut saat memeriksa ukuran paket, pola jahit, atau dokumen.",
+      "darkCards": [
+        {
+          "heading": "Mengapa 1 inci ditetapkan tepat 2,54 cm secara internasional?",
+          "body": "Ditetapkan oleh laboratorium standar nasional pada tahun 1959 dan dijaga oleh NIST & BIPM. Karena seluruh koordinat dihitung dari basis milimeter tunggal (pxPerMm), pergantian satuan tidak menimbulkan penyimpangan pembulatan."
+        },
+        {
+          "heading": "Seberapa panjang penggaris 30 cm muat di laptop atau monitor?",
+          "body": "Laptop 13,3″–14″ memuat 29–30 cm dalam mode layar penuh (tombol F), sedangkan laptop 15,6″ (~34,5 cm) dan monitor 24″–27″ menampilkan skala 30 cm secara penuh dengan lega."
+        },
+        {
+          "heading": "Kapan memakai mode cm dibandingkan mode mm?",
+          "body": "Mode cm menampilkan dua angka desimal (8,56 cm) untuk amplop, pakaian, dan paket; tekan tombol 4 atau M untuk mode mm (85,6 mm) saat mengukur baut M3–M5 atau strap jam."
+        }
+      ],
+      "table": {
+        "kicker": "Tabel Referensi Metrik ke Imperial (Konstanta NIST / BIPM)",
+        "heading": "Sentimeter (cm) ke Milimeter (mm), Inci Desimal & Pecahan 1/16″",
+        "headers": ["Sentimeter (cm)", "Milimeter (mm)", "Inci Desimal (in)", "Pecahan 1/16″ Terdekat", "Referensi Fisik Umum"],
+        "rows": [
+          ["1 cm", "10,0 mm", "0,3937 in", "3/8 in (0,375″)", "Diameter baterai AAA (~1,05 cm)"],
+          ["2 cm", "20,0 mm", "0,7874 in", "13/16 in (0,813″)", "Diameter Penny AS 1,905 cm (19,05 mm)"],
+          ["2,54 cm", "25,4 mm", "1,0000 in", "1 in (pasti)", "Definisi eksak 1 inci imperial"],
+          ["5 cm", "50,0 mm", "1,9685 in", "1 15/16 in (1,938″)", "Panjang baterai AA standar (5,05 cm)"],
+          ["5,40 cm", "53,98 mm", "2,1252 in", "2 1/8 in (2,125″)", "Tinggi kartu bank ISO/IEC 7810 ID-1"],
+          ["8,56 cm", "85,60 mm", "3,3701 in", "3 3/8 in (3,375″)", "Lebar kartu bank ISO/IEC 7810 ID-1"],
+          ["10 cm", "100,0 mm", "3,9370 in", "3 15/16 in (3,938″)", "1 desimeter (tolok ukur 100 mm)"],
+          ["15 cm", "150,0 mm", "5,9055 in", "5 7/8 in (5,875″)", "Penggaris saku 15 cm / uang dolar AS (15,6 cm)"],
+          ["20 cm", "200,0 mm", "7,8740 in", "7 7/8 in (7,875″)", "Lebar kertas A4 adalah 21,0 cm (210 mm)"],
+          ["25 cm", "250,0 mm", "9,8425 in", "9 13/16 in (9,813″)", "Rentang seperempat meter kerajinan"],
+          ["30 cm", "300,0 mm", "11,8110 in", "11 13/16 in (11,813″)", "Penggaris sekolah & kantor standar 30 cm"],
+          ["30,48 cm", "304,8 mm", "12,0000 in", "12 in (1 kaki pasti)", "Panjang metrik eksak penggaris 12 inci"]
+        ],
+        "footnote": "Rumus konversi: mm = cm × 10 · in = cm ÷ 2,54 · cm = in × 2,54."
+      },
+      "faqKicker": "FAQ Penggaris Metrik · Kalibrasi & Konversi",
+      "faqHeading": "Pertanyaan Umum Tentang Penggaris Sentimeter Online",
+      "faqs": [
+        {
+          "q": "Bagaimana cara mendapatkan penggaris sentimeter ukuran asli di layar?",
+          "a": "Gulir ke bagian Kalibrasi Layar Anda, tempelkan kartu bank standar 8,56 cm pada layar, lalu sesuaikan bingkai agar browser tidak memakai perkiraan 96 PPI yang meleset."
+        },
+        {
+          "q": "Berapa sentimeter dalam 1 inci dan penggaris 12 inci?",
+          "a": "1 inci sama dengan tepat 2,54 cm (25,4 mm) dan penggaris 12 inci sama dengan 30,48 cm (lebih panjang 4,8 mm dari penggaris 30 cm)."
+        },
+        {
+          "q": "Bagaimana membaca milimeter (mm) pada penggaris sentimeter?",
+          "a": "Tiap 1 cm dibagi 10 garis kecil 1 mm dengan garis sedang di 0,5 cm (5 mm). Tiga garis kecil setelah angka 4 berarti 4,3 cm atau 43 mm."
+        },
+        {
+          "q": "Bisakah saya mengukur sentimeter di iPhone, iPad, atau HP Android?",
+          "a": "Bisa langsung lewat browser seluler tanpa mengunduh aplikasi. Ubah orientasi kartu kalibrasi ke Potret (5,40 × 8,56 cm) agar pas di layar ponsel."
+        }
+      ]
+    },
+    "mmRuler": {
+      "title": "Penggaris MM Online | Penggaris Layar Milimeter Terkalibrasi",
+      "description": "Penggaris milimeter online (mm) ukuran asli dengan tanda 1 mm & 5 mm, tabel ukuran baut M2–M10 & lug jam tangan, serta kalibrasi kartu ISO/IEC 7810.",
+      "schemaName": "Penggaris Milimeter Online (mm) — Online Ruler Plus",
+      "featureList": [
+        "Penggaris milimeter (mm) ukuran asli terkalibrasi dengan tanda 1 mm dan 5 mm",
+        "Pembacaan kursor dan garis panduan paralel ΔX/ΔY resolusi 0,1 mm",
+        "Tabel referensi baut M2–M10, lebar lug jam tangan (18–22 mm), dan jarak pin PCB",
+        "Kalibrasi kartu bank ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)"
+      ],
+      "subNavTitle": "Penggaris Milimeter (mm)",
+      "breadcrumbLabel": "Penggaris Milimeter (mm)",
+      "hero": {
+        "eyebrow": "Skala Metrik Presisi · Tanda 1 mm & 5 mm · Angka Setiap 10 mm",
+        "headline": "Penggaris Milimeter Online Ukuran Asli (mm)",
+        "description": "Penggaris layar milimeter berkerapatan tinggi dengan pembagian 1 mm dan 5 mm, pembacaan rentang 0,1 mm, serta tabel baut M2–M10 dan jam tangan."
+      },
+      "guideKicker": "Metrologi Milimeter Presisi · Resolusi 0,1 mm",
+      "guideHeading": "Mengukur Baut Kecil, Lug Jam Tangan & Komponen dalam Milimeter",
+      "guideLead": "Dirancang untuk teknik mesin, horologi, cetak 3D, dan elektronika yang seluruh dimensinya memakai milimeter.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Skala Halus · 1 mm & 5 mm",
+          "heading": "Untuk apa penggaris milimeter online digunakan?",
+          "body": "Memberi label setiap 10 mm sambil menggambar tiap garis 1 mm dan 5 mm. Setelah kalibrasi kartu 85,60 mm, garis panduan membaca hingga ketelitian 0,1 mm (mis. 24,3 mm) untuk mengecek baut M2–M10 atau tali jam.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Lihat tabel mm baut & jam tangan"
+        },
+        {
+          "step": "2",
+          "kicker": "Presisi Optik · Kendali Paralaks",
+          "heading": "Bagaimana mencegah kesalahan paralaks saat membaca garis 1 mm?",
+          "body": "Kaca pelindung layar setebal 0,5–1,5 mm membuat sudut pandang miring bergeser hampir 1 mm. Posisikan mata tegak lurus 90° tepat di atas garis lalu pasang dua garis panduan sejajar.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Pasang garis panduan mm sejajar"
+        },
+        {
+          "step": "3",
+          "kicker": "Matematika Sub-Milimeter · pxPerMm",
+          "heading": "Berapa piksel sama dengan 1 milimeter di layar terkalibrasi?",
+          "body": "Monitor desktop 27″ 1080p memiliki 3,212 CSS px/mm sedangkan MacBook Pro 14″ Retina memiliki 5,000 CSS px/mm (10 piksel fisik/mm). Kalibrasi kartu mengukur rasio tepat layar Anda.",
+          "linkHref": "#calibration",
+          "linkLabel": "Kalibrasi jarak milimeter"
+        }
+      ],
+      "darkKicker": "Referensi Perangkat Keras & Teknik · 25,40 mm = 1,000 in",
+      "darkHeading": "Tabel Konversi Milimeter (mm) untuk Baut, Jam Tangan & Inci",
+      "darkLead": "Bandingkan ukuran milimeter standar dengan inci desimal, pecahan 1/16″, dan standar baut ISO.",
+      "darkCards": [
+        {
+          "heading": "Bagaimana mengukur ulir sekrup metrik (M2 sampai M10) di layar?",
+          "body": "Sekrup M3 berdiameter luar 3,0 mm dan M5 berdiameter 5,0 mm. Untuk mengukur panjang, letakkan sisi bawah kepala baut rata di garis 0 mm lalu beri garis panduan di ujung ulir."
+        },
+        {
+          "heading": "Bagaimana mengukur lebar lug tali jam tangan (18, 20, 22 mm)?",
+          "body": "Ukur jarak bagian dalam di antara kedua kaki (lug) bodi jam setelah kalibrasi kartu; selisih 1 mm saja membuat strap 20 mm gagal masuk ke celah 19 mm."
+        },
+        {
+          "heading": "Bagaimana mengonversi milimeter ke inci dan pecahan 1/16″?",
+          "body": "Bagi mm dengan 25,4 untuk inci desimal atau bagi dengan 1,5875 mm untuk mencari pecahan per enam belas terdekat—atau cukup klik tombol 'in' pada bilah alat."
+        }
+      ],
+      "table": {
+        "kicker": "Tabel Referensi Milimeter Teknik, Jam Tangan & Baut",
+        "heading": "Ukuran Milimeter (mm) Umum dalam Sentimeter, Inci & Standar Perangkat Keras",
+        "headers": ["Milimeter (mm)", "Sentimeter (cm)", "Inci Desimal", "1/16″ Terdekat", "Referensi Perangkat Keras / Benda Standar"],
+        "rows": [
+          ["1,00 mm", "0,10 cm", "0,0394 in", "1/16 in (1,59 mm)", "Diameter kawat padat 18 AWG (~1,02 mm)"],
+          ["1,59 mm", "0,16 cm", "0,0625 in", "1/16 in (pasti)", "Nilai metrik pasti dari 1/16 inci"],
+          ["2,00 mm", "0,20 cm", "0,0787 in", "1/16 in", "Diameter nominal sekrup mesin ISO M2"],
+          ["2,54 mm", "0,254 cm", "0,1000 in", "3/32 in", "Jarak pin header PCB standar 0,100″"],
+          ["3,00 mm", "0,30 cm", "0,1181 in", "1/8 in (3,18 mm)", "Sekrup ISO M3 / standoff casing PC"],
+          ["4,00 mm", "0,40 cm", "0,1575 in", "5/32 in", "Sekrup ISO M4 / mata obeng presisi 4 mm"],
+          ["5,00 mm", "0,50 cm", "0,1969 in", "3/16 in (4,76 mm)", "Baut ISO M5 / diameter LED standar 5 mm"],
+          ["6,00 mm", "0,60 cm", "0,2362 in", "1/4 in (6,35 mm)", "Baut ISO M6; mata hex 1/4″ adalah 6,35 mm"],
+          ["8,00 mm", "0,80 cm", "0,3150 in", "5/16 in (7,94 mm)", "Baut ISO M8 / lubang as bearing 608"],
+          ["10,00 mm", "1,00 cm", "0,3937 in", "3/8 in (9,53 mm)", "Baut ISO M10 / patokan 1 sentimeter"],
+          ["18,00 mm", "1,80 cm", "0,7087 in", "11/16 in", "Lebar lug jam tangan klasik (18 mm)"],
+          ["20,00 mm", "2,00 cm", "0,7874 in", "13/16 in", "Lebar lug tali jam tangan standar (20 mm)"],
+          ["22,00 mm", "2,20 cm", "0,8661 in", "7/8 in (22,23 mm)", "Lebar lug jam selam / diameter luar bearing 608"],
+          ["25,40 mm", "2,54 cm", "1,0000 in", "1 in (pasti)", "Definisi SI eksak untuk 1 inci imperial"],
+          ["53,98 mm", "5,40 cm", "2,1252 in", "2 1/8 in", "Sisi pendek kartu bank ISO/IEC 7810 ID-1"],
+          ["85,60 mm", "8,56 cm", "3,3701 in", "3 3/8 in", "Sisi panjang kartu bank ISO/IEC 7810 ID-1"]
+        ],
+        "footnote": "Rumus: in = mm ÷ 25,4 · cm = mm ÷ 10 · 1/16″ = 1,5875 mm."
+      },
+      "faqKicker": "FAQ Penggaris Milimeter",
+      "faqHeading": "Pertanyaan Umum Tentang Penggaris Milimeter Online",
+      "faqs": [
+        {
+          "q": "Apakah penggaris milimeter online dapat mengukur kelipatan 1 mm secara akurat?",
+          "a": "Ya. Layar modern memiliki kerapatan 3,2 hingga 6,0 piksel CSS per mm, sehingga garis 1 mm dan 5 mm tergambar sangat jelas setelah kalibrasi."
+        },
+        {
+          "q": "Bagaimana mengukur diameter koin, cincin, atau ring baut dalam mm?",
+          "a": "Letakkan benda bulat di kotak kisi, lalu klik dua kali penggaris atas untuk menaruh dua garis vertikal menyentuh tepi kiri dan kanan lingkaran; bilah bawah otomatis menghitung ΔX."
+        },
+        {
+          "q": "Mengapa penggaris milimeter tampak meleset sebelum dikalibrasi?",
+          "a": "Sebelum kalibrasi, browser memaksa skala bawaan 96 PPI (3,7795 px/mm) yang hampir selalu berbeda dari kerapatan asli layar Anda."
+        },
+        {
+          "q": "Bagaimana berpindah antara milimeter (mm), sentimeter (cm), dan inci?",
+          "a": "Klik pilihan satuan di bilah atas atau tekan pintasan 4 / M (mm), 1 (cm), 2 (in), dan 3 (px) tanpa memuat ulang halaman."
+        }
+      ]
+    },
+    "inchRuler": {
+      "title": "Penggaris Inci Online | Penggaris 12 Inci & 1/16″ Ukuran Asli",
+      "description": "Penggaris inci online ukuran asli terkalibrasi dengan tanda 1/2, 1/4, 1/8, dan 1/16″, panduan penggaris 12 inci, dan tabel konversi pecahan ke mm.",
+      "schemaName": "Penggaris Inci Online (1/16″ & 12 Inci) — Online Ruler Plus",
+      "featureList": [
+        "Penggaris inci imperial ukuran asli dengan tanda 1/2, 1/4, 1/8, dan 1/16 inci",
+        "Penyederhanaan pecahan 1/16″ otomatis dan tampilan inci desimal",
+        "Dukungan penuh skala 12 inci (1 kaki) di layar laptop dan desktop",
+        "Tabel lengkap konversi 1/16″ ke desimal, milimeter (mm), dan sentimeter (cm)"
+      ],
+      "subNavTitle": "Penggaris Inci (1/16″)",
+      "breadcrumbLabel": "Penggaris Inci (1/16″)",
+      "hero": {
+        "eyebrow": "Skala Imperial · 1 in = 25,4 mm · Pecahan 1/2, 1/4, 1/8 & 1/16″",
+        "headline": "Penggaris Inci Online Ukuran Asli (1/16″ & 12-Inci)",
+        "description": "Penggaris layar inci terkalibrasi dengan empat tinggi garis pecahan yang jelas, pembacaan pecahan tereduksi otomatis, dan tabel konversi ke mm."
+      },
+      "guideKicker": "Metrologi Layar Imperial · Pecahan Diadik 1/16″",
+      "guideHeading": "Cara Membaca Penggaris Inci Online & Menampilkan 12 Inci Penuh",
+      "guideLead": "Setiap inci terbagi menjadi 16 bagian sama besar dengan panjang garis berbeda sesuai penyebut pecahannya.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Pecahan · 1/2″, 1/4″, 1/8″, 1/16″",
+          "heading": "Bagaimana cara membaca pecahan 1/16″ pada penggaris inci?",
+          "body": "Garis terpanjang di tengah menandai 1/2″, garis kedua terpanjang 1/4″ dan 3/4″, garis sedang menandai perdelapan ganjil (1/8″–7/8″), dan garis terpendek menandai 1/16″. Bilah pembacaan langsung menyederhanakan pecahan untuk Anda.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Lihat tabel 1/16″ ke desimal & mm"
+        },
+        {
+          "step": "2",
+          "kicker": "Skala 12 Inci · 30,48 cm",
+          "heading": "Bagaimana menampilkan penggaris 12 inci penuh di layar?",
+          "body": "Pada laptop 14″/15,6″ atau monitor desktop yang lebarnya melebihi 12 inci (30,48 cm), lakukan kalibrasi lalu tekan F untuk layar penuh agar seluruh 12 inci terlihat utuh.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Buka area 12 inci layar penuh"
+        },
+        {
+          "step": "3",
+          "kicker": "Verifikasi Koin & Kartu",
+          "heading": "Bagaimana mengecek akurasi penggaris inci dengan koin?",
+          "body": "Kartu bank ISO/IEC 7810 selebar 3,370 in × tinggi 2,125 in (2 1/8″). Koin Penny AS berdiameter tepat 0,750 in (3/4″) dan 1 Euro berdiameter 0,915 in.",
+          "linkHref": "#calibration",
+          "linkLabel": "Kalibrasi penggaris inci sekarang"
+        }
+      ],
+      "darkKicker": "Referensi Pecahan Inci · 1 in = 25,40 mm",
+      "darkHeading": "Tabel Konversi Pecahan 1/16″ ke Desimal & Milimeter",
+      "darkLead": "Konversikan perenambelas, perdelapan, seperempat, dan setengah inci ke mm dan cm secara cepat.",
+      "darkCards": [
+        {
+          "heading": "Mengapa penggaris inci tanpa kalibrasi meleset di laptop Windows & Mac?",
+          "body": "Browser memakai patokan tetap 96 CSS PPI sehingga di layar laptop padat (113–141 CSS PPI) penggaris 12 inci tergambar 2 hingga 3,8 inci terlalu pendek."
+        },
+        {
+          "heading": "Bagaimana penyederhanaan pecahan otomatis bekerja?",
+          "body": "Rentang dibulatkan ke 1/16″ terdekat lalu pembilang dan penyebut disederhanakan memakai FPB sehingga 6/16″ otomatis ditulis sebagai 3/8 in."
+        },
+        {
+          "heading": "Bagaimana jika layar terlalu sempit untuk garis 1/16″?",
+          "body": "Untuk menjaga ketajaman, jarak antargaris dijaga minimal 3,0 piksel CSS dan otomatis turun ke pembagian 1/8″ atau 1/4″ pada kerapatan sangat rendah."
+        }
+      ],
+      "table": {
+        "kicker": "Tabel Konversi Pecahan Imperial (1/16″ hingga 1″ · 1 in = 25,4 mm)",
+        "heading": "Seperenambelas Inci (1/16″) ke Pecahan Sederhana, Desimal, mm & cm",
+        "headers": ["Perenambelas", "Pecahan Sederhana", "Desimal (in)", "Milimeter (mm)", "Sentimeter (cm)"],
+        "rows": [
+          ["1/16″", "1/16 in", "0,0625 in", "1,588 mm", "0,159 cm"],
+          ["2/16″", "1/8 in", "0,1250 in", "3,175 mm", "0,318 cm"],
+          ["3/16″", "3/16 in", "0,1875 in", "4,763 mm", "0,476 cm"],
+          ["4/16″", "1/4 in", "0,2500 in", "6,350 mm", "0,635 cm"],
+          ["5/16″", "5/16 in", "0,3125 in", "7,938 mm", "0,794 cm"],
+          ["6/16″", "3/8 in", "0,3750 in", "9,525 mm", "0,953 cm"],
+          ["7/16″", "7/16 in", "0,4375 in", "11,113 mm", "1,111 cm"],
+          ["8/16″", "1/2 in", "0,5000 in", "12,700 mm", "1,270 cm"],
+          ["9/16″", "9/16 in", "0,5625 in", "14,288 mm", "1,429 cm"],
+          ["10/16″", "5/8 in", "0,6250 in", "15,875 mm", "1,588 cm"],
+          ["11/16″", "11/16 in", "0,6875 in", "17,463 mm", "1,746 cm"],
+          ["12/16″", "3/4 in (Penny AS)", "0,7500 in", "19,050 mm", "1,905 cm"],
+          ["13/16″", "13/16 in", "0,8125 in", "20,638 mm", "2,064 cm"],
+          ["14/16″", "7/8 in", "0,8750 in", "22,225 mm", "2,223 cm"],
+          ["15/16″", "15/16 in (~Quarter AS)", "0,9375 in", "23,813 mm", "2,381 cm"],
+          ["16/16″", "1 in (Inci Penuh)", "1,0000 in", "25,400 mm", "2,540 cm"]
+        ],
+        "footnote": "Konstanta pasti: 1 in = 25,4 mm · 1/2 in = 12,7 mm · 1/4 in = 6,35 mm · 1/8 in = 3,175 mm · 1/16 in = 1,5875 mm."
+      },
+      "faqKicker": "FAQ Penggaris Inci",
+      "faqHeading": "Pertanyaan Umum Tentang Penggaris Inci Online",
+      "faqs": [
+        {
+          "q": "Bagaimana menampilkan penggaris 12 inci ukuran asli di layar komputer?",
+          "a": "Kalibrasi laptop 14″/15,6″ atau monitor desktop Anda lalu tekan F untuk layar penuh agar seluruh 12 inci terlihat bersamaan."
+        },
+        {
+          "q": "Apa arti 4 panjang garis berbeda pada penggaris inci?",
+          "a": "Dari terpanjang ke terpendek menandai 1/2″, 1/4″ (dan 3/4″), 1/8″, dan 1/16″."
+        },
+        {
+          "q": "Bagaimana mengubah pecahan inci (seperti 3/8″ atau 7/16″) ke milimeter?",
+          "a": "Bagi pembilang dengan penyebut lalu kalikan 25,4 (mis. 3 ÷ 8 × 25,4 = 9,525 mm) — atau tekan tombol 4 untuk langsung melihat dalam mm."
+        },
+        {
+          "q": "Bisakah saya mengukur inci di layar smartphone di bawah 6 inci?",
+          "a": "Bisa hingga sekitar 5 inci dalam posisi lanskap. Kalibrasi ponsel Anda memakai mode Kartu Potret (2,125 × 3,370 in)."
+        }
+      ]
+    },
+    "horizontalRuler": {
+      "title": "Penggaris Horizontal Online | Skala Atas-Bawah & Piksel CSS",
+      "description": "Penggaris layar horizontal lebar penuh dengan tepi Atas dan Bawah bersamaan dalam cm, mm, inci, dan piksel CSS (px) untuk benda lebar dan tata letak UI.",
+      "schemaName": "Penggaris Layar & Piksel Horizontal — Online Ruler Plus",
+      "featureList": [
+        "Tepi penggaris horizontal Atas dan Bawah aktif bersamaan",
+        "Skala cm, mm, pecahan inci 1/16″, dan piksel CSS (px)",
+        "Garis panduan vertikal penuh dengan perhitungan bentang horizontal ΔX",
+        "Mode layar penuh untuk mengukur panjang 30 cm / 12 inci atau lebih"
+      ],
+      "subNavTitle": "Penggaris Horizontal",
+      "breadcrumbLabel": "Penggaris Horizontal",
+      "hero": {
+        "eyebrow": "Sumbu Horizontal · Tepi Atas & Bawah Bersamaan · cm, mm, in & px",
+        "headline": "Penggaris Layar & Piksel Horizontal Lebar Penuh",
+        "description": "Bilah horizontal atas dan bawah sekaligus untuk mengukur benda lebar, bentang 30 cm / 12 inci, dan lebar viewport piksel CSS (px)."
+      },
+      "guideKicker": "Metrologi Sumbu Horizontal · Skala Atas & Bawah Sejajar",
+      "guideHeading": "Mengukur Benda Lebar & Piksel CSS Secara Horizontal",
+      "guideLead": "Kedua tepi horizontal Atas dan Bawah aktif secara bawaan agar benda panjang lebih mudah disejajarkan.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Sumbu Horizontal Ganda",
+          "heading": "Mengapa memakai penggaris horizontal atas dan bawah sekaligus?",
+          "body": "Benda lebar mudah miring bila hanya memakai satu sisi, dan engsel laptop kerap menghalangi tepi bawah. Garis vertikal yang menghubungkan kedua tepi menjamin pembacaan sejajar.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Ukur dengan tepi Atas & Bawah"
+        },
+        {
+          "step": "2",
+          "kicker": "Penggaris Piksel CSS (px)",
+          "heading": "Bagaimana cara kerja mode Piksel CSS (px) untuk desainer?",
+          "body": "Tekan tombol 3 untuk menampilkan skala piksel CSS logis W3C (tanda tiap 10, 50, dan 100 px) guna memeriksa breakpoint (375, 768, 1024, 1440 px) dan lebar komponen.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Lihat tabel lebar horizontal layar"
+        },
+        {
+          "step": "3",
+          "kicker": "Layar Penuh · Lebar Maksimal",
+          "heading": "Bagaimana memaksimalkan panjang pengukuran horizontal di layar?",
+          "body": "Pada layar 16:9, lebar aktif adalah 87,2% dari diagonal (34,5 cm di laptop 15,6″ dan 59,8 cm di monitor 27″). Tekan F untuk memakai 100% lebar layar.",
+          "linkHref": "#calibration",
+          "linkLabel": "Kalibrasi lebar horizontal"
+        }
+      ],
+      "darkKicker": "Geometri Layar Lebar · Panel 16:9, 16:10 & Ultrawide",
+      "darkHeading": "Rentang Pengukuran Horizontal Maksimum Menurut Diagonal Layar",
+      "darkLead": "Lihat seberapa panjang cm dan inci yang muat melintang di ponsel, tablet, laptop, dan monitor.",
+      "darkCards": [
+        {
+          "heading": "Berapa lebar monitor 16:9 atau 16:10 dalam cm dan inci?",
+          "body": "Menurut rumus Pythagoras, lebar 16:9 = Diagonal × 0,8716 dan lebar 16:10 = Diagonal × 0,8480 (15,6″ = 34,54 cm; 27″ = 59,77 cm)."
+        },
+        {
+          "heading": "Bagaimana cara kerja garis panduan vertikal pada penggaris horizontal?",
+          "body": "Klik penggaris atas atau bawah di tepi kiri dan kanan benda; bilah bawah otomatis menghitung jarak horizontal ΔX."
+        },
+        {
+          "heading": "Bisakah saya memutar ponsel ke lanskap untuk penggaris horizontal lebih panjang?",
+          "body": "Ya. Posisi lanskap menggandakan bentangan horizontal ponsel dari ~6,5 cm menjadi ~13,5–15,0 cm tanpa kehilangan kalibrasi."
+        }
+      ],
+      "table": {
+        "kicker": "Referensi Geometri Panel Layar (16:9, 16:10 & 21:9)",
+        "heading": "Lebar Layar Horizontal Maksimum Menurut Diagonal",
+        "headers": ["Panel & Rasio Aspek", "Lebar Aktif (in)", "Lebar Aktif (cm / mm)", "Lebar CSS Umum", "Penggaris Standar Maks."],
+        "rows": [
+          ["6,1\" Ponsel (19,5:9 Lanskap)", "5,55 in", "14,1 cm (141 mm)", "844 – 852 CSS px", "Hingga 13 cm / 5 in"],
+          ["11,0\" Tablet (4:3)", "8,80 in", "22,4 cm (224 mm)", "1024 – 1194 CSS px", "Penggaris 15 cm / 6 in"],
+          ["13,3\" Laptop (16:10 Retina)", "11,28 in", "28,6 cm (286 mm)", "1440 CSS px", "Hingga 27 cm / 10,5 in"],
+          ["14,2\" MacBook Pro (16:10)", "11,97 in", "30,4 cm (304 mm)", "1512 CSS px", "Penuh 30 cm / 11,5 in"],
+          ["15,6\" Laptop Full HD (16:9)", "13,60 in", "34,5 cm (345 mm)", "1536 – 1920 CSS px", "Penuh 30 cm & 12 inci"],
+          ["24,0\" Monitor (16:9 1080p)", "20,92 in", "53,1 cm (531 mm)", "1920 CSS px", "Penggaris 50 cm / 18 in"],
+          ["27,0\" Monitor (16:9 QHD/4K)", "23,53 in", "59,8 cm (598 mm)", "1920 – 2560 CSS px", "Penggaris 58 cm / 22 in"],
+          ["34,0\" Ultrawide (21:9)", "31,36 in", "79,7 cm (797 mm)", "3440 CSS px", "Penggaris 75 cm / 30 in"]
+        ],
+        "footnote": "Rumus lebar horizontal: 16:9 = Diagonal × 0,87158 · 16:10 = Diagonal × 0,84800 · 21:9 = Diagonal × 0,92246."
+      },
+      "faqKicker": "FAQ Penggaris Horizontal & Piksel",
+      "faqHeading": "Pertanyaan Umum Tentang Penggaris Layar Horizontal",
+      "faqs": [
+        {
+          "q": "Apa keunggulan penggaris horizontal dengan sisi atas dan bawah sekaligus?",
+          "a": "Di laptop, engsel bawah menghalangi benda tebal sehingga bilah atas lebih praktis, dan garis vertikal melintasi keduanya mencegah kemiringan."
+        },
+        {
+          "q": "Bagaimana memakainya sebagai penggaris piksel CSS (px)?",
+          "a": "Klik 'px' atau tekan tombol 3 untuk melihat koordinat piksel logis W3C penuh dari 0 px."
+        },
+        {
+          "q": "Mengapa tanda 0 dimulai 16 piksel di dalam batas kiri?",
+          "a": "Agar tanda nol berada di area kaca datar dan tidak tertutup bayangan bingkai fisik monitor."
+        },
+        {
+          "q": "Bisakah saya mengganti penggaris horizontal ke cm, mm, atau inci?",
+          "a": "Tentu, tombol 1, 2, 3, 4 / M serta Ganda cm/in selalu aktif kapan saja."
+        }
+      ]
+    },
+    "verticalRuler": {
+      "title": "Penggaris Vertikal Online | Skala Tepi Kiri & Kanan",
+      "description": "Penggaris layar vertikal terkalibrasi dengan skala tepi Kiri dan Kanan bersamaan dalam sentimeter (cm), milimeter (mm), dan inci 1/16″.",
+      "schemaName": "Penggaris Layar Vertikal Online — Online Ruler Plus",
+      "featureList": [
+        "Tepi vertikal Kiri dan Kanan bersamaan untuk benda berdiri dan ponsel potret",
+        "Garis panduan horizontal lebar penuh dengan perhitungan tinggi ΔY otomatis",
+        "Kalibrasi kartu ISO/IEC 7810 ID-1 Potret (53,98 × 85,60 mm) untuk ponsel",
+        "Skala vertikal cm, mm, inci 1/16″, dan piksel CSS (px)"
+      ],
+      "subNavTitle": "Penggaris Vertikal",
+      "breadcrumbLabel": "Penggaris Vertikal",
+      "hero": {
+        "eyebrow": "Sumbu Vertikal · Tepi Kiri & Kanan Bersamaan · Tegak & Potret",
+        "headline": "Penggaris Layar Vertikal Online Terkalibrasi",
+        "description": "Penggaris vertikal kiri dan kanan yang ideal untuk mengukur tinggi benda berdiri di meja serta penggunaan ergonomis satu tangan di ponsel."
+      },
+      "guideKicker": "Metrologi Sumbu Vertikal · Skala Kiri & Kanan Sejajar",
+      "guideHeading": "Mengukur Tinggi Benda Berdiri & Bentang Ponsel Potret",
+      "guideLead": "Sisi kiri dan kanan menyala bersamaan agar nyaman dipakai baik tangan kiri maupun tangan kanan.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Sumbu Vertikal Ganda",
+          "heading": "Kapan sebaiknya memakai penggaris layar vertikal?",
+          "body": "Ponsel potret memberi tinggi berguna ~14–15,5 cm (dua kali lipat lebarnya). Di meja komputer, Anda bisa mengukur tinggi botol atau baterai AA (50,5 mm) yang berdiri di sebelah layar.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Ukur dengan tepi Kiri & Kanan"
+        },
+        {
+          "step": "2",
+          "kicker": "Garis Panduan Horizontal · ΔY",
+          "heading": "Bagaimana garis panduan horizontal mengukur tinggi benda tegak?",
+          "body": "Klik penggaris vertikal kiri atau kanan untuk menaruh satu garis horizontal di dasar benda dan satu di puncaknya; ΔY menampilkan tinggi otomatis.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Lihat tabel tinggi layar vertikal"
+        },
+        {
+          "step": "3",
+          "kicker": "Ergonomi Potret · Kiri & Kanan",
+          "heading": "Mengapa tepi vertikal kiri dan kanan aktif bersamaan?",
+          "body": "Saat menggenggam ponsel, ibu jari atau casing kerap menutup satu sisi; adanya skala identik di kedua tepi menjaga keterbacaan penuh.",
+          "linkHref": "#calibration",
+          "linkLabel": "Kalibrasi skala vertikal"
+        }
+      ],
+      "darkKicker": "Geometri Layar Vertikal · Ponsel & Desktop",
+      "darkHeading": "Tinggi Layar Vertikal Aktif Menurut Perangkat",
+      "darkLead": "Bandingkan kapasitas ukur vertikal di ponsel potret, tablet, laptop, dan monitor.",
+      "darkCards": [
+        {
+          "heading": "Mengapa mode vertikal terbaik untuk smartphone?",
+          "body": "Layar ponsel 19,5:9 menyediakan panjang 13,5–15,2 cm secara vertikal dibanding hanya 6,4–7,1 cm secara horizontal."
+        },
+        {
+          "heading": "Bagaimana mengkalibrasi penggaris vertikal pada ponsel sempit?",
+          "body": "Pilih tombol Potret (53,98 × 85,60 mm) di atas gambar kartu pada panel kalibrasi agar kartu bank pas secara vertikal di layar ponsel."
+        },
+        {
+          "heading": "Berapa tinggi vertikal yang muat di laptop atau monitor?",
+          "body": "Pada layar 16:9 tingginya 49,03% diagonal: 19,4 cm di laptop 15,6″, 33,6 cm di monitor 27″, dan 59,8 cm bila monitor diputar potret 90°."
+        }
+      ],
+      "table": {
+        "kicker": "Tabel Tinggi Layar Vertikal & Benda Tegak",
+        "heading": "Tinggi Layar Aktif Vertikal Menurut Perangkat",
+        "headers": ["Perangkat / Orientasi", "Tinggi Aktif (cm / mm)", "Tinggi Aktif (in)", "Tinggi CSS", "Contoh Benda yang Muat"],
+        "rows": [
+          ["6,1\" Ponsel (Potret)", "14,1 cm (141 mm)", "5,55 in", "844 – 852 CSS px", "Baterai AA/AAA, kartu bank (85,6 mm), kaleng (122 mm)"],
+          ["6,7\" Pro Max / Ultra (Potret)", "15,5 cm (155 mm)", "6,10 in", "926 – 932 CSS px", "Paspor (125 mm), pulpen (~140 mm), penggaris 15 cm"],
+          ["11,0\" Tablet (Potret 4:3)", "22,4 cm (224 mm)", "8,80 in", "1024 – 1194 CSS px", "Buku catatan A5 (210 mm), botol minum"],
+          ["14,2\" MacBook Pro (16:10)", "19,0 cm (190 mm)", "7,48 in", "982 CSS px", "Tinggi ponsel, penggaris 15 cm"],
+          ["15,6\" Laptop (16:9)", "19,4 cm (194 mm)", "7,65 in", "864 – 1080 CSS px", "Kotak DVD (190 mm), cangkir kopi"],
+          ["24,0\" Monitor (16:9)", "29,9 cm (299 mm)", "11,77 in", "1080 CSS px", "Tinggi kertas A4 (297 mm)"],
+          ["27,0\" Monitor (16:9)", "33,6 cm (336 mm)", "13,24 in", "1080 – 1440 CSS px", "Tinggi penuh 30 cm / 12 in, botol 300 mm"],
+          ["24–27\" Monitor (Pivot 90°)", "53,1 – 59,8 cm", "20,9 – 23,5 in", "1920 – 2560 CSS px", "Speaker tinggi, casing PC, skala vertikal 50 cm"]
+        ],
+        "footnote": "Rumus tinggi: 16:9 = Diagonal × 0,49026 · 16:10 = Diagonal × 0,53000."
+      },
+      "faqKicker": "FAQ Penggaris Vertikal",
+      "faqHeading": "Pertanyaan Umum Tentang Penggaris Layar Vertikal",
+      "faqs": [
+        {
+          "q": "Bagaimana mengukur tinggi benda berdiri dengan penggaris vertikal?",
+          "a": "Klik penggaris vertikal untuk menempatkan dua garis panduan horizontal pada dasar dan puncak benda; jarak ΔY langsung terbaca."
+        },
+        {
+          "q": "Mengapa penggaris vertikal mengukur dari atas (0) ke bawah?",
+          "a": "Dalam koordinat HTML5 Canvas dan W3C CSS, titik (0, 0) berada di pojok kiri atas sehingga ukuran jendela tidak menggeser garis nol."
+        },
+        {
+          "q": "Bagaimana mengkalibrasi penggaris vertikal di HP mode potret?",
+          "a": "Ketuk tombol Potret (53,98 × 85,60 mm) di bagian kalibrasi kartu lalu sejajarkan kartu secara vertikal."
+        },
+        {
+          "q": "Bisakah saya menampilkan penggaris horizontal dan vertikal sekaligus?",
+          "a": "Ya, klik Atas, Bawah, atau Semua Sisi pada tombol Tepi di bilah alat."
+        }
+      ]
+    },
+    "howToUse": {
+      "title": "Cara Pakai Penggaris Online | Panduan Pengukuran Layar",
+      "description": "Panduan langkah demi langkah kalibrasi layar dengan kartu atau diagonal, memasang garis panduan, membaca pecahan 1/16″, dan mencetak ukuran 100%.",
+      "schemaHeadline": "Cara Menggunakan Online Ruler Plus: Panduan Langkah demi Langkah",
+      "subNavTitle": "Cara Pakai",
+      "breadcrumbLabel": "Cara Pakai",
+      "heroKicker": "Panduan Pengguna · Metrologi Layar Presisi · November 2026",
+      "heroHeadline": "Cara Menggunakan Online Ruler Plus",
+      "heroSummary": "Online Ruler Plus mengubah layar Anda menjadi penggaris terkalibrasi 1:1 di browser. Ikuti langkah berikut untuk mengukur dalam cm, mm, dan 1/16″ inci.",
+      "openRulerBtn": "Buka Penggaris Online",
+      "goCalBtn": "Ke Bagian Kalibrasi",
+      "steps": [
+        {
+          "badge": "1",
+          "kicker": "Langkah 01 · Kalibrasi",
+          "heading": "Kalibrasi kerapatan layar Anda terlebih dahulu",
+          "body": "Cocokkan kartu standar ISO/IEC 7810 ID-1 (85,60 × 53,98 mm) atau masukkan diagonal layar tampak dalam inci pada zoom 100%, lalu tekan Terapkan Kalibrasi.",
+          "links": [
+            { "href": "/#calibration", "label": "Buka Kalibrasi Kartu Kredit →" }
+          ]
+        },
+        {
+          "badge": "2",
+          "kicker": "Langkah 02 · Satuan & Tepi",
+          "heading": "Pilih satuan ukur dan sisi penggaris aktif",
+          "body": "Tekan 1 (cm), 2 (inci), 3 (CSS px), 4/M (mm), atau Ganda cm/in, lalu aktifkan tepi Atas, Bawah, Kiri, Kanan, atau Semua Sisi.",
+          "links": [
+            { "href": "/cm-ruler", "label": "Penggaris cm" },
+            { "href": "/inch-ruler", "label": "Penggaris Inci" },
+            { "href": "/mm-ruler", "label": "Penggaris mm" }
+          ]
+        },
+        {
+          "badge": "3",
+          "kicker": "Langkah 03 · Titik Nol & Garis Panduan",
+          "heading": "Sejajarkan di titik 0 dan ukur rentang dengan garis panduan",
+          "body": "Tempelkan tepi awal ke garis putus-putus 0 (16 px di dalam bingkai) atau pasang dua garis panduan biru sejajar untuk menghitung ΔX/ΔY dan menyimpannya ke Riwayat.",
+          "links": [
+            { "href": "/calibration-guide", "label": "Baca Panduan Kalibrasi & PPI →" }
+          ]
+        }
+      ],
+      "advancedCards": [
+        {
+          "kicker": "Lapisan Lanjutan · Penggaris Mengambang & Busur",
+          "heading": "Cara memakai penggaris mengambang dan busur derajat 180°",
+          "body": "Klik + Penggaris Mengambang untuk memutar penggaris 360° bebas, atau tekan P untuk membuka busur 0°–180° berketelitian 0,1°. Tekan C untuk garis silang dan Esc untuk menghapus garis."
+        },
+        {
+          "kicker": "Cetak Ukuran Asli · Cek Skala 100%",
+          "heading": "Cara mencetak penggaris ukuran asli skala 100%",
+          "body": "Di dialog cetak browser (Ctrl+P / Cmd+P), buka Setelan Lainnya, ubah Skala ke Ukuran Sebenarnya / 100%, lalu uji kertas hasil cetak dengan kartu bank 85,60 mm."
+        }
+      ],
+      "recipesKicker": "Alur Praktis · Koin, Baut, Pertukangan & Benda Panjang",
+      "recipesHeading": "Resep Langkah demi Langkah untuk Tugas Umum",
+      "recipesLead": "Gunakan teknik teruji ini untuk berbagai bentuk benda:",
+      "recipes": [
+        {
+          "kicker": "Resep 01 · Benda Bulat, Koin & Cincin",
+          "heading": "Mengukur diameter luar dengan garis panduan vertikal tangen",
+          "body": "Taruh benda bulat di tengah kotak kisi, lalu klik penggaris atas dua kali pada tepi kiri dan kanan lingkaran; ΔX otomatis memberi diameternya."
+        },
+        {
+          "kicker": "Resep 02 · Baut, Sekrup & Lug Jam",
+          "heading": "Mengukur panjang ulir metrik dan lebar strap jam",
+          "body": "Beralih ke [[link:/mm-ruler|Penggaris Milimeter (mm)]], lapisi kaca dengan plastik tipis atau kertas bila mengukur ujung logam tajam, lalu ukur di antara dua garis panduan."
+        },
+        {
+          "kicker": "Resep 03 · Kayu, Kerajinan & Pecahan 1/16″",
+          "heading": "Membaca pecahan 1/16″ sederhana tanpa salah hitung",
+          "body": "[[link:/inch-ruler|Penggaris Inci]] otomatis menyederhanakan 10/16″ menjadi 5/8 in di bilah pembacaan."
+        },
+        {
+          "kicker": "Resep 04 · Benda Tegak & Melebihi Lebar Layar",
+          "heading": "Memakai sisi vertikal dan metode pindah tanda bertahap",
+          "body": "Gunakan [[link:/vertical-ruler|Penggaris Vertikal]] dengan layar penuh F. Untuk benda lebih panjang dari layar, beri tanda selotip kertas di 25,0 cm, geser tanda ke 0, lalu jumlahkan sisanya."
+        }
+      ],
+      "shortcutsKicker": "Kontrol Area · Referensi Keyboard",
+      "shortcutsHeading": "Tabel Lengkap Pintasan Keyboard",
+      "shortcutsLead": "Tahan benda dengan satu tangan sambil menekan satu tombol di tangan lainnya:",
+      "shortcutsHeaders": ["Tombol", "Aksi", "Kapan Digunakan"],
+      "shortcuts": [
+        { "key": "1", "action": "Pindah ke Sentimeter (cm)", "useCase": "Pengukuran harian dengan tanda 1 mm dan 0,5 cm" },
+        { "key": "2", "action": "Pindah ke Inci Pecahan (in)", "useCase": "Pertukangan dan pembacaan 1/16″" },
+        { "key": "3", "action": "Pindah ke Piksel CSS (px)", "useCase": "Desain web & pemeriksaan lebar tata letak" },
+        { "key": "4 / M", "action": "Pindah ke Milimeter (mm)", "useCase": "Baut M2–M10, cincin, jam tangan" },
+        { "key": "D", "action": "Ganti Tema Terang / Gelap", "useCase": "Mengurangi silau layar" },
+        { "key": "G", "action": "Aktifkan Garis Panduan", "useCase": "Menjatuhkan garis batas ΔX / ΔY" },
+        { "key": "C", "action": "Aktifkan Garis Silang", "useCase": "Melacak koordinat X/Y kursor langsung" },
+        { "key": "P", "action": "Aktifkan Busur Derajat 180°", "useCase": "Mengukur sudut dengan ketelitian 0,1°" },
+        { "key": "F", "action": "Masuk / Keluar Layar Penuh", "useCase": "Memaksimalkan panjang penggaris" },
+        { "key": "Esc", "action": "Bersihkan Garis & Dialog", "useCase": "Reset cepat sebelum pengukuran berikutnya" }
+      ],
+      "checklistKicker": "Verifikasi Sebelum Ukur · 6 Poin",
+      "checklistHeading": "Enam Cek Sebelum Memercayai Angka Pengukuran Penting",
+      "checklistLead": "Pastikan enam langkah cepat ini sebelum mencatat ukuran komponen cetak 3D atau pengadaan baut:",
+      "checklistItems": [
+        "[[strong:1. Cek lencana Skala Aktif:]] Pastikan tertulis [[code:Kalibrasi manual]] bukan perkiraan.",
+        "[[strong:2. Zoom browser 100% saat isi diagonal:]] Tekan [[code:Ctrl+0]] / [[code:Cmd+0]] terlebih dahulu.",
+        "[[strong:3. Cek profil monitor eksternal:]] Verifikasi ulang memakai kartu ID-1 saat pindah layar.",
+        "[[strong:4. Lihat tegak lurus (90°):]] Hindari kesalahan paralaks kaca sebesar 0,3–1,0 mm.",
+        "[[strong:5. Hindari bezel menonjol:]] Gunakan titik 0 dalam layar atau dua garis panduan (ΔX/ΔY).",
+        "[[strong:6. Lindungi layar kaca:]] Beri alas plastik/kertas tipis di bawah logam tajam; gunakan jangka sorong di bawah toleransi ±0,25 mm."
+      ]
+    },
+    "calibrationGuide": {
+      "title": "Panduan Kalibrasi Layar & PPI | Online Ruler Plus",
+      "description": "Panduan teknis kerapatan piksel layar (PPI), piksel CSS W3C, kalibrasi kartu ISO/IEC 7810, hitungan PPI, penskalaan OS, dan batas paralaks.",
+      "schemaHeadline": "Panduan Lengkap Kalibrasi Layar & Pengukuran PPI",
+      "subNavTitle": "Panduan Kalibrasi",
+      "subNavCtaLabel": "Kalibrasi Sekarang",
+      "breadcrumbLabel": "Panduan Kalibrasi",
+      "heroKicker": "Referensi Teknis · Optika Layar & Satuan W3C CSS · November 2026",
+      "heroHeadline": "Panduan Lengkap Kalibrasi Layar & Pengukuran PPI",
+      "heroSummary": "Kalibrasi layar menjembatani jarak antara piksel CSS abstrak 96-PPI W3C dengan jarak piksel fisik milimeter panel perangkat Anda.",
+      "calibrateBtn": "Kalibrasi Layar Anda",
+      "openRulerBtn": "Buka Penggaris Online",
+      "topCards": [
+        {
+          "kicker": "Bagian 01 · Matematika Piksel",
+          "heading": "Apa beda PPI fisik dan piksel CSS?",
+          "body": "PPI fisik bersifat tetap pada panel ([[code:√(W² + H²) / diagonalInci]]), sementara piksel CSS adalah 1/96 inci CSS (3,7795 px/mm). Saat OS menerapkan HiDPI ([[code:devicePixelRatio]]), kami menyimpan [[code:pxPerMm]] dan kerapatan fisik tahan-zoom [[code:devicePxPerMm = pxPerMm × dpr]]."
+        },
+        {
+          "kicker": "Bagian 02 · Standar Fisik",
+          "heading": "Mengapa standar kartu ISO/IEC 7810 ID-1 ideal untuk kalibrasi?",
+          "body": "Semua kartu bank/identitas standar berukuran tepat 85,60 × 53,98 mm. Menyamakan kotak layar mengukur [[code:pxPerMm = cardWidthPx / 85.60]] secara langsung tanpa terkecoh skala virtual OS."
+        },
+        {
+          "kicker": "Bagian 03 · Pembagian Skala",
+          "heading": "Bagaimana tanda milimeter dan pecahan 1/16″ dihitung?",
+          "body": "Mengacu standar NIST/BIPM (1 in = 25,4 mm tepat), mode [[link:/cm-ruler|cm]] dan [[link:/mm-ruler|mm]] menggambar tiap 1,0 / 5,0 / 10,0 mm, sedangkan [[link:/inch-ruler|Inci]] membagi 25,4 mm menjadi 16 langkah 1,5875 mm."
+        }
+      ],
+      "midCards": [
+        {
+          "kicker": "Bagian 04 · Standar Verifikasi Tambahan",
+          "heading": "Koin, uang kertas, dan kertas apa yang bisa memverifikasi kalibrasi?",
+          "body": "Penny AS (19,05 mm), 1 Euro (23,25 mm), Quarter AS (24,26 mm), baterai AA (50,50 mm), dan lebar pendek kertas ISO A4 (210,0 mm)."
+        },
+        {
+          "kicker": "Bagian 05 · Zoom & Multi-Monitor",
+          "heading": "Bagaimana Online Ruler Plus menangani zoom browser dan monitor luar?",
+          "body": "Profil [[code:devicePxPerMm]] tersimpan per resolusi layar di [[code:localStorage]]; perubahan zoom otomatis dihitung ulang dan perpindahan monitor memicu notifikasi verifikasi."
+        }
+      ],
+      "s6Kicker": "Bagian 06 · Contoh Hitungan & Matriks HiDPI",
+      "s6Heading": "Hubungan CSS PPI, PPI Fisik, dan devicePxPerMm pada Layar",
+      "s6Lead": "Rumus Pythagoras pada piksel CSS di zoom 100% memberi [[code:CSS px/mm]], dan dikali [[code:window.devicePixelRatio]] memberi [[code:devicePxPerMm]] tahan-zoom.",
+      "s6TableHeading": "Tabel Contoh Kerapatan Menurut Layar & Skala OS",
+      "s6Headers": ["Konfigurasi Layar", "Resolusi CSS", "CSS PPI Efektif", "CSS px/mm", "devicePxPerMm"],
+      "workedExamples": [
+        { "panel": "14,2\" Laptop (Mac Retina / 2× DPR)", "cssRes": "1512 × 982 CSS px (DPR 2,0)", "cssPpi": "127,0 CSS PPI", "pxPerMm": "5,000 CSS px/mm", "devicePxPerMm": "10,000 device px/mm" },
+        { "panel": "15,6\" Laptop Windows (Skala 125%)", "cssRes": "1536 × 864 CSS px (DPR 1,25)", "cssPpi": "113,0 CSS PPI", "pxPerMm": "4,448 CSS px/mm", "devicePxPerMm": "5,560 device px/mm" },
+        { "panel": "24\" Monitor 1080p (100%)", "cssRes": "1920 × 1080 CSS px (DPR 1,0)", "cssPpi": "91,8 CSS PPI", "pxPerMm": "3,614 CSS px/mm", "devicePxPerMm": "3,614 device px/mm" },
+        { "panel": "27\" Monitor 4K UHD (Skala 150%)", "cssRes": "2560 × 1440 CSS px (DPR 1,5)", "cssPpi": "108,8 CSS PPI", "pxPerMm": "4,283 CSS px/mm", "devicePxPerMm": "6,425 device px/mm" },
+        { "panel": "6,1\" Ponsel OLED (3× DPR)", "cssRes": "390 × 844 CSS px (DPR 3,0)", "cssPpi": "152,4 CSS PPI", "pxPerMm": "6,000 CSS px/mm", "devicePxPerMm": "18,000 device px/mm" }
+      ],
+      "caveats": [
+        {
+          "kicker": "Catatan Penskalaan OS",
+          "heading": "Mengapa kalibrasi kartu lebih akurat daripada perkiraan diagonal",
+          "body": "Skala pecahan Windows 125%/150% atau resolusi terskala macOS mengubah CSS PPI efektif via framebuffer virtual. Kartu fisik 85,60 mm mengukur hasil akhir langsung di kaca."
+        },
+        {
+          "kicker": "Kendala Ponsel · Layar Sempit",
+          "heading": "Mengapa ponsel memakai Kalibrasi Kartu Potret (53,98 mm)",
+          "body": "Lebar ponsel potret (58–72 mm) lebih sempit dari kartu lanskap (85,60 mm). [[strong:Mode Kartu Potret]] mengkalibrasi sisi pendek [[strong:53,98 mm]] dengan presisi 1:1."
+        }
+      ],
+      "s7Kicker": "Bagian 07 · Fisika Layar & Batas Ketelitian",
+      "s7Heading": "Paralaks Kaca Pelindung & Batas Toleransi Praktis",
+      "s7Body1": "Ketebalan kaca (0,5–1,5 mm, indeks bias [[code:n ≈ 1,5]]) membuat pandangan miring 30° bergeser ~0,3–0,5 mm.",
+      "s7Body2": "Arahkan mata lurus 90° di atas garis panduan dan gunakan jangka sorong fisik jika toleransi teknik lebih ketat dari ±0,25 mm.",
+      "s7TableHeading": "Tabel Referensi Benda Verifikasi Fisik Resmi",
+      "s7TableLead": "Setelah menyimpan kalibrasi, tempelkan perlahan salah satu benda berikut untuk cek akurasi:",
+      "s7Headers": ["Objek Referensi", "Metrik (mm)", "Imperial (in)", "Standar Resmi"],
+      "referenceItems": [
+        { "item": "Kartu Bank ISO/IEC 7810 ID-1 (Lebar)", "mm": "85,60 mm", "inches": "3,370 in", "standard": "ISO/IEC 7810:2019 ID-1" },
+        { "item": "Kartu Bank ISO/IEC 7810 ID-1 (Tinggi)", "mm": "53,98 mm", "inches": "2,125 in", "standard": "ISO/IEC 7810:2019 ID-1" },
+        { "item": "Koin Penny 1 Sen AS (Diameter)", "mm": "19,05 mm", "inches": "0,750 in (3/4″)", "standard": "United States Mint" },
+        { "item": "Koin Nikel 5 Sen AS (Diameter)", "mm": "21,21 mm", "inches": "0,835 in", "standard": "United States Mint" },
+        { "item": "Koin 1 Euro (Diameter)", "mm": "23,25 mm", "inches": "0,915 in", "standard": "Bank Sentral Eropa" },
+        { "item": "Koin Quarter AS (Diameter)", "mm": "24,26 mm", "inches": "0,955 in", "standard": "United States Mint" },
+        { "item": "Koin 2 Euro (Diameter)", "mm": "25,75 mm", "inches": "1,014 in", "standard": "Bank Sentral Eropa" },
+        { "item": "Baterai AA Standar (Panjang)", "mm": "50,50 mm", "inches": "1,988 in", "standard": "IEC R6 / ANSI 15" },
+        { "item": "Uang Kertas Dolar AS (Lebar)", "mm": "155,96 mm", "inches": "6,140 in", "standard": "Bureau of Engraving & Printing" },
+        { "item": "Kertas ISO 216 A4 (Sisi Pendek)", "mm": "210,00 mm", "inches": "8,268 in", "standard": "Seri Kertas ISO 216" }
+      ]
+    },
+    "faq": {
+      "title": "FAQ Penggaris Online | Kalibrasi, PPI & Panduan 1/16″",
+      "description": "Jawaban atas 20 pertanyaan umum seputar kalibrasi penggaris layar, batas ponsel dan kamera, penggaris Word/PowerPoint, inci 1/16″, dan skala cm/mm.",
+      "subNavTitle": "FAQ",
+      "breadcrumbLabel": "FAQ",
+      "heroKicker": "Pusat Pengetahuan Dukungan & Metrologi · 20 Tanya Jawab Terverifikasi",
+      "heroHeadline": "Pertanyaan yang Sering Diajukan",
+      "heroSummary": "Jawaban teknis lengkap tentang kalibrasi PPI layar, perataan kartu ISO/IEC 7810, skala metrik & 1/16″, multi-monitor, dan pemakaian di ponsel.",
+      "openRulerBtn": "Buka Penggaris Online",
+      "guideBtn": "Panduan Kalibrasi",
+      "cat1Kicker": "Kategori 01 · Kalibrasi, PPI & Privasi",
+      "cat1Heading": "Kalibrasi Layar, Zoom & Kompatibilitas Perangkat",
+      "cat2Kicker": "Kategori 02 · Teknik Pengukuran & Konversi",
+      "cat2Heading": "Konversi Satuan, Garis Panduan, Lapisan & Pencetakan",
+      "extendedFaqs": [
+        {
+          "q": "Berapa sentimeter dalam 1 inci dan penggaris 12 inci?",
+          "a": "1 inci tepat sama dengan 2,54 cm (25,4 mm) sehingga penggaris 12 inci tepat sama dengan 30,48 cm (lebih panjang 4,8 mm dari penggaris 30 cm)."
+        },
+        {
+          "q": "Mengapa tanda 0 bergeser 16 piksel masuk ke dalam tepi area penggaris?",
+          "a": "Agar tanda nol berada penuh di atas kaca layar yang rata dan bebas dari bayangan atau bibir bezel monitor."
+        },
+        {
+          "q": "Bagaimana mengukur diameter koin, cincin, atau benda bundar di layar?",
+          "a": "Taruh benda di kisi layar dan klik dua kali penggaris atas untuk menempatkan dua garis panduan vertikal menyentuh tepi kiri dan kanan; ΔX otomatis menghitung diameternya."
+        },
+        {
+          "q": "Bisakah saya mengukur benda lebih panjang dari layar laptop atau ponsel?",
+          "a": "Tekan F untuk layar penuh. Untuk benda lebih panjang, tempelkan selotip tanda di titik 25,0 cm, geser tanda ke 0, lalu jumlahkan sisanya."
+        },
+        {
+          "q": "Bagaimana menggunakan busur derajat 180° dan penggaris mengambang?",
+          "a": "Klik + Penggaris Mengambang untuk menambah penggaris putar 360°, atau tekan P untuk membuka busur derajat 0°–180° berketelitian 0,1°."
+        },
+        {
+          "q": "Bagaimana mencetak penggaris ukuran asli pada skala 100% tanpa mengecil?",
+          "a": "Pada jendela cetak (Ctrl+P / Cmd+P), buka Setelan Lainnya dan pilih Skala: Ukuran Sebenarnya / 100%, lalu cek hasil cetaknya dengan kartu bank 85,60 mm."
+        },
+        {
+          "q": "Apa itu Kesalahan Paralaks Optik dan bagaimana menghindarinya?",
+          "a": "Pergeseran visual akibat melihat lewat kaca layar dari sudut miring. Selalu lihat tegak lurus 90° tepat di atas garis tanda."
+        },
+        {
+          "q": "Bagaimana memakai mode Piksel CSS (px) untuk desain web dan QA?",
+          "a": "Tekan tombol 3 atau klik chip 'px' untuk menampilkan piksel logis W3C 1:1 (garis tiap 10, 50, dan 100 px)."
+        },
+        {
+          "q": "Bagaimana mereset kalibrasi tersimpan atau menghapus riwayat pengukuran?",
+          "a": "Semua data tersimpan di localStorage; gunakan tombol Reset Kalibrasi atau tombol Hapus di kartu Riwayat Pengukuran."
+        }
+      ]
+    },
+    "about": {
+      "title": "Tentang Online Ruler Plus | Metrologi Layar Presisi",
+      "description": "Pelajari bagaimana Online Ruler Plus mengubah layar menjadi penggaris fisik terkalibrasi berbasis standar NIST, ISO/IEC 7810, dan W3C CSS.",
+      "schemaName": "Tentang Online Ruler Plus",
+      "subNavTitle": "Tentang",
+      "breadcrumbLabel": "Tentang",
+      "heroKicker": "Tentang Platform · Metodologi Metrologi & Akuntabilitas Penerbit",
+      "heroHeadline": "Tentang Online Ruler Plus",
+      "heroSummary": "Online Ruler Plus adalah aplikasi web metrologi layar sisi-klien independen yang mengubah tampilan desktop, laptop, tablet, dan ponsel menjadi alat ukur terkalibrasi tanpa meminta izin kamera.",
+      "returnBtn": "Kembali ke Penggaris Online",
+      "topCards": [
+        {
+          "kicker": "01 · Mengapa Kami Membangunnya",
+          "heading": "Apa itu kekeliruan 96 CSS PPI pada penggaris online?",
+          "body": "Menganggap 96 piksel CSS sama dengan 1 inci di setiap layar menimbulkan galat 10–35%. Online Ruler Plus menempatkan kalibrasi fisik ISO/IEC 7810 sebagai inti mesin gambar kami."
+        },
+        {
+          "kicker": "02 · Standar Metrologi",
+          "heading": "Standar internasional apa yang mengatur perhitungan kami?",
+          "body": "Kesepakatan NIST/BIPM 1959 (1 in = 25,4 mm), spesifikasi kartu ISO/IEC 7810:2019 ID-1 (85,60 × 53,98 mm), serta spesifikasi koin resmi US Mint dan ECB."
+        },
+        {
+          "kicker": "03 · Prinsip Rekayasa",
+          "heading": "Bagaimana Online Ruler Plus menjaga akurasi dan privasi?",
+          "body": "Lencana status membedakan estimasi dari kalibrasi manual, semua profil ([[code:orp:calibration:v1]], [[code:orp:history:v1]]) tetap di [[code:localStorage]] tanpa unggah server, dan canvas menyesuaikan [[code:devicePixelRatio]]."
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Akuntabilitas Penerbit & Kebijakan Verifikasi",
+          "heading": "Siapa penerbit OnlineRulerPlus.com dan bagaimana panduan diverifikasi?",
+          "body": "Diterbitkan dan dikelola oleh proyek rekayasa Online Ruler Plus. Seluruh konstanta matematika dan tabel diturunkan langsung dari standar primer (NIST, ISO/IEC 7810, W3C CSS Level 4) serta diuji otomatis."
+        },
+        {
+          "kicker": "05 · Koreksi, Aksesibilitas & Dukungan Langsung",
+          "heading": "Bagaimana melaporkan kesalahan atau mengirim masukan layar?",
+          "body": "Kami menjaga ketepatan dokumentasi dan aksesibilitas WCAG 2.2 AA. Hubungi tim kami di [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] atau kunjungi [[link:/contact|halaman Kontak]]."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Kontak & Pengiriman Profil Layar | Online Ruler Plus",
+      "description": "Hubungi Online Ruler Plus untuk mengirim profil kerapatan layar, melaporkan bug kalibrasi, saran aksesibilitas, atau pertanyaan teknis.",
+      "schemaName": "Kontak Online Ruler Plus & Kirim Profil Layar",
+      "subNavTitle": "Kontak",
+      "breadcrumbLabel": "Kontak",
+      "heroKicker": "Kontak & Kontribusi Basis Data Perangkat Keras",
+      "heroHeadline": "Hubungi Online Ruler Plus",
+      "heroSummary": "Hubungi tim teknik kami untuk menyumbangkan profil kerapatan layar terverifikasi, melaporkan masalah kalibrasi, atau bertanya seputar metrologi layar.",
+      "openBtn": "Buka Penggaris Online",
+      "topCards": [
+        {
+          "kicker": "01 · Dukungan Teknis",
+          "heading": "Bagaimana menghubungi dukungan Online Ruler Plus?",
+          "body": "Sertakan versi sistem operasi, nama browser, persentase zoom, dan metode kalibrasi saat melaporkan kendala ke tim dukungan kami.",
+          "footerHref": "support@onlinerulerplus.com",
+          "footerLabel": "support@onlinerulerplus.com",
+          "isMailto": true
+        },
+        {
+          "kicker": "02 · Basis Data Perangkat Keras",
+          "heading": "Bagaimana mengirim profil layar perangkat baru?",
+          "body": "Kalibrasi dengan kartu ID-1 pada zoom 100%, lalu salin empat nilai dari tab 3. Deteksi Otomatis: [[code:screen.width × screen.height]], [[code:devicePixelRatio]], platform, serta [[code:pxPerMm]] terverifikasi.",
+          "footerHref": "/#calibration",
+          "footerLabel": "Lihat telemetri perangkat Anda di Deteksi Otomatis →"
+        },
+        {
+          "kicker": "03 · Pemecahan Masalah Mandiri",
+          "heading": "Di mana mengatasi masalah kalibrasi umum dengan cepat?",
+          "body": "Baca [[link:/calibration-guide|Panduan Kalibrasi & PPI]], 20 tanya jawab di [[link:/faq|FAQ]], atau [[link:/how-to-use|Panduan Cara Pakai]].",
+          "footerHref": "/faq",
+          "footerLabel": "Jelajahi FAQ Kalibrasi & PPI →"
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Daftar Periksa Laporan Bug",
+          "heading": "Detail apa yang mempercepat penanganan masalah?",
+          "body": "Kirim ke [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]: (1) model perangkat/monitor, (2) skala OS, (3) browser & zoom, (4) nilai pada lencana Skala Aktif, dan (5) langkah reproduksi."
+        },
+        {
+          "kicker": "05 · Permintaan Privasi, Hukum & Aksesibilitas",
+          "heading": "Bagaimana permintaan privasi dan hukum ditangani?",
+          "body": "Semua pertanyaan privasi, cookie, hak cipta, dan aksesibilitas ditinjau lewat [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]. Lihat [[link:/privacy|Kebijakan Privasi]] dan [[link:/terms|Ketentuan Penggunaan]]."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Kebijakan Privasi & Pengungkapan AdSense | Online Ruler Plus",
+      "description": "Kebijakan Privasi OnlineRulerPlus.com tentang eksekusi pengukuran lokal, kunci localStorage, pengungkapan cookie Google AdSense, dan hak privasi.",
+      "schemaName": "Kebijakan Privasi — Online Ruler Plus",
+      "subNavTitle": "Kebijakan Privasi",
+      "breadcrumbLabel": "Kebijakan Privasi",
+      "heroKicker": "Tata Kelola Hukum & Data · Pengukuran Lokal & Iklan",
+      "heroHeadline": "Kebijakan Privasi",
+      "heroSummary": "Online Ruler Plus memproses 100% kalibrasi dan pengukuran secara lokal di browser tanpa mengunggah data atau meminta izin kamera.",
+      "effectiveDate": "Tanggal Berlaku: 14 November 2026 · Terakhir Ditinjau: 14 November 2026",
+      "topCards": [
+        {
+          "kicker": "01 · Eksekusi Pengukuran Lokal",
+          "heading": "Bagaimana pengukuran dan kalibrasi diproses?",
+          "body": "Semua operasi berjalan lokal melalui JavaScript statis dan HTML5 Canvas di perangkat Anda; nilai terukur tidak pernah dikirim ke server kami."
+        },
+        {
+          "kicker": "02 · Penyimpanan Lokal Browser",
+          "heading": "Data apa yang disimpan dalam window.localStorage?",
+          "body": "Hanya kunci [[code:orp:calibration:v1]], [[code:orp:preferences:v1]], [[code:orp:history:v1]], [[code:orp:theme]], dan [[code:orp:locale:v1]] yang disimpan di perangkat Anda dan dapat dihapus kapan saja."
+        },
+        {
+          "kicker": "03 · Izin & Email Dukungan",
+          "heading": "Apakah Online Ruler Plus mengakses sensor atau mengumpulkan PII?",
+          "body": "Kami tidak pernah meminta webcam, mikrofon, GPS, kontak, atau papan klip. Email ke [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] hanya dipakai untuk membalas pertanyaan Anda."
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Google AdSense & Cookie Pihak Ketiga",
+          "heading": "Bagaimana cookie iklan pihak ketiga digunakan?",
+          "body": "Untuk menjaga layanan tetap gratis, vendor pihak ketiga termasuk Google dapat menayangkan iklan di area konten yang sesuai dan memakai cookie sesuai pilihan izin serta wilayah Anda."
+        },
+        {
+          "kicker": "05 · Menonaktifkan Iklan Personalisasi",
+          "heading": "Bagaimana cara menonaktifkan iklan yang dipersonalisasi?",
+          "body": "Kelola preferensi di [[ext:https://myadcenter.google.com/|Pusat Iklan Saya Google]] atau [[ext:https://www.aboutads.info/choices/|www.aboutads.info/choices]], dan baca [[ext:https://policies.google.com/technologies/partner-sites|Cara Google menggunakan informasi dari situs mitra]]."
+        },
+        {
+          "kicker": "06 · Izin, Privasi Anak & Hak Regional",
+          "heading": "Standar privasi regional apa yang berlaku?",
+          "body": "Di EEA, Inggris, dan Swiss, persetujuan dikumpulkan melalui CMP bersertifikasi Google (IAB TCF v2.2). Penduduk California memiliki hak CCPA/CPRA. Tidak ditujukan untuk anak di bawah 13 tahun. Kontak: [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Ketentuan Penggunaan & Penyangkalan Metrologi | Online Ruler Plus",
+      "description": "Ketentuan Penggunaan dan penyangkalan metrologi Online Ruler Plus mengenai tanggung jawab kalibrasi, paralaks, penggunaan wajar, dan keamanan layar.",
+      "schemaName": "Ketentuan Penggunaan & Penyangkalan — Online Ruler Plus",
+      "subNavTitle": "Ketentuan Penggunaan",
+      "breadcrumbLabel": "Ketentuan Penggunaan",
+      "heroKicker": "Ketentuan Layanan & Penyangkalan Akurasi Metrologi",
+      "heroHeadline": "Ketentuan Penggunaan & Penyangkalan Metrologi",
+      "heroSummary": "Tinjau ketentuan layanan, tanggung jawab kalibrasi layar, batasan paralaks optik, aturan penggunaan wajar, dan panduan perawatan layar di OnlineRulerPlus.com.",
+      "lastUpdated": "Terakhir Diperbarui: 14 November 2026",
+      "topCards": [
+        {
+          "kicker": "01 · Ketentuan Umum",
+          "heading": "Apa syarat akses Online Ruler Plus?",
+          "body": "Dengan mengakses OnlineRulerPlus.com Anda menyetujui ketentuan ini. Situs disediakan gratis \"sebagaimana adanya\" untuk keperluan pribadi, edukasi, desain, dan referensi umum tanpa jaminan tersirat."
+        },
+        {
+          "kicker": "02 · Cakupan Metrologi",
+          "heading": "Apa batas akurasi penggaris layar online?",
+          "body": "Akurasi bergantung pada kalibrasi pengguna, skala OS, zoom, dan sudut pandang. Meski memakai konstanta pasti ([[code:1 in = 25,4 mm]] dan [[code:ISO/IEC 7810 ID-1]]), jangan dipakai untuk dosis medis, rekayasa struktur, atau metrologi perdagangan resmi."
+        },
+        {
+          "kicker": "03 · Keamanan Layar",
+          "heading": "Bagaimana melindungi layar saat mengukur benda?",
+          "body": "Jangan menekan sekrup logam atau benda tajam ke panel saat memakai [[link:/#ruler-tool|ruang kerja penggaris online]]; letakkan plastik film tipis di bawah logam tajam. Kami tidak bertanggung jawab atas kerusakan fisik layar."
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Hak Kekayaan Intelektual & Penggunaan Wajar",
+          "heading": "Bagaimana konten dan alat boleh digunakan?",
+          "body": "Kode sumber, panduan, dan antarmuka dilindungi hak cipta. Bebas digunakan untuk keperluan pribadi maupun kelas; scraping massal otomatis dan pencerminan tanpa izin dilarang."
+        },
+        {
+          "kicker": "05 · Iklan, Tautan Eksternal & Pembaruan",
+          "heading": "Bagaimana pengaturan iklan, tautan luar, dan pembaruan ketentuan?",
+          "body": "Iklan di luar kontrol penggaris dan tautan ke lembaga standar (NIST, BIPM, ISO, W3C) dapat ditampilkan. Lihat [[link:/privacy|Kebijakan Privasi]]. Pertanyaan: [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]."
+        }
+      ]
+    }
+  }
+}

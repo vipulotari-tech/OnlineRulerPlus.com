@@ -1,45 +1,61 @@
 ---
+import {
+  DEFAULT_LOCALE,
+  localizedPath,
+  stripLocalePrefix,
+  type Locale,
+} from '../i18n/config.ts';
+import { getDict } from '../i18n/index.ts';
+import LanguageSelector from './LanguageSelector.astro';
+
 interface Props {
+  locale?: Locale;
   subNavTitle?: string;
   subNavCtaHref?: string;
   subNavCtaLabel?: string;
 }
 
 const {
-  subNavTitle = 'Screen Ruler Workspace',
+  locale = DEFAULT_LOCALE,
+  subNavTitle,
   subNavCtaHref = '/#calibration',
-  subNavCtaLabel = 'Calibrate',
+  subNavCtaLabel,
 } = Astro.props;
 
-const rawPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const dict = getDict(locale);
+const rawBasePath = stripLocalePrefix(Astro.url.pathname);
 
 const navItems = [
-  { href: '/cm-ruler', label: 'cm Ruler' },
-  { href: '/mm-ruler', label: 'mm Ruler' },
-  { href: '/inch-ruler', label: 'Inch Ruler' },
-  { href: '/horizontal-ruler', label: 'Horizontal' },
-  { href: '/vertical-ruler', label: 'Vertical' },
-  { href: '/how-to-use', label: 'How to Use' },
-  { href: '/calibration-guide', label: 'Calibration Guide' },
-  { href: '/faq', label: 'FAQ' },
+  { base: '/cm-ruler', href: localizedPath(locale, '/cm-ruler'), label: dict.nav.links.cmRuler },
+  { base: '/mm-ruler', href: localizedPath(locale, '/mm-ruler'), label: dict.nav.links.mmRuler },
+  { base: '/inch-ruler', href: localizedPath(locale, '/inch-ruler'), label: dict.nav.links.inchRuler },
+  { base: '/horizontal-ruler', href: localizedPath(locale, '/horizontal-ruler'), label: dict.nav.links.horizontal },
+  { base: '/vertical-ruler', href: localizedPath(locale, '/vertical-ruler'), label: dict.nav.links.vertical },
+  { base: '/how-to-use', href: localizedPath(locale, '/how-to-use'), label: dict.nav.links.howToUse },
+  { base: '/calibration-guide', href: localizedPath(locale, '/calibration-guide'), label: dict.nav.links.calibrationGuide },
+  { base: '/faq', href: localizedPath(locale, '/faq'), label: dict.nav.links.faq },
 ];
 
 const displaySubNavTitle =
-  subNavTitle === 'Online Ruler Plus' && rawPath === '/'
-    ? 'Screen Ruler Workspace'
+  !subNavTitle || (subNavTitle === 'Online Ruler Plus' && rawBasePath === '/')
+    ? dict.nav.defaultSubNavTitle
     : subNavTitle;
+
+const resolvedSubNavCtaLabel = subNavCtaLabel ?? dict.nav.defaultSubNavCta;
+const resolvedSubNavCtaHref = localizedPath(locale, subNavCtaHref);
+const homeHref = localizedPath(locale, '/');
 ---
 
 <!-- Row 1: Apple global-nav (#000000 true black, 44px height, 12px/400/-0.12px links) -->
 <header class="sticky top-0 z-40">
   <div class="h-[44px] w-full bg-surface-black text-on-dark">
-    <div class="mx-auto flex h-full max-w-[1440px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto flex h-full max-w-[1440px] items-center justify-between gap-1.5 sm:gap-3 px-2.5 sm:px-6 lg:px-8">
       <!-- Brand Mark -->
       <a
-        href="/"
-        aria-current={rawPath === '/' ? 'page' : undefined}
-        class="inline-flex h-[44px] shrink-0 items-center gap-2 whitespace-nowrap text-on-dark type-nav-link font-semibold focus-visible:rounded-[5px]"
-        aria-label="Online Ruler Plus Home"
+        href={homeHref}
+        aria-current={rawBasePath === '/' ? 'page' : undefined}
+        class="inline-flex h-[44px] min-w-0 shrink-0 items-center gap-1.5 sm:gap-2 whitespace-nowrap text-on-dark text-[11px] sm:text-[12px] font-semibold focus-visible:rounded-[5px]"
+        aria-label={dict.nav.brandHomeAria}
       >
         <svg class="h-4 w-4 text-primary-on-dark shrink-0" viewBox="0 0 20 20" fill="none" aria-hidden="true">
           <rect x="1.5" y="4.5" width="17" height="11" rx="2" stroke="currentColor" stroke-width="1.5" />
@@ -48,11 +64,11 @@ const displaySubNavTitle =
         <span class="tracking-[-0.12px]">Online Ruler Plus</span>
       </a>
 
-      <!-- Desktop Global Nav Links (visible >= 834px per DESIGN.md tablet-landscape breakpoint) -->
-      <nav aria-label="Global" class="apple-nav-desktop items-center gap-0.5 xl:gap-1.5">
+      <!-- Desktop Global Nav Links -->
+      <nav aria-label={dict.nav.globalNavAria} class="apple-nav-desktop items-center gap-0.5 xl:gap-1.5 min-w-0">
         {
           navItems.map((item) => {
-            const isActive = rawPath === item.href;
+            const isActive = rawBasePath === item.base;
             return (
               <a
                 href={item.href}
@@ -71,27 +87,35 @@ const displaySubNavTitle =
         }
       </nav>
 
-      <!-- Right Utility Cluster: Shortcuts (H), Theme (D), and Mobile Menu Trigger (<= 833px) -->
-      <div class="flex items-center gap-2">
+      <!-- Right Utility Cluster: Language Selector, Shortcuts (H), Theme (D), and Mobile Menu Trigger -->
+      <div class="flex items-center gap-1 sm:gap-1.5 shrink-0">
+        <LanguageSelector locale={locale} currentPath={Astro.url.pathname} />
+
         <button
           type="button"
           data-help-toggle
           aria-expanded="false"
           aria-controls="help-shortcuts-modal"
-          class="inline-flex h-[32px] items-center gap-1.5 rounded-[8px] bg-[#1d1d1f] hover:bg-[#2a2a2c] px-2.5 sm:px-3 type-nav-link text-on-dark cursor-pointer"
-          title="Keyboard shortcuts & instructions (H)"
+          aria-label={dict.nav.shortcutsBtnTitle}
+          class="inline-flex h-7 sm:h-[32px] items-center gap-1.5 rounded-[8px] bg-[#1d1d1f] hover:bg-[#2a2a2c] px-2 sm:px-2.5 type-nav-link text-on-dark cursor-pointer"
+          title={dict.nav.shortcutsBtnTitle}
         >
-          <span>Shortcuts</span>
-          <kbd class="hidden xs:inline rounded-[5px] bg-[#2a2a2c] px-1.5 py-0.5 font-mono text-[10px] text-body-muted">H</kbd>
+          <svg class="h-3.5 w-3.5 sm:hidden" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="1.5" y="3.5" width="13" height="9" rx="1.8" stroke="currentColor" stroke-width="1.3" />
+            <path d="M4 6.5h1.5M7 6.5h2M11 6.5h1M5 9.5h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+          </svg>
+          <span class="hidden sm:inline">{dict.nav.shortcutsBtn}</span>
+          <kbd class="hidden sm:inline rounded-[5px] bg-[#2a2a2c] px-1.5 py-0.5 font-mono text-[10px] text-body-muted">H</kbd>
         </button>
 
         <button
           type="button"
           data-theme-toggle
           aria-pressed="false"
-          aria-label="Switch theme (D)"
-          class="inline-flex h-[32px] items-center gap-1.5 rounded-[8px] bg-[#1d1d1f] hover:bg-[#2a2a2c] px-2.5 sm:px-3 type-nav-link text-on-dark cursor-pointer"
-          title="Toggle dark mode (D)"
+          aria-label={dict.nav.themeBtnAria}
+          data-label-switch={dict.nav.themeBtnAria}
+          class="inline-flex h-7 sm:h-[32px] items-center gap-1.5 rounded-[8px] bg-[#1d1d1f] hover:bg-[#2a2a2c] px-2 sm:px-2.5 type-nav-link text-on-dark cursor-pointer"
+          title={dict.nav.themeBtnTitle}
         >
           <svg class="h-3.5 w-3.5 dark:hidden" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.4" />
@@ -100,7 +124,7 @@ const displaySubNavTitle =
           <svg class="hidden h-3.5 w-3.5 dark:inline" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M13.2 9.8A5.5 5.5 0 0 1 6.2 2.8a5.5 5.5 0 1 0 7 7Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
           </svg>
-          <span class="hidden sm:inline">Theme</span>
+          <span class="hidden sm:inline">{dict.nav.themeBtn}</span>
           <kbd class="hidden sm:inline rounded-[5px] bg-[#2a2a2c] px-1.5 py-0.5 font-mono text-[10px] text-body-muted">D</kbd>
         </button>
 
@@ -109,8 +133,8 @@ const displaySubNavTitle =
           data-mobile-menu-toggle
           aria-expanded="false"
           aria-controls="mobile-nav-tray"
-          aria-label="Toggle navigation menu"
-          class="apple-nav-mobile h-[44px] w-[44px] items-center justify-center text-on-dark cursor-pointer"
+          aria-label={dict.nav.mobileMenuAria}
+          class="apple-nav-mobile h-[44px] w-[36px] sm:w-[44px] items-center justify-center text-on-dark cursor-pointer"
         >
           <svg class="h-4 w-4" viewBox="0 0 18 18" fill="none" aria-hidden="true">
             <path d="M2 5.5h14M2 12.5h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
@@ -120,64 +144,64 @@ const displaySubNavTitle =
     </div>
   </div>
 
-  <!-- Row 2: Apple sub-nav-frosted (52px height, Parchment 80% + backdrop blur, Tagline left, section jump links & primary pill CTA right) -->
+  <!-- Row 2: Apple sub-nav-frosted (52px height, Parchment 80% + backdrop blur) -->
   <div class="apple-subnav-frosted h-[48px] sm:h-[52px] w-full">
     <div class="mx-auto flex h-full max-w-[1440px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 min-w-0">
-        <a href={rawPath === '/' ? '#ruler-tool' : '/'} class="type-tagline text-[17px] sm:text-[21px] text-ink truncate">
+        <a href={rawBasePath === '/' ? '#ruler-tool' : homeHref} class="type-tagline text-[17px] sm:text-[21px] text-ink truncate">
           {displaySubNavTitle}
         </a>
         <span class="hidden xl:inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border border-hairline bg-canvas/80 px-2.5 py-0.5 font-mono text-[11px] text-ink-muted-80">
           <span class="h-1.5 w-1.5 rounded-full bg-link"></span>
           <span data-cal-ppi class="font-semibold text-ink">96.0 PPI</span>
           <span class="text-ink-muted-48">·</span>
-          <span data-cal-status-label data-status="estimated">Estimated calibration</span>
+          <span data-cal-status-label data-status="estimated">{dict.runtime.statusLabels.estimated}</span>
         </span>
       </div>
 
       <div class="flex items-center gap-4 shrink-0">
         <div class="apple-nav-desktop items-center gap-5 type-button-utility text-ink-muted-80">
-          <a href="/#ruler-tool" class="hover:text-link transition-colors py-1">Workspace</a>
-          <a href="/#calibration" class="hover:text-link transition-colors py-1">Calibration</a>
-          <a href="/#how-it-works" class="hover:text-link transition-colors py-1">How It Works</a>
-          <a href="/#accuracy-guide" class="hover:text-link transition-colors py-1">PPI Table</a>
+          <a href={localizedPath(locale, '/#ruler-tool')} class="hover:text-link transition-colors py-1">{dict.nav.subNav.workspace}</a>
+          <a href={localizedPath(locale, '/#calibration')} class="hover:text-link transition-colors py-1">{dict.nav.subNav.calibration}</a>
+          <a href={localizedPath(locale, '/#how-it-works')} class="hover:text-link transition-colors py-1">{dict.nav.subNav.howItWorks}</a>
+          <a href={localizedPath(locale, '/#accuracy-guide')} class="hover:text-link transition-colors py-1">{dict.nav.subNav.ppiTable}</a>
         </div>
 
         <a
-          href={subNavCtaHref}
+          href={resolvedSubNavCtaHref}
           data-open-calibration={subNavCtaHref.includes('#calibration') ? 'card' : undefined}
           class="apple-btn-primary-compact"
         >
-          {subNavCtaLabel}
+          {resolvedSubNavCtaLabel}
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Collapsible Mobile Navigation Tray (<= 833px) -->
+  <!-- Collapsible Mobile Navigation Tray -->
   <div
     id="mobile-nav-tray"
     class="hidden border-b border-hairline bg-surface-black px-6 py-5 text-on-dark"
   >
-    <nav aria-label="Mobile Navigation" class="grid grid-cols-2 gap-x-4 gap-y-1.5 type-caption">
+    <nav aria-label={dict.nav.mobileNavAria} class="grid grid-cols-2 gap-x-4 gap-y-1.5 type-caption">
       <a
-        href="/"
-        aria-current={rawPath === '/' ? 'page' : undefined}
+        href={homeHref}
+        aria-current={rawBasePath === '/' ? 'page' : undefined}
         class:list={[
           'py-2 font-medium',
-          rawPath === '/' ? 'text-primary-on-dark font-semibold' : 'text-on-dark hover:text-primary-on-dark',
+          rawBasePath === '/' ? 'text-primary-on-dark font-semibold' : 'text-on-dark hover:text-primary-on-dark',
         ]}
       >
-        Home Workspace
+        {dict.nav.homeWorkspaceLabel}
       </a>
       {
         navItems.map((item) => (
           <a
             href={item.href}
-            aria-current={rawPath === item.href ? 'page' : undefined}
+            aria-current={rawBasePath === item.base ? 'page' : undefined}
             class:list={[
               'py-2',
-              rawPath === item.href
+              rawBasePath === item.base
                 ? 'text-primary-on-dark font-semibold'
                 : 'text-body-muted hover:text-on-dark',
             ]}
@@ -186,10 +210,10 @@ const displaySubNavTitle =
           </a>
         ))
       }
-      <a href="/about" class="py-2 text-body-muted hover:text-on-dark">About</a>
-      <a href="/contact" class="py-2 text-body-muted hover:text-on-dark">Contact</a>
-      <a href="/privacy" class="py-2 text-body-muted hover:text-on-dark">Privacy Policy</a>
-      <a href="/terms" class="py-2 text-body-muted hover:text-on-dark">Terms of Use</a>
+      <a href={localizedPath(locale, '/about')} class="py-2 text-body-muted hover:text-on-dark">{dict.nav.links.about}</a>
+      <a href={localizedPath(locale, '/contact')} class="py-2 text-body-muted hover:text-on-dark">{dict.nav.links.contact}</a>
+      <a href={localizedPath(locale, '/privacy')} class="py-2 text-body-muted hover:text-on-dark">{dict.nav.links.privacy}</a>
+      <a href={localizedPath(locale, '/terms')} class="py-2 text-body-muted hover:text-on-dark">{dict.nav.links.terms}</a>
     </nav>
   </div>
 </header>

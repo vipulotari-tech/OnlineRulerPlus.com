@@ -1,32 +1,57 @@
 ---
 import '../styles/global.css';
+import {
+  DEFAULT_LOCALE,
+  LOCALES,
+  LOCALE_META,
+  LOCALE_SOURCE_STORAGE_KEY,
+  LOCALE_STORAGE_KEY,
+  getHreflangAlternates,
+  localizedPath,
+  stripLocalePrefix,
+  type Locale,
+} from '../i18n/config.ts';
+import { getDict, getRuntimePayload } from '../i18n/index.ts';
 
 interface Props {
+  locale?: Locale;
   title: string;
   description: string;
   canonicalPath?: string;
   breadcrumbLabel?: string;
   ogType?: 'website' | 'article';
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
+  bodyClass?: string;
+  skipHref?: string;
 }
 
 const {
+  locale = DEFAULT_LOCALE,
   title,
   description,
   canonicalPath = Astro.url.pathname,
   breadcrumbLabel,
   ogType = 'website',
   structuredData,
+  bodyClass = 'min-h-screen flex flex-col bg-canvas text-body selection:bg-link-soft selection:text-ink',
+  skipHref = '#main-content',
 } = Astro.props;
 
+const meta = LOCALE_META[locale];
+const dict = getDict(locale);
 const siteOrigin = Astro.site ? Astro.site.origin : 'https://onlinerulerplus.com';
-const normalizedPath =
-  !canonicalPath || canonicalPath === '/' ? '/' : canonicalPath.replace(/\/+$/, '');
+
+const baseRoute = stripLocalePrefix(canonicalPath);
+const effectiveCanonicalPath = localizedPath(locale, baseRoute);
 const canonicalUrl =
-  normalizedPath === '/' ? `${siteOrigin}/` : `${siteOrigin}${normalizedPath}`;
+  effectiveCanonicalPath === '/' ? `${siteOrigin}/` : `${siteOrigin}${effectiveCanonicalPath}`;
+
+const homePath = localizedPath(locale, '/');
+const homeUrl = homePath === '/' ? `${siteOrigin}/` : `${siteOrigin}${homePath}`;
+
+const hreflangAlternates = getHreflangAlternates(siteOrigin, baseRoute);
 const ogImageUrl = `${siteOrigin}/og-image.png`;
-const ogImageAlt =
-  'Online Ruler Plus calibrated actual-size screen ruler in centimeters (cm), millimeters (mm), and 1/16 fractional inches';
+const ogImageAlt = dict.meta.ogImageAlt;
 
 const organizationSchema: Record<string, unknown> = {
   '@context': 'https://schema.org',
@@ -40,30 +65,23 @@ const organizationSchema: Record<string, unknown> = {
     width: 1200,
     height: 630,
   },
-  description:
-    'Client-side actual-size online screen ruler and display calibration platform supporting centimeters (cm), millimeters (mm), 1/16-inch dyadic fractions, and CSS reference pixels.',
-  knowsAbout: [
-    'Online Screen Ruler Calibration',
-    'Display Pixel Density (PPI) Metrology',
-    'ISO/IEC 7810:2019 ID-1 Standard Card Calibration',
-    'Centimeter, Millimeter, and Fractional Inch Measurement',
-    'W3C CSS Values and Units Reference Pixel',
-  ],
+  description: dict.meta.orgDescription,
+  knowsAbout: dict.meta.knowsAbout,
   contactPoint: {
     '@type': 'ContactPoint',
     email: 'support@onlinerulerplus.com',
     contactType: 'customer support',
-    availableLanguage: ['en'],
+    availableLanguage: [...LOCALES],
   },
 };
 
 const websiteSchema: Record<string, unknown> = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  '@id': `${siteOrigin}/#website`,
-  url: `${siteOrigin}/`,
+  '@id': `${homeUrl}#website`,
+  url: homeUrl,
   name: 'Online Ruler Plus',
-  inLanguage: 'en',
+  inLanguage: meta.bcp47,
   publisher: {
     '@id': `${siteOrigin}/#organization`,
   },
@@ -80,7 +98,7 @@ const hasExplicitBreadcrumb = extraSchemas.some(
 );
 
 const breadcrumbSchema: Record<string, unknown> | null =
-  normalizedPath !== '/' && !hasExplicitBreadcrumb
+  baseRoute !== '/' && !hasExplicitBreadcrumb
     ? {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
@@ -90,7 +108,7 @@ const breadcrumbSchema: Record<string, unknown> | null =
             '@type': 'ListItem',
             position: 1,
             name: 'Online Ruler Plus',
-            item: `${siteOrigin}/`,
+            item: homeUrl,
           },
           {
             '@type': 'ListItem',
@@ -108,16 +126,22 @@ const fullStructuredData: Record<string, unknown>[] = [
   ...(breadcrumbSchema ? [breadcrumbSchema] : []),
   ...extraSchemas,
 ];
+
+const runtimePayloadJson = JSON.stringify(getRuntimePayload(locale)).replace(/</g, '\\u003c');
+const skipLabel = skipHref === '#ruler-tool' ? dict.nav.skipToWorkspace : dict.nav.skipToMain;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={meta.bcp47}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="canonical" href={canonicalUrl} />
+    {hreflangAlternates.map((alt) => (
+      <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+    ))}
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>
@@ -125,7 +149,7 @@ const fullStructuredData: Record<string, unknown>[] = [
     <meta name="robots" content="index, follow" />
 
     <meta property="og:type" content={ogType} />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={meta.ogLocale} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
@@ -141,30 +165,63 @@ const fullStructuredData: Record<string, unknown>[] = [
     <meta name="twitter:image" content={ogImageUrl} />
     <meta name="twitter:image:alt" content={ogImageAlt} />
 
-    <script is:inline>
+    <script is:inline define:vars={{ LOCALES, LOCALE_STORAGE_KEY, LOCALE_SOURCE_STORAGE_KEY }}>
       (() => {
         try {
-          const saved = localStorage.getItem('orp:theme');
-          if (saved === 'dark') {
+          const savedTheme = localStorage.getItem('orp:theme');
+          if (savedTheme === 'dark') {
             document.documentElement.classList.add('dark');
           }
         } catch {
           // Ignore storage access errors
         }
+
+        // First-visit browser locale auto-redirect on bare root (/) only
+        try {
+          const path = window.location.pathname.replace(/\/+$/, '') || '/';
+          if (path === '/') {
+            const savedLocale = localStorage.getItem(LOCALE_STORAGE_KEY);
+            if (!savedLocale) {
+              const langs = Array.isArray(navigator.languages) && navigator.languages.length > 0
+                ? navigator.languages
+                : [navigator.language || 'en'];
+              let matched = 'en';
+              for (const raw of langs) {
+                const tag = String(raw || '').trim().toLowerCase();
+                if (!tag) continue;
+                const primary = tag.split(/[-_]/)[0];
+                const code = primary === 'in' ? 'id' : primary;
+                if (LOCALES.includes(code)) {
+                  matched = code;
+                  break;
+                }
+              }
+              localStorage.setItem(LOCALE_STORAGE_KEY, matched);
+              localStorage.setItem(LOCALE_SOURCE_STORAGE_KEY, 'auto');
+              if (matched !== 'en') {
+                window.location.replace('/' + matched + window.location.search + window.location.hash);
+              }
+            }
+          }
+        } catch {
+          // Ignore storage / navigation restrictions
+        }
       })();
     </script>
+
+    <script id="orp-i18n-data" type="application/json" set:html={runtimePayloadJson} />
 
     <script
       type="application/ld+json"
       set:html={JSON.stringify(fullStructuredData)}
     />
   </head>
-  <body class="min-h-screen flex flex-col bg-canvas text-body selection:bg-link-soft selection:text-ink">
+  <body class={bodyClass}>
     <a
-      href="#main-content"
+      href={skipHref}
       class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 apple-btn-primary-compact"
     >
-      Skip to main content
+      {skipLabel}
     </a>
     <slot />
   </body>

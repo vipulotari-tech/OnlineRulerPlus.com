@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from './Header.astro';
+import Hero from './Hero.astro';
+import RulerWorkspace from './RulerWorkspace.astro';
+import CalibrationSection from './CalibrationSection.astro';
+import RulerSpokeContent from './RulerSpokeContent.astro';
+import HelpModal from './HelpModal.astro';
+import Footer from './Footer.astro';
+import { LOCALE_META, localizedPath, type Locale } from '../i18n/config.ts';
+import { getDict } from '../i18n/index.ts';
+import type { SpokePageDict } from '../i18n/types.ts';
+
+interface Props {
+  locale: Locale;
+  canonicalPath: '/cm-ruler' | '/mm-ruler' | '/inch-ruler' | '/horizontal-ruler' | '/vertical-ruler';
+  pageKey: 'cmRuler' | 'mmRuler' | 'inchRuler' | 'horizontalRuler' | 'verticalRuler';
+  defaultUnit: 'cm' | 'in' | 'px' | 'mm';
+  forceUnit?: 'cm' | 'mm' | 'in' | 'px';
+  forceEdges?: 'horizontal' | 'vertical';
+}
+
+const { locale, canonicalPath, pageKey, defaultUnit, forceUnit, forceEdges } = Astro.props;
+const dict = getDict(locale);
+const page: SpokePageDict = dict.pages[pageKey];
+const meta = LOCALE_META[locale];
+
+const siteOrigin = Astro.site ? Astro.site.origin : 'https://onlinerulerplus.com';
+const localizedRoute = localizedPath(locale, canonicalPath);
+const canonicalUrl = `${siteOrigin}${localizedRoute}`;
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    '@id': `${canonicalUrl}#app`,
+    name: page.schemaName,
+    url: canonicalUrl,
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'Any',
+    browserRequirements: 'Requires HTML5 Canvas and JavaScript',
+    inLanguage: meta.bcp47,
+    isAccessibleForFree: true,
+    description: page.description,
+    publisher: {
+      '@id': `${siteOrigin}/#organization`,
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    featureList: page.featureList,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.speakable-summary'],
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${canonicalUrl}#faq`,
+    inLanguage: meta.bcp47,
+    mainEntity: page.faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  locale={locale}
+  title={page.title}
+  description={page.description}
+  canonicalPath={canonicalPath}
+  breadcrumbLabel={page.breadcrumbLabel}
+  structuredData={structuredData}
+>
+  <Header locale={locale} subNavTitle={page.subNavTitle} />
+  <main id="main-content" class="flex-1">
+    <Hero
+      locale={locale}
+      eyebrow={page.hero.eyebrow}
+      headline={page.hero.headline}
+      description={page.hero.description}
+    />
+    <RulerWorkspace
+      locale={locale}
+      defaultUnit={defaultUnit}
+      forceUnit={forceUnit}
+      forceEdges={forceEdges}
+    />
+    <CalibrationSection locale={locale} />
+    <RulerSpokeContent
+      locale={locale}
+      guideKicker={page.guideKicker}
+      guideHeading={page.guideHeading}
+      guideLead={page.guideLead}
+      cards={page.cards}
+      darkKicker={page.darkKicker}
+      darkHeading={page.darkHeading}
+      darkLead={page.darkLead}
+      darkCards={page.darkCards}
+      table={page.table}
+      faqKicker={page.faqKicker}
+      faqHeading={page.faqHeading}
+      faqs={page.faqs}
+    />
+  </main>
+  <HelpModal locale={locale} />
+  <Footer locale={locale} />
+  <script src="../scripts/app.ts"></script>
+</BaseLayout>

@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import HelpModal from '../../components/HelpModal.astro';
+import Footer from '../../components/Footer.astro';
+import {
+  LOCALE_META,
+  getLocaleStaticPaths,
+  localizedPath,
+  type Locale,
+} from '../../i18n/config.ts';
+import { getDict, renderInlineMarkup } from '../../i18n/index.ts';
+
+export function getStaticPaths() {
+  return getLocaleStaticPaths();
+}
+
+const { locale } = Astro.props as { locale: Locale };
+const dict = getDict(locale);
+const page = dict.pages.privacy;
+const meta = LOCALE_META[locale];
+
+const siteOrigin = Astro.site ? Astro.site.origin : 'https://onlinerulerplus.com';
+const routePath = localizedPath(locale, '/privacy');
+const canonicalUrl = `${siteOrigin}${routePath}`;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${canonicalUrl}#webpage`,
+  name: page.schemaName,
+  description: page.description,
+  url: canonicalUrl,
+  inLanguage: meta.bcp47,
+  lastReviewed: '2026-11-14',
+  publisher: {
+    '@id': `${siteOrigin}/#organization`,
+  },
+};
+---
+
+<BaseLayout
+  locale={locale}
+  title={page.title}
+  description={page.description}
+  canonicalPath="/privacy"
+  breadcrumbLabel={page.breadcrumbLabel}
+  structuredData={structuredData}
+>
+  <Header
+    locale={locale}
+    subNavTitle={page.subNavTitle}
+    subNavCtaHref={localizedPath(locale, '/#ruler-tool')}
+    subNavCtaLabel={dict.nav.defaultSubNavCta}
+  />
+  <main id="main-content" class="flex-1">
+    <section class="apple-page-hero border-b border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <p class="type-kicker">{page.heroKicker}</p>
+        <h1 class="mt-2 type-hero-display text-ink">{page.heroHeadline}</h1>
+        <p class="speakable-summary mt-3 max-w-[62ch] type-lead-airy text-ink-muted-80">
+          {page.heroSummary}
+        </p>
+        <p class="mt-3 font-mono text-xs text-ink-muted-48">{page.effectiveDate}</p>
+      </div>
+    </section>
+
+    <section class="apple-tile-parchment">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          {
+            page.topCards.map((card) => (
+              <section class="apple-utility-card">
+                <p class="type-kicker">{card.kicker}</p>
+                <h2 class="mt-2 type-tagline text-ink">{card.heading}</h2>
+                <p
+                  class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80"
+                  set:html={renderInlineMarkup(card.body, locale)}
+                />
+              </section>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="apple-tile-light border-t border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          {
+            page.bottomCards.map((card) => (
+              <section class="apple-utility-card">
+                <p class="type-kicker">{card.kicker}</p>
+                <h2 class="mt-2 type-tagline text-ink">{card.heading}</h2>
+                <p
+                  class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80"
+                  set:html={renderInlineMarkup(card.body, locale)}
+                />
+              </section>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+  <HelpModal locale={locale} />
+  <Footer locale={locale} />
+  <script src="../../scripts/app.ts"></script>
+</BaseLayout>

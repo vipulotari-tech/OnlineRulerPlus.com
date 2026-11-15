@@ -1,4 +1,7 @@
 ---
+import { DEFAULT_LOCALE, localizedPath, type Locale } from '../i18n/config.ts';
+import { getDict } from '../i18n/index.ts';
+
 export interface SpokeCard {
   step: string;
   kicker: string;
@@ -27,21 +30,29 @@ export interface SpokeFaq {
 }
 
 interface Props {
+  locale?: Locale;
   guideKicker: string;
   guideHeading: string;
   guideLead: string;
-  cards: [SpokeCard, SpokeCard, SpokeCard];
+  cards: readonly SpokeCard[];
   darkKicker: string;
   darkHeading: string;
   darkLead: string;
-  darkCards: [SpokeDarkCard, SpokeDarkCard, SpokeDarkCard];
-  table: SpokeTable;
+  darkCards: readonly SpokeDarkCard[];
+  table: {
+    readonly kicker: string;
+    readonly heading: string;
+    readonly headers: readonly string[];
+    readonly rows: readonly (readonly string[])[];
+    readonly footnote: string;
+  };
   faqKicker: string;
   faqHeading: string;
-  faqs: SpokeFaq[];
+  faqs: readonly SpokeFaq[];
 }
 
 const {
+  locale = DEFAULT_LOCALE,
   guideKicker,
   guideHeading,
   guideLead,
@@ -55,6 +66,9 @@ const {
   faqHeading,
   faqs,
 } = Astro.props;
+
+const dict = getDict(locale);
+const shared = dict.spokeShared;
 ---
 
 <!-- SECTION 1: INTENT-SPECIFIC MEASUREMENT GUIDE (Light White Tile #ffffff) -->
@@ -75,8 +89,8 @@ const {
         </p>
       </div>
       <div class="shrink-0">
-        <a href="/how-to-use" class="apple-btn-secondary-pill">
-          Step-by-Step Manual
+        <a href={localizedPath(locale, '/how-to-use')} class="apple-btn-secondary-pill">
+          {dict.home.howManualBtn}
         </a>
       </div>
     </div>
@@ -98,7 +112,7 @@ const {
               </p>
             </div>
             <div class="mt-5 pt-4 border-t border-hairline">
-              <a href={card.linkHref} class="type-caption font-semibold text-link hover:underline">
+              <a href={localizedPath(locale, card.linkHref)} class="type-caption font-semibold text-link hover:underline">
                 {card.linkLabel} →
               </a>
             </div>
@@ -129,8 +143,8 @@ const {
         </p>
       </div>
       <div class="shrink-0">
-        <a href="/calibration-guide" class="apple-btn-primary">
-          Calibration &amp; PPI Guide
+        <a href={localizedPath(locale, '/calibration-guide')} class="apple-btn-primary">
+          {shared.calibrationGuideBtn}
         </a>
       </div>
     </div>
@@ -221,42 +235,26 @@ const {
   <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
       <div class="max-w-3xl">
-        <p class="type-kicker">Switch Ruler Axis or Unit Scale</p>
+        <p class="type-kicker">{shared.modesKicker}</p>
         <h2 id="spoke-modes-heading" class="mt-1.5 type-display-lg text-ink">
-          Explore Other Calibrated Online Ruler Modes
+          {shared.modesHeading}
         </h2>
       </div>
-      <a href="/" class="apple-btn-secondary-pill shrink-0">
-        All-Edge Workspace
+      <a href={localizedPath(locale, '/')} class="apple-btn-secondary-pill shrink-0">
+        {shared.modesAllEdgeBtn}
       </a>
     </div>
 
     <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-      <a href="/cm-ruler" class="apple-utility-card hover:border-primary-focus transition-colors">
-        <p class="type-kicker">Metric · cm</p>
-        <h3 class="mt-1 type-body-strong text-ink">Centimeter Ruler</h3>
-        <p class="mt-1 type-fine-print text-ink-muted-80">1 cm &amp; 0.5 cm scale + cm-to-inch chart</p>
-      </a>
-      <a href="/inch-ruler" class="apple-utility-card hover:border-primary-focus transition-colors">
-        <p class="type-kicker">Imperial · 1/16″</p>
-        <h3 class="mt-1 type-body-strong text-ink">Inch Ruler (12″)</h3>
-        <p class="mt-1 type-fine-print text-ink-muted-80">1/2, 1/4, 1/8, 1/16″ fractions</p>
-      </a>
-      <a href="/mm-ruler" class="apple-utility-card hover:border-primary-focus transition-colors">
-        <p class="type-kicker">Fine Pitch · mm</p>
-        <h3 class="mt-1 type-body-strong text-ink">Millimeter Ruler</h3>
-        <p class="mt-1 type-fine-print text-ink-muted-80">1 mm &amp; 5 mm hardware scale</p>
-      </a>
-      <a href="/horizontal-ruler" class="apple-utility-card hover:border-primary-focus transition-colors">
-        <p class="type-kicker">Top &amp; Bottom</p>
-        <h3 class="mt-1 type-body-strong text-ink">Horizontal Ruler</h3>
-        <p class="mt-1 type-fine-print text-ink-muted-80">Wide spans &amp; CSS pixel (px) scale</p>
-      </a>
-      <a href="/vertical-ruler" class="apple-utility-card hover:border-primary-focus transition-colors">
-        <p class="type-kicker">Left &amp; Right</p>
-        <h3 class="mt-1 type-body-strong text-ink">Vertical Ruler</h3>
-        <p class="mt-1 type-fine-print text-ink-muted-80">Upright height &amp; mobile portrait</p>
-      </a>
+      {
+        shared.modeTiles.map((tile) => (
+          <a href={localizedPath(locale, tile.href)} class="apple-utility-card hover:border-primary-focus transition-colors">
+            <p class="type-kicker">{tile.kicker}</p>
+            <h3 class="mt-1 type-body-strong text-ink">{tile.title}</h3>
+            <p class="mt-1 type-fine-print text-ink-muted-80">{tile.desc}</p>
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>
@@ -275,8 +273,8 @@ const {
           {faqHeading}
         </h2>
       </div>
-      <a href="/faq" class="apple-btn-secondary-pill shrink-0">
-        All Frequently Asked Questions
+      <a href={localizedPath(locale, '/faq')} class="apple-btn-secondary-pill shrink-0">
+        {shared.allFaqsBtn}
       </a>
     </div>
 

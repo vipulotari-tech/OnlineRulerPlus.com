@@ -1,64 +1,16 @@
 ---
-export const faqItems = [
-  {
-    q: 'Is there an online ruler you can use to measure real objects online?',
-    a: 'Yes. Online Ruler Plus turns any desktop monitor, laptop, tablet, or smartphone screen into a free actual-size online ruler calibrated in inches (with 1/16″ fractions), centimeters, and millimeters. Once you match a standard bank card or enter your display diagonal, tick spacing adjusts to your panel’s physical pixel pitch so you can measure physical objects directly on the glass.',
-  },
-  {
-    q: 'How do you use an online ruler?',
-    a: 'First, calibrate your display under Calibrate Your Screen using an ISO/IEC 7810 ID-1 payment card (85.60 × 53.98 mm) or your screen diagonal at 100% browser zoom. Second, pick Inches, cm, mm, or px from the workspace toolbar. Third, align the starting edge of your item with the visible 0 mark inside the screen frame (inset from the bezel), then read the opposite edge directly or click the ruler strip to drop draggable measurement guide lines.',
-  },
-  {
-    q: 'How do you read a ruler online in inches, cm, and mm?',
-    a: 'Start at the 0 datum line, locate the whole unit number just before your object ends, and count the smaller graduation ticks past that number. On the metric scale, numbered centimeters break into ten 1 mm increments with a taller tick at the 5 mm halfway mark. On the imperial inch scale, tick height decreases by fraction: half-inch (1/2″), quarter-inch (1/4″), eighth-inch (1/8″), and sixteenth-inch (1/16″). Moving your pointer across the stage also prints exact coordinates in the top status bar.',
-  },
-  {
-    q: 'How do you identify 1 inch on an online ruler?',
-    a: 'Switch the workspace to Inches (shortcut 2) after calibrating your display, then look at the calibrated distance from 0 to 1—equivalent to exactly 25.4 millimeters (2.54 cm). Do not count 96 CSS pixels on an uncalibrated monitor, because real screen pixel densities vary widely. For a fast sanity check against calibrated screen ticks, a US Quarter measures 0.955 inches (24.26 mm, just under 1 inch) and a US Penny measures exactly 0.75 inches (3/4 inch).',
-  },
-  {
-    q: 'How do you measure cm and mm online?',
-    a: 'Click cm (shortcut 1) or mm (shortcut 4) in the workspace toolbar, or launch the dedicated cm Ruler or mm Ruler page. Hold your item flat against the calibrated screen edge starting at the 0 hairline, read whole centimeters along the numbered ticks, and count individual 1 mm divisions to the nearest edge. Turning on Dual cm/in displays both metric and imperial scales simultaneously for side-by-side conversion.',
-  },
-  {
-    q: 'Can I use my phone as a ruler, and can a smartphone measure objects?',
-    a: 'Yes, within the physical length of your phone display. Modern smartphones pack high-DPI OLED or LCD panels (usually 2x to 3x device pixel ratio), so an uncalibrated 96 PPI web scale renders too small. Open Portrait Card Calibration (53.98 mm short-edge card outline) on your phone first, then place coins, screws, rings, or cards directly on the glass. Items longer than your phone screen—roughly 13 to 16 cm (5 to 6.5 inches)—cannot fit in a single pass and require stepping along a mark or using a physical tape measure.',
-  },
-  {
-    q: 'Can I use my camera as a ruler?',
-    a: 'Online Ruler Plus does not access your camera or process photos; every measurement happens directly against your calibrated screen glass inside the browser. While dedicated mobile apps such as Apple Measure (using LiDAR on supported iPhones/iPads) or Android ARCore rulers estimate room-scale distances through a camera, camera-based measurements are sensitive to lighting, lens perspective, and edge-detection drift. For small parts under a few inches, flat screen-glass contact after calibration avoids depth estimation error.',
-  },
-  {
-    q: 'How do you view or add a ruler in Word Online?',
-    a: 'Online Ruler Plus is an independent browser measurement tool, not a Microsoft Office add-in. Inside Microsoft Word for the web (Word Online), switch to Editing mode rather than Reading View, click the View tab on the top ribbon, and check the Ruler option in the Show group to turn document margin and tab-stop rulers on or off. Word for the web shows the horizontal page ruler across the top of the document in Editing view, whereas desktop Word additionally supports a vertical left margin ruler.',
-  },
-  {
-    q: 'How do you show a ruler in PowerPoint Online?',
-    a: 'In Microsoft PowerPoint for the web (PowerPoint Online), open your deck in Editing view, select the View tab in the ribbon, and enable the Ruler toggle alongside Gridlines or Guides if available in your current web release. Note that slide rulers inside PowerPoint measure virtual slide coordinates (such as a 13.333 × 7.5-inch widescreen layout) rather than actual physical millimeters on your monitor glass.',
-  },
-  {
-    q: 'Why do online rulers require calibration, and does browser zoom break accuracy?',
-    a: 'Web browsers render layout dimensions using a fixed W3C reference ratio of 96 CSS pixels per inch while concealing your monitor’s true physical dimensions for privacy. Because physical desktop panels sit around 82 to 110 CSS PPI and laptops often hit 113 to 142 CSS PPI, uncalibrated web rulers routinely err by 10% to 35%. Online Ruler Plus stores your calibrated physical hardware density (devicePxPerMm) in localStorage and listens for devicePixelRatio changes, automatically rescaling tick spacing if you zoom the page.',
-  },
-  {
-    q: 'Does calibration carry across multiple monitors and stay private?',
-    a: 'Each manual calibration saves locally in browser localStorage keyed by your screen resolution, devicePixelRatio, and platform family. Moving the window to a second monitor with a different size prompts or loads that display’s own saved scale profile. No measurement dimensions, camera streams, or calibration values are uploaded to our servers; cookie and advertising disclosures are detailed on our Privacy Policy page.',
-  },
-];
+import { DEFAULT_LOCALE, localizedPath, type Locale } from '../i18n/config.ts';
+import { getDict, renderInlineMarkup } from '../i18n/index.ts';
 
-const ppiRows = [
-  { device: '13.3" MacBook Air / Pro (Retina)', res: '1440 × 900 CSS (2×)', ppi: '127.7 PPI', pxMm: '5.027 px/mm', err: '−24.8% (draws 7.52 cm)' },
-  { device: '14.2" MacBook Pro (Liquid Retina XDR)', res: '1512 × 982 CSS (2×)', ppi: '127.0 PPI', pxMm: '5.000 px/mm', err: '−24.4% (draws 7.56 cm)' },
-  { device: '15.6" Full HD Laptop (100% Windows Scale)', res: '1920 × 1080 CSS (1×)', ppi: '141.2 PPI', pxMm: '5.559 px/mm', err: '−32.0% (draws 6.80 cm)' },
-  { device: '15.6" Full HD Laptop (125% Windows Scale)', res: '1536 × 864 CSS (1.25×)', ppi: '113.0 PPI', pxMm: '4.448 px/mm', err: '−15.0% (draws 8.50 cm)' },
-  { device: '24" Full HD Desktop Monitor (1080p)', res: '1920 × 1080 CSS (1×)', ppi: '91.8 PPI', pxMm: '3.614 px/mm', err: '+4.6% (draws 10.46 cm)' },
-  { device: '27" Full HD Desktop Monitor (1080p)', res: '1920 × 1080 CSS (1×)', ppi: '81.6 PPI', pxMm: '3.212 px/mm', err: '+17.6% (draws 11.76 cm)' },
-  { device: '27" QHD Monitor (2560 × 1440, 100%)', res: '2560 × 1440 CSS (1×)', ppi: '108.8 PPI', pxMm: '4.283 px/mm', err: '−11.8% (draws 8.82 cm)' },
-  { device: '27" 4K UHD Monitor (200% HiDPI Scale)', res: '1920 × 1080 CSS (2×)', ppi: '81.6 CSS PPI', pxMm: '3.212 px/mm', err: '+17.6% (draws 11.76 cm)' },
-];
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const c = getDict(locale).home;
 ---
 
-<!-- SECTION 1: ONLINE RULER GUIDE (~600 words covering 8 core measurement topics) -->
+<!-- SECTION 1: ONLINE RULER GUIDE -->
 <section
   id="how-it-works"
   aria-labelledby="how-heading"
@@ -68,120 +20,43 @@ const ppiRows = [
     <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
       <div class="max-w-3xl">
         <p class="type-kicker">
-          Practical Screen Metrology · Inches, cm &amp; mm Guide
+          {c.howKicker}
         </p>
         <h2 id="how-heading" class="mt-1.5 type-display-lg text-ink">
-          Online Ruler Guide: Actual-Size Inches, cm &amp; mm
+          {c.howHeading}
         </h2>
       </div>
       <div class="shrink-0">
-        <a href="/how-to-use" class="apple-btn-secondary-pill">
-          Full User Manual
+        <a href={localizedPath(locale, '/how-to-use')} class="apple-btn-secondary-pill">
+          {c.howManualBtn}
         </a>
       </div>
     </div>
 
     <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-      <article class="apple-utility-card flex flex-col justify-between">
-        <div>
-          <span class="type-kicker">01 · Overview</span>
-          <h3 class="mt-2 type-tagline text-ink">What Is an Online Ruler?</h3>
-          <p class="mt-2.5 type-caption text-ink-muted-80">
-            A free online ruler is a calibrated browser instrument that draws true-scale ticks directly on your screen glass in inches, centimeters, millimeters, and CSS pixels. Because web browsers default to 96 CSS pixels per inch regardless of monitor size, uncalibrated tools distort physical dimensions. Local calibration maps real hardware pixel pitch to 1:1 physical length with zero downloads.
-          </p>
-        </div>
-      </article>
-
-      <article class="apple-utility-card flex flex-col justify-between">
-        <div>
-          <span class="type-kicker">02 · Quick Steps</span>
-          <h3 class="mt-2 type-tagline text-ink">How to Use the Online Ruler</h3>
-          <p class="mt-2.5 type-caption text-ink-muted-80">
-            Calibrate once below, pick your preferred unit, and hold any object flat against the workspace canvas. Start from the inset 0 line rather than the monitor bezel so raised frames never clip your edge. Click any ruler strip or stage area to drop draggable blue guide lines that automatically subtract start and end positions into a clear span readout.
-          </p>
-        </div>
-        <a href="#ruler-tool" class="mt-4 type-caption font-semibold text-link hover:underline">
-          Measure in workspace →
-        </a>
-      </article>
-
-      <article class="apple-utility-card flex flex-col justify-between">
-        <div>
-          <span class="type-kicker">03 · US Imperial</span>
-          <h3 class="mt-2 type-tagline text-ink">Measuring in Inches</h3>
-          <p class="mt-2.5 type-caption text-ink-muted-80">
-            In <a href="/inch-ruler" class="text-link hover:underline">Inches mode</a>, every inch (25.4 mm) subdivides into classic 1/2, 1/4, 1/8, and 1/16 graduations for woodworking, shipping boxes, and crafts. Tick heights reflect each reduced denominator automatically. Wide desktop and laptop displays render a continuous 12-inch online ruler span (or expand via fullscreen mode <kbd class="font-mono text-[11px]">F</kbd>) with decimal and fractional readouts.
-          </p>
-        </div>
-        <a href="/inch-ruler" class="mt-4 type-caption font-semibold text-link hover:underline">
-          Open 1/16″ Inch Ruler →
-        </a>
-      </article>
-
-      <article class="apple-utility-card flex flex-col justify-between">
-        <div>
-          <span class="type-kicker">04 · Metric Scale</span>
-          <h3 class="mt-2 type-tagline text-ink">Measuring in Centimeters and Millimeters</h3>
-          <p class="mt-2.5 type-caption text-ink-muted-80">
-            Switch to <a href="/cm-ruler" class="text-link hover:underline">cm</a> for stationery, cards, and packaging (1 cm = 10 mm), or select the <a href="/mm-ruler" class="text-link hover:underline">mm online ruler</a> when checking metric screws, watch lug widths, or 3D-printed tolerances. Need both systems together? Enable Dual cm/in mode in the toolbar to inspect opposing metric and inch edges on one calibrated frame.
-          </p>
-        </div>
-        <a href="/cm-ruler" class="mt-4 type-caption font-semibold text-link hover:underline">
-          Open cm &amp; mm Rulers →
-        </a>
-      </article>
-
-      <article class="apple-utility-card flex flex-col justify-between">
-        <div>
-          <span class="type-kicker">05 · Calibration</span>
-          <h3 class="mt-2 type-tagline text-ink">How to Calibrate an Online Ruler</h3>
-          <p class="mt-2.5 type-caption text-ink-muted-80">
-            Browser privacy limits prevent websites from reading exact monitor panel size automatically. To create an accurate online ruler to scale, hold a standard credit card, debit card, or driver license (ISO/IEC 7810 ID-1: 85.60 × 53.98 mm / 3.370 × 2.125 in) against the calibration box, or enter your screen’s diagonal inches at 100% browser zoom.
-          </p>
-        </div>
-        <a href="#calibration" data-open-calibration="card" class="mt-4 type-caption font-semibold text-link hover:underline">
-          Calibrate with a bank card →
-        </a>
-      </article>
-
-      <article class="apple-utility-card flex flex-col justify-between">
-        <div>
-          <span class="type-kicker">06 · True 1:1 Tips</span>
-          <h3 class="mt-2 type-tagline text-ink">How to Get Actual-Size Measurements</h3>
-          <p class="mt-2.5 type-caption text-ink-muted-80">
-            For reliable real online ruler readings, look straight down perpendicular to the tick mark—viewing at an angle through thick monitor glass shifts readings slightly via optical parallax. Verify calibration quickly with everyday US coins: a Quarter measures 0.955 in (24.26 mm) and a Penny is 0.75 in (19.05 mm). Save mechanical calipers for machining tolerances.
-          </p>
-        </div>
-        <a href="/calibration-guide" class="mt-4 type-caption font-semibold text-link hover:underline">
-          Read calibration guide →
-        </a>
-      </article>
-
-      <article class="apple-utility-card flex flex-col justify-between">
-        <div>
-          <span class="type-kicker">07 · Devices</span>
-          <h3 class="mt-2 type-tagline text-ink">Using an Online Ruler on Mobile and Desktop</h3>
-          <p class="mt-2.5 type-caption text-ink-muted-80">
-            Desktop monitors offer wide horizontal strips for 12-inch spans, keyboard shortcuts, and independent profiles saved per monitor. On smartphones and tablets with narrow screens, switch to Portrait Card Calibration (53.98 mm short card edge) and touch-drag guide lines. Active screen size sets the single-pass limit across both form factors.
-          </p>
-        </div>
-        <a href="/vertical-ruler" class="mt-4 type-caption font-semibold text-link hover:underline">
-          Try mobile-friendly vertical mode →
-        </a>
-      </article>
-
-      <article class="apple-utility-card flex flex-col justify-between">
-        <div>
-          <span class="type-kicker">08 · Quick Answers</span>
-          <h3 class="mt-2 type-tagline text-ink">Common Measurement Questions</h3>
-          <p class="mt-2.5 type-caption text-ink-muted-80">
-            Wondering whether smartphone screens, browser zoom, or cameras work reliably—or how to toggle built-in page rulers inside Microsoft Word Online and PowerPoint Online? Scroll below for direct answers covering phone limits, 1-inch visual checks, metric conversions, camera caveats, and document-editor ruler settings without installing extra extensions.
-          </p>
-        </div>
-        <a href="#faq" class="mt-4 type-caption font-semibold text-link hover:underline">
-          Jump to FAQs ↓
-        </a>
-      </article>
+      {
+        c.howCards.map((card) => (
+          <article class="apple-utility-card flex flex-col justify-between">
+            <div>
+              <span class="type-kicker">{card.kicker}</span>
+              <h3 class="mt-2 type-tagline text-ink">{card.heading}</h3>
+              <p
+                class="mt-2.5 type-caption text-ink-muted-80"
+                set:html={renderInlineMarkup(card.body, locale)}
+              />
+            </div>
+            {card.linkHref && card.linkLabel && (
+              <a
+                href={localizedPath(locale, card.linkHref)}
+                data-open-calibration={card.isCardOpen ? 'card' : undefined}
+                class="mt-4 type-caption font-semibold text-link hover:underline"
+              >
+                {card.linkLabel}
+              </a>
+            )}
+          </article>
+        ))
+      }
     </div>
   </div>
 </section>
@@ -196,18 +71,18 @@ const ppiRows = [
     <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
       <div class="max-w-3xl">
         <p class="font-mono text-xs font-semibold text-primary-on-dark">
-          Display Optics · W3C CSS Reference Pixel vs. Hardware PPI
+          {c.accuracyKicker}
         </p>
         <h2 id="accuracy-heading" class="mt-1.5 type-display-lg text-on-dark">
-          Why Do Screen Rulers Need PPI Calibration?
+          {c.accuracyHeading}
         </h2>
         <p class="mt-3 max-w-2xl type-body text-body-muted">
-          Web layouts treat 1 inch as 96 CSS pixels (3.780 px/mm), yet physical displays range from 81.6 CSS PPI on 27-inch 1080p monitors to over 140 CSS PPI on compact laptops and phones. That difference shifts uncalibrated 10 cm spans by 10% to 35%.
+          {c.accuracyLead}
         </p>
       </div>
       <div class="shrink-0">
-        <a href="/calibration-guide" class="apple-btn-primary">
-          Complete Calibration Guide
+        <a href={localizedPath(locale, '/calibration-guide')} class="apple-btn-primary">
+          {c.accuracyGuideBtn}
         </a>
       </div>
     </div>
@@ -217,19 +92,19 @@ const ppiRows = [
       <div class="space-y-6 lg:col-span-4">
         <div class="rounded-[18px] border border-white/12 bg-surface-tile-2 p-6">
           <h3 class="type-tagline text-on-dark">
-            Physical Verification Objects
+            {c.objectsTitle}
           </h3>
           <p class="mt-2.5 type-caption text-body-muted">
-            Double-check your calibrated online ruler anytime using standardized everyday references: an ISO/IEC 7810 ID-1 payment card (85.60 × 53.98 mm / 3.370 × 2.125 in), a US Quarter (24.26 mm / 0.955 in), a US Nickel (21.21 mm), a US Penny (19.05 mm / 0.75 in), or a 1 Euro coin (23.25 mm).
+            {c.objectsBody}
           </p>
         </div>
 
         <div class="rounded-[18px] border border-white/12 bg-surface-tile-2 p-6">
           <h3 class="type-tagline text-on-dark">
-            Hardware Limitations &amp; Tolerance
+            {c.limitsTitle}
           </h3>
           <p class="mt-2.5 type-caption text-body-muted">
-            Screen measurement is bounded by visible monitor width, display cover-glass thickness (parallax if viewed off-axis), and whole-pixel rounding (~0.1–0.3 mm). Use this tool for everyday objects, shipping parcels, crafts, and UI QA—never as a substitute for certified micrometer or vernier calipers.
+            {c.limitsBody}
           </p>
         </div>
       </div>
@@ -239,10 +114,10 @@ const ppiRows = [
         <div>
           <div>
             <span class="font-mono text-xs font-semibold text-primary-on-dark">
-              Hardware Density Reference
+              {c.ppiKicker}
             </span>
             <h3 class="mt-1 type-tagline text-on-dark">
-              Common Displays &amp; Uncalibrated 96 PPI Error on a 10 cm Line
+              {c.ppiHeading}
             </h3>
           </div>
 
@@ -250,16 +125,19 @@ const ppiRows = [
             <table class="w-full text-left border-collapse">
               <thead>
                 <tr class="border-b border-white/15 font-mono text-[11px] text-body-muted">
-                  <th class="py-2.5 pr-3 font-semibold">Display Panel / Scaling</th>
-                  <th class="py-2.5 px-3 font-semibold">CSS Viewport</th>
-                  <th class="py-2.5 px-3 font-semibold">Effective CSS PPI</th>
-                  <th class="py-2.5 px-3 font-semibold">CSS px/mm</th>
-                  <th class="py-2.5 pl-3 font-semibold">Uncalibrated 96 PPI Error</th>
+                  {c.ppiHeaders.map((header, i) => (
+                    <th class:list={[
+                      'py-2.5 font-semibold',
+                      i === 0 ? 'pr-3' : i === c.ppiHeaders.length - 1 ? 'pl-3' : 'px-3',
+                    ]}>
+                      {header}
+                    </th>
+                  ))}
                 </tr>
               </thead>
               <tbody class="divide-y divide-white/10 font-mono text-xs">
                 {
-                  ppiRows.map((row) => (
+                  c.ppiRows.map((row) => (
                     <tr>
                       <td class="py-3 pr-3 font-sans font-medium text-on-dark">{row.device}</td>
                       <td class="py-3 px-3 text-body-muted">{row.res}</td>
@@ -274,9 +152,10 @@ const ppiRows = [
           </div>
         </div>
 
-        <p class="mt-5 border-t border-white/12 pt-4 type-fine-print text-body-muted">
-          Formula: <code class="font-mono text-on-dark">Effective CSS PPI = √(W_css² + H_css²) / diagonalInches</code> · <code class="font-mono text-on-dark">pxPerMm = CSS_PPI / 25.4</code>. By international NIST / BIPM standard, 1 inch equals exactly 25.4 mm.
-        </p>
+        <p
+          class="mt-5 border-t border-white/12 pt-4 type-fine-print text-body-muted [&_code]:text-on-dark"
+          set:html={renderInlineMarkup(c.ppiFormula, locale)}
+        />
       </div>
     </div>
   </div>
@@ -291,106 +170,48 @@ const ppiRows = [
   <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl">
       <p class="type-kicker">
-        Specialized Measurement Views · Metric, Imperial &amp; Pixel Scales
+        {c.modesKicker}
       </p>
       <h2 id="modes-heading" class="mt-1.5 type-display-lg text-ink">
-        Explore Dedicated Online Ruler Views
+        {c.modesHeading}
       </h2>
       <p class="mt-3 max-w-2xl type-body text-ink-muted-80">
-        Your saved screen calibration automatically applies across every dedicated unit and orientation view below.
+        {c.modesLead}
       </p>
     </div>
 
     <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      <a href="/inch-ruler" class="apple-utility-card group flex flex-col justify-between hover:border-primary-focus transition-colors">
-        <div>
-          <span class="type-kicker">Imperial · 1 in = 25.4 mm · 1/16″ Ticks</span>
-          <h3 class="mt-2 type-tagline text-ink group-hover:text-link">
-            Online Ruler in Inches (12-Inch &amp; 1/16″ Scale)
-          </h3>
-          <p class="mt-2 type-caption text-ink-muted-80">
-            Pre-set imperial scale with reduced 1/16″ cursor fractions, 12-inch desktop guidance, and a complete fraction-to-millimeter lookup chart.
-          </p>
-        </div>
-        <span class="mt-4 inline-flex items-center gap-1 type-caption font-semibold text-link">
-          Open Inches Ruler →
-        </span>
-      </a>
-
-      <a href="/cm-ruler" class="apple-utility-card group flex flex-col justify-between hover:border-primary-focus transition-colors">
-        <div>
-          <span class="type-kicker">Metric · 1 cm = 10 mm = 0.3937 in</span>
-          <h3 class="mt-2 type-tagline text-ink group-hover:text-link">
-            Online Centimeter Ruler (cm)
-          </h3>
-          <p class="mt-2 type-caption text-ink-muted-80">
-            Actual-size metric scale featuring 1 mm and 5 mm ticks, a 1 to 30 cm conversion table, and everyday office/envelope dimensions.
-          </p>
-        </div>
-        <span class="mt-4 inline-flex items-center gap-1 type-caption font-semibold text-link">
-          Open cm Ruler →
-        </span>
-      </a>
-
-      <a href="/mm-ruler" class="apple-utility-card group flex flex-col justify-between hover:border-primary-focus transition-colors">
-        <div>
-          <span class="type-kicker">Fine Pitch · 1 mm &amp; 5 mm Subdivisions</span>
-          <h3 class="mt-2 type-tagline text-ink group-hover:text-link">
-            Online Millimeter Ruler (mm)
-          </h3>
-          <p class="mt-2 type-caption text-ink-muted-80">
-            Fine metric scale built for M2–M10 hardware fasteners, watch straps, coins, O-rings, and small PCB components.
-          </p>
-        </div>
-        <span class="mt-4 inline-flex items-center gap-1 type-caption font-semibold text-link">
-          Open mm Ruler →
-        </span>
-      </a>
-
-      <a href="/horizontal-ruler" class="apple-utility-card group flex flex-col justify-between hover:border-primary-focus transition-colors">
-        <div>
-          <span class="type-kicker">Top &amp; Bottom Edges · CSS Pixel Inspector</span>
-          <h3 class="mt-2 type-tagline text-ink group-hover:text-link">
-            Horizontal Screen &amp; Pixel Ruler
-          </h3>
-          <p class="mt-2 type-caption text-ink-muted-80">
-            Dual horizontal strips spanning top and bottom edges for wide physical items, monitors, and CSS pixel layout checks.
-          </p>
-        </div>
-        <span class="mt-4 inline-flex items-center gap-1 type-caption font-semibold text-link">
-          Open Horizontal Ruler →
-        </span>
-      </a>
-
-      <a href="/vertical-ruler" class="apple-utility-card group flex flex-col justify-between hover:border-primary-focus transition-colors">
-        <div>
-          <span class="type-kicker">Left &amp; Right Edges · Upright Alignment</span>
-          <h3 class="mt-2 type-tagline text-ink group-hover:text-link">
-            Vertical Online Screen Ruler
-          </h3>
-          <p class="mt-2 type-caption text-ink-muted-80">
-            Matched left and right vertical edges for upright items, smartphone portrait screens, and container heights.
-          </p>
-        </div>
-        <span class="mt-4 inline-flex items-center gap-1 type-caption font-semibold text-link">
-          Open Vertical Ruler →
-        </span>
-      </a>
-
-      <div class="apple-utility-card flex flex-col justify-between">
-        <div>
-          <span class="type-kicker">Interactive Overlays · Shortcuts G, C, P</span>
-          <h3 class="mt-2 type-tagline text-ink">
-            Floating Ruler, Guides &amp; 180° Protractor
-          </h3>
-          <p class="mt-2 type-caption text-ink-muted-80">
-            Drop parallel ΔX/ΔY guide lines, rotate a draggable 360° floating ruler inside the stage, or toggle the 180° protractor overlay.
-          </p>
-        </div>
-        <a href="#ruler-tool" class="mt-4 inline-flex items-center gap-1 type-caption font-semibold text-link hover:underline">
-          Launch tools in workspace →
-        </a>
-      </div>
+      {
+        c.modeCards.map((card, idx) => {
+          const isLastStatic = idx === c.modeCards.length - 1 && card.href.startsWith('#');
+          if (isLastStatic) {
+            return (
+              <div class="apple-utility-card flex flex-col justify-between">
+                <div>
+                  <span class="type-kicker">{card.kicker}</span>
+                  <h3 class="mt-2 type-tagline text-ink">{card.heading}</h3>
+                  <p class="mt-2 type-caption text-ink-muted-80">{card.body}</p>
+                </div>
+                <a href={localizedPath(locale, card.href)} class="mt-4 inline-flex items-center gap-1 type-caption font-semibold text-link hover:underline">
+                  {card.linkLabel}
+                </a>
+              </div>
+            );
+          }
+          return (
+            <a href={localizedPath(locale, card.href)} class="apple-utility-card group flex flex-col justify-between hover:border-primary-focus transition-colors">
+              <div>
+                <span class="type-kicker">{card.kicker}</span>
+                <h3 class="mt-2 type-tagline text-ink group-hover:text-link">{card.heading}</h3>
+                <p class="mt-2 type-caption text-ink-muted-80">{card.body}</p>
+              </div>
+              <span class="mt-4 inline-flex items-center gap-1 type-caption font-semibold text-link">
+                {card.linkLabel}
+              </span>
+            </a>
+          );
+        })
+      }
     </div>
   </div>
 </section>
@@ -405,20 +226,20 @@ const ppiRows = [
     <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
       <div class="max-w-3xl">
         <p class="type-kicker">
-          Frequently Asked Questions · Usage, Calibration &amp; Compatibility
+          {c.faqKicker}
         </p>
         <h2 id="faq-heading" class="mt-1.5 type-display-lg text-ink">
-          Frequently Asked Questions About Online Rulers
+          {c.faqHeading}
         </h2>
       </div>
-      <a href="/faq" class="apple-btn-secondary-pill shrink-0">
-        View All 20 FAQs
+      <a href={localizedPath(locale, '/faq')} class="apple-btn-secondary-pill shrink-0">
+        {c.faqViewAllBtn}
       </a>
     </div>
 
     <div class="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
       {
-        faqItems.map((item) => (
+        c.faqs.map((item) => (
           <details open class="group apple-utility-card">
             <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-ink">
               <h3 class="type-body-strong text-ink">{item.q}</h3>

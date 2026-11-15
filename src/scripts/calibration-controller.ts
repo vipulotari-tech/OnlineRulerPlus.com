@@ -19,12 +19,21 @@ import {
   type CalibrationMethod,
   type DisplayInfo,
 } from '../lib/ruler/index.ts';
+import {
+  formatTemplate,
+  getRuntimeDict,
+  translateBasis,
+  translateDeviceLabel,
+  translateError,
+  translateStatusLabel,
+} from '../i18n/runtime.ts';
 import type { WorkspaceController } from './workspace-controller.ts';
 
 export class CalibrationController {
   private readonly workspace: WorkspaceController;
   private activeTab: CalibrationMethod = 'card';
   private cardPortrait = false;
+  private manualCardOrientation = false;
   /** Current card long-edge width in CSS px during interactive sizing. */
   private currentCardWidthPx: number;
   private lastScreenX = window.screenX;
@@ -72,10 +81,11 @@ export class CalibrationController {
   public syncUI(): void {
     const cal = this.workspace.getCalibration();
     const disp = this.workspace.getDisplay();
+    const rt = getRuntimeDict();
 
     // Update all status badges across toolbar and calibration section
     document.querySelectorAll<HTMLElement>('[data-cal-status-label]').forEach((el) => {
-      el.textContent = cal.statusLabel;
+      el.textContent = translateStatusLabel(cal.status, rt);
       el.dataset.status = cal.status;
     });
 
@@ -88,22 +98,21 @@ export class CalibrationController {
     });
 
     document.querySelectorAll<HTMLElement>('[data-cal-device-label]').forEach((el) => {
-      el.textContent = cal.label;
+      el.textContent = translateDeviceLabel(cal.label, rt);
     });
 
     document.querySelectorAll<HTMLElement>('[data-cal-basis]').forEach((el) => {
-      el.textContent = cal.basis;
+      el.textContent = translateBasis(cal.basis, rt);
     });
 
     // Update Auto-Detect telemetry fields
     const autoResult = detectCalibration(disp);
     const autoDeviceEl = document.getElementById('auto-detected-device');
-    if (autoDeviceEl) autoDeviceEl.textContent = autoResult.label;
+    if (autoDeviceEl) autoDeviceEl.textContent = translateDeviceLabel(autoResult.label, rt);
 
     const autoStatusEl = document.getElementById('auto-detected-kind');
     if (autoStatusEl) {
-      autoStatusEl.textContent =
-        autoResult.kind === 'detected' ? 'Device detected' : 'Estimated calibration';
+      autoStatusEl.textContent = translateStatusLabel(autoResult.kind, rt);
       autoStatusEl.dataset.status = autoResult.kind;
     }
 
@@ -121,7 +130,7 @@ export class CalibrationController {
     const autoOrientEl = document.getElementById('auto-detected-orientation');
     if (autoOrientEl) {
       const isLandscape = window.innerWidth >= window.innerHeight;
-      autoOrientEl.textContent = isLandscape ? 'Landscape' : 'Portrait';
+      autoOrientEl.textContent = isLandscape ? rt.orientLandscape : rt.orientPortrait;
     }
 
     // Sync diagonal input if calibrated via diagonal
@@ -185,7 +194,15 @@ export class CalibrationController {
       // Clearing manual profile for this display activates auto-detect
       const nextStore = removeProfileForDisplay(this.workspace.getStore(), disp);
       this.workspace.updateCalibrationStore(nextStore, disp);
-      this.showBanner('Auto-detection applied for current display.', 'info');
+      const rt = getRuntimeDict();
+      const cal = this.workspace.getCalibration();
+      this.showBanner(
+        formatTemplate(rt.autoAppliedBanner, {
+          label: translateDeviceLabel(cal.label, rt),
+          pxPerMm: cal.pxPerMm.toFixed(3),
+        }),
+        'info',
+      );
     });
   }
 
@@ -193,18 +210,24 @@ export class CalibrationController {
     const previewEl = document.getElementById('diagonal-preview');
     const errorEl = document.getElementById('diagonal-error');
     const disp = this.workspace.getDisplay();
+    const rt = getRuntimeDict();
+
+    const formulaText = `CSS PPI = √(${disp.screenWidth}² + ${disp.screenHeight}²) / diagonal`;
 
     const parsed = parseDiagonal(rawValue);
     if (!parsed.ok) {
       if (rawValue.trim() === '') {
         errorEl?.classList.add('hidden');
         if (previewEl) {
-          previewEl.textContent = `Enter diagonal for ${disp.screenWidth} × ${disp.screenHeight} CSS px screen`;
+          previewEl.textContent = rt.enterDiagonalPrompt;
         }
       } else {
         if (errorEl) {
-          errorEl.textContent = parsed.error;
+          errorEl.textContent = translateError(parsed.error, rt);
           errorEl.classList.remove('hidden');
+        }
+        if (previewEl) {
+          previewEl.textContent = formulaText;
         }
       }
       return;
@@ -213,8 +236,11 @@ export class CalibrationController {
     const calc = pxPerMmFromDiagonal(disp.screenWidth, disp.screenHeight, parsed.value);
     if (!calc.ok) {
       if (errorEl) {
-        errorEl.textContent = calc.error;
+        errorEl.textContent = translateError(calc.error, rt);
         errorEl.classList.remove('hidden');
+      }
+      if (previewEl) {
+        previewEl.textContent = formulaText;
       }
       return;
     }
@@ -222,7 +248,10 @@ export class CalibrationController {
     errorEl?.classList.add('hidden');
     if (previewEl) {
       const ppi = cssPpi(calc.value);
-      previewEl.textContent = `Calculated scale: ${ppi.toFixed(1)} CSS PPI (${calc.value.toFixed(3)} px/mm)`;
+      previewEl.textContent = formatTemplate(rt.calculatedScale, {
+        ppi: ppi.toFixed(1),
+        pxPerMm: calc.value.toFixed(3),
+      });
     }
   }
 
@@ -249,9 +278,10 @@ export class CalibrationController {
       e.preventDefault();
       if (!input) return;
       const parsed = parseDiagonal(input.value);
+      const rt = getRuntimeDict();
       if (!parsed.ok) {
         if (errorEl) {
-          errorEl.textContent = parsed.error;
+          errorEl.textContent = translateError(parsed.error, rt);
           errorEl.classList.remove('hidden');
         }
         return;
@@ -261,7 +291,7 @@ export class CalibrationController {
       const calc = pxPerMmFromDiagonal(disp.screenWidth, disp.screenHeight, parsed.value);
       if (!calc.ok) {
         if (errorEl) {
-          errorEl.textContent = calc.error;
+          errorEl.textContent = translateError(calc.error, rt);
           errorEl.classList.remove('hidden');
         }
         return;
@@ -272,14 +302,18 @@ export class CalibrationController {
         disp,
         calc.value,
         'diagonal',
-        `${parsed.value}″ Display Diagonal`,
+        `${parsed.value}″ Screen Diagonal`,
         { diagonalIn: parsed.value },
       );
       const cleanStore = removeProfileForDisplay(this.workspace.getStore(), disp);
       const nextStore = saveProfileToStore(cleanStore, profile);
       this.workspace.updateCalibrationStore(nextStore, disp);
       this.showBanner(
-        `Calibrated to ${cssPpi(calc.value).toFixed(1)} CSS PPI from ${parsed.value}″ diagonal.`,
+        formatTemplate(rt.diagonalSavedBanner, {
+          ppi: cssPpi(calc.value).toFixed(1),
+          pxPerMm: calc.value.toFixed(3),
+          diag: parsed.value,
+        }),
         'info',
       );
     });
@@ -299,7 +333,9 @@ export class CalibrationController {
     const radiusPx = CARD_CORNER_RADIUS_MM * pxPerMm;
 
     if (pxLabel) {
-      pxLabel.textContent = this.cardPortrait ? 'Long Edge (px):' : 'Width (px):';
+      pxLabel.textContent = this.cardPortrait
+        ? (pxLabel.dataset.labelLong ?? 'Long Edge (px):')
+        : (pxLabel.dataset.labelWidth ?? 'Width (px):');
     }
 
     if (box) {
@@ -324,8 +360,8 @@ export class CalibrationController {
     }
     if (orientBtn) {
       orientBtn.textContent = this.cardPortrait
-        ? 'Portrait (53.98 × 85.60 mm)'
-        : 'Landscape (85.60 × 53.98 mm)';
+        ? (orientBtn.dataset.labelPortrait ?? 'Portrait (53.98 × 85.60 mm)')
+        : (orientBtn.dataset.labelLandscape ?? 'Landscape (85.60 × 53.98 mm)');
     }
   }
 
@@ -355,6 +391,17 @@ export class CalibrationController {
       }
     });
 
+    numInput?.addEventListener('change', () => {
+      const v = Number(numInput.value);
+      if (numInput.value.trim() !== '' && Number.isFinite(v)) {
+        const clamped = Math.max(120, Math.min(900, v));
+        this.setCardWidth(clamped);
+        numInput.value = clamped.toFixed(1);
+      } else {
+        numInput.value = this.currentCardWidthPx.toFixed(1);
+      }
+    });
+
     minusBtn?.addEventListener('click', () => {
       this.setCardWidth(this.currentCardWidthPx - 1);
     });
@@ -364,6 +411,7 @@ export class CalibrationController {
     });
 
     orientBtn?.addEventListener('click', () => {
+      this.manualCardOrientation = true;
       this.cardPortrait = !this.cardPortrait;
       this.renderCardBox();
     });
@@ -398,8 +446,14 @@ export class CalibrationController {
       const cleanStore = removeProfileForDisplay(this.workspace.getStore(), disp);
       const nextStore = saveProfileToStore(cleanStore, profile);
       this.workspace.updateCalibrationStore(nextStore, disp);
+      const rt = getRuntimeDict();
+      const cal = this.workspace.getCalibration();
       this.showBanner(
-        `Saved credit card calibration (${cssPpi(res.value).toFixed(1)} CSS PPI).`,
+        formatTemplate(rt.cardSavedBanner, {
+          label: translateDeviceLabel(cal.label, rt),
+          pxPerMm: res.value.toFixed(3),
+          ppi: cssPpi(res.value).toFixed(1),
+        }),
         'info',
       );
     });
@@ -448,7 +502,15 @@ export class CalibrationController {
         this.workspace.updateCalibrationStore(nextStore, disp);
         const diagInput = document.getElementById('input-diagonal') as HTMLInputElement | null;
         if (diagInput) diagInput.value = '';
-        this.showBanner('Calibration reset to automatic display estimate.', 'info');
+        const rt = getRuntimeDict();
+        const cal = this.workspace.getCalibration();
+        this.showBanner(
+          formatTemplate(rt.resetBanner, {
+            label: translateDeviceLabel(cal.label, rt),
+            pxPerMm: cal.pxPerMm.toFixed(3),
+          }),
+          'info',
+        );
       });
     });
   }
@@ -463,30 +525,48 @@ export class CalibrationController {
       this.workspace.refreshForDisplayChange(next);
       this.syncUI();
 
+      const rt = getRuntimeDict();
       if (change === 'orientation') {
-        this.showBanner('Screen orientation updated; ruler dimensions adjusted.', 'info');
+        this.showBanner(
+          formatTemplate(rt.displayOrientationBanner, {
+            w: next.screenWidth,
+            h: next.screenHeight,
+          }),
+          'info',
+        );
       } else if (change === 'zoom') {
         const cal = this.workspace.getCalibration();
         if (cal.rescaledForZoom) {
-          this.showBanner(
-            'Browser zoom or display scaling changed. Your manual calibration was automatically rescaled.',
-            'info',
-          );
+          this.showBanner(rt.displayZoomManualBanner, 'info');
         } else {
           this.showBanner(
-            'Browser zoom or display scaling changed. Verify your ruler calibration before measuring.',
+            formatTemplate(rt.displayZoomAutoBanner, {
+              w: next.screenWidth,
+              h: next.screenHeight,
+            }),
             'warning',
           );
         }
       } else if (change === 'display') {
+        const cal = this.workspace.getCalibration();
         this.showBanner(
-          'Display resolution changed (or window moved to another monitor). Check calibration for this screen.',
+          formatTemplate(rt.displaySwitchedBanner, {
+            w: next.screenWidth,
+            h: next.screenHeight,
+            label: translateDeviceLabel(cal.label, rt),
+          }),
           'warning',
         );
       }
     };
 
-    window.addEventListener('resize', checkDisplay);
+    window.addEventListener('resize', () => {
+      if (!this.manualCardOrientation && (window.innerWidth < 500) !== this.cardPortrait) {
+        this.cardPortrait = window.innerWidth < 500;
+        this.renderCardBox();
+      }
+      checkDisplay();
+    });
     window.screen.orientation?.addEventListener('change', checkDisplay);
 
     // Poll window.screenX/screenY lightly when moving between multi-monitor setups of identical resolution

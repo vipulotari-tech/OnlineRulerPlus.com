@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import RulerWorkspace from '../../components/RulerWorkspace.astro';
+import CalibrationSection from '../../components/CalibrationSection.astro';
+import ContentSections from '../../components/ContentSections.astro';
+import HelpModal from '../../components/HelpModal.astro';
+import Footer from '../../components/Footer.astro';
+import {
+  LOCALE_META,
+  getLocaleStaticPaths,
+  localizedPath,
+  type Locale,
+} from '../../i18n/config.ts';
+import { getDict } from '../../i18n/index.ts';
+
+export function getStaticPaths() {
+  return getLocaleStaticPaths();
+}
+
+const { locale } = Astro.props as { locale: Locale };
+const dict = getDict(locale);
+const meta = LOCALE_META[locale];
+
+const siteOrigin = Astro.site ? Astro.site.origin : 'https://onlinerulerplus.com';
+const routePath = localizedPath(locale, '/');
+const canonicalUrl = routePath === '/' ? `${siteOrigin}/` : `${siteOrigin}${routePath}`;
+const ogImageUrl = `${siteOrigin}/og-image.png`;
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${canonicalUrl}#webpage`,
+    url: canonicalUrl,
+    name: dict.home.title,
+    description: dict.home.description,
+    inLanguage: meta.bcp47,
+    isPartOf: {
+      '@id': `${siteOrigin}/#website`,
+    },
+    about: {
+      '@id': `${canonicalUrl}#app`,
+    },
+    mainEntity: {
+      '@id': `${canonicalUrl}#app`,
+    },
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: ogImageUrl,
+      width: 1200,
+      height: 630,
+    },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.speakable-summary'],
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    '@id': `${canonicalUrl}#app`,
+    name: 'Online Ruler Plus',
+    url: canonicalUrl,
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'Any',
+    browserRequirements: 'Requires HTML5 Canvas and JavaScript',
+    inLanguage: meta.bcp47,
+    isAccessibleForFree: true,
+    description: dict.home.description,
+    screenshot: ogImageUrl,
+    publisher: {
+      '@id': `${siteOrigin}/#organization`,
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    featureList: dict.home.featureList,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${canonicalUrl}#faq`,
+    inLanguage: meta.bcp47,
+    mainEntity: dict.home.faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  locale={locale}
+  title={dict.home.title}
+  description={dict.home.description}
+  canonicalPath="/"
+  skipHref="#ruler-tool"
+  structuredData={structuredData}
+>
+  <Header locale={locale} />
+  <main id="main-content" class="flex-1">
+    <Hero locale={locale} />
+    <RulerWorkspace locale={locale} defaultUnit="cm" />
+    <CalibrationSection locale={locale} />
+    <ContentSections locale={locale} />
+  </main>
+  <HelpModal locale={locale} />
+  <Footer locale={locale} />
+  <script src="../../scripts/app.ts"></script>
+</BaseLayout>

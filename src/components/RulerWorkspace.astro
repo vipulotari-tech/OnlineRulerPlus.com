@@ -1,15 +1,23 @@
 ---
+import { DEFAULT_LOCALE, type Locale } from '../i18n/config.ts';
+import { getDict, renderInlineMarkup } from '../i18n/index.ts';
+
 interface Props {
+  locale?: Locale;
   defaultUnit?: 'cm' | 'mm' | 'in' | 'px';
   forceUnit?: 'cm' | 'mm' | 'in' | 'px';
   forceEdges?: 'horizontal' | 'vertical' | 'all' | 'top-left';
 }
 
 const {
+  locale = DEFAULT_LOCALE,
   defaultUnit = 'cm',
   forceUnit,
   forceEdges,
 } = Astro.props;
+
+const dict = getDict(locale);
+const w = dict.workspace;
 ---
 
 <section
@@ -19,7 +27,7 @@ const {
   class="mx-auto w-full max-w-[1440px] px-4 pt-1 pb-10 sm:px-6 lg:px-8 focus:outline-none"
 >
   <h2 id="workspace-sr-heading" class="sr-only">
-    Interactive Online Screen Ruler Workspace
+    {w.srHeading}
   </h2>
 
   <!-- Display / Zoom Warning Banner -->
@@ -35,11 +43,11 @@ const {
       <span id="display-change-text" class="font-semibold"></span>
     </div>
     <div class="flex items-center gap-3 shrink-0">
-      <a href="#calibration" class="font-semibold text-link underline">Verify Calibration</a>
+      <a href="#calibration" class="font-semibold text-link underline">{w.verifyCalibrationLink}</a>
       <button
         id="btn-dismiss-banner"
         type="button"
-        aria-label="Dismiss notification"
+        aria-label={w.dismissAria}
         class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-surface-pearl text-ink cursor-pointer"
       >
         ×
@@ -51,15 +59,15 @@ const {
   <div class="rounded-t-[18px] border border-b-0 border-hairline bg-canvas-parchment px-3 py-2.5 sm:px-4">
     <div class="flex flex-wrap items-center justify-between gap-2">
       <!-- Pod 1: Unit Selector -->
-      <div class="apple-segmented-pod" role="group" aria-label="Measurement units">
-        <span class="px-1.5 font-mono text-[11px] font-semibold text-ink-muted-48">Unit</span>
+      <div class="apple-segmented-pod" role="group" aria-label={w.unitGroupAria}>
+        <span class="px-1.5 font-mono text-[11px] font-semibold text-ink-muted-48">{w.unitLabel}</span>
         <button
           type="button"
           data-unit-btn="cm"
           aria-pressed="true"
           data-active="true"
           class="apple-option-chip"
-          title="Centimeters with millimeter ticks (Shortcut: 1)"
+          title={w.unitCmTitle}
         >
           cm
         </button>
@@ -69,7 +77,7 @@ const {
           aria-pressed="false"
           data-active="false"
           class="apple-option-chip"
-          title="Millimeters (Shortcut: 4 or M)"
+          title={w.unitMmTitle}
         >
           mm
         </button>
@@ -79,7 +87,7 @@ const {
           aria-pressed="false"
           data-active="false"
           class="apple-option-chip"
-          title="Inches with 1/16 fractional divisions (Shortcut: 2)"
+          title={w.unitInTitle}
         >
           in
         </button>
@@ -89,7 +97,7 @@ const {
           aria-pressed="false"
           data-active="false"
           class="apple-option-chip"
-          title="CSS Pixels (Shortcut: 3)"
+          title={w.unitPxTitle}
         >
           px
         </button>
@@ -99,15 +107,15 @@ const {
           aria-pressed="false"
           data-active="false"
           class="apple-option-chip"
-          title="Show dual cm + inch scales simultaneously"
+          title={w.dualUnitTitle}
         >
-          Dual cm/in
+          {w.dualUnit}
         </button>
       </div>
 
       <!-- Pod 2: Edge Selector -->
-      <div class="apple-segmented-pod" role="group" aria-label="Ruler edge placement">
-        <span class="px-1.5 font-mono text-[11px] font-semibold text-ink-muted-48">Edges</span>
+      <div class="apple-segmented-pod" role="group" aria-label={w.edgesGroupAria}>
+        <span class="px-1.5 font-mono text-[11px] font-semibold text-ink-muted-48">{w.edgesLabel}</span>
         <button
           type="button"
           data-edge-btn="top"
@@ -115,7 +123,7 @@ const {
           data-active="true"
           class="apple-option-chip"
         >
-          Top
+          {w.edgeTop}
         </button>
         <button
           type="button"
@@ -124,7 +132,7 @@ const {
           data-active="false"
           class="apple-option-chip"
         >
-          Bottom
+          {w.edgeBottom}
         </button>
         <button
           type="button"
@@ -133,7 +141,7 @@ const {
           data-active="true"
           class="apple-option-chip"
         >
-          Left
+          {w.edgeLeft}
         </button>
         <button
           type="button"
@@ -142,7 +150,7 @@ const {
           data-active="false"
           class="apple-option-chip"
         >
-          Right
+          {w.edgeRight}
         </button>
         <button
           type="button"
@@ -151,21 +159,21 @@ const {
           data-active="false"
           class="apple-option-chip"
         >
-          All Edges
+          {w.edgeAll}
         </button>
       </div>
 
       <!-- Pod 3: Precision Overlay Tools -->
-      <div class="apple-segmented-pod" role="group" aria-label="Precision overlay tools">
+      <div class="apple-segmented-pod" role="group" aria-label={w.toolsGroupAria}>
         <button
           id="btn-toggle-guides"
           type="button"
           aria-pressed="true"
           data-active="true"
           class="apple-option-chip"
-          title="Toggle click-to-place guide lines (Shortcut: G)"
+          title={w.guidesTitle}
         >
-          <span>Guides</span>
+          <span>{w.guides}</span>
           <kbd class="hidden sm:inline font-mono text-[10px] text-ink-muted-48">G</kbd>
         </button>
         <button
@@ -174,18 +182,18 @@ const {
           aria-pressed="false"
           data-active="false"
           class="apple-option-chip"
-          title="Toggle cursor crosshair (Shortcut: C)"
+          title={w.crosshairTitle}
         >
-          <span>Crosshair</span>
+          <span>{w.crosshair}</span>
           <kbd class="hidden sm:inline font-mono text-[10px] text-ink-muted-48">C</kbd>
         </button>
         <button
           id="btn-add-floating-ruler"
           type="button"
           class="apple-btn-pearl"
-          title="Add a draggable floating ruler inside the workspace"
+          title={w.addFloatingTitle}
         >
-          + Floating Ruler
+          {w.addFloating}
         </button>
         <button
           id="btn-toggle-protractor"
@@ -193,28 +201,30 @@ const {
           aria-pressed="false"
           data-active="false"
           class="apple-option-chip"
-          title="Toggle 180° angle protractor overlay (Shortcut: P)"
+          title={w.protractorTitle}
         >
-          <span>Protractor</span>
+          <span>{w.protractor}</span>
           <kbd class="hidden sm:inline font-mono text-[10px] text-ink-muted-48">P</kbd>
         </button>
         <button
           id="btn-fullscreen"
           type="button"
           aria-pressed="false"
+          data-label-enter={w.fullscreen}
+          data-label-exit={w.fullscreenExit}
           class="apple-btn-pearl"
-          title="Toggle fullscreen measurement workspace (Shortcut: F)"
+          title={w.fullscreenTitle}
         >
-          <span>Fullscreen</span>
+          <span>{w.fullscreen}</span>
           <kbd class="hidden sm:inline font-mono text-[10px] text-ink-muted-48">F</kbd>
         </button>
         <button
           id="btn-clear-guides"
           type="button"
           class="hidden apple-btn-pearl text-error border-error"
-          title="Clear all guide lines (Shortcut: Esc)"
+          title={w.clearGuidesTitle}
         >
-          Clear Guides
+          {w.clearGuides}
         </button>
       </div>
     </div>
@@ -227,27 +237,27 @@ const {
           data-status="estimated"
           class="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-canvas px-2.5 py-0.5 font-mono text-[11px] font-semibold text-ink data-[status=manual]:border-primary-focus data-[status=manual]:text-link"
         >
-          Estimated calibration
+          {w.calDefaultStatus}
         </span>
         <span class="font-mono text-xs text-ink-muted-80">
           <strong data-cal-ppi class="font-semibold text-ink">96.0 PPI</strong>
           <span class="mx-1 text-ink-muted-48">·</span>
-          <span data-cal-device-label class="text-ink-muted-48">Desktop display</span>
+          <span data-cal-device-label class="text-ink-muted-48">{w.calDefaultDevice}</span>
         </span>
         <a
           href="#calibration"
           data-open-calibration="card"
           class="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-link-soft px-2.5 py-0.5 font-mono text-[11px] font-semibold text-link hover:border-primary-focus transition-colors"
         >
-          <span>Calibrate</span>
+          <span>{w.calibrateBtn}</span>
           <span aria-hidden="true">↓</span>
         </a>
       </div>
 
       <div class="flex flex-wrap items-center gap-3 text-ink-muted-80">
         <!-- Guide placement axis -->
-        <div class="flex items-center gap-1" role="group" aria-label="Guide click axis">
-          <span class="font-mono text-[11px] text-ink-muted-48">Guide Axis:</span>
+        <div class="flex items-center gap-1" role="group" aria-label={w.guideAxisAria}>
+          <span class="font-mono text-[11px] text-ink-muted-48">{w.guideAxisLabel}</span>
           <button
             type="button"
             data-guide-axis-btn="x"
@@ -255,7 +265,7 @@ const {
             data-active="true"
             class="rounded-full border border-hairline bg-canvas px-2.5 py-0.5 font-mono text-[11px] text-ink cursor-pointer data-[active=true]:border-primary-focus data-[active=true]:bg-link-soft data-[active=true]:text-link data-[active=true]:font-semibold"
           >
-            Vertical
+            {w.axisVertical}
           </button>
           <button
             type="button"
@@ -264,7 +274,7 @@ const {
             data-active="false"
             class="rounded-full border border-hairline bg-canvas px-2.5 py-0.5 font-mono text-[11px] text-ink cursor-pointer data-[active=true]:border-primary-focus data-[active=true]:bg-link-soft data-[active=true]:text-link data-[active=true]:font-semibold"
           >
-            Horizontal
+            {w.axisHorizontal}
           </button>
           <button
             type="button"
@@ -273,16 +283,16 @@ const {
             data-active="false"
             class="rounded-full border border-hairline bg-canvas px-2.5 py-0.5 font-mono text-[11px] text-ink cursor-pointer data-[active=true]:border-primary-focus data-[active=true]:bg-link-soft data-[active=true]:text-link data-[active=true]:font-semibold"
           >
-            Both
+            {w.axisBoth}
           </button>
         </div>
 
         <!-- Ruler thickness -->
         <label class="flex items-center gap-1.5 font-mono text-[11px]">
-          <span class="text-ink-muted-48">Thickness</span>
+          <span class="text-ink-muted-48">{w.thicknessLabel}</span>
           <select
             id="select-thickness"
-            aria-label="Ruler thickness"
+            aria-label={w.thicknessAria}
             class="rounded-[8px] border border-hairline bg-canvas px-2 py-0.5 font-mono text-[11px] text-ink cursor-pointer"
           >
             <option value="36">36px</option>
@@ -293,14 +303,14 @@ const {
 
         <!-- Ruler opacity -->
         <label class="hidden sm:flex items-center gap-1.5 font-mono text-[11px]">
-          <span class="text-ink-muted-48">Opacity</span>
+          <span class="text-ink-muted-48">{w.opacityLabel}</span>
           <input
             id="slider-opacity"
             type="range"
             min="40"
             max="100"
             value="96"
-            aria-label="Ruler opacity percentage"
+            aria-label={w.opacityAria}
             class="w-16 accent-primary cursor-pointer"
           />
           <span id="label-opacity" class="w-8 text-right font-semibold text-ink">96%</span>
@@ -342,25 +352,25 @@ const {
     <canvas
       id="ruler-canvas-top"
       data-edge="top"
-      aria-label="Top horizontal ruler — click to drop a vertical guide line"
+      aria-label={w.canvasTopAria}
       class="absolute z-10 border-b border-hairline cursor-crosshair"
     ></canvas>
     <canvas
       id="ruler-canvas-bottom"
       data-edge="bottom"
-      aria-label="Bottom horizontal ruler — click to drop a vertical guide line"
+      aria-label={w.canvasBottomAria}
       class="hidden absolute z-10 border-t border-hairline cursor-crosshair"
     ></canvas>
     <canvas
       id="ruler-canvas-left"
       data-edge="left"
-      aria-label="Left vertical ruler — click to drop a horizontal guide line"
+      aria-label={w.canvasLeftAria}
       class="absolute z-10 border-r border-hairline cursor-crosshair"
     ></canvas>
     <canvas
       id="ruler-canvas-right"
       data-edge="right"
-      aria-label="Right vertical ruler — click to drop a horizontal guide line"
+      aria-label={w.canvasRightAria}
       class="hidden absolute z-10 border-l border-hairline cursor-crosshair"
     ></canvas>
 
@@ -409,11 +419,12 @@ const {
       >
         <div class="max-w-sm rounded-[14px] border border-hairline bg-canvas-parchment/90 backdrop-blur-xs px-4 py-3">
           <p class="font-mono text-[11px] font-semibold text-link">
-            Origin (0, 0) · Top-Left Dashed Datum
+            {w.datumTitle}
           </p>
-          <p class="mt-1 type-fine-print text-ink-muted-80">
-            Align your object with the <strong class="font-semibold text-ink">0</strong> tick mark. Click any ruler or grid to drop draggable measurement guides.
-          </p>
+          <p
+            class="mt-1 type-fine-print text-ink-muted-80"
+            set:html={renderInlineMarkup(w.datumBody, locale)}
+          />
         </div>
       </div>
 
@@ -425,7 +436,7 @@ const {
         <div class="flex items-center gap-3 min-w-0">
           <span class="inline-flex items-center gap-2 font-mono text-xs font-semibold text-ink truncate">
             <span class="h-2 w-2 rounded-full bg-link shrink-0"></span>
-            <span id="live-cursor-readout">X: 0.00 cm · Y: 0.00 cm</span>
+            <span id="live-cursor-readout">{w.liveCursorInit}</span>
           </span>
 
           <div id="guide-span-readout" class="hidden flex items-center gap-2 border-l border-hairline pl-3 shrink-0">
@@ -435,13 +446,13 @@ const {
               type="button"
               class="rounded-full bg-primary px-3 py-0.5 font-sans text-xs text-on-primary cursor-pointer"
             >
-              Save to History
+              {w.saveToHistory}
             </button>
           </div>
         </div>
 
         <div class="hidden md:flex items-center gap-2 font-mono text-[11px] text-ink-muted-48 shrink-0">
-          <span>Keys: <kbd class="font-semibold text-ink">1</kbd> cm · <kbd class="font-semibold text-ink">2</kbd> in · <kbd class="font-semibold text-ink">3</kbd> px · <kbd class="font-semibold text-ink">G</kbd> guides · <kbd class="font-semibold text-ink">C</kbd> crosshair · <kbd class="font-semibold text-ink">F</kbd> fullscreen</span>
+          <span set:html={renderInlineMarkup(w.keysHint, locale)} />
         </div>
       </div>
     </div>

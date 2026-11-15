@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import HelpModal from '../../components/HelpModal.astro';
+import Footer from '../../components/Footer.astro';
+import {
+  LOCALE_META,
+  getLocaleStaticPaths,
+  localizedPath,
+  type Locale,
+} from '../../i18n/config.ts';
+import { getDict } from '../../i18n/index.ts';
+
+export function getStaticPaths() {
+  return getLocaleStaticPaths();
+}
+
+const { locale } = Astro.props as { locale: Locale };
+const dict = getDict(locale);
+const page = dict.pages.faq;
+const meta = LOCALE_META[locale];
+
+const siteOrigin = Astro.site ? Astro.site.origin : 'https://onlinerulerplus.com';
+const routePath = localizedPath(locale, '/faq');
+const canonicalUrl = `${siteOrigin}${routePath}`;
+
+const coreFaqs = dict.home.faqs;
+const allFaqItems = [...coreFaqs, ...page.extendedFaqs];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${canonicalUrl}#faq`,
+    inLanguage: meta.bcp47,
+    mainEntity: allFaqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  locale={locale}
+  title={page.title}
+  description={page.description}
+  canonicalPath="/faq"
+  breadcrumbLabel={page.breadcrumbLabel}
+  structuredData={structuredData}
+>
+  <Header
+    locale={locale}
+    subNavTitle={page.subNavTitle}
+    subNavCtaHref={localizedPath(locale, '/#ruler-tool')}
+    subNavCtaLabel={dict.nav.defaultSubNavCta}
+  />
+  <main id="main-content" class="flex-1">
+    <section class="apple-page-hero border-b border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div class="max-w-3xl">
+            <p class="type-kicker">{page.heroKicker}</p>
+            <h1 class="mt-2 type-hero-display text-ink">{page.heroHeadline}</h1>
+            <p class="speakable-summary mt-3 max-w-[62ch] type-lead-airy text-ink-muted-80">
+              {page.heroSummary}
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-3 shrink-0">
+            <a href={localizedPath(locale, '/#ruler-tool')} class="apple-btn-primary">
+              {page.openRulerBtn}
+            </a>
+            <a href={localizedPath(locale, '/calibration-guide')} class="apple-btn-secondary-pill">
+              {page.guideBtn}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="apple-tile-parchment">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="mb-6">
+          <p class="type-kicker">{page.cat1Kicker}</p>
+          <h2 class="mt-1 type-display-md text-ink">{page.cat1Heading}</h2>
+        </div>
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          {
+            coreFaqs.map((item) => (
+              <details open class="group apple-utility-card">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-ink">
+                  <h3 class="type-body-strong text-ink">{item.q}</h3>
+                  <span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-canvas-parchment font-mono text-base text-link group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p class="mt-3 max-w-[65ch] type-body text-ink-muted-80 border-t border-hairline pt-3">
+                  {item.a}
+                </p>
+              </details>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="apple-tile-light border-t border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="mb-6">
+          <p class="type-kicker">{page.cat2Kicker}</p>
+          <h2 class="mt-1 type-display-md text-ink">{page.cat2Heading}</h2>
+        </div>
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          {
+            page.extendedFaqs.map((item) => (
+              <details open class="group apple-utility-card">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-ink">
+                  <h3 class="type-body-strong text-ink">{item.q}</h3>
+                  <span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-canvas-parchment font-mono text-base text-link group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p class="mt-3 max-w-[65ch] type-body text-ink-muted-80 border-t border-hairline pt-3">
+                  {item.a}
+                </p>
+              </details>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+  <HelpModal locale={locale} />
+  <Footer locale={locale} />
+  <script src="../../scripts/app.ts"></script>
+</BaseLayout>

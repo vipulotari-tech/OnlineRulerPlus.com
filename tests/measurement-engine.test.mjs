@@ -266,3 +266,52 @@ test('Platform detection and history storage behave deterministically', () => {
   assert.strictEqual(pointToProtractorAngle(100, 100, 0, 100), 180);
   assert.strictEqual(pointToProtractorAngle(100, 100, 200, 0), 45);
 });
+
+test('Boundary invariants: 1/32 dyadic fractions, zero tick drift over 3000px, and zoom invariance 50%-200%', () => {
+  // 1/2, 1/4, 1/8, 1/16, 1/32 fraction exactness, carry, and Unicode minus for negatives
+  for (const denom of [2, 4, 8, 16, 32]) {
+    for (let n = 0; n <= denom * 2; n++) {
+      const val = n / denom;
+      const f = toFraction(val, denom);
+      const recon = (f.negative ? -1 : 1) * (f.whole + f.numerator / f.denominator);
+      assert.ok(Math.abs(recon - val) < 1e-12);
+    }
+  }
+  assert.deepStrictEqual(toFraction(1.99, 32), { negative: false, whole: 2, numerator: 0, denominator: 32 });
+  assert.strictEqual(formatInchFraction(-2.03125, 32), '−2 1/32 in');
+
+  // Tick non-drift invariant over 3000 CSS px
+  for (const pxPerMm of [2.5, 96 / 25.4, 5.1234, 8.75]) {
+    for (const unit of ['cm', 'mm', 'in', 'px']) {
+      const ticks = generateTicks(3000, unit, pxPerMm);
+      assert.strictEqual(ticks[0].pos, 0);
+      assert.strictEqual(ticks[0].label, '0');
+      const unitPx = pxPerUnit(unit, pxPerMm);
+      for (const tick of ticks) {
+        if (tick.label !== undefined) {
+          assert.ok(Math.abs(tick.pos - Number(tick.label) * unitPx) < 1e-6);
+        }
+      }
+    }
+  }
+
+  // Diagonal parser edge cases
+  assert.strictEqual(parseDiagonal('15,6').ok, true);
+  assert.strictEqual(parseDiagonal('27"').ok, true);
+  assert.strictEqual(parseDiagonal('1e5').ok, false);
+  assert.strictEqual(parseDiagonal('NaN').ok, false);
+  assert.strictEqual(parseDiagonal('60cm').ok, false);
+  assert.strictEqual(parseDiagonal('1,234').ok, false);
+
+  // Device pixel ratio invariance across 50%..200% zoom levels
+  const basePxPerMm = 96 / 25.4;
+  for (const dpr of [0.5, 0.67, 0.75, 0.9, 1, 1.1, 1.25, 1.5, 2]) {
+    const dev = toDevicePxPerMm(basePxPerMm, dpr);
+    const back = fromDevicePxPerMm(dev, dpr);
+    assert.ok(Math.abs(back - basePxPerMm) < 1e-12);
+  }
+
+  // Below-baseline protractor pointer clamping
+  assert.strictEqual(pointToProtractorAngle(100, 100, 200, 150), 0);
+  assert.strictEqual(pointToProtractorAngle(100, 100, 0, 150), 180);
+});

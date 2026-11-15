@@ -1,0 +1,925 @@
+{
+  "meta": {
+    "ogImageAlt": "Online Ruler Plus righello online gratuito a dimensioni reali calibrato in pollici (1/16″), cm e mm",
+    "orgDescription": "Piattaforma web client-side gratuita di righello su schermo a dimensioni reali e calibrazione del display in centimetri (cm), millimetri (mm), frazioni di pollice (1/16″) e pixel CSS.",
+    "knowsAbout": [
+      "Calibrazione righello online su schermo",
+      "Metrologia densità pixel del display (PPI)",
+      "Calibrazione standard con tessera ISO/IEC 7810:2019 ID-1",
+      "Misurazione in centimetri, millimetri e pollici frazionari",
+      "Pixel di riferimento CSS W3C Values and Units"
+    ]
+  },
+  "nav": {
+    "skipToMain": "Vai al contenuto principale",
+    "skipToWorkspace": "Vai all’area di lavoro del righello",
+    "brandHomeAria": "Home di Online Ruler Plus",
+    "defaultSubNavTitle": "Area Righello su Schermo",
+    "defaultSubNavCta": "Calibra",
+    "globalNavAria": "Navigazione principale",
+    "mobileNavAria": "Navigazione mobile",
+    "mobileMenuAria": "Apri o chiudi menu di navigazione",
+    "homeWorkspaceLabel": "Area Principale",
+    "shortcutsBtn": "Scorciatoie",
+    "shortcutsBtnTitle": "Scorciatoie da tastiera e istruzioni (H)",
+    "themeBtn": "Tema",
+    "themeBtnAria": "Cambia tema (D)",
+    "themeBtnTitle": "Attiva/disattiva modalità scura (D)",
+    "languageLabel": "Lingua",
+    "languageTriggerAria": "Seleziona la lingua del sito",
+    "languageMenuAria": "Lingue supportate",
+    "links": {
+      "cmRuler": "Righello cm",
+      "mmRuler": "Righello mm",
+      "inchRuler": "Righello Pollici",
+      "horizontal": "Orizzontale",
+      "vertical": "Verticale",
+      "howToUse": "Come si Usa",
+      "calibrationGuide": "Guida Calibrazione",
+      "faq": "FAQ",
+      "about": "Chi Siamo",
+      "contact": "Contatti",
+      "privacy": "Privacy Policy",
+      "terms": "Termini d’Uso"
+    },
+    "subNav": {
+      "workspace": "Righello",
+      "calibration": "Calibrazione",
+      "howItWorks": "Come Funziona",
+      "ppiTable": "Tabella PPI"
+    }
+  },
+  "footer": {
+    "footnote": "1. La precisione fisica reale richiede la calibrazione dello schermo mediante una tessera standard ISO/IEC 7810 ID-1 (85,60 × 53,98 mm) oppure inserendo la diagonale visibile dello schermo allo zoom 100 % del browser. Senza calibrazione i browser usano 96 pixel CSS per pollice.",
+    "tagline": "Strumento di metrologia su schermo di precisione per misurare oggetti reali in centimetri, millimetri e pollici frazionari da 1/16″. Misurazioni 100 % locali nel browser.",
+    "colModes": "Modalità Righello",
+    "colGuides": "Calibrazione e Guide",
+    "colTools": "Strumenti",
+    "colLegal": "Info e Note Legali",
+    "modeAllEdge": "Tutti i Bordi Attivi",
+    "modeCm": "Righello in Centimetri (cm)",
+    "modeMm": "Righello in Millimetri (mm)",
+    "modeInch": "Righello in Pollici (1/16″)",
+    "modeHorizontal": "Righello Orizzontale",
+    "modeVertical": "Righello Verticale",
+    "guideCard": "Calibrazione con Carta",
+    "guideHowTo": "Manuale d’Uso",
+    "guidePpi": "Riferimento PPI Schermo",
+    "guideFaq": "Domande Frequenti",
+    "toolGuides": "Linee Guida Trascinabili (G)",
+    "toolFractions": "Lettura Frazioni di Pollice",
+    "toolPx": "Ispettore Pixel CSS (px)",
+    "toolProtractor": "Goniometro 180° (P)",
+    "legalAbout": "Informazioni su Online Ruler Plus",
+    "legalContact": "Contatti e Segnalazioni",
+    "legalPrivacy": "Privacy Policy",
+    "legalTerms": "Termini d’Uso",
+    "copyright": "Copyright © {year} OnlineRulerPlus.com. Tutti i diritti riservati.",
+    "constants": "1 in = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)"
+  },
+  "helpModal": {
+    "kicker": "Riferimento Rapido",
+    "title": "Scorciatoie da Tastiera e Controlli",
+    "closeAria": "Chiudi finestra scorciatoie",
+    "escLabel": "Esc",
+    "enableShortcuts": "Abilita scorciatoie a tasto singolo (G, C, P, F, 1–4, D, H)",
+    "gotIt": "Ho capito",
+    "shortcuts": [
+      { "key": "G", "action": "Attiva o disattiva linee guida al clic" },
+      { "key": "C", "action": "Attiva o disattiva mirino del cursore" },
+      { "key": "P", "action": "Mostra/nascondi goniometro da 180°" },
+      { "key": "F", "action": "Attiva o esci da schermo intero" },
+      { "key": "1", "action": "Passa a Centimetri (cm)" },
+      { "key": "2", "action": "Passa a Pollici (in)" },
+      { "key": "3", "action": "Passa a Pixel CSS (px)" },
+      { "key": "4 / M", "action": "Passa a Millimetri (mm)" },
+      { "key": "D", "action": "Cambia modalità chiara / scura" },
+      { "key": "H", "action": "Apri o chiudi questa finestra" },
+      { "key": "Esc", "action": "Cancella linee guida o chiudi finestre" },
+      { "key": "← / →", "action": "Regola larghezza carta di 1 px (Shift per 5 px)" }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Riferimento ISO/IEC 7810 ID-1 · 1 in = 25,4 mm",
+    "headline": "Righello Online a Dimensioni Reali in Pollici, cm e mm",
+    "description": "Strumento calibrato di misurazione su schermo per computer, portatili, tablet e smartphone. Allinea una tessera standard o inserisci la diagonale dello schermo per misurare in scala 1:1.",
+    "primaryCta": "Calibra lo Schermo",
+    "secondaryCta": "Come Misurare"
+  },
+  "workspace": {
+    "srHeading": "Area di Lavoro Interattiva del Righello su Schermo",
+    "verifyCalibrationLink": "Verifica Calibrazione",
+    "dismissAria": "Chiudi avviso",
+    "unitGroupAria": "Unità di misura",
+    "unitLabel": "Unità",
+    "unitCmTitle": "Centimetri con tacche dei millimetri (Scorciatoia: 1)",
+    "unitMmTitle": "Millimetri (Scorciatoia: 4 o M)",
+    "unitInTitle": "Pollici con divisioni frazionarie da 1/16 (Scorciatoia: 2)",
+    "unitPxTitle": "Pixel CSS (Scorciatoia: 3)",
+    "dualUnit": "Doppio cm/in",
+    "dualUnitTitle": "Mostra contemporaneamente scale cm e pollici",
+    "edgesGroupAria": "Posizione bordi del righello",
+    "edgesLabel": "Bordi",
+    "edgeTop": "Alto",
+    "edgeBottom": "Basso",
+    "edgeLeft": "Sinistra",
+    "edgeRight": "Destra",
+    "edgeAll": "Tutti",
+    "toolsGroupAria": "Strumenti di precisione",
+    "guides": "Guide",
+    "guidesTitle": "Attiva linee guida al clic (Scorciatoia: G)",
+    "crosshair": "Mirino",
+    "crosshairTitle": "Attiva mirino del cursore (Scorciatoia: C)",
+    "addFloating": "+ Righello Mobile",
+    "addFloatingTitle": "Aggiungi un righello mobile trascinabile",
+    "protractor": "Goniometro",
+    "protractorTitle": "Attiva goniometro da 180° (Scorciatoia: P)",
+    "fullscreen": "Schermo Intero",
+    "fullscreenExit": "Esci da Schermo Intero",
+    "fullscreenTitle": "Attiva schermo intero (Scorciatoia: F)",
+    "clearGuides": "Pulisci Guide",
+    "clearGuidesTitle": "Elimina tutte le linee guida (Scorciatoia: Esc)",
+    "calDefaultStatus": "Calibrazione stimata",
+    "calDefaultDevice": "Schermo desktop",
+    "calibrateBtn": "Calibra",
+    "guideAxisAria": "Asse di inserimento guide",
+    "guideAxisLabel": "Asse Guide:",
+    "axisVertical": "Verticale",
+    "axisHorizontal": "Orizzontale",
+    "axisBoth": "Entrambi",
+    "thicknessLabel": "Spessore",
+    "thicknessAria": "Spessore del righello",
+    "opacityLabel": "Opacità",
+    "opacityAria": "Percentuale opacità righello",
+    "canvasTopAria": "Righello orizzontale superiore — clicca per inserire una guida verticale",
+    "canvasBottomAria": "Righello orizzontale inferiore — clicca per inserire una guida verticale",
+    "canvasLeftAria": "Righello verticale sinistro — clicca per inserire una guida orizzontale",
+    "canvasRightAria": "Righello verticale destro — clicca per inserire una guida orizzontale",
+    "datumTitle": "Origine (0, 0) · Linea Tratteggiata Alto-Sinistra",
+    "datumBody": "Allinea l’oggetto sul segno [[strong:0]]. Clicca su qualsiasi righello o sulla griglia per posizionare guide trascinabili.",
+    "liveCursorInit": "X: 0.00 cm · Y: 0.00 cm",
+    "saveToHistory": "Salva",
+    "keysHint": "Tasti: [[kbd:1]] cm · [[kbd:2]] in · [[kbd:3]] px · [[kbd:G]] guide · [[kbd:C]] mirino · [[kbd:F]] schermo intero"
+  },
+  "calibration": {
+    "kicker": "Calibrazione Densità · Salvata Localmente per Schermo",
+    "heading": "Calibra lo Schermo per la Scala Fisica Reale",
+    "lead": "I browser assumono in modo predefinito 96 pixel CSS per pollice, valore che raramente corrisponde al pannello reale. Scegli uno dei tre metodi sotto per far coincidere ogni millimetro e frazione di pollice.",
+    "activeScale": "Scala Attiva",
+    "defaultStatus": "Calibrazione stimata",
+    "defaultBasis": "Scala di riferimento CSS (96 px per pollice)",
+    "resetBtn": "Ripristina",
+    "methodsAria": "Metodi di calibrazione dello schermo",
+    "tabCard": "1. Carta Bancaria (Consigliato)",
+    "tabDiagonal": "2. Diagonale Schermo (Pollici)",
+    "tabAutoDetect": "3. Rilevamento Automatico",
+    "cardKicker": "Standard ISO/IEC 7810 ID-1 · 85,60 × 53,98 mm",
+    "cardHeading": "Allinea una Carta Bancaria, di Credito o Documento ID",
+    "cardDesc": "Appoggia una carta di pagamento, patente o carta d’identità elettronica contro il riquadro qui sotto e regolane la larghezza esatta.",
+    "cardOrientTitle": "Passa tra orientamento orizzontale e verticale per schermi stretti",
+    "cardOrientLandscape": "Orizzontale (85.60 × 53.98 mm)",
+    "cardOrientPortrait": "Verticale (53.98 × 85.60 mm)",
+    "cardStageAria": "Area interattiva di calibrazione con tessera. Usa le frecce sinistra e destra per ridimensionare.",
+    "cardDatumNote": "Riferimento alto-sinistra · Contorno fisico 1:1",
+    "cardPlaceTitle": "Appoggia Qui la Carta Fisica",
+    "cardPlaceSub": "Allinea bordo sinistro e superiore · Combacia il bordo esterno",
+    "checklistTitle": "Lista di Controllo Ottico",
+    "checklistSteps": [
+      "[[strong:Tieni la tessera piana:]] Appoggiala a filo con l’angolo in alto a sinistra.",
+      "[[strong:Combacia il bordo esterno:]] Trascina il cursore o premi [[kbd:←]] [[kbd:→]] finché il bordo destro coincide.",
+      "[[strong:Evita la parallasse:]] Guarda perpendicolarmente al bordo destro della carta."
+    ],
+    "cardMinusAria": "Riduci larghezza carta di 1 pixel",
+    "cardSliderAria": "Regola larghezza tessera in pixel",
+    "cardPlusAria": "Aumenta larghezza carta di 1 pixel",
+    "widthPxLabel": "Larghezza (px):",
+    "longEdgePxLabel": "Lato Lungo (px):",
+    "computedScaleLabel": "Scala Calcolata:",
+    "shortcutNote": "Regolazione fine: clicca sull’area carta e premi [[kbd:←]] [[kbd:→]] ([[kbd:Shift]] per passi di 5 px).",
+    "applyBtn": "Applica Calibrazione",
+    "diagKicker": "Calcolo Geometrico · √(L² + A²) / Diagonale",
+    "diagHeading": "Calibra tramite Diagonale Visibile dello Schermo",
+    "diagDesc": "Inserisci la diagonale visibile del pannello in pollici (da angolo ad angolo dentro la cornice, non lo chassis esterno), con zoom browser al 100 %.",
+    "diagPresetsLabel": "Diagonali Comuni (Pollici)",
+    "diagInputLabel": "Diagonale Visibile Schermo (pollici)",
+    "diagPlaceholder": "es. 15.6 o 27",
+    "diagResetBtn": "Ripristina",
+    "diagFormula": "Formula: CSS PPI = √(larghezzaSchermo² + altezzaSchermo²) / diagonalePollici",
+    "diagNotesTitle": "Note di precisione per calibrazione tramite diagonale:",
+    "diagNotes": [
+      "[[strong:Pannello vs scocca:]] Inserisci la diagonale attiva del display (es. 13,6″ o 15,6″), non le dimensioni esterne.",
+      "[[strong:Pixel CSS logici vs pixel fisici:]] I sistemi operativi applicano scaling HiDPI (125 % o 150 % su Windows, Retina su macOS). Con zoom al 100 % la formula usa i pixel CSS riportati."
+    ],
+    "autoKicker": "Telemetria Browser e Database Dispositivi",
+    "autoHeading": "Rilevamento Automatico Dispositivo e Densità",
+    "autoDesc": "Online Ruler Plus esamina risoluzione logica, Device Pixel Ratio (DPR), orientamento e piattaforma per riconoscere profili noti o calcolare una stima iniziale.",
+    "autoDtProfile": "Profilo Rilevato",
+    "autoDtStatus": "Stato Rilevamento",
+    "autoDtDensity": "Densità Stimata",
+    "autoDtSize": "Dimensione CSS Schermo",
+    "autoDtDpr": "Device Pixel Ratio",
+    "autoDtOrient": "Orientamento",
+    "autoChecking": "Analisi schermo…",
+    "autoWhyTitle": "Perché verificare manualmente?",
+    "autoWhyBody": "[[strong:Perché verificare manualmente?]] I browser non leggono la dimensione fisica reale via HDMI/DisplayPort. Prima di misure critiche verifica sempre con una tessera fisica.",
+    "autoApplyBtn": "Usa Scala Rilevata",
+    "verifyKicker": "Calibro di Verifica Fisica",
+    "verifyHeading": "Controlla con Oggetti Comuni",
+    "verifyDesc": "Appoggia una moneta reale su queste sagome scalate in tempo reale per confermare subito la calibrazione.",
+    "coinQuarter": "Quarter US",
+    "coinEuro": "1 Euro €",
+    "coinPenny": "Penny US",
+    "verifyBarLabel": "Barra di Riferimento 50,0 mm (5,0 cm)",
+    "historyKicker": "Registro Locale di Sessione",
+    "historyHeading": "Cronologia Misure",
+    "historyClearBtn": "Svuota",
+    "historyEmpty": "Posiziona due linee guida parallele sul righello e clicca [[strong:Salva]] per registrare le distanze ([[code:ΔX]] / [[code:ΔY]]) localmente sul tuo dispositivo.",
+    "historyFooterLeft": "Archiviazione: solo localStorage",
+    "historyFooterRight": "Zero invio in rete"
+  },
+  "runtime": {
+    "statusLabels": {
+      "detected": "Dispositivo rilevato",
+      "estimated": "Calibrazione stimata",
+      "manual": "Calibrazione manuale"
+    },
+    "orientLandscape": "Orizzontale",
+    "orientPortrait": "Verticale",
+    "rangeLabel": "Intervallo:",
+    "angleLabel": "Angolo:",
+    "removeGuideAria": "Rimuovi linea guida",
+    "rotateFloatingTitle": "Ruota di 90°",
+    "rotateFloatingAria": "Ruota righello mobile",
+    "removeFloatingTitle": "Rimuovi righello mobile",
+    "removeFloatingAria": "Rimuovi righello mobile",
+    "closeProtractorAria": "Chiudi goniometro",
+    "spanSaved": "Salvato",
+    "spanGuideLabel": "Distanza guide {axis}",
+    "autoAppliedBanner": "Rilevamento automatico applicato per questo schermo.",
+    "cardSavedBanner": "Calibrazione con tessera salvata ({ppi} CSS PPI · {pxPerMm} px/mm).",
+    "diagonalSavedBanner": "Calibrato su schermo da {diag}″ ({ppi} CSS PPI · {pxPerMm} px/mm).",
+    "resetBanner": "Calibrazione ripristinata alla stima automatica.",
+    "displayOrientationBanner": "Orientamento aggiornato; dimensioni del righello adeguate.",
+    "displayZoomManualBanner": "Zoom o scala modificati; calibrazione manuale adeguata automaticamente.",
+    "displayZoomAutoBanner": "Scala dello schermo modificata; righello riadattato automaticamente.",
+    "displaySwitchedBanner": "Cambio monitor rilevato ({w}×{h}). Verifica di nuovo la calibrazione.",
+    "enterDiagonalPrompt": "Inserisci diagonale per schermo {w} × {h} CSS px",
+    "calculatedScale": "Scala calcolata: {ppi} CSS PPI ({pxPerMm} px/mm)",
+    "basisMap": {
+      "CSS reference scale (96 px per inch)": "Scala CSS di riferimento (96 px per pollice)",
+      "Matched a known screen configuration": "Configurazione schermo conosciuta",
+      "Several devices share this configuration": "Più dispositivi condividono questa configurazione",
+      "Typical iPhone density": "Densità tipica iPhone",
+      "Typical iPad density": "Densità tipica iPad",
+      "Android nominal density (160 dp per inch)": "Densità nominale Android (160 dp per pollice)",
+      "Typical Retina Mac at a scaled resolution": "Mac Retina tipico con risoluzione scalata",
+      "Typical density at default OS scaling": "Densità tipica con scaling di sistema predefinito",
+      "Manual calibration adjusted for current zoom or scaling": "Calibrazione manuale adattata a zoom o scaling attuali",
+      "Calibrated against an ISO/IEC 7810 ID-1 card (85.60 × 53.98 mm)": "Calibrato con tessera ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)",
+      "Calibrated from entered display diagonal": "Calibrato dalla diagonale inserita"
+    },
+    "deviceLabelMap": {
+      "Desktop display": "Schermo desktop",
+      "iPhone (model not identified)": "iPhone (modello non identificato)",
+      "iPad (model not identified)": "iPad (modello non identificato)",
+      "Android device": "Dispositivo Android",
+      "Mac with Retina display": "Mac con display Retina",
+      "Scaled laptop or desktop display": "Laptop o monitor con scaling attivo",
+      "Credit card calibration": "Calibrazione con tessera"
+    },
+    "errorMap": {
+      "Enter your screen diagonal in inches.": "Inserisci la diagonale dello schermo in pollici.",
+      "Use a number such as 15.6.": "Usa un numero valido come 15.6.",
+      "The diagonal must be greater than zero.": "La diagonale deve essere maggiore di zero.",
+      "Enter a diagonal between 4 and 120 inches.": "Inserisci una diagonale tra 4 e 120 pollici.",
+      "Screen dimensions are unavailable.": "Dimensioni dello schermo non disponibili.",
+      "That diagonal gives an implausible pixel density. Check the value and your browser zoom.": "Questa diagonale produce una densità non plausibile. Controlla valore e zoom.",
+      "Card width must be greater than zero.": "La larghezza della tessera deve essere maggiore di zero.",
+      "Card size must be greater than zero.": "La dimensione della tessera deve essere maggiore di zero.",
+      "That card size is outside the plausible range.": "Dimensione della tessera fuori intervallo plausibile."
+    },
+    "displaySizeSuffix": "Display {long}×{short}",
+    "typMonitorBasis": "Stima su tipico monitor da {diag}″ con questa risoluzione",
+    "manualDiagBasis": "Diagonale Schermo {diag}″"
+  },
+  "home": {
+    "title": "Righello Online | Righello Gratis Reale in Pollici, cm & mm",
+    "description": "Misura lunghezze fisiche reali in pollici (1/16″), cm e mm con il nostro righello online gratuito a dimensioni reali. Calibra con una tessera o diagonale.",
+    "featureList": [
+      "Righelli in pollici frazionari (1/16″), centimetri (cm), millimetri (mm) e pixel CSS (px)",
+      "Calibrazione con carta ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)",
+      "Calibrazione diagonale schermo e rilevamento automatico densità",
+      "Righelli superiore, inferiore, sinistro, destro e righello mobile",
+      "Guide trascinabili al clic, mirino, goniometro 180° e schermo intero"
+    ],
+    "howKicker": "Metrologia Pratica su Schermo · Guida Pollici, cm & mm",
+    "howHeading": "Guida Righello Online: Pollici, cm e mm a Dimensioni Reali",
+    "howManualBtn": "Manuale Completo",
+    "howCards": [
+      { "kicker": "01 · Panoramica", "heading": "Cos’è un righello online?", "body": "Un righello online gratuito è uno strumento calibrato nel browser che disegna tacche a scala reale sullo schermo in pollici, cm, mm e pixel CSS, superando il limite fisso dei 96 px/pollice senza download." },
+      { "kicker": "02 · Passi Rapidi", "heading": "Come usare il righello online", "body": "Calibra sotto una volta sola, scegli l’unità e appoggia l’oggetto sullo 0 interno (non sulla cornice del monitor). Clicca per posizionare guide blu con calcolo ΔX/ΔY.", "linkHref": "#ruler-tool", "linkLabel": "Misura nell’area di lavoro" },
+      { "kicker": "03 · Sistema Imperiale", "heading": "Misurare in pollici", "body": "In [[link:/inch-ruler|modalità Pollici]] ogni pollice (25,4 mm) si divide in 1/2, 1/4, 1/8 e 1/16. Gli schermi larghi arrivano a 12 pollici continui a schermo intero ([[kbd:F]]).", "linkHref": "/inch-ruler", "linkLabel": "Apri Righello Pollici 1/16″" },
+      { "kicker": "04 · Scala Metrica", "heading": "Misurare in centimetri e millimetri", "body": "Usa [[link:/cm-ruler|cm]] per oggetti comuni o il [[link:/mm-ruler|righello in mm]] per viti metriche e cinturini. Con Doppio cm/in confronti entrambe le scale.", "linkHref": "/cm-ruler", "linkLabel": "Apri Righelli cm & mm" },
+      { "kicker": "05 · Calibrazione", "heading": "Come calibrare il righello online", "body": "Per privacy i browser non espongono la dimensione fisica del monitor. Appoggia una carta bancaria (85,60 × 53,98 mm) sul riquadro o inserisci la diagonale allo zoom 100 %.", "linkHref": "#calibration", "linkLabel": "Calibra con tessera", "isCardOpen": true },
+      { "kicker": "06 · Consigli 1:1", "heading": "Ottenere misure reali affidabili", "body": "Guarda sempre perpendicolarmente alle tacche per evitare parallasse del vetro. Verifica subito con 1 Euro (23,25 mm) o 2 Euro (25,75 mm).", "linkHref": "/calibration-guide", "linkLabel": "Leggi guida calibrazione" },
+      { "kicker": "07 · Dispositivi", "heading": "Righello su smartphone e desktop", "body": "Su PC trovi fino a 12 pollici e profili per ogni monitor. Su telefono passa alla Calibrazione Carta Verticale (53,98 mm).", "linkHref": "/vertical-ruler", "linkLabel": "Prova modalità verticale mobile" },
+      { "kicker": "08 · Risposte Rapide", "heading": "Domande comuni di misurazione", "body": "Dubbi su limiti dello smartphone, zoom, fotocamera o righello in Word Online e PowerPoint Online? Trovi tutto qui sotto.", "linkHref": "#faq", "linkLabel": "Vai alle FAQ ↓" }
+    ],
+    "accuracyKicker": "Ottica Display · Pixel CSS W3C vs PPI Hardware",
+    "accuracyHeading": "Perché i Righelli su Schermo Richiedono Calibrazione PPI?",
+    "accuracyLead": "Il web assume 96 pixel CSS per pollice (3,780 px/mm), ma gli schermi reali vanno da 81,6 CSS PPI sui 27″ 1080p a oltre 140 CSS PPI sui portatili e telefoni, causando errori del 10–35 % senza calibrazione.",
+    "accuracyGuideBtn": "Guida Completa alla Calibrazione",
+    "objectsTitle": "Oggetti Fisici di Verifica",
+    "objectsBody": "Controlla subito la scala con tessera ID-1 (85,60 × 53,98 mm), moneta da 1 Euro (23,25 mm), 2 Euro (25,75 mm) o Quarter US (24,26 mm).",
+    "limitsTitle": "Limiti Hardware e Tolleranze",
+    "limitsBody": "Precisione legata a larghezza display, parallaxe del vetro e arrotondamento pixel (~0,1–0,3 mm). Usa un calibro meccanico per lavorazioni di precisione.",
+    "ppiKicker": "Riferimento Densità Hardware",
+    "ppiHeading": "Schermi Comuni ed Errore a 96 PPI su 10 cm senza Calibrazione",
+    "ppiHeaders": ["Pannello / Scaling", "Viewport CSS", "CSS PPI Effettivo", "CSS px/mm", "Errore 96 PPI non calibrato"],
+    "ppiRows": [
+      { "device": "13.3\" MacBook Air / Pro (Retina)", "res": "1440 × 900 CSS (2×)", "ppi": "127.7 PPI", "pxMm": "5.027 px/mm", "err": "−24,8 % (disegna 7,52 cm)" },
+      { "device": "14.2\" MacBook Pro (Liquid Retina XDR)", "res": "1512 × 982 CSS (2×)", "ppi": "127.0 PPI", "pxMm": "5.000 px/mm", "err": "−24,4 % (disegna 7,56 cm)" },
+      { "device": "Portatile 15.6\" Full HD (Windows 100 %)", "res": "1920 × 1080 CSS (1×)", "ppi": "141.2 PPI", "pxMm": "5.559 px/mm", "err": "−32,0 % (disegna 6,80 cm)" },
+      { "device": "Portatile 15.6\" Full HD (Windows 125 %)", "res": "1536 × 864 CSS (1.25×)", "ppi": "113.0 PPI", "pxMm": "4.448 px/mm", "err": "−15,0 % (disegna 8,50 cm)" },
+      { "device": "Monitor 24\" Full HD (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "91.8 PPI", "pxMm": "3.614 px/mm", "err": "+4,6 % (disegna 10,46 cm)" },
+      { "device": "Monitor 27\" Full HD (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "81.6 PPI", "pxMm": "3.212 px/mm", "err": "+17,6 % (disegna 11,76 cm)" },
+      { "device": "Monitor 27\" QHD (2560 × 1440, 100 %)", "res": "2560 × 1440 CSS (1×)", "ppi": "108.8 PPI", "pxMm": "4.283 px/mm", "err": "−11,8 % (disegna 8,82 cm)" },
+      { "device": "Monitor 27\" 4K UHD (HiDPI 200 %)", "res": "1920 × 1080 CSS (2×)", "ppi": "81.6 CSS PPI", "pxMm": "3.212 px/mm", "err": "+17,6 % (disegna 11,76 cm)" }
+    ],
+    "ppiFormula": "Formula: [[code:CSS PPI effettivo = √(W_css² + H_css²) / diagonalePollici]] · [[code:pxPerMm = CSS_PPI / 25.4]]. Per norma NIST/BIPM, 1 pollice = 25,4 mm esatti.",
+    "modesKicker": "Viste Dedicate · Scale Metriche, Imperiali e Pixel",
+    "modesHeading": "Esplora le Modalità Dedicate del Righello",
+    "modesLead": "La tua calibrazione salvata si applica automaticamente a ogni vista.",
+    "modeCards": [
+      { "kicker": "Imperiale · 1 in = 25,4 mm · 1/16″", "heading": "Righello in Pollici (12″ & 1/16″)", "body": "Scala imperiale con frazioni ridotte 1/16″ e tabella completa di conversione in mm.", "href": "/inch-ruler", "linkLabel": "Apri Righello Pollici" },
+      { "kicker": "Metrico · 1 cm = 10 mm", "heading": "Righello in Centimetri (cm)", "body": "Scala metrica reale con suddivisioni 1 mm e 5 mm e tabella 1–30 cm.", "href": "/cm-ruler", "linkLabel": "Apri Righello cm" },
+      { "kicker": "Passo Fine · 1 mm & 5 mm", "heading": "Righello in Millimetri (mm)", "body": "Ideale per viti M2–M10, cinturini orologio, monete e componenti PCB.", "href": "/mm-ruler", "linkLabel": "Apri Righello mm" },
+      { "kicker": "Alto & Basso · Pixel CSS", "heading": "Righello Orizzontale e Pixel CSS", "body": "Doppie barre orizzontali per oggetti larghi e controlli layout web in px.", "href": "/horizontal-ruler", "linkLabel": "Apri Righello Orizzontale" },
+      { "kicker": "Sinistra & Destra · Altezza", "heading": "Righello Verticale su Schermo", "body": "Bordi verticali abbinati per oggetti in piedi e uso verticale su smartphone.", "href": "/vertical-ruler", "linkLabel": "Apri Righello Verticale" },
+      { "kicker": "Strumenti · Tasti G, C, P", "heading": "Righello Mobile, Guide e Goniometro 180°", "body": "Posiziona guide ΔX/ΔY, ruota il righello mobile a 360° o apri il goniometro 180°.", "href": "#ruler-tool", "linkLabel": "Avvia gli strumenti sopra" }
+    ],
+    "faqKicker": "Domande Frequenti · Uso, Calibrazione e Compatibilità",
+    "faqHeading": "Domande Frequenti sui Righelli Online",
+    "faqViewAllBtn": "Vedi tutte le 20 FAQ",
+    "faqs": [
+      { "q": "Esiste un righello online per misurare oggetti reali?", "a": "Sì. Online Ruler Plus trasforma qualsiasi schermo in un righello reale calibrato in pollici (1/16″), cm e mm tramite tessera bancaria o diagonale." },
+      { "q": "Come si usa un righello online?", "a": "Calibra lo schermo sotto con una tessera ISO/IEC 7810 ID-1 (85,60 × 53,98 mm), scegli l’unità e allinea l’oggetto allo 0 interno o usa due guide." },
+      { "q": "Come si legge un righello in pollici, cm e mm?", "a": "Parti dallo 0, individua l’unità intera e conta le tacche successive (1 mm in metrico; 1/2, 1/4, 1/8, 1/16″ in pollici)." },
+      { "q": "Come individuare 1 pollice sul righello?", "a": "Seleziona Pollici (tasto 2) dopo la calibrazione: da 0 a 1 equivale a 25,4 mm. Un Penny US misura esattamente 0,75″ e 1 Euro misura 23,25 mm." },
+      { "q": "Come misurare cm e mm online?", "a": "Premi cm (1) o mm (4) oppure attiva Doppio cm/in per confrontare metrico e imperiale insieme." },
+      { "q": "Posso usare il cellulare come righello?", "a": "Sì, entro la lunghezza dello schermo (~13–16 cm) usando prima la Calibrazione Carta Verticale (53,98 mm)." },
+      { "q": "Posso usare la fotocamera come righello?", "a": "Online Ruler Plus non usa la fotocamera: poggiare piccoli oggetti sullo schermo calibrato evita errori di prospettiva e profondità." },
+      { "q": "Come si mostra il righello in Word Online?", "a": "In Word per il web passa alla modalità Modifica, apri Visualizza sulla barra e spunta Righello." },
+      { "q": "Come si attiva il righello in PowerPoint Online?", "a": "In PowerPoint web in Modifica apri Visualizza e attiva Righello (misura le coordinate della diapositiva, non i mm fisici)." },
+      { "q": "Perché serve la calibrazione e lo zoom influisce?", "a": "I browser usano 96 px/pollice di base. Salvando devicePxPerMm, l’app compensa automaticamente eventuali cambi di zoom." },
+      { "q": "La calibrazione resta privata e funziona su più monitor?", "a": "Sì, ogni profilo resta salvato esclusivamente in localStorage sul dispositivo." }
+    ]
+  },
+  "spokeShared": {
+    "calibrationGuideBtn": "Guida Calibrazione & PPI",
+    "modesKicker": "Cambia Asse o Unità di Scala",
+    "modesHeading": "Esplora Altre Modalità Calibrate di Righello",
+    "modesAllEdgeBtn": "Area Tutti i Bordi",
+    "modeTiles": [
+      { "href": "/cm-ruler", "kicker": "Metrico · cm", "title": "Righello Centimetri", "desc": "Scala 1 cm & 0,5 cm + tabella cm-in" },
+      { "href": "/inch-ruler", "kicker": "Imperiale · 1/16″", "title": "Righello Pollici (12″)", "desc": "Frazioni 1/2, 1/4, 1/8, 1/16″" },
+      { "href": "/mm-ruler", "kicker": "Passo Fine · mm", "title": "Righello Millimetri", "desc": "Scala hardware 1 mm & 5 mm" },
+      { "href": "/horizontal-ruler", "kicker": "Alto & Basso", "title": "Righello Orizzontale", "desc": "Oggetti larghi & pixel CSS (px)" },
+      { "href": "/vertical-ruler", "kicker": "Sinistra & Destra", "title": "Righello Verticale", "desc": "Altezze e ritratto smartphone" }
+    ],
+    "allFaqsBtn": "Tutte le Domande Frequenti"
+  },
+  "pages": {
+    "cmRuler": {
+      "title": "Righello CM Online | Centimetri Reali & Tabella cm-in",
+      "description": "Righello online in centimetri (cm) calibrato con tacche da 1 mm e 5 mm, tabella 1–30 cm e calibrazione tessera ISO/IEC 7810.",
+      "schemaName": "Righello Online in Centimetri (cm) — Online Ruler Plus",
+      "featureList": [
+        "Righello cm reale con suddivisioni 1 mm e 5 mm",
+        "Confronto simultaneo Doppio cm/pollici",
+        "Calibrazione ISO/IEC 7810 ID-1 (8,56 × 5,40 cm)",
+        "Tabella conversione 1–30 cm in pollici e 1/16″"
+      ],
+      "subNavTitle": "Righello Centimetri (cm)",
+      "breadcrumbLabel": "Righello Centimetri (cm)",
+      "hero": {
+        "eyebrow": "Scala Metrica · 1 cm = 10 mm · Suddivisioni 0,5 cm & 1 mm",
+        "headline": "Righello Online in Centimetri (cm) a Dimensioni Reali",
+        "description": "Righello metrico calibrato con numeri ogni 1 cm, tacche medie da 0,5 cm e fini da 1 mm, più tabella completa 1–30 cm."
+      },
+      "guideKicker": "Metrologia Metrica su Schermo · Scala SI",
+      "guideHeading": "Come Misurare in Centimetri e Convertire cm in Pollici",
+      "guideLead": "Trasforma portatile, monitor o telefono in una scala metrica 1:1 precisa al millimetro.",
+      "cards": [
+        { "step": "1", "kicker": "Scala Metrica · 1 cm = 10 mm", "heading": "Come è suddiviso il righello in cm?", "body": "Ogni centimetro è diviso in 10 tacche da 1 mm con tacca media a 0,5 cm. Dopo la calibrazione con carta da 8,56 cm, 10 cm su schermo misurano esattamente 100,0 mm.", "linkHref": "#calibration", "linkLabel": "Calibra scala in cm" },
+        { "step": "2", "kicker": "Conversione SI · 1 in = 2,54 cm", "heading": "Come convertire i cm in pollici con esattezza?", "body": "Per norma NIST/BIPM 1 pollice = 2,54 cm esatti. Dividi per 2,54 (es. 15 cm = 5,9055 in, 30 cm = 11,8110 in) o usa Doppio cm/in.", "linkHref": "#accuracy-guide", "linkLabel": "Vedi tabella cm-pollici" },
+        { "step": "3", "kicker": "Verifica · Oggetti Comuni", "heading": "Quali oggetti verificano il righello in cm?", "body": "Una carta ID-1 misura 8,56 × 5,40 cm, una pila AA 5,05 cm, 1 Euro 2,325 cm e un foglio A4 lato corto 21,0 cm.", "linkHref": "/mm-ruler", "linkLabel": "Passa al righello fine 1 mm" }
+      ],
+      "darkKicker": "Conversione Centimetri-Pollici · 1 in = 2,54 cm",
+      "darkHeading": "Guida di Riferimento Centimetri (cm), Pollici e Millimetri",
+      "darkLead": "Costanti esatte SI da consultare insieme al righello interattivo.",
+      "darkCards": [
+        { "heading": "Perché 1 pollice equivale esattamente a 2,54 cm?", "body": "Valore internazionale fissato nel 1959; tutte le coordinate usano un’unica base millimetrica (pxPerMm) senza errori di arrotondamento." },
+        { "heading": "Quanto di un righello da 30 cm entra nello schermo?", "body": "Su laptop da 14″ a schermo intero (F) quasi 30 cm; su 15,6″ e monitor 24–27″ tutti i 30 cm comodamente." },
+        { "heading": "Quando preferire la modalità cm o mm?", "body": "cm mostra due decimali (es. 8,56 cm) per buste e pacchi; premi 4 o M per passare a mm su viti M3–M10 o cinturini." }
+      ],
+      "table": {
+        "kicker": "Tabella Metrico-Imperiale",
+        "heading": "Centimetri (cm) in Millimetri (mm), Pollici Decimali e Frazioni 1/16″",
+        "headers": ["Centimetri (cm)", "Millimetri (mm)", "Pollici (in)", "1/16″ Vicino", "Riferimento Comune"],
+        "rows": [
+          ["1 cm", "10.0 mm", "0.3937 in", "3/8 in (0.375″)", "Diametro batteria AAA (~1,05 cm)"],
+          ["2 cm", "20.0 mm", "0.7874 in", "13/16 in (0.813″)", "Diametro Penny US 1,905 cm (19,05 mm)"],
+          ["2.54 cm", "25.4 mm", "1.0000 in", "1 in (esatto)", "Definizione esatta di 1 pollice"],
+          ["5 cm", "50.0 mm", "1.9685 in", "1 15/16 in (1.938″)", "Lunghezza batteria AA (5,05 cm)"],
+          ["5.40 cm", "53.98 mm", "2.1252 in", "2 1/8 in (2.125″)", "Altezza carta ISO/IEC 7810 ID-1"],
+          ["8.56 cm", "85.60 mm", "3.3701 in", "3 3/8 in (3.375″)", "Larghezza carta ISO/IEC 7810 ID-1"],
+          ["10 cm", "100.0 mm", "3.9370 in", "3 15/16 in (3.938″)", "1 decimetro (100 mm)"],
+          ["15 cm", "150.0 mm", "5.9055 in", "5 7/8 in (5.875″)", "Righello tascabile / banconota US (15,6 cm)"],
+          ["20 cm", "200.0 mm", "7.8740 in", "7 7/8 in (7.875″)", "Larghezza foglio A4 = 21,0 cm"],
+          ["25 cm", "250.0 mm", "9.8425 in", "9 13/16 in (9.813″)", "Quarto di metro per hobbistica"],
+          ["30 cm", "300.0 mm", "11.8110 in", "11 13/16 in (11.813″)", "Righello scolastico standard 30 cm"],
+          ["30.48 cm", "304.8 mm", "12.0000 in", "12 in (1 piede esatto)", "Equivalente metrico di 12 pollici"]
+        ],
+        "footnote": "Formule: mm = cm × 10 · in = cm ÷ 2,54 · cm = in × 2,54."
+      },
+      "faqKicker": "FAQ Righello in Centimetri",
+      "faqHeading": "Domande Comuni sul Righello Online in Centimetri",
+      "faqs": [
+        { "q": "Come ottengo un righello in cm a dimensioni reali?", "a": "Allinea la tua carta da 8,56 cm nella sezione Calibra lo Schermo e premi Applica Calibrazione." },
+        { "q": "Quanti cm ci sono in 1 pollice e in 12 pollici?", "a": "1 pollice = 2,54 cm; 12 pollici = 30,48 cm (4,8 mm in più rispetto a 30 cm)." },
+        { "q": "Come si leggono i millimetri sul righello in cm?", "a": "Ogni cm ha 10 tacche da 1 mm con tacca media a 0,5 cm (5 mm)." },
+        { "q": "Posso misurare in cm su iPhone, iPad o Android?", "a": "Sì, imposta la tessera su Verticale (5,40 × 8,56 cm) sui telefoni stretti." }
+      ]
+    },
+    "mmRuler": {
+      "title": "Righello MM Online | Righello Schermo Calibrato in Millimetri",
+      "description": "Righello online in millimetri (mm) con tacche da 1 mm e 5 mm, tabella viti M2–M10 e anse orologi, e calibrazione con tessera.",
+      "schemaName": "Righello Online in Millimetri (mm) — Online Ruler Plus",
+      "featureList": [
+        "Righello mm reale con suddivisioni 1 mm e 5 mm",
+        "Risoluzione 0,1 mm per cursore e guide ΔX/ΔY",
+        "Tabella viti metriche (M2–M10) e anse orologi (18–22 mm)",
+        "Calibrazione con carta ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)"
+      ],
+      "subNavTitle": "Righello Millimetri (mm)",
+      "breadcrumbLabel": "Righello Millimetri (mm)",
+      "hero": {
+        "eyebrow": "Scala Metrica Fine · Tacche 1 mm & 5 mm · Numeri ogni 10 mm",
+        "headline": "Righello Online in Millimetri (mm) a Dimensioni Reali",
+        "description": "Righello millimetri ad alta densità con risoluzione 0,1 mm e tabella per viteria M2–M10 e orologeria."
+      },
+      "guideKicker": "Metrologia di Precisione in Millimetri · 0,1 mm",
+      "guideHeading": "Misurare Viti, Cinturini e Piccoli Componenti in mm",
+      "guideLead": "Progettato per meccanica, orologeria, stampa 3D ed elettronica.",
+      "cards": [
+        { "step": "1", "kicker": "Passo Fine · 1 mm & 5 mm", "heading": "A cosa serve il righello in millimetri?", "body": "Numera ogni 10 mm e mostra letture a 0,1 mm per bulloneria M2–M10 e cinturini.", "linkHref": "#accuracy-guide", "linkLabel": "Vedi tabella viti e orologi in mm" },
+        { "step": "2", "kicker": "Precisione Ottica · Parallasse", "heading": "Come evitare la parallasse sulle tacche da 1 mm?", "body": "Guarda sempre a 90° verticalmente sulla tacca e usa due guide parallele ΔX.", "linkHref": "#ruler-tool", "linkLabel": "Posiziona guide parallele in mm" },
+        { "step": "3", "kicker": "Calcolo Sub-Millimetrico · pxPerMm", "heading": "Quanti pixel equivalgono a 1 mm sullo schermo?", "body": "Gli schermi comuni hanno ~3,2–5,0 CSS px/mm; la tessera da 85,60 mm fissa il valore esatto del tuo pannello.", "linkHref": "#calibration", "linkLabel": "Calibra passo in millimetri" }
+      ],
+      "darkKicker": "Riferimento Tecnico · 25,40 mm = 1,000 in",
+      "darkHeading": "Tabella Millimetri per Viti (M2–M10), Orologi e Pollici",
+      "darkLead": "Confronta millimetri standard con pollici decimali, 1/16″ e standard ISO.",
+      "darkCards": [
+        { "heading": "Come misurare viti metriche (M2–M10)?", "body": "La sigla indica il diametro esterno nominale in mm (es. M3 = 3,0 mm). Allinea il sottotesta allo 0 e segna la punta con una guida." },
+        { "heading": "Come misurare la larghezza anse orologio (18–22 mm)?", "body": "Misura la distanza interna tra le anse (quasi sempre 18, 19, 20 o 22 mm) usando due guide verticali." },
+        { "heading": "Come convertire mm in pollici e 1/16″?", "body": "Dividi per 25,4 per pollici decimali o per 1,5875 mm per i sedicesimi — oppure premi in nella barra." }
+      ],
+      "table": {
+        "kicker": "Tabella di Riferimento Millimetri",
+        "heading": "Dimensioni Comuni in mm, cm, Pollici e Standard Hardware",
+        "headers": ["Millimetri (mm)", "Centimetri (cm)", "Pollici (in)", "1/16″ Vicino", "Riferimento Hardware / Oggetto"],
+        "rows": [
+          ["1.00 mm", "0.10 cm", "0.0394 in", "1/16 in (1.59 mm)", "Filo rigido 18 AWG (~1,02 mm)"],
+          ["1.59 mm", "0.16 cm", "0.0625 in", "1/16 in (esatto)", "Equivalente esatto di 1/16 di pollice"],
+          ["2.00 mm", "0.20 cm", "0.0787 in", "1/16 in", "Vite metrica ISO M2"],
+          ["2.54 mm", "0.254 cm", "0.1000 in", "3/32 in", "Passo standard 0.100″ connettori PCB"],
+          ["3.00 mm", "0.30 cm", "0.1181 in", "1/8 in (3.18 mm)", "Vite ISO M3 / distanziale PC"],
+          ["4.00 mm", "0.40 cm", "0.1575 in", "5/32 in", "Vite ISO M4 / inserto precisione 4 mm"],
+          ["5.00 mm", "0.50 cm", "0.1969 in", "3/16 in (4.76 mm)", "Vite ISO M5 / LED standard 5 mm"],
+          ["6.00 mm", "0.60 cm", "0.2362 in", "1/4 in (6.35 mm)", "Bullone ISO M6 (inserto 1/4″ = 6,35 mm)"],
+          ["8.00 mm", "0.80 cm", "0.3150 in", "5/16 in (7.94 mm)", "Bullone ISO M8 / foro cuscinetto 608"],
+          ["10.00 mm", "1.00 cm", "0.3937 in", "3/8 in (9.53 mm)", "Bullone ISO M10 / 1 centimetro"],
+          ["18.00 mm", "1.80 cm", "0.7087 in", "11/16 in", "Ansa orologio elegante (18 mm)"],
+          ["20.00 mm", "2.00 cm", "0.7874 in", "13/16 in", "Ansa orologio standard (20 mm)"],
+          ["22.00 mm", "2.20 cm", "0.8661 in", "7/8 in (22.23 mm)", "Orologio diver 22 mm / Ø ext. 608"],
+          ["25.40 mm", "2.54 cm", "1.0000 in", "1 in (esatto)", "Definizione esatta di 1 pollice"],
+          ["53.98 mm", "5.40 cm", "2.1252 in", "2 1/8 in", "Lato corto carta ISO/IEC 7810 ID-1"],
+          ["85.60 mm", "8.56 cm", "3.3701 in", "3 3/8 in", "Lato lungo carta ISO/IEC 7810 ID-1"]
+        ],
+        "footnote": "Formule: in = mm ÷ 25,4 · cm = mm ÷ 10 · 1/16″ = 1,5875 mm."
+      },
+      "faqKicker": "FAQ Righello Millimetri",
+      "faqHeading": "Domande Comuni sul Righello in Millimetri",
+      "faqs": [
+        { "q": "Un righello online può mostrare esattamente 1 mm?", "a": "Sì, dopo la calibrazione ogni millimetro copre 3,2–6 CSS px (fino a 18 pixel fisici su smartphone)." },
+        { "q": "Come misuro il diametro di una moneta o anello in mm?", "a": "Appoggia sulla griglia e usa due guide verticali tangenti ai bordi sinistro e destro." },
+        { "q": "Perché il righello mm sembra impreciso prima di calibrare?", "a": "Perché i browser forzano 96 CSS PPI (3,780 px/mm) prima della calibrazione." },
+        { "q": "Come passo tra mm, cm e pollici?", "a": "Usa i pulsanti nella barra o i tasti 4/M (mm), 1 (cm), 2 (in) e 3 (px)." }
+      ]
+    },
+    "inchRuler": {
+      "title": "Righello Pollici Online | Scala 12 Pollici & 1/16″ Reale",
+      "description": "Righello imperiale in pollici con tacche da 1/2, 1/4, 1/8 e 1/16″, scala 12 pollici (1 piede) e tabella verso mm.",
+      "schemaName": "Righello Online in Pollici (1/16″ & 12 Pollici) — Online Ruler Plus",
+      "featureList": [
+        "Righello imperiale calibrato con divisioni 1/2, 1/4, 1/8 e 1/16 di pollice",
+        "Riduzione automatica frazioni 1/16″ e valore decimale",
+        "Visualizzazione continua 12 pollici su laptop e desktop",
+        "Tabella completa da 1/16″ a decimali, mm e cm"
+      ],
+      "subNavTitle": "Righello Pollici (1/16″)",
+      "breadcrumbLabel": "Righello Pollici (1/16″)",
+      "hero": {
+        "eyebrow": "Scala Imperiale · 1 in = 25,4 mm · Frazioni 1/2, 1/4, 1/8 & 1/16″",
+        "headline": "Righello Online in Pollici Reali (1/16″ & 12 Pollici)",
+        "description": "Righello imperiale calibrato con tacche differenziate fino a 1/16 di pollice, riduzione automatica frazioni e tabella mm."
+      },
+      "guideKicker": "Metrologia Imperiale · Frazioni 1/16″",
+      "guideHeading": "Come Leggere i Pollici e Misurare Fino a 12 Pollici",
+      "guideLead": "Ogni pollice è diviso in 16 frazioni con quattro altezze di tacca e riduzione in tempo reale.",
+      "cards": [
+        { "step": "1", "kicker": "Frazioni · 1/2″, 1/4″, 1/8″, 1/16″", "heading": "Come leggere le frazioni 1/16″?", "body": "La tacca più alta segna 1/2″, poi 1/4″ e 3/4″, medie gli ottavi dispari e corte i sedicesimi.", "linkHref": "#accuracy-guide", "linkLabel": "Vedi tabella 1/16″ a mm" },
+        { "step": "2", "kicker": "Scala 12 Pollici · 1 ft = 30,48 cm", "heading": "Come visualizzare un righello da 12 pollici?", "body": "Su laptop da 15,6″ (13,6″ utili) o monitor desktop premi F per aprire tutto lo schermo.", "linkHref": "#ruler-tool", "linkLabel": "Apri 12 pollici a schermo intero" },
+        { "step": "3", "kicker": "Verifica · Carte e Monete", "heading": "Come verificare la scala in pollici?", "body": "Carta bancaria: 3,370″ × 2,125″ (2 1/8″ esatti); Penny US: 0,750″ (3/4″); Quarter US: 0,955″.", "linkHref": "#calibration", "linkLabel": "Calibra righello pollici" }
+      ],
+      "darkKicker": "Riferimento Frazioni · 1 in = 25,40 mm (Esatto)",
+      "darkHeading": "Tabella 1/16″ verso Pollici Decimali, Millimetri e Centimetri",
+      "darkLead": "Converti sedicesimi, ottavi, quarti e mezzi pollici senza errori.",
+      "darkCards": [
+        { "heading": "Perché i righelli non calibrati sbagliano su PC e Mac?", "body": "96 px CSS su portatili moderni (113–141 PPI) misurano solo 0,68–0,85 pollici reali." },
+        { "heading": "Come funziona la riduzione automatica?", "body": "La barra arrotonda al 1/16″ più vicino e riduce tramite MCD (es. 6/16″ → 3/8 in, 8/16″ → 1/2 in)." },
+        { "heading": "Cosa succede con forte zoom indietro?", "body": "Il motore garantisce 3,0 px minimi tra tacche passando automaticamente a 1/8″ o 1/4″ sotto i 48 PPI." }
+      ],
+      "table": {
+        "kicker": "Tabella Conversione Imperiale (1/16″ – 1″)",
+        "heading": "Sedicesimi di Pollice in Frazione Ridotta, Decimale, mm e cm",
+        "headers": ["Sedicesimi", "Frazione Ridotta", "Decimale (in)", "Millimetri (mm)", "Centimetri (cm)"],
+        "rows": [
+          ["1/16″", "1/16 in", "0.0625 in", "1.588 mm", "0.159 cm"],
+          ["2/16″", "1/8 in", "0.1250 in", "3.175 mm", "0.318 cm"],
+          ["3/16″", "3/16 in", "0.1875 in", "4.763 mm", "0.476 cm"],
+          ["4/16″", "1/4 in", "0.2500 in", "6.350 mm", "0.635 cm"],
+          ["5/16″", "5/16 in", "0.3125 in", "7.938 mm", "0.794 cm"],
+          ["6/16″", "3/8 in", "0.3750 in", "9.525 mm", "0.953 cm"],
+          ["7/16″", "7/16 in", "0.4375 in", "11.113 mm", "1.111 cm"],
+          ["8/16″", "1/2 in", "0.5000 in", "12.700 mm", "1.270 cm"],
+          ["9/16″", "9/16 in", "0.5625 in", "14.288 mm", "1.429 cm"],
+          ["10/16″", "5/8 in", "0.6250 in", "15.875 mm", "1.588 cm"],
+          ["11/16″", "11/16 in", "0.6875 in", "17.463 mm", "1.746 cm"],
+          ["12/16″", "3/4 in (Penny US)", "0.7500 in", "19.050 mm", "1.905 cm"],
+          ["13/16″", "13/16 in", "0.8125 in", "20.638 mm", "2.064 cm"],
+          ["14/16″", "7/8 in", "0.8750 in", "22.225 mm", "2.223 cm"],
+          ["15/16″", "15/16 in (~Quarter US)", "0.9375 in", "23.813 mm", "2.381 cm"],
+          ["16/16″", "1 in (Pollice Intero)", "1.0000 in", "25.400 mm", "2.540 cm"]
+        ],
+        "footnote": "1 in = 25,4 mm · 1/2 in = 12,7 mm · 1/4 in = 6,35 mm · 1/8 in = 3,175 mm · 1/16 in = 1,5875 mm."
+      },
+      "faqKicker": "FAQ Righello Pollici",
+      "faqHeading": "Domande Comuni sul Righello in Pollici",
+      "faqs": [
+        { "q": "Come ottengo 12 pollici a dimensioni reali sullo schermo?", "a": "Calibra un pannello da almeno 14″ e premi F per il modo a schermo intero." },
+        { "q": "Cosa indicano le 4 lunghezze delle tacche?", "a": "Indicano rispettivamente 1/2″, 1/4″, 1/8″ e 1/16″." },
+        { "q": "Come converto 3/8″ o 7/16″ in millimetri?", "a": "Moltiplica il valore decimale per 25,4 (0,375 × 25,4 = 9,525 mm) oppure premi il tasto 4." },
+        { "q": "Posso misurare in pollici su uno smartphone sotto i 6 pollici?", "a": "Sì, fino a ~5 pollici usando la calibrazione carta in Verticale (2,125 × 3,370 in)." }
+      ]
+    },
+    "horizontalRuler": {
+      "title": "Righello Orizzontale Online | Bordi Alto/Basso & Pixel CSS",
+      "description": "Righello orizzontale a tutta larghezza con bordi superiore e inferiore simultanei in cm, mm, pollici e pixel CSS (px).",
+      "schemaName": "Righello Orizzontale Schermo & Pixel — Online Ruler Plus",
+      "featureList": [
+        "Bordi orizzontali superiore e inferiore simultanei",
+        "Scale cm, mm, pollici 1/16″ e pixel CSS (px)",
+        "Guide verticali a tutta altezza con calcolo ΔX",
+        "Schermo intero per oggetti da 30 cm / 12 pollici e oltre"
+      ],
+      "subNavTitle": "Righello Orizzontale",
+      "breadcrumbLabel": "Righello Orizzontale",
+      "hero": {
+        "eyebrow": "Asse Orizzontale · Bordi Alto & Basso · cm, mm, in & px",
+        "headline": "Righello Orizzontale Schermo & Pixel a Tutta Larghezza",
+        "description": "Doppie barre orizzontali superiore e inferiore per oggetti larghi, 30 cm / 12 pollici e ispezione CSS (px)."
+      },
+      "guideKicker": "Metrologia Orizzontale · Alto & Basso",
+      "guideHeading": "Misurare Oggetti Larghi e Ampiezze in Pixel CSS",
+      "guideLead": "Preimpostato con entrambe le barre orizzontali attive per evitare inclinazioni.",
+      "cards": [
+        { "step": "1", "kicker": "Doppio Asse Orizzontale", "heading": "Perché usare bordi alto e basso insieme?", "body": "Allineare sopra e sotto con guide verticali elimina gli errori di inclinazione su oggetti lunghi.", "linkHref": "#ruler-tool", "linkLabel": "Misura con bordi Alto & Basso" },
+        { "step": "2", "kicker": "Righello Pixel CSS · W3C", "heading": "Come funziona la modalità Pixel CSS (px)?", "body": "Tasto 3 mostra pixel logici (10, 50, 100 px) per verificare breakpoint responsivi (375, 768, 1024, 1440 px).", "linkHref": "#accuracy-guide", "linkLabel": "Vedi tabella larghezza monitor" },
+        { "step": "3", "kicker": "Schermo Intero · Larghezza Max", "heading": "Come sfruttare tutta la larghezza dello schermo?", "body": "Un monitor 16:9 utilizza l’87,2 % della diagonale (59,8 cm su 27″). Premi F per schermo intero.", "linkHref": "#calibration", "linkLabel": "Calibra larghezza orizzontale" }
+      ],
+      "darkKicker": "Geometria Widescreen · 16:9, 16:10 & Ultrawide",
+      "darkHeading": "Massima Estensione Orizzontale per Diagonale",
+      "darkLead": "Larghezze attive su smartphone, tablet, portatili e monitor.",
+      "darkCards": [
+        { "heading": "Quanto è largo un monitor 16:9 o 16:10?", "body": "La larghezza attiva è l’87,16 % della diagonale su 16:9 (15,6″ = 34,54 cm; 27″ = 59,77 cm) e l’84,80 % su 16:10." },
+        { "heading": "Come funzionano le guide verticali?", "body": "Cliccando sul righello alto o basso inserisci una guida verticale completa e ottieni subito ΔX." },
+        { "heading": "Posso ruotare il telefono in orizzontale?", "body": "Sì, in landscape la portata raddoppia da ~6,5 cm a ~14–15 cm mantenendo la calibrazione." }
+      ],
+      "table": {
+        "kicker": "Tabella Geometria Pannelli",
+        "heading": "Larghezza Massima Schermo in Pollici, cm, mm & Pixel CSS",
+        "headers": ["Display & Formato", "Larghezza (in)", "Larghezza (cm / mm)", "Viewport CSS", "Righello Massimo"],
+        "rows": [
+          ["Smartphone 6.1\" (Orizzontale)", "5.55 in", "14.1 cm (141 mm)", "844 – 852 CSS px", "Fino a 13 cm / 5 in"],
+          ["Tablet 11.0\" (4:3)", "8.80 in", "22.4 cm (224 mm)", "1024 – 1194 CSS px", "Righello 15 cm / 6 in"],
+          ["Portatile 13.3\" (16:10 Retina)", "11.28 in", "28.6 cm (286 mm)", "1440 CSS px", "Fino a 27 cm / 10.5 in"],
+          ["MacBook Pro 14.2\" (16:10)", "11.97 in", "30.4 cm (304 mm)", "1512 CSS px", "30 cm / 11.5 in completi"],
+          ["Portatile 15.6\" (16:9)", "13.60 in", "34.5 cm (345 mm)", "1536 – 1920 CSS px", "Righello 30 cm & 12 pollici"],
+          ["Monitor 24.0\" (16:9)", "20.92 in", "53.1 cm (531 mm)", "1920 CSS px", "Righello 50 cm / 18 in"],
+          ["Monitor 27.0\" (16:9 QHD/4K)", "23.53 in", "59.8 cm (598 mm)", "1920 – 2560 CSS px", "Righello 58 cm / 22 in"],
+          ["Ultrawide 34.0\" (21:9)", "31.36 in", "79.7 cm (797 mm)", "3440 CSS px", "Righello 75 cm / 30 in"]
+        ],
+        "footnote": "16:9 Larghezza = Diagonale × 0,87158 · 16:10 = Diagonale × 0,84800 · 21:9 = Diagonale × 0,92246."
+      },
+      "faqKicker": "FAQ Righello Orizzontale & Pixel",
+      "faqHeading": "Domande Comuni sul Righello Orizzontale",
+      "faqs": [
+        { "q": "Qual è il vantaggio di entrambi i bordi alto e basso?", "a": "Evita inclinazioni ed aggira l’ingombro della cerniera o tastiera sui portatili usando la barra superiore." },
+        { "q": "Come usarlo come righello pixel CSS (px)?", "a": "Premi il tasto 3 o clicca px per misurare pixel logici da 0 fino alla larghezza della finestra." },
+        { "q": "Perché lo 0 inizia 16 pixel dentro il bordo sinistro?", "a": "Per lasciare lo zero interamente sul vetro piano, al riparo dalla cornice fisica del monitor." },
+        { "q": "Posso cambiare unità tra cm, mm e pollici?", "a": "Sì, sempre tramite i tasti 1, 2, 3 e 4/M." }
+      ]
+    },
+    "verticalRuler": {
+      "title": "Righello Verticale Online | Scale Bordi Sinistra & Destra",
+      "description": "Righello verticale calibrato con bordi sinistro e destro simultanei in centimetri (cm), millimetri (mm) e pollici (1/16″).",
+      "schemaName": "Righello Verticale su Schermo — Online Ruler Plus",
+      "featureList": [
+        "Bordi verticali sinistro e destro simultanei",
+        "Guide orizzontali con calcolo automatico ΔY",
+        "Calibrazione carta Verticale ISO/IEC 7810 ID-1 (53,98 × 85,60 mm) per smartphone",
+        "Scale verticali in cm, mm, 1/16″ e pixel CSS (px)"
+      ],
+      "subNavTitle": "Righello Verticale",
+      "breadcrumbLabel": "Righello Verticale",
+      "hero": {
+        "eyebrow": "Asse Verticale · Sinistra & Destra · Altezze & Smartphone",
+        "headline": "Righello Verticale Online Calibrato",
+        "description": "Barre verticali sinistra e destra per misurare oggetti in piedi sulla scrivania e smartphone in verticale."
+      },
+      "guideKicker": "Metrologia Verticale · Sinistra & Destra",
+      "guideHeading": "Misurare Altezze Verticali e Schermi Smartphone",
+      "guideLead": "Entrambi i bordi verticali attivi per mancini, destrorsi e oggetti appoggiati di lato.",
+      "cards": [
+        { "step": "1", "kicker": "Doppio Asse Verticale", "heading": "Quando usare il righello verticale?", "body": "Su smartphone in portrait offre più del doppio della lunghezza (~14–15,5 cm) rispetto all’orizzontale.", "linkHref": "#ruler-tool", "linkLabel": "Misura sui bordi Sinistra & Destra" },
+        { "step": "2", "kicker": "Guide Orizzontali · Altezza ΔY", "heading": "Come misurare l’altezza con le guide orizzontali?", "body": "Clicca sulla barra sinistra o destra alla base e in cima all’oggetto; ΔY calcola subito l’altezza.", "linkHref": "#accuracy-guide", "linkLabel": "Vedi tabella altezze schermo" },
+        { "step": "3", "kicker": "Ergonomia Mobile Ambidestra", "heading": "Perché entrambi i lati sono attivi?", "body": "Se il pollice o la cover copre un bordo, l’altro lato resta sempre visibile.", "linkHref": "#calibration", "linkLabel": "Calibra scala verticale" }
+      ],
+      "darkKicker": "Geometria Verticale",
+      "darkHeading": "Altezza Utile per Dispositivo e Oggetti Compatibili",
+      "darkLead": "Confronto tra smartphone, tablet, portatili e monitor ruotati a 90°.",
+      "darkCards": [
+        { "heading": "Perché la modalità verticale è ideale sugli smartphone?", "body": "Un 19.5:9 in verticale offre 13,5–15,2 cm contro appena 6,4–7,1 cm in orizzontale." },
+        { "heading": "Come calibrare su un telefono stretto?", "body": "Passa la scheda di calibrazione su Verticale (53,98 × 85,60 mm) nel riquadro tessera." },
+        { "heading": "Quanta altezza verticale offrono portatili e monitor?", "body": "Il 49,03 % della diagonale su 16:9 (19,4 cm su 15,6″; 33,6 cm su 27″; 59,8 cm se ruotato 90°)." }
+      ],
+      "table": {
+        "kicker": "Tabella Altezze Verticali",
+        "heading": "Altezza Schermo Attiva e Oggetti Misurabili in Piedi",
+        "headers": ["Dispositivo / Orientamento", "Altezza (cm / mm)", "Altezza (in)", "Viewport CSS", "Oggetti Tipici"],
+        "rows": [
+          ["Smartphone 6.1\" (Verticale)", "14.1 cm (141 mm)", "5.55 in", "844 – 852 CSS px", "Pile AA/AAA (50,5 mm), carta (85,6 mm), lattina (122 mm)"],
+          ["Smartphone 6.7\" Pro (Verticale)", "15.5 cm (155 mm)", "6.10 in", "926 – 932 CSS px", "Passaporto (125 mm), penna (~140 mm), righello 15 cm"],
+          ["Tablet 11.0\" (Verticale 4:3)", "22.4 cm (224 mm)", "8.80 in", "1024 – 1194 CSS px", "Quaderno A5 (210 mm), borraccia, libro"],
+          ["MacBook Pro 14.2\" (16:10)", "19.0 cm (190 mm)", "7.48 in", "982 CSS px", "Altezza smartphone, righello 15 cm"],
+          ["Portatile 15.6\" (16:9)", "19.4 cm (194 mm)", "7.65 in", "864 – 1080 CSS px", "Custodia Blu-ray (190 mm), tazza"],
+          ["Monitor 24.0\" (16:9)", "29.9 cm (299 mm)", "11.77 in", "1080 CSS px", "Altezza foglio A4 (297 mm) / Letter (279,4 mm)"],
+          ["Monitor 27.0\" (16:9)", "33.6 cm (336 mm)", "13.24 in", "1080 – 1440 CSS px", "Intero righello 30 cm / 12 pollici"],
+          ["Monitor 24–27\" (Pivot 90°)", "53.1 – 59.8 cm", "20.9 – 23.5 in", "1920 – 2560 CSS px", "Case PC, speaker, scala verticale 50 cm"]
+        ],
+        "footnote": "16:9 Altezza = Diagonale × 0,49026 · 16:10 = Diagonale × 0,53000."
+      },
+      "faqKicker": "FAQ Righello Verticale",
+      "faqHeading": "Domande Comuni sul Righello Verticale",
+      "faqs": [
+        { "q": "Come misuro l’altezza di un oggetto in piedi?", "a": "Appoggialo vicino allo schermo e inserisci due guide orizzontali alla base e alla cima per leggere ΔY." },
+        { "q": "Perché lo 0 verticale parte dall’alto?", "a": "Nei canvas HTML5 e CSS l’origine (0, 0) è fissa in alto a sinistra per non spostarsi allo scorrimento." },
+        { "q": "Come calibrare su cellulare in verticale?", "a": "Seleziona Verticale (53,98 × 85,60 mm) nel pannello Carta e adatta alla tua carta verticale." },
+        { "q": "Posso combinare bordi orizzontali e verticali?", "a": "Sì, cliccando Alto, Basso o Tutti nella barra." }
+      ]
+    },
+    "howToUse": {
+      "title": "Come Usare un Righello Online | Manuale Pratico",
+      "description": "Guida passo-passo per calibrare con tessera o diagonale, inserire guide, leggere 1/16″ e stampare righelli al 100 %.",
+      "schemaHeadline": "Come Usare Online Ruler Plus: Manuale Passo-Passo",
+      "subNavTitle": "Come si Usa",
+      "breadcrumbLabel": "Come si Usa",
+      "heroKicker": "Manuale Utente · Metrologia su Schermo · Novembre 2026",
+      "heroHeadline": "Come Usare Online Ruler Plus",
+      "heroSummary": "Online Ruler Plus trasforma lo schermo in un righello fisico 1:1 nel browser. Segui questi passi per calibrare una volta e misurare in cm, mm e pollici 1/16″.",
+      "openRulerBtn": "Apri Righello",
+      "goCalBtn": "Vai a Calibrazione",
+      "steps": [
+        { "badge": "1", "kicker": "Passo 01 · Calibrazione", "heading": "Calibra per prima la densità dello schermo", "body": "Vai su Calibra lo Schermo, allinea una tessera (85,60 × 53,98 mm), inserisci la diagonale allo zoom 100 % o usa il rilevamento automatico.", "links": [{ "href": "/#calibration", "label": "Apri calibrazione con tessera →" }] },
+        { "badge": "2", "kicker": "Passo 02 · Unità e Bordi", "heading": "Scegli unità di misura e bordi attivi", "body": "Tasti 1 (cm), 2 (pollici 1/16″), 3 (pixel CSS) o 4/M (mm), Doppio cm/in e selettore bordi.", "links": [{ "href": "/cm-ruler", "label": "Righello cm" }, { "href": "/inch-ruler", "label": "Righello Pollici" }, { "href": "/mm-ruler", "label": "Righello mm" }] },
+        { "badge": "3", "kicker": "Passo 03 · Allineamento Zero & Guide", "heading": "Allinea allo zero e misura con le guide", "body": "Parti dal tratteggio 0 (16 px dal bordo cornice) e clicca per tracciare guide trascinabili con lettura ΔX/ΔY.", "links": [{ "href": "/calibration-guide", "label": "Leggi Guida Calibrazione & PPI →" }] }
+      ],
+      "advancedCards": [
+        { "kicker": "Strumenti Sovrapposti · Righello Mobile & Goniometro", "heading": "Usare righello mobile e goniometro 180°", "body": "+ Righello Mobile ruota di 360°; tasto P apre il goniometro 0°–180° (0,1°). Tasto C per mirino, Esc per pulire." },
+        { "kicker": "Stampa Reale 100 %", "heading": "Come stampare un righello a scala 100 %?", "body": "In Ctrl+P / Cmd+P imposta Scala 100 % o Dimensioni reali disattivando Adatta alla pagina e verifica poi con una carta da 85,60 mm." }
+      ],
+      "recipesKicker": "Procedure Pratiche",
+      "recipesHeading": "Metodi Rapidi per Oggetti Comuni",
+      "recipesLead": "Tecniche sicure per ottenere letture ripetibili senza graffiare il vetro.",
+      "recipes": [
+        { "kicker": "01 · Monete, Rondelle & Anelli", "heading": "Diametro esterno con guide tangenti", "body": "Appoggia l’oggetto al centro (su pellicola protettiva se serve) e posiziona due guide verticali tangenti ai bordi." },
+        { "kicker": "02 · Viti, Bulloni & Cinturini", "heading": "Filettature e anse in millimetri", "body": "Usa il [[link:/mm-ruler|Righello in Millimetri (mm)]] interponendo carta sottile sotto le filettature metalliche." },
+        { "kicker": "03 · Falegnameria & Frazioni 1/16″", "heading": "Leggere frazioni ridotte con sicurezza", "body": "Con il [[link:/inch-ruler|Righello in Pollici (1/16″)]] la barra calcola subito la frazione semplificata." },
+        { "kicker": "04 · Oggetti Alti & Lunghi", "heading": "Bordi verticali e misure a tratti", "body": "Con il [[link:/vertical-ruler|Righello Verticale]] a schermo intero (F) o segnando un riferimento intero (es. 25,0 cm) con nastro carta." }
+      ],
+      "shortcutsKicker": "Controlli Tastiera",
+      "shortcutsHeading": "Tabella Completa Scorciatoie",
+      "shortcutsLead": "Cambia unità o aggiungi guide con una sola mano mentre tieni l’oggetto.",
+      "shortcutsHeaders": ["Tasto", "Azione", "Quando Usarlo"],
+      "shortcuts": [
+        { "key": "1", "action": "Passa a Centimetri (cm)", "useCase": "Uso quotidiano con tacche da 1 mm" },
+        { "key": "2", "action": "Passa a Pollici (in)", "useCase": "Misure US e frazioni 1/16″" },
+        { "key": "3", "action": "Passa a Pixel CSS (px)", "useCase": "Design UI & breakpoint" },
+        { "key": "4 / M", "action": "Passa a Millimetri (mm)", "useCase": "Viti M2–M10 e orologeria" },
+        { "key": "D", "action": "Tema Chiaro / Scuro", "useCase": "Ridurre i riflessi" },
+        { "key": "G", "action": "Attiva Guide", "useCase": "Tracciare linee parallele ΔX / ΔY" },
+        { "key": "C", "action": "Mirino Cursore", "useCase": "Coordinate X/Y in diretta" },
+        { "key": "P", "action": "Goniometro 180°", "useCase": "Misura angoli a 0,1°" },
+        { "key": "F", "action": "Schermo Intero", "useCase": "Massima ampiezza utile" },
+        { "key": "Esc", "action": "Pulisci Guide & Finestre", "useCase": "Ripristino rapido" }
+      ],
+      "checklistKicker": "Checklist 6 Punti",
+      "checklistHeading": "Sei Controlli Prima di Misure Critiche",
+      "checklistLead": "Verifica rapidamente questi sei punti prima di annotare quote critiche:",
+      "checklistItems": [
+        "[[strong:1. Controlla il badge Scala Attiva:]] Assicurati che sia calibrato manualmente e non solo stimato a 96 PPI.",
+        "[[strong:2. Zoom 100 % per diagonale:]] Premi [[code:Ctrl+0]] / [[code:Cmd+0]] prima dell’inserimento; poi [[code:devicePxPerMm]] compensa lo zoom.",
+        "[[strong:3. Cambio monitor:]] Verifica di nuovo con la tessera (85,60 mm) su schermi esterni.",
+        "[[strong:4. Sguardo perpendicolare:]] L’angolo obliquo crea 0,3–1,0 mm di parallasse.",
+        "[[strong:5. Evita la cornice:]] Parti dallo 0 interno o usa due guide (ΔX / ΔY).",
+        "[[strong:6. Proteggi il vetro:]] Interponi un foglio sotto metalli taglienti; usa il calibro sotto ±0,2 mm."
+      ]
+    },
+    "calibrationGuide": {
+      "title": "Guida Calibrazione Schermo & PPI | Online Ruler Plus",
+      "description": "Guida tecnica a densità di pixel (PPI), pixel CSS W3C, calibrazione con carta ISO/IEC 7810, scaling HiDPI e limiti di parallasse.",
+      "schemaHeadline": "Guida Completa Calibrazione Schermo & Misurazione PPI",
+      "subNavTitle": "Guida Calibrazione",
+      "subNavCtaLabel": "Calibra Ora",
+      "breadcrumbLabel": "Guida Calibrazione",
+      "heroKicker": "Riferimento Tecnico · Ottica Display & Unità CSS · Novembre 2026",
+      "heroHeadline": "Guida Completa alla Calibrazione & Misura PPI",
+      "heroSummary": "La calibrazione collega i pixel CSS astratti da 96 PPI del W3C al passo fisico reale in millimetri del pannello.",
+      "calibrateBtn": "Calibra Schermo",
+      "openRulerBtn": "Apri Righello",
+      "topCards": [
+        { "kicker": "01 · Passo Pixel", "heading": "Differenza tra PPI fisico e pixel CSS?", "body": "Il PPI fisico segue [[code:√(W² + H²) / diagonale]]. I pixel CSS valgono 1/96 di pollice CSS. Online Ruler Plus salva [[code:devicePxPerMm = pxPerMm × dpr]] invariante allo zoom." },
+        { "kicker": "02 · Standard Fisico", "heading": "Perché la tessera ISO/IEC 7810 ID-1 è ideale?", "body": "Misura esattamente 85,60 × 53,98 mm in tutto il mondo, permettendo di misurare [[code:pxPerMm = cardWidthPx / 85.60]] senza distorsioni del sistema." },
+        { "kicker": "03 · Suddivisioni", "heading": "Come si calcolano mm e frazioni 1/16″?", "body": "Con 1 in = 25,4 mm esatti, [[link:/cm-ruler|cm]] e [[link:/mm-ruler|mm]] segnano 1/5/10 mm mentre [[link:/inch-ruler|Pollici]] divide in 16 sedicesimi." }
+      ],
+      "midCards": [
+        { "kicker": "04 · Verifica Secondaria", "heading": "Quali monete e formati verificano lo schermo?", "body": "1 Euro: 23,25 mm; 2 Euro: 25,75 mm; Penny US: 19,05 mm; Quarter US: 24,26 mm; batteria AA: 50,50 mm; lato corto A4: 210,0 mm." },
+        { "kicker": "05 · Zoom & Multi-Monitor", "heading": "Come vengono gestiti zoom e schermi esterni?", "body": "[[code:devicePxPerMm]] è salvato per firma display in [[code:localStorage]]: i cambi di zoom si compensano da soli." }
+      ],
+      "s6Kicker": "06 · Esempi Pratici & Matrice HiDPI",
+      "s6Heading": "Relazione tra CSS PPI, PPI Fisico e devicePxPerMm",
+      "s6Lead": "Applicando Pitagora ai pixel CSS al 100 % si ottiene [[code:CSS px/mm]], poi moltiplicato per [[code:window.devicePixelRatio]] si ricava [[code:devicePxPerMm]].",
+      "s6TableHeading": "Tabella Densità per Display & Scaling OS",
+      "s6Headers": ["Configurazione", "Risoluzione CSS", "CSS PPI Effettivo", "CSS px/mm", "devicePxPerMm"],
+      "workedExamples": [
+        { "panel": "Laptop 14.2\" (Mac Retina / 2×)", "cssRes": "1512 × 982 CSS px (DPR 2.0)", "cssPpi": "127.0 CSS PPI", "pxPerMm": "5.000 CSS px/mm", "devicePxPerMm": "10.000 device px/mm" },
+        { "panel": "Laptop Windows 15.6\" (125 %)", "cssRes": "1536 × 864 CSS px (DPR 1.25)", "cssPpi": "113.0 CSS PPI", "pxPerMm": "4.448 CSS px/mm", "devicePxPerMm": "5.560 device px/mm" },
+        { "panel": "Monitor 24\" 1080p (100 %)", "cssRes": "1920 × 1080 CSS px (DPR 1.0)", "cssPpi": "91.8 CSS PPI", "pxPerMm": "3.614 CSS px/mm", "devicePxPerMm": "3.614 device px/mm" },
+        { "panel": "Monitor 27\" 4K UHD (150 %)", "cssRes": "2560 × 1440 CSS px (DPR 1.5)", "cssPpi": "108.8 CSS PPI", "pxPerMm": "4.283 CSS px/mm", "devicePxPerMm": "6.425 device px/mm" },
+        { "panel": "Smartphone OLED 6.1\" (3×)", "cssRes": "390 × 844 CSS px (DPR 3.0)", "cssPpi": "152.4 CSS PPI", "pxPerMm": "6.000 CSS px/mm", "devicePxPerMm": "18.000 device px/mm" }
+      ],
+      "caveats": [
+        { "kicker": "Scaling Frazionario OS", "heading": "Perché la tessera supera la stima da diagonale", "body": "Scaling come 125 % o 150 % cambiano il CSS PPI effettivo; allineare fisicamente 85,60 mm misura l’uscita reale in 15 secondi." },
+        { "kicker": "Smartphone Stretti", "heading": "Perché i telefoni passano a Carta Verticale (53,98 mm)", "body": "Su 360–430 px una carta orizzontale sborda; la [[strong:Modalità Verticale]] usa il lato da [[strong:53,98 mm]]." }
+      ],
+      "s7Kicker": "07 · Fisica & Limiti di Tolleranza",
+      "s7Heading": "Parallasse del Vetro Protettivo e Tolleranze Pratiche",
+      "s7Body1": "Il vetro frontale (0,5–1,5 mm, [[code:n ≈ 1.5]]) introduce uno spostamento di [[code:spessore × sin(θ) / n]], pari a 0,3–0,5 mm a 30°.",
+      "s7Body2": "Guarda sempre a 90° e usa calibri fisici certificati sotto ±0,25 mm.",
+      "s7TableHeading": "Tabella Oggetti Fisici di Verifica",
+      "s7TableLead": "Appoggia delicatamente uno di questi oggetti sullo schermo calibrato:",
+      "s7Headers": ["Oggetto di Riferimento", "Metrico (mm)", "Imperiale (in)", "Norma"],
+      "referenceItems": [
+        { "item": "Carta Bancaria ISO/IEC 7810 ID-1 (Larghezza)", "mm": "85.60 mm", "inches": "3.370 in", "standard": "ISO/IEC 7810:2019 ID-1" },
+        { "item": "Carta ISO/IEC 7810 ID-1 (Altezza)", "mm": "53.98 mm", "inches": "2.125 in", "standard": "ISO/IEC 7810:2019 ID-1" },
+        { "item": "Moneta 1 Cent Penny US", "mm": "19.05 mm", "inches": "0.750 in (3/4″)", "standard": "US Mint" },
+        { "item": "Moneta 5 Cent Nickel US", "mm": "21.21 mm", "inches": "0.835 in", "standard": "US Mint" },
+        { "item": "Moneta da 1 Euro", "mm": "23.25 mm", "inches": "0.915 in", "standard": "Banca Centrale Europea" },
+        { "item": "Moneta Quarter US", "mm": "24.26 mm", "inches": "0.955 in", "standard": "US Mint" },
+        { "item": "Moneta da 2 Euro", "mm": "25.75 mm", "inches": "1.014 in", "standard": "Banca Centrale Europea" },
+        { "item": "Batteria AA Standard (Lunghezza)", "mm": "50.50 mm", "inches": "1.988 in", "standard": "IEC R6 / ANSI 15" },
+        { "item": "Banconota Dollaro US (Larghezza)", "mm": "155.96 mm", "inches": "6.140 in", "standard": "Bureau of Engraving & Printing" },
+        { "item": "Carta A4 ISO 216 (Lato Corto)", "mm": "210.00 mm", "inches": "8.268 in", "standard": "Serie ISO 216" }
+      ]
+    },
+    "faq": {
+      "title": "FAQ Righello Online | Calibrazione, PPI & 1/16″",
+      "description": "20 risposte su calibrazione righelli su schermo, limiti di smartphone e fotocamere, righelli Word/PowerPoint e scale cm/mm.",
+      "subNavTitle": "FAQ",
+      "breadcrumbLabel": "FAQ",
+      "heroKicker": "Supporto & Metrologia · 20 Domande Verificate",
+      "heroHeadline": "Domande Frequenti",
+      "heroSummary": "Risposte tecniche su calibrazione PPI, carte ISO/IEC 7810, scale metriche e frazionarie, multi-monitor e smartphone.",
+      "openRulerBtn": "Apri Righello",
+      "guideBtn": "Guida Calibrazione",
+      "cat1Kicker": "Categoria 01 · Calibrazione, PPI & Privacy",
+      "cat1Heading": "Calibrazione Schermo, Zoom e Compatibilità",
+      "cat2Kicker": "Categoria 02 · Tecniche di Misura & Conversioni",
+      "cat2Heading": "Conversioni, Guide, Goniometro e Stampa",
+      "extendedFaqs": [
+        { "q": "Quanti cm ci sono in 1 pollice e in 12 pollici?", "a": "1 pollice = 2,54 cm (25,4 mm); 12 pollici = 30,48 cm, 4,8 mm più di 30 cm." },
+        { "q": "Perché lo 0 è spostato di 16 pixel dal bordo?", "a": "Per tenere lo zero su vetro piatto, lontano dall’ombra e dallo spessore della cornice del monitor." },
+        { "q": "Come misuro il diametro di una moneta o di un anello?", "a": "Posiziona due guide verticali tangenti ai bordi sinistro e destro e leggi ΔX." },
+        { "q": "Come misuro oggetti più lunghi dello schermo?", "a": "Usa Schermo Intero (F) o segna un riferimento (es. 25,0 cm) con nastro adesivo per misurare in due fasi." },
+        { "q": "Come usare goniometro 180° e righello mobile?", "a": "+ Righello Mobile ruota di 360°; P apre il goniometro 0°–180° preciso a 0,1°." },
+        { "q": "Come stampare un righello al 100 % reale?", "a": "In Ctrl+P / Cmd+P imposta Scala 100 % / Dimensioni reali e verifica con carta da 85,60 mm." },
+        { "q": "Cos’è l’errore di parallasse ottica?", "a": "Uno spostamento apparente dovuto al vetro protettivo quando si guarda inclinati; guarda sempre a 90°." },
+        { "q": "Come usare la modalità Pixel CSS (px) per il web design?", "a": "Premi 3 o seleziona px per tacche ogni 10, 50 e 100 px." },
+        { "q": "Come azzerare calibrazione o cronologia?", "a": "Usa Ripristina nella scheda Scala Attiva o Svuota nella Cronologia Misure (tutto locale)." }
+      ]
+    },
+    "about": {
+      "title": "Chi Siamo — Online Ruler Plus | Metrologia su Schermo",
+      "description": "Scopri come Online Ruler Plus trasforma gli schermi in righelli calibrati basati su standard NIST, ISO/IEC 7810 e W3C CSS.",
+      "schemaName": "Chi Siamo — Online Ruler Plus",
+      "subNavTitle": "Chi Siamo",
+      "breadcrumbLabel": "Chi Siamo",
+      "heroKicker": "La Piattaforma · Metodologia & Trasparenza",
+      "heroHeadline": "Chi È Online Ruler Plus",
+      "heroSummary": "Online Ruler Plus è un’applicazione web indipendente lato client che trasforma qualsiasi display in uno strumento fisico calibrato senza accesso alla fotocamera.",
+      "returnBtn": "Torna al Righello",
+      "topCards": [
+        { "kicker": "01 · Perché Esiste", "heading": "Cos’è l’errore dei 96 CSS PPI?", "body": "Molti righelli web assumono 96 px = 1 pollice sbagliando del 10–35 %. Noi integriamo la calibrazione ISO/IEC 7810 nel motore di rendering." },
+        { "kicker": "02 · Standard", "heading": "Quali norme regolano i nostri calcoli?", "body": "NIST/BIPM (1 in = 25,4 mm), ISO/IEC 7810:2019 ID-1 (85,60 × 53,98 mm) e specifiche BCE / US Mint sulle monete." },
+        { "kicker": "03 · Principi", "heading": "Come proteggiamo precisione e privacy?", "body": "I profili ([[code:orp:calibration:v1]]) e la cronologia ([[code:orp:history:v1]]) restano solo in [[code:localStorage]], senza invii o fotocamera." }
+      ],
+      "bottomCards": [
+        { "kicker": "04 · Responsabilità & Verifica", "heading": "Chi pubblica OnlineRulerPlus.com?", "body": "Utility web aperta validata da test automatici sulle costanti primarie NIST, ISO e W3C." },
+        { "kicker": "05 · Correzioni & Supporto", "heading": "Come segnalare errori o problemi di accessibilità?", "body": "Scrivi a [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] o visita la pagina [[link:/contact|Contatti]]." }
+      ]
+    },
+    "contact": {
+      "title": "Contatti e Invio Profili Display | Online Ruler Plus",
+      "description": "Contatta Online Ruler Plus per inviare un profilo display, segnalare bug di calibrazione o richiedere supporto tecnico.",
+      "schemaName": "Contatti — Online Ruler Plus",
+      "subNavTitle": "Contatti",
+      "breadcrumbLabel": "Contatti",
+      "heroKicker": "Contatti & Contributi Database Hardware",
+      "heroHeadline": "Contatta Online Ruler Plus",
+      "heroSummary": "Scrivici per contribuire con un profilo schermo verificato, segnalare anomalie di calibrazione o chiedere dettagli di metrologia.",
+      "openBtn": "Apri Righello",
+      "topCards": [
+        { "kicker": "01 · Supporto Tecnico", "heading": "Come contattare il supporto?", "body": "Includi sistema operativo, browser, zoom e metodo di calibrazione. Nessun dato diagnostico viene raccolto automaticamente.", "footerHref": "support@onlinerulerplus.com", "footerLabel": "support@onlinerulerplus.com", "isMailto": true },
+        { "kicker": "02 · Database Hardware", "heading": "Come inviare un nuovo profilo schermo?", "body": "Calibra allo zoom 100 % con tessera e copia dalla scheda 3. Rilevamento Automatico [[code:screen.width × screen.height]], [[code:devicePixelRatio]] e CSS PPI.", "footerHref": "/#calibration", "footerLabel": "Ispeziona i dati in Rilevamento Auto →" },
+        { "kicker": "03 · Risoluzione Rapida", "heading": "Dove risolvere i problemi più comuni?", "body": "Consulta [[link:/calibration-guide|Guida Calibrazione & PPI]], [[link:/faq|FAQ]] o [[link:/how-to-use|Come si Usa]].", "footerHref": "/faq", "footerLabel": "Consulta le FAQ Calibrazione & PPI →" }
+      ],
+      "bottomCards": [
+        { "kicker": "04 · Segnalazione Bug", "heading": "Cosa indicare per una risposta rapida?", "body": "Invia a [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] modello dispositivo, scaling OS, browser/zoom, badge attivo e passi." },
+        { "kicker": "05 · Privacy & Accessibilità", "heading": "Come gestiamo richieste legali e WCAG?", "body": "Scrivi a [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]; vedi [[link:/privacy|Privacy Policy]] e [[link:/terms|Termini d’Uso]]." }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy & Informative AdSense | Online Ruler Plus",
+      "description": "Privacy Policy di OnlineRulerPlus.com su elaborazione locale, chiavi localStorage, cookie Google AdSense e diritti utente.",
+      "schemaName": "Privacy Policy — Online Ruler Plus",
+      "subNavTitle": "Privacy Policy",
+      "breadcrumbLabel": "Privacy Policy",
+      "heroKicker": "Dati & Governance · Esecuzione Locale & Pubblicità",
+      "heroHeadline": "Informativa sulla Privacy",
+      "heroSummary": "Online Ruler Plus esegue il 100 % di calibrazioni e misure localmente nel browser senza caricare dati né richiedere accesso alla fotocamera.",
+      "effectiveDate": "In vigore dal: 14 novembre 2026 · Ultima revisione: 14 novembre 2026",
+      "topCards": [
+        { "kicker": "01 · Esecuzione Locale", "heading": "Come vengono elaborate le misure?", "body": "Tutto gira localmente nel browser via JavaScript e HTML5 Canvas senza trasmissione a server." },
+        { "kicker": "02 · Memoria Locale", "heading": "Cosa è salvato in window.localStorage?", "body": "Solo chiavi locali: [[code:orp:calibration:v1]], [[code:orp:preferences:v1]], [[code:orp:history:v1]], [[code:orp:theme]] e [[code:orp:locale:v1]]. Eliminabili in ogni momento." },
+        { "kicker": "03 · Permessi & Email", "heading": "Il sito accede a sensori o dati personali?", "body": "Mai a webcam, microfono, GPS o appunti. Le email a [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] servono solo a risponderti." }
+      ],
+      "bottomCards": [
+        { "kicker": "04 · Google AdSense", "heading": "Come vengono usati i cookie pubblicitari?", "body": "Partner terzi incluso Google possono usare cookie nelle aree idonee secondo il consenso regionale espresso." },
+        { "kicker": "05 · Opt-Out", "heading": "Come disattivare la pubblicità personalizzata?", "body": "Visita [[ext:https://myadcenter.google.com/|Google My Ad Center]] o [[ext:https://www.aboutads.info/choices/|aboutads.info/choices]]. Leggi le [[ext:https://policies.google.com/technologies/partner-sites|norme partner Google]]." },
+        { "kicker": "06 · Consenso & Diritti", "heading": "Quali normative regionali si applicano?", "body": "In SEE, Regno Unito e Svizzera tramite CMP certificata IAB TCF v2.2; diritti CCPA/CPRA rispettati. Non rivolto a minori di 13 anni. Contatto: [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]." }
+      ]
+    },
+    "terms": {
+      "title": "Termini d’Uso & Avviso Metrologico | Online Ruler Plus",
+      "description": "Termini d’Uso, responsabilità di calibrazione, limiti di parallasse e sicurezza dello schermo su OnlineRulerPlus.com.",
+      "schemaName": "Termini d’Uso — Online Ruler Plus",
+      "subNavTitle": "Termini d’Uso",
+      "breadcrumbLabel": "Termini d’Uso",
+      "heroKicker": "Condizioni del Servizio & Precisione Metrologica",
+      "heroHeadline": "Termini d’Uso e Avviso Metrologico",
+      "heroSummary": "Esamina condizioni di accesso, responsabilità di calibrazione, limiti ottici di parallasse e cura dello schermo.",
+      "lastUpdated": "Ultimo aggiornamento: 14 novembre 2026",
+      "topCards": [
+        { "kicker": "01 · Termini Generali", "heading": "Condizioni di accesso?", "body": "Servizio gratuito fornito «così com’è» per uso personale, scolastico e generale di riferimento." },
+        { "kicker": "02 · Ambito Metrologico", "heading": "Limiti di precisione?", "body": "Non usare per dosaggi medici, ingegneria strutturale, metrologia legale o lavorazioni meccaniche critiche." },
+        { "kicker": "03 · Sicurezza Schermo", "heading": "Come proteggere il pannello?", "body": "Appoggia oggetti metallici con delicatezza o su pellicola nell’[[link:/#ruler-tool|area righello]]; nessuna responsabilità per graffi." }
+      ],
+      "bottomCards": [
+        { "kicker": "04 · Proprietà Intellettuale", "heading": "Come usare contenuti e strumenti?", "body": "Uso individuale e didattico libero; vietati scraping massivo e mirroring ingannevole." },
+        { "kicker": "05 · Pubblicità & Aggiornamenti", "heading": "Link esterni e modifiche?", "body": "Vedi la nostra [[link:/privacy|Privacy Policy]]; domande a [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]." }
+      ]
+    }
+  }
+}

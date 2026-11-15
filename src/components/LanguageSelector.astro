@@ -1,0 +1,107 @@
+---
+import {
+  LOCALES,
+  LOCALE_META,
+  localizedPath,
+  stripLocalePrefix,
+  type Locale,
+} from '../i18n/config.ts';
+import { getDict } from '../i18n/index.ts';
+import LocaleFlag from './LocaleFlag.astro';
+
+interface Props {
+  locale: Locale;
+  currentPath?: string;
+}
+
+const { locale, currentPath = Astro.url.pathname } = Astro.props;
+const baseRoutePath = stripLocalePrefix(currentPath);
+const dict = getDict(locale);
+const currentMeta = LOCALE_META[locale];
+---
+
+<div class="relative" data-language-selector data-current-locale={locale}>
+  <button
+    type="button"
+    data-language-trigger
+    aria-haspopup="menu"
+    aria-expanded="false"
+    aria-controls="orp-language-menu"
+    aria-label={dict.nav.languageTriggerAria}
+    title={dict.nav.languageLabel}
+    class="group inline-flex items-center gap-1.5 h-7 sm:h-[32px] px-2 sm:px-2.5 rounded-[8px] type-nav-link font-medium whitespace-nowrap text-on-dark bg-[#1d1d1f] hover:bg-[#2a2a2c] border border-white/[0.1] hover:border-white/[0.2] shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_1px_2px_rgba(0,0,0,0.35)] transition-all cursor-pointer"
+  >
+    <LocaleFlag locale={locale} class="ring-white/20" />
+    <span class="hidden sm:inline leading-none">{currentMeta.nativeName}</span>
+    <span class="sm:hidden font-semibold tracking-tight leading-none">{currentMeta.shortCode}</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="11"
+      height="11"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+      data-language-chevron
+      class="text-[#a1a1a6] group-hover:text-on-dark transition-transform duration-200"
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  </button>
+
+  <div
+    id="orp-language-menu"
+    role="menu"
+    aria-label={dict.nav.languageMenuAria}
+    data-language-menu
+    data-open="false"
+    hidden
+    class="orp-lang-menu absolute -right-20 sm:right-0 top-[calc(100%+8px)] z-[60] w-[206px] sm:w-[216px] max-h-[min(78vh,460px)] overflow-y-auto rounded-[14px] p-1.5 bg-white/95 dark:bg-[#1c1c1e]/95 backdrop-blur-xl border border-black/[0.08] dark:border-white/[0.14] shadow-[0_18px_42px_-8px_rgba(0,0,0,0.22),0_4px_14px_-2px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_48px_-8px_rgba(0,0,0,0.72),inset_0_1px_0_rgba(255,255,255,0.08)]"
+  >
+    {LOCALES.map((code) => {
+      const meta = LOCALE_META[code];
+      const isActive = code === locale;
+      const href = localizedPath(code, baseRoutePath);
+      return (
+        <a
+          href={href}
+          role="menuitemradio"
+          aria-checked={isActive ? 'true' : 'false'}
+          data-language-option={code}
+          data-active={isActive ? 'true' : 'false'}
+          lang={meta.bcp47}
+          hreflang={meta.code}
+          class:list={[
+            'flex items-center gap-2.5 w-full px-2.5 py-2 rounded-[9px] text-[12.5px] leading-tight no-underline transition-colors',
+            isActive
+              ? 'bg-[#0066cc]/[0.09] text-[#0066cc] dark:bg-[#2997ff]/[0.16] dark:text-[#2997ff] font-semibold'
+              : 'text-ink hover:bg-[#f5f5f7] dark:hover:bg-white/[0.08] font-medium',
+          ]}
+        >
+          <LocaleFlag locale={code} />
+          <span class="flex-1 truncate">{meta.nativeName}</span>
+          {isActive && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              class="shrink-0"
+            >
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+          )}
+        </a>
+      );
+    })}
+  </div>
+</div>

@@ -1,0 +1,972 @@
+{
+  "meta": {
+    "ogImageAlt": "Online Ruler Plus kostenloses Online-Lineal in Originalgröße kalibriert in Zoll (1/16″), cm und mm",
+    "orgDescription": "Clientseitige Webanwendung für maßstabsgetreue Online-Bildschirmlineale und Display-Kalibrierung in Zentimetern (cm), Millimetern (mm), Zollbrüchen (1/16″) und CSS-Pixeln.",
+    "knowsAbout": [
+      "Online-Bildschirmlineal-Kalibrierung",
+      "Display-Pixeldichte-Metrologie (PPI)",
+      "Standard-Kartenkalibrierung nach ISO/IEC 7810:2019 ID-1",
+      "Zentimeter-, Millimeter- und Zollbruch-Messung",
+      "W3C CSS Values and Units Referenzpixel"
+    ]
+  },
+  "nav": {
+    "skipToMain": "Zum Hauptinhalt springen",
+    "skipToWorkspace": "Zum Lineal-Arbeitsbereich springen",
+    "brandHomeAria": "Online Ruler Plus Startseite",
+    "defaultSubNavTitle": "Bildschirmlineal-Arbeitsbereich",
+    "defaultSubNavCta": "Kalibrieren",
+    "globalNavAria": "Hauptnavigation",
+    "mobileNavAria": "Mobile Navigation",
+    "mobileMenuAria": "Navigationsmenü umschalten",
+    "homeWorkspaceLabel": "Start-Arbeitsbereich",
+    "shortcutsBtn": "Kürzel",
+    "shortcutsBtnTitle": "Tastenkürzel & Anleitung (H)",
+    "themeBtn": "Design",
+    "themeBtnAria": "Design wechseln (D)",
+    "themeBtnTitle": "Dunkelmodus umschalten (D)",
+    "languageLabel": "Sprache",
+    "languageTriggerAria": "Website-Sprache wählen",
+    "languageMenuAria": "Unterstützte Sprachen",
+    "links": {
+      "cmRuler": "cm-Lineal",
+      "mmRuler": "mm-Lineal",
+      "inchRuler": "Zoll-Lineal",
+      "horizontal": "Horizontal",
+      "vertical": "Vertikal",
+      "howToUse": "Anleitung",
+      "calibrationGuide": "Kalibrierung",
+      "faq": "FAQ",
+      "about": "Über uns",
+      "contact": "Kontakt",
+      "privacy": "Datenschutz",
+      "terms": "Nutzung"
+    },
+    "subNav": {
+      "workspace": "Lineal",
+      "calibration": "Kalibrierung",
+      "howItWorks": "Anwendung",
+      "ppiTable": "PPI-Tabelle"
+    }
+  },
+  "footer": {
+    "footnote": "1. Echte physische Genauigkeit erfordert eine Display-Kalibrierung per Standardkarte nach ISO/IEC 7810 ID-1 (85,60 × 53,98 mm) oder anhand der sichtbaren Bildschirmdiagonale bei 100 % Browser-Zoom. Unkalibriert verwenden Browser pauschal 96 CSS-Pixel pro Zoll.",
+    "tagline": "Präzisions-Bildschirmmetrologie zum Messen realer Objekte in Zentimetern, Millimetern und 1/16″-Zollbrüchen. 100 % lokale Berechnung und Speicherung im Browser.",
+    "colModes": "Lineal-Modi",
+    "colGuides": "Kalibrierung & Ratgeber",
+    "colTools": "Präzisionswerkzeuge",
+    "colLegal": "Projekt & Rechtliches",
+    "modeAllEdge": "Alle Kanten aktiv",
+    "modeCm": "Zentimeter-Lineal (cm)",
+    "modeMm": "Millimeter-Lineal (mm)",
+    "modeInch": "Zoll-Lineal (1/16″)",
+    "modeHorizontal": "Horizontales Lineal",
+    "modeVertical": "Vertikales Lineal",
+    "guideCard": "Kartenkalibrierung",
+    "guideHowTo": "Bedienungsanleitung",
+    "guidePpi": "Bildschirm-PPI-Referenz",
+    "guideFaq": "Häufige Fragen (FAQ)",
+    "toolGuides": "Verschiebbare Hilfslinien (G)",
+    "toolFractions": "Zollbruch-Anzeige",
+    "toolPx": "CSS-Pixel-Inspektor (px)",
+    "toolProtractor": "180°-Winkelmesser (P)",
+    "legalAbout": "Über Online Ruler Plus",
+    "legalContact": "Kontakt & Geräte-Einreichung",
+    "legalPrivacy": "Datenschutzerklärung",
+    "legalTerms": "Nutzungsbedingungen",
+    "copyright": "Copyright © {year} OnlineRulerPlus.com. Alle Rechte vorbehalten.",
+    "constants": "1 in = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)"
+  },
+  "helpModal": {
+    "kicker": "Kurzübersicht",
+    "title": "Tastenkürzel & Lineal-Steuerung",
+    "closeAria": "Tastenkürzel-Dialog schließen",
+    "escLabel": "Esc",
+    "enableShortcuts": "Einzel-Tastenkürzel aktivieren (G, C, P, F, 1–4, D, H)",
+    "gotIt": "Verstanden",
+    "shortcuts": [
+      { "key": "G", "action": "Hilfslinien per Klick ein-/ausschalten" },
+      { "key": "C", "action": "Mauszeiger-Fadenkreuz umschalten" },
+      { "key": "P", "action": "180°-Winkelmesser ein-/ausblenden" },
+      { "key": "F", "action": "Vollbildmodus umschalten" },
+      { "key": "1", "action": "Einheit auf Zentimeter (cm) stellen" },
+      { "key": "2", "action": "Einheit auf Zoll (in) stellen" },
+      { "key": "3", "action": "Einheit auf CSS-Pixel (px) stellen" },
+      { "key": "4 / M", "action": "Einheit auf Millimeter (mm) stellen" },
+      { "key": "D", "action": "Hell-/Dunkelmodus wechseln" },
+      { "key": "H", "action": "Dieses Hilfefenster öffnen oder schließen" },
+      { "key": "Esc", "action": "Hilfslinien löschen oder Dialog schließen" },
+      { "key": "← / →", "action": "Kartenkalibrierung um 1 px anpassen (Shift: 5 px)" }
+    ]
+  },
+  "hero": {
+    "eyebrow": "ISO/IEC 7810 ID-1 Referenz · 1 in = 25,4 mm",
+    "headline": "Online-Lineal in Originalgröße – Zoll, cm & mm",
+    "description": "Kalibriertes Messwerkzeug direkt am Bildschirm für Desktop, Laptop, Tablet und Smartphone. Bankkarte anlegen oder Bildschirmdiagonale eingeben und maßstabsgetreu messen.",
+    "primaryCta": "Bildschirm kalibrieren",
+    "secondaryCta": "Messanleitung"
+  },
+  "workspace": {
+    "srHeading": "Interaktiver Online-Bildschirmlineal-Arbeitsbereich",
+    "verifyCalibrationLink": "Kalibrierung prüfen",
+    "dismissAria": "Hinweis schließen",
+    "unitGroupAria": "Maßeinheiten",
+    "unitLabel": "Einheit",
+    "unitCmTitle": "Zentimeter mit Millimeter-Skala (Kürzel: 1)",
+    "unitMmTitle": "Millimeter (Kürzel: 4 oder M)",
+    "unitInTitle": "Zoll mit 1/16-Bruchteilung (Kürzel: 2)",
+    "unitPxTitle": "CSS-Pixel (Kürzel: 3)",
+    "dualUnit": "Dual cm/in",
+    "dualUnitTitle": "Zentimeter und Zoll gleichzeitig anzeigen",
+    "edgesGroupAria": "Linealkanten-Auswahl",
+    "edgesLabel": "Kanten",
+    "edgeTop": "Oben",
+    "edgeBottom": "Unten",
+    "edgeLeft": "Links",
+    "edgeRight": "Rechts",
+    "edgeAll": "Alle",
+    "toolsGroupAria": "Präzisionswerkzeuge",
+    "guides": "Hilfslinien",
+    "guidesTitle": "Klick-Hilfslinien umschalten (Kürzel: G)",
+    "crosshair": "Fadenkreuz",
+    "crosshairTitle": "Fadenkreuz umschalten (Kürzel: C)",
+    "addFloating": "+ Schwebendes Lineal",
+    "addFloatingTitle": "Frei bewegliches Lineal hinzufügen",
+    "protractor": "Winkelmesser",
+    "protractorTitle": "180°-Winkelmesser umschalten (Kürzel: P)",
+    "fullscreen": "Vollbild",
+    "fullscreenExit": "Vollbild beenden",
+    "fullscreenTitle": "Vollbildmodus umschalten (Kürzel: F)",
+    "clearGuides": "Linien löschen",
+    "clearGuidesTitle": "Alle Hilfslinien entfernen (Kürzel: Esc)",
+    "calDefaultStatus": "Geschätzte Kalibrierung",
+    "calDefaultDevice": "Desktop-Bildschirm",
+    "calibrateBtn": "Kalibrieren",
+    "guideAxisAria": "Achse beim Klicken für Hilfslinien",
+    "guideAxisLabel": "Linien-Achse:",
+    "axisVertical": "Vertikal",
+    "axisHorizontal": "Horizontal",
+    "axisBoth": "Beide",
+    "thicknessLabel": "Breite",
+    "thicknessAria": "Linealbreite",
+    "opacityLabel": "Deckkraft",
+    "opacityAria": "Lineal-Deckkraft in Prozent",
+    "canvasTopAria": "Oberes horizontales Lineal — klicken für vertikale Hilfslinie",
+    "canvasBottomAria": "Unteres horizontales Lineal — klicken für vertikale Hilfslinie",
+    "canvasLeftAria": "Linkes vertikales Lineal — klicken für horizontale Hilfslinie",
+    "canvasRightAria": "Rechtes vertikales Lineal — klicken für horizontale Hilfslinie",
+    "datumTitle": "Nullpunkt (0, 0) · Gestrichelte Bezugslinie oben links",
+    "datumBody": "Richte das Objekt am [[strong:0]]-Strich aus. Klicke auf ein Lineal oder das Raster, um verschiebbare Messlinien zu setzen.",
+    "liveCursorInit": "X: 0.00 cm · Y: 0.00 cm",
+    "saveToHistory": "Speichern",
+    "keysHint": "Tasten: [[kbd:1]] cm · [[kbd:2]] in · [[kbd:3]] px · [[kbd:G]] Linien · [[kbd:C]] Kreuz · [[kbd:F]] Vollbild"
+  },
+  "calibration": {
+    "kicker": "Pixeldichte-Kalibrierung · Lokal pro Bildschirm gespeichert",
+    "heading": "Bildschirm auf echten physischen Maßstab kalibrieren",
+    "lead": "Browser gehen standardmäßig von 96 CSS-Pixeln pro Zoll aus, was fast nie zum realen Display passt. Wähle eine der drei Methoden, damit jeder Millimeter und jedes 1/16 Zoll exakt stimmt.",
+    "activeScale": "Aktiver Maßstab",
+    "defaultStatus": "Geschätzte Kalibrierung",
+    "defaultBasis": "CSS-Referenzmaßstab (96 px pro Zoll)",
+    "resetBtn": "Zurücksetzen",
+    "methodsAria": "Methoden zur Bildschirmkalibrierung",
+    "tabCard": "1. Bankkarte (Empfohlen)",
+    "tabDiagonal": "2. Bildschirmdiagonale (Zoll)",
+    "tabAutoDetect": "3. Automatische Erkennung",
+    "cardKicker": "Standard ISO/IEC 7810 ID-1 · 85,60 × 53,98 mm",
+    "cardHeading": "Physische Bank-, Kredit- oder Ausweiskarte anlegen",
+    "cardDesc": "Halte eine handelsübliche Zahlungs-, Gesundheits- oder Ausweiskarte flach vor den Rahmen und passe ihn exakt auf die reale Breite an.",
+    "cardOrientTitle": "Zwischen Quer- und Hochformat für schmale Bildschirme wechseln",
+    "cardOrientLandscape": "Querformat (85.60 × 53.98 mm)",
+    "cardOrientPortrait": "Hochformat (53.98 × 85.60 mm)",
+    "cardStageAria": "Interaktive Kartenkalibrierung. Pfeiltasten links und rechts zum Anpassen.",
+    "cardDatumNote": "Bezugspunkt oben links · 1:1 Kartenumriss",
+    "cardPlaceTitle": "Physische Karte hier anlegen",
+    "cardPlaceSub": "Linke & obere Kante anlegen · Außenrand abgleichen",
+    "checklistTitle": "Optische Ausrichtungs-Checkliste",
+    "checklistSteps": [
+      "[[strong:Karte flach auflegen:]] Karte bündig an der linken oberen Ecke des Rahmens ansetzen.",
+      "[[strong:Außenkante angleichen:]] Regler ziehen oder [[kbd:←]] [[kbd:→]] drücken, bis der rechte Rand exakt abschließt.",
+      "[[strong:Parallaxe vermeiden:]] Blick genau senkrecht auf die rechte Kartenkante richten."
+    ],
+    "cardMinusAria": "Kartenbreite um 1 Pixel verringern",
+    "cardSliderAria": "Kartenbreite in Pixeln anpassen",
+    "cardPlusAria": "Kartenbreite um 1 Pixel erhöhen",
+    "widthPxLabel": "Breite (px):",
+    "longEdgePxLabel": "Längskante (px):",
+    "computedScaleLabel": "Berechneter Maßstab:",
+    "shortcutNote": "Feineinstellung: Klicke auf die Kartenfläche und nutze [[kbd:←]] [[kbd:→]] ([[kbd:Shift]] für 5-px-Schritte).",
+    "applyBtn": "Kalibrierung übernehmen",
+    "diagKicker": "Geometrische Berechnung · √(B² + H²) / Diagonale",
+    "diagHeading": "Über die sichtbare Bildschirmdiagonale kalibrieren",
+    "diagDesc": "Gib die sichtbare Panel-Diagonale in Zoll ein (Ecke zu Ecke innerhalb des Rahmens, ohne Gehäuse). Der Browser-Zoom sollte dabei 100 % betragen.",
+    "diagPresetsLabel": "Häufige Display-Diagonalen (Zoll)",
+    "diagInputLabel": "Sichtbare Bildschirmdiagonale (Zoll)",
+    "diagPlaceholder": "z. B. 15.6 oder 27",
+    "diagResetBtn": "Zurücksetzen",
+    "diagFormula": "Formel: CSS PPI = √(Bildschirmbreite² + Bildschirmhöhe²) / DiagonaleZoll",
+    "diagNotesTitle": "Hinweise zur Diagonal-Kalibrierung:",
+    "diagNotes": [
+      "[[strong:Panel vs. Gehäuse:]] Aktive Bilddiagonale eingeben (z. B. 13,6″ oder 15,6″), nicht die äußere Gehäusegröße.",
+      "[[strong:Logische CSS-Pixel vs. Hardware-Pixel:]] Betriebssysteme nutzen HiDPI-Skalierung (z. B. 125 % / 150 % unter Windows oder macOS Retina). Bei 100 % Browser-Zoom nutzt die Formel direkt die gemeldeten CSS-Pixel."
+    ],
+    "autoKicker": "Browser-Telemetrie & Gerätedatenbank",
+    "autoHeading": "Automatische Geräte- und Pixeldichte-Erkennung",
+    "autoDesc": "Online Ruler Plus liest logische Bildschirmauflösung, Device Pixel Ratio (DPR), Ausrichtung und Plattform aus, um bekannte Geräteprofile zuzuordnen oder einen Startwert zu schätzen.",
+    "autoDtProfile": "Erkanntes Profil",
+    "autoDtStatus": "Erkennungsstatus",
+    "autoDtDensity": "Geschätzte Dichte",
+    "autoDtSize": "CSS-Bildschirmgröße",
+    "autoDtDpr": "Device Pixel Ratio",
+    "autoDtOrient": "Ausrichtung",
+    "autoChecking": "Bildschirm wird geprüft…",
+    "autoWhyTitle": "Warum manuell prüfen?",
+    "autoWhyBody": "[[strong:Warum manuell prüfen?]] Browser verbergen aus Datenschutzgründen die exakte physische Monitorgröße. Vor wichtigen Messungen immer mit Karte oder bekannter Diagonale verifizieren.",
+    "autoApplyBtn": "Erkannten Maßstab nutzen",
+    "verifyKicker": "Physische Prüflehre",
+    "verifyHeading": "Sofort mit Alltagsgegenständen prüfen",
+    "verifyDesc": "Halte eine echte Münze an diese live skalierten Kreise, um deine Kalibrierung sofort zu kontrollieren.",
+    "coinQuarter": "US Quarter",
+    "coinEuro": "1 Euro €",
+    "coinPenny": "US Penny",
+    "verifyBarLabel": "50,0-mm-Referenzbalken (5,0 cm)",
+    "historyKicker": "Lokales Sitzungsprotokoll",
+    "historyHeading": "Messverlauf",
+    "historyClearBtn": "Leeren",
+    "historyEmpty": "Setze zwei parallele Hilfslinien auf der Arbeitsfläche und klicke auf [[strong:Speichern]], um Spannweiten ([[code:ΔX]] / [[code:ΔY]]) lokal zu sichern.",
+    "historyFooterLeft": "Speicherort: nur localStorage",
+    "historyFooterRight": "Keine Netzwerkübertragung"
+  },
+  "runtime": {
+    "statusLabels": {
+      "detected": "Gerät erkannt",
+      "estimated": "Geschätzte Kalibrierung",
+      "manual": "Manuelle Kalibrierung"
+    },
+    "orientLandscape": "Querformat",
+    "orientPortrait": "Hochformat",
+    "rangeLabel": "Spanne:",
+    "angleLabel": "Winkel:",
+    "removeGuideAria": "Hilfslinie entfernen",
+    "rotateFloatingTitle": "Um 90° drehen",
+    "rotateFloatingAria": "Schwebendes Lineal drehen",
+    "removeFloatingTitle": "Schwebendes Lineal entfernen",
+    "removeFloatingAria": "Schwebendes Lineal entfernen",
+    "closeProtractorAria": "Winkelmesser schließen",
+    "spanSaved": "Gespeichert",
+    "spanGuideLabel": "{axis}-Hilfslinienspanne",
+    "autoAppliedBanner": "Automatische Erkennung für diesen Bildschirm übernommen.",
+    "cardSavedBanner": "Kartenkalibrierung gespeichert ({ppi} CSS PPI · {pxPerMm} px/mm).",
+    "diagonalSavedBanner": "Auf {diag}″-Display kalibriert ({ppi} CSS PPI · {pxPerMm} px/mm).",
+    "resetBanner": "Kalibrierung auf automatische Schätzung zurückgesetzt.",
+    "displayOrientationBanner": "Bildschirmausrichtung aktualisiert; Linealmaße angepasst.",
+    "displayZoomManualBanner": "Zoom oder Skalierung geändert; manuelle Kalibrierung automatisch nachgeführt.",
+    "displayZoomAutoBanner": "Display-Skalierung geändert; Lineal automatisch angepasst.",
+    "displaySwitchedBanner": "Monitorwechsel erkannt ({w}×{h}). Kalibrierung auf diesem Bildschirm bitte erneut prüfen.",
+    "enterDiagonalPrompt": "Diagonale für {w} × {h} CSS-px-Bildschirm eingeben",
+    "calculatedScale": "Berechneter Maßstab: {ppi} CSS PPI ({pxPerMm} px/mm)",
+    "basisMap": {
+      "CSS reference scale (96 px per inch)": "CSS-Referenzmaßstab (96 px pro Zoll)",
+      "Matched a known screen configuration": "Bekannte Bildschirmkonfiguration erkannt",
+      "Several devices share this configuration": "Mehrere Geräte teilen diese Konfiguration",
+      "Typical iPhone density": "Typische iPhone-Pixeldichte",
+      "Typical iPad density": "Typische iPad-Pixeldichte",
+      "Android nominal density (160 dp per inch)": "Android-Referenzdichte (160 dp pro Zoll)",
+      "Typical Retina Mac at a scaled resolution": "Typischer Retina Mac in skalierter Auflösung",
+      "Typical density at default OS scaling": "Typische Dichte bei Standard-Systemskalierung",
+      "Manual calibration adjusted for current zoom or scaling": "Manuelle Kalibrierung an aktuellen Zoom bzw. Skalierung angepasst",
+      "Calibrated against an ISO/IEC 7810 ID-1 card (85.60 × 53.98 mm)": "Mit ISO/IEC 7810 ID-1 Karte (85,60 × 53,98 mm) kalibriert",
+      "Calibrated from entered display diagonal": "Aus eingegebener Bildschirmdiagonale berechnet"
+    },
+    "deviceLabelMap": {
+      "Desktop display": "Desktop-Bildschirm",
+      "iPhone (model not identified)": "iPhone (Modell nicht eindeutig)",
+      "iPad (model not identified)": "iPad (Modell nicht eindeutig)",
+      "Android device": "Android-Gerät",
+      "Mac with Retina display": "Mac mit Retina-Display",
+      "Scaled laptop or desktop display": "Skalierter Laptop- oder Desktop-Bildschirm",
+      "Credit card calibration": "Kartenkalibrierung"
+    },
+    "errorMap": {
+      "Enter your screen diagonal in inches.": "Gib die Bildschirmdiagonale in Zoll ein.",
+      "Use a number such as 15.6.": "Verwende eine gültige Zahl wie 15.6.",
+      "The diagonal must be greater than zero.": "Die Diagonale muss größer als null sein.",
+      "Enter a diagonal between 4 and 120 inches.": "Gib eine Diagonale zwischen 4 und 120 Zoll ein.",
+      "Screen dimensions are unavailable.": "Bildschirmabmessungen sind nicht verfügbar.",
+      "That diagonal gives an implausible pixel density. Check the value and your browser zoom.": "Diese Diagonale ergibt eine unplausible Pixeldichte. Prüfe Wert und Browser-Zoom.",
+      "Card width must be greater than zero.": "Die Kartenbreite muss größer als null sein.",
+      "Card size must be greater than zero.": "Die Kartengröße muss größer als null sein.",
+      "That card size is outside the plausible range.": "Diese Kartengröße liegt außerhalb des plausiblen Bereichs."
+    },
+    "displaySizeSuffix": "{long}×{short}-Display",
+    "typMonitorBasis": "Nimmt einen typischen {diag}″-Monitor bei dieser Auflösung an",
+    "manualDiagBasis": "{diag}″ Bildschirmdiagonale"
+  },
+  "home": {
+    "title": "Online-Lineal | Kostenloses Lineal in Originalgröße (Zoll, cm, mm)",
+    "description": "Reale Längen in Zoll (1/16″), cm und mm mit unserem kostenlosen Online-Lineal in Originalgröße messen. Per Bankkarte oder Diagonale kalibrieren.",
+    "featureList": [
+      "Lineale für Zollbrüche (1/16″), Zentimeter (cm), Millimeter (mm) und CSS-Pixel (px)",
+      "Kalibrierung per ISO/IEC 7810 ID-1 Bankkarte (85,60 × 53,98 mm)",
+      "Diagonal-Kalibrierung und automatische Geräteerkennung",
+      "Lineale oben, unten, links, rechts sowie frei schwebendes Lineal",
+      "Klick-Hilfslinien, Fadenkreuz, 180°-Winkelmesser und Vollbildmodus"
+    ],
+    "howKicker": "Praktische Bildschirm-Metrologie · Leitfaden Zoll, cm & mm",
+    "howHeading": "Online-Lineal-Ratgeber: Zoll, cm & mm in Originalgröße",
+    "howManualBtn": "Ausführliche Anleitung",
+    "howCards": [
+      {
+        "kicker": "01 · Überblick",
+        "heading": "Was ist ein Online-Lineal?",
+        "body": "Ein Online-Lineal ist ein kalibriertes Messinstrument im Browser, das maßstabsgetreue Teilstriche direkt auf dem Bildschirm darstellt. Da Browser standardmäßig pauschal mit 96 CSS-Pixeln pro Zoll rechnen, gleicht lokale Kalibrierung den echten Pixelabstand ohne Downloads auf 1:1 an."
+      },
+      {
+        "kicker": "02 · Kurzanleitung",
+        "heading": "So benutzt du das Online-Lineal",
+        "body": "Einmal unten kalibrieren, Einheit wählen und das Objekt flach an der eingerückten 0-Linie anlegen statt am Monitorrahmen. Durch Klicken setzt du verschiebbare blaue Hilfslinien mit automatischer ΔX/ΔY-Anzeige.",
+        "linkHref": "#ruler-tool",
+        "linkLabel": "Im Arbeitsbereich messen"
+      },
+      {
+        "kicker": "03 · Imperiales Maß",
+        "heading": "Messen in Zoll (Inches)",
+        "body": "Im [[link:/inch-ruler|Zoll-Modus]] wird jeder Zoll (25,4 mm) in 1/2, 1/4, 1/8 und 1/16 unterteilt. Breite Laptops und Monitore zeigen im Vollbild ([[kbd:F]]) ein durchgehendes 12-Zoll-Lineal.",
+        "linkHref": "/inch-ruler",
+        "linkLabel": "1/16″-Zoll-Lineal öffnen"
+      },
+      {
+        "kicker": "04 · Metrische Skala",
+        "heading": "Messen in Zentimetern und Millimetern",
+        "body": "Nutze [[link:/cm-ruler|cm]] für Pakete und Papier oder das [[link:/mm-ruler|mm-Lineal]] für Schrauben, Uhrenstege und 3D-Druckteile. Mit Dual cm/in siehst du beide Skalen zugleich.",
+        "linkHref": "/cm-ruler",
+        "linkLabel": "cm- & mm-Lineale öffnen"
+      },
+      {
+        "kicker": "05 · Kalibrierung",
+        "heading": "Wie kalibriert man ein Online-Lineal?",
+        "body": "Aus Datenschutzgründen geben Browser keine physische Monitorgröße preis. Halte eine Bankkarte (ISO/IEC 7810 ID-1: 85,60 × 53,98 mm) an das Kalibrierfeld oder gib bei 100 % Zoom die sichtbare Diagonale ein.",
+        "linkHref": "#calibration",
+        "linkLabel": "Mit Bankkarte kalibrieren",
+        "isCardOpen": true
+      },
+      {
+        "kicker": "06 · 1:1 Tipps",
+        "heading": "So erhältst du echte Originalgrößen",
+        "body": "Blicke senkrecht auf die Teilung, um Parallaxe durch das Schutzglas zu vermeiden. Schneller Test: Eine 1-Euro-Münze misst 23,25 mm, ein 2-Euro-Stück 25,75 mm.",
+        "linkHref": "/calibration-guide",
+        "linkLabel": "Kalibrierungsguide lesen"
+      },
+      {
+        "kicker": "07 · Geräte",
+        "heading": "Online-Lineal auf Smartphone & Desktop",
+        "body": "Am Desktop stehen bis zu 12 Zoll horizontal plus getrennte Monitorprofile bereit. Am Handy einfach auf Hochformat-Kartenkalibrierung (53,98 mm) umschalten.",
+        "linkHref": "/vertical-ruler",
+        "linkLabel": "Vertikalen Mobilmodus testen"
+      },
+      {
+        "kicker": "08 · Antworten",
+        "heading": "Häufige Fragen zum Messen",
+        "body": "Unsicher wegen Smartphone-Grenzen, Browser-Zoom, Kamera-Apps oder dem Lineal in Word Online bzw. PowerPoint Online? Unten findest du alle direkten Antworten.",
+        "linkHref": "#faq",
+        "linkLabel": "Zu den FAQs ↓"
+      }
+    ],
+    "accuracyKicker": "Display-Optik · W3C CSS-Pixel vs. Hardware-PPI",
+    "accuracyHeading": "Warum brauchen Bildschirmlineale eine PPI-Kalibrierung?",
+    "accuracyLead": "Weblayouts rechnen mit 96 CSS-Pixeln pro Zoll (3,780 px/mm), doch reale Displays reichen von 81,6 CSS PPI am 27″-1080p-Monitor bis über 140 CSS PPI bei Laptops und Smartphones — 10 bis 35 % Abweichung ohne Kalibrierung.",
+    "accuracyGuideBtn": "Kompletter Kalibrierungsguide",
+    "objectsTitle": "Physische Prüfobjekte",
+    "objectsBody": "Überprüfe jederzeit mit genormten Gegenständen: Bankkarte (85,60 × 53,98 mm), 1-Euro-Münze (23,25 mm), 2-Euro-Münze (25,75 mm) oder US-Quarter (24,26 mm).",
+    "limitsTitle": "Hardwaregrenzen & Toleranz",
+    "limitsBody": "Begrenzt durch sichtbare Bildschirmbreite, Deckglas-Parallaxe und Pixelraster (~0,1–0,3 mm). Für exakte Maschinenbau-Toleranzen bitte Messschieber nutzen.",
+    "ppiKicker": "Hardware-Dichte-Referenz",
+    "ppiHeading": "Typische Displays & 96-PPI-Fehler auf einer 10-cm-Strecke",
+    "ppiHeaders": ["Display / Skalierung", "CSS-Viewport", "Effektive CSS PPI", "CSS px/mm", "Unkalibrierter 96-PPI-Fehler"],
+    "ppiRows": [
+      { "device": "13.3\" MacBook Air / Pro (Retina)", "res": "1440 × 900 CSS (2×)", "ppi": "127.7 PPI", "pxMm": "5.027 px/mm", "err": "−24,8 % (zeichnet 7,52 cm)" },
+      { "device": "14.2\" MacBook Pro (Liquid Retina XDR)", "res": "1512 × 982 CSS (2×)", "ppi": "127.0 PPI", "pxMm": "5.000 px/mm", "err": "−24,4 % (zeichnet 7,56 cm)" },
+      { "device": "15.6\" Full-HD-Laptop (Windows 100 %)", "res": "1920 × 1080 CSS (1×)", "ppi": "141.2 PPI", "pxMm": "5.559 px/mm", "err": "−32,0 % (zeichnet 6,80 cm)" },
+      { "device": "15.6\" Full-HD-Laptop (Windows 125 %)", "res": "1536 × 864 CSS (1.25×)", "ppi": "113.0 PPI", "pxMm": "4.448 px/mm", "err": "−15,0 % (zeichnet 8,50 cm)" },
+      { "device": "24\" Full-HD-Monitor (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "91.8 PPI", "pxMm": "3.614 px/mm", "err": "+4,6 % (zeichnet 10,46 cm)" },
+      { "device": "27\" Full-HD-Monitor (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "81.6 PPI", "pxMm": "3.212 px/mm", "err": "+17,6 % (zeichnet 11,76 cm)" },
+      { "device": "27\" QHD-Monitor (2560 × 1440, 100 %)", "res": "2560 × 1440 CSS (1×)", "ppi": "108.8 PPI", "pxMm": "4.283 px/mm", "err": "−11,8 % (zeichnet 8,82 cm)" },
+      { "device": "27\" 4K-UHD-Monitor (HiDPI 200 %)", "res": "1920 × 1080 CSS (2×)", "ppi": "81.6 CSS PPI", "pxMm": "3.212 px/mm", "err": "+17,6 % (zeichnet 11,76 cm)" }
+    ],
+    "ppiFormula": "Formel: [[code:Effektive CSS PPI = √(W_css² + H_css²) / DiagonaleZoll]] · [[code:pxPerMm = CSS_PPI / 25.4]]. Nach NIST/BIPM gilt exakt 1 Zoll = 25,4 mm.",
+    "modesKicker": "Spezialansichten · Metrisch, Imperial & CSS-Pixel",
+    "modesHeading": "Dedizierte Online-Lineal-Ansichten entdecken",
+    "modesLead": "Deine gespeicherte Bildschirmkalibrierung gilt automatisch für alle Ansichten.",
+    "modeCards": [
+      { "kicker": "Imperial · 1 in = 25,4 mm · 1/16″", "heading": "Online-Lineal in Zoll (12″ & 1/16″)", "body": "Voreingestellte Zoll-Skala mit automatischen 1/16″-Brüchen und Umrechnungstabelle nach mm.", "href": "/inch-ruler", "linkLabel": "Zoll-Lineal öffnen" },
+      { "kicker": "Metrisch · 1 cm = 10 mm", "heading": "Online-Zentimeter-Lineal (cm)", "body": "Maßstabsgetreue cm-Skala mit 1-mm- und 5-mm-Teilung sowie Tabelle von 1 bis 30 cm.", "href": "/cm-ruler", "linkLabel": "cm-Lineal öffnen" },
+      { "kicker": "Feinteilung · 1 mm & 5 mm", "heading": "Online-Millimeter-Lineal (mm)", "body": "Optimiert für M2–M10-Schrauben, Uhrenarmbänder, Münzen und Elektronikbauteile.", "href": "/mm-ruler", "linkLabel": "mm-Lineal öffnen" },
+      { "kicker": "Oben & Unten · CSS-Pixel", "heading": "Horizontales Bildschirm- & Pixellineal", "body": "Doppelte horizontale Leisten oben und unten für breite Objekte und CSS-Layout-Checks.", "href": "/horizontal-ruler", "linkLabel": "Horizontales Lineal öffnen" },
+      { "kicker": "Links & Rechts · Hochformat", "heading": "Vertikales Bildschirmlineal", "body": "Linke und rechte vertikale Leisten für stehende Objekte und Smartphones im Hochformat.", "href": "/vertical-ruler", "linkLabel": "Vertikales Lineal öffnen" },
+      { "kicker": "Overlays · Tasten G, C, P", "heading": "Schwebendes Lineal, Hilfslinien & 180°-Winkelmesser", "body": "Parallele ΔX/ΔY-Linien setzen, schwebendes Lineal um 360° drehen oder 180°-Winkel messen.", "href": "#ruler-tool", "linkLabel": "Werkzeuge oben starten" }
+    ],
+    "faqKicker": "Häufige Fragen · Bedienung, Kalibrierung & Kompatibilität",
+    "faqHeading": "Häufig gestellte Fragen zu Online-Linealen",
+    "faqViewAllBtn": "Alle 20 FAQs ansehen",
+    "faqs": [
+      { "q": "Gibt es ein Online-Lineal zum Messen echter Gegenstände?", "a": "Ja. Online Ruler Plus verwandelt Desktop, Laptop, Tablet und Smartphone nach Karten- oder Diagonal-Kalibrierung in ein maßstabsgetreues Lineal in Zoll (1/16″), cm und mm." },
+      { "q": "Wie benutzt man ein Online-Lineal richtig?", "a": "Erst unter Bildschirm kalibrieren eine Bankkarte (85,60 × 53,98 mm) abgleichen, Einheit wählen (cm, mm, in, px) und das Objekt an der inneren 0-Linie anlegen oder Hilfslinien anklicken." },
+      { "q": "Wie liest man Zoll, cm und mm am Online-Lineal ab?", "a": "Von der 0-Linie bis zur letzten ganzen Zahl zählen, dann Unterteilungen ablesen (1 mm metrisch bzw. 1/2, 1/4, 1/8, 1/16″ imperial). Die Fußzeile zeigt zusätzlich den exakten Wert." },
+      { "q": "Wie erkennt man 1 Zoll auf einem Online-Lineal?", "a": "Auf Zoll (Taste 2) umschalten: Der Abstand von 0 bis 1 entspricht nach Kalibrierung exakt 25,4 mm. Eine 1-Euro-Münze misst zum Vergleich 23,25 mm, ein US-Penny genau 0,75″." },
+      { "q": "Wie misst man cm und mm online?", "a": "cm (Taste 1) oder mm (Taste 4) wählen und das Objekt flach an der 0-Linie anlegen oder mit Dual cm/in beide Skalen parallel vergleichen." },
+      { "q": "Kann ich mein Smartphone als Lineal nutzen?", "a": "Ja, bis zur sichtbaren Bildschirmhöhe (~13–16 cm). Nutze zuerst die Hochformat-Kartenkalibrierung (53,98 mm), da Smartphones sehr hohe Pixeldichten haben." },
+      { "q": "Kann ich die Handykamera als Lineal nutzen?", "a": "Online Ruler Plus greift nie auf die Kamera zu. Direktes Anlegen am kalibrierten Display vermeidet Perspektiv- und Tiefenmessfehler von Kamera-AR-Apps." },
+      { "q": "Wie blendet man in Word Online das Lineal ein?", "a": "Wechsle in Word im Web in den Bearbeitungsmodus, öffne den Reiter Ansicht und aktiviere die Option Lineal." },
+      { "q": "Wie zeigt man in PowerPoint Online das Lineal an?", "a": "Im Bearbeitungsmodus unter Ansicht das Lineal aktivieren. Beachte, dass dort Folienkoordinaten statt physischer Monitor-Millimeter angezeigt werden." },
+      { "q": "Warum ist Kalibrierung nötig und zerstört Zoom die Genauigkeit?", "a": "Ohne Kalibrierung nutzen Browser pauschal 96 CSS-Pixel/Zoll. Online Ruler Plus speichert die Hardware-Dichte (devicePxPerMm) und gleicht Browser-Zoom automatisch aus." },
+      { "q": "Bleibt die Kalibrierung auf mehreren Monitoren privat gespeichert?", "a": "Ja, jedes Displayprofil wird ausschließlich lokal in localStorage gespeichert und niemals hochgeladen." }
+    ]
+  },
+  "spokeShared": {
+    "calibrationGuideBtn": "Kalibrierungs- & PPI-Guide",
+    "modesKicker": "Achse oder Maßeinheit wechseln",
+    "modesHeading": "Weitere kalibrierte Lineal-Modi entdecken",
+    "modesAllEdgeBtn": "Alle-Kanten-Ansicht",
+    "modeTiles": [
+      { "href": "/cm-ruler", "kicker": "Metrisch · cm", "title": "Zentimeter-Lineal", "desc": "1 cm & 0,5 cm + cm-in-Zoll-Tabelle" },
+      { "href": "/inch-ruler", "kicker": "Imperial · 1/16″", "title": "Zoll-Lineal (12″)", "desc": "1/2, 1/4, 1/8 & 1/16″ Brüche" },
+      { "href": "/mm-ruler", "kicker": "Feinteilung · mm", "title": "Millimeter-Lineal", "desc": "1 mm & 5 mm Hardware-Skala" },
+      { "href": "/horizontal-ruler", "kicker": "Oben & Unten", "title": "Horizontales Lineal", "desc": "Breite Objekte & CSS-Pixel (px)" },
+      { "href": "/vertical-ruler", "kicker": "Links & Rechts", "title": "Vertikales Lineal", "desc": "Aufrechte Höhen & Handy-Hochformat" }
+    ],
+    "allFaqsBtn": "Alle häufigen Fragen"
+  },
+  "pages": {
+    "cmRuler": {
+      "title": "cm-Lineal Online | Zentimeter-Lineal in Originalgröße",
+      "description": "Kalibriertes Online-Zentimeterlineal (cm) in Originalgröße mit 1-mm- und 5-mm-Teilung, Umrechnungstabelle 1–30 cm und Bankkarten-Kalibrierung.",
+      "schemaName": "Online-Zentimeterlineal (cm) — Online Ruler Plus",
+      "featureList": [
+        "Maßstabsgetreues cm-Lineal mit 1-mm- und 5-mm-Teilstrichen",
+        "Gleichzeitiger Dual cm/Zoll-Vergleich",
+        "ISO/IEC 7810 ID-1 Kartenkalibrierung (8,56 × 5,40 cm)",
+        "Umrechnungstabelle 1 bis 30 cm in Zoll und 1/16-Brüche"
+      ],
+      "subNavTitle": "Zentimeter-Lineal (cm)",
+      "breadcrumbLabel": "Zentimeter-Lineal (cm)",
+      "hero": {
+        "eyebrow": "Metrische Skala · 1 cm = 10 mm · 0,5 cm & 1 mm Teilung",
+        "headline": "Online-Zentimeterlineal (cm) in Originalgröße",
+        "description": "Kalibriertes metrisches Bildschirmlineal mit 1-cm-Ziffern, 0,5-cm-Mittelstrichen und feinen 1-mm-Markierungen inklusive 1–30 cm Umrechnungstabelle."
+      },
+      "guideKicker": "Metrische Bildschirmmetrologie · SI-Zehnerskala",
+      "guideHeading": "In Zentimetern messen und cm in Zoll umrechnen",
+      "guideLead": "Ein kalibriertes cm-Lineal macht deinen Bildschirm zu einer echten 1:1-Skala mit 1-mm-Genauigkeit.",
+      "cards": [
+        { "step": "1", "kicker": "Metrische Skala · 1 cm = 10 mm", "heading": "Wie ist ein Zentimeterlineal unterteilt?", "body": "Jeder Zentimeter ist in 10 Teilstriche zu 1 mm mit längerer Marke bei 0,5 cm (5 mm) unterteilt. Nach Kartenkalibrierung (8,56 cm) entsprechen 10 cm am Bildschirm exakt 100,0 mm.", "linkHref": "#calibration", "linkLabel": "Zentimeterskala kalibrieren" },
+        { "step": "2", "kicker": "SI-Umrechnung · 1 in = 2,54 cm", "heading": "Wie rechnet man cm exakt in Zoll um?", "body": "Genormt gilt 1 Zoll = 2,54 cm (NIST/BIPM). Teile Zentimeter durch 2,54: 15 cm = 5,9055 in, 30 cm = 11,8110 in. Mit Dual cm/in siehst du beide Skalen parallel.", "linkHref": "#accuracy-guide", "linkLabel": "cm-in-Zoll-Tabelle ansehen" },
+        { "step": "3", "kicker": "Gegenprüfung · Alltagsgegenstände", "heading": "Welche Gegenstände bestätigen die cm-Skala?", "body": "Eine Bankkarte misst 8,56 × 5,40 cm, eine AA-Batterie 5,05 cm Länge, eine 1-Euro-Münze 2,325 cm und ein A4-Blatt an der kurzen Seite genau 21,0 cm.", "linkHref": "/mm-ruler", "linkLabel": "Zum feinen 1-mm-Lineal wechseln" }
+      ],
+      "darkKicker": "cm-in-Zoll-Umrechnung · 1 in = 2,54 cm (Exakt)",
+      "darkHeading": "Referenzleitfaden Zentimeter (cm), Zoll und Millimeter",
+      "darkLead": "Nutze die exakten SI-Konstanten direkt neben dem interaktiven Lineal.",
+      "darkCards": [
+        { "heading": "Warum entspricht 1 Zoll exakt 2,54 cm?", "body": "Diese internationale Definition von 1959 vermeidet Rundungsfehler. Online Ruler Plus rechnet intern einheitlich in Millimetern (pxPerMm)." },
+        { "heading": "Wie viel von einem 30-cm-Lineal passt auf den Monitor?", "body": "Auf 14-Zoll-Laptops im Vollbild (F) passen rund 30 cm, auf 15,6″-Notebooks (34,5 cm) und 24–27″-Monitoren passt die volle 30-cm-Länge problemlos." },
+        { "heading": "Wann cm-Modus und wann mm-Modus wählen?", "body": "cm zeigt Dezimalwerte (z. B. 8,56 cm) für Briefe und Pakete; für Schrauben M3–M10 oder Uhrenstege bietet mm (Taste 4/M) direkte Millimeterwerte." }
+      ],
+      "table": {
+        "kicker": "Metrisch-Imperiale Umrechnungstabelle",
+        "heading": "Zentimeter (cm) in Millimeter (mm), Dezimalzoll & 1/16″-Brüche",
+        "headers": ["Zentimeter (cm)", "Millimeter (mm)", "Dezimalzoll (in)", "Nächstes 1/16″", "Typische Referenz"],
+        "rows": [
+          ["1 cm", "10.0 mm", "0.3937 in", "3/8 in (0.375″)", "AAA-Batterie Durchmesser (~1,05 cm)"],
+          ["2 cm", "20.0 mm", "0.7874 in", "13/16 in (0.813″)", "US-Penny Ø = 1,905 cm (19,05 mm)"],
+          ["2.54 cm", "25.4 mm", "1.0000 in", "1 in (exakt)", "Exakte Definition von 1 Zoll"],
+          ["5 cm", "50.0 mm", "1.9685 in", "1 15/16 in (1.938″)", "AA-Batterie Länge (5,05 cm)"],
+          ["5.40 cm", "53.98 mm", "2.1252 in", "2 1/8 in (2.125″)", "Bankkarte ISO/IEC 7810 ID-1 Höhe"],
+          ["8.56 cm", "85.60 mm", "3.3701 in", "3 3/8 in (3.375″)", "Bankkarte ISO/IEC 7810 ID-1 Breite"],
+          ["10 cm", "100.0 mm", "3.9370 in", "3 15/16 in (3.938″)", "1 Dezimeter (100 mm)"],
+          ["15 cm", "150.0 mm", "5.9055 in", "5 7/8 in (5.875″)", "Schülerlineal 15 cm / US-Dollarschein (15,6 cm)"],
+          ["20 cm", "200.0 mm", "7.8740 in", "7 7/8 in (7.875″)", "A4-Breite beträgt 21,0 cm (210 mm)"],
+          ["25 cm", "250.0 mm", "9.8425 in", "9 13/16 in (9.813″)", "Viertelmeter für Basteln & Nähen"],
+          ["30 cm", "300.0 mm", "11.8110 in", "11 13/16 in (11.813″)", "Standard-Schul- & Bürolinal 30 cm"],
+          ["30.48 cm", "304.8 mm", "12.0000 in", "12 in (1 Fuß exakt)", "Exakte metrische Länge eines 12-Zoll-Lineals"]
+        ],
+        "footnote": "Formeln: mm = cm × 10 · in = cm ÷ 2,54 · cm = in × 2,54."
+      },
+      "faqKicker": "cm-Lineal FAQ",
+      "faqHeading": "Häufige Fragen zum Online-Zentimeterlineal",
+      "faqs": [
+        { "q": "Wie erhalte ich ein Zentimeterlineal in Originalgröße?", "a": "Halte im Abschnitt Bildschirm kalibrieren eine 8,56-cm-Bankkarte an das Rechteck und übernimm die Einstellung." },
+        { "q": "Wie viele Zentimeter hat ein Zoll bzw. ein 12-Zoll-Lineal?", "a": "1 Zoll = 2,54 cm; ein 12-Zoll-Lineal misst exakt 30,48 cm (4,8 mm länger als 30 cm)." },
+        { "q": "Wie liest man Millimeter auf einem Zentimeterlineal ab?", "a": "Jeder Zentimeter hat 10 Striche zu 1 mm und einen längeren Mittelstrich bei 0,5 cm (5 mm)." },
+        { "q": "Kann ich auf iPhone, iPad oder Android in cm messen?", "a": "Ja, nutze auf schmalen Smartphones die Hochformat-Kartenkalibrierung (5,40 × 8,56 cm)." }
+      ]
+    },
+    "mmRuler": {
+      "title": "mm-Lineal Online | Kalibriertes Millimeter-Lineal (mm)",
+      "description": "Online-Millimeterlineal (mm) in Originalgröße mit 1-mm- und 5-mm-Strichen, Tabelle für M2–M10-Schrauben & Uhrenstege sowie Kartenkalibrierung.",
+      "schemaName": "Online-Millimeterlineal (mm) — Online Ruler Plus",
+      "featureList": [
+        "Kalibriertes Millimeterlineal mit 1-mm- und 5-mm-Markierungen",
+        "0,1-mm-Auflösung für Cursor und parallele ΔX/ΔY-Hilfslinien",
+        "Referenzwerte für ISO-Schrauben (M2–M10) und Uhren-Anstoßbreiten (18–22 mm)",
+        "Kartenkalibrierung nach ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)"
+      ],
+      "subNavTitle": "Millimeter-Lineal (mm)",
+      "breadcrumbLabel": "Millimeter-Lineal (mm)",
+      "hero": {
+        "eyebrow": "Feine metrische Skala · 1 mm & 5 mm Striche · Zahlen alle 10 mm",
+        "headline": "Online-Millimeterlineal (mm) in Originalgröße",
+        "description": "Hochauflösendes Millimeter-Bildschirmlineal mit 0,1-mm-Messwertanzeige sowie Referenztabelle für M2–M10-Gewinde und Armbanduhren."
+      },
+      "guideKicker": "Präzisions-Millimetermetrologie · 0,1 mm Anzeige",
+      "guideHeading": "Schrauben, Uhrenstege und Kleinteile in Millimetern messen",
+      "guideLead": "Entwickelt für Technik, Uhrmacherei, 3D-Druck und Elektronik, wo jedes Maß in Millimetern zählt.",
+      "cards": [
+        { "step": "1", "kicker": "Feinteilung · 1 mm & 5 mm", "heading": "Wofür eignet sich das Millimeterlineal?", "body": "Es beschriftet alle 10 mm und liefert 0,1-mm-Auflösung für M2–M10-Schrauben, Stegbreiten von Uhren und 3D-Druck-Passungen.", "linkHref": "#accuracy-guide", "linkLabel": "Schrauben- & Uhren-Tabelle ansehen" },
+        { "step": "2", "kicker": "Optik · Parallaxe minimieren", "heading": "Wie vermeidet man Parallaxenfehler bei 1-mm-Marken?", "body": "Immer exakt im 90°-Winkel von oben auf die Markierung blicken und parallele Hilfslinien für ΔX nutzen.", "linkHref": "#ruler-tool", "linkLabel": "Parallele mm-Hilfslinien setzen" },
+        { "step": "3", "kicker": "Sub-Millimeter · pxPerMm", "heading": "Wie viele Pixel entsprechen 1 Millimeter?", "body": "Typische Desktop-Monitore haben ~3,2 bis 5,0 CSS-Pixel pro mm. Die Kartenkalibrierung bestimmt diesen Faktor exakt für dein Panel.", "linkHref": "#calibration", "linkLabel": "Millimetermaßstab kalibrieren" }
+      ],
+      "darkKicker": "Technik & Werkstatt · 25,40 mm = 1,000 in",
+      "darkHeading": "Millimeter-Tabelle für Schrauben (M2–M10), Uhren & Zoll",
+      "darkLead": "Vergleiche gängige Millimetermaße mit Dezimalzoll, 1/16″-Brüchen und ISO-Normen.",
+      "darkCards": [
+        { "heading": "Wie misst man metrische Schrauben (M2 bis M10)?", "body": "M3 steht für 3,0 mm Außendurchmesser, M5 für 5,0 mm usw. Schraubenkopf-Unterkante (bei Senkkopf Oberkante) an 0 mm anlegen und Hilfslinie an der Spitze setzen." },
+        { "heading": "Wie misst man die Anstoßbreite einer Uhr (18–22 mm)?", "body": "Zwischen den Bandanstößen misst man meist 18, 19, 20 oder 22 mm. Zwei Hilfslinien an den Innenkanten der Hörner zeigen das exakte Maß." },
+        { "heading": "Wie rechnet man Millimeter in Zoll & 1/16″ um?", "body": "Millimeter durch 25,4 teilen für Dezimalzoll oder durch 1,5875 mm für Sechzehntel-Zoll — oder oben direkt in der Leiste umschalten." }
+      ],
+      "table": {
+        "kicker": "Werkstatt-, Uhren- & Schrauben-Referenz in Millimetern",
+        "heading": "Häufige Millimeterwerte in cm, Zoll und Hardware-Normen",
+        "headers": ["Millimeter (mm)", "Zentimeter (cm)", "Dezimalzoll", "Nächstes 1/16″", "Typische Hardware / Referenz"],
+        "rows": [
+          ["1.00 mm", "0.10 cm", "0.0394 in", "1/16 in (1.59 mm)", "18 AWG Massivdraht (~1,02 mm)"],
+          ["1.59 mm", "0.16 cm", "0.0625 in", "1/16 in (exakt)", "Exaktes Maß von 1/16 Zoll"],
+          ["2.00 mm", "0.20 cm", "0.0787 in", "1/16 in", "ISO M2 Maschinenschraube Ø"],
+          ["2.54 mm", "0.254 cm", "0.1000 in", "3/32 in", "Standard 0.100″-Stiftleistenraster (PCB)"],
+          ["3.00 mm", "0.30 cm", "0.1181 in", "1/8 in (3.18 mm)", "ISO M3 Schraube / PC-Abstandshalter"],
+          ["4.00 mm", "0.40 cm", "0.1575 in", "5/32 in", "ISO M4 Schraube / 4-mm-Feinmechanikbit"],
+          ["5.00 mm", "0.50 cm", "0.1969 in", "3/16 in (4.76 mm)", "ISO M5 Schraube / Standard-5-mm-LED"],
+          ["6.00 mm", "0.60 cm", "0.2362 in", "1/4 in (6.35 mm)", "ISO M6 Bolzen (1/4″ Bit = 6,35 mm)"],
+          ["8.00 mm", "0.80 cm", "0.3150 in", "5/16 in (7.94 mm)", "ISO M8 Bolzen / Innenring 608-Kugellager"],
+          ["10.00 mm", "1.00 cm", "0.3937 in", "3/8 in (9.53 mm)", "ISO M10 Bolzen / 1-Zentimeter-Marke"],
+          ["18.00 mm", "1.80 cm", "0.7087 in", "11/16 in", "Klassische Anzug-Uhrenbandbreite (18 mm)"],
+          ["20.00 mm", "2.00 cm", "0.7874 in", "13/16 in", "Verbreitetste Uhrenarmbandbreite (20 mm)"],
+          ["22.00 mm", "2.20 cm", "0.8661 in", "7/8 in (22.23 mm)", "Taucheruhr-Armband / 608-Lager Außen-Ø"],
+          ["25.40 mm", "2.54 cm", "1.0000 in", "1 in (exakt)", "Exakte SI-Definition von 1 Zoll"],
+          ["53.98 mm", "5.40 cm", "2.1252 in", "2 1/8 in", "Kurze Kante Bankkarte ISO/IEC 7810 ID-1"],
+          ["85.60 mm", "8.56 cm", "3.3701 in", "3 3/8 in", "Lange Kante Bankkarte ISO/IEC 7810 ID-1"]
+        ],
+        "footnote": "Formeln: in = mm ÷ 25,4 · cm = mm ÷ 10 · 1/16″ = 1,5875 mm."
+      },
+      "faqKicker": "mm-Lineal FAQ",
+      "faqHeading": "Häufige Fragen zum Online-Millimeterlineal",
+      "faqs": [
+        { "q": "Kann ein Online-Lineal 1-mm-Schritte genau darstellen?", "a": "Ja, nach Kalibrierung stehen 3,2 bis 6 CSS-Pixel (bzw. bis zu 18 Hardware-Pixel am Handy) je Millimeter zur Verfügung." },
+        { "q": "Wie messe ich Münz- oder Ringdurchmesser in Millimetern?", "a": "Lege den Gegenstand auf das Raster und setze zwei vertikale Hilfslinien links und rechts an die Außenkanten; ΔX erscheint direkt." },
+        { "q": "Warum wirkt das mm-Lineal vor der Kalibrierung verschoben?", "a": "Ohne Kalibrierung nutzt der Browser pauschal 96 CSS PPI (3,780 px/mm), was bei fast allen Bildschirmen abweicht." },
+        { "q": "Wie wechsele ich zwischen mm, cm und Zoll?", "a": "Über die Schaltflächen oben links oder die Tasten 4/M (mm), 1 (cm), 2 (in) und 3 (px)." }
+      ]
+    },
+    "inchRuler": {
+      "title": "Zoll-Lineal Online | 12-Zoll & 1/16″-Skala in Originalgröße",
+      "description": "Kalibriertes Online-Zolllineal mit 1/2, 1/4, 1/8 und 1/16″-Teilung, voller 12-Zoll-Skala (1 Fuß) und Umrechnungstabelle nach mm.",
+      "schemaName": "Online-Zolllineal (1/16″ & 12 Zoll) — Online Ruler Plus",
+      "featureList": [
+        "Kalibriertes Zoll-Lineal in Originalgröße mit 1/2-, 1/4-, 1/8- und 1/16″-Strichen",
+        "Automatische gekürzte 1/16″-Bruchanzeige und Dezimalwerte",
+        "Volle 12-Zoll-Anzeige (1 Fuß) auf Notebooks und Monitoren",
+        "Vollständige Umrechnung 1/16″ in Dezimalzoll, mm und cm"
+      ],
+      "subNavTitle": "Zoll-Lineal (1/16″)",
+      "breadcrumbLabel": "Zoll-Lineal (1/16″)",
+      "hero": {
+        "eyebrow": "Imperiale Skala · 1 in = 25,4 mm · 1/2, 1/4, 1/8 & 1/16″ Brüche",
+        "headline": "Online-Zolllineal in Originalgröße (1/16″ & 12 Zoll)",
+        "description": "Kalibriertes Zoll-Bildschirmlineal mit vier Strichhöhen für 1/2 bis 1/16 Zoll, automatischer Bruchkürzung und mm-Umrechnungstabelle."
+      },
+      "guideKicker": "Imperiale Bildschirmmetrologie · 1/16″-Brüche",
+      "guideHeading": "Zoll-Lineal ablesen und bis zu 12 Zoll messen",
+      "guideLead": "Jedes ganze Zoll ist binär in 16 Sechzehntel unterteilt — mit klarer visueller Abstufung.",
+      "cards": [
+        { "step": "1", "kicker": "Brüche · 1/2″, 1/4″, 1/8″, 1/16″", "heading": "Wie liest man 1/16″-Brüche richtig ab?", "body": "Der längste Zwischenstrich markiert 1/2″, die zweitlängsten 1/4″ und 3/4″, mittlere die ungeraden Achtel und kurze die ungeraden Sechzehntel. Der Rechner kürzt jeden Messwert automatisch.", "linkHref": "#accuracy-guide", "linkLabel": "1/16″-Tabelle ansehen" },
+        { "step": "2", "kicker": "12-Zoll-Maßstab · 1 ft = 30,48 cm", "heading": "Wie zeigt man ein komplettes 12-Zoll-Lineal an?", "body": "15,6″-Notebooks bieten 13,6 Zoll aktive Breite, Desktop-Monitore über 20 Zoll. Kalibrieren und Vollbild (F) aktivieren.", "linkHref": "#ruler-tool", "linkLabel": "12-Zoll-Lineal im Vollbild öffnen" },
+        { "step": "3", "kicker": "Prüfung · Karten & Münzen", "heading": "Womit prüft man das Zoll-Lineal schnell?", "body": "Eine Bankkarte misst 3,370″ × 2,125″ (exakt 2 1/8″), ein US-Penny genau 0,750″ (3/4″) und ein US-Quarter 0,955″.", "linkHref": "#calibration", "linkLabel": "Zoll-Lineal kalibrieren" }
+      ],
+      "darkKicker": "Zollbruch-Referenz · 1 in = 25,40 mm (Exakt)",
+      "darkHeading": "1/16″-Brüche in Dezimalzoll, Millimetern und Zentimetern",
+      "darkLead": "Alle Sechzehntel von 1/16″ bis 16/16″ (1 Zoll) ohne Rundungsfehler umrechnen.",
+      "darkCards": [
+        { "heading": "Warum weichen unkalibrierte Zoll-Lineale ab?", "body": "Auf Laptops (113–141 CSS PPI) entsprechen 96 Browser-Pixel nur 0,68 bis 0,85 Zoll, wodurch 12″ um 2 bis 3,8 Zoll zu kurz werden." },
+        { "heading": "Wie kürzt die Statusleiste Brüche automatisch?", "body": "Die Anzeige rundet auf 1/16″ und kürzt per ggT — etwa 6/16″ zu 3/8 in und 8/16″ zu 1/2 in." },
+        { "heading": "Was passiert bei starkem Rauszoomen?", "body": "Unter 3,0 px Abstand zwischen Strichen reduziert die Engine sauber auf 1/8″- oder 1/4″-Teilung." }
+      ],
+      "table": {
+        "kicker": "Zollbruch-Umrechnungstabelle (1/16″ bis 1″)",
+        "heading": "Sechzehntel Zoll (1/16″) in gekürztem Bruch, Dezimal, mm & cm",
+        "headers": ["Sechzehntel", "Gekürzter Bruch", "Dezimal (in)", "Millimeter (mm)", "Zentimeter (cm)"],
+        "rows": [
+          ["1/16″", "1/16 in", "0.0625 in", "1.588 mm", "0.159 cm"],
+          ["2/16″", "1/8 in", "0.1250 in", "3.175 mm", "0.318 cm"],
+          ["3/16″", "3/16 in", "0.1875 in", "4.763 mm", "0.476 cm"],
+          ["4/16″", "1/4 in", "0.2500 in", "6.350 mm", "0.635 cm"],
+          ["5/16″", "5/16 in", "0.3125 in", "7.938 mm", "0.794 cm"],
+          ["6/16″", "3/8 in", "0.3750 in", "9.525 mm", "0.953 cm"],
+          ["7/16″", "7/16 in", "0.4375 in", "11.113 mm", "1.111 cm"],
+          ["8/16″", "1/2 in", "0.5000 in", "12.700 mm", "1.270 cm"],
+          ["9/16″", "9/16 in", "0.5625 in", "14.288 mm", "1.429 cm"],
+          ["10/16″", "5/8 in", "0.6250 in", "15.875 mm", "1.588 cm"],
+          ["11/16″", "11/16 in", "0.6875 in", "17.463 mm", "1.746 cm"],
+          ["12/16″", "3/4 in (US Penny)", "0.7500 in", "19.050 mm", "1.905 cm"],
+          ["13/16″", "13/16 in", "0.8125 in", "20.638 mm", "2.064 cm"],
+          ["14/16″", "7/8 in", "0.8750 in", "22.225 mm", "2.223 cm"],
+          ["15/16″", "15/16 in (~US Quarter)", "0.9375 in", "23.813 mm", "2.381 cm"],
+          ["16/16″", "1 in (Volles Zoll)", "1.0000 in", "25.400 mm", "2.540 cm"]
+        ],
+        "footnote": "1 in = 25,4 mm · 1/2 in = 12,7 mm · 1/4 in = 6,35 mm · 1/8 in = 3,175 mm · 1/16 in = 1,5875 mm."
+      },
+      "faqKicker": "Zoll-Lineal FAQ",
+      "faqHeading": "Häufige Fragen zum Online-Zolllineal",
+      "faqs": [
+        { "q": "Wie zeige ich ein komplettes 12-Zoll-Lineal an?", "a": "Auf Bildschirmen ab 14 Zoll kalibrieren und Taste F für Vollbild drücken." },
+        { "q": "Was bedeuten die vier unterschiedlichen Strichlängen?", "a": "Sie kennzeichnen 1/2″, 1/4″, 1/8″ und 1/16″ zur schnellen Orientierung." },
+        { "q": "Wie rechnet man 3/8″ oder 7/16″ in Millimeter um?", "a": "Dezimalwert mit 25,4 multiplizieren (3/8 = 0,375 × 25,4 = 9,525 mm) oder im Tool direkt auf mm umschalten." },
+        { "q": "Kann man auf einem Smartphone unter 6 Zoll in Zoll messen?", "a": "Ja, bis ca. 5 Zoll Länge über die Hochformat-Kartenkalibrierung (2,125 × 3,370 in)." }
+      ]
+    },
+    "horizontalRuler": {
+      "title": "Horizontales Online-Lineal | Oben/Unten & CSS-Pixel-Lineal",
+      "description": "Horizontales Bildschirmlineal über volle Breite mit oberer und unterer Leiste in cm, mm, Zoll und CSS-Pixeln (px).",
+      "schemaName": "Horizontales Bildschirm- & Pixellineal — Online Ruler Plus",
+      "featureList": [
+        "Gleichzeitige horizontale Leisten oben und unten",
+        "Skalen in cm, mm, 1/16″-Zoll und CSS-Pixeln (px)",
+        "Durchgehende vertikale Hilfslinien mit ΔX-Spannweite",
+        "Vollbildmodus für 30 cm / 12 Zoll und breitere Objekte"
+      ],
+      "subNavTitle": "Horizontales Lineal",
+      "breadcrumbLabel": "Horizontales Lineal",
+      "hero": {
+        "eyebrow": "Horizontale Achse · Oben & Unten zugleich · cm, mm, in & px",
+        "headline": "Horizontales Bildschirm- & Pixellineal in voller Breite",
+        "description": "Parallele Leisten oben und unten für breite Gegenstände, 30-cm-/12-Zoll-Spannen und CSS-Pixel-Messungen im Browser."
+      },
+      "guideKicker": "Horizontale Achsenmetrologie · Oben & Unten",
+      "guideHeading": "Breite Objekte und CSS-Pixel-Spannen horizontal messen",
+      "guideLead": "Vorkonfiguriert mit oberer und unterer Skala gegen schräge Ablesefehler.",
+      "cards": [
+        { "step": "1", "kicker": "Doppelte Horizontalachse", "heading": "Warum gleichzeitig oben und unten messen?", "body": "Zwei parallele Leisten verhindern Winkelverkippen bei breiten Objekten wie Tastaturen oder Paketen.", "linkHref": "#ruler-tool", "linkLabel": "Mit oberer & unterer Kante messen" },
+        { "step": "2", "kicker": "CSS-Pixellineal · W3C-Viewport", "heading": "Wie nutzen Designer den CSS-Pixel-Modus (px)?", "body": "Taste 3 misst exakte CSS-Pixel (10, 50, 100 px) zur Prüfung von Containerbreiten und Breakpoints (375, 768, 1024, 1440 px).", "linkHref": "#accuracy-guide", "linkLabel": "Monitor-Breitentabelle ansehen" },
+        { "step": "3", "kicker": "Vollbildspanne · Maximale Breite", "heading": "Wie nutzt man die maximale Bildschirmbreite?", "body": "Ein 16:9-Display bietet 87,2 % seiner Diagonale als Breite (59,8 cm bei 27″). Taste F öffnet den Vollbildmodus.", "linkHref": "#calibration", "linkLabel": "Horizontale Breite kalibrieren" }
+      ],
+      "darkKicker": "Widescreen-Geometrie · 16:9, 16:10 & Ultrawide",
+      "darkHeading": "Maximale horizontale Messspanne nach Displaydiagonale",
+      "darkLead": "Übersicht über die physische Breite gängiger Mobil-, Laptop- und Desktop-Displays.",
+      "darkCards": [
+        { "heading": "Wie breit ist ein 16:9- oder 16:10-Monitor?", "body": "Bei 16:9 entspricht die Breite 87,16 % der Diagonale (15,6″ = 34,54 cm; 27″ = 59,77 cm), bei 16:10 sind es 84,80 %." },
+        { "heading": "Wie funktionieren vertikale Hilfslinien?", "body": "Klicks auf die obere oder untere Leiste setzen durchgehende vertikale Linien und zeigen ΔX direkt an." },
+        { "heading": "Kann ich das Smartphone ins Querformat drehen?", "body": "Ja, im Querformat verdoppelt sich die Breite von ~6,5 cm auf ~14–15 cm bei erhaltener Kalibrierung." }
+      ],
+      "table": {
+        "kicker": "Display-Geometrie-Referenz",
+        "heading": "Maximale horizontale Bildschirmbreite in Zoll, cm, mm & CSS-px",
+        "headers": ["Panel & Seitenverhältnis", "Breite (in)", "Breite (cm / mm)", "Typischer Viewport", "Größtes passendes Lineal"],
+        "rows": [
+          ["6.1\" Smartphone (Querformat)", "5.55 in", "14.1 cm (141 mm)", "844 – 852 CSS px", "Bis 13 cm / 5 in"],
+          ["11.0\" Tablet (4:3)", "8.80 in", "22.4 cm (224 mm)", "1024 – 1194 CSS px", "15 cm / 6 in Taschenlineal"],
+          ["13.3\" Laptop (16:10 Retina)", "11.28 in", "28.6 cm (286 mm)", "1440 CSS px", "Bis 27 cm / 10.5 in"],
+          ["14.2\" MacBook Pro (16:10)", "11.97 in", "30.4 cm (304 mm)", "1512 CSS px", "Volle 30 cm / 11.5 in"],
+          ["15.6\" Full-HD-Laptop (16:9)", "13.60 in", "34.5 cm (345 mm)", "1536 – 1920 CSS px", "30 cm & 12-Zoll-Lineal"],
+          ["24.0\" Monitor (16:9)", "20.92 in", "53.1 cm (531 mm)", "1920 CSS px", "50 cm / 18-Zoll-Lineal"],
+          ["27.0\" Monitor (16:9 QHD/4K)", "23.53 in", "59.8 cm (598 mm)", "1920 – 2560 CSS px", "58 cm / 22-Zoll-Lineal"],
+          ["34.0\" Ultrawide (21:9)", "31.36 in", "79.7 cm (797 mm)", "3440 CSS px", "75 cm / 30-Zoll-Lineal"]
+        ],
+        "footnote": "16:9 Breite = Diagonale × 0,87158 · 16:10 = Diagonale × 0,84800 · 21:9 = Diagonale × 0,92246."
+      },
+      "faqKicker": "Horizontales & Pixel-Lineal FAQ",
+      "faqHeading": "Häufige Fragen zum horizontalen Bildschirmlineal",
+      "faqs": [
+        { "q": "Welchen Vorteil bieten obere und untere Skala gleichzeitig?", "a": "Kein Winkelversatz bei langen Objekten; zudem stört am Laptop oben kein Tastaturscharnier." },
+        { "q": "Wie nutze ich das horizontale Lineal als CSS-Pixellineal?", "a": "Taste 3 drücken oder px wählen, um exakte logische Viewport-Pixel zu messen." },
+        { "q": "Warum beginnt 0 erst 16 Pixel vom linken Rand?", "a": "Damit der Nullpunkt voll sichtbar auf dem Glas liegt und nicht vom Monitorrahmen verdeckt wird." },
+        { "q": "Kann ich zwischen cm, mm und Zoll wechseln?", "a": "Ja, jederzeit über die Tasten 1, 2, 3 und 4/M oder Dual cm/in." }
+      ]
+    },
+    "verticalRuler": {
+      "title": "Vertikales Online-Lineal | Linke & Rechte Kante am Screen",
+      "description": "Kalibriertes vertikales Bildschirmlineal mit linker und rechter Leiste in Zentimetern (cm), Millimetern (mm) und 1/16″-Zoll.",
+      "schemaName": "Vertikales Bildschirmlineal — Online Ruler Plus",
+      "featureList": [
+        "Gleichzeitige vertikale Leisten links und rechts",
+        "Horizontale Hilfslinien mit automatischer Höhenberechnung ΔY",
+        "Hochformat-Kartenkalibrierung (53,98 × 85,60 mm) für Smartphones",
+        "Vertikale Skalen in cm, mm, 1/16″-Zoll und CSS-Pixeln (px)"
+      ],
+      "subNavTitle": "Vertikales Lineal",
+      "breadcrumbLabel": "Vertikales Lineal",
+      "hero": {
+        "eyebrow": "Vertikale Achse · Linke & Rechte Kante · Hochformat & Stehhöhen",
+        "headline": "Kalibriertes vertikales Online-Bildschirmlineal",
+        "description": "Linke und rechte vertikale Skalen für stehende Objekte am Schreibtisch und ergonomisches Messen am Smartphone im Hochformat."
+      },
+      "guideKicker": "Vertikale Metrologie · Linke & Rechte Skala",
+      "guideHeading": "Aufrechte Höhen und Smartphone-Längsachsen messen",
+      "guideLead": "Beide vertikalen Leisten aktiv für Links- wie Rechtshänder und stehende Gegenstände.",
+      "cards": [
+        { "step": "1", "kicker": "Doppelte Vertikalachse", "heading": "Wann nutzt man das vertikale Lineal?", "body": "Im Hochformat bietet das Handy ~14–15,5 cm statt nur ~6,5 cm Breite. Am Desktop lassen sich stehende Flaschen oder Batterien direkt daneben ausmessen.", "linkHref": "#ruler-tool", "linkLabel": "An linker & rechter Kante messen" },
+        { "step": "2", "kicker": "Horizontale Hilfslinien · Höhe ΔY", "heading": "Wie messen horizontale Hilfslinien die Höhe?", "body": "Klicke auf die linke oder rechte Leiste für Linien an Unterkante und Oberkante; ΔY zeigt die exakte Höhe.", "linkHref": "#accuracy-guide", "linkLabel": "Vertikale Displayhöhen-Tabelle ansehen" },
+        { "step": "3", "kicker": "Einhand-Ergonomie am Handy", "heading": "Warum sind beide Seiten aktiv?", "body": "So blockieren Daumen oder Handyhülle niemals die Ableseskala — ideal für Rechts- und Linkshänder.", "linkHref": "#calibration", "linkLabel": "Vertikale Skala kalibrieren" }
+      ],
+      "darkKicker": "Vertikale Display-Geometrie",
+      "darkHeading": "Nutzbare Vertikalhöhe nach Gerät und passenden Objekten",
+      "darkLead": "Vergleiche Smartphones im Hochformat, Tablets, Laptops und Pivot-Monitore.",
+      "darkCards": [
+        { "heading": "Warum eignet sich Hochformat am besten für Handys?", "body": "Moderne 19.5:9-Smartphones liefern hochkant 13,5–15,2 cm Messstrecke gegenüber nur 6,4–7,1 cm quer." },
+        { "heading": "Wie kalibriert man auf schmalen Smartphone-Displays?", "body": "Stelle die Karte im Kalibrierbereich auf Hochformat (53,98 × 85,60 mm), damit sie komplett aufs Display passt." },
+        { "heading": "Wie viel Vertikalhöhe bieten Laptops & Monitore?", "body": "Bei 16:9 entspricht die Höhe 49,03 % der Diagonale (19,4 cm bei 15,6″; 33,6 cm bei 27″; 59,8 cm bei 90°-Pivot)." }
+      ],
+      "table": {
+        "kicker": "Referenztabelle Vertikalhöhe",
+        "heading": "Aktive Bildschirmhöhe nach Gerät & passende Objekte",
+        "headers": ["Gerät / Ausrichtung", "Höhe (cm / mm)", "Höhe (in)", "CSS-Viewport", "Typische stehende Objekte"],
+        "rows": [
+          ["6.1\" Smartphone (Hochformat)", "14.1 cm (141 mm)", "5.55 in", "844 – 852 CSS px", "AA/AAA-Batterien (50,5 mm), Bankkarte (85,6 mm), Dose (122 mm)"],
+          ["6.7\" Pro / Ultra Phone (Hochformat)", "15.5 cm (155 mm)", "6.10 in", "926 – 932 CSS px", "Reisepass (125 mm), Stift (~140 mm), 15-cm-Lineal"],
+          ["11.0\" Tablet (Hochformat 4:3)", "22.4 cm (224 mm)", "8.80 in", "1024 – 1194 CSS px", "A5-Notizbuch (210 mm), Trinkflasche, Taschenbuch"],
+          ["14.2\" MacBook Pro (16:10)", "19.0 cm (190 mm)", "7.48 in", "982 CSS px", "Smartphone-Höhe, 15-cm-Lineal"],
+          ["15.6\" Laptop (16:9)", "19.4 cm (194 mm)", "7.65 in", "864 – 1080 CSS px", "Blu-ray-Hülle (190 mm), Tasse"],
+          ["24.0\" Monitor (16:9)", "29.9 cm (299 mm)", "11.77 in", "1080 CSS px", "DIN A4 Höhe (297 mm), US Letter (279,4 mm)"],
+          ["27.0\" Monitor (16:9)", "33.6 cm (336 mm)", "13.24 in", "1080 – 1440 CSS px", "Volle 30 cm / 12 Zoll Vertikalskala"],
+          ["24–27\" Monitor (90° Pivot)", "53.1 – 59.8 cm", "20.9 – 23.5 in", "1920 – 2560 CSS px", "PC-Gehäuse, Lautsprecher, 50-cm-Skala"]
+        ],
+        "footnote": "16:9 Höhe = Diagonale × 0,49026 · 16:10 = Diagonale × 0,53000."
+      },
+      "faqKicker": "Vertikales Lineal FAQ",
+      "faqHeading": "Häufige Fragen zum vertikalen Bildschirmlineal",
+      "faqs": [
+        { "q": "Wie messe ich die Höhe eines stehenden Gegenstands?", "a": "Objekt neben das Display stellen und zwei horizontale Hilfslinien an Boden und Oberkante setzen — ΔY gibt direkt die Höhe an." },
+        { "q": "Warum zählt das vertikale Lineal von oben (0) nach unten?", "a": "Im Web-Koordinatensystem liegt (0, 0) stabil oben links, sodass Scrollen den Nullpunkt nicht verschiebt." },
+        { "q": "Wie kalibriere ich am Handy im Hochformat?", "a": "Im Kartenbereich auf Hochformat (53,98 × 85,60 mm) umschalten und Karte senkrecht angleichen." },
+        { "q": "Lassen sich horizontale und vertikale Leisten kombinieren?", "a": "Ja, über Oben, Unten oder Alle im Kanten-Menü." }
+      ]
+    },
+    "howToUse": {
+      "title": "Online-Lineal Anleitung | Schritt-für-Schritt-Handbuch",
+      "description": "Anleitung zum Kalibrieren per Bankkarte oder Diagonale, Hilfslinien setzen, 1/16″-Brüchen und maßstabsgetreuem Ausdrucken bei 100 %.",
+      "schemaHeadline": "Online Ruler Plus Bedienungsanleitung",
+      "subNavTitle": "Anleitung",
+      "breadcrumbLabel": "Anleitung",
+      "heroKicker": "Benutzerhandbuch · Präzisionsmetrologie · November 2026",
+      "heroHeadline": "So benutzt du Online Ruler Plus",
+      "heroSummary": "Online Ruler Plus macht deinen Bildschirm im Browser zu einem kalibrierten 1:1-Lineal. Kalibriere einmalig und miss in cm, mm und 1/16″-Zoll.",
+      "openRulerBtn": "Lineal öffnen",
+      "goCalBtn": "Zur Kalibrierung",
+      "steps": [
+        { "badge": "1", "kicker": "Schritt 01 · Kalibrierung", "heading": "Bildschirm-Pixeldichte zuerst kalibrieren", "body": "Lege unter Bildschirm kalibrieren eine Bankkarte (85,60 × 53,98 mm) an, gib bei 100 % Zoom die Diagonale ein oder nutze die automatische Erkennung und speichere lokal.", "links": [{ "href": "/#calibration", "label": "Kartenkalibrierung öffnen →" }] },
+        { "badge": "2", "kicker": "Schritt 02 · Einheiten & Kanten", "heading": "Einheit und aktive Linealkanten wählen", "body": "Tasten 1 (cm), 2 (Zoll), 3 (CSS px) oder 4/M (mm), Dual cm/in sowie Kanten Oben, Unten, Links, Rechts oder Alle nutzen.", "links": [{ "href": "/cm-ruler", "label": "cm-Lineal" }, { "href": "/inch-ruler", "label": "Zoll-Lineal" }, { "href": "/mm-ruler", "label": "mm-Lineal" }] },
+        { "badge": "3", "kicker": "Schritt 03 · Nullpunkt & Hilfslinien", "heading": "Am Nullpunkt anlegen und ΔX/ΔY messen", "body": "An der gestrichelten 0-Linie (16 px vom Rand) anlegen oder zwei verschiebbare Hilfslinien setzen und im Verlauf sichern.", "links": [{ "href": "/calibration-guide", "label": "Kalibrierungsguide lesen →" }] }
+      ],
+      "advancedCards": [
+        { "kicker": "Overlays · Schwebendes Lineal & Winkelmesser", "heading": "Schwebendes Lineal und 180°-Winkelmesser nutzen", "body": "+ Schwebendes Lineal dreht frei um 360°; Taste P öffnet den 180°-Winkelmesser (0,1° Auflösung). Taste C für Fadenkreuz, Esc zum Löschen." },
+        { "kicker": "Ausdrucken in Originalgröße · 100 %", "heading": "Lineal maßstabsgetreu bei 100 % ausdrucken", "body": "Im Druckdialog (Strg+P / Cmd+P) unter Weitere Einstellungen Skalierung auf 100 % / Tatsächliche Größe stellen (nicht „An Seite anpassen“) und Ausdruck mit Bankkarte prüfen." }
+      ],
+      "recipesKicker": "Praxis-Workflows",
+      "recipesHeading": "Anleitungen für typische Messaufgaben",
+      "recipesLead": "Bewährte Vorgehensweisen für runde Teile, Schrauben, Holz und lange Objekte ohne Kratzer.",
+      "recipes": [
+        { "kicker": "01 · Münzen, Ringe & Scheiben", "heading": "Durchmesser mit zwei Tangenten-Hilfslinien", "body": "Objekt aufs Raster legen (ggf. Schutzfolie unterlegen) und zwei vertikale Hilfslinien links und rechts anlegen." },
+        { "kicker": "02 · Schrauben & Uhrenstege", "heading": "Gewindelänge und Bandanstoß in mm", "body": "[[link:/mm-ruler|Millimeterlineal (mm)]] öffnen, Papier unterlegen und zwischen zwei Hilfslinien ablesen." },
+        { "kicker": "03 · Holzwerken & 1/16″-Brüche", "heading": "Gekürzte Zollbrüche sicher ablesen", "body": "Im [[link:/inch-ruler|Zoll-Lineal (1/16″)]] zeigt die Anzeige den gekürzten Bruch automatisch." },
+        { "kicker": "04 · Stehende & überlange Objekte", "heading": "Vertikalleisten und Abtragen mit Klebeband", "body": "Im [[link:/vertical-ruler|Vertikalen Lineal]] im Vollbild (F) messen; bei Überlänge bei z. B. 25,0 cm markieren und ab 0 fortsetzen." }
+      ],
+      "shortcutsKicker": "Tastatursteuerung",
+      "shortcutsHeading": "Vollständige Tastenkürzel-Tabelle",
+      "shortcutsLead": "Mit einer Hand am Objekt lässt sich die andere Hand bequem per Taste steuern.",
+      "shortcutsHeaders": ["Taste", "Funktion", "Einsatzzweck"],
+      "shortcuts": [
+        { "key": "1", "action": "Zentimeter (cm)", "useCase": "Alltagsmessungen mit 1-mm-Teilung" },
+        { "key": "2", "action": "Zoll (in)", "useCase": "1/16″-Brüche & US-Maße" },
+        { "key": "3", "action": "CSS-Pixel (px)", "useCase": "UI-Design & Breakpoints" },
+        { "key": "4 / M", "action": "Millimeter (mm)", "useCase": "M2–M10 Schrauben & Uhren" },
+        { "key": "D", "action": "Hell-/Dunkelmodus", "useCase": "Blendung reduzieren" },
+        { "key": "G", "action": "Hilfslinien umschalten", "useCase": "ΔX / ΔY Differenzen messen" },
+        { "key": "C", "action": "Fadenkreuz", "useCase": "Live-Koordinaten ablesen" },
+        { "key": "P", "action": "180°-Winkelmesser", "useCase": "Winkel auf 0,1° prüfen" },
+        { "key": "F", "action": "Vollbildmodus", "useCase": "Maximale Bildschirmbreite" },
+        { "key": "Esc", "action": "Linien & Dialoge schließen", "useCase": "Schnell zurücksetzen" }
+      ],
+      "checklistKicker": "6-Punkte-Prüfliste",
+      "checklistHeading": "Sechs Kontrollen vor kritischen Messungen",
+      "checklistLead": "Kurzcheck für 3D-Druck, Zuschnitte oder Ersatzteile:",
+      "checklistItems": [
+        "[[strong:1. Status-Badge prüfen:]] Bestätige eine manuelle Kalibrierung statt 96-PPI-Schätzung.",
+        "[[strong:2. 100 % Zoom bei Diagonaleingabe:]] Vorher [[code:Strg+0]] / [[code:Cmd+0]] drücken; danach gleicht [[code:devicePxPerMm]] Zoom aus.",
+        "[[strong:3. Zweitmonitor beachten:]] Beim Fensterwechsel auf einen anderen Monitor kurz mit Karte (85,60 mm) prüfen.",
+        "[[strong:4. Senkrecht blicken:]] Schräges Ablesen erzeugt 0,3–1,0 mm Parallaxe.",
+        "[[strong:5. Randleiste meiden:]] Immer an 0 oder zwischen zwei Hilfslinien messen.",
+        "[[strong:6. Display schützen:]] Dünne Folie unter scharfe Metallkanten legen; unter ±0,2 mm Messschieber nutzen."
+      ]
+    },
+    "calibrationGuide": {
+      "title": "Bildschirm-Kalibrierung & PPI-Guide | Online Ruler Plus",
+      "description": "Technischer Leitfaden zu Pixeldichte (PPI), W3C CSS-Pixeln, ISO/IEC 7810 Kartenkalibrierung, HiDPI-Skalierung und optischer Parallaxe.",
+      "schemaHeadline": "Technischer Leitfaden Bildschirmkalibrierung & PPI",
+      "subNavTitle": "Kalibrierungsguide",
+      "subNavCtaLabel": "Jetzt kalibrieren",
+      "breadcrumbLabel": "Kalibrierungsguide",
+      "heroKicker": "Technische Referenz · Display-Optik & W3C CSS · November 2026",
+      "heroHeadline": "Kompletter Bildschirm-Kalibrierungs- & PPI-Guide",
+      "heroSummary": "Die Kalibrierung verbindet abstrakte 96-PPI-CSS-Pixel mit dem realen physischen Pixelabstand deines Panels.",
+      "calibrateBtn": "Bildschirm kalibrieren",
+      "openRulerBtn": "Lineal öffnen",
+      "topCards": [
+        { "kicker": "01 · Pixelabstand", "heading": "Unterschied zwischen physischem PPI und CSS-Pixeln?", "body": "Hardware-PPI folgt [[code:√(B² + H²) / Diagonale]]. CSS-Pixel entsprechen 1/96 CSS-Zoll. Bei HiDPI-Skalierung speichert Online Ruler Plus [[code:devicePxPerMm = pxPerMm × dpr]] zoom-invariant." },
+        { "kicker": "02 · Physische Norm", "heading": "Warum eignet sich ISO/IEC 7810 ID-1 ideal?", "body": "Jede genormte Bankkarte misst 85,60 × 53,98 mm. Der Abgleich misst direkt [[code:pxPerMm = cardWidthPx / 85.60]] unabhängig von versteckter OS-Skalierung." },
+        { "kicker": "03 · Unterteilungen", "heading": "Wie werden mm und 1/16″ berechnet?", "body": "Auf Basis 1 Zoll = 25,4 mm zeichnen [[link:/cm-ruler|cm]] und [[link:/mm-ruler|mm]] 1/5/10-mm-Striche; [[link:/inch-ruler|Zoll]] teilt in 16 Sechzehntel." }
+      ],
+      "midCards": [
+        { "kicker": "04 · Prüfobjekte", "heading": "Welche Münzen & Formate bestätigen die Kalibrierung?", "body": "1 Euro: 23,25 mm; 2 Euro: 25,75 mm; US Penny: 19,05 mm; US Quarter: 24,26 mm; AA-Batterie: 50,50 mm; DIN A4 kurz: 210,0 mm." },
+        { "kicker": "05 · Zoom & Multi-Monitor", "heading": "Wie reagiert das Tool auf Zoom und Monitorwechsel?", "body": "[[code:devicePxPerMm]] wird pro Display-Signatur in [[code:localStorage]] gespeichert; Zoom wird automatisch umgerechnet, ein Monitorwechsel per Banner gemeldet." }
+      ],
+      "s6Kicker": "06 · Rechenbeispiele & HiDPI-Matrix",
+      "s6Heading": "Zusammenhang von CSS PPI, Hardware-PPI und devicePxPerMm",
+      "s6Lead": "Pythagoras über CSS-Pixel bei 100 % Zoom liefert [[code:CSS px/mm]]; multipliziert mit [[code:window.devicePixelRatio]] ergibt sich [[code:devicePxPerMm]].",
+      "s6TableHeading": "Dichte-Tabelle nach Display & OS-Skalierung",
+      "s6Headers": ["Display-Konfiguration", "CSS-Auflösung", "Effektive CSS PPI", "CSS px/mm", "devicePxPerMm"],
+      "workedExamples": [
+        { "panel": "14.2\" Laptop (Mac Retina / 2× DPR)", "cssRes": "1512 × 982 CSS px (DPR 2.0)", "cssPpi": "127.0 CSS PPI", "pxPerMm": "5.000 CSS px/mm", "devicePxPerMm": "10.000 device px/mm" },
+        { "panel": "15.6\" Windows-Laptop (125 %)", "cssRes": "1536 × 864 CSS px (DPR 1.25)", "cssPpi": "113.0 CSS PPI", "pxPerMm": "4.448 CSS px/mm", "devicePxPerMm": "5.560 device px/mm" },
+        { "panel": "24\" 1080p-Monitor (100 %)", "cssRes": "1920 × 1080 CSS px (DPR 1.0)", "cssPpi": "91.8 CSS PPI", "pxPerMm": "3.614 CSS px/mm", "devicePxPerMm": "3.614 device px/mm" },
+        { "panel": "27\" 4K-Monitor (150 %)", "cssRes": "2560 × 1440 CSS px (DPR 1.5)", "cssPpi": "108.8 CSS PPI", "pxPerMm": "4.283 CSS px/mm", "devicePxPerMm": "6.425 device px/mm" },
+        { "panel": "6.1\" OLED-Smartphone (3× DPR)", "cssRes": "390 × 844 CSS px (DPR 3.0)", "cssPpi": "152.4 CSS PPI", "pxPerMm": "6.000 CSS px/mm", "devicePxPerMm": "18.000 device px/mm" }
+      ],
+      "caveats": [
+        { "kicker": "Fraktionale OS-Skalierung", "heading": "Warum Kartenkalibrierung der Diagonalschätzung überlegen ist", "body": "Skalierungsstufen wie 125 %, 150 % oder macOS-Skalierungen verändern das effektive CSS PPI. Die physische 85,60-mm-Karte misst exakt den realen Output." },
+        { "kicker": "Schmale Handys", "heading": "Warum Smartphones auf Hochformat-Karte (53,98 mm) umschalten", "body": "Bei 360–430 px Breite passt 85,60 mm quer nicht ins Bild. Der [[strong:Hochformat-Modus]] kalibriert über die [[strong:53,98 mm]]-Kante." }
+      ],
+      "s7Kicker": "07 · Display-Physik & Toleranzen",
+      "s7Heading": "Deckglas-Parallaxe und praktische Genauigkeitsgrenzen",
+      "s7Body1": "Schutzglas (0,5–1,5 mm, [[code:n ≈ 1.5]]) verschiebt bei Blickwinkel [[code:θ]] um [[code:Dicke × sin(θ) / n]] — bei 30° rund 0,3–0,5 mm.",
+      "s7Body2": "Stets exakt senkrecht (90°) ablesen und unter ±0,25 mm Toleranz Messschieber oder Mikrometer verwenden.",
+      "s7TableHeading": "Referenztabelle genormter Prüfobjekte",
+      "s7TableLead": "Lege einen dieser Gegenstände leicht ans Display, um deine Kalibrierung zu prüfen:",
+      "s7Headers": ["Referenzobjekt", "Metrisch (mm)", "Imperial (in)", "Geltende Norm"],
+      "referenceItems": [
+        { "item": "ISO/IEC 7810 ID-1 Bankkarte (Breite)", "mm": "85.60 mm", "inches": "3.370 in", "standard": "ISO/IEC 7810:2019 ID-1" },
+        { "item": "ISO/IEC 7810 ID-1 Karte (Höhe)", "mm": "53.98 mm", "inches": "2.125 in", "standard": "ISO/IEC 7810:2019 ID-1" },
+        { "item": "US 1-Cent-Penny (Durchmesser)", "mm": "19.05 mm", "inches": "0.750 in (3/4″)", "standard": "US Mint" },
+        { "item": "US 5-Cent-Nickel (Durchmesser)", "mm": "21.21 mm", "inches": "0.835 in", "standard": "US Mint" },
+        { "item": "1-Euro-Münze (Durchmesser)", "mm": "23.25 mm", "inches": "0.915 in", "standard": "Europäische Zentralbank" },
+        { "item": "US Quarter Dollar (Durchmesser)", "mm": "24.26 mm", "inches": "0.955 in", "standard": "US Mint" },
+        { "item": "2-Euro-Münze (Durchmesser)", "mm": "25.75 mm", "inches": "1.014 in", "standard": "Europäische Zentralbank" },
+        { "item": "Standard AA-Batterie (Länge)", "mm": "50.50 mm", "inches": "1.988 in", "standard": "IEC R6 / ANSI 15" },
+        { "item": "US-Dollar-Banknote (Breite)", "mm": "155.96 mm", "inches": "6.140 in", "standard": "Bureau of Engraving & Printing" },
+        { "item": "DIN A4 Papier (Kurze Kante)", "mm": "210.00 mm", "inches": "8.268 in", "standard": "ISO 216 Reihe" }
+      ]
+    },
+    "faq": {
+      "title": "Online-Lineal FAQ | Kalibrierung, PPI & 1/16″-Ratgeber",
+      "description": "20 Antworten zu Display-Kalibrierung, Smartphones, Kameras, Word/PowerPoint-Linealen, Zollbrüchen und cm/mm.",
+      "subNavTitle": "FAQ",
+      "breadcrumbLabel": "FAQ",
+      "heroKicker": "Wissensdatenbank · 20 geprüfte Antworten",
+      "heroHeadline": "Häufig gestellte Fragen",
+      "heroSummary": "Ausführliche technische Antworten zu PPI-Kalibrierung, ISO/IEC-7810-Bankkarten, cm/mm/Zoll-Skalen, Zweitmonitoren und Mobilgeräten.",
+      "openRulerBtn": "Lineal öffnen",
+      "guideBtn": "Kalibrierungsguide",
+      "cat1Kicker": "Kategorie 01 · Kalibrierung, PPI & Datenschutz",
+      "cat1Heading": "Display-Kalibrierung, Zoom & Gerätekompatibilität",
+      "cat2Kicker": "Kategorie 02 · Messtechniken & Umrechnung",
+      "cat2Heading": "Umrechnungen, Hilfslinien, Winkelmesser & Drucken",
+      "extendedFaqs": [
+        { "q": "Wie viele Zentimeter sind 1 Zoll und 12 Zoll?", "a": "1 Zoll = 2,54 cm (25,4 mm); 12 Zoll entsprechen exakt 30,48 cm — 4,8 mm länger als 30 cm." },
+        { "q": "Warum beginnt 0 erst 16 Pixel vom Rand entfernt?", "a": "Damit das Monitorgehäuse die Null-Linie nicht abschattet und Gegenstände flach aufliegen." },
+        { "q": "Wie misst man Münzen oder Ringe im Durchmesser?", "a": "Zwei vertikale Hilfslinien an linker und rechter Tangente setzen; ΔX zeigt direkt den Durchmesser." },
+        { "q": "Kann ich längere Objekte als meinen Bildschirm messen?", "a": "Vollbild (F) nutzen; darüber hinaus bei z. B. 25,0 cm mit Klebeband markieren und ab 0 weiter messen." },
+        { "q": "Wie funktionieren 180°-Winkelmesser und schwebendes Lineal?", "a": "+ Schwebendes Lineal lässt sich 360° drehen; Taste P öffnet den 180°-Winkelmesser bis auf 0,1° genau." },
+        { "q": "Wie druckt man ein Lineal bei exakt 100 % ohne Verkleinerung?", "a": "Im Druckmenü Skalierung auf 100 % / Tatsächliche Größe stellen und Ausdruck mit Bankkarte (85,60 mm) prüfen." },
+        { "q": "Was ist optische Parallaxe und wie vermeidet man sie?", "a": "Die Scheinverschiebung durch das Display-Deckglas bei schrägem Blickwinkel. Immer exakt senkrecht (90°) ablesen." },
+        { "q": "Wie nutzt man den CSS-Pixel-Modus (px) für Webdesign?", "a": "Taste 3 drücken oder px wählen für logische Viewport-Pixel im 10-, 50- und 100-px-Raster." },
+        { "q": "Wie setze ich Kalibrierung oder Messverlauf zurück?", "a": "Über Zurücksetzen in Aktiver Maßstab bzw. Leeren im Messverlauf (alles lokal in localStorage)." }
+      ]
+    },
+    "about": {
+      "title": "Über Online Ruler Plus | Präzisions-Bildschirmmetrologie",
+      "description": "Erfahre, wie Online Ruler Plus Bildschirme anhand von NIST-, ISO/IEC-7810- und W3C-Standards in kalibrierte Messwerkzeuge verwandelt.",
+      "schemaName": "Über Online Ruler Plus",
+      "subNavTitle": "Über uns",
+      "breadcrumbLabel": "Über uns",
+      "heroKicker": "Über die Plattform · Methodik & Transparenz",
+      "heroHeadline": "Über Online Ruler Plus",
+      "heroSummary": "Online Ruler Plus ist eine unabhängige, rein lokal im Browser laufende Metrologie-Web-App für Desktop, Laptop, Tablet und Smartphone ohne Kamerazugriff.",
+      "returnBtn": "Zurück zum Lineal",
+      "topCards": [
+        { "kicker": "01 · Motivation", "heading": "Was ist der 96-CSS-PPI-Irrtum?", "body": "Unkalibrierte Web-Lineale setzen fälschlich 96 CSS-px = 1 Zoll voraus und irren um 10–35 %. Wir stellen die ISO/IEC-7810-Kalibrierung in den Mittelpunkt." },
+        { "kicker": "02 · Normen", "heading": "Welche Standards gelten für unsere Berechnungen?", "body": "NIST/BIPM (1 in = 25,4 mm), ISO/IEC 7810:2019 ID-1 (85,60 × 53,98 mm) sowie offizielle Münznormen (1 Euro: 23,25 mm, US Quarter: 24,26 mm)." },
+        { "kicker": "03 · Prinzipien", "heading": "Wie schützen wir Genauigkeit und Privatsphäre?", "body": "Profile ([[code:orp:calibration:v1]]) und Verlauf ([[code:orp:history:v1]]) bleiben ausschließlich lokal in [[code:localStorage]], ohne Kamera oder Uploads." }
+      ],
+      "bottomCards": [
+        { "kicker": "04 · Redaktion & Prüfung", "heading": "Wer betreibt OnlineRulerPlus.com?", "body": "Alle Konstanten und Tabellen stammen direkt aus Primärnormen und werden vor jedem Release automatisiert getestet." },
+        { "kicker": "05 · Korrekturen & Kontakt", "heading": "Fehler melden oder Barrierefreiheit prüfen?", "body": "Schreib an [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] oder nutze unsere [[link:/contact|Kontaktseite]]." }
+      ]
+    },
+    "contact": {
+      "title": "Kontakt & Geräteprofil-Einreichung | Online Ruler Plus",
+      "description": "Kontaktiere Online Ruler Plus für neue Display-Profile, Fehlerberichte, Barrierefreiheit oder Metrologie-Fragen.",
+      "schemaName": "Kontakt — Online Ruler Plus",
+      "subNavTitle": "Kontakt",
+      "breadcrumbLabel": "Kontakt",
+      "heroKicker": "Kontakt & Hardware-Datenbank",
+      "heroHeadline": "Kontakt Online Ruler Plus",
+      "heroSummary": "Reiche geprüfte Display-Profile ein, melde Kalibrierungs- oder Darstellungsfehler oder stelle technische Fragen zur Bildschirmmessung.",
+      "openBtn": "Lineal öffnen",
+      "topCards": [
+        { "kicker": "01 · Technischer Support", "heading": "Wie erreichst du den Support?", "body": "Bitte gib Betriebssystem, Browser, Zoom-Faktor und Kalibrierungsmethode an. Es werden keinerlei Diagnosedaten automatisch erhoben.", "footerHref": "support@onlinerulerplus.com", "footerLabel": "support@onlinerulerplus.com", "isMailto": true },
+        { "kicker": "02 · Gerätedatenbank", "heading": "Wie reichst du ein neues Display-Profil ein?", "body": "Bei 100 % Zoom per Bankkarte kalibrieren und im Tab 3. Automatische Erkennung [[code:screen.width × screen.height]], [[code:devicePixelRatio]], Plattform und CSS PPI kopieren.", "footerHref": "/#calibration", "footerLabel": "Gerätewerte in Auto-Erkennung prüfen →" },
+        { "kicker": "03 · Selbsthilfe", "heading": "Wo lassen sich typische Probleme sofort lösen?", "body": "Prüfe den [[link:/calibration-guide|Kalibrierungsguide]], unsere [[link:/faq|FAQ]] oder die [[link:/how-to-use|Anleitung]].", "footerHref": "/faq", "footerLabel": "Kalibrierungs-FAQs ansehen →" }
+      ],
+      "bottomCards": [
+        { "kicker": "04 · Fehlerbericht-Checkliste", "heading": "Welche Angaben helfen am schnellsten?", "body": "Sende an [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]: (1) Gerätemodell/Monitor, (2) OS-Skalierung, (3) Browser & Zoom, (4) Status-Anzeige und (5) Schritte zur Reproduktion." },
+        { "kicker": "05 · Datenschutz & Barrierefreiheit", "heading": "Wie werden rechtliche & WCAG-Anfragen bearbeitet?", "body": "Anfragen an [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] gemäß [[link:/privacy|Datenschutzerklärung]] und [[link:/terms|Nutzungsbedingungen]]." }
+      ]
+    },
+    "privacy": {
+      "title": "Datenschutzerklärung & AdSense-Hinweise | Online Ruler Plus",
+      "description": "Datenschutzerklärung von OnlineRulerPlus.com über lokale Verarbeitung, localStorage-Schlüssel, Google AdSense Cookies und Betroffenenrechte.",
+      "schemaName": "Datenschutzerklärung — Online Ruler Plus",
+      "subNavTitle": "Datenschutz",
+      "breadcrumbLabel": "Datenschutz",
+      "heroKicker": "Datenschutz & Transparenz · Lokale Messungen & Werbung",
+      "heroHeadline": "Datenschutzerklärung",
+      "heroSummary": "Online Ruler Plus verarbeitet 100 % aller Kalibrierungen und Messungen lokal in deinem Browser ohne Server-Upload oder Kameraberechtigung.",
+      "effectiveDate": "Stand: 14. November 2026 · Zuletzt geprüft: 14. November 2026",
+      "topCards": [
+        { "kicker": "01 · Lokale Ausführung", "heading": "Wie werden Messungen verarbeitet?", "body": "Sämtliche Berechnungen und Canvas-Zeichnungen laufen rein clientseitig im Browser. Messwerte verlassen niemals dein Gerät." },
+        { "kicker": "02 · Lokaler Browserspeicher", "heading": "Was speichert window.localStorage?", "body": "Nur lokale Schlüssel: [[code:orp:calibration:v1]], [[code:orp:preferences:v1]], [[code:orp:history:v1]], [[code:orp:theme]] und [[code:orp:locale:v1]]. Jederzeit löschbar." },
+        { "kicker": "03 · Berechtigungen & E-Mail", "heading": "Greift die Website auf Sensoren oder PII zu?", "body": "Kein Zugriff auf Kamera, Mikrofon, GPS oder Zwischenablage. E-Mails an [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] dienen nur der Bearbeitung deiner Anfrage." }
+      ],
+      "bottomCards": [
+        { "kicker": "04 · Google AdSense", "heading": "Wie werden Werbe-Cookies verwendet?", "body": "Drittanbieter einschließlich Google können auf Inhaltsbereichen Anzeigen einbinden und je nach Einwilligung Cookies oder Kontextsignale nutzen." },
+        { "kicker": "05 · Widerspruch", "heading": "Wie deaktiviert man personalisierte Werbung?", "body": "Über [[ext:https://myadcenter.google.com/|Google Mein Anzeigencenter]] oder [[ext:https://www.aboutads.info/choices/|aboutads.info/choices]]. Infos unter [[ext:https://policies.google.com/technologies/partner-sites|Google-Partnerseiten-Richtlinie]]." },
+        { "kicker": "06 · Einwilligung & Rechte", "heading": "Welche regionalen Standards gelten?", "body": "Im EWR, UK und der Schweiz über eine IAB-TCF-v2.2-CMP; CCPA/CPRA-Rechte werden gewahrt. Nicht an Kinder unter 13 Jahren gerichtet. Kontakt: [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]." }
+      ]
+    },
+    "terms": {
+      "title": "Nutzungsbedingungen & Metrologie-Hinweis | Online Ruler Plus",
+      "description": "Nutzungsbedingungen, Kalibrierungspflichten, Parallaxe-Grenzen und Displayschutz für OnlineRulerPlus.com.",
+      "schemaName": "Nutzungsbedingungen — Online Ruler Plus",
+      "subNavTitle": "Nutzungsbedingungen",
+      "breadcrumbLabel": "Nutzungsbedingungen",
+      "heroKicker": "Nutzungsbedingungen & Genauigkeitshinweis",
+      "heroHeadline": "Nutzungsbedingungen",
+      "heroSummary": "Hinweise zu Nutzungsrechten, Eigenverantwortung bei der Kalibrierung, optischer Parallaxe und Schutz der Bildschirmoberfläche.",
+      "lastUpdated": "Zuletzt aktualisiert: 14. November 2026",
+      "topCards": [
+        { "kicker": "01 · Allgemeines", "heading": "Welche Nutzungsbedingungen gelten?", "body": "Die Nutzung ist kostenlos für private, schulische und allgemeine Referenzzwecke im Zustand „wie besehen“ ohne Gewährleistung." },
+        { "kicker": "02 · Einsatzbereich", "heading": "Welche Genauigkeitsgrenzen bestehen?", "body": "Nicht für medizinische Dosierung, Statik, geeichten Handel oder sicherheitskritische Fertigung verwenden." },
+        { "kicker": "03 · Displayschutz", "heading": "Wie schützt man den Bildschirm?", "body": "Scharfe Metallteile im [[link:/#ruler-tool|Arbeitsbereich]] nur sanft oder mit Schutzfolie anlegen; keine Haftung für Kratzer." }
+      ],
+      "bottomCards": [
+        { "kicker": "04 · Urheberrecht", "heading": "Wie dürfen Inhalte genutzt werden?", "body": "Freie individuelle Nutzung und saubere Verlinkung erlaubt; automatisiertes Massen-Scraping und irreführendes Framing untersagt." },
+        { "kicker": "05 · Werbung & Änderungen", "heading": "Hinweise zu Anzeigen & Updates?", "body": "Siehe unsere [[link:/privacy|Datenschutzerklärung]]; Fragen bitte an [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]." }
+      ]
+    }
+  }
+}

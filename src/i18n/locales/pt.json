@@ -1,0 +1,1453 @@
+{
+  "meta": {
+    "ogImageAlt": "Online Ruler Plus régua online gratuita em tamanho real calibrada em polegadas (1/16″), cm e mm",
+    "orgDescription": "Régua de ecrã online em tamanho real e plataforma de calibração de ecrã totalmente no navegador, com suporte para centímetros (cm), milímetros (mm), frações de polegada (1/16″) e píxeis CSS de referência.",
+    "knowsAbout": [
+      "Calibração de Régua Online no Ecrã",
+      "Metrologia de Densidade de Píxeis do Ecrã (PPI)",
+      "Calibração por Cartão Padrão ISO/IEC 7810:2019 ID-1",
+      "Medição em Centímetros, Milímetros e Polegadas Fracionárias",
+      "Píxel de Referência W3C CSS Values and Units"
+    ]
+  },
+  "nav": {
+    "skipToMain": "Ir para o conteúdo principal",
+    "skipToWorkspace": "Ir para a área da régua online",
+    "brandHomeAria": "Página inicial do Online Ruler Plus",
+    "defaultSubNavTitle": "Área da Régua no Ecrã",
+    "defaultSubNavCta": "Calibrar",
+    "globalNavAria": "Global",
+    "mobileNavAria": "Navegação móvel",
+    "mobileMenuAria": "Abrir ou fechar menu de navegação",
+    "homeWorkspaceLabel": "Área Principal",
+    "shortcutsBtn": "Atalhos",
+    "shortcutsBtnTitle": "Atalhos de teclado e instruções (H)",
+    "themeBtn": "Tema",
+    "themeBtnAria": "Alternar tema (D)",
+    "themeBtnTitle": "Ativar ou desativar modo escuro (D)",
+    "languageLabel": "Idioma",
+    "languageTriggerAria": "Selecionar idioma do site",
+    "languageMenuAria": "Idiomas suportados",
+    "links": {
+      "cmRuler": "Régua cm",
+      "mmRuler": "Régua mm",
+      "inchRuler": "Régua Polegadas",
+      "horizontal": "Horizontal",
+      "vertical": "Vertical",
+      "howToUse": "Como Usar",
+      "calibrationGuide": "Guia de Calibração",
+      "faq": "Perguntas Frequentes",
+      "about": "Sobre",
+      "contact": "Contacto",
+      "privacy": "Política de Privacidade",
+      "terms": "Termos de Utilização"
+    },
+    "subNav": {
+      "workspace": "Régua",
+      "calibration": "Calibração",
+      "howItWorks": "Como Funciona",
+      "ppiTable": "Tabela PPI"
+    }
+  },
+  "footer": {
+    "footnote": "1. A precisão física real requer calibrar o ecrã com um cartão padrão ISO/IEC 7810 ID-1 (85,60 × 53,98 mm) ou com a diagonal visível do monitor a 100% de zoom no navegador. Sem calibração, os navegadores assumem 96 píxeis CSS por polegada.",
+    "tagline": "Área de metrologia de ecrã de precisão para medir objetos físicos em centímetros, milímetros e polegadas fracionárias de 1/16″. Medições 100% locais no navegador e perfis de calibração guardados no dispositivo.",
+    "colModes": "Modos de Régua",
+    "colGuides": "Calibração e Guias",
+    "colTools": "Ferramentas de Precisão",
+    "colLegal": "Empresa e Legal",
+    "modeAllEdge": "Área Todas as Bordas",
+    "modeCm": "Régua em Centímetros (cm)",
+    "modeMm": "Régua em Milímetros (mm)",
+    "modeInch": "Régua em Polegadas (1/16″)",
+    "modeHorizontal": "Régua Horizontal",
+    "modeVertical": "Régua Vertical",
+    "guideCard": "Calibração por Cartão Bancário",
+    "guideHowTo": "Guia de Utilização",
+    "guidePpi": "Referência PPI de Ecrã",
+    "guideFaq": "Perguntas Frequentes",
+    "toolGuides": "Linhas Guia Arrastáveis (G)",
+    "toolFractions": "Leitura em Frações de Polegada",
+    "toolPx": "Inspetor de Píxeis CSS (px)",
+    "toolProtractor": "Transferidor Angular 180° (P)",
+    "legalAbout": "Sobre o Online Ruler Plus",
+    "legalContact": "Contacto e Envios",
+    "legalPrivacy": "Política de Privacidade",
+    "legalTerms": "Termos de Utilização",
+    "copyright": "Copyright © {year} OnlineRulerPlus.com. Todos os direitos reservados.",
+    "constants": "1 pol = 25,4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)"
+  },
+  "helpModal": {
+    "kicker": "Referência Rápida",
+    "title": "Atalhos de Teclado e Controlos da Régua",
+    "closeAria": "Fechar janela de atalhos",
+    "escLabel": "Esc",
+    "enableShortcuts": "Ativar atalhos de tecla única (G, C, P, F, 1–4, D, H)",
+    "gotIt": "Entendido",
+    "shortcuts": [
+      { "key": "G", "action": "Ativar/desativar linhas guia ao clicar" },
+      { "key": "C", "action": "Ativar/desativar mira do cursor" },
+      { "key": "P", "action": "Ativar/desativar transferidor angular de 180°" },
+      { "key": "F", "action": "Ativar/desativar ecrã inteiro da área de medição" },
+      { "key": "1", "action": "Mudar unidade para Centímetros (cm)" },
+      { "key": "2", "action": "Mudar unidade para Polegadas (in)" },
+      { "key": "3", "action": "Mudar unidade para Píxeis CSS (px)" },
+      { "key": "4 / M", "action": "Mudar unidade para Milímetros (mm)" },
+      { "key": "D", "action": "Alternar entre modo claro e escuro" },
+      { "key": "H", "action": "Abrir ou fechar este painel de atalhos de teclado" },
+      { "key": "Esc", "action": "Limpar linhas guia colocadas ou fechar janelas ativas" },
+      { "key": "← / →", "action": "Ajustar tamanho do cartão de calibração em 1px (Shift para 5px)" }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Referência ISO/IEC 7810 ID-1 · 1 pol = 25,4 mm",
+    "headline": "Régua Online em Tamanho Real em Polegadas, cm e mm",
+    "description": "Ferramenta de medição no ecrã calibrada para computadores, portáteis, tablets e telemóveis. Ajuste com um cartão bancário padrão ou insira a diagonal do ecrã para medir objetos à escala real.",
+    "primaryCta": "Calibrar o Seu Ecrã",
+    "secondaryCta": "Como Medir"
+  },
+  "workspace": {
+    "srHeading": "Área Interativa da Régua Online no Ecrã",
+    "verifyCalibrationLink": "Verificar Calibração",
+    "dismissAria": "Dispensar notificação",
+    "unitGroupAria": "Unidades de medição",
+    "unitLabel": "Unidade",
+    "unitCmTitle": "Centímetros com divisões de milímetro (Atalho: 1)",
+    "unitMmTitle": "Milímetros (Atalho: 4 ou M)",
+    "unitInTitle": "Polegadas com frações de 1/16 (Atalho: 2)",
+    "unitPxTitle": "Píxeis CSS (Atalho: 3)",
+    "dualUnit": "Duplo cm/pol",
+    "dualUnitTitle": "Mostrar escalas cm + polegadas em simultâneo",
+    "edgesGroupAria": "Posicionamento das bordas da régua",
+    "edgesLabel": "Bordas",
+    "edgeTop": "Topo",
+    "edgeBottom": "Base",
+    "edgeLeft": "Esquerda",
+    "edgeRight": "Direita",
+    "edgeAll": "Todas as Bordas",
+    "toolsGroupAria": "Ferramentas de precisão sobrepostas",
+    "guides": "Guias",
+    "guidesTitle": "Ativar linhas guia ao clicar (Atalho: G)",
+    "crosshair": "Mira",
+    "crosshairTitle": "Ativar mira do cursor (Atalho: C)",
+    "addFloating": "+ Régua Flutuante",
+    "addFloatingTitle": "Adicionar uma régua flutuante arrastável na área de medição",
+    "protractor": "Transferidor",
+    "protractorTitle": "Ativar transferidor angular de 180° (Atalho: P)",
+    "fullscreen": "Ecrã Inteiro",
+    "fullscreenExit": "Sair do Ecrã Inteiro",
+    "fullscreenTitle": "Alternar modo ecrã inteiro (Atalho: F)",
+    "clearGuides": "Limpar Guias",
+    "clearGuidesTitle": "Limpar todas as linhas guia (Atalho: Esc)",
+    "calDefaultStatus": "Calibração estimada",
+    "calDefaultDevice": "Ecrã de secretária",
+    "calibrateBtn": "Calibrar",
+    "guideAxisAria": "Eixo da linha guia ao clicar",
+    "guideAxisLabel": "Eixo Guia:",
+    "axisVertical": "Vertical",
+    "axisHorizontal": "Horizontal",
+    "axisBoth": "Ambos",
+    "thicknessLabel": "Espessura",
+    "thicknessAria": "Espessura da régua",
+    "opacityLabel": "Opacidade",
+    "opacityAria": "Percentagem de opacidade da régua",
+    "canvasTopAria": "Régua horizontal superior — clique para colocar uma linha guia vertical",
+    "canvasBottomAria": "Régua horizontal inferior — clique para colocar uma linha guia vertical",
+    "canvasLeftAria": "Régua vertical esquerda — clique para colocar uma linha guia horizontal",
+    "canvasRightAria": "Régua vertical direita — clique para colocar uma linha guia horizontal",
+    "datumTitle": "Origem (0, 0) · Referência Tracejada Superior Esquerda",
+    "datumBody": "Alinhe o objeto com a marca [[strong:0]]. Clique em qualquer régua ou na grelha para colocar linhas guia arrastáveis.",
+    "liveCursorInit": "X: 0.00 cm · Y: 0.00 cm",
+    "saveToHistory": "Guardar no Histórico",
+    "keysHint": "Teclas: [[kbd:1]] cm · [[kbd:2]] pol · [[kbd:3]] px · [[kbd:G]] guias · [[kbd:C]] mira · [[kbd:F]] ecrã inteiro"
+  },
+  "calibration": {
+    "kicker": "Calibração de Densidade do Ecrã · Guardada Localmente por Ecrã",
+    "heading": "Calibre o Seu Ecrã para Escala Física Real",
+    "lead": "Os navegadores usam por predefinição 96 píxeis CSS por polegada, o que raramente corresponde aos painéis físicos reais. Escolha um dos três métodos abaixo para que cada milímetro e fração de polegada corresponda ao comprimento real.",
+    "activeScale": "Escala Ativa",
+    "defaultStatus": "Calibração estimada",
+    "defaultBasis": "Escala de referência CSS (96 px por polegada)",
+    "resetBtn": "Repor Calibração",
+    "methodsAria": "Métodos de calibração de ecrã",
+    "tabCard": "1. Cartão Bancário (Recomendado)",
+    "tabDiagonal": "2. Diagonal do Ecrã (Polegadas)",
+    "tabAutoDetect": "3. Deteção Automática",
+    "cardKicker": "Norma ISO/IEC 7810 ID-1 · 85,60 × 53,98 mm",
+    "cardHeading": "Alinhe um Cartão Bancário, Crédito ou Identificação Físico",
+    "cardDesc": "Encoste qualquer cartão de pagamento, carta de condução ou cartão de cidadão plano contra o contorno abaixo e ajuste à largura física.",
+    "cardOrientTitle": "Alternar orientação horizontal e vertical do cartão para ecrãs estreitos",
+    "cardOrientLandscape": "Horizontal (85,60 × 53,98 mm)",
+    "cardOrientPortrait": "Vertical (53,98 × 85,60 mm)",
+    "cardStageAria": "Área interativa de calibração por cartão bancário. Use as setas esquerda e direita para redimensionar.",
+    "cardDatumNote": "Referência de alinhamento superior esquerda · contorno físico 1:1",
+    "cardPlaceTitle": "Coloque o Cartão Físico Aqui",
+    "cardPlaceSub": "Alinhe as bordas esquerda e superior · Ajuste o limite exterior",
+    "checklistTitle": "Lista de Verificação de Alinhamento Ótico",
+    "checklistSteps": [
+      "[[strong:Encoste o cartão plano:]] Coloque um cartão físico alinhado ao canto superior esquerdo da caixa.",
+      "[[strong:Ajuste a borda exterior:]] Arraste o controlo deslizante ou pressione [[kbd:←]] [[kbd:→]] até a borda direita coincidir exatamente.",
+      "[[strong:Evite paralaxe:]] Mantenha os olhos perpendiculares à borda direita do cartão."
+    ],
+    "cardMinusAria": "Diminuir largura do cartão em 1 píxel",
+    "cardSliderAria": "Ajustar largura do cartão em píxeis",
+    "cardPlusAria": "Aumentar largura do cartão em 1 píxel",
+    "widthPxLabel": "Largura (px):",
+    "longEdgePxLabel": "Lado Maior (px):",
+    "computedScaleLabel": "Escala Calculada:",
+    "shortcutNote": "Ajuste fino por teclado: clique na área do cartão e prima [[kbd:←]] [[kbd:→]] ([[kbd:Shift]] para passos de 5px).",
+    "applyBtn": "Aplicar Calibração",
+    "diagKicker": "Cálculo Geométrico do Ecrã · √(W² + H²) / Diagonal",
+    "diagHeading": "Calibrar pela Diagonal Visível do Ecrã",
+    "diagDesc": "Insira a medida diagonal do painel visível em polegadas (de canto a canto dentro da moldura, não o chassis exterior). Garanta que o zoom do navegador está a 100%.",
+    "diagPresetsLabel": "Diagonais de Ecrã Comuns (Polegadas)",
+    "diagInputLabel": "Diagonal Visível do Ecrã (polegadas)",
+    "diagPlaceholder": "ex. 15.6 ou 27",
+    "diagResetBtn": "Repor",
+    "diagFormula": "Fórmula: CSS PPI = √(screenWidth² + screenHeight²) / diagonalPolegadas",
+    "diagNotesTitle": "Notas de precisão para calibração por diagonal:",
+    "diagNotes": [
+      "[[strong:Painel vs. Estrutura:]] Insira a diagonal ativa do painel (ex.: 13,6″ ou 15,6″), nunca as dimensões exteriores da carcaça.",
+      "[[strong:Píxeis CSS Lógicos vs. Físicos:]] Os sistemas operativos escalam painéis HiDPI (125% ou 150% no Windows, ou escala Retina no macOS). O navegador reporta píxeis CSS lógicos a 100% de zoom, usados diretamente neste cálculo."
+    ],
+    "autoKicker": "Telemetria do Navegador e Base de Hardware",
+    "autoHeading": "Deteção Automática de Dispositivo e Densidade de Ecrã",
+    "autoDesc": "O Online Ruler Plus analisa as dimensões lógicas do ecrã reportadas pelo navegador, a proporção de píxeis (DPR), orientação e plataforma para corresponder a perfis conhecidos.",
+    "autoDtProfile": "Perfil Detetado",
+    "autoDtStatus": "Estado da Deteção",
+    "autoDtDensity": "Densidade Estimada",
+    "autoDtSize": "Tamanho CSS do Ecrã",
+    "autoDtDpr": "Proporção de Píxeis (DPR)",
+    "autoDtOrient": "Orientação",
+    "autoChecking": "A analisar ecrã…",
+    "autoWhyTitle": "Porquê verificar manualmente?",
+    "autoWhyBody": "[[strong:Porquê verificar manualmente?]] Os navegadores não expõem dimensões físicas de monitores via HDMI/DisplayPort nem fatores de escala personalizados do sistema operativo. Verifique sempre com um cartão físico ou diagonal conhecida.",
+    "autoApplyBtn": "Usar Escala Detetada",
+    "verifyKicker": "Indicador de Verificação Física",
+    "verifyHeading": "Verificar com Objetos do Dia a Dia",
+    "verifyDesc": "Encoste uma moeda real contra estes contornos à escala em tempo real para confirmar imediatamente a calibração.",
+    "coinQuarter": "Quarter EUA",
+    "coinEuro": "1 Euro (€)",
+    "coinPenny": "1 Cênt. EUA",
+    "verifyBarLabel": "Barra de Referência 50,0 mm (5,0 cm)",
+    "historyKicker": "Registo Local da Sessão",
+    "historyHeading": "Histórico de Medições",
+    "historyClearBtn": "Limpar",
+    "historyEmpty": "Coloque duas linhas guia paralelas na régua e clique em [[strong:Guardar no Histórico]] para registar distâncias ([[code:ΔX]] / [[code:ΔY]]) localmente no seu dispositivo.",
+    "historyFooterLeft": "Armazenamento: apenas localStorage",
+    "historyFooterRight": "Zero envio em rede"
+  },
+  "runtime": {
+    "statusLabels": {
+      "detected": "Dispositivo detetado",
+      "estimated": "Calibração estimada",
+      "manual": "Calibração manual"
+    },
+    "orientLandscape": "Horizontal",
+    "orientPortrait": "Vertical",
+    "rangeLabel": "Intervalo:",
+    "angleLabel": "Ângulo:",
+    "removeGuideAria": "Remover linha guia",
+    "rotateFloatingTitle": "Rodar 90°",
+    "rotateFloatingAria": "Rodar régua flutuante",
+    "removeFloatingTitle": "Remover régua flutuante",
+    "removeFloatingAria": "Remover régua flutuante",
+    "closeProtractorAria": "Fechar transferidor",
+    "spanSaved": "Guardado",
+    "spanGuideLabel": "Distância guia {axis}",
+    "autoAppliedBanner": "Deteção automática aplicada ao ecrã atual.",
+    "cardSavedBanner": "Calibração por cartão guardada ({ppi} CSS PPI · {pxPerMm} px/mm).",
+    "diagonalSavedBanner": "Calibrado para ecrã de {diag}″ ({ppi} CSS PPI · {pxPerMm} px/mm).",
+    "resetBanner": "Calibração reposta para a estimativa automática do ecrã.",
+    "displayOrientationBanner": "Orientação do ecrã atualizada; dimensões da régua ajustadas.",
+    "displayZoomManualBanner": "Zoom ou escala do navegador alterada; calibração manual ajustada automaticamente.",
+    "displayZoomAutoBanner": "Escala do ecrã alterada; régua reescalada automaticamente.",
+    "displaySwitchedBanner": "Mudança de monitor detetada ({w}×{h}). Revalide a calibração neste ecrã.",
+    "enterDiagonalPrompt": "Insira a diagonal para ecrã de {w} × {h} CSS px",
+    "calculatedScale": "Escala calculada: {ppi} CSS PPI ({pxPerMm} px/mm)",
+    "basisMap": {
+      "CSS reference scale (96 px per inch)": "Escala de referência CSS (96 px por polegada)",
+      "Matched a known screen configuration": "Correspondência a configuração de ecrã conhecida",
+      "Several devices share this configuration": "Vários dispositivos partilham esta configuração",
+      "Typical iPhone density": "Densidade típica de iPhone",
+      "Typical iPad density": "Densidade típica de iPad",
+      "Android nominal density (160 dp per inch)": "Densidade nominal Android (160 dp por polegada)",
+      "Typical Retina Mac at a scaled resolution": "Mac Retina típico em resolução escalada",
+      "Typical density at default OS scaling": "Densidade típica na escala predefinida do sistema",
+      "Manual calibration adjusted for current zoom or scaling": "Calibração manual ajustada para o zoom ou escala atual",
+      "Calibrated against an ISO/IEC 7810 ID-1 card (85.60 × 53.98 mm)": "Calibrado com cartão ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)",
+      "Calibrated from entered display diagonal": "Calibrado a partir da diagonal do ecrã inserida"
+    },
+    "deviceLabelMap": {
+      "Desktop display": "Ecrã de secretária",
+      "iPhone (model not identified)": "iPhone (modelo não identificado)",
+      "iPad (model not identified)": "iPad (modelo não identificado)",
+      "Android device": "Dispositivo Android",
+      "Mac with Retina display": "Mac com ecrã Retina",
+      "Scaled laptop or desktop display": "Portátil ou monitor escalado",
+      "Credit card calibration": "Calibração por cartão bancário"
+    },
+    "errorMap": {
+      "Enter your screen diagonal in inches.": "Insira a diagonal do ecrã em polegadas.",
+      "Use a number such as 15.6.": "Use um número como 15.6.",
+      "The diagonal must be greater than zero.": "A diagonal tem de ser superior a zero.",
+      "Enter a diagonal between 4 and 120 inches.": "Insira uma diagonal entre 4 e 120 polegadas.",
+      "Screen dimensions are unavailable.": "As dimensões do ecrã não estão disponíveis.",
+      "That diagonal gives an implausible pixel density. Check the value and your browser zoom.": "Essa diagonal resulta numa densidade implausível. Verifique o valor e o zoom do navegador.",
+      "Card width must be greater than zero.": "A largura do cartão tem de ser superior a zero.",
+      "Card size must be greater than zero.": "O tamanho do cartão tem de ser superior a zero.",
+      "That card size is outside the plausible range.": "Esse tamanho de cartão está fora do intervalo plausível."
+    },
+    "displaySizeSuffix": "Ecrã {long}×{short}",
+    "typMonitorBasis": "Assume um ecrã típico de {diag}″ nesta resolução",
+    "manualDiagBasis": "Diagonal de Ecrã de {diag}″"
+  },
+  "home": {
+    "title": "Régua Online | Régua Gratuita em Tamanho Real (Polegadas, cm e mm)",
+    "description": "Meça comprimentos físicos reais em polegadas (1/16″), cm e mm com a nossa régua online gratuita em tamanho real. Calibre à escala com qualquer cartão bancário ou diagonal do monitor.",
+    "featureList": [
+      "Réguas em polegadas fracionárias (1/16″), centímetros (cm), milímetros (mm) e píxeis CSS (px)",
+      "Calibração por cartão bancário ISO/IEC 7810 ID-1 (85,60 × 53,98 mm / 3,370 × 2,125 pol)",
+      "Calibração por diagonal do ecrã e deteção automática de densidade do dispositivo",
+      "Réguas superior, inferior, esquerda, direita e flutuante arrastável",
+      "Linhas guia ao clicar, mira do cursor, transferidor angular 180° e modo ecrã inteiro"
+    ],
+    "howKicker": "Metrologia Prática de Ecrã · Guia Polegadas, cm e mm",
+    "howHeading": "Guia da Régua Online: Tamanho Real em Polegadas, cm e mm",
+    "howManualBtn": "Manual Completo",
+    "howCards": [
+      {
+        "kicker": "01 · Visão Geral",
+        "heading": "O que é uma régua online?",
+        "body": "Uma régua online gratuita é um instrumento de navegador calibrado que desenha marcas em escala real diretamente no vidro do ecrã em polegadas, centímetros, milímetros e píxeis CSS. Como os navegadores assumem por predefinição 96 píxeis CSS por polegada independentemente do monitor, ferramentas sem calibração distorcem as dimensões físicas. A calibração local mapeia o passo real dos píxeis para comprimento físico 1:1 sem descargas."
+      },
+      {
+        "kicker": "02 · Passos Rápidos",
+        "heading": "Como usar a régua online",
+        "body": "Calibre uma vez abaixo, escolha a unidade pretendida e encoste qualquer objeto plano à área da régua. Comece na linha interior 0 em vez da moldura do monitor para que bordas salientes nunca tapem a extremidade. Clique em qualquer régua ou na grelha para colocar linhas guia azuis arrastáveis que subtraem automaticamente as posições inicial e final numa leitura clara.",
+        "linkHref": "#ruler-tool",
+        "linkLabel": "Medir na área da régua"
+      },
+      {
+        "kicker": "03 · Sistema Imperial",
+        "heading": "Medir em polegadas",
+        "body": "No [[link:/inch-ruler|modo Polegadas]], cada polegada (25,4 mm) subdivide-se em frações clássicas de 1/2, 1/4, 1/8 e 1/16 para marcenaria, embalagens e artesanato. A altura dos traços reflete automaticamente cada denominador reduzido. Monitores panorâmicos apresentam uma régua contínua de 12 polegadas (ou mais em ecrã inteiro [[kbd:F]]) com leituras decimais e fracionárias.",
+        "linkHref": "/inch-ruler",
+        "linkLabel": "Abrir Régua de Polegadas 1/16″"
+      },
+      {
+        "kicker": "04 · Escala Métrica",
+        "heading": "Medir em centímetros e milímetros",
+        "body": "Mude para [[link:/cm-ruler|cm]] para papelaria, cartões e caixas (1 cm = 10 mm), ou escolha a [[link:/mm-ruler|régua online mm]] ao verificar parafusos métricos, largura de braceletes de relógio ou tolerâncias de impressão 3D. Precisa de ambos os sistemas juntos? Ative o modo Duplo cm/pol na barra de ferramentas para ver as escalas métrica e imperial no mesmo enquadramento calibrado.",
+        "linkHref": "/cm-ruler",
+        "linkLabel": "Abrir Réguas cm e mm"
+      },
+      {
+        "kicker": "05 · Calibração",
+        "heading": "Como calibrar uma régua online",
+        "body": "Os limites de privacidade dos navegadores impedem que sites leiam automaticamente o tamanho exato do painel do monitor. Para criar uma régua online rigorosa à escala, encoste um cartão de crédito, débito ou identificação padrão (ISO/IEC 7810 ID-1: 85,60 × 53,98 mm / 3,370 × 2,125 pol) contra a caixa de calibração, ou insira as polegadas da diagonal do ecrã a 100% de zoom.",
+        "linkHref": "#calibration",
+        "linkLabel": "Calibrar com cartão bancário",
+        "isCardOpen": true
+      },
+      {
+        "kicker": "06 · Dicas 1:1",
+        "heading": "Como obter medições em tamanho real",
+        "body": "Para leituras fiáveis numa régua online real, olhe diretamente na perpendicular para o traço — olhar em ângulo através do vidro espesso do monitor desloca ligeiramente a leitura devido à paralaxe ótica. Confirme a calibração rapidamente com moedas comuns: uma moeda de 1 Euro tem 23,25 mm e um Quarter dos EUA tem 24,26 mm (0,955 pol). Reserve paquímetros mecânicos para tolerâncias de maquinagem.",
+        "linkHref": "/calibration-guide",
+        "linkLabel": "Ler guia de calibração"
+      },
+      {
+        "kicker": "07 · Dispositivos",
+        "heading": "Usar a régua online em telemóvel e computador",
+        "body": "Monitores de computador oferecem faixas horizontais amplas para 30 cm / 12 polegadas, atalhos de teclado e perfis independentes guardados por monitor. Em smartphones e tablets com ecrãs estreitos, mude para Calibração de Cartão Vertical (lado curto de 53,98 mm) e arraste as linhas guia com o dedo. A largura útil do ecrã define o limite máximo de passagem única.",
+        "linkHref": "/vertical-ruler",
+        "linkLabel": "Experimentar modo vertical móvel"
+      },
+      {
+        "kicker": "08 · Respostas Rápidas",
+        "heading": "Perguntas comuns de medição",
+        "body": "Tem dúvidas sobre ecrãs de telemóvel, zoom do navegador, câmaras ou como ativar réguas de página integradas no Microsoft Word Online e PowerPoint Online? Desça abaixo para respostas diretas sobre limites em telemóveis, verificação visual de 1 polegada, conversões métricas, limitações de câmara e opções de régua em editores de documentos.",
+        "linkHref": "#faq",
+        "linkLabel": "Ir para Perguntas Frequentes ↓"
+      }
+    ],
+    "accuracyKicker": "Ótica de Ecrã · Píxel de Referência W3C CSS vs. PPI de Hardware",
+    "accuracyHeading": "Por Que Motivo as Réguas de Ecrã Precisam de Calibração PPI?",
+    "accuracyLead": "Os layouts web tratam 1 polegada como 96 píxeis CSS (3,780 px/mm), mas os ecrãs físicos variam entre 81,6 CSS PPI em monitores 1080p de 27 polegadas e mais de 140 CSS PPI em portáteis compactos e telemóveis. Essa diferença altera 10 cm sem calibração entre 10% e 35%.",
+    "accuracyGuideBtn": "Guia Completo de Calibração",
+    "objectsTitle": "Objetos Físicos de Verificação",
+    "objectsBody": "Confirme a qualquer momento a sua régua calibrada com referências padronizadas: um cartão de pagamento ISO/IEC 7810 ID-1 (85,60 × 53,98 mm / 3,370 × 2,125 pol), uma moeda de 1 Euro (23,25 mm), um Quarter EUA (24,26 mm / 0,955 pol), um Níquel EUA (21,21 mm) ou um Penny EUA (19,05 mm / 0,75 pol).",
+    "limitsTitle": "Limitações de Hardware e Tolerância",
+    "limitsBody": "A medição no ecrã é limitada pela largura visível do monitor, espessura do vidro frontal (paralaxe em ângulo oblíquo) e arredondamento ao píxel inteiro (~0,1–0,3 mm). Use esta ferramenta para objetos do dia a dia, encomendas, trabalhos manuais e QA de interfaces — nunca em substituição de paquímetros certificados.",
+    "ppiKicker": "Referência de Densidade de Hardware",
+    "ppiHeading": "Ecrãs Comuns e Erro de 96 PPI Sem Calibração numa Linha de 10 cm",
+    "ppiHeaders": [
+      "Painel de Ecrã / Escala",
+      "Viewport CSS",
+      "CSS PPI Efetivo",
+      "CSS px/mm",
+      "Erro 96 PPI Sem Calibração"
+    ],
+    "ppiRows": [
+      { "device": "13,3\" MacBook Air / Pro (Retina)", "res": "1440 × 900 CSS (2×)", "ppi": "127,7 PPI", "pxMm": "5,027 px/mm", "err": "−24,8% (desenha 7,52 cm)" },
+      { "device": "14,2\" MacBook Pro (Liquid Retina XDR)", "res": "1512 × 982 CSS (2×)", "ppi": "127,0 PPI", "pxMm": "5,000 px/mm", "err": "−24,4% (desenha 7,56 cm)" },
+      { "device": "15,6\" Portátil Full HD (Escala 100% Windows)", "res": "1920 × 1080 CSS (1×)", "ppi": "141,2 PPI", "pxMm": "5,559 px/mm", "err": "−32,0% (desenha 6,80 cm)" },
+      { "device": "15,6\" Portátil Full HD (Escala 125% Windows)", "res": "1536 × 864 CSS (1,25×)", "ppi": "113,0 PPI", "pxMm": "4,448 px/mm", "err": "−15,0% (desenha 8,50 cm)" },
+      { "device": "24\" Monitor Desktop Full HD (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "91,8 PPI", "pxMm": "3,614 px/mm", "err": "+4,6% (desenha 10,46 cm)" },
+      { "device": "27\" Monitor Desktop Full HD (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "81,6 PPI", "pxMm": "3,212 px/mm", "err": "+17,6% (desenha 11,76 cm)" },
+      { "device": "27\" Monitor QHD (2560 × 1440, 100%)", "res": "2560 × 1440 CSS (1×)", "ppi": "108,8 PPI", "pxMm": "4,283 px/mm", "err": "−11,8% (desenha 8,82 cm)" },
+      { "device": "27\" Monitor 4K UHD (Escala 200% HiDPI)", "res": "1920 × 1080 CSS (2×)", "ppi": "81,6 CSS PPI", "pxMm": "3,212 px/mm", "err": "+17,6% (desenha 11,76 cm)" }
+    ],
+    "ppiFormula": "Fórmula: [[code:CSS PPI Efetivo = √(W_css² + H_css²) / diagonalPolegadas]] · [[code:pxPerMm = CSS_PPI / 25.4]]. Pela norma internacional NIST / BIPM, 1 polegada equivale exatamente a 25,4 mm.",
+    "modesKicker": "Vistas de Medição Especializadas · Escalas Métrica, Imperial e Píxeis",
+    "modesHeading": "Explore Vistas Dedicadas da Régua Online",
+    "modesLead": "A calibração guardada do seu ecrã aplica-se automaticamente em cada vista dedicada de unidade e orientação abaixo.",
+    "modeCards": [
+      {
+        "kicker": "Imperial · 1 pol = 25,4 mm · Traços 1/16″",
+        "heading": "Régua Online em Polegadas (12 Polegadas e 1/16″)",
+        "body": "Escala imperial pré-configurada com frações reduzidas de 1/16″ no cursor, orientação para 12 polegadas e tabela completa de frações para milímetros.",
+        "href": "/inch-ruler",
+        "linkLabel": "Abrir Régua em Polegadas"
+      },
+      {
+        "kicker": "Métrico · 1 cm = 10 mm = 0,3937 pol",
+        "heading": "Régua Online em Centímetros (cm)",
+        "body": "Escala métrica em tamanho real com marcas de 1 mm e 5 mm, tabela de conversão de 1 a 30 cm e dimensões comuns de escritório e envelopes.",
+        "href": "/cm-ruler",
+        "linkLabel": "Abrir Régua cm"
+      },
+      {
+        "kicker": "Passo Fino · Divisões de 1 mm e 5 mm",
+        "heading": "Régua Online em Milímetros (mm)",
+        "body": "Escala métrica fina concebida para parafusos M2–M10, braceletes de relógio, moedas, O-rings e pequenos componentes eletrónicos.",
+        "href": "/mm-ruler",
+        "linkLabel": "Abrir Régua mm"
+      },
+      {
+        "kicker": "Bordas Superior e Inferior · Inspetor de Píxeis CSS",
+        "heading": "Régua Horizontal de Ecrã e Píxeis",
+        "body": "Duas faixas horizontais simultâneas no topo e na base para objetos largos, monitores e verificação de larguras em píxeis CSS.",
+        "href": "/horizontal-ruler",
+        "linkLabel": "Abrir Régua Horizontal"
+      },
+      {
+        "kicker": "Bordas Esquerda e Direita · Alinhamento Vertical",
+        "heading": "Régua Vertical Online no Ecrã",
+        "body": "Bordas verticais esquerda e direita sincronizadas para objetos altos, ecrãs de telemóvel ao alto e alturas de contentores.",
+        "href": "/vertical-ruler",
+        "linkLabel": "Abrir Régua Vertical"
+      },
+      {
+        "kicker": "Sobreposições Interativas · Atalhos G, C, P",
+        "heading": "Régua Flutuante, Guias e Transferidor 180°",
+        "body": "Coloque linhas guia paralelas ΔX/ΔY, rode uma régua flutuante 360° na área de trabalho ou ative o transferidor angular de 180°.",
+        "href": "#ruler-tool",
+        "linkLabel": "Abrir ferramentas na área da régua"
+      }
+    ],
+    "faqKicker": "Perguntas Frequentes · Utilização, Calibração e Compatibilidade",
+    "faqHeading": "Perguntas Frequentes Sobre Réguas Online",
+    "faqViewAllBtn": "Ver Todas as 20 Perguntas",
+    "faqs": [
+      {
+        "q": "Existe uma régua online para medir objetos reais diretamente no ecrã?",
+        "a": "Sim. O Online Ruler Plus transforma qualquer monitor de secretária, portátil, tablet ou smartphone numa régua online gratuita em tamanho real calibrada em polegadas (com frações de 1/16″), centímetros e milímetros. Depois de ajustar um cartão bancário padrão ou inserir a diagonal do ecrã, o espaçamento adapta-se ao passo físico real dos píxeis."
+      },
+      {
+        "q": "Como se utiliza uma régua online?",
+        "a": "Primeiro, calibre o ecrã em Calibrar o Seu Ecrã usando um cartão de pagamento ISO/IEC 7810 ID-1 (85,60 × 53,98 mm) ou a diagonal do monitor a 100% de zoom. Segundo, escolha Polegadas, cm, mm ou px na barra superior. Terceiro, alinhe a extremidade inicial do objeto com a marca visível 0 (afastada da moldura) e leia o outro lado ou clique na régua para colocar linhas guia arrastáveis."
+      },
+      {
+        "q": "Como ler uma régua online em polegadas, cm e mm?",
+        "a": "Comece na linha de origem 0, localize o número inteiro imediatamente antes do fim do objeto e conte os traços menores seguintes. Na escala métrica, os centímetros dividem-se em dez marcas de 1 mm com traço médio aos 5 mm. Na escala em polegadas, a altura do traço indica a fração: 1/2″, 1/4″, 1/8″ e 1/16″. Mover o cursor pela grelha mostra as coordenadas exatas na barra inferior."
+      },
+      {
+        "q": "Como identificar 1 polegada numa régua online?",
+        "a": "Mude para Polegadas (atalho 2) depois de calibrar o ecrã e observe a distância calibrada de 0 a 1 — equivalente exatamente a 25,4 milímetros (2,54 cm). Não conte 96 píxeis CSS sem calibração porque a densidade real varia bastante entre ecrãs. Para confirmação rápida, um Quarter EUA mede 0,955 polegadas (24,26 mm) e uma moeda de 1 Euro mede 23,25 mm."
+      },
+      {
+        "q": "Como medir cm e mm online?",
+        "a": "Clique em cm (atalho 1) ou mm (atalho 4) na barra de ferramentas, ou abra as páginas dedicadas Régua cm ou Régua mm. Encoste o objeto plano ao vidro alinhado com a marca 0, leia os centímetros inteiros e conte as divisões de 1 mm. Ativar Duplo cm/pol mostra escalas métricas e imperiais em simultâneo para conversão imediata."
+      },
+      {
+        "q": "Posso usar o telemóvel como régua e medir objetos num smartphone?",
+        "a": "Sim, dentro do comprimento físico do ecrã do telemóvel. Smartphones modernos usam ecrãs OLED/LCD de alta densidade (2x ou 3x), pelo que 96 PPI sem calibração fica demasiado pequeno. Abra primeiro a Calibração em Cartão Vertical (53,98 mm de lado curto) no telemóvel e depois encoste moedas, parafusos, anéis ou cartões ao vidro."
+      },
+      {
+        "q": "Posso usar a câmara como régua?",
+        "a": "O Online Ruler Plus não acede à câmara nem processa fotografias; toda a medição ocorre diretamente contra o vidro calibrado do ecrã dentro do navegador. Apps móveis dedicadas com LiDAR ou ARCore estimam distâncias de divisão pela câmara, mas sofrem desvios com iluminação e perspetiva. Para peças pequenas, o contacto plano no ecrã calibrado evita erro de profundidade."
+      },
+      {
+        "q": "Como ver ou adicionar uma régua no Word Online?",
+        "a": "O Online Ruler Plus é uma ferramenta de medição independente no navegador, não um suplemento do Microsoft Office. Dentro do Microsoft Word na Web (Word Online), mude para o modo de Edição, abra o separador Ver no friso superior e marque a opção Régua no grupo Mostrar para exibir as réguas de margens e tabulações do documento."
+      },
+      {
+        "q": "Como mostrar a régua no PowerPoint Online?",
+        "a": "No Microsoft PowerPoint na Web (PowerPoint Online), abra a apresentação em vista de Edição, selecione o separador Ver e ative a opção Régua juntamente com Linhas de Grelha ou Guias. Note que as réguas do PowerPoint medem coordenadas virtuais do diapositivo (como 13,333 × 7,5 polegadas), e não milímetros físicos reais do monitor."
+      },
+      {
+        "q": "Por que motivo as réguas online exigem calibração e o zoom do navegador afeta a precisão?",
+        "a": "Os navegadores web desenham dimensões com uma proporção fixa W3C de 96 píxeis CSS por polegada enquanto ocultam o tamanho físico real do monitor por privacidade. Como ecrãs de secretária variam entre 82 e 110 CSS PPI e portáteis atingem 113 a 142 CSS PPI, réguas sem calibração erram entre 10% e 35%. O Online Ruler Plus guarda a densidade física (devicePxPerMm) em localStorage e reescala automaticamente ao alterar o zoom."
+      },
+      {
+        "q": "A calibração mantém-se entre vários monitores e permanece privada?",
+        "a": "Cada calibração manual é guardada localmente no localStorage associada à resolução do ecrã, devicePixelRatio e família de plataforma. Ao mover a janela para um monitor externo diferente, a ferramenta carrega o perfil desse monitor ou pede confirmação. Nenhum dado de medição ou câmara é enviado para servidores; consulte a Política de Privacidade para informações sobre cookies."
+      }
+    ]
+  },
+  "spokeShared": {
+    "calibrationGuideBtn": "Guia de Calibração e PPI",
+    "modesKicker": "Mudar Eixo da Régua ou Escala de Unidade",
+    "modesHeading": "Explorar Outros Modos Calibrados da Régua Online",
+    "modesAllEdgeBtn": "Área Todas as Bordas",
+    "modeTiles": [
+      { "href": "/cm-ruler", "kicker": "Métrico · cm", "title": "Régua Centímetros", "desc": "Escala 1 cm e 0,5 cm + tabela cm para pol" },
+      { "href": "/inch-ruler", "kicker": "Imperial · 1/16″", "title": "Régua Polegadas (12″)", "desc": "Frações 1/2, 1/4, 1/8, 1/16″" },
+      { "href": "/mm-ruler", "kicker": "Passo Fino · mm", "title": "Régua Milímetros", "desc": "Escala de hardware 1 mm e 5 mm" },
+      { "href": "/horizontal-ruler", "kicker": "Topo e Base", "title": "Régua Horizontal", "desc": "Vãos largos e escala de píxeis CSS (px)" },
+      { "href": "/vertical-ruler", "kicker": "Esquerda e Direita", "title": "Régua Vertical", "desc": "Altura vertical e telemóvel ao alto" }
+    ],
+    "allFaqsBtn": "Todas as Perguntas Frequentes"
+  },
+  "pages": {
+    "cmRuler": {
+      "title": "Régua CM Online | Régua de Centímetros em Tamanho Real e cm para pol",
+      "description": "Régua online de centímetros (cm) calibrada em tamanho real com marcas de 1 mm e 5 mm, tabela de conversão de 1–30 cm para polegadas e calibração por cartão ISO/IEC 7810.",
+      "schemaName": "Régua Online em Centímetros (cm) — Online Ruler Plus",
+      "featureList": [
+        "Régua calibrada em tamanho real em centímetros (cm) com divisões de 1 mm e 5 mm",
+        "Escala dupla simultânea cm / polegadas",
+        "Calibração por cartão de crédito ISO/IEC 7810 ID-1 (8,56 × 5,40 cm)",
+        "Tabela de conversão de 1 a 30 cm para polegadas decimais e frações 1/16"
+      ],
+      "subNavTitle": "Régua em Centímetros (cm)",
+      "breadcrumbLabel": "Régua em Centímetros (cm)",
+      "hero": {
+        "eyebrow": "Escala Métrica · 1 cm = 10 mm · Subdivisões 0,5 cm e 1 mm",
+        "headline": "Régua Online em Centímetros em Tamanho Real (cm)",
+        "description": "Régua de ecrã métrica calibrada com números principais a cada 1 cm, marcas médias a 0,5 cm e traços finos de 1 mm. Inclui referência completa de conversão de 1–30 cm para polegadas."
+      },
+      "guideKicker": "Metrologia Métrica de Ecrã · Escala Decimal SI",
+      "guideHeading": "Como Medir em Centímetros e Converter cm em Polegadas",
+      "guideLead": "Uma régua online calibrada em centímetros transforma o portátil, monitor ou smartphone numa escala métrica em tamanho real com precisão de 1 mm e conversão imediata para polegadas.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Escala Métrica · 1 cm = 10 mm",
+          "heading": "Como é subdividida uma régua online em centímetros?",
+          "body": "Uma régua online em centímetros é uma escala linear métrica em que cada número principal representa 1 centímetro (10 milímetros ou 0,3937008 polegadas). Segundo as normas métricas SI, cada intervalo de 1 cm divide-se em 10 traços iguais de 1 milímetro, com um traço médio aos 0,5 cm (5 mm) para leitura rápida. Primeiro, abra o painel de calibração e ajuste com um cartão de 8,56 cm. Depois, alinhe o objeto na linha 0 cm para que 10 cm no ecrã correspondam exatamente a 100,0 mm reais.",
+          "linkHref": "#calibration",
+          "linkLabel": "Calibrar escala de centímetros"
+        },
+        {
+          "step": "2",
+          "kicker": "Conversão SI · 1 pol = 2,54 cm",
+          "heading": "Como converter centímetros para polegadas com rigor?",
+          "body": "A conversão entre centímetros e polegadas segue uma razão exata definida pelo acordo internacional de 1959 (NIST e BIPM): 1 polegada equivale exatamente a 2,54 centímetros (25,4 milímetros) sem erro de arredondamento. Para converter centímetros em polegadas decimais, divida por 2,54 (ou multiplique por 0,3937008). Por exemplo, 15 cm equivalem a 5,9055 polegadas e uma régua escolar de 30 cm equivale a 11,8110 polegadas. Com o Online Ruler Plus pode ativar o botão Duplo cm/pol para ver ambas as escalas ao mesmo tempo.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Ver tabela cm para polegadas"
+        },
+        {
+          "step": "3",
+          "kicker": "Verificação Física · Objetos Reais",
+          "heading": "Que objetos comuns confirmam uma régua em centímetros?",
+          "body": "Verificar a escala métrica consiste em encostar um item normalizado ao ecrã calibrado para confirmar a proporção 1:1 antes de medir peças desconhecidas. Segundo a norma ISO/IEC 7810:2019, um cartão bancário padrão mede 8,56 cm de largura por 5,40 cm de altura (85,60 × 53,98 mm). Pode também confirmar com uma pilha AA padrão (5,05 cm), uma moeda de 1 Euro (2,325 cm) ou uma folha A4 (21,0 cm de largura) em menos de 10 segundos.",
+          "linkHref": "/mm-ruler",
+          "linkLabel": "Mudar para régua fina de 1 mm"
+        }
+      ],
+      "darkKicker": "Conversão Centímetros em Polegadas · 1 pol = 2,54 cm (Exato)",
+      "darkHeading": "Guia de Referência de Centímetros (cm) para Polegadas e Milímetros",
+      "darkLead": "Quer esteja a conferir dimensões de encomendas, moldes de costura ou formatos de papelaria, utilize as constantes exatas do SI abaixo em conjunto com a régua interativa.",
+      "darkCards": [
+        {
+          "heading": "Por que motivo 1 polegada equivale a 2,54 cm segundo normas internacionais?",
+          "body": "A constante exata 1 polegada = 2,54 centímetros (1 cm = 0,39370079 pol) foi adotada pelos laboratórios nacionais de normas em 1959 e reafirmada pelo NIST e pelo BIPM. Por ser exata por definição, o Online Ruler Plus calcula todas as coordenadas a partir de uma única base em milímetros (pxPerMm), garantindo zero desvios acumulados ao alternar entre cm e polegadas."
+        },
+        {
+          "heading": "Quanto de uma régua de 30 cm cabe num portátil ou monitor?",
+          "body": "Uma régua métrica completa de 30 cm (300 mm ou 11,81 pol) exige pelo menos 300 mm de largura horizontal ativa. Num portátil de 13,3″ ou 14″ (~295 a 310 mm de largura útil), o modo ecrã inteiro (Atalho: F) acomoda quase todos os 29–30 cm. Num portátil de 15,6″ (~345 mm) ou monitor de 24″–27″ (531 a 598 mm), toda a escala de 30 cm cabe folgadamente de uma só vez."
+        },
+        {
+          "heading": "Quando usar o modo cm versus o modo mm?",
+          "body": "O modo Centímetros (cm) numera cada 1 cm (1, 2, 3… cm) e apresenta coordenadas e vãos com duas casas decimais (ex.: 8,56 cm), sendo ideal para envelopes, roupa, embalagens e papelaria. Para medir parafusos métricos (M3, M4, M5), braceletes de relógio ou peças impressas em 3D onde a leitura em milímetros inteiros/décimas (85,6 mm) é mais direta, prima 4 ou M."
+        }
+      ],
+      "table": {
+        "kicker": "Tabela Métrica para Imperial (Constantes Exatas NIST / BIPM)",
+        "heading": "Centímetros (cm) para Milímetros (mm), Polegadas Decimais e Fração 1/16″",
+        "headers": ["Centímetros (cm)", "Milímetros (mm)", "Polegadas Decimais (in)", "Fração 1/16″ Mais Próxima", "Referência Física Comum"],
+        "rows": [
+          ["1 cm", "10,0 mm", "0,3937 in", "3/8 in (0,375″)", "Diâmetro aproximado pilha AAA (~1,05 cm)"],
+          ["2 cm", "20,0 mm", "0,7874 in", "13/16 in (0,813″)", "Diâmetro Penny EUA é 1,905 cm (19,05 mm)"],
+          ["2,54 cm", "25,4 mm", "1,0000 in", "1 in (exato)", "Definição exata de 1 polegada imperial"],
+          ["5 cm", "50,0 mm", "1,9685 in", "1 15/16 in (1,938″)", "Comprimento pilha AA padrão (5,05 cm)"],
+          ["5,40 cm", "53,98 mm", "2,1252 in", "2 1/8 in (2,125″)", "Altura do cartão bancário ISO/IEC 7810 ID-1"],
+          ["8,56 cm", "85,60 mm", "3,3701 in", "3 3/8 in (3,375″)", "Largura do cartão bancário ISO/IEC 7810 ID-1"],
+          ["10 cm", "100,0 mm", "3,9370 in", "3 15/16 in (3,938″)", "1 decímetro (referência métrica de 100 mm)"],
+          ["15 cm", "150,0 mm", "5,9055 in", "5 7/8 in (5,875″)", "Régua de bolso 15 cm / nota dólar EUA (15,6 cm)"],
+          ["20 cm", "200,0 mm", "7,8740 in", "7 7/8 in (7,875″)", "Largura da folha A4 é 21,0 cm (210 mm)"],
+          ["25 cm", "250,0 mm", "9,8425 in", "9 13/16 in (9,813″)", "Referência de costura e artesanato (quarto de metro)"],
+          ["30 cm", "300,0 mm", "11,8110 in", "11 13/16 in (11,813″)", "Régua escolar e de escritório padrão de 30 cm"],
+          ["30,48 cm", "304,8 mm", "12,0000 in", "12 in (1 pé exato)", "Comprimento métrico exato de uma régua de 12 polegadas"]
+        ],
+        "footnote": "Fórmulas de conversão: mm = cm × 10 · in = cm ÷ 2,54 · cm = in × 2,54. Todos os valores calculados com constantes exatas SI/NIST."
+      },
+      "faqKicker": "FAQ Régua Métrica · Calibração e Conversão",
+      "faqHeading": "Perguntas Comuns Sobre a Régua Online em Centímetros",
+      "faqs": [
+        {
+          "q": "Como obter uma régua em centímetros em tamanho real no meu ecrã?",
+          "a": "Uma régua de centímetros em tamanho real obtém-se calibrando a densidade de píxeis CSS do navegador com uma dimensão física conhecida antes de medir. Por predefinição, os navegadores desenham 1 polegada CSS como 96 píxeis CSS (3,78 px/mm), fazendo uma linha de 10 cm variar entre 6,8 cm e 11,8 cm conforme o monitor. Desça até Calibrar o Seu Ecrã, encoste um cartão bancário de 8,56 cm e ajuste a caixa para fixar a escala 1:1."
+        },
+        {
+          "q": "Quantos centímetros tem uma polegada e uma régua de 12 polegadas?",
+          "a": "Uma polegada imperial equivale internacionalmente a exatamente 2,54 centímetros (25,4 mm), logo 1 centímetro equivale a 0,3937008 polegadas. Uma régua de 12 polegadas (1 pé) corresponde a 30,48 centímetros (304,8 mm) — mais 4,8 mm do que uma régua métrica padrão de 30 cm. Pode ativar Duplo cm/pol na barra para comparar as duas escalas lado a lado."
+        },
+        {
+          "q": "Como ler milímetros (mm) numa régua em centímetros (cm)?",
+          "a": "Ler milímetros numa régua em centímetros é imediato porque o sistema métrico é de base 10: cada intervalo de 1 cm contém 10 subdivisões de 1 milímetro (0,1 cm). Partindo do 0, cada traço curto soma 0,1 cm (1 mm), o traço médio a meio indica 0,5 cm (5 mm) e cada número alto indica um centímetro inteiro. Por exemplo, três traços pequenos após o 4 marcam 4,3 cm (43 mm)."
+        },
+        {
+          "q": "Posso medir em centímetros num iPhone, iPad ou telemóvel Android?",
+          "a": "Sim, diretamente no navegador móvel sem instalar aplicações. Como ecrãs móveis Retina e AMOLED têm elevada densidade física (escala 2x ou 3x), as réguas sem calibração falham por mais de 25%. Mude o cartão de calibração para o modo Vertical (5,40 cm de largura por 8,56 cm de altura) para caber no ecrã do telemóvel e toque em Aplicar Calibração."
+        }
+      ]
+    },
+    "mmRuler": {
+      "title": "Régua MM Online | Régua de Ecrã em Milímetros Calibrada (mm)",
+      "description": "Régua online de milímetros (mm) calibrada em tamanho real com marcas de 1 mm e 5 mm, tabela de parafusos M2–M10 e asas de relógio e calibração por cartão ISO/IEC 7810.",
+      "schemaName": "Régua Online em Milímetros (mm) — Online Ruler Plus",
+      "featureList": [
+        "Régua calibrada em tamanho real em milímetros (mm) com traços de 1 mm e 5 mm",
+        "Resolução de 0,1 mm no cursor ao vivo e leitura paralela ΔX/ΔY das guias",
+        "Tabela de referência para parafusos M2–M10, braceletes de relógio (18–22 mm) e passo PCB",
+        "Calibração por cartão bancário ISO/IEC 7810 ID-1 (85,60 × 53,98 mm)"
+      ],
+      "subNavTitle": "Régua em Milímetros (mm)",
+      "breadcrumbLabel": "Régua em Milímetros (mm)",
+      "hero": {
+        "eyebrow": "Escala Métrica de Precisão · Marcas 1 mm e 5 mm · Rótulos cada 10 mm",
+        "headline": "Régua Online em Milímetros em Tamanho Real (mm)",
+        "description": "Régua de ecrã em milímetros calibrada de alta densidade com subdivisões de 1 mm e 5 mm, leitura de 0,1 mm e tabela de parafusos M2–M10 e larguras de relógio."
+      },
+      "guideKicker": "Metrologia de Precisão em Milímetros · Leitura a 0,1 mm",
+      "guideHeading": "Como Medir Ferragens, Asas de Relógio e Peças em Milímetros",
+      "guideLead": "Concebida para engenharia, relojoaria, impressão 3D e eletrónica onde todas as cotas são especificadas em milímetros e não em centímetros ou polegadas.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Passo Fino · Marcas 1 mm e 5 mm",
+          "heading": "Para que serve uma régua online em milímetros?",
+          "body": "Uma régua online em milímetros é um instrumento de alta densidade que numera a escala a cada 10 milímetros (10, 20, 30… mm) enquanto desenha cada traço individual de 1 mm e meios-pontos de 5 mm. Nas normas de desenho técnico ISO, engenharia, relojoaria e impressão 3D especificam cotas exclusivamente em milímetros. Após calibrar com um cartão de 85,60 mm, o Online Ruler Plus apresenta coordenadas e vãos com resolução de 0,1 mm (como 24,3 mm) para identificar parafusos M2–M10 e braceletes.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Ver tabela mm de ferragens e relógios"
+        },
+        {
+          "step": "2",
+          "kicker": "Precisão Ótica · Controlo de Paralaxe",
+          "heading": "Como evitar erros de paralaxe ao ler traços de 1 mm?",
+          "body": "O erro de paralaxe ótica ocorre quando o alinhamento entre a peça e o traço no ecrã parece deslocado por olhar em ângulo através da camada de vidro protetor (0,5 a 1,5 mm acima dos píxeis). Um ângulo lateral de 30° pode deslocar a leitura em 0,5 a 1,0 mm. Encoste a peça plana na linha 0 mm, posicione os olhos exatamente na vertical (90°) acima do traço e use duas linhas guia paralelas no Online Ruler Plus para reduzir a paralaxe ao mínimo.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Colocar linhas guia paralelas em mm"
+        },
+        {
+          "step": "3",
+          "kicker": "Matemática Submilimétrica · pxPerMm",
+          "heading": "Quantos píxeis equivalem a 1 milímetro num ecrã calibrado?",
+          "body": "A densidade de píxeis por milímetro (pxPerMm) define quantos píxeis CSS lógicos correspondem a 1,00 mm no seu painel. Um monitor 1080p de 27 polegadas desenha 3,212 píxeis CSS por mm (0,311 mm/px), enquanto um MacBook Pro Retina de 14″ desenha 5,000 píxeis CSS por mm (10,0 píxeis físicos por mm a 200% HiDPI). A calibração com cartão ISO/IEC 7810 determina este valor exato em segundos.",
+          "linkHref": "#calibration",
+          "linkLabel": "Calibrar passo em milímetros"
+        }
+      ],
+      "darkKicker": "Referência de Engenharia e Ferragens · 25,40 mm = 1,000 pol",
+      "darkHeading": "Tabela de Milímetros (mm) para Parafusos, Relógios e Polegadas",
+      "darkLead": "Compare medidas comuns em milímetros com polegadas decimais, frações 1/16″ e especificações padrão de ferragens ISO.",
+      "darkCards": [
+        {
+          "heading": "Como medir roscas métricas (M2 a M10) no ecrã?",
+          "body": "Os parafusos métricos ISO 261 / DIN 13 (M2, M3, M4, M5, M6, M8 e M10) são designados pelo diâmetro exterior nominal da rosca em milímetros: um parafuso M3 tem 3,0 mm de diâmetro e um M5 tem 5,0 mm. Para medir o comprimento útil, encoste a base da cabeça cilíndrica na linha 0 mm (ou o topo em cabeças escareadas) e coloque uma linha guia na ponta da rosca."
+        },
+        {
+          "heading": "Como medir a largura entre asas de relógio (18 mm, 20 mm, 22 mm)?",
+          "body": "As braceletes e molas de relógio são dimensionadas pela distância interior em milímetros entre as duas asas da caixa — tipicamente 16, 18, 19, 20, 21, 22 ou 24 mm. Como apenas 1 mm de erro impede a montagem correta, calibre primeiro com cartão bancário, alinhe a face interior de uma asa com a marca 0 mm e leia o vão exato até à asa oposta."
+        },
+        {
+          "heading": "Como converter milímetros em polegadas e frações de 1/16″?",
+          "body": "Pelo acordo internacional, 1 milímetro equivale a 0,03937008 polegadas (1 polegada = 25,4 mm exatos). Divida os milímetros por 25,4 para obter polegadas decimais, ou divida por 1,5875 mm (largura exata de 1/16″) para encontrar o dezasseis-avos mais próximo — ou clique simplesmente no botão in na barra da régua."
+        }
+      ],
+      "table": {
+        "kicker": "Tabela Técnica de Engenharia, Relojoaria e Parafusos (mm)",
+        "heading": "Tamanhos Comuns em Milímetros (mm), Centímetros, Polegadas e Padrões",
+        "headers": ["Milímetros (mm)", "Centímetros (cm)", "Polegadas Decimais", "1/16″ Mais Próxima", "Referência Padrão de Hardware / Objeto"],
+        "rows": [
+          ["1,00 mm", "0,10 cm", "0,0394 in", "1/16 in (1,59 mm)", "Diâmetro fio sólido 18 AWG (~1,02 mm)"],
+          ["1,59 mm", "0,16 cm", "0,0625 in", "1/16 in (exato)", "Equivalente métrico exato de 1/16 polegada"],
+          ["2,00 mm", "0,20 cm", "0,0787 in", "1/16 in", "Diâmetro maior parafuso ISO M2"],
+          ["2,54 mm", "0,254 cm", "0,1000 in", "3/32 in", "Passo padrão de pinos PCB 0,100″"],
+          ["3,00 mm", "0,30 cm", "0,1181 in", "1/8 in (3,18 mm)", "Parafuso ISO M3 / espaçador caixa PC"],
+          ["4,00 mm", "0,40 cm", "0,1575 in", "5/32 in", "Parafuso ISO M4 / ponta chave precisão 4 mm"],
+          ["5,00 mm", "0,50 cm", "0,1969 in", "3/16 in (4,76 mm)", "Parafuso ISO M5 / díodo LED padrão 5 mm"],
+          ["6,00 mm", "0,60 cm", "0,2362 in", "1/4 in (6,35 mm)", "Parafuso ISO M6; sextavado 1/4″ mede 6,35 mm"],
+          ["8,00 mm", "0,80 cm", "0,3150 in", "5/16 in (7,94 mm)", "Parafuso ISO M8 / furo interno rolamento 608"],
+          ["10,00 mm", "1,00 cm", "0,3937 in", "3/8 in (9,53 mm)", "Parafuso ISO M10 / marca de 1 centímetro"],
+          ["18,00 mm", "1,80 cm", "0,7087 in", "11/16 in", "Largura clássica de bracelete relógio (18 mm)"],
+          ["20,00 mm", "2,00 cm", "0,7874 in", "13/16 in", "Largura padrão de bracelete relógio (20 mm)"],
+          ["22,00 mm", "2,20 cm", "0,8661 in", "7/8 in (22,23 mm)", "Relógio mergulho 22 mm / exterior rolamento 608"],
+          ["25,40 mm", "2,54 cm", "1,0000 in", "1 in (exato)", "Definição exata SI de 1 polegada imperial"],
+          ["53,98 mm", "5,40 cm", "2,1252 in", "2 1/8 in", "Lado curto cartão bancário ISO/IEC 7810 ID-1"],
+          ["85,60 mm", "8,56 cm", "3,3701 in", "3 3/8 in", "Lado comprido cartão bancário ISO/IEC 7810 ID-1"]
+        ],
+        "footnote": "Fórmulas: in = mm ÷ 25,4 · cm = mm ÷ 10 · 1/16″ = 1,5875 mm · 1/8″ = 3,175 mm · 1/4″ = 6,35 mm."
+      },
+      "faqKicker": "FAQ Régua de Milímetros · Passo Fino e Ferragens",
+      "faqHeading": "Perguntas Comuns Sobre a Régua Online em Milímetros",
+      "faqs": [
+        {
+          "q": "Uma régua online em milímetros consegue resolver com precisão incrementos de 1 mm?",
+          "a": "Sim, quando calibrada em qualquer monitor, portátil, tablet ou smartphone atual. Os ecrãs atuais operam entre 3,2 e 6,0 píxeis CSS por milímetro (até 18 píxeis físicos/mm em ecrãs 3x Retina/AMOLED), pelo que cada traço de 1,0 mm tem separação clara no canvas HTML5 após calibrar com um cartão de 85,60 mm."
+        },
+        {
+          "q": "Como medir o diâmetro de uma moeda, anel ou anilha em milímetros?",
+          "a": "Coloque o objeto circular plano na área da grelha, clique na régua horizontal superior para colocar uma guia vertical tangente à borda esquerda e clique novamente na borda direita. A barra inferior calcula automaticamente a diferença (ΔX) e mostra o diâmetro exato em milímetros."
+        },
+        {
+          "q": "Por que motivo a régua em milímetros parece desajustada antes de calibrar?",
+          "a": "Antes da calibração manual, os navegadores aplicam a densidade padrão W3C de 96 píxeis CSS por polegada (3,7795 px/mm). A menos que o seu monitor tenha exatamente 96,0 PPI a 100%, uma escala de 100 mm sem calibração mede 117,6 mm num monitor 27″ 1080p ou 75,6 mm num MacBook Pro 14″."
+        },
+        {
+          "q": "Como alterno entre milímetros (mm), centímetros (cm) e polegadas?",
+          "a": "Alterar entre mm, cm e polegadas preserva a calibração do ecrã e as linhas guia colocadas sem recarregar a página. Clique nos botões mm, cm, in ou px na barra superior ou use as teclas 4 / M (mm), 1 (cm), 2 (in) e 3 (px)."
+        }
+      ]
+    },
+    "inchRuler": {
+      "title": "Régua Polegadas Online | Régua 12 Polegadas e Frações 1/16″",
+      "description": "Régua online em polegadas em tamanho real com marcas 1/2, 1/4, 1/8 e 1/16″, guia de régua de 12 polegadas e tabela de conversão de frações para mm.",
+      "schemaName": "Régua Online em Polegadas (1/16″ e 12 Polegadas) — Online Ruler Plus",
+      "featureList": [
+        "Régua imperial em tamanho real calibrada com divisões 1/2, 1/4, 1/8 e 1/16 de polegada",
+        "Redução automática de frações 1/16″ e leitura decimal no cursor e linhas guia",
+        "Suporte completo a régua de 12 polegadas (1 pé) em tamanho real em portáteis e monitores",
+        "Tabela completa de 1/16″ para polegadas decimais, milímetros (mm) e centímetros (cm)"
+      ],
+      "subNavTitle": "Régua em Polegadas (1/16″)",
+      "breadcrumbLabel": "Régua em Polegadas (1/16″)",
+      "hero": {
+        "eyebrow": "Escala Imperial · 1 pol = 25,4 mm · Frações 1/2, 1/4, 1/8 e 1/16″",
+        "headline": "Régua Online em Polegadas em Tamanho Real (1/16″ e 12 Polegadas)",
+        "description": "Régua de ecrã imperial calibrada com traços distintos de 1/2, 1/4, 1/8 e 1/16 de polegada, leitura automática de frações reduzidas e tabela completa de conversão para mm."
+      },
+      "guideKicker": "Metrologia Imperial de Ecrã · Frações Diádicas 1/16″",
+      "guideHeading": "Como Ler uma Régua em Polegadas Online e Medir até 12 Polegadas",
+      "guideLead": "Cada polegada inteira na escala calibrada divide-se em 16 frações diádicas (1/16″) com quatro alturas de traço distintas e redução automática em tempo real.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Frações Diádicas · 1/2″, 1/4″, 1/8″, 1/16″",
+          "heading": "Como ler frações de 1/16″ numa régua online em polegadas?",
+          "body": "Uma régua imperial fracionária divide cada polegada inteira (25,40 mm) em 16 incrementos iguais de 1/16 de polegada (0,0625 in ou 1,5875 mm). O comprimento de cada traço corresponde ao denominador reduzido: o traço mais comprido ao centro marca 1/2″, os seguintes marcam 1/4″ e 3/4″, os médios assinalam oitavos ímpares (1/8″, 3/8″, 5/8″, 7/8″) e os mais curtos marcam dezasseis-avos ímpares. O Online Ruler Plus reduz as frações automaticamente na barra inferior.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Ver tabela 1/16″ para decimais e mm"
+        },
+        {
+          "step": "2",
+          "kicker": "Régua de 12 Polegadas · 1 pé = 12 pol = 30,48 cm",
+          "heading": "Como mostrar uma régua completa de 12 polegadas no ecrã?",
+          "body": "Uma régua completa de 12 polegadas (1 pé imperial, ou 304,80 mm) exige pelo menos 12,0 polegadas físicas de largura horizontal visível. Um portátil 16:9 de 15,6″ oferece 13,60 polegadas de largura e um monitor de 24″–27″ oferece entre 20,9 e 23,5 polegadas. Calibre o ecrã e prima F para entrar em ecrã inteiro para visualizar todas as 12 polegadas contínuas à escala 1:1.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Abrir área 12 polegadas em ecrã inteiro"
+        },
+        {
+          "step": "3",
+          "kicker": "Padrões Físicos · Verificação Rápida",
+          "heading": "Como confirmar a precisão em polegadas com cartões e moedas?",
+          "body": "Segundo a norma ISO/IEC 7810:2019, um cartão bancário padrão mede 3,370 polegadas de largura (aprox. 3 3/8″) por 2,125 polegadas de altura (exatamente 2 1/8″). Pode também verificar com moedas da Casa da Moeda dos EUA: um Penny mede exatamente 0,750 in (3/4″) e um Quarter mede 0,955 in (aprox. 15/16″), ou uma nota de dólar mede 6,14 polegadas.",
+          "linkHref": "#calibration",
+          "linkLabel": "Calibrar régua em polegadas agora"
+        }
+      ],
+      "darkKicker": "Referência em Polegadas Fracionárias · 1 pol = 25,40 mm (Exato)",
+      "darkHeading": "Tabela de Conversão 1/16″ para Decimais e Milímetros",
+      "darkLead": "Utilize esta tabela de referência para converter dezasseis-avos, oitavos, quartos e metades de polegada em polegadas decimais, milímetros e centímetros.",
+      "darkCards": [
+        {
+          "heading": "Por que motivo réguas em polegadas sem calibração falham em portáteis Windows e Mac?",
+          "body": "Na especificação CSS W3C, os navegadores desenham 1 polegada CSS como 96 píxeis CSS independentemente do painel físico. Num MacBook Pro de 14″ (127 CSS PPI) ou portátil Windows de 15,6″ (113 a 141 CSS PPI), 96 píxeis CSS medem apenas 0,68 a 0,85 polegadas físicas — encurtando uma régua de 12 polegadas em 2 a 3,8 polegadas!"
+        },
+        {
+          "heading": "Como funciona a redução automática de frações na barra de leitura?",
+          "body": "Ao mover o cursor ou colocar duas linhas guia no modo Polegadas (in), o Online Ruler Plus converte a distância em polegadas decimais, arredonda ao 1/16″ mais próximo (0,0625 in) e reduz numerador e denominador pelo máximo divisor comum. Por exemplo, 6/16″ aparece como 3/8 in e 55/16″ como 3 7/16 in."
+        },
+        {
+          "heading": "O que acontece se o ecrã for demasiado estreito para marcas de 1/16″?",
+          "body": "Para impedir que os traços se sobreponham em ecrãs de baixa densidade ou com muito afastamento de zoom, o motor da régua garante um mínimo de 3,0 píxeis CSS de separação entre marcas adjacentes. Em densidades normais (80–150 PPI) cada traço de 1/16″ tem 5 a 9,5 px; abaixo de 48 PPI passa automaticamente a 1/8″ ou 1/4″."
+        }
+      ],
+      "table": {
+        "kicker": "Tabela Imperial Fracionária (1/16″ a 1″ · 1 pol = 25,4 mm)",
+        "heading": "Dezasseis-avos de Polegada (1/16″) para Fração Reduzida, Decimais, mm e cm",
+        "headers": ["Dezasseis-avos", "Fração Reduzida", "Decimal (in)", "Milímetros (mm)", "Centímetros (cm)"],
+        "rows": [
+          ["1/16″", "1/16 in", "0,0625 in", "1,588 mm", "0,159 cm"],
+          ["2/16″", "1/8 in", "0,1250 in", "3,175 mm", "0,318 cm"],
+          ["3/16″", "3/16 in", "0,1875 in", "4,763 mm", "0,476 cm"],
+          ["4/16″", "1/4 in", "0,2500 in", "6,350 mm", "0,635 cm"],
+          ["5/16″", "5/16 in", "0,3125 in", "7,938 mm", "0,794 cm"],
+          ["6/16″", "3/8 in", "0,3750 in", "9,525 mm", "0,953 cm"],
+          ["7/16″", "7/16 in", "0,4375 in", "11,113 mm", "1,111 cm"],
+          ["8/16″", "1/2 in", "0,5000 in", "12,700 mm", "1,270 cm"],
+          ["9/16″", "9/16 in", "0,5625 in", "14,288 mm", "1,429 cm"],
+          ["10/16″", "5/8 in", "0,6250 in", "15,875 mm", "1,588 cm"],
+          ["11/16″", "11/16 in", "0,6875 in", "17,463 mm", "1,746 cm"],
+          ["12/16″", "3/4 in (Penny EUA)", "0,7500 in", "19,050 mm", "1,905 cm"],
+          ["13/16″", "13/16 in", "0,8125 in", "20,638 mm", "2,064 cm"],
+          ["14/16″", "7/8 in", "0,8750 in", "22,225 mm", "2,223 cm"],
+          ["15/16″", "15/16 in (~Quarter EUA)", "0,9375 in", "23,813 mm", "2,381 cm"],
+          ["16/16″", "1 in (Polegada Inteira)", "1,0000 in", "25,400 mm", "2,540 cm"]
+        ],
+        "footnote": "Constantes exatas: 1 in = 25,4 mm · 1/2 in = 12,7 mm · 1/4 in = 6,35 mm · 1/8 in = 3,175 mm · 1/16 in = 1,5875 mm · 12 in (1 pé) = 304,8 mm."
+      },
+      "faqKicker": "FAQ Régua em Polegadas · Escala 12″ e Frações 1/16″",
+      "faqHeading": "Perguntas Comuns Sobre a Régua Online em Polegadas",
+      "faqs": [
+        {
+          "q": "Como obter uma régua de 12 polegadas em tamanho real no ecrã do computador?",
+          "a": "Uma régua online de 12 polegadas em tamanho real exige calibrar a densidade do monitor e ter pelo menos 12 polegadas (30,48 cm) de largura útil de ecrã. Qualquer portátil de 14″ ou 15,6″ ou monitor de secretária de 21,5″ a 32″ comporta todas as 12 polegadas após calibrar e pressionar F para entrar em ecrã inteiro."
+        },
+        {
+          "q": "O que significam os 4 comprimentos diferentes de traços numa régua em polegadas?",
+          "a": "Os quatro comprimentos formam uma hierarquia binária visual: o traço mais alto a meio marca 1/2″ (0,500 in), os seguintes marcam quartos (1/4″ e 3/4″), os médios marcam oitavos ímpares (1/8″, 3/8″, 5/8″, 7/8″) e os mais curtos marcam os oito dezasseis-avos ímpares (1/16″ a 15/16″)."
+        },
+        {
+          "q": "Como converter polegadas fracionárias (como 3/8″ ou 7/16″) em milímetros?",
+          "a": "Divida o numerador pelo denominador para obter polegadas decimais (ex.: 3 ÷ 8 = 0,375 in) e multiplique por 25,4 (0,375 × 25,4 = 9,525 mm). Ou coloque duas linhas guia no modo Polegadas e prima 1 ou 4 para ler o valor instantaneamente em cm ou mm."
+        },
+        {
+          "q": "Posso medir polegadas no ecrã de um smartphone menor do que 6 polegadas?",
+          "a": "Sim, para peças até cerca de 5 polegadas na horizontal ou ao alto. Mude o cartão de calibração para o modo Vertical (2,125 × 3,370 polegadas) para encaixar no ecrã estreito do telemóvel e toque em Aplicar Calibração."
+        }
+      ]
+    },
+    "horizontalRuler": {
+      "title": "Régua Horizontal Online | Régua Superior e Inferior e Píxeis",
+      "description": "Régua horizontal online a toda a largura com bordas superior e inferior em simultâneo em cm, mm, polegadas e píxeis CSS (px) para objetos largos e interfaces.",
+      "schemaName": "Régua Horizontal de Ecrã e Píxeis — Online Ruler Plus",
+      "featureList": [
+        "Bordas horizontais superior e inferior simultâneas a toda a largura",
+        "Escalas em centímetros (cm), milímetros (mm), polegadas 1/16″ e píxeis CSS (px)",
+        "Linhas guia verticais a toda a altura com cálculo automático de vão horizontal ΔX",
+        "Modo ecrã inteiro panorâmico para medir vãos de 30 cm / 12 polegadas ou superiores"
+      ],
+      "subNavTitle": "Régua Horizontal",
+      "breadcrumbLabel": "Régua Horizontal",
+      "hero": {
+        "eyebrow": "Eixo Horizontal · Bordas Superior e Inferior Simultâneas · cm, mm, in e px",
+        "headline": "Régua Horizontal Online de Ecrã e Píxeis a Toda a Largura",
+        "description": "Faixas horizontais simultâneas no topo e na base para medir objetos largos, vãos de 30 cm / 12 polegadas e larguras de viewport em píxeis CSS (px)."
+      },
+      "guideKicker": "Metrologia no Eixo Horizontal · Escalas Paralelas Topo e Base",
+      "guideHeading": "Como Medir Objetos Largos e Píxeis CSS na Horizontal",
+      "guideLead": "Pré-configurada com as faixas horizontais Superior e Inferior ativas para alinhar objetos largos, verificar paralelismo e inspecionar larguras em píxeis CSS.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Eixo Horizontal Duplo · Topo e Base",
+          "heading": "Porquê usar réguas horizontais superior e inferior em simultâneo?",
+          "body": "Uma régua horizontal de borda dupla apresenta escalas graduadas em cima e em baixo em simultâneo. Ao medir envelopes, lombadas, teclados ou placas PCB largas, alinhar pelos dois limites elimina inclinações angulares (erro de cosseno de 1% a 2%), garantindo leitura paralela rigorosa em toda a largura.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Medir com bordas Topo e Base"
+        },
+        {
+          "step": "2",
+          "kicker": "Régua de Píxeis CSS · Inspeção W3C",
+          "heading": "Como funciona o modo Régua de Píxeis CSS (px) para designers?",
+          "body": "O modo px mede distâncias em píxeis CSS lógicos W3C (marcas menores a cada 10 px, médias a 50 px e números a cada 100 px). Prima a tecla 3 e coloque linhas guia verticais para auditar larguras de contentores, breakpoints responsivos (375 px, 768 px, 1024 px, 1440 px) e espaçamentos diretamente no navegador.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Ver tabela de largura horizontal"
+        },
+        {
+          "step": "3",
+          "kicker": "Vão em Ecrã Inteiro · Largura Máxima",
+          "heading": "Como maximizar o comprimento de medição horizontal no ecrã?",
+          "body": "Num monitor 16:9, a largura útil equivale a 87,2% da diagonal: 34,5 cm num portátil de 15,6″ e 59,8 cm num monitor de 27″. Calibre primeiro a densidade do ecrã e depois prima F (ou clique em Ecrã Inteiro) para expandir a régua horizontal por 100% da largura disponível.",
+          "linkHref": "#calibration",
+          "linkLabel": "Calibrar largura horizontal"
+        }
+      ],
+      "darkKicker": "Geometria de Ecrã Panorâmico · Painéis 16:9, 16:10 e Ultrawide",
+      "darkHeading": "Vão Máximo de Medição Horizontal por Diagonal do Ecrã",
+      "darkLead": "Veja quantos centímetros, milímetros e polegadas cabem horizontalmente em smartphones, tablets, portáteis e monitores comuns.",
+      "darkCards": [
+        {
+          "heading": "Qual é a largura de um monitor 16:9 ou 16:10 em centímetros e polegadas?",
+          "body": "Pelo teorema de Pitágoras, a largura útil de um painel 16:9 equivale a 87,16% da diagonal e de um painel 16:10 equivale a 84,80%. Assim, um portátil 16:9 de 15,6″ tem 34,54 cm (13,60 pol) de largura e um monitor de 27″ tem 59,77 cm (23,53 pol)."
+        },
+        {
+          "heading": "Como funcionam as linhas guia verticais com a régua horizontal?",
+          "body": "Clicar na régua horizontal superior ou inferior cria uma linha guia vertical a toda a altura. Ao colocar duas linhas nos limites esquerdo e direito do objeto, ambas as escalas coincidem e a barra inferior calcula o vão horizontal exato (ΔX) na unidade ativa."
+        },
+        {
+          "heading": "Posso rodar o telemóvel para paisagem para ter uma régua horizontal maior?",
+          "body": "Sim. Rodar um smartphone 90 graus para modo horizontal praticamente duplica o comprimento útil de ~6,5 cm ao alto para ~13,5–15,0 cm na horizontal, mantendo automaticamente a calibração guardada."
+        }
+      ],
+      "table": {
+        "kicker": "Referência Geométrica de Painéis (16:9, 16:10 e 21:9)",
+        "heading": "Largura Horizontal Máxima por Diagonal do Ecrã em Polegadas, cm, mm e Píxeis CSS",
+        "headers": ["Painel e Proporção", "Largura Útil (in)", "Largura Útil (cm / mm)", "Largura Viewport CSS Típica", "Régua Padrão Máxima"],
+        "rows": [
+          ["6,1\" Smartphone (19,5:9 Paisagem)", "5,55 in", "14,1 cm (141 mm)", "844 – 852 CSS px", "Até 13 cm / 5 in"],
+          ["11,0\" Tablet (iPad / Android, 4:3)", "8,80 in", "22,4 cm (224 mm)", "1024 – 1194 CSS px", "Régua de bolso 15 cm / 6 in"],
+          ["13,3\" Portátil (16:10 Retina)", "11,28 in", "28,6 cm (286 mm)", "1440 CSS px", "Até 27 cm / 10,5 in"],
+          ["14,2\" MacBook Pro (16:10 Liquid Retina)", "11,97 in", "30,4 cm (304 mm)", "1512 CSS px", "30 cm / 11,5 in completos"],
+          ["15,6\" Portátil Full HD (16:9)", "13,60 in", "34,5 cm (345 mm)", "1536 – 1920 CSS px", "Régua completa 30 cm e 12 pol"],
+          ["24,0\" Monitor Desktop (16:9 1080p)", "20,92 in", "53,1 cm (531 mm)", "1920 CSS px", "Régua 50 cm / 18 pol"],
+          ["27,0\" Monitor Desktop (16:9 QHD / 4K)", "23,53 in", "59,8 cm (598 mm)", "1920 – 2560 CSS px", "Régua 58 cm / 22 pol"],
+          ["34,0\" Monitor Ultrawide (21:9)", "31,36 in", "79,7 cm (797 mm)", "3440 CSS px", "Régua 75 cm / 30 pol"]
+        ],
+        "footnote": "Fórmulas de largura horizontal: 16:9 = Diagonal × 0,87158 · 16:10 = Diagonal × 0,84800 · 21:9 = Diagonal × 0,92246."
+      },
+      "faqKicker": "FAQ Régua Horizontal e Píxeis",
+      "faqHeading": "Perguntas Comuns Sobre a Régua Horizontal de Ecrã",
+      "faqs": [
+        {
+          "q": "Qual é a vantagem de uma régua horizontal com bordas superior e inferior?",
+          "a": "Evita inclinações angulares em objetos largos e contorna limitações físicas de portáteis cuja dobradiça e teclado na parte inferior impedem encostar objetos altos na base, permitindo medir comodamente pelo topo ou entre duas linhas guia verticais."
+        },
+        {
+          "q": "Como usar a régua horizontal como régua de píxeis CSS (px)?",
+          "a": "Clique no botão px na barra de ferramentas ou prima a tecla 3. As escalas superior e inferior passam a mostrar coordenadas lógicas CSS W3C exatas desde 0 px até à largura total do viewport para auditar cartões, colunas ou imagens."
+        },
+        {
+          "q": "Por que motivo a régua horizontal começa 16 píxeis para dentro da borda esquerda?",
+          "a": "A marca de origem 0 tem um recuo propositado de 16 píxeis CSS para que o algarismo \"0\" e a linha de referência fiquem inteiramente visíveis sobre o vidro plano, evitando sombras e bloqueio causados pela moldura saliente do monitor."
+        },
+        {
+          "q": "Posso alternar a régua horizontal entre centímetros, milímetros e polegadas?",
+          "a": "Sim. Embora esta página pré-selecione as bordas superior e inferior, todas as quatro escalas estão disponíveis a qualquer momento pelas teclas 1 (cm), 2 (in), 3 (px), 4 / M (mm) ou Duplo cm/pol."
+        }
+      ]
+    },
+    "verticalRuler": {
+      "title": "Régua Vertical Online | Escala de Ecrã Bordas Esquerda e Direita",
+      "description": "Régua vertical online calibrada com bordas esquerda e direita em simultâneo para alturas em centímetros (cm), milímetros (mm) e polegadas 1/16″.",
+      "schemaName": "Régua Vertical Online no Ecrã — Online Ruler Plus",
+      "featureList": [
+        "Bordas verticais esquerda e direita simultâneas para medições verticais e ao alto",
+        "Linhas guia horizontais a toda a largura com cálculo automático de altura ΔY",
+        "Calibração por cartão ISO/IEC 7810 ID-1 em modo vertical (53,98 × 85,60 mm) para telemóveis",
+        "Escalas verticais em centímetros (cm), milímetros (mm), polegadas 1/16″ e píxeis CSS (px)"
+      ],
+      "subNavTitle": "Régua Vertical",
+      "breadcrumbLabel": "Régua Vertical",
+      "hero": {
+        "eyebrow": "Eixo Vertical · Bordas Esquerda e Direita Simultâneas · Escala Vertical e Retrato",
+        "headline": "Régua Vertical Online Calibrada no Ecrã",
+        "description": "Bordas verticais esquerda e direita concebidas para medir alturas em pé, objetos cilíndricos apoiados na secretária e utilização ergonómica em smartphones ao alto."
+      },
+      "guideKicker": "Metrologia no Eixo Vertical · Escalas Paralelas Esquerda e Direita",
+      "guideHeading": "Como Medir Alturas Verticais e Vãos em Smartphones ao Alto",
+      "guideLead": "Pré-configurada com as faixas verticais Esquerda e Direita ativas em simultâneo para medir objetos apoiados na mesa ou segurar peças de qualquer lado do telemóvel.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Eixo Vertical Duplo · Esquerda e Direita",
+          "heading": "Quando utilizar uma régua vertical online?",
+          "body": "Um smartphone 19,5:9 segurado na vertical oferece mais de 110% de comprimento útil (~14,1 a 15,5 cm) face à largura horizontal (~6,5 a 7,1 cm). Em secretária, a régua vertical permite ainda medir objetos tridimensionais apoiados de pé ao lado do monitor — como frascos, pilhas AA (50,5 mm) ou peças impressas em 3D.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Medir nas bordas Esquerda e Direita"
+        },
+        {
+          "step": "2",
+          "kicker": "Linhas Guia Horizontais · Leitura de Altura ΔY",
+          "heading": "Como as linhas guia horizontais medem a altura de objetos apoiados?",
+          "body": "Objetos cilíndricos colocados alguns milímetros à frente do ecrã não encostam diretamente numa borda lateral sem erro de paralaxe. Clique na régua vertical para colocar duas linhas guia horizontais — uma na base e outra no topo do objeto — e a barra inferior calcula a altura exata (ΔY) automaticamente.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "Ver tabela de alturas verticais de ecrã"
+        },
+        {
+          "step": "3",
+          "kicker": "Ergonomia ao Alto · Mão Esquerda e Direita",
+          "heading": "Por que razão as bordas esquerda e direita estão ativas em simultâneo?",
+          "body": "Ao segurar uma peça pequena contra o telemóvel com uma mão, o polegar ou o rebordo da capa tapa frequentemente um dos lados do ecrã. Ter escalas calibradas idênticas à esquerda e à direita garante leitura clara tanto para destros como para esquerdinos.",
+          "linkHref": "#calibration",
+          "linkLabel": "Calibrar escala vertical"
+        }
+      ],
+      "darkKicker": "Geometria Vertical de Ecrã · Alturas em Telemóvel e Monitor",
+      "darkHeading": "Altura Ativa Vertical por Dispositivo e Guia de Objetos",
+      "darkLead": "Compare a capacidade de medição vertical em smartphones ao alto, tablets, portáteis e monitores de secretária.",
+      "darkCards": [
+        {
+          "heading": "Por que razão o modo vertical é ideal para smartphones?",
+          "body": "Os smartphones atuais com proporção 19,5:9 ou 20:9 oferecem 13,5 a 15,2 cm (5,3 a 6,0 polegadas) de altura útil em modo retrato contra apenas 6,4 a 7,1 cm de largura, duplicando o alcance contínuo sem rodar o aparelho."
+        },
+        {
+          "heading": "Como calibrar uma régua vertical num telemóvel estreito?",
+          "body": "Como um cartão ISO/IEC 7810 ID-1 tem 85,60 mm de comprimento (mais largo que a largura de um telemóvel ao alto), clique no botão Vertical (53,98 × 85,60 mm) no painel de calibração por cartão para rodar a referência e encostar o cartão ao alto dentro do ecrã."
+        },
+        {
+          "heading": "Quanta altura vertical cabe num portátil ou monitor de secretária?",
+          "body": "Num painel 16:9 a altura útil é 49,03% da diagonal e num 16:10 é 53,00%. Um portátil de 15,6″ oferece 19,4 cm de altura, um monitor de 27″ oferece 33,6 cm e um monitor de 27″ rodado 90° em modo retrato oferece 59,8 cm de escala vertical."
+        }
+      ],
+      "table": {
+        "kicker": "Tabela de Alturas Verticais por Ecrã e Objetos Apoiados",
+        "heading": "Altura Útil Vertical por Dispositivo e Objetos Comuns Que Cabem",
+        "headers": ["Dispositivo / Orientação", "Altura Útil (cm / mm)", "Altura Útil (in)", "Altura Viewport CSS", "Objetos Verticais Comuns"],
+        "rows": [
+          ["6,1\" Smartphone (Vertical)", "14,1 cm (141 mm)", "5,55 in", "844 – 852 CSS px", "Pilhas AA/AAA (50,5 / 44,5 mm), cartão (85,6 mm), lata (122 mm)"],
+          ["6,7\" Pro Max / Ultra (Vertical)", "15,5 cm (155 mm)", "6,10 in", "926 – 932 CSS px", "Passaporte (125 mm), caneta (~140 mm), régua de bolso 15 cm"],
+          ["11,0\" Tablet (Vertical 4:3)", "22,4 cm (224 mm)", "8,80 in", "1024 – 1194 CSS px", "Altura caderno A5 (210 mm), garrafa, livro de bolso"],
+          ["14,2\" MacBook Pro (16:10)", "19,0 cm (190 mm)", "7,48 in", "982 CSS px", "Altura smartphone, régua 15 cm, caixa pequena"],
+          ["15,6\" Portátil (16:9)", "19,4 cm (194 mm)", "7,65 in", "864 – 1080 CSS px", "Caixa DVD/Blu-ray (190 mm), caneca, figura"],
+          ["24,0\" Monitor (16:9)", "29,9 cm (299 mm)", "11,77 in", "1080 CSS px", "Altura folha A4 (297 mm), Carta EUA (279,4 mm)"],
+          ["27,0\" Monitor (16:9)", "33,6 cm (336 mm)", "13,24 in", "1080 – 1440 CSS px", "Altura completa 30 cm / 12 pol, garrafa de vinho (300 mm)"],
+          ["24,0\"–27,0\" Monitor (Pivot 90°)", "53,1 – 59,8 cm", "20,9 – 23,5 in", "1920 – 2560 CSS px", "Colunas altas, caixa PC, escala vertical de 50 cm"]
+        ],
+        "footnote": "Fórmulas de altura vertical: 16:9 = Diagonal × 0,49026 · 16:10 = Diagonal × 0,53000 · Lata 355 ml padrão = 122,7 mm (4,83 in)."
+      },
+      "faqKicker": "FAQ Régua Vertical e Retrato",
+      "faqHeading": "Perguntas Comuns Sobre a Régua Vertical de Ecrã",
+      "faqs": [
+        {
+          "q": "Como medir a altura de um objeto apoiado usando a régua vertical?",
+          "a": "Com as bordas esquerda e direita visíveis, clique numa régua vertical para colocar uma linha guia horizontal alinhada à base do objeto e outra alinhada ao topo. A barra inferior calcula automaticamente a distância vertical (ΔY)."
+        },
+        {
+          "q": "Por que motivo a régua vertical mede de cima (0) para baixo?",
+          "a": "Nos sistemas gráficos HTML5 Canvas e CSS W3C, a origem (0, 0) situa-se no canto superior esquerdo para que deslocar ou redimensionar a janela nunca desloque a marca 0. Pode alinhar o objeto ao 0 superior ou usar duas guias horizontais em qualquer ponto."
+        },
+        {
+          "q": "Como calibrar a régua vertical num telemóvel em modo retrato?",
+          "a": "Na secção Calibrar o Seu Ecrã, toque no botão Vertical (53,98 × 85,60 mm) por cima da área do cartão, encoste um cartão bancário na vertical contra o ecrã, ajuste até coincidir com os 85,60 mm e toque em Aplicar Calibração."
+        },
+        {
+          "q": "Posso mostrar réguas horizontais e verticais ao mesmo tempo?",
+          "a": "Sim. Pode clicar em Topo, Base ou Todas as Bordas no seletor Bordas da barra de ferramentas a qualquer momento para combinar escalas horizontais e verticais numa área 2D completa."
+        }
+      ]
+    },
+    "howToUse": {
+      "title": "Como Usar uma Régua Online | Manual de Medição no Ecrã",
+      "description": "Guia passo a passo para calibrar o ecrã com cartão bancário ou diagonal, colocar guias, ler frações 1/16″ e imprimir réguas a 100%.",
+      "schemaHeadline": "Como Usar o Online Ruler Plus: Manual Passo a Passo de Medição no Ecrã",
+      "subNavTitle": "Como Usar",
+      "breadcrumbLabel": "Como Usar",
+      "heroKicker": "Manual do Utilizador · Metrologia de Precisão · Atualizado Novembro 2026",
+      "heroHeadline": "Como Usar o Online Ruler Plus",
+      "heroSummary": "O Online Ruler Plus é uma área de medição física local no navegador que converte o ecrã numa régua calibrada 1:1. Siga estes passos para calibrar uma vez e medir em centímetros, milímetros e polegadas 1/16″.",
+      "openRulerBtn": "Abrir Régua Online",
+      "goCalBtn": "Ir para Calibração",
+      "steps": [
+        {
+          "badge": "1",
+          "kicker": "Passo 01 · Calibração",
+          "heading": "Como calibrar primeiro a densidade do ecrã?",
+          "body": "A calibração substitui a predefinição de 96 CSS PPI do navegador pelo passo real em milímetros do seu ecrã. Desça até Calibrar o Seu Ecrã e escolha: encostar um cartão ISO/IEC 7810 ID-1 (85,60 × 53,98 mm) ajustando o contorno; inserir a diagonal visível em polegadas a 100% de zoom; ou usar a Deteção Automática. Clique em Aplicar Calibração para guardar o perfil localmente.",
+          "links": [
+            { "href": "/#calibration", "label": "Abrir Calibração por Cartão Bancário →" }
+          ]
+        },
+        {
+          "badge": "2",
+          "kicker": "Passo 02 · Unidades e Bordas",
+          "heading": "Como escolher unidades de medição e bordas ativas?",
+          "body": "Selecione a unidade na barra superior ou com atalhos: tecla 1 para Centímetros (cm), tecla 2 para Polegadas (1/2, 1/4, 1/8, 1/16″), tecla 3 para Píxeis CSS (px) ou 4 / M para Milímetros (mm). Pode ativar Duplo cm/pol ou alternar Topo, Base, Esquerda, Direita e Todas as Bordas.",
+          "links": [
+            { "href": "/cm-ruler", "label": "Régua cm" },
+            { "href": "/inch-ruler", "label": "Régua Polegadas" },
+            { "href": "/mm-ruler", "label": "Régua mm" }
+          ]
+        },
+        {
+          "badge": "3",
+          "kicker": "Passo 03 · Alinhamento e Guias",
+          "heading": "Como alinhar no zero e medir vãos com linhas guia?",
+          "body": "Alinhe a extremidade do objeto diretamente sobre a linha tracejada 0 (recuada 16 píxeis CSS da moldura física para evitar sombras). Clique em qualquer régua ou na grelha para colocar linhas guia azuis arrastáveis no lado oposto; com duas guias paralelas, a barra inferior calcula o vão exato (ΔX ou ΔY) para guardar no Histórico.",
+          "links": [
+            { "href": "/calibration-guide", "label": "Ler Guia de Calibração e PPI →" }
+          ]
+        }
+      ],
+      "advancedCards": [
+        {
+          "kicker": "Instrumentos Sobrepostos · Régua Flutuante e Transferidor",
+          "heading": "Como usar a régua flutuante e o transferidor angular de 180°?",
+          "body": "Clique em + Régua Flutuante para criar uma régua móvel e rotativa 360° sobre qualquer ponto do ecrã. Prima P (ou clique em Transferidor) para abrir o transferidor de 0° a 180°, arraste o vértice até ao canto da peça e leia ângulos com precisão de 0,1°. Prima C para a mira ou Esc para limpar as guias."
+        },
+        {
+          "kicker": "Régua Imprimível em Tamanho Real · Verificação 100%",
+          "heading": "Como imprimir uma régua em tamanho real à escala 100%?",
+          "body": "Ao imprimir via navegador (Ctrl+P / Cmd+P), os drivers reduzem por predefinição a escala em 3% a 8% com Ajustar à Página. Abra Mais Definições, escolha Escala 100% (Tamanho Real) e margens Nenhuma ou Predefinida, e confirme sempre o papel impresso contra um cartão bancário de 85,60 mm."
+        }
+      ],
+      "recipesKicker": "Fluxos Práticos · Ferragens, Artesanato e Layout",
+      "recipesHeading": "Receitas Passo a Passo para Tarefas Comuns de Medição",
+      "recipesLead": "Objetos diferentes colocam desafios distintos — moedas rolam, parafusos têm rosca aguda e folhas compridas excedem o ecrã. Use estes métodos comprovados:",
+      "recipes": [
+        {
+          "kicker": "Receita 01 · Peças Circulares, Moedas e Anéis",
+          "heading": "Medir diâmetro exterior com duas guias verticais tangentes",
+          "body": "Pouse o objeto circular perto do centro da grelha (sobre uma película fina se tiver garras metálicas). Clique na régua superior para colocar a Guia 1 tangente ao lado esquerdo do círculo e clique de novo para colocar a Guia 2 no lado direito; o vão ΔX devolve o diâmetro sem precisar de alinhar no zero."
+        },
+        {
+          "kicker": "Receita 02 · Parafusos, Porcas e Asas de Relógio",
+          "heading": "Medir comprimento de rosca métrica e largura de bracelete",
+          "body": "Mude para a [[link:/mm-ruler|Régua de Milímetros (mm)]], proteja o ecrã com película ou papel fino sob pontas agudas e alinhe a base da cabeça do parafuso na Guia 1 e a ponta na Guia 2 para confirmar passos métricos M2–M10 e larguras entre 18 e 24 mm."
+        },
+        {
+          "kicker": "Receita 03 · Marcenaria, Artesanato e 1/16″",
+          "heading": "Ler frações imperiais reduzidas de 1/16″ com confiança",
+          "body": "Na [[link:/inch-ruler|Régua de Polegadas (1/16″)]], cada polegada tem quatro alturas de traço. O cursor e as linhas guia reduzem automaticamente frações como 10/16″ para 5/8″, evitando erros manuais de contagem."
+        },
+        {
+          "kicker": "Receita 04 · Objetos Altos e Passos Sucessivos",
+          "heading": "Usar bordas verticais e medir peças maiores do que o ecrã",
+          "body": "Abra a [[link:/vertical-ruler|Régua Vertical]] e prima F para ecrã inteiro. Se um objeto (como uma capa de 35 cm) exceder o ecrã, alinhe o início ao zero, marque uma fita de pintor exatamente aos 25,0 cm, reposicione essa marca no zero e some o restante."
+        }
+      ],
+      "shortcutsKicker": "Controlos da Área · Referência de Teclado",
+      "shortcutsHeading": "Tabela Completa de Atalhos de Teclado",
+      "shortcutsLead": "Mantenha uma mão a segurar o objeto enquanto troca de unidade ou cria guias com uma única tecla sem perder o alinhamento:",
+      "shortcutsHeaders": ["Tecla", "Ação na Área", "Quando Usar"],
+      "shortcuts": [
+        { "key": "1", "action": "Mudar para Centímetros (cm)", "useCase": "Comprimentos diários com traços de 1 mm e 0,5 cm" },
+        { "key": "2", "action": "Mudar para Polegadas Fracionárias (in)", "useCase": "Marcenaria, formatos EUA e frações reduzidas de 1/16″" },
+        { "key": "3", "action": "Mudar para Píxeis CSS (px)", "useCase": "Alinhamento UI, breakpoints e largura de viewport" },
+        { "key": "4 / M", "action": "Mudar para Milímetros (mm)", "useCase": "Parafusos M2–M10, anéis, relógios e folgas finas" },
+        { "key": "D", "action": "Alternar Tema Claro / Escuro", "useCase": "Reduzir reflexos ou adaptar à luz ambiente" },
+        { "key": "G", "action": "Ativar/Adicionar Guias Verticais/Horizontais", "useCase": "Colocar linhas delimitadoras para cálculo ΔX / ΔY" },
+        { "key": "C", "action": "Ativar Mira do Cursor", "useCase": "Seguir coordenadas X/Y exatas em toda a grelha" },
+        { "key": "P", "action": "Ativar Transferidor Angular 180°", "useCase": "Medir ângulos, chanfros e inclinações a 0,1°" },
+        { "key": "F", "action": "Entrar / Sair de Ecrã Inteiro", "useCase": "Maximizar o comprimento útil no vidro do monitor" },
+        { "key": "Esc", "action": "Limpar Guias Ativas e Diálogos", "useCase": "Reiniciar pares de guias rapidamente antes do objeto seguinte" }
+      ],
+      "checklistKicker": "Verificação Pré-Medição · Lista de 6 Pontos",
+      "checklistHeading": "Seis Verificações Antes de Confiar Numa Leitura Crítica",
+      "checklistLead": "Antes de registar medidas para peças 3D, encaixes ou parafusos de substituição, confirme rapidamente estes seis pontos:",
+      "checklistItems": [
+        "[[strong:1. Verifique o indicador Escala Ativa:]] Confirme que indica [[code:Calibração manual]] em vez de [[code:Calibração estimada]] por 96 PPI.",
+        "[[strong:2. Confirme zoom do navegador a 100% ao inserir diagonal:]] Prima [[code:Ctrl+0]] ou [[code:Cmd+0]] antes de escrever a diagonal; depois o zoom compensa automaticamente via [[code:devicePxPerMm]].",
+        "[[strong:3. Confirme perfil em monitor externo:]] Ao arrastar a janela para outro monitor, verifique novamente com cartão ID-1 (85,60 mm) ou moeda.",
+        "[[strong:4. Olhe perpendicularmente a cada traço:]] O vidro protetor cria 0,3–1,0 mm de desvio se visto de lado; posicione o olho a 90° sobre a guia.",
+        "[[strong:5. Respeite a moldura no zero:]] Nunca encoste peças rígidas no rebordo saliente; utilize a marca interior 0 ou duas linhas guia (ΔX / ΔY).",
+        "[[strong:6. Proteja o ecrã contra riscos:]] Coloque película ou papel fino sob pontas metálicas; use paquímetros certificados para tolerâncias abaixo de ±0,25 mm."
+      ]
+    },
+    "calibrationGuide": {
+      "title": "Guia de Calibração de Ecrã e PPI | Online Ruler Plus",
+      "description": "Guia técnico sobre densidade de píxeis do ecrã (PPI), píxeis CSS W3C, calibração por cartão ISO/IEC 7810, matemática PPI, escala do sistema e limites de paralaxe.",
+      "schemaHeadline": "Guia Completo de Calibração de Ecrã e Medição PPI",
+      "subNavTitle": "Guia de Calibração",
+      "subNavCtaLabel": "Calibrar Agora",
+      "breadcrumbLabel": "Guia de Calibração",
+      "heroKicker": "Referência Técnica · Ótica de Ecrã e Unidades W3C CSS · Novembro 2026",
+      "heroHeadline": "Guia Completo de Calibração de Ecrã e Medição PPI",
+      "heroSummary": "A calibração do ecrã estabelece a ligação exata entre os píxeis CSS abstratos de 96 PPI e o passo físico real em milímetros do seu painel.",
+      "calibrateBtn": "Calibrar o Seu Ecrã",
+      "openRulerBtn": "Abrir Régua Online",
+      "topCards": [
+        {
+          "kicker": "Secção 01 · Matemática de Píxeis",
+          "heading": "Qual é a diferença entre PPI físico e píxeis CSS?",
+          "body": "O PPI físico é uma propriedade fixa do hardware ([[code:PPI Físico = √(W² + H²) / diagonalPolegadas]]). Já o píxel CSS é uma unidade angular W3C definida como 1/96 de polegada CSS (3,7795 CSS px/mm). Quando o sistema aplica escala HiDPI ([[code:devicePixelRatio = 2]] em Macs Retina ou [[code:1.25]]–[[code:1.5]] no Windows), cada píxel CSS agrupa vários subpíxeis. O Online Ruler Plus calibra em [[code:pxPerMm]] e guarda a densidade invariante [[code:devicePxPerMm = pxPerMm × dpr]]."
+        },
+        {
+          "kicker": "Secção 02 · Norma Física",
+          "heading": "Por que razão a norma ISO/IEC 7810 ID-1 é ideal para calibrar?",
+          "body": "A norma ISO/IEC 7810:2019 ID-1 rege todos os cartões bancários e de identificação padrão: 85,60 mm de largura por 53,98 mm de altura e 0,76 mm de espessura. Alinhar o retângulo no ecrã com o cartão mede diretamente [[code:pxPerMm = cardWidthPx / 85.60]], contornando distorções de escala do sistema operativo e restrições de privacidade do navegador."
+        },
+        {
+          "kicker": "Secção 03 · Subdivisões da Escala",
+          "heading": "Como são calculadas as marcas em mm e frações de 1/16″?",
+          "body": "Seguindo o acordo NIST/BIPM (1 pol = 25,4 mm exatos), os modos [[link:/cm-ruler|cm]] e [[link:/mm-ruler|mm]] colocam traços cada 1,0 mm, médios cada 5,0 mm e principais cada 10,0 mm. No modo [[link:/inch-ruler|Polegadas]], cada 25,4 mm divide-se em 16 frações diádicas de 1,5875 mm com 4 níveis visuais."
+        }
+      ],
+      "midCards": [
+        {
+          "kicker": "Secção 04 · Padrões de Verificação Secundária",
+          "heading": "Que moedas, notas e papéis confirmam a calibração?",
+          "body": "Segundo o Banco Central Europeu, uma moeda de 1 Euro tem 23,25 mm e de 2 Euros tem 25,75 mm. Segundo a Casa da Moeda dos EUA, um Penny mede 19,05 mm (3/4″), um Níquel 21,21 mm e um Quarter 24,26 mm. Uma pilha AA mede 50,50 mm e uma folha ISO 216 A4 mede 210,0 mm de largura."
+        },
+        {
+          "kicker": "Secção 05 · Zoom e Múltiplos Monitores",
+          "heading": "Como o Online Ruler Plus lida com zoom do navegador e monitores externos?",
+          "body": "A plataforma converte [[code:pxPerMm]] na densidade física [[code:devicePxPerMm = pxPerMm × dpr]] associada à assinatura do monitor em [[code:localStorage]]. Ao alterar o zoom no mesmo ecrã, reescala automaticamente; ao mover para outro monitor, apresenta um aviso de verificação."
+        }
+      ],
+      "s6Kicker": "Secção 06 · Cálculos Práticos e Matriz HiDPI",
+      "s6Heading": "Relação entre CSS PPI, PPI Físico e devicePxPerMm nos Ecrãs",
+      "s6Lead": "A fórmula pitagórica aplicada aos píxeis CSS a 100% de zoom dá diretamente [[code:CSS px/mm]], e multiplicar por [[code:window.devicePixelRatio]] produz [[code:devicePxPerMm]] invariante ao zoom:",
+      "s6TableHeading": "Tabela Calculada de Densidade por Ecrã e Escala do Sistema",
+      "s6Headers": ["Configuração de Ecrã", "Resolução CSS", "CSS PPI Efetivo", "CSS px/mm", "devicePxPerMm"],
+      "workedExamples": [
+        { "panel": "14,2\" Portátil (Mac Retina / 2× DPR)", "cssRes": "1512 × 982 CSS px (DPR 2,0)", "cssPpi": "127,0 CSS PPI", "pxPerMm": "5,000 CSS px/mm", "devicePxPerMm": "10,000 device px/mm" },
+        { "panel": "15,6\" Portátil Windows (Escala 125%)", "cssRes": "1536 × 864 CSS px (DPR 1,25)", "cssPpi": "113,0 CSS PPI", "pxPerMm": "4,448 CSS px/mm", "devicePxPerMm": "5,560 device px/mm" },
+        { "panel": "24\" Monitor Desktop 1080p (100%)", "cssRes": "1920 × 1080 CSS px (DPR 1,0)", "cssPpi": "91,8 CSS PPI", "pxPerMm": "3,614 CSS px/mm", "devicePxPerMm": "3,614 device px/mm" },
+        { "panel": "27\" Monitor 4K UHD (Escala 150%)", "cssRes": "2560 × 1440 CSS px (DPR 1,5)", "cssPpi": "108,8 CSS PPI", "pxPerMm": "4,283 CSS px/mm", "devicePxPerMm": "6,425 device px/mm" },
+        { "panel": "6,1\" Smartphone OLED (3× DPR)", "cssRes": "390 × 844 CSS px (DPR 3,0)", "cssPpi": "152,4 CSS PPI", "pxPerMm": "6,000 CSS px/mm", "devicePxPerMm": "18,000 device px/mm" }
+      ],
+      "caveats": [
+        {
+          "kicker": "Escala do Sistema · PPI Fracionário",
+          "heading": "Por que razão a calibração por cartão supera a diagonal em ecrãs escalados",
+          "body": "Escalas fracionárias no Windows (125%, 150%), Wayland no Linux ou resoluções escaladas do macOS utilizam framebuffers virtuais que alteram o CSS PPI efetivo. Calibrar diretamente com um cartão físico de 85,60 mm mede a cadeia real do painel ao ecrã sem adivinhações."
+        },
+        {
+          "kicker": "Smartphones · Ecrãs Estreitos",
+          "heading": "Por que motivo telemóveis mudam para Cartão Vertical (53,98 mm)",
+          "body": "Em modo retrato, um smartphone mede cerca de 58–72 mm físicos de largura, tornando impossível encaixar um cartão horizontal de 85,60 mm. O [[strong:Modo Cartão Vertical]] usa o lado curto [[strong:53,98 mm]] ([[code:pxPerMm = cardShortEdgePx / 53.98]]) com precisão 1:1 imediata."
+        }
+      ],
+      "s7Kicker": "Secção 07 · Física de Ecrã e Limites de Precisão",
+      "s7Heading": "Paralaxe do Vidro Frontal e Limites Práticos de Tolerância",
+      "s7Body1": "Os painéis LCD e OLED têm vidro protetor entre 0,5 e 1,5 mm sobre os píxeis emissores. Pela refração ótica ([[code:n ≈ 1.5]]), olhar a um ângulo [[code:θ]] de 30° introduz um desvio lateral de ~0,3 a 0,5 mm.",
+      "s7Body2": "Para manter repetibilidade submilimétrica, olhe sempre perpendicularmente (90°) sobre o traço e a linha guia, utilize um cartão rígido reto e recorra a paquímetros certificados se necessitar de tolerância inferior a ±0,25 mm.",
+      "s7TableHeading": "Tabela de Objetos Físicos de Verificação Padronizados",
+      "s7TableLead": "Depois de guardar a calibração, encoste suavemente qualquer item abaixo ao ecrã para validar o alinhamento:",
+      "s7Headers": ["Objeto de Referência", "Métrico (mm)", "Imperial (in)", "Norma Oficial"],
+      "referenceItems": [
+        { "item": "Cartão Bancário ISO/IEC 7810 ID-1 (Largura)", "mm": "85,60 mm", "inches": "3,370 in", "standard": "ISO/IEC 7810:2019 ID-1" },
+        { "item": "Cartão ISO/IEC 7810 ID-1 (Altura)", "mm": "53,98 mm", "inches": "2,125 in", "standard": "ISO/IEC 7810:2019 ID-1" },
+        { "item": "Moeda 1 Cêntimo EUA / Penny (Diâmetro)", "mm": "19,05 mm", "inches": "0,750 in (3/4″)", "standard": "Casa da Moeda dos EUA" },
+        { "item": "Moeda 5 Cêntimos EUA / Nickel (Diâmetro)", "mm": "21,21 mm", "inches": "0,835 in", "standard": "Casa da Moeda dos EUA" },
+        { "item": "Moeda 1 Euro (Diâmetro)", "mm": "23,25 mm", "inches": "0,915 in", "standard": "Banco Central Europeu" },
+        { "item": "Moeda Quarter EUA (Diâmetro)", "mm": "24,26 mm", "inches": "0,955 in", "standard": "Casa da Moeda dos EUA" },
+        { "item": "Moeda 2 Euros (Diâmetro)", "mm": "25,75 mm", "inches": "1,014 in", "standard": "Banco Central Europeu" },
+        { "item": "Pilha AA Padrão (Comprimento)", "mm": "50,50 mm", "inches": "1,988 in", "standard": "IEC R6 / ANSI 15" },
+        { "item": "Nota Dólar EUA (Largura)", "mm": "155,96 mm", "inches": "6,140 in", "standard": "Bureau of Engraving & Printing" },
+        { "item": "Papel ISO 216 A4 (Lado Curto)", "mm": "210,00 mm", "inches": "8,268 in", "standard": "Série Papel ISO 216" }
+      ]
+    },
+    "faq": {
+      "title": "FAQ Régua Online | Calibração, PPI e Guia 1/16″",
+      "description": "Respostas a 20 perguntas comuns sobre calibração da régua online, limites em telemóveis e câmaras, réguas no Word/PowerPoint, polegadas 1/16″ e escala cm/mm.",
+      "subNavTitle": "Perguntas Frequentes",
+      "breadcrumbLabel": "Perguntas Frequentes",
+      "heroKicker": "Base de Conhecimento de Suporte e Metrologia · 20 Perguntas Verificadas",
+      "heroHeadline": "Perguntas Frequentes",
+      "heroSummary": "Respostas técnicas completas sobre calibração PPI do ecrã, alinhamento por cartão ISO/IEC 7810, escalas métricas e 1/16″, múltiplos monitores e uso móvel.",
+      "openRulerBtn": "Abrir Régua Online",
+      "guideBtn": "Guia de Calibração",
+      "cat1Kicker": "Categoria 01 · Calibração, PPI e Privacidade",
+      "cat1Heading": "Calibração de Ecrã, Zoom e Compatibilidade de Dispositivos",
+      "cat2Kicker": "Categoria 02 · Técnicas de Medição e Conversões",
+      "cat2Heading": "Conversão de Unidades, Guias, Sobreposições e Impressão",
+      "extendedFaqs": [
+        {
+          "q": "Quantos centímetros existem em 1 polegada e numa régua de 12 polegadas?",
+          "a": "Segundo o acordo internacional NIST/BIPM de 1959, 1 polegada equivale exatamente a 2,54 centímetros (25,4 mm). Logo, uma régua de 12 polegadas mede exatamente 30,48 centímetros (304,8 mm) — mais 4,8 mm do que uma régua métrica de 30 cm."
+        },
+        {
+          "q": "Por que motivo a marca 0 está recuada 16 píxeis da borda da área da régua?",
+          "a": "O recuo de 16 píxeis CSS garante que o número 0 e a linha de alinhamento fiquem totalmente sobre o vidro plano, longe do rebordo saliente da moldura do monitor."
+        },
+        {
+          "q": "Como medir o diâmetro de uma moeda, anel ou objeto circular no ecrã?",
+          "a": "Pouse a peça circular na grelha e clique duas vezes na régua superior para colocar duas linhas guia verticais tangentes aos lados esquerdo e direito. A barra inferior mostra automaticamente o diâmetro ΔX."
+        },
+        {
+          "q": "Posso medir objetos mais compridos do que o ecrã do portátil ou telemóvel?",
+          "a": "Prima F para usar toda a largura em ecrã inteiro. Para peças ainda maiores, marque uma referência com fita de pintor exatamente aos 25,0 cm (ou 10,0 in), volte a alinhar essa marca ao 0 e some o comprimento restante."
+        },
+        {
+          "q": "Como usar as sobreposições de transferidor 180° e régua flutuante?",
+          "a": "Clique em + Régua Flutuante para arrastar e rodar 360° uma régua dentro do palco, ou prima P para abrir o transferidor angular de 0° a 180° com leitura de 0,1°."
+        },
+        {
+          "q": "Como imprimir uma régua em tamanho real à escala 100% sem redução?",
+          "a": "Na janela de impressão (Ctrl+P / Cmd+P), abra Mais Definições e altere a Escala de Ajustar à Página para Tamanho Real / 100%, confirmando sempre a impressão final contra um cartão bancário de 85,60 mm."
+        },
+        {
+          "q": "O que é o erro de paralaxe ótica e como evitá-lo ao medir?",
+          "a": "É o desvio visual aparente causado ao olhar em ângulo através da espessura do vidro frontal do monitor (0,5–1,5 mm). Posicione sempre os olhos perpendicularmente (90°) acima do traço que está a ler."
+        },
+        {
+          "q": "Como usar o modo de píxeis CSS (px) para web design e QA?",
+          "a": "Prima a tecla 3 ou clique em px na barra superior para alternar para coordenadas lógicas W3C exatas (traços a cada 10 px, 50 px e 100 px) independentes da calibração física."
+        },
+        {
+          "q": "Como repor a calibração guardada ou limpar o histórico de medições?",
+          "a": "Todos os dados residem localmente em localStorage (orp:calibration:v1, orp:preferences:v1, orp:history:v1). Use Repor Calibração no cartão Escala Ativa ou Limpar no cartão Histórico de Medições."
+        }
+      ]
+    },
+    "about": {
+      "title": "Sobre o Online Ruler Plus | Metrologia de Ecrã de Precisão",
+      "description": "Saiba como o Online Ruler Plus transforma ecrãs em réguas físicas calibradas segundo normas NIST, ISO/IEC 7810 e W3C CSS.",
+      "schemaName": "Sobre o Online Ruler Plus",
+      "subNavTitle": "Sobre",
+      "breadcrumbLabel": "Sobre",
+      "heroKicker": "Sobre a Plataforma · Metodologia Metrológica e Transparência",
+      "heroHeadline": "Sobre o Online Ruler Plus",
+      "heroSummary": "O Online Ruler Plus é uma aplicação web independente e local de metrologia de ecrã concebida para transformar qualquer monitor, portátil, tablet ou smartphone num instrumento de medição física calibrado sem acesso à câmara.",
+      "returnBtn": "Voltar à Régua Online",
+      "topCards": [
+        {
+          "kicker": "01 · Por Que Criámos",
+          "heading": "O que é a falácia dos 96 CSS PPI nas réguas online?",
+          "body": "A falácia dos 96 CSS PPI assume incorretamente que 96 píxeis de navegador equivalem a 1,00 polegada física em qualquer ecrã. Como os painéis reais variam entre 81,6 e mais de 150 CSS PPI, réguas não calibradas erram 10% a 35%. O Online Ruler Plus coloca a calibração ISO/IEC 7810 no centro do motor gráfico."
+        },
+        {
+          "kicker": "02 · Normas de Metrologia",
+          "heading": "Que normas internacionais regem os nossos cálculos?",
+          "body": "Cada marca deriva de normas oficiais: 1 pol = 25,4 mm exatos segundo NIST e BIPM (1959), cartão padrão ISO/IEC 7810:2019 ID-1 (85,60 × 53,98 mm) e dimensões oficiais de moedas do Banco Central Europeu e da Casa da Moeda dos EUA."
+        },
+        {
+          "kicker": "03 · Princípios de Engenharia",
+          "heading": "Como o Online Ruler Plus protege a precisão e a privacidade?",
+          "body": "O sistema distingue claramente estimativas de 96 PPI de calibrações verificadas manualmente, armazena todas as preferências localmente em [[code:localStorage]] ([[code:orp:calibration:v1]] e [[code:orp:history:v1]]) sem enviar medições nem pedir câmara, e desenha em HTML5 Canvas nítido adaptado a [[code:window.devicePixelRatio]]."
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Responsabilidade Editorial e Verificação",
+          "heading": "Quem publica OnlineRulerPlus.com e como são validados os guias?",
+          "body": "O OnlineRulerPlus.com é publicado e mantido pelo projeto de engenharia Online Ruler Plus como utilitário aberto no navegador. Todas as constantes matemáticas, conversões e tabelas de densidade são derivadas diretamente de normas primárias (NIST, ISO/IEC 7810, W3C CSS Values Level 4, ISO 216) e validadas por testes automáticos antes da publicação."
+        },
+        {
+          "kicker": "05 · Correções, Acessibilidade e Suporte Direto",
+          "heading": "Como reportar um erro, pedir correção ou enviar perfil de ecrã?",
+          "body": "Tratamos a exatidão da documentação e a acessibilidade WCAG 2.2 AA como compromissos contínuos. Caso encontre uma falha tipográfica, lacuna de navegação por teclado ou discrepância de ecrã, contacte [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] ou visite a nossa [[link:/contact|página de Contacto e Envios]]."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contacto e Envio de Perfis de Ecrã | Online Ruler Plus",
+      "description": "Contacte o Online Ruler Plus para submeter um perfil de densidade de ecrã, reportar um erro de calibração, sugerir melhorias de acessibilidade ou colocar questões técnicas.",
+      "schemaName": "Contactar o Online Ruler Plus e Submeter Perfis de Ecrã",
+      "subNavTitle": "Contacto",
+      "breadcrumbLabel": "Contacto",
+      "heroKicker": "Contacto e Contribuições para a Base de Hardware",
+      "heroHeadline": "Contactar o Online Ruler Plus",
+      "heroSummary": "Fale com a nossa equipa de engenharia para contribuir com um perfil de densidade de ecrã verificado, reportar um problema de calibração ou esclarecer dúvidas técnicas.",
+      "openBtn": "Abrir Régua Online",
+      "topCards": [
+        {
+          "kicker": "01 · Suporte Técnico",
+          "heading": "Como contactar o suporte do Online Ruler Plus?",
+          "body": "O suporte técnico trata dúvidas de calibração, acessibilidade WCAG 2.2 e relatórios entre navegadores (Chrome, Safari, Edge, Firefox). Ao reportar um problema, indique o sistema operativo, navegador, percentagem de zoom e método de calibração usado. Não recolhemos diagnósticos automaticamente.",
+          "footerHref": "support@onlinerulerplus.com",
+          "footerLabel": "support@onlinerulerplus.com",
+          "isMailto": true
+        },
+        {
+          "kicker": "02 · Base de Hardware",
+          "heading": "Como submeter um novo perfil de ecrã?",
+          "body": "Calibre o painel com um cartão físico ISO/IEC 7810 ID-1 (85,60 × 53,98 mm) a 100% de zoom, abra o separador 3. Deteção Automática e copie os quatro valores de telemetria reportados: [[code:screen.width × screen.height]], [[code:devicePixelRatio]], plataforma e o valor verificado CSS PPI / [[code:pxPerMm]].",
+          "footerHref": "/#calibration",
+          "footerLabel": "Ver telemetria em Deteção Automática →"
+        },
+        {
+          "kicker": "03 · Resolução Rápida",
+          "heading": "Onde resolver de imediato problemas comuns de calibração?",
+          "body": "A maioria das diferenças decorre de zoom diferente de 100% ao inserir a diagonal ou mudança de monitor sem recalibrar. Consulte primeiro o [[link:/calibration-guide|Guia de Calibração e PPI]], as 20 respostas em [[link:/faq|Perguntas Frequentes]] ou o manual [[link:/how-to-use|Como Usar]].",
+          "footerHref": "/faq",
+          "footerLabel": "Explorar Perguntas Frequentes →"
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Lista para Relatório de Erros",
+          "heading": "Que detalhes ajudam a resolver problemas de calibração mais depressa?",
+          "body": "Ao escrever para [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]], inclua: (1) modelo exato do dispositivo ou monitor, (2) escala de ecrã do sistema operativo, (3) navegador e nível de zoom, (4) valor exibido no cartão Escala Ativa e (5) passos para reproduzir."
+        },
+        {
+          "kicker": "05 · Privacidade, Política e Acessibilidade",
+          "heading": "Como são tratados os pedidos de privacidade, legais e de acessibilidade?",
+          "body": "Pedidos relacionados com privacidade, consentimento de cookies, propriedade intelectual, correções documentais e acessibilidade são revistos diretamente por [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]. Consulte a [[link:/privacy|Política de Privacidade]] e os [[link:/terms|Termos de Utilização]]."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Política de Privacidade e Divulgações AdSense | Online Ruler Plus",
+      "description": "Política de Privacidade de OnlineRulerPlus.com. Execução local de medições, chaves localStorage, divulgação de cookies do Google AdSense e direitos de privacidade.",
+      "schemaName": "Política de Privacidade — Online Ruler Plus",
+      "subNavTitle": "Política de Privacidade",
+      "breadcrumbLabel": "Política de Privacidade",
+      "heroKicker": "Governança Legal e de Dados · Medições Locais e Publicidade",
+      "heroHeadline": "Política de Privacidade",
+      "heroSummary": "O Online Ruler Plus processa 100% das calibrações e medições localmente no seu navegador sem enviar medições nem pedir acesso à câmara. Esta política explica as chaves locais, a publicidade Google AdSense, controlos de cookies e os seus direitos.",
+      "effectiveDate": "Data de Entrada em Vigor: 14 de novembro de 2026 · Última Revisão: 14 de novembro de 2026",
+      "topCards": [
+        {
+          "kicker": "01 · Execução Local",
+          "heading": "Como são processadas as medições e calibrações da régua?",
+          "body": "Todas as operações de medição — alinhamento de cartão ISO/IEC 7810 ID-1, cálculo de diagonal, escala em píxeis/mm, guias e transferidor 180° — correm exclusivamente no seu navegador via JavaScript estático e Canvas HTML5. Nunca são enviadas para servidores."
+        },
+        {
+          "kicker": "02 · Armazenamento Local",
+          "heading": "Que dados são guardados em window.localStorage?",
+          "body": "Guardamos apenas preferências locais sob chaves com escopo em [[code:window.localStorage]]: [[code:orp:calibration:v1]] (perfis de ecrã), [[code:orp:preferences:v1]] (unidade e bordas), [[code:orp:history:v1]] (até 15 registos guardados), [[code:orp:theme]] (tema claro/escuro) e [[code:orp:locale:v1]] (idioma). Pode limpar tudo a qualquer momento."
+        },
+        {
+          "kicker": "03 · Permissões e Contacto Direto",
+          "heading": "O Online Ruler Plus acede a sensores ou recolhe dados pessoais (PII)?",
+          "body": "Nunca solicitamos câmara, microfone, localização GPS, contactos ou área de transferência, nem recolhemos PII em URLs. Se enviar email para [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]], usamos os seus dados apenas para responder."
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Google AdSense e Cookies de Terceiros",
+          "heading": "Como são utilizados parceiros e cookies publicitários de terceiros?",
+          "body": "Para manter a ferramenta gratuita, fornecedores terceiros, incluindo a Google, podem apresentar anúncios em áreas de conteúdo elegíveis e usar cookies, web beacons ou identificadores para apresentar anúncios personalizados ou contextuais consoante a sua escolha de consentimento e região."
+        },
+        {
+          "kicker": "05 · Desativação de Anúncios Personalizados",
+          "heading": "Como desativar a publicidade personalizada?",
+          "body": "Pode gerir ou desativar anúncios personalizados a qualquer momento em [[ext:https://myadcenter.google.com/|A Minha Central de Anúncios da Google]] ou [[ext:https://www.aboutads.info/choices/|www.aboutads.info/choices]], e consultar a página oficial [[ext:https://policies.google.com/technologies/partner-sites|Como a Google utiliza informações de sites ou aplicações parceiras]]."
+        },
+        {
+          "kicker": "06 · Consentimento, Menores e Direitos Regionais",
+          "heading": "Que normas regionais de privacidade e consentimento se aplicam?",
+          "body": "No Espaço Económico Europeu (EEE), Reino Unido e Suíça, o consentimento é recolhido por plataforma certificada pela Google (IAB TCF v2.2) antes de definir cookies publicitários não essenciais. Residentes da Califórnia mantêm direitos CCPA/CPRA. O serviço não se destina a menores de 13 anos (COPPA). Contacte [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Termos de Utilização e Aviso de Metrologia | Online Ruler Plus",
+      "description": "Termos de Utilização e aviso legal de metrologia do Online Ruler Plus sobre responsabilidades de calibração, paralaxe, uso aceitável e proteção do ecrã.",
+      "schemaName": "Termos de Utilização e Aviso Metrológico — Online Ruler Plus",
+      "subNavTitle": "Termos de Utilização",
+      "breadcrumbLabel": "Termos de Utilização",
+      "heroKicker": "Termos do Serviço e Aviso de Exatidão Metrológica",
+      "heroHeadline": "Termos de Utilização e Aviso de Metrologia",
+      "heroSummary": "Consulte os termos do serviço, responsabilidades de calibração do ecrã, limitações de paralaxe ótica, regras de utilização aceitável e cuidados com o monitor em OnlineRulerPlus.com.",
+      "lastUpdated": "Última Atualização: 14 de novembro de 2026",
+      "topCards": [
+        {
+          "kicker": "01 · Termos Gerais",
+          "heading": "Quais são os termos de acesso ao Online Ruler Plus?",
+          "body": "Ao aceder a OnlineRulerPlus.com concorda com estes Termos de Utilização. A ferramenta é disponibilizada gratuitamente \"tal como está\" para uso pessoal, educativo, criativo e de referência geral, sem garantias implícitas para fins industriais ou clínicos."
+        },
+        {
+          "kicker": "02 · Âmbito Metrológico",
+          "heading": "Quais são os limites de exatidão de uma régua no ecrã?",
+          "body": "A exatidão física depende da calibração feita pelo utilizador, da escala do sistema, do zoom do navegador e do ângulo de visão. Embora apliquemos constantes exatas ([[code:1 in = 25.4 mm]] NIST/BIPM e [[code:ISO/IEC 7810 ID-1 = 85.60 × 53.98 mm]]), nunca utilize uma régua de ecrã para dosagem médica, engenharia estrutural, metrologia legal ou maquinagem crítica."
+        },
+        {
+          "kicker": "03 · Segurança do Ecrã",
+          "heading": "Como proteger o ecrã ao medir objetos físicos?",
+          "body": "Painéis LCD, OLED e revestimentos antirreflexo podem riscar-se com arestas metálicas ou pressão excessiva. Ao aproximar parafusos, moedas ou peças da [[link:/#ruler-tool|área da régua online]], segure levemente ou proteja o vidro com película fina transparente. Não assumimos responsabilidade por danos físicos."
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Propriedade Intelectual e Utilização Aceitável",
+          "heading": "Como podem ser usados o conteúdo e as ferramentas de OnlineRulerPlus.com?",
+          "body": "O código original, os guias e a interface pertencem ao Online Ruler Plus. Pode usar livremente as ferramentas para fins individuais, escolares e de oficina. É proibido efetuar recolha automatizada em massa (scraping), espelhamento não autorizado ou interferir na infraestrutura."
+        },
+        {
+          "kicker": "05 · Publicidade, Ligações Externas e Atualizações",
+          "heading": "Como são regidos anúncios, ligações externas e alterações aos termos?",
+          "body": "Podem ser exibidos anúncios claramente identificados fora dos controlos de medição, bem como ligações para entidades de normalização (NIST, BIPM, ISO, W3C). Consulte a [[link:/privacy|Política de Privacidade]]. Dúvidas podem ser enviadas para [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]."
+        }
+      ]
+    }
+  }
+}

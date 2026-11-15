@@ -1,0 +1,231 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import HelpModal from '../../components/HelpModal.astro';
+import Footer from '../../components/Footer.astro';
+import {
+  LOCALE_META,
+  getLocaleStaticPaths,
+  localizedPath,
+  type Locale,
+} from '../../i18n/config.ts';
+import { getDict, renderInlineMarkup } from '../../i18n/index.ts';
+
+export function getStaticPaths() {
+  return getLocaleStaticPaths();
+}
+
+const { locale } = Astro.props as { locale: Locale };
+const dict = getDict(locale);
+const page = dict.pages.howToUse;
+const meta = LOCALE_META[locale];
+
+const siteOrigin = Astro.site ? Astro.site.origin : 'https://onlinerulerplus.com';
+const routePath = localizedPath(locale, '/how-to-use');
+const canonicalUrl = `${siteOrigin}${routePath}`;
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    '@id': `${canonicalUrl}#article`,
+    headline: page.schemaHeadline,
+    description: page.description,
+    url: canonicalUrl,
+    datePublished: '2026-11-14',
+    dateModified: '2026-11-14',
+    inLanguage: meta.bcp47,
+    author: {
+      '@id': `${siteOrigin}/#organization`,
+    },
+    publisher: {
+      '@id': `${siteOrigin}/#organization`,
+    },
+    mainEntityOfPage: canonicalUrl,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.speakable-summary'],
+    },
+  },
+];
+---
+
+<BaseLayout
+  locale={locale}
+  title={page.title}
+  description={page.description}
+  canonicalPath="/how-to-use"
+  breadcrumbLabel={page.breadcrumbLabel}
+  ogType="article"
+  structuredData={structuredData}
+>
+  <Header
+    locale={locale}
+    subNavTitle={page.subNavTitle}
+    subNavCtaHref={localizedPath(locale, '/#ruler-tool')}
+    subNavCtaLabel={dict.nav.defaultSubNavCta}
+  />
+  <main id="main-content" class="flex-1">
+    <section class="apple-page-hero border-b border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div class="max-w-3xl">
+            <p class="type-kicker">{page.heroKicker}</p>
+            <h1 class="mt-2 type-hero-display text-ink">{page.heroHeadline}</h1>
+            <p class="speakable-summary mt-3 max-w-[62ch] type-lead-airy text-ink-muted-80">
+              {page.heroSummary}
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-3 shrink-0">
+            <a href={localizedPath(locale, '/#ruler-tool')} class="apple-btn-primary">
+              {page.openRulerBtn}
+            </a>
+            <a href={localizedPath(locale, '/#calibration')} class="apple-btn-secondary-pill">
+              {page.goCalBtn}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="apple-tile-parchment">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          {
+            page.steps.map((step) => (
+              <article class="apple-utility-card flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between">
+                    <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary font-mono text-xs font-semibold text-on-primary">
+                      {step.badge}
+                    </span>
+                    <span class="type-kicker">{step.kicker}</span>
+                  </div>
+                  <h2 class="mt-4 type-tagline text-ink">{step.heading}</h2>
+                  <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">
+                    {step.body}
+                  </p>
+                </div>
+                <div class="mt-5 pt-4 border-t border-hairline">
+                  {step.links.length === 1 ? (
+                    <a
+                      href={localizedPath(locale, step.links[0].href)}
+                      class="type-caption font-semibold text-link hover:underline"
+                    >
+                      {step.links[0].label}
+                    </a>
+                  ) : (
+                    <div class="flex flex-wrap gap-3 type-caption font-semibold text-link">
+                      {step.links.map((item, idx) => (
+                        <>
+                          {idx > 0 && <span>·</span>}
+                          <a href={localizedPath(locale, item.href)} class="hover:underline">
+                            {item.label}
+                          </a>
+                        </>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="apple-tile-light border-t border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          {
+            page.advancedCards.map((card) => (
+              <article class="apple-utility-card">
+                <p class="type-kicker">{card.kicker}</p>
+                <h2 class="mt-2 type-tagline text-ink">{card.heading}</h2>
+                <p class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80">{card.body}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="apple-tile-parchment border-t border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="type-kicker">{page.recipesKicker}</p>
+          <h2 class="mt-1.5 type-display-lg text-ink">{page.recipesHeading}</h2>
+          <p class="mt-3 max-w-2xl type-body text-ink-muted-80">{page.recipesLead}</p>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
+          {
+            page.recipes.map((recipe) => (
+              <article class="apple-utility-card">
+                <p class="type-kicker">{recipe.kicker}</p>
+                <h3 class="mt-2 type-tagline text-ink">{recipe.heading}</h3>
+                <p
+                  class="mt-2.5 max-w-[65ch] type-body text-ink-muted-80"
+                  set:html={renderInlineMarkup(recipe.body, locale)}
+                />
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="apple-tile-light border-t border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
+          <div class="lg:col-span-7">
+            <p class="type-kicker">{page.shortcutsKicker}</p>
+            <h2 class="mt-1.5 type-display-lg text-ink">{page.shortcutsHeading}</h2>
+            <p class="mt-2.5 max-w-2xl type-body text-ink-muted-80">{page.shortcutsLead}</p>
+
+            <div class="mt-6 overflow-x-auto rounded-[18px] border border-hairline bg-surface-primary p-4 sm:p-6">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-hairline font-mono text-xs text-ink-muted-48">
+                    <th class="py-2.5 pr-4 font-semibold">{page.shortcutsHeaders[0]}</th>
+                    <th class="py-2.5 px-4 font-semibold">{page.shortcutsHeaders[1]}</th>
+                    <th class="py-2.5 pl-4 font-semibold">{page.shortcutsHeaders[2]}</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-hairline type-caption text-ink-muted-80">
+                  {
+                    page.shortcuts.map((row) => (
+                      <tr>
+                        <td class="py-3 pr-4 font-mono font-semibold text-ink">{row.key}</td>
+                        <td class="py-3 px-4 font-medium text-ink">{row.action}</td>
+                        <td class="py-3 pl-4">{row.useCase}</td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5">
+            <div class="apple-utility-card h-full">
+              <p class="type-kicker">{page.checklistKicker}</p>
+              <h2 class="mt-2 type-tagline text-ink">{page.checklistHeading}</h2>
+              <p class="mt-2.5 type-body text-ink-muted-80">{page.checklistLead}</p>
+              <ul class="mt-4 space-y-3 type-caption text-ink-muted-80">
+                {
+                  page.checklistItems.map((item) => (
+                    <li set:html={renderInlineMarkup(item, locale)} />
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <HelpModal locale={locale} />
+  <Footer locale={locale} />
+  <script src="../../scripts/app.ts"></script>
+</BaseLayout>

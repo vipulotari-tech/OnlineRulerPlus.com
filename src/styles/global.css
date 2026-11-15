@@ -741,8 +741,8 @@
   }
 }
 
-/* Breakpoint helper for Apple's 834px tablet-landscape / global-nav switch */
-@media (max-width: 833px) {
+/* Collapse full global-nav links into mobile drawer below 1024px so 8+ nav items never overflow narrow landscape phones/tablets */
+@media (max-width: 1023px) {
   .apple-nav-desktop {
     display: none !important;
   }
@@ -751,7 +751,7 @@
   }
 }
 
-@media (min-width: 834px) {
+@media (min-width: 1024px) {
   .apple-nav-desktop {
     display: flex !important;
   }
@@ -782,5 +782,27 @@
   #ruler-workspace {
     border: 1px solid #000000 !important;
     page-break-inside: avoid;
+  }
+}
+
+/* Smooth Language Selector Dropdown Motion */
+.orp-lang-menu {
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+  transform-origin: top right;
+  transition: opacity 150ms cubic-bezier(0.22, 1, 0.36, 1), transform 150ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.orp-lang-menu[data-open="true"] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orp-lang-menu {
+    transition: none;
+    transform: none;
   }
 }

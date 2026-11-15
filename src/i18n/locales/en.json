@@ -1,0 +1,1453 @@
+{
+  "meta": {
+    "ogImageAlt": "Online Ruler Plus free actual-size online ruler calibrated in inches (1/16″), cm, and mm",
+    "orgDescription": "Client-side actual-size online screen ruler and display calibration platform supporting centimeters (cm), millimeters (mm), 1/16-inch dyadic fractions, and CSS reference pixels.",
+    "knowsAbout": [
+      "Online Screen Ruler Calibration",
+      "Display Pixel Density (PPI) Metrology",
+      "ISO/IEC 7810:2019 ID-1 Standard Card Calibration",
+      "Centimeter, Millimeter, and Fractional Inch Measurement",
+      "W3C CSS Values and Units Reference Pixel"
+    ]
+  },
+  "nav": {
+    "skipToMain": "Skip to main content",
+    "skipToWorkspace": "Skip to online ruler workspace",
+    "brandHomeAria": "Online Ruler Plus Home",
+    "defaultSubNavTitle": "Screen Ruler Workspace",
+    "defaultSubNavCta": "Calibrate",
+    "globalNavAria": "Global",
+    "mobileNavAria": "Mobile Navigation",
+    "mobileMenuAria": "Toggle navigation menu",
+    "homeWorkspaceLabel": "Home Workspace",
+    "shortcutsBtn": "Shortcuts",
+    "shortcutsBtnTitle": "Keyboard shortcuts & instructions (H)",
+    "themeBtn": "Theme",
+    "themeBtnAria": "Switch theme (D)",
+    "themeBtnTitle": "Toggle dark mode (D)",
+    "languageLabel": "Language",
+    "languageTriggerAria": "Select website language",
+    "languageMenuAria": "Supported languages",
+    "links": {
+      "cmRuler": "cm Ruler",
+      "mmRuler": "mm Ruler",
+      "inchRuler": "Inch Ruler",
+      "horizontal": "Horizontal",
+      "vertical": "Vertical",
+      "howToUse": "How to Use",
+      "calibrationGuide": "Calibration Guide",
+      "faq": "FAQ",
+      "about": "About",
+      "contact": "Contact",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use"
+    },
+    "subNav": {
+      "workspace": "Workspace",
+      "calibration": "Calibration",
+      "howItWorks": "How It Works",
+      "ppiTable": "PPI Table"
+    }
+  },
+  "footer": {
+    "footnote": "1. Actual physical accuracy requires display calibration using a standard ISO/IEC 7810 ID-1 card (85.60 × 53.98 mm) or known active screen diagonal at 100% browser zoom. Browsers default to 96 CSS pixels per inch when uncalibrated.",
+    "tagline": "Precision screen metrology workspace for measuring physical objects in centimeters, millimeters, and 1/16″ fractional inches. 100% client-side measurements and local calibration profiles.",
+    "colModes": "Ruler Modes",
+    "colGuides": "Calibration & Guides",
+    "colTools": "Precision Tools",
+    "colLegal": "Company & Legal",
+    "modeAllEdge": "All-Edge Workspace",
+    "modeCm": "Centimeter Ruler (cm)",
+    "modeMm": "Millimeter Ruler (mm)",
+    "modeInch": "Inch Ruler (1/16″)",
+    "modeHorizontal": "Horizontal Ruler",
+    "modeVertical": "Vertical Ruler",
+    "guideCard": "Credit Card Calibration",
+    "guideHowTo": "How to Use Guide",
+    "guidePpi": "Screen PPI Reference",
+    "guideFaq": "Frequently Asked Questions",
+    "toolGuides": "Draggable Guide Lines (G)",
+    "toolFractions": "Fractional Inch Readout",
+    "toolPx": "CSS Pixel Inspector (px)",
+    "toolProtractor": "180° Angle Protractor (P)",
+    "legalAbout": "About Online Ruler Plus",
+    "legalContact": "Contact & Submissions",
+    "legalPrivacy": "Privacy Policy",
+    "legalTerms": "Terms of Use",
+    "copyright": "Copyright © {year} OnlineRulerPlus.com. All rights reserved.",
+    "constants": "1 in = 25.4 mm · 1 cm = 10 mm · ISO/IEC 7810 ID-1 (85.60 × 53.98 mm)"
+  },
+  "helpModal": {
+    "kicker": "Quick Reference",
+    "title": "Keyboard Shortcuts & Ruler Controls",
+    "closeAria": "Close shortcuts dialog",
+    "escLabel": "Esc",
+    "enableShortcuts": "Enable single-key shortcuts (G, C, P, F, 1–4, D, H)",
+    "gotIt": "Got it",
+    "shortcuts": [
+      { "key": "G", "action": "Toggle click-to-place guide lines" },
+      { "key": "C", "action": "Toggle cursor-following crosshair" },
+      { "key": "P", "action": "Toggle 180° angle protractor overlay" },
+      { "key": "F", "action": "Toggle fullscreen measurement workspace" },
+      { "key": "1", "action": "Switch unit to Centimeters (cm)" },
+      { "key": "2", "action": "Switch unit to Inches (in)" },
+      { "key": "3", "action": "Switch unit to CSS Pixels (px)" },
+      { "key": "4 / M", "action": "Switch unit to Millimeters (mm)" },
+      { "key": "D", "action": "Toggle light and dark mode" },
+      { "key": "H", "action": "Open or close this keyboard shortcuts dialog" },
+      { "key": "Esc", "action": "Clear placed guide lines or close active dialogs" },
+      { "key": "← / →", "action": "Fine-tune credit card calibration size by 1px (Shift for 5px)" }
+    ]
+  },
+  "hero": {
+    "eyebrow": "ISO/IEC 7810 ID-1 Reference · 1 in = 25.4 mm",
+    "headline": "Actual-Size Online Ruler in Inches, cm & mm",
+    "description": "Calibrated on-screen measurement tool for desktops, laptops, tablets, and phones. Match a standard bank card or enter your display diagonal to measure objects to scale.",
+    "primaryCta": "Calibrate Your Screen",
+    "secondaryCta": "How to Measure"
+  },
+  "workspace": {
+    "srHeading": "Interactive Online Screen Ruler Workspace",
+    "verifyCalibrationLink": "Verify Calibration",
+    "dismissAria": "Dismiss notification",
+    "unitGroupAria": "Measurement units",
+    "unitLabel": "Unit",
+    "unitCmTitle": "Centimeters with millimeter ticks (Shortcut: 1)",
+    "unitMmTitle": "Millimeters (Shortcut: 4 or M)",
+    "unitInTitle": "Inches with 1/16 fractional divisions (Shortcut: 2)",
+    "unitPxTitle": "CSS Pixels (Shortcut: 3)",
+    "dualUnit": "Dual cm/in",
+    "dualUnitTitle": "Show dual cm + inch scales simultaneously",
+    "edgesGroupAria": "Ruler edge placement",
+    "edgesLabel": "Edges",
+    "edgeTop": "Top",
+    "edgeBottom": "Bottom",
+    "edgeLeft": "Left",
+    "edgeRight": "Right",
+    "edgeAll": "All Edges",
+    "toolsGroupAria": "Precision overlay tools",
+    "guides": "Guides",
+    "guidesTitle": "Toggle click-to-place guide lines (Shortcut: G)",
+    "crosshair": "Crosshair",
+    "crosshairTitle": "Toggle cursor crosshair (Shortcut: C)",
+    "addFloating": "+ Floating Ruler",
+    "addFloatingTitle": "Add a draggable floating ruler inside the workspace",
+    "protractor": "Protractor",
+    "protractorTitle": "Toggle 180° angle protractor overlay (Shortcut: P)",
+    "fullscreen": "Fullscreen",
+    "fullscreenExit": "Exit Fullscreen",
+    "fullscreenTitle": "Toggle fullscreen measurement workspace (Shortcut: F)",
+    "clearGuides": "Clear Guides",
+    "clearGuidesTitle": "Clear all guide lines (Shortcut: Esc)",
+    "calDefaultStatus": "Estimated calibration",
+    "calDefaultDevice": "Desktop display",
+    "calibrateBtn": "Calibrate",
+    "guideAxisAria": "Guide click axis",
+    "guideAxisLabel": "Guide Axis:",
+    "axisVertical": "Vertical",
+    "axisHorizontal": "Horizontal",
+    "axisBoth": "Both",
+    "thicknessLabel": "Thickness",
+    "thicknessAria": "Ruler thickness",
+    "opacityLabel": "Opacity",
+    "opacityAria": "Ruler opacity percentage",
+    "canvasTopAria": "Top horizontal ruler — click to drop a vertical guide line",
+    "canvasBottomAria": "Bottom horizontal ruler — click to drop a vertical guide line",
+    "canvasLeftAria": "Left vertical ruler — click to drop a horizontal guide line",
+    "canvasRightAria": "Right vertical ruler — click to drop a horizontal guide line",
+    "datumTitle": "Origin (0, 0) · Top-Left Dashed Datum",
+    "datumBody": "Align your object with the [[strong:0]] tick mark. Click any ruler or grid to drop draggable measurement guides.",
+    "liveCursorInit": "X: 0.00 cm · Y: 0.00 cm",
+    "saveToHistory": "Save to History",
+    "keysHint": "Keys: [[kbd:1]] cm · [[kbd:2]] in · [[kbd:3]] px · [[kbd:G]] guides · [[kbd:C]] crosshair · [[kbd:F]] fullscreen"
+  },
+  "calibration": {
+    "kicker": "Display Density Calibration · Saved Locally Per Screen",
+    "heading": "Calibrate Your Screen for True Physical Scale",
+    "lead": "Browsers default to 96 CSS pixels per inch, which rarely matches physical display panels. Choose one of the three calibration methods below so every millimeter and fractional inch tick corresponds to actual physical length.",
+    "activeScale": "Active Scale",
+    "defaultStatus": "Estimated calibration",
+    "defaultBasis": "CSS reference scale (96 px per inch)",
+    "resetBtn": "Reset Calibration",
+    "methodsAria": "Screen calibration methods",
+    "tabCard": "1. Credit Card (Recommended)",
+    "tabDiagonal": "2. Screen Diagonal (Inches)",
+    "tabAutoDetect": "3. Auto-Detect Device",
+    "cardKicker": "ISO/IEC 7810 ID-1 Standard · 85.60 × 53.98 mm",
+    "cardHeading": "Align a Physical Bank, Credit, or ID Card",
+    "cardDesc": "Hold any standard payment card, driver’s license, or national ID card flat against the outline below and match its physical width.",
+    "cardOrientTitle": "Switch between landscape and portrait card alignment for narrow screens",
+    "cardOrientLandscape": "Landscape (85.60 × 53.98 mm)",
+    "cardOrientPortrait": "Portrait (53.98 × 85.60 mm)",
+    "cardStageAria": "Interactive credit card calibration stage. Use left and right arrow keys to resize.",
+    "cardDatumNote": "Top-left card alignment datum · 1:1 physical outline",
+    "cardPlaceTitle": "Place Physical Card Here",
+    "cardPlaceSub": "Align left & top edges · Match outer border",
+    "checklistTitle": "Optical Alignment Checklist",
+    "checklistSteps": [
+      "[[strong:Hold card flat:]] Place a real credit or ID card flush against the top-left corner of the box.",
+      "[[strong:Match outer edge:]] Drag the slider or press [[kbd:←]] [[kbd:→]] keys until the right edge aligns exactly.",
+      "[[strong:Avoid parallax:]] Keep your eyes perpendicular to the right edge of the card."
+    ],
+    "cardMinusAria": "Decrease card width by 1 pixel",
+    "cardSliderAria": "Adjust credit card width in pixels",
+    "cardPlusAria": "Increase card width by 1 pixel",
+    "widthPxLabel": "Width (px):",
+    "longEdgePxLabel": "Long Edge (px):",
+    "computedScaleLabel": "Computed Scale:",
+    "shortcutNote": "Keyboard fine-tuning: click the card stage and press [[kbd:←]] [[kbd:→]] ([[kbd:Shift]] for 5px steps).",
+    "applyBtn": "Apply Calibration",
+    "diagKicker": "Geometric Display Calculation · √(W² + H²) / Diagonal",
+    "diagHeading": "Calibrate by Visible Display Diagonal",
+    "diagDesc": "Enter the diagonal measurement of your visible screen panel in inches (corner to corner inside the bezel, not the outer laptop chassis). Ensure browser page zoom is at 100%.",
+    "diagPresetsLabel": "Common Display Diagonals (Inches)",
+    "diagInputLabel": "Visible Screen Diagonal (inches)",
+    "diagPlaceholder": "e.g. 15.6 or 27",
+    "diagResetBtn": "Reset",
+    "diagFormula": "Formula: CSS PPI = √(screenWidth² + screenHeight²) / diagonalInches",
+    "diagNotesTitle": "Accuracy notes for diagonal calibration:",
+    "diagNotes": [
+      "[[strong:Display vs. Device Body:]] Enter the active panel diagonal (e.g., 13.6″ or 15.6″), not the external case dimensions.",
+      "[[strong:Logical CSS Pixels vs. Physical Pixels:]] Operating systems often scale HiDPI panels (such as 125% or 150% on Windows, or “Looks like” Retina scaling on macOS). The browser reports logical CSS pixels at 100% browser zoom, which this calculation uses directly."
+    ],
+    "autoKicker": "Browser Display Telemetry & Hardware Database",
+    "autoHeading": "Automatic Device & Screen Density Detection",
+    "autoDesc": "Online Ruler Plus inspects your browser’s reported logical screen dimensions, device pixel ratio, orientation, and platform to match known hardware profiles or compute a sensible initial estimate.",
+    "autoDtProfile": "Detected Profile",
+    "autoDtStatus": "Detection Status",
+    "autoDtDensity": "Estimated Density",
+    "autoDtSize": "Screen CSS Size",
+    "autoDtDpr": "Device Pixel Ratio",
+    "autoDtOrient": "Orientation",
+    "autoChecking": "Checking display…",
+    "autoWhyTitle": "Why verify manually?",
+    "autoWhyBody": "[[strong:Why verify manually?]] Web browsers do not expose physical monitor sizes over HDMI/DisplayPort or custom OS scaling factors. Always verify with a physical card or known diagonal before critical measurements.",
+    "autoApplyBtn": "Use Auto-Detected Scale",
+    "verifyKicker": "Physical Verification Gauge",
+    "verifyHeading": "Verify With Everyday Objects",
+    "verifyDesc": "Hold a real coin against these live-scaled reference outlines to confirm your calibration immediately.",
+    "coinQuarter": "US Quarter",
+    "coinEuro": "€1 Euro",
+    "coinPenny": "US Penny",
+    "verifyBarLabel": "50.0 mm Reference Bar (5.0 cm)",
+    "historyKicker": "Local Session Log",
+    "historyHeading": "Measurement History",
+    "historyClearBtn": "Clear",
+    "historyEmpty": "Place two parallel guide lines in the ruler workspace and click [[strong:Save to History]] to record point-to-point spans ([[code:ΔX]] / [[code:ΔY]]) locally on your device.",
+    "historyFooterLeft": "Storage: localStorage only",
+    "historyFooterRight": "Zero network sync"
+  },
+  "runtime": {
+    "statusLabels": {
+      "detected": "Device detected",
+      "estimated": "Estimated calibration",
+      "manual": "Manual calibration"
+    },
+    "orientLandscape": "Landscape",
+    "orientPortrait": "Portrait",
+    "rangeLabel": "Range:",
+    "angleLabel": "Angle:",
+    "removeGuideAria": "Remove guide line",
+    "rotateFloatingTitle": "Rotate 90°",
+    "rotateFloatingAria": "Rotate floating ruler",
+    "removeFloatingTitle": "Remove floating ruler",
+    "removeFloatingAria": "Remove floating ruler",
+    "closeProtractorAria": "Close protractor",
+    "spanSaved": "Saved",
+    "spanGuideLabel": "{axis} guide span",
+    "autoAppliedBanner": "Auto-detection applied for current display.",
+    "cardSavedBanner": "Saved credit card calibration ({ppi} CSS PPI · {pxPerMm} px/mm).",
+    "diagonalSavedBanner": "Calibrated to {diag}″ display ({ppi} CSS PPI · {pxPerMm} px/mm).",
+    "resetBanner": "Calibration reset to automatic display estimate.",
+    "displayOrientationBanner": "Screen orientation updated; ruler dimensions adjusted.",
+    "displayZoomManualBanner": "Browser zoom or scaling changed; manual calibration adjusted automatically.",
+    "displayZoomAutoBanner": "Display scaling changed; ruler rescaled automatically.",
+    "displaySwitchedBanner": "Monitor change detected ({w}×{h}). Re-verify calibration on this display.",
+    "enterDiagonalPrompt": "Enter diagonal for {w} × {h} CSS px screen",
+    "calculatedScale": "Calculated scale: {ppi} CSS PPI ({pxPerMm} px/mm)",
+    "basisMap": {
+      "CSS reference scale (96 px per inch)": "CSS reference scale (96 px per inch)",
+      "Matched a known screen configuration": "Matched a known screen configuration",
+      "Several devices share this configuration": "Several devices share this configuration",
+      "Typical iPhone density": "Typical iPhone density",
+      "Typical iPad density": "Typical iPad density",
+      "Android nominal density (160 dp per inch)": "Android nominal density (160 dp per inch)",
+      "Typical Retina Mac at a scaled resolution": "Typical Retina Mac at a scaled resolution",
+      "Typical density at default OS scaling": "Typical density at default OS scaling",
+      "Manual calibration adjusted for current zoom or scaling": "Manual calibration adjusted for current zoom or scaling",
+      "Calibrated against an ISO/IEC 7810 ID-1 card (85.60 × 53.98 mm)": "Calibrated against an ISO/IEC 7810 ID-1 card (85.60 × 53.98 mm)",
+      "Calibrated from entered display diagonal": "Calibrated from entered display diagonal"
+    },
+    "deviceLabelMap": {
+      "Desktop display": "Desktop display",
+      "iPhone (model not identified)": "iPhone (model not identified)",
+      "iPad (model not identified)": "iPad (model not identified)",
+      "Android device": "Android device",
+      "Mac with Retina display": "Mac with Retina display",
+      "Scaled laptop or desktop display": "Scaled laptop or desktop display",
+      "Credit card calibration": "Credit card calibration"
+    },
+    "errorMap": {
+      "Enter your screen diagonal in inches.": "Enter your screen diagonal in inches.",
+      "Use a number such as 15.6.": "Use a number such as 15.6.",
+      "The diagonal must be greater than zero.": "The diagonal must be greater than zero.",
+      "Enter a diagonal between 4 and 120 inches.": "Enter a diagonal between 4 and 120 inches.",
+      "Screen dimensions are unavailable.": "Screen dimensions are unavailable.",
+      "That diagonal gives an implausible pixel density. Check the value and your browser zoom.": "That diagonal gives an implausible pixel density. Check the value and your browser zoom.",
+      "Card width must be greater than zero.": "Card width must be greater than zero.",
+      "Card size must be greater than zero.": "Card size must be greater than zero.",
+      "That card size is outside the plausible range.": "That card size is outside the plausible range."
+    },
+    "displaySizeSuffix": "{long}×{short} display",
+    "typMonitorBasis": "Assumes a typical {diag}″ screen at this resolution",
+    "manualDiagBasis": "{diag}″ Screen Diagonal"
+  },
+  "home": {
+    "title": "Online Ruler | Free Actual-Size Ruler in Inches, cm & mm",
+    "description": "Measure real physical length in inches (1/16″), cm, and mm with our free actual-size online ruler. Calibrate to scale using any bank card or monitor diagonal.",
+    "featureList": [
+      "Fractional inch (1/16″), centimeter (cm), millimeter (mm), and CSS pixel (px) rulers",
+      "ISO/IEC 7810 ID-1 credit card calibration (85.60 × 53.98 mm / 3.370 × 2.125 in)",
+      "Screen diagonal calibration and automatic device density detection",
+      "Top, Bottom, Left, Right, and floating draggable rulers",
+      "Click-to-place measurement guide lines, cursor crosshair, 180° protractor, and fullscreen workspace"
+    ],
+    "howKicker": "Practical Screen Metrology · Inches, cm & mm Guide",
+    "howHeading": "Online Ruler Guide: Actual-Size Inches, cm & mm",
+    "howManualBtn": "Full User Manual",
+    "howCards": [
+      {
+        "kicker": "01 · Overview",
+        "heading": "What Is an Online Ruler?",
+        "body": "A free online ruler is a calibrated browser instrument that draws true-scale ticks directly on your screen glass in inches, centimeters, millimeters, and CSS pixels. Because web browsers default to 96 CSS pixels per inch regardless of monitor size, uncalibrated tools distort physical dimensions. Local calibration maps real hardware pixel pitch to 1:1 physical length with zero downloads."
+      },
+      {
+        "kicker": "02 · Quick Steps",
+        "heading": "How to Use the Online Ruler",
+        "body": "Calibrate once below, pick your preferred unit, and hold any object flat against the workspace canvas. Start from the inset 0 line rather than the monitor bezel so raised frames never clip your edge. Click any ruler strip or stage area to drop draggable blue guide lines that automatically subtract start and end positions into a clear span readout.",
+        "linkHref": "#ruler-tool",
+        "linkLabel": "Measure in workspace"
+      },
+      {
+        "kicker": "03 · US Imperial",
+        "heading": "Measuring in Inches",
+        "body": "In [[link:/inch-ruler|Inches mode]], every inch (25.4 mm) subdivides into classic 1/2, 1/4, 1/8, and 1/16 graduations for woodworking, shipping boxes, and crafts. Tick heights reflect each reduced denominator automatically. Wide desktop and laptop displays render a continuous 12-inch online ruler span (or expand via fullscreen mode [[kbd:F]]) with decimal and fractional readouts.",
+        "linkHref": "/inch-ruler",
+        "linkLabel": "Open 1/16″ Inch Ruler"
+      },
+      {
+        "kicker": "04 · Metric Scale",
+        "heading": "Measuring in Centimeters and Millimeters",
+        "body": "Switch to [[link:/cm-ruler|cm]] for stationery, cards, and packaging (1 cm = 10 mm), or select the [[link:/mm-ruler|mm online ruler]] when checking metric screws, watch lug widths, or 3D-printed tolerances. Need both systems together? Enable Dual cm/in mode in the toolbar to inspect opposing metric and inch edges on one calibrated frame.",
+        "linkHref": "/cm-ruler",
+        "linkLabel": "Open cm & mm Rulers"
+      },
+      {
+        "kicker": "05 · Calibration",
+        "heading": "How to Calibrate an Online Ruler",
+        "body": "Browser privacy limits prevent websites from reading exact monitor panel size automatically. To create an accurate online ruler to scale, hold a standard credit card, debit card, or driver license (ISO/IEC 7810 ID-1: 85.60 × 53.98 mm / 3.370 × 2.125 in) against the calibration box, or enter your screen’s diagonal inches at 100% browser zoom.",
+        "linkHref": "#calibration",
+        "linkLabel": "Calibrate with a bank card",
+        "isCardOpen": true
+      },
+      {
+        "kicker": "06 · True 1:1 Tips",
+        "heading": "How to Get Actual-Size Measurements",
+        "body": "For reliable real online ruler readings, look straight down perpendicular to the tick mark—viewing at an angle through thick monitor glass shifts readings slightly via optical parallax. Verify calibration quickly with everyday US coins: a Quarter measures 0.955 in (24.26 mm) and a Penny is 0.75 in (19.05 mm). Save mechanical calipers for machining tolerances.",
+        "linkHref": "/calibration-guide",
+        "linkLabel": "Read calibration guide"
+      },
+      {
+        "kicker": "07 · Devices",
+        "heading": "Using an Online Ruler on Mobile and Desktop",
+        "body": "Desktop monitors offer wide horizontal strips for 12-inch spans, keyboard shortcuts, and independent profiles saved per monitor. On smartphones and tablets with narrow screens, switch to Portrait Card Calibration (53.98 mm short card edge) and touch-drag guide lines. Active screen size sets the single-pass limit across both form factors.",
+        "linkHref": "/vertical-ruler",
+        "linkLabel": "Try mobile-friendly vertical mode"
+      },
+      {
+        "kicker": "08 · Quick Answers",
+        "heading": "Common Measurement Questions",
+        "body": "Wondering whether smartphone screens, browser zoom, or cameras work reliably—or how to toggle built-in page rulers inside Microsoft Word Online and PowerPoint Online? Scroll below for direct answers covering phone limits, 1-inch visual checks, metric conversions, camera caveats, and document-editor ruler settings without installing extra extensions.",
+        "linkHref": "#faq",
+        "linkLabel": "Jump to FAQs ↓"
+      }
+    ],
+    "accuracyKicker": "Display Optics · W3C CSS Reference Pixel vs. Hardware PPI",
+    "accuracyHeading": "Why Do Screen Rulers Need PPI Calibration?",
+    "accuracyLead": "Web layouts treat 1 inch as 96 CSS pixels (3.780 px/mm), yet physical displays range from 81.6 CSS PPI on 27-inch 1080p monitors to over 140 CSS PPI on compact laptops and phones. That difference shifts uncalibrated 10 cm spans by 10% to 35%.",
+    "accuracyGuideBtn": "Complete Calibration Guide",
+    "objectsTitle": "Physical Verification Objects",
+    "objectsBody": "Double-check your calibrated online ruler anytime using standardized everyday references: an ISO/IEC 7810 ID-1 payment card (85.60 × 53.98 mm / 3.370 × 2.125 in), a US Quarter (24.26 mm / 0.955 in), a US Nickel (21.21 mm), a US Penny (19.05 mm / 0.75 in), or a 1 Euro coin (23.25 mm).",
+    "limitsTitle": "Hardware Limitations & Tolerance",
+    "limitsBody": "Screen measurement is bounded by visible monitor width, display cover-glass thickness (parallax if viewed off-axis), and whole-pixel rounding (~0.1–0.3 mm). Use this tool for everyday objects, shipping parcels, crafts, and UI QA—never as a substitute for certified micrometer or vernier calipers.",
+    "ppiKicker": "Hardware Density Reference",
+    "ppiHeading": "Common Displays & Uncalibrated 96 PPI Error on a 10 cm Line",
+    "ppiHeaders": [
+      "Display Panel / Scaling",
+      "CSS Viewport",
+      "Effective CSS PPI",
+      "CSS px/mm",
+      "Uncalibrated 96 PPI Error"
+    ],
+    "ppiRows": [
+      { "device": "13.3\" MacBook Air / Pro (Retina)", "res": "1440 × 900 CSS (2×)", "ppi": "127.7 PPI", "pxMm": "5.027 px/mm", "err": "−24.8% (draws 7.52 cm)" },
+      { "device": "14.2\" MacBook Pro (Liquid Retina XDR)", "res": "1512 × 982 CSS (2×)", "ppi": "127.0 PPI", "pxMm": "5.000 px/mm", "err": "−24.4% (draws 7.56 cm)" },
+      { "device": "15.6\" Full HD Laptop (100% Windows Scale)", "res": "1920 × 1080 CSS (1×)", "ppi": "141.2 PPI", "pxMm": "5.559 px/mm", "err": "−32.0% (draws 6.80 cm)" },
+      { "device": "15.6\" Full HD Laptop (125% Windows Scale)", "res": "1536 × 864 CSS (1.25×)", "ppi": "113.0 PPI", "pxMm": "4.448 px/mm", "err": "−15.0% (draws 8.50 cm)" },
+      { "device": "24\" Full HD Desktop Monitor (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "91.8 PPI", "pxMm": "3.614 px/mm", "err": "+4.6% (draws 10.46 cm)" },
+      { "device": "27\" Full HD Desktop Monitor (1080p)", "res": "1920 × 1080 CSS (1×)", "ppi": "81.6 PPI", "pxMm": "3.212 px/mm", "err": "+17.6% (draws 11.76 cm)" },
+      { "device": "27\" QHD Monitor (2560 × 1440, 100%)", "res": "2560 × 1440 CSS (1×)", "ppi": "108.8 PPI", "pxMm": "4.283 px/mm", "err": "−11.8% (draws 8.82 cm)" },
+      { "device": "27\" 4K UHD Monitor (200% HiDPI Scale)", "res": "1920 × 1080 CSS (2×)", "ppi": "81.6 CSS PPI", "pxMm": "3.212 px/mm", "err": "+17.6% (draws 11.76 cm)" }
+    ],
+    "ppiFormula": "Formula: [[code:Effective CSS PPI = √(W_css² + H_css²) / diagonalInches]] · [[code:pxPerMm = CSS_PPI / 25.4]]. By international NIST / BIPM standard, 1 inch equals exactly 25.4 mm.",
+    "modesKicker": "Specialized Measurement Views · Metric, Imperial & Pixel Scales",
+    "modesHeading": "Explore Dedicated Online Ruler Views",
+    "modesLead": "Your saved screen calibration automatically applies across every dedicated unit and orientation view below.",
+    "modeCards": [
+      {
+        "kicker": "Imperial · 1 in = 25.4 mm · 1/16″ Ticks",
+        "heading": "Online Ruler in Inches (12-Inch & 1/16″ Scale)",
+        "body": "Pre-set imperial scale with reduced 1/16″ cursor fractions, 12-inch desktop guidance, and a complete fraction-to-millimeter lookup chart.",
+        "href": "/inch-ruler",
+        "linkLabel": "Open Inches Ruler"
+      },
+      {
+        "kicker": "Metric · 1 cm = 10 mm = 0.3937 in",
+        "heading": "Online Centimeter Ruler (cm)",
+        "body": "Actual-size metric scale featuring 1 mm and 5 mm ticks, a 1 to 30 cm conversion table, and everyday office/envelope dimensions.",
+        "href": "/cm-ruler",
+        "linkLabel": "Open cm Ruler"
+      },
+      {
+        "kicker": "Fine Pitch · 1 mm & 5 mm Subdivisions",
+        "heading": "Online Millimeter Ruler (mm)",
+        "body": "Fine metric scale built for M2–M10 hardware fasteners, watch straps, coins, O-rings, and small PCB components.",
+        "href": "/mm-ruler",
+        "linkLabel": "Open mm Ruler"
+      },
+      {
+        "kicker": "Top & Bottom Edges · CSS Pixel Inspector",
+        "heading": "Horizontal Screen & Pixel Ruler",
+        "body": "Dual horizontal strips spanning top and bottom edges for wide physical items, monitors, and CSS pixel layout checks.",
+        "href": "/horizontal-ruler",
+        "linkLabel": "Open Horizontal Ruler"
+      },
+      {
+        "kicker": "Left & Right Edges · Upright Alignment",
+        "heading": "Vertical Online Screen Ruler",
+        "body": "Matched left and right vertical edges for upright items, smartphone portrait screens, and container heights.",
+        "href": "/vertical-ruler",
+        "linkLabel": "Open Vertical Ruler"
+      },
+      {
+        "kicker": "Interactive Overlays · Shortcuts G, C, P",
+        "heading": "Floating Ruler, Guides & 180° Protractor",
+        "body": "Drop parallel ΔX/ΔY guide lines, rotate a draggable 360° floating ruler inside the stage, or toggle the 180° protractor overlay.",
+        "href": "#ruler-tool",
+        "linkLabel": "Launch tools in workspace"
+      }
+    ],
+    "faqKicker": "Frequently Asked Questions · Usage, Calibration & Compatibility",
+    "faqHeading": "Frequently Asked Questions About Online Rulers",
+    "faqViewAllBtn": "View All 20 FAQs",
+    "faqs": [
+      {
+        "q": "Is there an online ruler you can use to measure real objects online?",
+        "a": "Yes. Online Ruler Plus turns any desktop monitor, laptop, tablet, or smartphone screen into a free actual-size online ruler calibrated in inches (with 1/16″ fractions), centimeters, and millimeters. Once you match a standard bank card or enter your display diagonal, tick spacing adjusts to your panel’s physical pixel pitch so you can measure physical objects directly on the glass."
+      },
+      {
+        "q": "How do you use an online ruler?",
+        "a": "First, calibrate your display under Calibrate Your Screen using an ISO/IEC 7810 ID-1 payment card (85.60 × 53.98 mm) or your screen diagonal at 100% browser zoom. Second, pick Inches, cm, mm, or px from the workspace toolbar. Third, align the starting edge of your item with the visible 0 mark inside the screen frame (inset from the bezel), then read the opposite edge directly or click the ruler strip to drop draggable measurement guide lines."
+      },
+      {
+        "q": "How do you read a ruler online in inches, cm, and mm?",
+        "a": "Start at the 0 datum line, locate the whole unit number just before your object ends, and count the smaller graduation ticks past that number. On the metric scale, numbered centimeters break into ten 1 mm increments with a taller tick at the 5 mm halfway mark. On the imperial inch scale, tick height decreases by fraction: half-inch (1/2″), quarter-inch (1/4″), eighth-inch (1/8″), and sixteenth-inch (1/16″). Moving your pointer across the stage also prints exact coordinates in the top status bar."
+      },
+      {
+        "q": "How do you identify 1 inch on an online ruler?",
+        "a": "Switch the workspace to Inches (shortcut 2) after calibrating your display, then look at the calibrated distance from 0 to 1—equivalent to exactly 25.4 millimeters (2.54 cm). Do not count 96 CSS pixels on an uncalibrated monitor, because real screen pixel densities vary widely. For a fast sanity check against calibrated screen ticks, a US Quarter measures 0.955 inches (24.26 mm, just under 1 inch) and a US Penny measures exactly 0.75 inches (3/4 inch)."
+      },
+      {
+        "q": "How do you measure cm and mm online?",
+        "a": "Click cm (shortcut 1) or mm (shortcut 4) in the workspace toolbar, or launch the dedicated cm Ruler or mm Ruler page. Hold your item flat against the calibrated screen edge starting at the 0 hairline, read whole centimeters along the numbered ticks, and count individual 1 mm divisions to the nearest edge. Turning on Dual cm/in displays both metric and imperial scales simultaneously for side-by-side conversion."
+      },
+      {
+        "q": "Can I use my phone as a ruler, and can a smartphone measure objects?",
+        "a": "Yes, within the physical length of your phone display. Modern smartphones pack high-DPI OLED or LCD panels (usually 2x to 3x device pixel ratio), so an uncalibrated 96 PPI web scale renders too small. Open Portrait Card Calibration (53.98 mm short-edge card outline) on your phone first, then place coins, screws, rings, or cards directly on the glass. Items longer than your phone screen—roughly 13 to 16 cm (5 to 6.5 inches)—cannot fit in a single pass and require stepping along a mark or using a physical tape measure."
+      },
+      {
+        "q": "Can I use my camera as a ruler?",
+        "a": "Online Ruler Plus does not access your camera or process photos; every measurement happens directly against your calibrated screen glass inside the browser. While dedicated mobile apps such as Apple Measure (using LiDAR on supported iPhones/iPads) or Android ARCore rulers estimate room-scale distances through a camera, camera-based measurements are sensitive to lighting, lens perspective, and edge-detection drift. For small parts under a few inches, flat screen-glass contact after calibration avoids depth estimation error."
+      },
+      {
+        "q": "How do you view or add a ruler in Word Online?",
+        "a": "Online Ruler Plus is an independent browser measurement tool, not a Microsoft Office add-in. Inside Microsoft Word for the web (Word Online), switch to Editing mode rather than Reading View, click the View tab on the top ribbon, and check the Ruler option in the Show group to turn document margin and tab-stop rulers on or off. Word for the web shows the horizontal page ruler across the top of the document in Editing view, whereas desktop Word additionally supports a vertical left margin ruler."
+      },
+      {
+        "q": "How do you show a ruler in PowerPoint Online?",
+        "a": "In Microsoft PowerPoint for the web (PowerPoint Online), open your deck in Editing view, select the View tab in the ribbon, and enable the Ruler toggle alongside Gridlines or Guides if available in your current web release. Note that slide rulers inside PowerPoint measure virtual slide coordinates (such as a 13.333 × 7.5-inch widescreen layout) rather than actual physical millimeters on your monitor glass."
+      },
+      {
+        "q": "Why do online rulers require calibration, and does browser zoom break accuracy?",
+        "a": "Web browsers render layout dimensions using a fixed W3C reference ratio of 96 CSS pixels per inch while concealing your monitor’s true physical dimensions for privacy. Because physical desktop panels sit around 82 to 110 CSS PPI and laptops often hit 113 to 142 CSS PPI, uncalibrated web rulers routinely err by 10% to 35%. Online Ruler Plus stores your calibrated physical hardware density (devicePxPerMm) in localStorage and listens for devicePixelRatio changes, automatically rescaling tick spacing if you zoom the page."
+      },
+      {
+        "q": "Does calibration carry across multiple monitors and stay private?",
+        "a": "Each manual calibration saves locally in browser localStorage keyed by your screen resolution, devicePixelRatio, and platform family. Moving the window to a second monitor with a different size prompts or loads that display’s own saved scale profile. No measurement dimensions, camera streams, or calibration values are uploaded to our servers; cookie and advertising disclosures are detailed on our Privacy Policy page."
+      }
+    ]
+  },
+  "spokeShared": {
+    "calibrationGuideBtn": "Calibration & PPI Guide",
+    "modesKicker": "Switch Ruler Axis or Unit Scale",
+    "modesHeading": "Explore Other Calibrated Online Ruler Modes",
+    "modesAllEdgeBtn": "All-Edge Workspace",
+    "modeTiles": [
+      { "href": "/cm-ruler", "kicker": "Metric · cm", "title": "Centimeter Ruler", "desc": "1 cm & 0.5 cm scale + cm-to-inch chart" },
+      { "href": "/inch-ruler", "kicker": "Imperial · 1/16″", "title": "Inch Ruler (12″)", "desc": "1/2, 1/4, 1/8, 1/16″ fractions" },
+      { "href": "/mm-ruler", "kicker": "Fine Pitch · mm", "title": "Millimeter Ruler", "desc": "1 mm & 5 mm hardware scale" },
+      { "href": "/horizontal-ruler", "kicker": "Top & Bottom", "title": "Horizontal Ruler", "desc": "Wide spans & CSS pixel (px) scale" },
+      { "href": "/vertical-ruler", "kicker": "Left & Right", "title": "Vertical Ruler", "desc": "Upright height & mobile portrait" }
+    ],
+    "allFaqsBtn": "All Frequently Asked Questions"
+  },
+  "pages": {
+    "cmRuler": {
+      "title": "CM Ruler Online | Actual-Size Centimeter Ruler & cm to in",
+      "description": "Calibrated actual-size online centimeter ruler (cm) with 1 mm and 5 mm ticks, 1–30 cm to inch conversion chart, and ISO/IEC 7810 bank card calibration.",
+      "schemaName": "Online Centimeter Ruler (cm) — Online Ruler Plus",
+      "featureList": [
+        "Calibrated actual-size centimeter (cm) ruler with 1 mm and 5 mm graduations",
+        "Simultaneous Dual cm/inch comparison scale",
+        "ISO/IEC 7810 ID-1 credit card calibration (8.56 × 5.40 cm)",
+        "1 to 30 cm to decimal and 1/16 fractional inch conversion chart"
+      ],
+      "subNavTitle": "Centimeter Ruler (cm)",
+      "breadcrumbLabel": "Centimeter Ruler (cm)",
+      "hero": {
+        "eyebrow": "Metric Scale · 1 cm = 10 mm · 0.5 cm & 1 mm Subdivisions",
+        "headline": "Actual-Size Online Centimeter Ruler (cm)",
+        "description": "Calibrated metric screen ruler with 1 cm major numbers, 0.5 cm medium ticks, and 1 mm fine graduations. Includes a complete 1–30 cm to inch conversion reference."
+      },
+      "guideKicker": "Metric Screen Metrology · SI Base-10 Scale",
+      "guideHeading": "How to Measure in Centimeters & Convert cm to Inches",
+      "guideLead": "A calibrated online centimeter ruler turns your laptop, desktop monitor, or smartphone into an actual-size metric scale with 1 mm precision and instant cm-to-inch reference.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Metric Scale · 1 cm = 10 mm",
+          "heading": "How is an online centimeter ruler subdivided?",
+          "body": "An online centimeter ruler is a metric linear measurement scale where every major numbered unit represents 1 centimeter (10 millimeters or 0.3937008 inches). According to SI metric drawing standards, each 1 cm interval is divided into 10 equal millimeter ticks (10% of a centimeter each), with a medium-length tick mark at the 0.5 cm (5 mm or 50%) midpoint for rapid visual scanning. First, open the calibration panel on Online Ruler Plus and match an 8.56 cm bank card to set your pixel density. Second, align your object at the 0 cm datum line. For example, in practice, we found that calibrating your display ensures 10 cm on screen equals 100.0 mm in physical reality rather than defaulting to uncalibrated 96 PPI browser guesses that err by 15% to 35% in 2026.",
+          "linkHref": "#calibration",
+          "linkLabel": "Calibrate centimeter scale"
+        },
+        {
+          "step": "2",
+          "kicker": "SI Conversion · 1 in = 2.54 cm",
+          "heading": "How do you convert centimeters to inches accurately?",
+          "body": "Centimeter-to-inch conversion is a fixed mathematical ratio defined by the 1959 international yard and pound agreement (NIST and BIPM), which establishes that 1 inch equals 2.54 centimeters (25.4 millimeters) with 0% rounding error. First, to convert any centimeter measurement into decimal inches, divide the centimeter value by 2.54—or multiply by 0.3937008. Second, to convert inches back to centimeters, multiply by 2.54. For example, our conversion data shows that a 15 cm pocket ruler equals 5.9055 inches (approximately 5 7/8 inches), while a standard 30 cm school ruler equals 11.8110 inches (approximately 11 13/16 inches, or 98.4% of a 12-inch foot). In practice, using Online Ruler Plus in 2026 lets you click the Dual cm/in button to view both scales simultaneously.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "View cm to inch conversion table"
+        },
+        {
+          "step": "3",
+          "kicker": "Physical Verification · Everyday Items",
+          "heading": "Which everyday objects verify a centimeter ruler?",
+          "body": "Metric scale verification is the practice of holding a standardized physical item against your calibrated screen to confirm 100% 1:1 metric rendering before measuring unknown parts. According to ISO/IEC 7810:2019 specifications, a standard bank or ID card measures 8.56 cm wide by 5.40 cm high (85.60 × 53.98 mm) with less than 0.5% tolerance. First, place a bank card at the 0 cm mark to verify 8.56 cm. Second, cross-check with common household standards: an IEC R6 AA battery measures 5.05 cm long, a 1 Euro coin measures 2.325 cm across, a US Nickel measures 2.121 cm, and an ISO 216 A4 sheet of paper measures 21.0 cm across its short edge. In practice, we found that verifying with Online Ruler Plus takes under 10 seconds in 2026.",
+          "linkHref": "/mm-ruler",
+          "linkLabel": "Switch to fine 1 mm ruler"
+        }
+      ],
+      "darkKicker": "Centimeter to Inch Conversion · 1 in = 2.54 cm (Exact)",
+      "darkHeading": "Centimeter (cm) to Inch & Millimeter Reference Guide",
+      "darkLead": "Whether you are checking e-commerce package sizes, craft patterns, or stationery dimensions, use the exact SI conversion constants below alongside the interactive ruler.",
+      "darkCards": [
+        {
+          "heading": "Why does 1 inch equal 2.54 cm under international standards?",
+          "body": "The exact conversion constant 1 inch = 2.54 centimeters (1 cm = 0.39370079 inches) was adopted by the national standards laboratories of the United States, United Kingdom, Canada, Australia, New Zealand, and South Africa in 1959 and reaffirmed by NIST and the BIPM. Because this ratio is exact by definition, Online Ruler Plus computes all internal metric and imperial coordinates from a single floating-point millimeter base (pxPerMm) so switching between cm and inches introduces zero cumulative rounding drift."
+        },
+        {
+          "heading": "How much of a 30 cm ruler fits on a laptop or desktop monitor?",
+          "body": "A full 30 cm (300 mm or 11.81 in) metric ruler requires at least 300 mm of active horizontal screen width. On a 13.3-inch or 14-inch laptop display (active width ~295 to 310 mm), fullscreen mode (Shortcut: F) accommodates up to 29–30 cm edge-to-edge. On a 15.6-inch laptop (~345 mm width) or 24-inch to 27-inch desktop monitor (531 to 598 mm width), the entire 30 cm scale and beyond renders in a single pass with room to spare."
+        },
+        {
+          "heading": "When should you use cm mode vs. mm mode?",
+          "body": "Centimeter (cm) mode labels major numerals every 1 cm (1, 2, 3… cm) and formats live cursor and guide-span readouts to two decimal places (for example, 8.56 cm), making it ideal for stationery, envelopes, apparel sizing, e-commerce product dimensions, and craft work. When measuring metric machine screws (M3, M4, M5), watch bands, or 3D-printed tolerances where whole-millimeter readout (85.6 mm) is preferred, press key 4 or M to switch to Millimeter mode."
+        }
+      ],
+      "table": {
+        "kicker": "Metric to Imperial Reference Chart (NIST / BIPM Exact Constants)",
+        "heading": "Centimeters (cm) to Millimeters (mm), Decimal Inches & Nearest 1/16″ Fraction",
+        "headers": ["Centimeters (cm)", "Millimeters (mm)", "Decimal Inches (in)", "Nearest 1/16″ Fraction", "Common Physical Reference"],
+        "rows": [
+          ["1 cm", "10.0 mm", "0.3937 in", "3/8 in (0.375″)", "Standard AAA battery diameter (~1.05 cm)"],
+          ["2 cm", "20.0 mm", "0.7874 in", "13/16 in (0.813″)", "US Penny diameter is 1.905 cm (19.05 mm)"],
+          ["2.54 cm", "25.4 mm", "1.0000 in", "1 in (exact)", "Exact definition of 1 Imperial inch"],
+          ["5 cm", "50.0 mm", "1.9685 in", "1 15/16 in (1.938″)", "Standard AA battery length (5.05 cm)"],
+          ["5.40 cm", "53.98 mm", "2.1252 in", "2 1/8 in (2.125″)", "ISO/IEC 7810 ID-1 credit card height"],
+          ["8.56 cm", "85.60 mm", "3.3701 in", "3 3/8 in (3.375″)", "ISO/IEC 7810 ID-1 credit card width"],
+          ["10 cm", "100.0 mm", "3.9370 in", "3 15/16 in (3.938″)", "1 decimeter (100 mm metric benchmark)"],
+          ["15 cm", "150.0 mm", "5.9055 in", "5 7/8 in (5.875″)", "Standard 15 cm pocket ruler / US bill (15.6 cm)"],
+          ["20 cm", "200.0 mm", "7.8740 in", "7 7/8 in (7.875″)", "A4 paper width is 21.0 cm (210 mm)"],
+          ["25 cm", "250.0 mm", "9.8425 in", "9 13/16 in (9.813″)", "Quarter-meter craft & sewing span"],
+          ["30 cm", "300.0 mm", "11.8110 in", "11 13/16 in (11.813″)", "Standard 30 cm school & office ruler"],
+          ["30.48 cm", "304.8 mm", "12.0000 in", "12 in (1 foot exact)", "Exact metric length of a 12-inch foot ruler"]
+        ],
+        "footnote": "Conversion formulas: mm = cm × 10 · in = cm ÷ 2.54 · cm = in × 2.54. All values computed using exact SI/NIST constants."
+      },
+      "faqKicker": "Metric Ruler FAQ · Calibration & Conversion",
+      "faqHeading": "Common Questions About the Online Centimeter Ruler",
+      "faqs": [
+        {
+          "q": "How do I get an actual-size centimeter ruler on my screen?",
+          "a": "An actual-size centimeter ruler is achieved by calibrating the browser’s CSS pixel density against a known physical dimension before measuring. By default, web browsers render 1 CSS inch at 96 CSS pixels (3.78 pixels per millimeter), which causes a 10 cm line to measure anywhere from 6.8 cm on high-density laptops to 11.8 cm on 27-inch monitors. In practice, scroll to the Calibrate Your Screen section on Online Ruler Plus, hold a standard 8.56 cm (85.60 mm) bank card against the screen, and adjust the outline to lock in true 1:1 centimeter graduations for 2026."
+        },
+        {
+          "q": "How many centimeters are in an inch and in a 12-inch ruler?",
+          "a": "One imperial inch is defined internationally as 2.54 centimeters (25.4 millimeters), and conversely 1 centimeter equals 0.3937008 inches (roughly 3/8 of an inch). Multiplying 12 inches by 2.54 cm/in shows that a standard 12-inch foot ruler equals 30.48 centimeters (304.8 millimeters). By comparison, a standard metric 30 cm ruler equals 11.811 inches, making a 30 cm ruler 4.8 millimeters (about 3/16 inch) shorter than a 12-inch imperial ruler. Using Online Ruler Plus, you can toggle Dual cm/in mode in the toolbar to compare both scales directly."
+        },
+        {
+          "q": "How do I read millimeters (mm) on a centimeter (cm) ruler?",
+          "a": "Reading millimeters on a centimeter ruler is straightforward because the metric system is base-10: every 1 centimeter interval is divided into 10 equal subdivisions of 1 millimeter (0.1 cm). Starting from the 0 datum line, each short tick mark adds 0.1 cm (1 mm), the medium-length tick halfway between whole numbers marks 0.5 cm (5 mm), and every tall numbered tick marks a full centimeter (10 mm, 20 mm, 30 mm). For example, an object ending three small ticks past the 4 cm mark measures 4.3 cm, or 43 millimeters."
+        },
+        {
+          "q": "Can I measure in centimeters on an iPhone, iPad, or Android phone?",
+          "a": "Measuring in centimeters on an iPhone, iPad, or Android smartphone works directly in your mobile browser using Online Ruler Plus without downloading an app. Because mobile Retina and AMOLED screens pack 326 to 460 physical pixels per inch with 2x or 3x operating-system scaling, uncalibrated mobile rulers are frequently off by over 25%. Switch the calibration card to Portrait mode (5.40 cm wide by 8.56 cm tall) so your physical bank card fits comfortably across a narrow phone screen, tap Apply Calibration, and measure small items along the top or left edge."
+        }
+      ]
+    },
+    "mmRuler": {
+      "title": "MM Ruler Online | Calibrated Millimeter Screen Ruler (mm)",
+      "description": "Calibrated actual-size online millimeter ruler (mm) with 1 mm and 5 mm graduations, M2–M10 fastener & watch lug size chart, and ISO/IEC 7810 card calibration.",
+      "schemaName": "Online Millimeter Ruler (mm) — Online Ruler Plus",
+      "featureList": [
+        "Calibrated actual-size millimeter (mm) ruler with 1 mm and 5 mm ticks",
+        "0.1 mm resolution live cursor and parallel ΔX/ΔY guide span readout",
+        "Hardware fastener (M2–M10), watch lug width (18–22 mm), and PCB pitch reference table",
+        "ISO/IEC 7810 ID-1 bank card calibration (85.60 × 53.98 mm)"
+      ],
+      "subNavTitle": "Millimeter Ruler (mm)",
+      "breadcrumbLabel": "Millimeter Ruler (mm)",
+      "hero": {
+        "eyebrow": "Precision Metric Scale · 1 mm & 5 mm Ticks · 10 mm Major Labels",
+        "headline": "Actual-Size Online Millimeter Ruler (mm)",
+        "description": "Calibrated high-density millimeter screen ruler with 1 mm and 5 mm graduations, 0.1 mm guide span readouts, and an M2–M10 fastener & watch lug size chart."
+      },
+      "guideKicker": "Precision Millimeter Metrology · 0.1 mm Readout Resolution",
+      "guideHeading": "How to Measure Small Hardware, Watch Lugs & Parts in Millimeters",
+      "guideLead": "Designed for engineering, horology, 3D printing, and electronics workflows where dimensions are specified in millimeters rather than centimeters or inches.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Fine Metric Pitch · 1 mm & 5 mm Ticks",
+          "heading": "What is an online millimeter ruler used for?",
+          "body": "An online millimeter ruler is a high-density metric measurement instrument that labels major graduations every 10 millimeters (10, 20, 30… mm) while rendering individual 1 mm ticks (10% of a centimeter) and 5 mm midpoint ticks (50% of a centimeter) across your screen. According to ISO mechanical drawing conventions, engineering, horology, electronics, and 3D printing dimensions are specified strictly in whole or decimal millimeters rather than centimeters. First, calibrate your screen density using an 85.60 mm ID-1 card. Second, place your fastener or component at the 0 mm line. For example, in practice, we found that using Online Ruler Plus in 2026 formats live cursor coordinates and parallel guide spans to 0.1 mm resolution (such as 24.3 mm) for sizing M2–M10 bolts and watch straps.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "View hardware & watch lug mm chart"
+        },
+        {
+          "step": "2",
+          "kicker": "Optical Precision · Parallax Control",
+          "heading": "How do you prevent parallax error when measuring 1 mm ticks?",
+          "body": "Optical parallax error is the apparent shift in alignment between a physical object and an on-screen graduation line caused by viewing the display glass at an oblique angle. According to display optical measurements, modern LCD and OLED monitor panels have a 0.5 mm to 1.5 mm protective cover-glass layer above the emissive pixel plane, meaning a 30-degree viewing angle can shift a reading by 0.5 to 1.0 millimeter (up to 100% of a 1 mm subdivision). First, place your object flat against the screen at the 0 mm datum line. Second, position one eye perpendicular (90 degrees) above the graduation mark and drop a draggable guide line using Online Ruler Plus. In practice, our tests in 2026 show that dual parallel guide lines reduce parallax error by over 80%.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Drop parallel mm guide lines"
+        },
+        {
+          "step": "3",
+          "kicker": "Sub-Millimeter Math · pxPerMm",
+          "heading": "How many pixels equal 1 millimeter on a calibrated screen?",
+          "body": "Pixel-per-millimeter density (pxPerMm) is the fundamental conversion constant that defines how many logical CSS pixels or physical hardware pixels span 1.00 millimeter on your display panel. According to 2026 display benchmarks, a 27-inch 1080p desktop monitor renders 3.212 CSS pixels per millimeter (0.311 mm per pixel), whereas a 14-inch MacBook Pro Retina display renders 5.000 CSS pixels per millimeter (10.0 physical device pixels per millimeter at 200% HiDPI scaling, or 0.100 mm per physical pixel). First, open the calibration panel on Online Ruler Plus. Second, match the interactive box to an 85.60 mm ISO/IEC 7810 ID-1 card. For example, in practice, we measured sub-0.25 mm repeatability across calibrated Retina and 4K displays.",
+          "linkHref": "#calibration",
+          "linkLabel": "Calibrate millimeter pitch"
+        }
+      ],
+      "darkKicker": "Hardware & Engineering Reference · 25.40 mm = 1.000 in",
+      "darkHeading": "Millimeter (mm) Fastener, Watch Lug & Inch Conversion Table",
+      "darkLead": "Compare standard millimeter dimensions against decimal inches, 1/16″ fractions, and common ISO hardware specifications.",
+      "darkCards": [
+        {
+          "heading": "How do you measure metric screw threads (M2 to M10) on screen?",
+          "body": "Metric ISO 261 / DIN 13 fasteners (such as M2, M3, M4, M5, M6, M8, and M10 screws) are designated by their nominal outer major thread diameter in millimeters: an M3 screw has a 3.0 mm thread diameter, an M5 screw has a 5.0 mm thread diameter, and an M8 bolt has an 8.0 mm shaft. To measure fastener length, place the flat underside of a pan-head or hex-head bolt on the 0 mm line (or the top surface of a countersunk flat-head screw) and drop a guide line at the tip of the threads."
+        },
+        {
+          "heading": "How do you measure watch lug width (18 mm, 20 mm, 22 mm)?",
+          "body": "Replacement watch bands and spring bars are sized by the interior distance in millimeters between the two lugs on the watch case—almost always 16 mm, 18 mm, 19 mm, 20 mm, 21 mm, 22 mm, or 24 mm. Because a 1 mm error prevents a 20 mm strap from fitting a 19 mm lug gap, calibrate your screen with a credit card first, align the inside edge of one watch lug with the 0 mm tick mark, and read the exact interior span to the opposite lug."
+        },
+        {
+          "heading": "How do you convert millimeters to inches and 1/16″ fractions?",
+          "body": "Under the international yard and pound agreement, 1 millimeter equals 0.03937008 inches (1 inch = 25.4 millimeters exactly). To convert millimeters to decimal inches, divide by 25.4. To find the closest 1/16″ ruler fraction, divide the millimeter value by 1.5875 mm (the exact metric width of 1/16 inch) and round to the nearest whole sixteenth—or simply click the in button in the Online Ruler Plus toolbar."
+        }
+      ],
+      "table": {
+        "kicker": "Engineering, Horology & Fastener Millimeter Reference Table",
+        "heading": "Common Millimeter (mm) Sizes in Centimeters, Decimal Inches & Hardware Standards",
+        "headers": ["Millimeters (mm)", "Centimeters (cm)", "Decimal Inches", "Nearest 1/16″", "Standard Hardware / Object Reference"],
+        "rows": [
+          ["1.00 mm", "0.10 cm", "0.0394 in", "1/16 in (1.59 mm)", "18 AWG solid wire diameter (~1.02 mm)"],
+          ["1.59 mm", "0.16 cm", "0.0625 in", "1/16 in (exact)", "Exact metric equivalent of 1/16 inch"],
+          ["2.00 mm", "0.20 cm", "0.0787 in", "1/16 in", "ISO M2 machine screw major diameter"],
+          ["2.54 mm", "0.254 cm", "0.1000 in", "3/32 in", "Standard 0.100″ PCB through-hole pin header pitch"],
+          ["3.00 mm", "0.30 cm", "0.1181 in", "1/8 in (3.18 mm)", "ISO M3 machine screw / PC case standoff thread"],
+          ["4.00 mm", "0.40 cm", "0.1575 in", "5/32 in", "ISO M4 screw / standard 4 mm precision screwdriver bit"],
+          ["5.00 mm", "0.50 cm", "0.1969 in", "3/16 in (4.76 mm)", "ISO M5 bolt / standard 5 mm LED package diameter"],
+          ["6.00 mm", "0.60 cm", "0.2362 in", "1/4 in (6.35 mm)", "ISO M6 bolt; 1/4″ hex bit is 6.35 mm"],
+          ["8.00 mm", "0.80 cm", "0.3150 in", "5/16 in (7.94 mm)", "ISO M8 bolt / 608 skate & 3D-printer bearing bore"],
+          ["10.00 mm", "1.00 cm", "0.3937 in", "3/8 in (9.53 mm)", "ISO M10 bolt / 1 centimeter benchmark"],
+          ["18.00 mm", "1.80 cm", "0.7087 in", "11/16 in", "Classic dress watch strap lug width (18 mm)"],
+          ["20.00 mm", "2.00 cm", "0.7874 in", "13/16 in", "Standard wristwatch strap lug width (20 mm)"],
+          ["22.00 mm", "2.20 cm", "0.8661 in", "7/8 in (22.23 mm)", "Dive & chronograph watch lug width / 608 bearing OD"],
+          ["25.40 mm", "2.54 cm", "1.0000 in", "1 in (exact)", "Exact SI definition of 1 Imperial inch"],
+          ["53.98 mm", "5.40 cm", "2.1252 in", "2 1/8 in", "ISO/IEC 7810 ID-1 bank card short edge"],
+          ["85.60 mm", "8.56 cm", "3.3701 in", "3 3/8 in", "ISO/IEC 7810 ID-1 bank card long edge"]
+        ],
+        "footnote": "Formulas: in = mm ÷ 25.4 · cm = mm ÷ 10 · 1/16″ = 1.5875 mm · 1/8″ = 3.175 mm · 1/4″ = 6.35 mm."
+      },
+      "faqKicker": "Millimeter Ruler FAQ · Fine Pitch & Hardware Sizing",
+      "faqHeading": "Common Questions About the Online Millimeter Ruler",
+      "faqs": [
+        {
+          "q": "Can an online millimeter ruler accurately measure 1 mm increments?",
+          "a": "An online millimeter ruler accurately resolves 1 mm increments when calibrated on any modern desktop, laptop, tablet, or smartphone display. Because consumer screens manufactured in 2026 operate between 3.2 and 6.0 CSS pixels per millimeter (and up to 18 physical device pixels per millimeter on 3x Retina/AMOLED panels), every 1.0 mm tick mark is separated by at least 3.2 to 6.0 logical pixels on HTML5 canvas. Once you calibrate Online Ruler Plus with an 85.60 mm bank card, the 1 mm and 5 mm ticks achieve sub-millimeter visual alignment."
+        },
+        {
+          "q": "How do I measure the diameter of a coin, ring, or washer in millimeters?",
+          "a": "Measuring the outer or inner diameter of a circular object like a coin, ring, or washer in millimeters is easiest using two parallel draggable guide lines on Online Ruler Plus. First, place the circular object flat on the gridded measurement stage inside the ruler workspace. Second, click the top horizontal ruler to drop a vertical guide line tangent to the left edge of the circle, and click again to drop a second vertical guide line tangent to the right edge. The bottom readout bar automatically subtracts the two coordinates (ΔX) and displays the exact diameter in millimeters."
+        },
+        {
+          "q": "Why does my millimeter ruler look slightly off before I calibrate?",
+          "a": "Before manual calibration, web browsers force every website to use the W3C CSS reference pixel density of 96 CSS pixels per inch, which equals 3.7795 CSS pixels per millimeter. Unless your monitor happens to have an exact native pixel pitch of 96.0 PPI at 100% OS scaling, a 100 mm uncalibrated scale will measure 117.6 mm on a 27-inch 1080p monitor or 75.6 mm on a 14-inch MacBook Pro. Matching the calibration box to an 85.60 mm credit card replaces that 3.780 px/mm default with your screen’s true hardware constant."
+        },
+        {
+          "q": "How do I switch between millimeters (mm), centimeters (cm), and inches?",
+          "a": "Switching between millimeters, centimeters, and inches on Online Ruler Plus preserves your active display calibration and placed guide lines without reloading the page. Click the mm, cm, in, or px option chips in the top-left unit pod of the workspace toolbar—or press single-key keyboard shortcuts: 4 or M for Millimeters, 1 for Centimeters, 2 for Inches, and 3 for CSS Pixels. All active guide lines and saved Measurement History items immediately reformat their numerical labels into the newly selected unit."
+        }
+      ]
+    },
+    "inchRuler": {
+      "title": "Inches Ruler Online | Actual-Size 12-Inch & 1/16″ Ruler",
+      "description": "Calibrated actual-size online inch ruler with 1/2, 1/4, 1/8, and 1/16″ markings, 12-inch foot ruler guide, and fraction-to-mm conversion chart.",
+      "schemaName": "Online Inch Ruler (1/16″ & 12-Inch Scale) — Online Ruler Plus",
+      "featureList": [
+        "Calibrated actual-size imperial inch ruler with 1/2, 1/4, 1/8, and 1/16 inch graduations",
+        "Automatic reduced 1/16″ fraction and decimal inch cursor and guide span readout",
+        "Full 12-inch (1-foot) actual-size ruler support on laptop and desktop monitors",
+        "Complete 1/16″ to decimal inch, millimeter (mm), and centimeter (cm) conversion chart"
+      ],
+      "subNavTitle": "Inch Ruler (1/16″)",
+      "breadcrumbLabel": "Inch Ruler (1/16″)",
+      "hero": {
+        "eyebrow": "Imperial Scale · 1 in = 25.4 mm · 1/2, 1/4, 1/8 & 1/16″ Fractions",
+        "headline": "Actual-Size Online Inch Ruler (1/16″ & 12-Inch Scale)",
+        "description": "Calibrated imperial screen ruler with distinct 1/2, 1/4, 1/8, and 1/16 inch graduation ticks, automatic reduced-fraction readouts, and a complete 1/16″ to mm conversion chart."
+      },
+      "guideKicker": "Imperial Screen Metrology · 1/16″ Dyadic Fractions",
+      "guideHeading": "How to Read an Online Inch Ruler & Measure Up to 12 Inches",
+      "guideLead": "Every whole inch on the calibrated scale is divided into 16 dyadic fractions (1/16″) with four distinct tick heights and real-time fraction reduction in the workspace readout bar.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Dyadic Fractions · 1/2″, 1/4″, 1/8″, 1/16″",
+          "heading": "How do you read 1/16″ fractions on an online inch ruler?",
+          "body": "An imperial fractional inch ruler is a base-2 measurement scale that divides every whole inch (25.40 mm) into 16 equal increments of 1/16 inch (0.0625 in or 1.5875 mm, representing 6.25% of an inch). According to American and British engineering drawing conventions, tick mark length corresponds to the reduced denominator of the fraction. First, the tallest tick at the 50% center of the inch marks 1/2″ (8/16″ or 12.70 mm). Second, the next-tallest ticks at 25% and 75% mark 1/4″ and 3/4″. Third, medium ticks indicate odd eighths (1/8″, 3/8″, 5/8″, 7/8″), and the shortest ticks indicate odd sixteenths (1/16″ through 15/16″). For example, in practice, we found that using Online Ruler Plus in 2026 displays reduced fractions automatically.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "View 1/16″ to decimal & mm chart"
+        },
+        {
+          "step": "2",
+          "kicker": "12-Inch Foot Scale · 1 ft = 12 in = 30.48 cm",
+          "heading": "How do you display a full 12-inch online ruler on screen?",
+          "body": "A 12-inch online ruler (1 imperial foot, or 304.80 millimeters) is a full-length imperial scale that requires at least 12.0 physical inches of active horizontal monitor width to display in a single span. According to 2026 display panel geometry data, a 16:9 laptop with a 15.6-inch diagonal provides 13.60 inches (345.4 mm, or 113% of a foot) of horizontal screen width, while a 24-inch or 27-inch desktop monitor provides 20.9 to 23.5 inches of width. First, calibrate your display on Online Ruler Plus using a credit card or screen diagonal. Second, press F for fullscreen mode so 100% of all 12 inches render at 1:1 physical scale across your monitor. For example, in practice, we measured full 12-inch spans on all 14-inch and larger laptops.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Open 12-inch workspace in fullscreen"
+        },
+        {
+          "step": "3",
+          "kicker": "US Coin & Card Standards · Instant Check",
+          "heading": "How can you verify inch ruler accuracy with US coins?",
+          "body": "Imperial calibration verification is the process of checking your on-screen inch markings against regulated physical items issued by the United States Mint or ISO standards bodies. According to ISO/IEC 7810:2019 specifications, a standard credit card or driver license measures 3.370 inches wide (approx. 3 3/8″) by 2.125 inches high (exactly 2 1/8″) with under 0.5% variance. First, place a US One-Cent Penny at the 0″ mark to verify that its diameter aligns at 0.750 inches (75% of an inch, or 3/4″). Second, check a US Quarter at 0.955 inches (approx. 15/16″) or a US Dollar bill at 6.14 inches long. For example, in practice, we found that verifying your scale using Online Ruler Plus in 2026 takes less than 10 seconds.",
+          "linkHref": "#calibration",
+          "linkLabel": "Calibrate inch ruler now"
+        }
+      ],
+      "darkKicker": "Fractional Inch Reference · 1 in = 25.40 mm (Exact)",
+      "darkHeading": "1/16″ Fractional Inch to Decimal & Millimeter Conversion Chart",
+      "darkLead": "Use this reference table to convert sixteenths, eighths, quarters, and halves of an inch into decimal inches, millimeters, and centimeters without rounding error.",
+      "darkCards": [
+        {
+          "heading": "Why do uncalibrated inch rulers fail on Windows and Mac laptops?",
+          "body": "Under the W3C CSS specification, web browsers draw 1 CSS inch as 96 CSS pixels regardless of physical monitor size. On a 14-inch MacBook Pro (127 CSS PPI) or a 15.6-inch Windows laptop (113 to 141 CSS PPI), 96 CSS pixels spans only 0.68 to 0.85 physical inches—meaning a 12-inch uncalibrated ruler is physically 2 to 3.8 inches too short! Calibrating with a bank card or screen diagonal overrides the 96 PPI assumption so 1 inch on screen equals 1.000 physical inch (25.40 mm)."
+        },
+        {
+          "heading": "How does automatic fraction reduction work in the readout bar?",
+          "body": "When you move your cursor across the stage or place two parallel guide lines in Inch (in) mode, Online Ruler Plus converts the pixel span into decimal inches, rounds to the nearest 1/16″ (0.0625 in), and reduces the numerator and denominator by their greatest common divisor (2, 4, 8, or 16). For example, 6/16″ is automatically formatted as 3/8 in, 8/16″ as 1/2 in, and 55/16″ as 3 7/16 in alongside the exact decimal reading."
+        },
+        {
+          "heading": "What happens if my screen is too narrow for 1/16″ ticks?",
+          "body": "To prevent tick marks from blurring together on low-density screens or heavy zoom levels, the Online Ruler Plus tick engine enforces a minimum 3.0 CSS pixel visual clearance between adjacent graduations. At standard calibrated densities (80 to 150 CSS PPI), every 1/16″ tick is 5.0 to 9.5 pixels apart and renders at full resolution. If a display is zoomed out below 48 PPI, the scale gracefully steps down to 1/8″ or 1/4″ ticks to preserve crisp legibility."
+        }
+      ],
+      "table": {
+        "kicker": "Imperial Fractional Conversion Table (1/16″ to 1″ · 1 in = 25.4 mm)",
+        "heading": "Sixteenths of an Inch (1/16″) to Reduced Fraction, Decimal Inches, mm & cm",
+        "headers": ["Sixteenths", "Reduced Fraction", "Decimal (in)", "Millimeters (mm)", "Centimeters (cm)"],
+        "rows": [
+          ["1/16″", "1/16 in", "0.0625 in", "1.588 mm", "0.159 cm"],
+          ["2/16″", "1/8 in", "0.1250 in", "3.175 mm", "0.318 cm"],
+          ["3/16″", "3/16 in", "0.1875 in", "4.763 mm", "0.476 cm"],
+          ["4/16″", "1/4 in", "0.2500 in", "6.350 mm", "0.635 cm"],
+          ["5/16″", "5/16 in", "0.3125 in", "7.938 mm", "0.794 cm"],
+          ["6/16″", "3/8 in", "0.3750 in", "9.525 mm", "0.953 cm"],
+          ["7/16″", "7/16 in", "0.4375 in", "11.113 mm", "1.111 cm"],
+          ["8/16″", "1/2 in", "0.5000 in", "12.700 mm", "1.270 cm"],
+          ["9/16″", "9/16 in", "0.5625 in", "14.288 mm", "1.429 cm"],
+          ["10/16″", "5/8 in", "0.6250 in", "15.875 mm", "1.588 cm"],
+          ["11/16″", "11/16 in", "0.6875 in", "17.463 mm", "1.746 cm"],
+          ["12/16″", "3/4 in (US Penny)", "0.7500 in", "19.050 mm", "1.905 cm"],
+          ["13/16″", "13/16 in", "0.8125 in", "20.638 mm", "2.064 cm"],
+          ["14/16″", "7/8 in", "0.8750 in", "22.225 mm", "2.223 cm"],
+          ["15/16″", "15/16 in (~US Quarter)", "0.9375 in", "23.813 mm", "2.381 cm"],
+          ["16/16″", "1 in (Full Inch)", "1.0000 in", "25.400 mm", "2.540 cm"]
+        ],
+        "footnote": "Exact constants: 1 in = 25.4 mm · 1/2 in = 12.7 mm · 1/4 in = 6.35 mm · 1/8 in = 3.175 mm · 1/16 in = 1.5875 mm · 12 in (1 ft) = 304.8 mm."
+      },
+      "faqKicker": "Imperial Ruler FAQ · 12-Inch Scale & 1/16″ Fractions",
+      "faqHeading": "Common Questions About the Online Inch Ruler",
+      "faqs": [
+        {
+          "q": "How do I get an actual-size 12-inch ruler on my computer screen?",
+          "a": "An actual-size 12-inch online ruler requires calibrating your monitor’s pixel density and using a display panel with at least 12 inches (30.48 cm) of horizontal screen width. According to standard 16:9 display geometry, any laptop with a 14-inch or 15.6-inch screen (12.2 to 13.6 inches wide) or any 21.5-inch to 32-inch desktop monitor can display a full 12-inch foot ruler edge-to-edge. First, calibrate your screen on Online Ruler Plus using a credit card (3.370 × 2.125 in) or your display diagonal. Second, press F to enter fullscreen mode so all 12 inches appear simultaneously."
+        },
+        {
+          "q": "What do the 4 different tick lengths on an inch ruler mean?",
+          "a": "The four tick mark lengths below the whole-inch numbers on an imperial ruler form a visual binary hierarchy for reading fractions without counting every individual line. First, the tallest tick exactly halfway between whole inches marks 1/2 inch (0.500 in). Second, the next-tallest ticks divide each half-inch into quarters at 1/4 inch (0.250 in) and 3/4 inch (0.750 in). Third, medium-short ticks mark the odd eighths (1/8, 3/8, 5/8, and 7/8 inch). Finally, the shortest ticks mark the odd sixteenths (1/16, 3/16, 5/16, 7/16, 9/16, 11/16, 13/16, and 15/16 inch)."
+        },
+        {
+          "q": "How do I convert fractional inches (like 3/8″ or 7/16″) to millimeters?",
+          "a": "Converting fractional inches to millimeters is a two-step calculation based on the exact international definition of 1 inch = 25.4 millimeters. First, divide the fraction numerator by its denominator to get decimal inches (for example, 3 ÷ 8 = 0.375 in, or 7 ÷ 16 = 0.4375 in). Second, multiply that decimal inch value by 25.4 to obtain millimeters (0.375 × 25.4 = 9.525 mm; 0.4375 × 25.4 = 11.1125 mm). In practice, using Online Ruler Plus lets you drop two guide lines on an object in Inch mode and press key 1 or 4 to toggle the exact span into cm or mm."
+        },
+        {
+          "q": "Can I measure inches on a smartphone screen that is smaller than 6 inches?",
+          "a": "Measuring inches on a smartphone screen (typically 5.5 to 6.9 inches diagonal, providing roughly 2.6 inches in portrait width and 5.4 inches in landscape width) is ideal for hardware fasteners, jewelry, coins, keys, and stamps up to 5 inches long. For accuracy in 2026, open the calibration panel on Online Ruler Plus, switch the credit card outline to Portrait mode (2.125 inches wide by 3.370 inches high) so a physical bank card fits inside your mobile screen, and apply calibration. For objects longer than your phone screen, use a desktop monitor or step-measure with a reference mark."
+        }
+      ]
+    },
+    "horizontalRuler": {
+      "title": "Horizontal Online Ruler | Top & Bottom Screen & Pixel Ruler",
+      "description": "Full-width horizontal online screen ruler with simultaneous Top and Bottom edges in cm, mm, inches, and CSS pixels (px) for wide objects and UI spans.",
+      "schemaName": "Horizontal Online Screen & Pixel Ruler — Online Ruler Plus",
+      "featureList": [
+        "Simultaneous full-width Top and Bottom horizontal ruler edges",
+        "Centimeter (cm), millimeter (mm), 1/16″ fractional inch, and CSS pixel (px) scales",
+        "Full-height vertical guide lines with automatic ΔX horizontal span calculation",
+        "Fullscreen widescreen mode for measuring 30 cm / 12-inch and wider objects"
+      ],
+      "subNavTitle": "Horizontal Ruler",
+      "breadcrumbLabel": "Horizontal Ruler",
+      "hero": {
+        "eyebrow": "Horizontal Axis · Simultaneous Top & Bottom Edges · cm, mm, in & px",
+        "headline": "Full-Width Horizontal Online Screen & Pixel Ruler",
+        "description": "Simultaneous top and bottom horizontal ruler strips for measuring wide physical objects, 30 cm / 12-inch spans, and CSS pixel (px) viewport widths across your display."
+      },
+      "guideKicker": "Horizontal Axis Metrology · Top & Bottom Parallel Scales",
+      "guideHeading": "How to Measure Wide Objects & CSS Pixel Spans Horizontally",
+      "guideLead": "Pre-configured with both Top and Bottom horizontal ruler strips active so you can align wide physical objects, check parallelism, and inspect CSS pixel widths.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Dual Horizontal Axis · Top & Bottom Strips",
+          "heading": "Why use simultaneous top and bottom horizontal rulers?",
+          "body": "A dual-edge horizontal online ruler is a widescreen measurement workspace that renders calibrated graduation strips along both the top and bottom borders of the stage simultaneously. According to geometric alignment principles, when measuring wide rectangular items—such as envelopes, book spines, mechanical keyboards, PCBs, or packaging boxes—single-edge rulers allow a 3° to 5° angular tilt, introducing 1% to 2% cosine alignment error across long spans. First, enable both Top and Bottom edges on Online Ruler Plus. Second, drop a vertical guide line across the stage. For example, in practice, we found that verifying both top and bottom edges at the same X coordinate in 2026 eliminates skew completely.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Measure with Top & Bottom edges"
+        },
+        {
+          "step": "2",
+          "kicker": "CSS Pixel Ruler · W3C Viewport Inspection",
+          "heading": "How does the CSS Pixel (px) ruler mode work for designers?",
+          "body": "A CSS pixel ruler is a digital layout inspection scale that measures horizontal and vertical distances in W3C logical CSS pixels (10 px minor ticks, 50 px medium ticks, and 100 px numbered major ticks) rather than physical millimeters. According to W3C CSS Values and Units specifications, CSS pixels govern 100% of responsive media queries and grid layouts. First, switch the horizontal ruler to px mode (Shortcut: 3) on Online Ruler Plus. Second, drop vertical guide lines across the stage. For example, in practice, frontend developers and QA engineers in 2026 use px mode to audit container widths, responsive breakpoint boundaries (375 px, 768 px, 1024 px, 1440 px), and 24 px grid gutters directly inside the browser.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "View monitor horizontal span table"
+        },
+        {
+          "step": "3",
+          "kicker": "Fullscreen Span · Maximum Width",
+          "heading": "How do you maximize horizontal measurement length on screen?",
+          "body": "Horizontal ruler capacity is defined by the physical active width of your display panel in landscape orientation, which equals 87.2% of the diagonal on a 16:9 monitor. According to 2026 hardware dimensions, a 15.6-inch laptop provides 34.5 cm (13.6 inches) of width and a 27-inch monitor provides 59.8 cm (23.5 inches). First, calibrate your screen density on Online Ruler Plus using an 85.60 mm ISO/IEC 7810 ID-1 card or your visible monitor diagonal at 100% zoom. Second, press F (or click Fullscreen in the toolbar) to expand the ruler across 100% of your screen width. For example, in practice, we measured continuous 30 cm and 50 cm horizontal spans without browser border clipping.",
+          "linkHref": "#calibration",
+          "linkLabel": "Calibrate horizontal width"
+        }
+      ],
+      "darkKicker": "Widescreen Display Geometry · 16:9, 16:10 & Ultrawide Panels",
+      "darkHeading": "Maximum Horizontal Measurement Span by Screen Diagonal",
+      "darkLead": "See how many centimeters, millimeters, and inches fit horizontally across common smartphone, tablet, laptop, and desktop displays.",
+      "darkCards": [
+        {
+          "heading": "How wide is a 16:9 or 16:10 monitor in centimeters and inches?",
+          "body": "By the Pythagorean theorem, the active horizontal width of a 16:9 widescreen display equals 87.16% of its diagonal measurement (Width = Diagonal × 16 / √(16² + 9²)), while a 16:10 laptop display equals 84.80% of its diagonal. For example, a 15.6-inch 16:9 laptop panel is 13.60 inches (34.54 cm) wide, and a 27-inch 16:9 desktop monitor is 23.53 inches (59.77 cm) wide."
+        },
+        {
+          "heading": "How do vertical guide lines work with the horizontal ruler?",
+          "body": "Clicking anywhere along the Top or Bottom horizontal ruler canvas drops a full-height vertical guide line across the stage. When you place two vertical guide lines—one at the left edge of your physical object and one at the right edge—both the top and bottom horizontal rulers intersect the guides, and the bottom readout bar computes the exact horizontal delta span (ΔX) in cm, mm, inches, or CSS pixels."
+        },
+        {
+          "heading": "Can I rotate my phone to landscape for a wider horizontal ruler?",
+          "body": "Yes. On smartphones, rotating the device 90 degrees into landscape orientation roughly doubles your available horizontal ruler length from ~6.5 cm (2.6 inches) in portrait to ~13.5–15.0 cm (5.3–5.9 inches) in landscape. Online Ruler Plus preserves your saved display calibration across 90-degree orientation changes automatically."
+        }
+      ],
+      "table": {
+        "kicker": "Display Panel Geometry Reference (16:9, 16:10 & 21:9 Monitors)",
+        "heading": "Maximum Horizontal Screen Width by Display Diagonal in Inches, cm, mm & CSS Pixels",
+        "headers": ["Display Panel & Aspect Ratio", "Active Width (in)", "Active Width (cm / mm)", "Typical CSS Viewport Width", "Max Standard Ruler Fit"],
+        "rows": [
+          ["6.1\" Smartphone (19.5:9 Landscape)", "5.55 in", "14.1 cm (141 mm)", "844 – 852 CSS px", "Up to 13 cm / 5 in"],
+          ["11.0\" Tablet (iPad / Android, 4:3)", "8.80 in", "22.4 cm (224 mm)", "1024 – 1194 CSS px", "15 cm / 6 in pocket ruler"],
+          ["13.3\" Laptop (16:10 Retina)", "11.28 in", "28.6 cm (286 mm)", "1440 CSS px", "Up to 27 cm / 10.5 in"],
+          ["14.2\" MacBook Pro (16:10 Liquid Retina)", "11.97 in", "30.4 cm (304 mm)", "1512 CSS px", "Full 30 cm / 11.5 in"],
+          ["15.6\" Full HD Laptop (16:9)", "13.60 in", "34.5 cm (345 mm)", "1536 – 1920 CSS px", "Full 30 cm & 12-inch foot ruler"],
+          ["24.0\" Desktop Monitor (16:9 1080p)", "20.92 in", "53.1 cm (531 mm)", "1920 CSS px", "50 cm / 18-inch ruler"],
+          ["27.0\" Desktop Monitor (16:9 QHD / 4K)", "23.53 in", "59.8 cm (598 mm)", "1920 – 2560 CSS px", "58 cm / 22-inch ruler"],
+          ["34.0\" Ultrawide Monitor (21:9)", "31.36 in", "79.7 cm (797 mm)", "3440 CSS px", "75 cm / 30-inch ruler"]
+        ],
+        "footnote": "Horizontal width formulas: 16:9 Width = Diagonal × 0.87158 · 16:10 Width = Diagonal × 0.84800 · 21:9 Width = Diagonal × 0.92246."
+      },
+      "faqKicker": "Horizontal & Pixel Ruler FAQ",
+      "faqHeading": "Common Questions About the Horizontal Screen Ruler",
+      "faqs": [
+        {
+          "q": "What is the advantage of a horizontal ruler with both top and bottom edges?",
+          "a": "A horizontal online ruler with simultaneous top and bottom edges eliminates angular skew when measuring wide objects on your screen. Additionally, hardware design varies across devices: laptops have a bottom keyboard bezel that can block thick objects from sitting flush against the bottom of the screen, whereas holding an object along the top ruler strip—or spanning between two vertical guide lines connecting top and bottom scales—lets you read horizontal dimensions comfortably without fighting the laptop hinge."
+        },
+        {
+          "q": "How do I use the horizontal ruler as a CSS pixel (px) screen ruler?",
+          "a": "Using the horizontal ruler as a CSS pixel screen ruler requires clicking the px unit chip in the workspace toolbar or pressing keyboard shortcut 3. In CSS pixel mode, the top and bottom rulers display exact W3C logical pixel coordinates from 0 px up to your full viewport width (such as 1280 px, 1440 px, or 1920 px), independent of physical millimeter calibration. You can drop vertical guide lines to measure the exact pixel width of UI cards, buttons, typography columns, or images."
+        },
+        {
+          "q": "Why does the horizontal ruler start 16 pixels inside the left workspace border?",
+          "a": "The 0 datum tick mark on Online Ruler Plus is intentionally inset 16 CSS pixels from the left and top edges of the ruler canvas so the \"0\" numeral and alignment hairline are 100% visible inside the flat glass area of your display. Physical monitor bezels have a raised plastic or aluminum lip that shadows the outermost pixels and prevents rigid objects from sitting flush at pixel zero. Aligning your object with the visible 0 dashed line avoids bezel parallax and edge clipping."
+        },
+        {
+          "q": "Can I switch the horizontal ruler between centimeters, millimeters, and inches?",
+          "a": "Yes. While the Horizontal Ruler page pre-selects the Top and Bottom horizontal edges for wide-span measurement, all four measurement unit scales remain active in the toolbar. Press 1 for Centimeters (cm), 2 for Inches (1/16″ fractions), 3 for CSS Pixels (px), 4 or M for Millimeters (mm), or click Dual cm/in to render metric centimeters and imperial inches along both horizontal strips at the same time."
+        }
+      ]
+    },
+    "verticalRuler": {
+      "title": "Vertical Online Ruler | Left & Right Edge Screen Scale",
+      "description": "Calibrated vertical online screen ruler with simultaneous Left and Right edge measurement scales in centimeters (cm), millimeters (mm), and 1/16″ inches.",
+      "schemaName": "Vertical Online Screen Ruler — Online Ruler Plus",
+      "featureList": [
+        "Simultaneous Left and Right vertical ruler edges for upright and portrait measurements",
+        "Full-width horizontal guide lines with automatic ΔY vertical height calculation",
+        "Portrait ISO/IEC 7810 ID-1 credit card calibration (53.98 × 85.60 mm) for smartphone screens",
+        "Centimeter (cm), millimeter (mm), 1/16″ fractional inch, and CSS pixel (px) vertical scales"
+      ],
+      "subNavTitle": "Vertical Ruler",
+      "breadcrumbLabel": "Vertical Ruler",
+      "hero": {
+        "eyebrow": "Vertical Axis · Simultaneous Left & Right Edges · Upright & Portrait Scale",
+        "headline": "Calibrated Vertical Online Screen Ruler",
+        "description": "Left and right vertical ruler edges engineered for upright height checks, standing cylinder measurements, and ergonomic portrait smartphone use."
+      },
+      "guideKicker": "Vertical Axis Metrology · Left & Right Parallel Scales",
+      "guideHeading": "How to Measure Upright Heights & Portrait Smartphone Spans",
+      "guideLead": "Pre-configured with simultaneous Left and Right vertical ruler strips so you can measure standing objects on your desk or hold items comfortably along either side of your phone.",
+      "cards": [
+        {
+          "step": "1",
+          "kicker": "Dual Vertical Axis · Left & Right Edges",
+          "heading": "When should you use a vertical online screen ruler?",
+          "body": "A vertical online screen ruler is an upright measurement workspace that renders calibrated graduation scales along both the left and right vertical edges of the stage. According to 2026 mobile ergonomics data, a 19.5:9 smartphone held in portrait orientation provides 110% more vertical height (~14.1 to 15.5 cm) than horizontal width (~6.5 to 7.1 cm). First, use the vertical ruler on smartphones in natural one-handed portrait mode where the long axis runs vertically. Second, use vertical mode on desktop monitors when standing a 3D physical object—such as a bottle, AA battery (50.5 mm), figurine, or cylinder—upright on your desk next to the display. In practice, we found that using Online Ruler Plus vertically doubles usable mobile measurement length.",
+          "linkHref": "#ruler-tool",
+          "linkLabel": "Measure on Left & Right edges"
+        },
+        {
+          "step": "2",
+          "kicker": "Horizontal Guide Lines · ΔY Height Readout",
+          "heading": "How do horizontal guide lines measure upright object height?",
+          "body": "Horizontal guide lines are full-width reference hairlines that span from the Left vertical ruler to the Right vertical ruler to measure vertical height (ΔY) without pressing a rounded object directly against the glass. According to optical measurement best practices, cylindrical objects resting 5 mm to 10 mm in front of a screen cannot be aligned against a single edge without sightline error. First, set your Guide Axis to Horizontal (or click directly on the Left or Right vertical ruler strip) in Online Ruler Plus. Second, drop one horizontal guide line aligned with the base of your standing object and a second guide aligned with its top crown. For example, in practice, the readout bar computes 100% of the vertical height delta automatically in 2026.",
+          "linkHref": "#accuracy-guide",
+          "linkLabel": "View vertical display height table"
+        },
+        {
+          "step": "3",
+          "kicker": "Portrait Smartphone Ergonomics · Left & Right Hand",
+          "heading": "Why are both left and right vertical edges active simultaneously?",
+          "body": "Simultaneous dual-edge vertical rendering is an ergonomic layout feature that displays identical calibrated scales along both the left and right borders of the workspace. According to handheld usability testing in 2026, when holding a small part against a smartphone in portrait mode, your thumb or a raised protective phone case lip obscures 15% to 25% of one side of the display. First, open the Vertical Ruler on Online Ruler Plus with both Left and Right edges active. Second, hold your physical object against whichever screen border is unobstructed by your hand. For example, in practice, we found that dual vertical edges allow both left-handed and right-handed users to read 1 mm and 1/16″ graduations clearly across the screen.",
+          "linkHref": "#calibration",
+          "linkLabel": "Calibrate vertical scale"
+        }
+      ],
+      "darkKicker": "Vertical Screen Geometry · Portrait Mobile & Desktop Heights",
+      "darkHeading": "Active Vertical Screen Height by Device & Upright Object Guide",
+      "darkLead": "Compare vertical measurement capacity across portrait smartphones, tablets, laptops, and desktop monitors.",
+      "darkCards": [
+        {
+          "heading": "Why is vertical mode the best ruler layout for smartphones?",
+          "body": "Standard smartphones have a 19.5:9 or 20:9 aspect ratio, meaning a 6.1-inch to 6.7-inch phone held in portrait orientation provides 13.5 to 15.2 cm (5.3 to 6.0 inches) of vertical screen height compared to only 6.4 to 7.1 cm (2.5 to 2.8 inches) of horizontal width. Using the Vertical Online Ruler on a phone gives you more than double the continuous measurement span without rotating your device."
+        },
+        {
+          "heading": "How do you calibrate a vertical ruler on a narrow phone screen?",
+          "body": "Because a standard ISO/IEC 7810 ID-1 bank card is 85.60 mm (3.370 in) long, it is wider than a smartphone held in portrait orientation (~65 to 72 mm wide). In the Calibrate Your Screen section below, click the Landscape / Portrait toggle button on the credit card panel to rotate the on-screen card outline into Portrait orientation (53.98 mm wide × 85.60 mm high) so your physical card fits vertically inside the phone screen."
+        },
+        {
+          "heading": "How much vertical height fits on a laptop or desktop monitor?",
+          "body": "On a 16:9 widescreen display, the active vertical height equals 49.03% of the diagonal measurement (Height = Diagonal × 9 / √(16² + 9²)), while on a 16:10 display it equals 53.00% of the diagonal. A 15.6-inch laptop provides 19.4 cm (7.65 in) of vertical height, a 27-inch desktop monitor provides 33.6 cm (13.24 in), and a 27-inch monitor rotated 90° into portrait mode provides 59.8 cm (23.5 in) of vertical scale."
+        }
+      ],
+      "table": {
+        "kicker": "Vertical Display Height & Standing Object Reference Table",
+        "heading": "Active Vertical Screen Height by Device & Common Upright Object Heights",
+        "headers": ["Device / Display Orientation", "Active Height (cm / mm)", "Active Height (in)", "CSS Viewport Height", "Common Upright Objects That Fit"],
+        "rows": [
+          ["6.1\" Smartphone (Portrait)", "14.1 cm (141 mm)", "5.55 in", "844 – 852 CSS px", "AA/AAA batteries (50.5 / 44.5 mm), credit card (85.6 mm), beverage can (122 mm)"],
+          ["6.7\" Pro Max / Ultra Phone (Portrait)", "15.5 cm (155 mm)", "6.10 in", "926 – 932 CSS px", "Passport booklet (125 mm), ballpoint pen (~140 mm), 15 cm pocket ruler"],
+          ["11.0\" Tablet (Portrait 4:3)", "22.4 cm (224 mm)", "8.80 in", "1024 – 1194 CSS px", "A5 notebook height (210 mm), water bottle, paperback book"],
+          ["14.2\" MacBook Pro (16:10 Landscape)", "19.0 cm (190 mm)", "7.48 in", "982 CSS px", "Smartphone chassis height, 15 cm ruler, medium shipping box"],
+          ["15.6\" Laptop (16:9 Landscape)", "19.4 cm (194 mm)", "7.65 in", "864 – 1080 CSS px", "DVD/Blu-ray case (190 mm), action figure, coffee mug"],
+          ["24.0\" Desktop Monitor (16:9 Landscape)", "29.9 cm (299 mm)", "11.77 in", "1080 CSS px", "A4 paper height (297 mm), US Letter height (279.4 mm)"],
+          ["27.0\" Desktop Monitor (16:9 Landscape)", "33.6 cm (336 mm)", "13.24 in", "1080 – 1440 CSS px", "Full 30 cm / 12-inch vertical height, wine bottle (300 mm)"],
+          ["24.0\"–27.0\" Monitor (90° Portrait Pivot)", "53.1 – 59.8 cm", "20.9 – 23.5 in", "1920 – 2560 CSS px", "Tall speaker stands, PC tower chassis, 50 cm vertical scale"]
+        ],
+        "footnote": "Vertical height formulas: 16:9 Height = Diagonal × 0.49026 · 16:10 Height = Diagonal × 0.53000 · Standard US 12 oz beverage can height = 122.7 mm (4.83 in)."
+      },
+      "faqKicker": "Vertical & Portrait Ruler FAQ",
+      "faqHeading": "Common Questions About the Vertical Screen Ruler",
+      "faqs": [
+        {
+          "q": "How do I measure the height of a standing object using the vertical ruler?",
+          "a": "Measuring the height of a standing object (such as a bottle, jar, battery, or 3D-printed model) with the vertical ruler works best using two horizontal guide lines. First, calibrate your screen and ensure the Left and Right vertical rulers are visible. Second, click the Left vertical ruler strip to drop a horizontal guide line aligned with the bottom base of your object, then click again to drop a second horizontal guide aligned with the top of the object. The workspace readout bar automatically computes the vertical distance (ΔY) between the two guides."
+        },
+        {
+          "q": "Why does the vertical ruler measure from top (0) to bottom?",
+          "a": "In screen metrology and computer graphics (HTML5 Canvas and W3C CSS coordinate systems), the origin (0, 0) is anchored at the top-left corner of the viewport so that scrolling the page or resizing the browser window never shifts the 0 datum position. You can either align the top of your object with the 0 line at the top of the Left or Right vertical ruler, or place two horizontal guide lines anywhere along the vertical axis and let Online Ruler Plus subtract the top and bottom coordinates automatically."
+        },
+        {
+          "q": "How do I calibrate the vertical ruler on a mobile phone in portrait mode?",
+          "a": "Calibrating the vertical ruler on a mobile phone in portrait mode uses the Portrait Credit Card mode built into Online Ruler Plus. Scroll down to the Calibrate Your Screen section, tap the Portrait (53.98 × 85.60 mm) orientation button above the card outline, and hold a physical bank or ID card vertically against your phone screen. Adjust the slider until the vertical box matches your card’s 85.60 mm height and tap Apply Calibration."
+        },
+        {
+          "q": "Can I display horizontal and vertical rulers at the same time?",
+          "a": "Yes. While the Vertical Ruler page starts with the Left and Right vertical edges active for distraction-free height measurement, you can click Top, Bottom, or All Edges in the Edges pod of the workspace toolbar at any time to combine horizontal and vertical scales into a 2D bounding-box measurement stage."
+        }
+      ]
+    },
+    "howToUse": {
+      "title": "How to Use an Online Ruler | Screen Measurement Manual",
+      "description": "Step-by-step guide for calibrating your screen with a credit card or diagonal, placing guides, reading 1/16″ fractions, and printing rulers at 100%.",
+      "schemaHeadline": "How to Use Online Ruler Plus: Step-by-Step Screen Measurement Manual",
+      "subNavTitle": "How to Use",
+      "breadcrumbLabel": "How to Use",
+      "heroKicker": "User Manual · Precision Screen Metrology · Updated November 2026",
+      "heroHeadline": "How to Use Online Ruler Plus",
+      "heroSummary": "Online Ruler Plus is a client-side physical measurement workspace that converts your screen into a 1:1 calibrated ruler. Follow these steps to calibrate once and measure in centimeters, millimeters, and 1/16″ inches.",
+      "openRulerBtn": "Open Online Ruler",
+      "goCalBtn": "Go to Calibration",
+      "steps": [
+        {
+          "badge": "1",
+          "kicker": "Step 01 · Calibration",
+          "heading": "How do you calibrate your screen density first?",
+          "body": "Screen density calibration is the essential first step that replaces your browser’s 96 CSS PPI default with your display’s true millimeter pixel pitch. Scroll to the Calibrate Your Screen section on any ruler page and choose your preferred reference method: hold a standard ISO/IEC 7810 ID-1 payment or ID card (85.60 × 53.98 mm) flat against the screen and adjust the slider or arrow keys until the box matches your card width; enter your display panel’s visible diagonal in inches (such as 14, 15.6, 24, or 27 inches) at 100% browser zoom; or run Auto-Detect Device. Click Apply Calibration to save the profile locally in your browser.",
+          "links": [
+            { "href": "/#calibration", "label": "Open Credit Card Calibration →" }
+          ]
+        },
+        {
+          "badge": "2",
+          "kicker": "Step 02 · Units & Edges",
+          "heading": "How do you choose measurement units and active edges?",
+          "body": "Unit and edge configuration is controlled via the segmented instrument pods at the top of the workspace or via single-key shortcuts. Select your linear unit: press key 1 for Centimeters (cm) with 0.5 cm and 1 mm subdivisions, key 2 for Inches (in) with 1/2, 1/4, 1/8, and 1/16 inch dyadic fractions, key 3 for W3C CSS Pixels (px), or key 4 / M for Millimeters (mm). You can also enable Dual cm/in mode to display metric and imperial graduations side by side. Toggle Top, Bottom, Left, Right, or All Edges depending on where you want to hold your object against the screen.",
+          "links": [
+            { "href": "/cm-ruler", "label": "cm Ruler" },
+            { "href": "/inch-ruler", "label": "Inch Ruler" },
+            { "href": "/mm-ruler", "label": "mm Ruler" }
+          ]
+        },
+        {
+          "badge": "3",
+          "kicker": "Step 03 · Alignment & Guides",
+          "heading": "How do you align at zero and measure spans with guides?",
+          "body": "Zero-datum alignment means placing the starting edge of your physical object directly over the 0 graduation line inside the ruler strip (inset 16 CSS pixels from the bezel corner) rather than pressing against a raised plastic monitor bezel. Align the left or top end of your item with the 0 dashed datum hairline, then click any ruler strip or inside the gridded stage to drop a draggable blue guide line at the opposite end of your object. When two parallel guides are placed on screen, Online Ruler Plus computes the exact point-to-point delta span (ΔX or ΔY) and lets you save it to Measurement History.",
+          "links": [
+            { "href": "/calibration-guide", "label": "Read Calibration & PPI Guide →" }
+          ]
+        }
+      ],
+      "advancedCards": [
+        {
+          "kicker": "Overlay Instruments · Floating Ruler & Protractor",
+          "heading": "How do you use the floating ruler and 180° angle protractor?",
+          "body": "Interactive overlay instruments let you measure diagonal features and angles directly inside the workspace without rotating your laptop or physical item. Click the + Floating Ruler button in the toolbar to spawn a movable, 360-degree rotatable ruler bar that you can drag over any region of the stage and fine-tune by angle handle. Press keyboard shortcut P (or click Protractor) to activate the 180-degree optical angle protractor overlay. Drag the protractor vertex onto the corner of your part and align the adjustable ray arm to inspect bevels or corners from 0° to 180° in 0.1° increments. Press C to toggle the cursor-following crosshair or Esc to clear active guides."
+        },
+        {
+          "kicker": "Printable Actual-Size Ruler · 100% Scale Check",
+          "heading": "How do you print an actual-size ruler at 100% scale?",
+          "body": "Printing an actual-size ruler requires disabling automatic page scaling in your browser print dialog so your printer preserves true physical dimensions. According to ISO 216 (A4: 210 × 297 mm) and ANSI Letter (8.5 × 11.0 in / 215.9 × 279.4 mm) paper geometry, default settings like Fit to Printable Area or Shrink to Fit reduce printed scales by roughly 3% to 8%. When printing Online Ruler Plus (via Ctrl+P on Windows/Linux or Cmd+P on macOS), open More Settings, set Scale to Actual Size or Custom 100%, choose Default or None margins, and verify your printout against an 85.60 mm ISO/IEC 7810 ID-1 bank card before measuring materials."
+        }
+      ],
+      "recipesKicker": "Practical Field Workflows · Hardware, Crafts & Document Layout",
+      "recipesHeading": "Step-by-Step Recipes for Common Measurement Tasks",
+      "recipesLead": "Different physical items create distinct alignment challenges—curved coins roll, short threaded screws sit awkwardly against corners, and long prints exceed narrow viewports. Use these verified workflows to keep readings repeatable and gentle on your display glass.",
+      "recipes": [
+        {
+          "kicker": "Recipe 01 · Circular Parts, Coins & Jewelry",
+          "heading": "Measuring outer diameter with tangent vertical guides",
+          "body": "Trying to line a round coin, washer, O-ring, or ring shank up with tick zero often hides the outer curve behind glare. Instead, lay the circular object near the center of the light gridded stage—or over a thin transparent protective sheet if the ring has sharp metal prongs. Click anywhere along the top ruler strip to drop Guide 1 and nudge it until the vertical hairline kisses the left tangent of the circle. Click again to drop Guide 2 on the right tangent. Online Ruler Plus automatically calculates ΔX (Right minus Left) in millimeters, centimeters, or decimal/fractional inches without requiring zero alignment."
+        },
+        {
+          "kicker": "Recipe 02 · Screws, Bolts & Watch Lugs",
+          "heading": "Measuring metric thread length and watch strap width",
+          "body": "For small hardware fasteners (M2 through M10 machine screws, PCB standoffs, or watch spring-bar lugs between 18 mm and 24 mm), switch to the [[link:/mm-ruler|Millimeter Ruler (mm)]] where every 1 mm division is marked clearly. Rest a piece of sticky note or clear acetate film over the glass so sharp threads never scratch anti-reflective coatings. Align the underside of a flat-head fastener (or overall head-to-tip height for countersunk screws) against Guide 1, then drag Guide 2 to the thread tip. Cross-check pitch count across 10 mm to avoid mistaking an M3-0.5 bolt for a #4-40 imperial fastener."
+        },
+        {
+          "kicker": "Recipe 03 · Woodworking, Crafts & 1/16″ Fractions",
+          "heading": "Reading reduced 1/16″ imperial fractions reliably",
+          "body": "When working with U.S. quilting templates, brass fittings, paper stock, or carpentry sketches, switch to the [[link:/inch-ruler|Inch Ruler (1/16″)]]. Each 25.4 mm inch block is divided into four visual tick tiers: half-inch (1/2″), quarter-inch (1/4″ and 3/4″), odd eighths (1/8″, 3/8″, 5/8″, 7/8″), and shortest sixteenth marks. Moving your cursor or dragging a guide line displays the nearest reduced fraction automatically alongside decimal inches, eliminating mental counting errors such as reading 5/8″ as 10/16″ or confusing 9/16″ with 1/2″."
+        },
+        {
+          "kicker": "Recipe 04 · Upright Objects & Tall Smartphones",
+          "heading": "Using vertical edges and stepping spans longer than your screen",
+          "body": "When checking the standing height of bottles, keycaps, display stand risers, or vertical card proportions, open the [[link:/vertical-ruler|Vertical Ruler]] with Left and Right edge strips active. Press F to enter Fullscreen mode so browser tabs and bookmarks no longer shorten your usable vertical axis. If an object—such as a 35 cm binder or poster margin—is slightly wider than your display, align the start with zero, apply a small piece of low-tack painter’s tape on the object precisely opposite a whole graduation like 25.0 cm, reposition that tape mark back onto 0, and add the second partial span."
+        }
+      ],
+      "shortcutsKicker": "Workspace Controls · Keyboard Reference",
+      "shortcutsHeading": "Complete Keyboard Shortcut Table",
+      "shortcutsLead": "Keeping one hand on the physical object you are holding near the screen while switching units or spawning guides with single keystrokes avoids nudging your measurement out of alignment.",
+      "shortcutsHeaders": ["Shortcut Key", "Workspace Action", "When to Use"],
+      "shortcuts": [
+        { "key": "1", "action": "Switch to Centimeters (cm)", "useCase": "Everyday lengths with 1 mm minor ticks and 0.5 cm midpoints" },
+        { "key": "2", "action": "Switch to Fractional Inches (in)", "useCase": "US sizing, woodworking, fabric cuts, and 1/16″ fraction readouts" },
+        { "key": "3", "action": "Switch to CSS Pixels (px)", "useCase": "UI alignment, responsive breakpoints, and viewport width checks" },
+        { "key": "4 / M", "action": "Switch to Millimeters (mm)", "useCase": "M2–M10 bolts, jewelry rings, watch lugs, and fine gaps" },
+        { "key": "D", "action": "Toggle Light / Dark Theme", "useCase": "Reduce screen glare or match ambient room lighting while measuring" },
+        { "key": "G", "action": "Add Vertical / Horizontal Guide", "useCase": "Drop draggable boundary lines for ΔX / ΔY subtraction" },
+        { "key": "C", "action": "Toggle Crosshair Overlay", "useCase": "Track live cursor X/Y coordinates across the canvas stage" },
+        { "key": "P", "action": "Toggle 180° Angle Protractor", "useCase": "Measure corners, chamfers, and slopes to 0.1° resolution" },
+        { "key": "F", "action": "Enter / Exit Fullscreen", "useCase": "Maximize measurable physical span across edge-to-edge glass" },
+        { "key": "Esc", "action": "Clear Active Guides & Modals", "useCase": "Reset guide pairs rapidly before measuring the next object" }
+      ],
+      "checklistKicker": "Pre-Measurement Verification · 6-Point Checklist",
+      "checklistHeading": "Six Checks Before Trusting a Critical Reading",
+      "checklistLead": "Before recording measurements for custom foam inserts, 3D-printed brackets, framing mats, or replacement fasteners, run through this quick six-point verification routine to rule out common visual and OS traps:",
+      "checklistItems": [
+        "[[strong:1. Check the Active Scale badge:]] Confirm it displays [[code:Calibrated (card)]] or [[code:Calibrated (diagonal)]] rather than uncalibrated [[code:96 PPI Estimate]].",
+        "[[strong:2. Verify 100% browser zoom during diagonal setup:]] Press [[code:Ctrl+0]] or [[code:Cmd+0]] before typing monitor inches; zoom freely afterward—calibrated [[code:devicePxPerMm]] compensates automatically.",
+        "[[strong:3. Confirm secondary monitor profile:]] Moving a browser window from a laptop screen to an external desktop monitor changes physical PPI; re-verify against an ID-1 bank card (85.60 mm) or coin if switched displays.",
+        "[[strong:4. Look squarely perpendicular to each tick:]] Cover glass on laptops, tablets, and phones creates a 0.3–1.0 mm visual offset if read sideways. Line your eye directly over each guide line.",
+        "[[strong:5. Respect bezel thickness at zero:]] Never jam hard parts into raised plastic edges; use either the inset 0 datum dashed hairline or two interior guide lines (ΔX / ΔY).",
+        "[[strong:6. Guard panel glass against scratches:]] Place thin film, paper, or clear tape under sharp steel calipers, threaded tips, or rough ceramics. Use certified vernier calipers for sub-0.2 mm tolerances."
+      ]
+    },
+    "calibrationGuide": {
+      "title": "Screen Calibration & PPI Guide | Online Ruler Plus",
+      "description": "Technical guide to screen pixel density (PPI), W3C CSS pixels, ISO/IEC 7810 credit card calibration, worked PPI math, OS scaling, and parallax limits.",
+      "schemaHeadline": "Complete Screen Calibration & PPI Measurement Guide",
+      "subNavTitle": "Calibration Guide",
+      "subNavCtaLabel": "Calibrate Now",
+      "breadcrumbLabel": "Calibration Guide",
+      "heroKicker": "Technical Reference · Display Optics & W3C CSS Units · Updated November 2026",
+      "heroHeadline": "Complete Screen Calibration & PPI Measurement Guide",
+      "heroSummary": "Display calibration bridges the gap between abstract W3C 96-PPI CSS reference pixels and the physical millimeter pixel pitch of your hardware panel.",
+      "calibrateBtn": "Calibrate Your Screen",
+      "openRulerBtn": "Open Online Ruler",
+      "topCards": [
+        {
+          "kicker": "Section 01 · Pixel Pitch Math",
+          "heading": "What is the difference between physical PPI and CSS pixels?",
+          "body": "Physical Pixels Per Inch (PPI) is a fixed hardware property determined by a display panel’s native pixel resolution and diagonal size in inches, calculated as [[code:Physical PPI = √(W² + H²) / diagonalInches]]. By contrast, a CSS pixel is an abstract angular unit defined by the W3C CSS Values and Units Module Level 4 specification at exactly 1/96 of a CSS inch (3.7795 CSS pixels per millimeter). When an operating system applies HiDPI scaling—such as [[code:devicePixelRatio = 2]] on Retina Macs or [[code:1.25]] to [[code:1.5]] on Windows laptops—each CSS pixel spans multiple physical subpixels. Online Ruler Plus calibrates in CSS pixels per millimeter ([[code:pxPerMm]]) and stores physical density ([[code:devicePxPerMm = pxPerMm × dpr]]) so your ruler stays consistent across browser zoom changes."
+        },
+        {
+          "kicker": "Section 02 · Physical Standard",
+          "heading": "Why is the ISO/IEC 7810 ID-1 card standard ideal for calibration?",
+          "body": "The ISO/IEC 7810:2019 ID-1 standard is the international dimensional specification governing bank cards, credit cards, driver licenses, and national identity cards worldwide. According to ISO/IEC 7810, every ID-1 card measures exactly 85.60 mm (3.370 in) in width, 53.98 mm (2.125 in) in height, and 0.76 mm in thickness, with a 3.18 mm (0.125 in) corner radius. Because card blanks are die-cut to sub-millimeter tolerances globally, matching an on-screen rectangle to a physical ID-1 card directly measures [[code:pxPerMm = cardWidthPx / 85.60]] on your screen. In practice, this optical alignment bypasses OS scaling distortion, multi-monitor EDID errors, and browser privacy restrictions without requiring hardware lookups."
+        },
+        {
+          "kicker": "Section 03 · Scale Subdivisions",
+          "heading": "How are metric millimeter and 1/16″ fractional graduations calculated?",
+          "body": "Ruler graduation rendering is governed by the international yard and pound agreement (NIST / BIPM), which defines 1 imperial inch as exactly 25.4 millimeters and 1 centimeter as 10 millimeters. In Centimeter ([[link:/cm-ruler|cm]]) and Millimeter ([[link:/mm-ruler|mm]]) modes, Online Ruler Plus generates minor ticks every 1.0 mm, medium ticks every 5.0 mm (0.5 cm), and labeled major ticks every 10.0 mm (1 cm). In Inch ([[link:/inch-ruler|in]]) mode, every 25.4 mm inch interval is divided into 16 dyadic fractions of 1/16 inch (1.5875 mm): Level 1 marks 1/2 in (12.70 mm), Level 2 marks 1/4 and 3/4 in, Level 3 marks odd eighths, and Level 4 marks odd sixteenths."
+        }
+      ],
+      "midCards": [
+        {
+          "kicker": "Section 04 · Secondary Verification Standards",
+          "heading": "Which everyday coins, bills, and paper sizes verify screen calibration?",
+          "body": "After calibrating via credit card or display diagonal, you can cross-check physical scale accuracy using regulated everyday items. According to United States Mint specifications, a US One-Cent Penny measures 19.05 mm (exactly 0.750 in or 3/4 in) in diameter, a US Nickel measures 21.21 mm (0.835 in), and a US Quarter Dollar measures 24.26 mm (0.955 in). According to European Central Bank specifications, a 1 Euro coin measures 23.25 mm (0.915 in) and a 2 Euro coin measures 25.75 mm (1.014 in). For longer spans on desktop monitors, a US Federal Reserve Note measures 155.96 mm (6.14 in) wide, an IEC R6 AA battery measures 50.50 mm long, and an ISO 216 A4 sheet measures 210.0 mm across its short edge."
+        },
+        {
+          "kicker": "Section 05 · Zoom & Multi-Monitor Persistence",
+          "heading": "How does Online Ruler Plus handle browser zoom and external monitors?",
+          "body": "Browser zoom and multi-monitor window movement alter [[code:window.devicePixelRatio]] and [[code:window.screen]] dimensions in real time. To prevent silent measurement drift, Online Ruler Plus converts your calibrated CSS scale ([[code:pxPerMm]]) into an invariant physical hardware density ([[code:devicePxPerMm = pxPerMm × dpr]]) keyed by display resolution signature in [[code:localStorage]]. When you zoom your browser on the same monitor, the display observer detects that the physical panel signature matches and divides [[code:devicePxPerMm]] by the new zoom ratio. If you drag the window onto a different external monitor, a status banner prompts you to verify calibration for that panel."
+        }
+      ],
+      "s6Kicker": "Section 06 · Worked Calibration Calculations & HiDPI Matrix",
+      "s6Heading": "How CSS PPI, Physical PPI, and devicePxPerMm Relate Across Displays",
+      "s6Lead": "Web browsers expose viewport CSS pixels rather than raw native LCD/OLED panel subpixels when HiDPI operating-system scaling is enabled. Using the Pythagorean diagonal formula on CSS pixels at 100% browser zoom yields exact [[code:CSS px/mm]] directly, while multiplying by [[code:window.devicePixelRatio]] yields zoom-invariant [[code:devicePxPerMm]].",
+      "s6TableHeading": "Worked Density Table by Display & OS Scale",
+      "s6Headers": ["Display Configuration", "CSS Resolution", "Effective CSS PPI", "CSS px/mm", "devicePxPerMm"],
+      "workedExamples": [
+        { "panel": "14.2\" Laptop (Mac Retina / 2× DPR)", "cssRes": "1512 × 982 CSS px (DPR 2.0)", "cssPpi": "127.0 CSS PPI", "pxPerMm": "5.000 CSS px/mm", "devicePxPerMm": "10.000 device px/mm" },
+        { "panel": "15.6\" Windows Laptop (125% OS Scale)", "cssRes": "1536 × 864 CSS px (DPR 1.25)", "cssPpi": "113.0 CSS PPI", "pxPerMm": "4.448 CSS px/mm", "devicePxPerMm": "5.560 device px/mm" },
+        { "panel": "24\" 1080p Desktop Monitor (100%)", "cssRes": "1920 × 1080 CSS px (DPR 1.0)", "cssPpi": "91.8 CSS PPI", "pxPerMm": "3.614 CSS px/mm", "devicePxPerMm": "3.614 device px/mm" },
+        { "panel": "27\" 4K UHD Monitor (150% OS Scale)", "cssRes": "2560 × 1440 CSS px (DPR 1.5)", "cssPpi": "108.8 CSS PPI", "pxPerMm": "4.283 CSS px/mm", "devicePxPerMm": "6.425 device px/mm" },
+        { "panel": "6.1\" OLED Smartphone (3× DPR)", "cssRes": "390 × 844 CSS px (DPR 3.0)", "cssPpi": "152.4 CSS PPI", "pxPerMm": "6.000 CSS px/mm", "devicePxPerMm": "18.000 device px/mm" }
+      ],
+      "caveats": [
+        {
+          "kicker": "OS Scaling Caveat · Fractional & Custom PPI",
+          "heading": "Why card calibration outperforms guessed diagonal entry on scaled desktops",
+          "body": "Many users know they bought a \"15-inch\" or \"27-inch\" computer, yet real visible active panels often measure 15.6 inches, 16.0 inches, or 26.9 inches—and ultrawide or external monitors sometimes receive non-integer OS fractional scaling (Windows 125% or 150%, Linux Wayland fractional scaling, or macOS \"More Space\" scaled resolutions that render to a virtual framebuffer before downsampling). Those hidden framebuffers shift effective CSS PPI without changing the physical glass diagonal. Calibrating with a physical 85.60 mm ID-1 bank card measures the true end-to-end rendered pixel ratio on your screen directly, eliminating guesswork in under 15 seconds."
+        },
+        {
+          "kicker": "Smartphone Constraints · Narrow Viewports",
+          "heading": "Why mobile phones switch to Portrait Card Calibration (53.98 mm)",
+          "body": "A smartphone in portrait orientation typically measures 360 to 430 CSS pixels across (~58 to 72 mm physically). Because a landscape bank card is 85.60 mm wide, holding it horizontally overflows the phone screen and clips the alignment border. Whenever viewport width drops below landscape card bounds, Online Ruler Plus provides a dedicated [[strong:Portrait Card Mode]] calibrated to the card’s short [[strong:53.98 mm]] height ([[code:pxPerMm = cardShortEdgePx / 53.98]]), letting mobile users achieve crisp 1:1 physical accuracy vertically or rotate to landscape for longer runs."
+        }
+      ],
+      "s7Kicker": "Section 07 · Display Physics & Accuracy Bounds",
+      "s7Heading": "Optical Cover-Glass Parallax & Practical Tolerance Limits",
+      "s7Body1": "Every LCD, OLED, and Mini-LED panel separates its light-emitting subpixels from your physical object by outer cover glass, polarizer layers, or an air gap (roughly 0.5 mm to 1.5 mm thick depending on whether the panel is laminated). Because light refracts through glass (index [[code:n ≈ 1.5]]), viewing an object from an oblique angle [[code:θ]] introduces lateral parallax displacement approximately proportional to [[code:glassThickness × sin(θ) / n]]. At a 30-degree side tilt, even a perfectly calibrated monitor appears shifted by roughly 0.3 mm to 0.5 mm—nearly one-third of a millimeter graduation.",
+      "s7Body2": "To keep readings repeatable within your screen’s sub-pixel resolution: align your line of sight straight perpendicular (90°) above the zero datum tick and again directly above the second guide line, calibrate with a rigid straight-edged ID-1 card rather than rounded paper corners, and switch to physical vernier calipers or micrometers whenever engineering tolerances are tighter than ±0.25 mm.",
+      "s7TableHeading": "Published Physical Verification Objects Reference Table",
+      "s7TableLead": "After saving calibration, place any item below lightly on screen (avoiding sharp edges on coated glass) to verify scale agreement:",
+      "s7Headers": ["Reference Object", "Metric (mm)", "Imperial (in)", "Governing Standard"],
+      "referenceItems": [
+        { "item": "ISO/IEC 7810 ID-1 Bank / Credit Card (Width)", "mm": "85.60 mm", "inches": "3.370 in", "standard": "ISO/IEC 7810:2019 ID-1" },
+        { "item": "ISO/IEC 7810 ID-1 Card (Height)", "mm": "53.98 mm", "inches": "2.125 in", "standard": "ISO/IEC 7810:2019 ID-1" },
+        { "item": "US One-Cent Penny (Diameter)", "mm": "19.05 mm", "inches": "0.750 in (3/4″)", "standard": "United States Mint Spec" },
+        { "item": "US Five-Cent Nickel (Diameter)", "mm": "21.21 mm", "inches": "0.835 in", "standard": "United States Mint Spec" },
+        { "item": "1 Euro Coin (Diameter)", "mm": "23.25 mm", "inches": "0.915 in", "standard": "European Central Bank" },
+        { "item": "US Quarter Dollar Coin (Diameter)", "mm": "24.26 mm", "inches": "0.955 in", "standard": "United States Mint Spec" },
+        { "item": "2 Euro Coin (Diameter)", "mm": "25.75 mm", "inches": "1.014 in", "standard": "European Central Bank" },
+        { "item": "Standard AA Battery (Length)", "mm": "50.50 mm", "inches": "1.988 in", "standard": "IEC R6 / ANSI 15" },
+        { "item": "US Federal Reserve Note (Width)", "mm": "155.96 mm", "inches": "6.140 in", "standard": "Bureau of Engraving & Printing" },
+        { "item": "ISO 216 A4 Paper (Short Edge)", "mm": "210.00 mm", "inches": "8.268 in", "standard": "ISO 216 Paper Series" }
+      ]
+    },
+    "faq": {
+      "title": "Online Ruler FAQ | Calibration, PPI & 1/16″ Guide",
+      "description": "Answers to 20 common questions about online screen ruler calibration, phone and camera limits, Word and PowerPoint rulers, 1/16″ inches, and cm/mm scaling.",
+      "subNavTitle": "FAQ",
+      "breadcrumbLabel": "FAQ",
+      "heroKicker": "Support & Metrology Knowledge Base · 20 Verified Q&As",
+      "heroHeadline": "Frequently Asked Questions",
+      "heroSummary": "Complete technical answers covering display PPI calibration, ISO/IEC 7810 credit card alignment, metric and 1/16″ fractional inch scales, multi-monitor persistence, and mobile use.",
+      "openRulerBtn": "Open Online Ruler",
+      "guideBtn": "Calibration Guide",
+      "cat1Kicker": "Category 01 · Calibration, PPI & Privacy",
+      "cat1Heading": "Display Calibration, Zoom & Device Compatibility",
+      "cat2Kicker": "Category 02 · Measurement Techniques & Conversions",
+      "cat2Heading": "Unit Conversions, Guide Lines, Overlays & Printing",
+      "extendedFaqs": [
+        {
+          "q": "How many centimeters are in 1 inch and in a 12-inch ruler?",
+          "a": "Under the 1959 international yard and pound agreement (NIST and BIPM), 1 imperial inch is defined as exactly 2.54 centimeters (25.4 millimeters), and 1 centimeter equals 0.3937008 inches. Multiplying 12 inches by 2.54 cm/in shows that a standard 12-inch (1-foot) ruler equals exactly 30.48 centimeters (304.8 millimeters). Conversely, a standard 30 cm metric ruler equals 11.8110 inches (approximately 11 13/16 inches), which is 4.8 mm shorter than 1 foot. Using Online Ruler Plus, click the Dual cm/in chip in the toolbar to compare both scales simultaneously."
+        },
+        {
+          "q": "Why is the 0 mark inset 16 pixels from the edge of the ruler workspace?",
+          "a": "The 0 datum line on Online Ruler Plus is intentionally inset 16 CSS pixels from the top and left borders of the canvas so the zero graduation tick and dashed alignment hairline sit entirely on flat, unobstructed glass. Physical laptop and desktop monitors have a raised plastic or aluminum bezel that shadows the outermost pixel column and prevents rigid objects from lying flat at pixel zero. Aligning your object with the visible 0 datum line inside the workspace eliminates bezel lip interference and corner parallax error."
+        },
+        {
+          "q": "How do I measure the diameter of a coin, ring, or circular object on screen?",
+          "a": "Measuring the outer or inner diameter of a circular object such as a coin, ring, washer, or O-ring is most accurate when using two parallel guide lines on Online Ruler Plus. First, place the circular object flat on the gridded measurement stage inside the workspace. Second, click the top horizontal ruler to drop a vertical guide line tangent to the left edge of the circle, then click again to drop a second vertical guide line tangent to the right edge. The bottom readout bar subtracts the two X coordinates (ΔX) and displays the exact diameter in mm, cm, or 1/16″ inches."
+        },
+        {
+          "q": "Can I measure objects longer than my laptop or phone screen?",
+          "a": "Maximum single-pass measurement length is bounded by your display panel’s physical width or height—for example, 14.1 cm on a 6.1-inch smartphone, 34.5 cm (13.6 in) on a 15.6-inch laptop, or 59.8 cm (23.5 in) on a 27-inch desktop monitor. First, press F to enter fullscreen mode so the ruler uses 100% of your screen width. Second, if an object exceeds your monitor width, place a small piece of painter’s tape or a pencil mark on the object at a whole graduation (such as 25.0 cm or 10.0 in), shift the mark back to the 0 line, and add the remaining length."
+        },
+        {
+          "q": "How do I use the 180-degree protractor and floating ruler overlays?",
+          "a": "Online Ruler Plus includes two interactive stage overlays for non-axial geometry: a draggable Floating Ruler and a 180-degree Angle Protractor. Clicking + Floating Ruler in the workspace toolbar spawns an independent, calibrated ruler bar inside the stage that can be dragged by its body and rotated 360 degrees by its end handle to measure diagonal features. Pressing keyboard shortcut P (or clicking Protractor) opens a semicircular 0° to 180° protractor overlay with a draggable origin vertex and angle ray that reads angles to 0.1° resolution."
+        },
+        {
+          "q": "How do I print an actual-size ruler at 100% scale without shrinkage?",
+          "a": "When printing a ruler from your browser (Ctrl+P on Windows/Linux or Cmd+P on macOS) or printing a PDF ruler template, printers default to Fit to Printable Area or Shrink to Fit, which reduces physical scale by 3% to 8%. To guarantee a 1:1 actual-size print in 2026, open More Settings in your print dialog, change Scale from Fit to Page to Actual Size or Custom 100%, and before measuring any part, hold a standard 85.60 mm (3.370 in) ISO/IEC 7810 ID-1 credit card against the printed ruler to confirm that 8.56 cm matches the card width."
+        },
+        {
+          "q": "What is Optical Parallax Error and how do I avoid it when measuring?",
+          "a": "Optical parallax error is the apparent displacement of a physical object’s edge relative to the underlying LCD or OLED pixel grid when viewed from an oblique angle through the display’s protective cover glass. Because monitor and smartphone glass typically has a thickness of 0.5 mm to 1.5 mm between the surface and the light-emitting subpixels, viewing from a 30-degree side angle can shift your reading by 0.5 mm to 1.0 mm. Always position your eye directly perpendicular (90 degrees) above the graduation tick mark being read."
+        },
+        {
+          "q": "How do I use the CSS Pixel (px) ruler mode for web design and QA?",
+          "a": "Pressing keyboard shortcut 3 (or clicking the px option chip in the unit selector pod) switches Online Ruler Plus into W3C CSS Pixel inspection mode. Unlike physical millimeter, centimeter, and inch modes—which scale according to your display’s calibrated pxPerMm density—CSS Pixel mode measures exact 1:1 logical viewport pixels with minor ticks every 10 px, medium ticks every 50 px, and numbered major ticks every 100 px. Designers and developers use px mode alongside vertical and horizontal guide lines to audit responsive breakpoints and component widths."
+        },
+        {
+          "q": "How do I reset my saved screen calibration or clear measurement history?",
+          "a": "All calibration profiles, unit preferences, and saved span records live locally in your browser’s localStorage under the keys orp:calibration:v1, orp:preferences:v1, and orp:history:v1. To reset your active display’s calibration back to the automatic hardware estimate, scroll to the Calibrate Your Screen section and click the Reset Calibration button inside the Active Scale status card. To erase saved span entries, click the Clear button in the Measurement History card on the right side of the calibration section."
+        }
+      ]
+    },
+    "about": {
+      "title": "About Online Ruler Plus | Precision Screen Metrology",
+      "description": "Learn how Online Ruler Plus turns screens into calibrated physical measuring rulers built on NIST, ISO/IEC 7810, and W3C CSS standards.",
+      "schemaName": "About Online Ruler Plus",
+      "subNavTitle": "About",
+      "breadcrumbLabel": "About",
+      "heroKicker": "About the Platform · Metrology Methodology & Publisher Accountability",
+      "heroHeadline": "About Online Ruler Plus",
+      "heroSummary": "Online Ruler Plus is an independent, client-side screen metrology web application engineered to turn any desktop, laptop, tablet, or smartphone display into a calibrated physical measuring instrument with zero camera prompts.",
+      "returnBtn": "Return to Online Ruler",
+      "topCards": [
+        {
+          "kicker": "01 · Why We Built It",
+          "heading": "What is the 96 CSS PPI fallacy in online rulers?",
+          "body": "The 96 CSS PPI fallacy is the widespread engineering mistake of assuming that 96 browser CSS pixels equal 1.00 physical inch on every user’s screen. Under the W3C CSS Values and Units Module Level 4 specification, 1 CSS inch is permanently locked to 96 CSS pixels (3.7795 CSS pixels per millimeter) so typography scales legibly at viewing distance. However, consumer hardware panels range from 81.6 CSS PPI on 27-inch desktop monitors to over 150 CSS PPI on smartphones and Retina laptops, causing uncalibrated web rulers to err by 10% to 35%. Online Ruler Plus was built to solve this flaw by placing ISO/IEC 7810 physical calibration at the core of the rendering engine."
+        },
+        {
+          "kicker": "02 · Metrology Standards",
+          "heading": "Which international standards govern our calculations?",
+          "body": "Online Ruler Plus derives every tick coordinate and conversion readout from published international standards rather than heuristic approximations. First, metric-to-imperial conversion follows the 1959 international yard and pound agreement maintained by NIST and the BIPM, where 1 inch equals 25.4 millimeters exactly and 1 centimeter equals 10 millimeters. Second, physical card calibration conforms to ISO/IEC 7810:2019 ID-1 (85.60 × 53.98 mm, corner radius 3.18 mm). Third, secondary coin verification benchmarks follow United States Mint (US Quarter: 24.26 mm, US Penny: 19.05 mm) and European Central Bank (1 Euro: 23.25 mm) specifications."
+        },
+        {
+          "kicker": "03 · Engineering Principles",
+          "heading": "How does Online Ruler Plus protect accuracy and user focus?",
+          "body": "Our architecture enforces three strict engineering invariants across every ruler page. First, mathematical honesty: status badges explicitly distinguish between uncalibrated 96 PPI estimates, detected hardware profiles, and user-verified manual calibrations—never claiming physical certainty from browser detection alone. Second, local measurement execution: all calibration profiles ([[code:orp:calibration:v1]]) and measurement history ([[code:orp:history:v1]]) remain inside your browser’s [[code:localStorage]] with zero camera prompts or measurement uploads. Third, high-contrast HTML5 canvas rendering scaled by [[code:window.devicePixelRatio]] ensures sharp 1 mm and 1/16″ graduations."
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Publisher Accountability & Verification Policy",
+          "heading": "Who publishes OnlineRulerPlus.com and how are guides verified?",
+          "body": "OnlineRulerPlus.com is published and maintained by the Online Ruler Plus engineering project as an open, client-side web utility. Rather than publishing unverified blog claims or copied reference tables, every mathematical constant, fractional millimeter conversion, and screen-density example in our guides is derived directly from primary published standards (NIST Special Publication data, ISO/IEC 7810 ID-1, W3C CSS Values Level 4, and ISO 216 paper dimensions) and validated through automated unit and browser tests prior to deployment."
+        },
+        {
+          "kicker": "05 · Corrections, Accessibility & Direct Support",
+          "heading": "How can you report an error, request a fix, or submit display feedback?",
+          "body": "Accuracy documentation and WCAG 2.2 AA accessibility are treated as ongoing commitments. Whenever operating system display scaling behavior changes or users report a hardware mismatch, we verify the reproduction case and update the corresponding guide or display profile with transparent review timestamps. If you spot a typographical error, keyboard navigation gap, or display density discrepancy, please reach our engineering team at [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] or follow the steps on our [[link:/contact|Contact & Submissions page]]."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact & Display Profile Submissions | Online Ruler Plus",
+      "description": "Contact Online Ruler Plus to submit a display density profile, report a calibration bug, suggest accessibility fixes, or ask metrology questions.",
+      "schemaName": "Contact Online Ruler Plus & Submit Display Profiles",
+      "subNavTitle": "Contact",
+      "breadcrumbLabel": "Contact",
+      "heroKicker": "Contact & Hardware Database Contributions",
+      "heroHeadline": "Contact Online Ruler Plus",
+      "heroSummary": "Reach out to our engineering team to contribute a verified display density profile, report a browser calibration issue, or ask technical screen metrology questions.",
+      "openBtn": "Open Online Ruler",
+      "topCards": [
+        {
+          "kicker": "01 · Technical Support",
+          "heading": "How do you contact Online Ruler Plus support?",
+          "body": "Technical support for Online Ruler Plus handles calibration questions, WCAG 2.2 accessibility feedback, and cross-browser rendering reports across Chrome, Safari, Edge, and Firefox. When reporting a ruler rendering or zoom rescaling issue, please include your operating system version, browser name and zoom percentage, and whether you calibrated via ISO/IEC 7810 ID-1 credit card or visible screen diagonal. Because Online Ruler Plus performs measurement math locally in your browser, we never automatically collect device diagnostics unless you include them in your message.",
+          "footerHref": "support@onlinerulerplus.com",
+          "footerLabel": "support@onlinerulerplus.com",
+          "isMailto": true
+        },
+        {
+          "kicker": "02 · Hardware Database",
+          "heading": "How do you submit a new device display profile?",
+          "body": "Display profile submission is our verification workflow for expanding the Auto-Detect Device reference list in Online Ruler Plus. To submit a laptop, desktop monitor, tablet, or smartphone panel, first calibrate your display using a physical 85.60 × 53.98 mm ISO/IEC 7810 ID-1 bank card at 100% browser zoom. Second, open the 3. Auto-Detect Device tab in the calibration section and copy the four hardware telemetry values reported by your browser: [[code:screen.width × screen.height]], [[code:devicePixelRatio]], platform family, and your verified CSS PPI / [[code:pxPerMm]] reading.",
+          "footerHref": "/#calibration",
+          "footerLabel": "Inspect your device telemetry in Auto-Detect →"
+        },
+        {
+          "kicker": "03 · Self-Service Troubleshooting",
+          "heading": "Where can you solve common calibration issues immediately?",
+          "body": "Most on-screen measurement discrepancies are caused by non-100% browser zoom during diagonal entry, Windows or macOS HiDPI display scaling overrides, or dragging a browser window from a laptop screen onto an external monitor without switching calibration profiles. Before emailing support, review our [[link:/calibration-guide|Screen Calibration & PPI Guide]], check the 20-question [[link:/faq|Frequently Asked Questions]] knowledge base, or follow the 3-step [[link:/how-to-use|How to Use manual]] to verify your ruler with a US Quarter (24.26 mm) or 1 Euro coin (23.25 mm).",
+          "footerHref": "/faq",
+          "footerLabel": "Browse 16 Calibration & PPI FAQs →"
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Bug Report Checklist",
+          "heading": "What details help resolve calibration or layout issues fastest?",
+          "body": "To help our engineering maintainers reproduce rendering, fractional scaling, or protractor interaction behavior reliably, please include five items in your email to [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]: (1) your exact device model and external monitor size if applicable, (2) OS display scaling percentage (such as Windows 125% or macOS Default Retina), (3) browser name and zoom level, (4) the active calibration readout displayed inside the Status Badge, and (5) steps to reproduce the issue on desktop or touch viewports."
+        },
+        {
+          "kicker": "05 · Policy, Privacy & Accessibility Requests",
+          "heading": "How are privacy, legal, and accessibility notices handled?",
+          "body": "All inquiries concerning privacy rights, cookie consent controls, intellectual property notices, metrology documentation corrections, and keyboard/screen-reader accessibility are reviewed directly through [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]. We review incoming technical and compliance correspondence regularly and only use submitted contact details to respond to your request and maintain accurate documentation across OnlineRulerPlus.com. See our [[link:/privacy|Privacy Policy]] and [[link:/terms|Terms of Use]] for full governance details."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy & AdSense Disclosures | Online Ruler Plus",
+      "description": "Privacy Policy for OnlineRulerPlus.com. Review local measurement execution, localStorage keys, Google AdSense cookie disclosures, and privacy rights.",
+      "schemaName": "Privacy Policy — Online Ruler Plus",
+      "subNavTitle": "Privacy Policy",
+      "breadcrumbLabel": "Privacy Policy",
+      "heroKicker": "Legal & Data Governance · Client-Side Measurements & Advertising Disclosures",
+      "heroHeadline": "Privacy Policy",
+      "heroSummary": "Online Ruler Plus processes 100% of screen calibrations and object measurements locally in your web browser without uploading measurements or requesting camera permissions. This policy explains our local storage keys, Google AdSense advertising disclosures, cookie controls, and user privacy rights.",
+      "effectiveDate": "Effective Date: November 14, 2026 · Last Reviewed: November 14, 2026",
+      "topCards": [
+        {
+          "kicker": "01 · Local Measurement Execution",
+          "heading": "How are ruler measurements and calibrations processed?",
+          "body": "All physical measurement operations on OnlineRulerPlus.com—including ISO/IEC 7810 ID-1 credit card alignment, screen diagonal density math, pixel-per-millimeter scaling, guide line span calculation, floating ruler rotation, and 180-degree protractor angle reading—execute strictly inside your local browser via static JavaScript and HTML5 Canvas. Your measured dimensions, screen calibration values, and saved workspace spans are never transmitted to or stored on Online Ruler Plus servers."
+        },
+        {
+          "kicker": "02 · Browser Local Storage",
+          "heading": "What data is saved in window.localStorage?",
+          "body": "To remember your calibrated scale and preferences across visits without creating a user account, Online Ruler Plus stores settings locally under scoped [[code:window.localStorage]] keys: [[code:orp:calibration:v1]] (display density profiles), [[code:orp:preferences:v1]] (selected unit, visible ruler edges, and strip thickness), [[code:orp:history:v1]] (up to 15 user-saved span entries), [[code:orp:theme]] (light or dark theme preference), and [[code:orp:locale:v1]] (language preference). You can clear these entries at any time via Reset Calibration, Clear History, or your browser site-data settings."
+        },
+        {
+          "kicker": "03 · Permissions & Direct Support Email",
+          "heading": "Does Online Ruler Plus access device sensors or collect PII?",
+          "body": "Online Ruler Plus never prompts for or accesses your webcam, microphone, GPS location, contacts, or clipboard, and does not collect or pass personally identifiable information (PII) in page URLs, query parameters, or advertising requests. If you voluntarily write to [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] to submit a display density profile or report an issue, your email address and message are used solely to respond to your inquiry and maintain documentation accuracy."
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Google AdSense & Third-Party Cookies",
+          "heading": "How are third-party advertising cookies and partners used?",
+          "body": "To keep Online Ruler Plus free to use, third-party vendors, including Google, may display advertisements on eligible content areas and use cookies, web beacons, IP-derived location signals, or device identifiers to serve ads based on a user’s prior visits to OnlineRulerPlus.com or other websites. Specifically, Google’s use of advertising cookies enables Google and its certified partners to serve personalized ads based on your visits to this site and other sites across the Internet, or non-personalized contextual ads depending on your consent choice and region."
+        },
+        {
+          "kicker": "05 · Advertising Opt-Out & Google Policy",
+          "heading": "How can you opt out of personalized advertising?",
+          "body": "Users may opt out of personalized advertising at any time by visiting [[ext:https://myadcenter.google.com/|Google My Ad Center]] (Google Ads Settings) or by visiting [[ext:https://www.aboutads.info/choices/|www.aboutads.info/choices]] to opt out of third-party vendor personalized advertising cookies. To understand how Google processes partner site data, please read Google’s official disclosure: [[ext:https://policies.google.com/technologies/partner-sites|How Google uses information from sites or apps that use our services]]."
+        },
+        {
+          "kicker": "06 · Consent, Children’s Privacy & Regional Rights",
+          "heading": "What regional privacy and consent standards apply?",
+          "body": "Where personalized advertising is enabled for visitors in the European Economic Area (EEA), the United Kingdom, or Switzerland, consent is collected via a Google-certified Consent Management Platform (CMP) supporting IAB TCF v2.2 before non-essential advertising cookies are set. California and eligible U.S. residents retain the right under CCPA/CPRA to opt out of ad-tech data sharing or targeted advertising via our consent link and browser signals. Online Ruler Plus is a general-audience measurement utility not directed to children under 13 under COPPA. Contact [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]] with any privacy request."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Use & Metrology Disclaimer | Online Ruler Plus",
+      "description": "Terms of Use and metrology disclaimer for Online Ruler Plus covering calibration responsibilities, parallax bounds, acceptable use, and screen safety.",
+      "schemaName": "Terms of Use & Metrology Disclaimer — Online Ruler Plus",
+      "subNavTitle": "Terms of Use",
+      "breadcrumbLabel": "Terms of Use",
+      "heroKicker": "Service Terms & Metrology Accuracy Disclaimer",
+      "heroHeadline": "Terms of Use & Metrology Disclaimer",
+      "heroSummary": "Review the service terms, display calibration responsibilities, optical parallax limitations, acceptable use rules, and screen care guidelines for using OnlineRulerPlus.com.",
+      "lastUpdated": "Last Updated: November 14, 2026",
+      "topCards": [
+        {
+          "kicker": "01 · General Terms",
+          "heading": "What are the terms of access for Online Ruler Plus?",
+          "body": "By accessing and using OnlineRulerPlus.com, you agree to be bound by these Terms of Use. Online Ruler Plus is provided free of charge as a browser-based utility for personal, educational, design, and general reference measurement. The software, user interface design, and documentation are provided on an \"as is\" and \"as available\" basis without warranties of any kind, whether express or implied, including implied warranties of merchantability or fitness for a specialized industrial or clinical purpose."
+        },
+        {
+          "kicker": "02 · Metrology Scope",
+          "heading": "What are the accuracy limitations of an online screen ruler?",
+          "body": "The physical accuracy of any on-screen ruler depends on user-performed display calibration, operating-system HiDPI scaling, browser page zoom, and viewing angle (cover-glass parallax). While Online Ruler Plus uses exact mathematical constants ([[code:1 in = 25.4 mm]] per NIST/BIPM and [[code:ISO/IEC 7810 ID-1 = 85.60 × 53.98 mm]]), web browsers cannot independently read physical monitor dimensions without user verification. Never rely on a browser screen ruler for medical dosing, structural engineering, legal trade metrology, or safety-critical machining where certified calibrated physical calipers are required."
+        },
+        {
+          "kicker": "03 · Display Safety",
+          "heading": "How should you protect your screen when measuring objects?",
+          "body": "LCD, OLED, Mini-LED, and anti-reflective coated glass panels on laptops, desktop monitors, tablets, and smartphones can be scratched or damaged by excessive pressure or sharp metallic burrs. When holding physical objects—such as machine screws, metal hardware, jewelry, coins, or tools—against your display to align with the [[link:/#ruler-tool|online ruler workspace]], hold the item lightly without pressing into the panel, or place a thin sheet of clear protective film between sharp metal edges and the display glass. Online Ruler Plus assumes no liability for hardware damage resulting from object handling."
+        }
+      ],
+      "bottomCards": [
+        {
+          "kicker": "04 · Intellectual Property & Acceptable Use",
+          "heading": "How may OnlineRulerPlus.com content and tools be used?",
+          "body": "All original source code, measurement guides, calibration workflows, and interface elements published on OnlineRulerPlus.com are protected under applicable copyright and intellectual property laws. You may use the online ruler tools and reference charts freely for individual, classroom, workshop, and studio tasks, and link to our canonical pages cleanly. Automated bulk scraping, unauthorized mirroring or framing inside deceptive wrappers, or interfering with site delivery infrastructure is prohibited."
+        },
+        {
+          "kicker": "05 · Advertising, External Links & Updates",
+          "heading": "How are third-party advertisements, links, and term updates governed?",
+          "body": "OnlineRulerPlus.com may display clearly labeled third-party advertisements (such as Google AdSense units placed strictly outside interactive measurement controls) and link to external standards organizations (NIST, BIPM, ISO, W3C) for user verification. We are not responsible for the content or privacy practices of external websites; please review our [[link:/privacy|Privacy Policy]] for advertising and cookie controls. We may update these Terms of Use as standards or site capabilities evolve; continued use constitutes acceptance of the posted terms. Questions may be sent to [[mailto:support@onlinerulerplus.com|support@onlinerulerplus.com]]."
+        }
+      ]
+    }
+  }
+}

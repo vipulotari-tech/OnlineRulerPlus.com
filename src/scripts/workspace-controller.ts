@@ -22,6 +22,7 @@ import {
   type RulerThickness,
   type Unit,
 } from '../lib/ruler/index.ts';
+import { formatTemplate, getRuntimeDict } from '../i18n/runtime.ts';
 import {
   renderFloatingRulersLayer,
   renderGuidesLayer,
@@ -154,13 +155,15 @@ export class WorkspaceController {
     }
   }
 
-  public setUnit(unit: Unit): void {
+  public setUnit(unit: Unit, persist = true): void {
     this.prefs = { ...this.prefs, unit };
-    this.savePreferences();
+    if (persist) this.savePreferences();
     this.syncAll();
   }
 
   public toggleEdge(edge: RulerEdge): void {
+    const enabledCount = Object.values(this.prefs.edges).filter(Boolean).length;
+    if (this.prefs.edges[edge] && enabledCount <= 1) return;
     const nextEdges = { ...this.prefs.edges, [edge]: !this.prefs.edges[edge] };
     this.prefs = { ...this.prefs, edges: nextEdges };
     this.savePreferences();
@@ -183,7 +186,7 @@ export class WorkspaceController {
     this.syncAll();
   }
 
-  public setEdgePreset(preset: 'horizontal' | 'vertical' | 'all' | 'top-left'): void {
+  public setEdgePreset(preset: 'horizontal' | 'vertical' | 'all' | 'top-left', persist = true): void {
     const edges =
       preset === 'horizontal'
         ? { top: true, bottom: true, left: false, right: false }
@@ -193,7 +196,7 @@ export class WorkspaceController {
             ? { top: true, bottom: true, left: true, right: true }
             : { top: true, bottom: false, left: true, right: false };
     this.prefs = { ...this.prefs, edges };
-    this.savePreferences();
+    if (persist) this.savePreferences();
     this.syncAll();
   }
 
@@ -328,7 +331,14 @@ export class WorkspaceController {
     this.workspaceEl.classList.toggle('h-screen', this.pseudoFullscreen);
     this.workspaceEl.dataset.fullscreen = active ? 'true' : 'false';
     const btn = document.getElementById('btn-fullscreen');
-    if (btn) btn.setAttribute('aria-pressed', String(active));
+    if (btn) {
+      btn.setAttribute('aria-pressed', String(active));
+      const span = btn.querySelector('span');
+      if (span) {
+        const nextText = active ? btn.dataset.labelExit : btn.dataset.labelEnter;
+        if (nextText) span.textContent = nextText;
+      }
+    }
     this.syncAll();
   }
 
@@ -502,11 +512,20 @@ export class WorkspaceController {
       originInsetPx: ORIGIN_INSET_PX,
       dark,
       onRotate: (id) => {
-        this.floatingRulers = this.floatingRulers.map((r) =>
-          r.id === id
-            ? { ...r, orientation: r.orientation === 'horizontal' ? 'vertical' : 'horizontal' }
-            : r,
-        );
+        const stageW = this.stageEl.clientWidth;
+        const stageH = this.stageEl.clientHeight;
+        this.floatingRulers = this.floatingRulers.map((r) => {
+          if (r.id !== id) return r;
+          const nextOrient = r.orientation === 'horizontal' ? 'vertical' : 'horizontal';
+          const nextW = nextOrient === 'horizontal' ? r.lengthPx : 46;
+          const nextH = nextOrient === 'horizontal' ? 46 : r.lengthPx;
+          return {
+            ...r,
+            orientation: nextOrient,
+            x: Math.max(0, Math.min(r.x, Math.max(0, stageW - Math.min(nextW, 48)))),
+            y: Math.max(0, Math.min(r.y, Math.max(0, stageH - Math.min(nextH, 48)))),
+          };
+        });
         this.syncOverlays();
       },
       onMove: (id, x, y) => {
@@ -634,7 +653,7 @@ export class WorkspaceController {
       const maxH = Math.max(0, this.stageEl.clientHeight - ORIGIN_INSET_PX - 8);
       const wVal = formatValue(pxToUnit(maxW, this.prefs.unit, this.activeCal.pxPerMm), this.prefs.unit);
       const hVal = formatValue(pxToUnit(maxH, this.prefs.unit, this.activeCal.pxPerMm), this.prefs.unit);
-      readoutEl.textContent = `Range: ${wVal} × ${hVal}`;
+      readoutEl.textContent = `${getRuntimeDict().rangeLabel} ${wVal} × ${hVal}`;
       return;
     }
 
@@ -681,10 +700,14 @@ export class WorkspaceController {
     });
 
     document.getElementById('btn-save-span')?.addEventListener('click', () => {
+      const rt = getRuntimeDict();
       const badge = document.getElementById('guide-span-readout');
       const px = Number(badge?.dataset.spanPx ?? 0);
-      const label = badge?.dataset.spanLabel ?? 'Measured span';
+      const label = badge?.dataset.spanLabel ?? formatTemplate(rt.spanGuideLabel, { axis: 'ΔX' });
+      const yPx = Number(badge?.dataset.spanYPx ?? 0);
+      const yLabel = badge?.dataset.spanYLabel ?? formatTemplate(rt.spanGuideLabel, { axis: 'ΔY' });
       if (px > 0) this.recordMeasurement(px, label);
+      if (yPx > 0) this.recordMeasurement(yPx, yLabel);
     });
 
     document.getElementById('btn-clear-history')?.addEventListener('click', () => this.clearHistory());
@@ -735,7 +758,7 @@ export class WorkspaceController {
         this.crosshairYEl.style.top = `${stageY}px`;
         this.crosshairBadgeEl.style.left = `${Math.min(stageRect.width - 150, stageX + 10)}px`;
         this.crosshairBadgeEl.style.top = `${Math.max(8, stageY - 28)}px`;
-        this.crosshairBadgeEl.textContent = `${this.formatCoord(x)}, ${formatValue(pxToUnit(y, this.prefs.unit, this.activeCal.pxPerMm), this.prefs.unit)}`;
+        this.crosshairBadgeEl.textContent = `${this.formatCoord(x)}, ${this.formatCoord(y)}`;
       } else {
         this.crosshairXEl.classList.add('hidden');
         this.crosshairYEl.classList.add('hidden');

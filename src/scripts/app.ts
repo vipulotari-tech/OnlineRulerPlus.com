@@ -1,15 +1,15 @@
 import { isUnit, STORAGE_KEYS } from '../lib/ruler/index.ts';
 import { CalibrationController } from './calibration-controller.ts';
+import { initLanguageSelector } from './language-selector.ts';
 import { WorkspaceController } from './workspace-controller.ts';
 
 function initTheme(onThemeChanged?: () => void): void {
   const syncButtons = (dark: boolean) => {
     document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((btn) => {
       btn.setAttribute('aria-pressed', String(dark));
-      btn.setAttribute(
-        'aria-label',
-        dark ? 'Switch to light theme (D)' : 'Switch to dark theme (D)',
-      );
+      if (btn.dataset.labelSwitch) {
+        btn.setAttribute('aria-label', btn.dataset.labelSwitch);
+      }
     });
   };
 
@@ -123,6 +123,13 @@ function initHelpDialog(): void {
 
   window.addEventListener('orp:toggle-help', toggle);
   window.addEventListener('orp:close-dialogs', () => setOpen(false));
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      e.preventDefault();
+      e.stopPropagation();
+      setOpen(false);
+    }
+  });
 }
 
 function initBannerDismiss(): void {
@@ -142,6 +149,7 @@ function isEdgePreset(
 export function bootstrapRulerApp(): void {
   const workspaceEl = document.getElementById('ruler-workspace');
 
+  initLanguageSelector();
   initHelpDialog();
   initMobileNav();
 
@@ -183,17 +191,17 @@ export function bootstrapRulerApp(): void {
   const forceEdges = workspaceEl.dataset.forceEdges;
 
   if (isUnit(queryUnit)) {
-    workspace.setUnit(queryUnit);
+    workspace.setUnit(queryUnit, false);
   } else if (isUnit(forceUnit)) {
-    workspace.setUnit(forceUnit);
+    workspace.setUnit(forceUnit, false);
   } else if (isUnit(defaultUnit) && !localStorage.getItem(STORAGE_KEYS.preferences)) {
-    workspace.setUnit(defaultUnit);
+    workspace.setUnit(defaultUnit, false);
   }
 
   if (isEdgePreset(queryEdges)) {
-    workspace.setEdgePreset(queryEdges);
+    workspace.setEdgePreset(queryEdges, false);
   } else if (isEdgePreset(forceEdges)) {
-    workspace.setEdgePreset(forceEdges);
+    workspace.setEdgePreset(forceEdges, false);
   }
 
   initTheme(() => {
