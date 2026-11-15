@@ -63,8 +63,8 @@ const c = getDict(locale).calibration;
     </div>
 
     <!-- Named Multi-Monitor Profiles Bar (P2.2) -->
-    <div id="saved-profiles-bar" class="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-[14px] border border-hairline bg-canvas px-4 py-2.5">
-      <div class="flex flex-wrap items-center gap-2">
+    <div id="saved-profiles-bar" class="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-[14px] border border-hairline bg-canvas px-3.5 sm:px-4 py-2.5">
+      <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
         <span class="font-mono text-[11px] font-semibold text-ink-muted-48">
           {c.namedProfilesLabel ?? 'Display Profiles:'}
         </span>
@@ -74,9 +74,9 @@ const c = getDict(locale).calibration;
           maxlength="48"
           placeholder={c.namedProfilePlaceholder ?? 'e.g. Office 27″ / Laptop'}
           aria-label={c.namedProfileInputAria ?? 'Custom display profile name'}
-          class="h-[32px] w-44 sm:w-52 rounded-full border border-hairline bg-canvas-parchment px-3 font-mono text-xs text-ink placeholder:text-ink-muted-48"
+          class="h-[44px] sm:h-[32px] w-full sm:w-52 rounded-full border border-hairline bg-canvas-parchment px-3.5 sm:px-3 font-mono text-base sm:text-xs text-ink placeholder:text-ink-muted-48"
         />
-        <button id="btn-save-named-profile" type="button" class="apple-btn-pearl h-[32px] px-3 font-mono text-xs">
+        <button id="btn-save-named-profile" type="button" class="apple-btn-pearl h-[44px] sm:h-[32px] px-3 font-mono text-xs">
           {c.namedProfileSaveBtn ?? 'Save Profile'}
         </button>
       </div>
@@ -276,7 +276,7 @@ const c = getDict(locale).calibration;
                     type="button"
                     aria-label={c.cardDragHandleAria ?? 'Drag corner to resize reference box to match physical object'}
                     title={c.cardDragHandleTitle ?? 'Drag corner or edge to match physical size'}
-                    class="touch-none absolute -bottom-2 -right-2 flex h-7 w-7 cursor-nwse-resize items-center justify-center rounded-full border-2 border-white bg-primary text-on-primary shadow-md hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-focus"
+                    class="touch-none absolute -bottom-4 -right-4 sm:-bottom-2 sm:-right-2 flex h-11 w-11 sm:h-7 sm:w-7 cursor-nwse-resize items-center justify-center rounded-full border-2 border-white bg-primary text-on-primary shadow-md hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-focus"
                   >
                     <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                       <path d="M5 11L11 5M9 11h2V9" stroke-linecap="round" stroke-linejoin="round" />
@@ -307,7 +307,7 @@ const c = getDict(locale).calibration;
                   id="btn-card-minus"
                   type="button"
                   aria-label={c.cardMinusAria}
-                  class="inline-flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-full border border-hairline bg-surface-pearl font-mono text-sm font-semibold text-ink hover:border-primary-focus cursor-pointer"
+                  class="inline-flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full border border-hairline bg-surface-pearl font-mono text-sm font-semibold text-ink hover:border-primary-focus cursor-pointer"
                 >
                   −1
                 </button>
@@ -320,14 +320,14 @@ const c = getDict(locale).calibration;
                   step="0.5"
                   value="323.5"
                   aria-label={c.cardSliderAria}
-                  class="flex-1 accent-primary min-w-[120px] cursor-pointer"
+                  class="flex-1 accent-primary min-w-[120px] min-h-[44px] sm:min-h-0 cursor-pointer"
                 />
 
                 <button
                   id="btn-card-plus"
                   type="button"
                   aria-label={c.cardPlusAria}
-                  class="inline-flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-full border border-hairline bg-surface-pearl font-mono text-sm font-semibold text-ink hover:border-primary-focus cursor-pointer"
+                  class="inline-flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full border border-hairline bg-surface-pearl font-mono text-sm font-semibold text-ink hover:border-primary-focus cursor-pointer"
                 >
                   +1
                 </button>
@@ -348,7 +348,7 @@ const c = getDict(locale).calibration;
                   max="900"
                   step="0.5"
                   value="323.5"
-                  class="h-[40px] w-24 rounded-full border border-hairline bg-canvas px-3 text-center font-mono text-xs font-semibold text-ink"
+                  class="h-[44px] w-24 rounded-full border border-hairline bg-canvas px-3 text-center font-mono text-base sm:text-xs font-semibold text-ink"
                 />
               </label>
             </div>
@@ -558,7 +558,7 @@ const c = getDict(locale).calibration;
             {c.verifyDesc}
           </p>
 
-          <div class="mt-5 grid grid-cols-3 gap-1.5 sm:gap-2 items-end justify-items-center rounded-[14px] border border-hairline bg-canvas-parchment px-2 py-3.5 sm:p-3.5">
+          <div class="mt-5 flex flex-wrap sm:grid sm:grid-cols-3 gap-3 sm:gap-2 items-end justify-around sm:justify-items-center rounded-[14px] border border-hairline bg-canvas-parchment px-2 py-3.5 sm:p-3.5">
             <div class="flex flex-col items-center gap-1.5">
               <div
                 id="verify-shape-quarter"

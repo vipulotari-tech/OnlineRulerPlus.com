@@ -385,7 +385,7 @@ const offRight = initEdges.right ? initThickness : 0;
           target={compactEmbed ? '_blank' : undefined}
           rel={compactEmbed ? 'noopener noreferrer' : undefined}
           data-open-calibration="card"
-          class="inline-flex items-center gap-1 whitespace-nowrap rounded-full border border-primary/25 bg-link-soft px-2.5 py-0.5 text-[11px] font-semibold text-link hover:border-primary-focus transition-colors"
+          class="inline-flex min-h-[40px] sm:min-h-0 items-center gap-1 whitespace-nowrap rounded-full border border-primary/25 bg-link-soft px-3 py-1 sm:px-2.5 sm:py-0.5 text-[11px] font-semibold text-link hover:border-primary-focus transition-colors"
         >
           <span>{w.calibrateBtn}</span>
           <span aria-hidden="true">↓</span>
@@ -402,7 +402,7 @@ const offRight = initEdges.right ? initThickness : 0;
               data-guide-axis-btn="x"
               aria-pressed="true"
               data-active="true"
-              class="rounded-[7px] px-2 py-0.5 text-[11px] font-medium text-ink-muted-80 cursor-pointer transition-colors data-[active=true]:bg-link-soft data-[active=true]:text-link data-[active=true]:font-semibold"
+              class="min-h-[38px] sm:min-h-0 rounded-[7px] px-2.5 sm:px-2 py-1 sm:py-0.5 text-[11px] font-medium text-ink-muted-80 cursor-pointer transition-colors data-[active=true]:bg-link-soft data-[active=true]:text-link data-[active=true]:font-semibold"
             >
               {w.axisVertical}
             </button>
@@ -411,7 +411,7 @@ const offRight = initEdges.right ? initThickness : 0;
               data-guide-axis-btn="y"
               aria-pressed="false"
               data-active="false"
-              class="rounded-[7px] px-2 py-0.5 text-[11px] font-medium text-ink-muted-80 cursor-pointer transition-colors data-[active=true]:bg-link-soft data-[active=true]:text-link data-[active=true]:font-semibold"
+              class="min-h-[38px] sm:min-h-0 rounded-[7px] px-2.5 sm:px-2 py-1 sm:py-0.5 text-[11px] font-medium text-ink-muted-80 cursor-pointer transition-colors data-[active=true]:bg-link-soft data-[active=true]:text-link data-[active=true]:font-semibold"
             >
               {w.axisHorizontal}
             </button>
@@ -420,7 +420,7 @@ const offRight = initEdges.right ? initThickness : 0;
               data-guide-axis-btn="both"
               aria-pressed="false"
               data-active="false"
-              class="rounded-[7px] px-2 py-0.5 text-[11px] font-medium text-ink-muted-80 cursor-pointer transition-colors data-[active=true]:bg-link-soft data-[active=true]:text-link data-[active=true]:font-semibold"
+              class="min-h-[38px] sm:min-h-0 rounded-[7px] px-2.5 sm:px-2 py-1 sm:py-0.5 text-[11px] font-medium text-ink-muted-80 cursor-pointer transition-colors data-[active=true]:bg-link-soft data-[active=true]:text-link data-[active=true]:font-semibold"
             >
               {w.axisBoth}
             </button>
@@ -433,7 +433,7 @@ const offRight = initEdges.right ? initThickness : 0;
           <select
             id="select-arch-scale"
             aria-label={w.scaleAria ?? 'Architectural and engineering drawing scale'}
-            class="rounded-[8px] border border-hairline/85 bg-canvas px-2 py-0.5 font-mono text-[11px] text-ink cursor-pointer"
+            class="min-h-[38px] sm:min-h-0 rounded-[8px] border border-hairline/85 bg-canvas px-2 py-1 sm:py-0.5 font-mono text-[11px] text-ink cursor-pointer"
           >
             <option value="1:1" selected>1:1 (Actual)</option>
             <option value="1:10">1:10</option>
@@ -464,7 +464,7 @@ const offRight = initEdges.right ? initThickness : 0;
           <select
             id="select-thickness"
             aria-label={w.thicknessAria}
-            class="rounded-[8px] border border-hairline/85 bg-canvas px-2 py-0.5 font-mono text-[11px] text-ink cursor-pointer"
+            class="min-h-[38px] sm:min-h-0 rounded-[8px] border border-hairline/85 bg-canvas px-2 py-1 sm:py-0.5 font-mono text-[11px] text-ink cursor-pointer"
           >
             <option value="36">36px</option>
             <option value="48" selected>48px</option>
@@ -679,20 +679,20 @@ const offRight = initEdges.right ? initThickness : 0;
       <!-- Bottom Floating Sticky Readout Bar (Apple floating-sticky-bar grammar) -->
       <div
         data-stage-interactive
-        class="apple-subnav-frosted absolute bottom-3 left-3 right-3 z-30 flex flex-wrap items-center justify-between gap-2 rounded-full border border-hairline px-4 py-2 type-caption"
+        class="apple-subnav-frosted absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 z-30 flex flex-wrap items-center justify-between gap-2 rounded-[20px] sm:rounded-full border border-hairline px-3 sm:px-4 py-1.5 sm:py-2 type-caption"
       >
-        <div class="flex items-center gap-3 min-w-0">
+        <div class="flex items-center gap-2 sm:gap-3 min-w-0">
           <span class="inline-flex items-center gap-2 font-mono text-xs font-semibold text-ink truncate">
             <span class="h-2 w-2 rounded-full bg-link shrink-0"></span>
             <span id="live-cursor-readout">{w.liveCursorInit}</span>
           </span>
 
-          <div id="guide-span-readout" class="hidden flex items-center gap-2 border-l border-hairline pl-3 shrink-0">
+          <div id="guide-span-readout" class="hidden flex items-center gap-2 border-l border-hairline pl-2 sm:pl-3 shrink-0">
             <span id="guide-span-value" class="font-mono text-xs font-semibold text-link"></span>
             <button
               id="btn-save-span"
               type="button"
-              class="rounded-full bg-primary px-3 py-0.5 font-sans text-xs text-on-primary cursor-pointer"
+              class="min-h-[34px] sm:min-h-0 rounded-full bg-primary px-3 py-1 sm:py-0.5 font-sans text-xs text-on-primary cursor-pointer"
             >
               {w.saveToHistory}
             </button>
@@ -769,19 +769,19 @@ const offRight = initEdges.right ? initThickness : 0;
               max="100000"
               step="0.1"
               value="85.6"
-              class="h-[32px] w-20 rounded-full border border-hairline bg-canvas px-2.5 text-center font-mono text-xs font-semibold text-ink"
+              class="h-[44px] sm:h-[32px] w-20 rounded-full border border-hairline bg-canvas px-2.5 text-center font-mono text-base sm:text-xs font-semibold text-ink"
             />
           </label>
           <select
             id="photo-cal-unit"
             aria-label={w.photoRefUnitAria ?? 'Reference unit'}
-            class="h-[32px] rounded-full border border-hairline bg-canvas px-2 font-mono text-xs text-ink cursor-pointer"
+            class="h-[44px] sm:h-[32px] rounded-full border border-hairline bg-canvas px-2 font-mono text-sm sm:text-xs text-ink cursor-pointer"
           >
             <option value="mm" selected>mm</option>
             <option value="cm">cm</option>
             <option value="in">in</option>
           </select>
-          <button id="btn-photo-apply-cal" type="button" class="apple-btn-primary h-[32px] px-3 text-xs">
+          <button id="btn-photo-apply-cal" type="button" class="apple-btn-primary min-h-[44px] sm:min-h-[32px] sm:h-[32px] px-3 text-xs">
             {w.photoApplyCalBtn ?? 'Apply Scale'}
           </button>
           <button id="btn-photo-card-preset" type="button" class="apple-btn-pearl font-mono text-xs" title="ISO ID-1 Card (85.6 mm)">

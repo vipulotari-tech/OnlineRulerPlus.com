@@ -130,7 +130,7 @@ if (post.data.faqs.length > 0) {
           <span aria-hidden="true">/</span>
           <a href={`/blog/${category.slug}`} class="hover:text-link hover:underline">{category.name}</a>
           <span aria-hidden="true">/</span>
-          <span class="font-medium text-ink truncate max-w-[40ch]" aria-current="page">{post.data.title}</span>
+          <span class="font-medium text-ink truncate max-w-full sm:max-w-[40ch]" aria-current="page">{post.data.title}</span>
         </nav>
 
         <div class="max-w-4xl">
@@ -188,6 +188,7 @@ if (post.data.faqs.length > 0) {
                   width="720"
                   height="400"
                   loading="eager"
+                  fetchpriority="high"
                   decoding="async"
                   class="block h-full w-full object-contain"
                 />
@@ -236,9 +237,9 @@ if (post.data.faqs.length > 0) {
                   {
                     post.data.faqs.map((item) => (
                       <details open class="group apple-utility-card">
-                        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-ink">
+                        <summary class="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 text-ink">
                           <h3 class="type-body-strong text-ink">{item.q}</h3>
-                          <span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-canvas-parchment font-mono text-base text-link group-open:rotate-45 transition-transform">
+                          <span class="inline-flex h-8 w-8 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-full bg-canvas-parchment font-mono text-base text-link group-open:rotate-45 transition-transform">
                             +
                           </span>
                         </summary>
@@ -288,7 +289,7 @@ if (post.data.faqs.length > 0) {
                       <li class={h.depth === 3 ? 'pl-3 border-l border-hairline' : ''}>
                         <a
                           href={`#${h.slug}`}
-                          class="block text-ink-muted-80 hover:text-link transition-colors leading-snug"
+                          class="block py-1.5 sm:py-0.5 text-ink-muted-80 hover:text-link transition-colors leading-snug"
                         >
                           {h.text}
                         </a>
@@ -297,7 +298,7 @@ if (post.data.faqs.length > 0) {
                   }
                   {post.data.faqs.length > 0 && (
                     <li>
-                      <a href="#article-faqs" class="block text-ink-muted-80 hover:text-link transition-colors">
+                      <a href="#article-faqs" class="block py-1.5 sm:py-0.5 text-ink-muted-80 hover:text-link transition-colors">
                         Frequently Asked Questions
                       </a>
                     </li>

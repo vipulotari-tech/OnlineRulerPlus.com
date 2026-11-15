@@ -30,7 +30,7 @@ const currentMeta = LOCALE_META[locale];
     aria-expanded="false"
     aria-controls="orp-language-menu"
     title={dict.nav.languageLabel}
-    class="group inline-flex items-center gap-1.5 h-7 sm:h-[32px] px-2 sm:px-2.5 rounded-[8px] type-nav-link font-medium whitespace-nowrap text-on-dark bg-[#1d1d1f] hover:bg-[#2a2a2c] border border-white/[0.1] hover:border-white/[0.2] shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_1px_2px_rgba(0,0,0,0.35)] transition-all cursor-pointer"
+    class="group inline-flex items-center gap-1 sm:gap-1.5 min-h-[44px] sm:min-h-0 sm:h-[32px] px-2 sm:px-2.5 rounded-[8px] type-nav-link font-medium whitespace-nowrap text-on-dark bg-[#1d1d1f] hover:bg-[#2a2a2c] border border-white/[0.1] hover:border-white/[0.2] shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_1px_2px_rgba(0,0,0,0.35)] transition-all cursor-pointer"
   >
     <LocaleFlag locale={locale} class="ring-white/20" />
     <span class="sr-only sm:not-sr-only leading-none">{currentMeta.nativeName}</span>
@@ -61,7 +61,7 @@ const currentMeta = LOCALE_META[locale];
     data-language-menu
     data-open="false"
     hidden
-    class="orp-lang-menu absolute -right-20 sm:right-0 top-[calc(100%+8px)] z-[60] w-[206px] sm:w-[216px] max-h-[min(78vh,460px)] overflow-y-auto rounded-[14px] p-1.5 bg-white/95 dark:bg-[#1c1c1e]/95 backdrop-blur-xl border border-black/[0.08] dark:border-white/[0.14] shadow-[0_18px_42px_-8px_rgba(0,0,0,0.22),0_4px_14px_-2px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_48px_-8px_rgba(0,0,0,0.72),inset_0_1px_0_rgba(255,255,255,0.08)]"
+    class="orp-lang-menu absolute -right-16 sm:right-0 top-[calc(100%+8px)] z-[60] w-[min(216px,calc(100vw-16px))] max-h-[min(78vh,460px)] overflow-y-auto rounded-[14px] p-1.5 bg-white/95 dark:bg-[#1c1c1e]/95 backdrop-blur-xl border border-black/[0.08] dark:border-white/[0.14] shadow-[0_18px_42px_-8px_rgba(0,0,0,0.22),0_4px_14px_-2px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_48px_-8px_rgba(0,0,0,0.72),inset_0_1px_0_rgba(255,255,255,0.08)]"
   >
     {LOCALES.map((code) => {
       const meta = LOCALE_META[code];
@@ -80,7 +80,7 @@ const currentMeta = LOCALE_META[locale];
           lang={meta.bcp47}
           hreflang={meta.code}
           class:list={[
-            'flex items-center gap-2.5 w-full px-2.5 py-2 rounded-[9px] text-[12.5px] leading-tight no-underline transition-colors',
+            'flex items-center gap-2.5 w-full min-h-[44px] sm:min-h-0 px-2.5 py-2.5 sm:py-2 rounded-[9px] text-[13px] sm:text-[12.5px] leading-tight no-underline transition-colors',
             isActive
               ? 'bg-[#0066cc]/[0.09] text-[#0066cc] dark:bg-[#2997ff]/[0.16] dark:text-[#2997ff] font-semibold'
               : 'text-ink hover:bg-[#f5f5f7] dark:hover:bg-white/[0.08] font-medium',

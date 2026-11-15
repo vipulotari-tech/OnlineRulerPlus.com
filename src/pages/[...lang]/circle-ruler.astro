@@ -102,8 +102,8 @@ const structuredData = [
                 <span id="cg-cal-ppi" class="font-mono text-xs text-ink-muted-80">96.0 PPI</span>
               </div>
 
-              <div class="flex items-center gap-2">
-                <button id="circle-minus-btn" type="button" class="apple-btn-pearl px-3 font-mono text-xs" aria-label="Decrease diameter 0.5 mm">−0.5</button>
+              <div class="flex flex-wrap sm:flex-nowrap items-center gap-2">
+                <button id="circle-minus-btn" type="button" class="apple-btn-pearl px-3 font-mono text-xs shrink-0" aria-label="Decrease diameter 0.5 mm">−0.5</button>
                 <input
                   id="circle-diameter-slider"
                   type="range"
@@ -112,9 +112,8 @@ const structuredData = [
                   step="0.1"
                   value="24.26"
                   aria-label={page.diameterLabel}
-                  class="flex-1 accent-primary cursor-pointer"
+                  class="order-first w-full sm:order-none sm:w-auto sm:flex-1 min-w-0 min-h-[44px] sm:min-h-0 accent-primary cursor-pointer"
                 />
-                <button id="circle-plus-btn" type="button" class="apple-btn-pearl px-3 font-mono text-xs" aria-label="Increase diameter 0.5 mm">+0.5</button>
                 <input
                   id="circle-diameter-input"
                   type="number"
@@ -123,8 +122,9 @@ const structuredData = [
                   step="0.01"
                   value="24.26"
                   aria-label={page.diameterLabel}
-                  class="h-[34px] w-24 rounded-full border border-hairline bg-canvas px-3 text-center font-mono text-xs font-semibold text-ink"
+                  class="h-[44px] sm:h-[34px] flex-1 sm:flex-none sm:w-24 min-w-[80px] rounded-full border border-hairline bg-canvas px-3 text-center font-mono text-base sm:text-xs font-semibold text-ink"
                 />
+                <button id="circle-plus-btn" type="button" class="apple-btn-pearl px-3 font-mono text-xs shrink-0" aria-label="Increase diameter 0.5 mm">+0.5</button>
               </div>
             </div>
           </div>

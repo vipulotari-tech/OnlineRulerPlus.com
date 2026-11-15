@@ -528,7 +528,7 @@ export function renderProtractorOverlay(
   modeBtn.id = 'btn-protractor-mode';
   modeBtn.type = 'button';
   modeBtn.className =
-    'inline-flex min-h-[26px] items-center justify-center rounded-full border border-hairline bg-canvas-parchment px-2 text-[11px] font-semibold text-ink hover:text-link cursor-pointer';
+    'inline-flex min-h-[44px] min-w-[44px] md:min-h-[26px] md:min-w-0 items-center justify-center rounded-full border border-hairline bg-canvas-parchment px-2.5 md:px-2 text-xs md:text-[11px] font-semibold text-ink hover:text-link cursor-pointer';
   modeBtn.textContent = mode === '360' ? '360°' : '180°';
   modeBtn.title = 'Toggle 180° / 360° protractor';
   modeBtn.addEventListener('click', (e) => {
@@ -540,7 +540,7 @@ export function renderProtractorOverlay(
   const closeBtn = document.createElement('button');
   closeBtn.type = 'button';
   closeBtn.className =
-    'inline-flex min-h-[28px] min-w-[28px] items-center justify-center rounded-full border border-hairline bg-canvas-parchment px-2 text-ink hover:text-link cursor-pointer';
+    'inline-flex min-h-[44px] min-w-[44px] md:min-h-[28px] md:min-w-[28px] items-center justify-center rounded-full border border-hairline bg-canvas-parchment px-2 text-base md:text-sm text-ink hover:text-link cursor-pointer';
   closeBtn.setAttribute('aria-label', rt.closeProtractorAria);
   closeBtn.textContent = '×';
   closeBtn.addEventListener('click', (e) => {
