@@ -39,6 +39,14 @@ test('Build output covers all 156 localized routes, hreflang alternates, JSON-LD
     'llms.txt',
     'llms-full.txt',
     'og-image.png',
+    'favicon.ico',
+    'favicon.svg',
+    'favicon-16x16.png',
+    'favicon-32x32.png',
+    'apple-touch-icon.png',
+    'android-chrome-192x192.png',
+    'android-chrome-512x512.png',
+    'site.webmanifest',
   ];
 
   for (const rel of staticArtifacts) {
@@ -160,11 +168,32 @@ test('Build output covers all 156 localized routes, hreflang alternates, JSON-LD
       `Expected sitemap-0.xml to contain <loc>${canonical}</loc>`,
     );
 
+    // Favicon & manifest tags present once each (no duplicates)
+    for (const iconPath of [
+      '/favicon.ico',
+      '/favicon.svg',
+      '/favicon-32x32.png',
+      '/favicon-16x16.png',
+      '/apple-touch-icon.png',
+      '/site.webmanifest',
+    ]) {
+      const occurrences = html.split(`href="${iconPath}"`).length - 1;
+      assert.strictEqual(occurrences, 1, `Expected single href="${iconPath}" in ${relFile}`);
+    }
+    assert.ok(html.includes('<meta name="theme-color"'), `Expected theme-color meta in ${relFile}`);
+
     // Internal hrefs resolve to valid localized routes
     const hrefMatches = html.matchAll(/href="(\/[^"]*)"/g);
     for (const m of hrefMatches) {
       const rawHref = m[1];
-      if (rawHref.startsWith('/_astro/') || rawHref.startsWith('/favicon')) continue;
+      if (
+        rawHref.startsWith('/_astro/') ||
+        rawHref.startsWith('/favicon') ||
+        rawHref === '/apple-touch-icon.png' ||
+        rawHref === '/site.webmanifest'
+      ) {
+        continue;
+      }
       const cleanPath = rawHref.split('#')[0].split('?')[0] || '/';
       assert.ok(validPaths.has(cleanPath), `Broken internal link ${rawHref} in ${relFile}`);
     }
