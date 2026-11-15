@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" fill="none" role="img" aria-label="BLOG FIG. 01 · OFFICE WEB VS SCREEN RULER">
+  <defs>
+    <pattern id="bg-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ededf2" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+  <rect x="1" y="1" width="718" height="398" rx="14" fill="#fafafc" stroke="#d8d8de" stroke-width="1.5"/>
+  <rect x="12" y="12" width="696" height="376" rx="10" fill="url(#bg-grid)"/>
+  <g transform="translate(28, 24)">
+    <rect x="0" y="0" width="330" height="22" rx="11" fill="#ffffff" stroke="#d8d8de" stroke-width="1"/>
+    <circle cx="12" cy="11" r="3" fill="#0066cc"/>
+    <text x="21" y="14.5" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#5f5f63" letter-spacing="0.4">BLOG FIG. 01 · OFFICE WEB VS SCREEN RULER</text>
+  </g>
+
+  <rect x="32" y="66" width="206" height="296" rx="12" fill="#ffffff" stroke="#d8d8de" stroke-width="1.5"/>
+  <rect x="44" y="80" width="182" height="26" rx="6" fill="#e6f0fa" stroke="#8ec0f2"/>
+  <text x="54" y="97" font-family="'Geist Mono', monospace" font-size="11" font-weight="700" fill="#0066cc">WORD FOR THE WEB</text>
+  <text x="44" y="130" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="700" fill="#1d1d1f">Horizontal Ruler Supported</text>
+  <text x="44" y="154" font-family="'Inter', system-ui, sans-serif" font-size="11.5" fill="#333333">1. Switch to Editing mode</text>
+  <text x="44" y="174" font-family="'Inter', system-ui, sans-serif" font-size="11.5" fill="#333333">2. Open View tab in ribbon</text>
+  <text x="44" y="194" font-family="'Inter', system-ui, sans-serif" font-size="11.5" fill="#333333">3. Check Ruler (Show group)</text>
+  <rect x="44" y="216" width="182" height="32" rx="6" fill="#f5f5f7" stroke="#d8d8de"/>
+  <path d="M54 216 v12 M74 216 v7 M94 216 v12 M114 216 v7 M134 216 v12 M154 216 v7 M174 216 v12 M194 216 v7 M214 216 v12" stroke="#1d1d1f" stroke-width="1.2"/>
+  <text x="54" y="241" font-family="'Geist Mono', monospace" font-size="9.5" fill="#5f5f63">1     2     3     4     5 in</text>
+  <text x="44" y="274" font-family="'Inter', system-ui, sans-serif" font-size="11" fill="#5f5f63">Measures page margins &amp; tabs.</text>
+  <text x="44" y="292" font-family="'Inter', system-ui, sans-serif" font-size="11" fill="#5f5f63">Vertical ruler: Desktop only.</text>
+  <rect x="44" y="314" width="182" height="32" rx="8" fill="#f5f5f7"/>
+  <text x="54" y="334" font-family="'Geist Mono', monospace" font-size="10" font-weight="600" fill="#1d1d1f">Scope: Document Margins</text>
+
+  <rect x="257" y="66" width="206" height="296" rx="12" fill="#ffffff" stroke="#d8d8de" stroke-width="1.5"/>
+  <rect x="269" y="80" width="182" height="26" rx="6" fill="#fff5eb" stroke="#f2c499"/>
+  <text x="279" y="97" font-family="'Geist Mono', monospace" font-size="11" font-weight="700" fill="#8c3400">POWERPOINT WEB</text>
+  <text x="269" y="130" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="700" fill="#1d1d1f">No Layout Margin Ruler</text>
+  <text x="269" y="154" font-family="'Inter', system-ui, sans-serif" font-size="11.5" fill="#333333">Layout Ruler: Desktop App only</text>
+  <text x="269" y="174" font-family="'Inter', system-ui, sans-serif" font-size="11.5" fill="#333333">Web Alt 1: Auto Smart Guides</text>
+  <text x="269" y="194" font-family="'Inter', system-ui, sans-serif" font-size="11.5" fill="#333333">Web Alt 2: Draw &gt; Ink Ruler</text>
+  <rect x="269" y="216" width="182" height="58" rx="6" fill="#f5f5f7" stroke="#d8d8de"/>
+  <rect x="292" y="230" width="52" height="28" rx="3" fill="#ffffff" stroke="#0066cc" stroke-width="1.2"/>
+  <rect x="372" y="230" width="52" height="28" rx="3" fill="#ffffff" stroke="#0066cc" stroke-width="1.2"/>
+  <line x1="276" y1="244" x2="444" y2="244" stroke="#de071c" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="269" y="294" font-family="'Inter', system-ui, sans-serif" font-size="11" fill="#5f5f63">Use Editing &gt; Open in Desktop</text>
+  <rect x="269" y="314" width="182" height="32" rx="8" fill="#f5f5f7"/>
+  <text x="279" y="334" font-family="'Geist Mono', monospace" font-size="10" font-weight="600" fill="#1d1d1f">Scope: Slide Coordinates</text>
+
+  <rect x="482" y="66" width="206" height="296" rx="12" fill="#1d1d1f" stroke="#1d1d1f" stroke-width="1.5"/>
+  <rect x="494" y="80" width="182" height="26" rx="6" fill="#272729" stroke="#5eb2ff"/>
+  <text x="504" y="97" font-family="'Geist Mono', monospace" font-size="11" font-weight="700" fill="#5eb2ff">ONLINERULERPLUS</text>
+  <text x="494" y="130" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="700" fill="#ffffff">True Physical Screen Scale</text>
+  <text x="494" y="154" font-family="'Inter', system-ui, sans-serif" font-size="11.5" fill="#cccccc">Calibrated via ID-1 Bank Card</text>
+  <text x="494" y="174" font-family="'Inter', system-ui, sans-serif" font-size="11.5" fill="#cccccc">Inches (1/16″), cm, mm &amp; px</text>
+  <text x="494" y="194" font-family="'Inter', system-ui, sans-serif" font-size="11.5" fill="#cccccc">Top, Bottom, Left &amp; Right edges</text>
+  <rect x="494" y="216" width="182" height="32" rx="6" fill="#2a2a2c" stroke="#48484a"/>
+  <path d="M504 216 v14 M516 216 v8 M528 216 v11 M540 216 v8 M552 216 v14 M564 216 v8 M576 216 v11 M588 216 v8 M600 216 v14 M612 216 v8 M624 216 v11 M636 216 v8 M648 216 v14" stroke="#5eb2ff" stroke-width="1.3"/>
+  <text x="504" y="242" font-family="'Geist Mono', monospace" font-size="9.5" fill="#ffffff">0     1     2     3 cm</text>
+  <text x="494" y="274" font-family="'Inter', system-ui, sans-serif" font-size="11" fill="#cccccc">Measures real physical objects</text>
+  <text x="494" y="292" font-family="'Inter', system-ui, sans-serif" font-size="11" fill="#cccccc">held directly on monitor glass.</text>
+  <rect x="494" y="314" width="182" height="32" rx="8" fill="#0066cc"/>
+  <text x="504" y="334" font-family="'Geist Mono', monospace" font-size="10" font-weight="700" fill="#ffffff">Scope: 1:1 Physical Objects</text>
+
+</svg>

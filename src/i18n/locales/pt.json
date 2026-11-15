@@ -44,7 +44,8 @@
       "screenDetector": "Detector de ecrã",
       "printableRuler": "Régua imprimível",
       "circleRuler": "Medidor circular",
-      "quadrant": "Plano 4 quadrantes"
+      "quadrant": "Plano 4 quadrantes",
+      "blog": "Blog"
     },
     "subNav": {
       "workspace": "Régua",
@@ -87,7 +88,8 @@
     "toolCircle": "Medidor de Círculos & Anéis",
     "toolQuadrant": "Plano 4 Quadrantes",
     "toolPrintable": "Régua SVG Imprimível",
-    "toolDetector": "Detector de Tela & PPI"
+    "toolDetector": "Detector de Tela & PPI",
+    "guideBlog": "Blog e guias de medição"
   },
   "helpModal": {
     "kicker": "Referência Rápida",
@@ -628,14 +630,6 @@
         "a": "O Online Ruler Plus não acede à câmara nem processa fotografias; toda a medição ocorre diretamente contra o vidro calibrado do ecrã dentro do navegador. Apps móveis dedicadas com LiDAR ou ARCore estimam distâncias de divisão pela câmara, mas sofrem desvios com iluminação e perspetiva. Para peças pequenas, o contacto plano no ecrã calibrado evita erro de profundidade."
       },
       {
-        "q": "Como ver ou adicionar uma régua no Word Online?",
-        "a": "O Online Ruler Plus é uma ferramenta de medição independente no navegador, não um suplemento do Microsoft Office. Dentro do Microsoft Word na Web (Word Online), mude para o modo de Edição, abra o separador Ver no friso superior e marque a opção Régua no grupo Mostrar para exibir as réguas de margens e tabulações do documento."
-      },
-      {
-        "q": "Como mostrar a régua no PowerPoint Online?",
-        "a": "No Microsoft PowerPoint na Web (PowerPoint Online), abra a apresentação em vista de Edição, selecione o separador Ver e ative a opção Régua juntamente com Linhas de Grelha ou Guias. Note que as réguas do PowerPoint medem coordenadas virtuais do diapositivo (como 13,333 × 7,5 polegadas), e não milímetros físicos reais do monitor."
-      },
-      {
         "q": "Por que motivo as réguas online exigem calibração e o zoom do navegador afeta a precisão?",
         "a": "Os navegadores web desenham dimensões com uma proporção fixa W3C de 96 píxeis CSS por polegada enquanto ocultam o tamanho físico real do monitor por privacidade. Como ecrãs de secretária variam entre 82 e 110 CSS PPI e portáteis atingem 113 a 142 CSS PPI, réguas sem calibração erram entre 10% e 35%. O Online Ruler Plus guarda a densidade física (devicePxPerMm) em localStorage e reescala automaticamente ao alterar o zoom."
       },
@@ -643,7 +637,8 @@
         "q": "A calibração mantém-se entre vários monitores e permanece privada?",
         "a": "Cada calibração manual é guardada localmente no localStorage associada à resolução do ecrã, devicePixelRatio e família de plataforma. Ao mover a janela para um monitor externo diferente, a ferramenta carrega o perfil desse monitor ou pede confirmação. Nenhum dado de medição ou câmara é enviado para servidores; consulte a Política de Privacidade para informações sobre cookies."
       }
-    ]
+    ],
+    "howLead": "Online Ruler Plus é uma régua online gratuita e uma ferramenta de medição calibrada em tela para medir objetos físicos em polegadas, centímetros, milímetros e pixels CSS diretamente no visor. Como os navegadores usam 96 pixels CSS por polegada por padrão, calibrar uma vez ajusta a escala real em notebooks, monitores, tablets e celulares."
   },
   "spokeShared": {
     "calibrationGuideBtn": "Guia de Calibração e PPI",
@@ -1992,6 +1987,14 @@
         {
           "q": "Como repor a calibração guardada ou limpar o histórico de medições?",
           "a": "Todos os dados residem localmente em localStorage (orp:calibration:v1, orp:preferences:v1, orp:history:v1). Use Repor Calibração no cartão Escala Ativa ou Limpar no cartão Histórico de Medições."
+        },
+        {
+          "q": "Como ver ou adicionar uma régua no Word Online?",
+          "a": "O Online Ruler Plus é uma ferramenta de medição independente no navegador, não um suplemento do Microsoft Office. Dentro do Microsoft Word na Web (Word Online), mude para o modo de Edição, abra o separador Ver no friso superior e marque a opção Régua no grupo Mostrar para exibir as réguas de margens e tabulações do documento."
+        },
+        {
+          "q": "Como mostrar a régua no PowerPoint Online?",
+          "a": "No Microsoft PowerPoint na Web (PowerPoint Online), abra a apresentação em vista de Edição, selecione o separador Ver e ative a opção Régua juntamente com Linhas de Grelha ou Guias. Note que as réguas do PowerPoint medem coordenadas virtuais do diapositivo (como 13,333 × 7,5 polegadas), e não milímetros físicos reais do monitor."
         }
       ]
     },

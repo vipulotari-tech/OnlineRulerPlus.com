@@ -3,6 +3,7 @@ import { DEFAULT_LOCALE, localizedPath, type Locale } from '../i18n/config.ts';
 import { getDict } from '../i18n/index.ts';
 import DiagramFigure from './DiagramFigure.astro';
 import MotionWalkthrough, { type WalkthroughSceneId } from './MotionWalkthrough.astro';
+import { SPOKE_GUIDE_LINKS } from '../lib/blog.ts';
 
 export interface SpokeCard {
   step: string;
@@ -128,6 +129,7 @@ const spokeVisualConfig: Record<
 };
 
 const activeVisual = pageKey ? spokeVisualConfig[pageKey] : null;
+const spokeBlogLinks = locale === 'en' && pageKey ? (SPOKE_GUIDE_LINKS[pageKey] ?? []) : [];
 ---
 
 <!-- SECTION 1: INTENT-SPECIFIC MEASUREMENT GUIDE (Light White Tile #ffffff) -->
@@ -361,6 +363,22 @@ const activeVisual = pageKey ? spokeVisualConfig[pageKey] : null;
         ))
       }
     </div>
+
+    {spokeBlogLinks.length > 0 && (
+      <div class="mt-6 rounded-[18px] border border-hairline bg-canvas p-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p class="type-kicker">Related Editorial Guides</p>
+          <p class="mt-0.5 type-caption text-ink-muted-80">Deep-dive walkthroughs and conversion charts for this ruler mode.</p>
+        </div>
+        <div class="flex flex-wrap gap-2.5">
+          {spokeBlogLinks.map((guide) => (
+            <a href={guide.href} class="apple-btn-secondary-pill text-xs">
+              {guide.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
   </div>
 </section>
 

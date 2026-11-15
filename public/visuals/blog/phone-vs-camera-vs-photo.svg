@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" fill="none" role="img" aria-label="BLOG FIG. 03 · SCREEN GLASS VS PHOTO VS CAMERA">
+  <defs>
+    <pattern id="bg-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ededf2" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+  <rect x="1" y="1" width="718" height="398" rx="14" fill="#fafafc" stroke="#d8d8de" stroke-width="1.5"/>
+  <rect x="12" y="12" width="696" height="376" rx="10" fill="url(#bg-grid)"/>
+  <g transform="translate(28, 24)">
+    <rect x="0" y="0" width="330" height="22" rx="11" fill="#ffffff" stroke="#d8d8de" stroke-width="1"/>
+    <circle cx="12" cy="11" r="3" fill="#0066cc"/>
+    <text x="21" y="14.5" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#5f5f63" letter-spacing="0.4">BLOG FIG. 03 · SCREEN GLASS VS PHOTO VS CAMERA</text>
+  </g>
+
+  <rect x="32" y="66" width="206" height="296" rx="12" fill="#ffffff" stroke="#0066cc" stroke-width="1.8"/>
+  <text x="48" y="96" font-family="'Geist Mono', monospace" font-size="11" font-weight="700" fill="#0066cc">1. SCREEN GLASS</text>
+  <text x="48" y="120" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="700" fill="#1d1d1f">Calibrated Phone</text>
+  <rect x="66" y="140" width="138" height="104" rx="12" fill="#f5f5f7" stroke="#1d1d1f" stroke-width="1.5"/>
+  <line x1="80" y1="140" x2="80" y2="244" stroke="#0066cc" stroke-width="1.5"/>
+  <path d="M80 156 h10 M80 172 h6 M80 188 h10 M80 204 h6 M80 220 h10" stroke="#0066cc" stroke-width="1.2"/>
+  <circle cx="136" cy="192" r="22" fill="#e6f0fa" stroke="#0066cc" stroke-width="1.5"/>
+  <text x="136" y="196" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="10" font-weight="700" fill="#0066cc">24.3 mm</text>
+  <text x="48" y="272" font-family="'Inter', system-ui, sans-serif" font-size="11.5" fill="#1d1d1f">Best for: Coins, screws, rings</text>
+  <text x="48" y="292" font-family="'Inter', system-ui, sans-serif" font-size="11.5" fill="#333333">Error: ~0.2–0.5 mm (parallax)</text>
+  <text x="48" y="312" font-family="'Inter', system-ui, sans-serif" font-size="11.5" fill="#5f5f63">Max span: ~13–16 cm screen</text>
+  <text x="48" y="342" font-family="'Geist Mono', monospace" font-size="10.5" font-weight="700" fill="#0066cc">Supported natively on /</text>
+
+  <rect x="257" y="66" width="206" height="296" rx="12" fill="#ffffff" stroke="#1d1d1f" stroke-width="1.5"/>
+  <text x="273" y="96" font-family="'Geist Mono', monospace" font-size="11" font-weight="700" fill="#1d1d1f">2. PHOTO / CTRL+V</text>
+  <text x="273" y="120" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="700" fill="#1d1d1f">2-Point Reference</text>
+  <rect x="277" y="140" width="166" height="104" rx="8" fill="#f5f5f7" stroke="#d8d8de"/>
+  <rect x="291" y="156" width="64" height="40" rx="4" fill="#ffffff" stroke="#0066cc" stroke-width="1.5"/>
+  <text x="323" y="180" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="9.5" font-weight="700" fill="#0066cc">85.6 mm</text>
+  <line x1="291" y1="214" x2="424" y2="214" stroke="#1d1d1f" stroke-width="2"/>
+  <circle cx="291" cy="214" r="3.5" fill="#0066cc"/>
+  <circle cx="424" cy="214" r="3.5" fill="#0066cc"/>
+  <text x="357" y="232" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="10" font-weight="700" fill="#1d1d1f">Scaled ΔX</text>
+  <text x="273" y="272" font-family="'Inter', system-ui, sans-serif" font-size="11.5" fill="#1d1d1f">Best for: Large items, blueprints</text>
+  <text x="273" y="292" font-family="'Inter', system-ui, sans-serif" font-size="11.5" fill="#333333">Zero screen PPI dependency</text>
+  <text x="273" y="312" font-family="'Inter', system-ui, sans-serif" font-size="11.5" fill="#5f5f63">Requires card/coin in same plane</text>
+  <text x="273" y="342" font-family="'Geist Mono', monospace" font-size="10.5" font-weight="700" fill="#0066cc">Supported on /photo-ruler</text>
+
+  <rect x="482" y="66" width="206" height="296" rx="12" fill="#f5f5f7" stroke="#d8d8de" stroke-width="1.5"/>
+  <text x="498" y="96" font-family="'Geist Mono', monospace" font-size="11" font-weight="700" fill="#8c3400">3. LIVE CAMERA / AR</text>
+  <text x="498" y="120" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="700" fill="#1d1d1f">Browser AR Caveats</text>
+  <rect x="502" y="140" width="166" height="104" rx="8" fill="#ffffff" stroke="#d8d8de"/>
+  <path d="M530 226 L585 160 L640 226" stroke="#8c3400" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="585" cy="160" r="6" fill="#8c3400"/>
+  <text x="585" y="210" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="9.5" fill="#8c3400">Perspective / Depth Drift</text>
+  <text x="498" y="272" font-family="'Inter', system-ui, sans-serif" font-size="11.5" fill="#1d1d1f">Best for: Room walls, furniture</text>
+  <text x="498" y="292" font-family="'Inter', system-ui, sans-serif" font-size="11.5" fill="#333333">Error: ±1–5 cm without LiDAR</text>
+  <text x="498" y="312" font-family="'Inter', system-ui, sans-serif" font-size="11.5" fill="#5f5f63">Needs native Apple Measure / AR</text>
+  <text x="498" y="342" font-family="'Geist Mono', monospace" font-size="10.5" font-weight="700" fill="#8c3400">Not used by OnlineRulerPlus</text>
+
+</svg>

@@ -44,7 +44,8 @@
       "screenDetector": "Detektor Layar",
       "printableRuler": "Penggaris Cetak",
       "circleRuler": "Pengukur Lingkaran",
-      "quadrant": "Grafik 4 Kuadran"
+      "quadrant": "Grafik 4 Kuadran",
+      "blog": "Blog"
     },
     "subNav": {
       "workspace": "Penggaris",
@@ -87,7 +88,8 @@
     "toolCircle": "Pengukur Lingkaran & Cincin",
     "toolQuadrant": "Bidang Koordinat 4 Kuadran",
     "toolPrintable": "Penggaris SVG Cetak 1:1",
-    "toolDetector": "Detektor Layar & PPI"
+    "toolDetector": "Detektor Layar & PPI",
+    "guideBlog": "Blog & Panduan Ukur"
   },
   "helpModal": {
     "kicker": "Referensi Cepat",
@@ -628,14 +630,6 @@
         "a": "Online Ruler Plus tidak mengakses kamera atau foto; semua pengukuran terjadi langsung di permukaan kaca layar yang terkalibrasi sehingga bebas dari kesalahan perspektif dan kedalaman kamera."
       },
       {
-        "q": "Bagaimana menampilkan atau menambahkan penggaris di Word Online?",
-        "a": "Online Ruler Plus adalah alat browser terpisah, bukan add-in Office. Di Microsoft Word untuk web (Word Online), masuk ke mode Pengeditan, buka tab Tampilan, lalu centang Penggaris di grup Tampilkan."
-      },
-      {
-        "q": "Bagaimana cara menampilkan penggaris di PowerPoint Online?",
-        "a": "Di PowerPoint Online dalam tampilan Edit, klik tab Tampilan lalu aktifkan tombol Penggaris bersama Garis Kisi atau Panduan. Perlu diingat penggaris PowerPoint mengukur tata letak slide virtual, bukan milimeter fisik layar."
-      },
-      {
         "q": "Mengapa penggaris online butuh kalibrasi dan apakah zoom browser merusak akurasi?",
         "a": "Browser menyembunyikan ukuran monitor fisik demi privasi dan memakai patokan 96 CSS PPI yang menyimpang 10–35%. Online Ruler Plus menyimpan devicePxPerMm di localStorage dan otomatis menyesuaikan skala saat Anda mengubah zoom."
       },
@@ -643,7 +637,8 @@
         "q": "Apakah kalibrasi tersimpan untuk banyak monitor dan tetap privat?",
         "a": "Ya, setiap kalibrasi disimpan lokal di localStorage berdasarkan resolusi layar dan DPR tanpa pernah dikirim ke server mana pun."
       }
-    ]
+    ],
+    "howLead": "Online Ruler Plus adalah penggaris online gratis dan alat ukur layar terkalibrasi untuk mengukur benda nyata dalam inci, sentimeter, milimeter, dan piksel CSS langsung di layar Anda. Karena browser memakai patokan 96 piksel CSS per inci secara default, satu kali kalibrasi menyesuaikan skala asli di laptop, monitor, tablet, dan ponsel."
   },
   "spokeShared": {
     "calibrationGuideBtn": "Panduan Kalibrasi & PPI",
@@ -1992,6 +1987,14 @@
         {
           "q": "Bagaimana mereset kalibrasi tersimpan atau menghapus riwayat pengukuran?",
           "a": "Semua data tersimpan di localStorage; gunakan tombol Reset Kalibrasi atau tombol Hapus di kartu Riwayat Pengukuran."
+        },
+        {
+          "q": "Bagaimana menampilkan atau menambahkan penggaris di Word Online?",
+          "a": "Online Ruler Plus adalah alat browser terpisah, bukan add-in Office. Di Microsoft Word untuk web (Word Online), masuk ke mode Pengeditan, buka tab Tampilan, lalu centang Penggaris di grup Tampilkan."
+        },
+        {
+          "q": "Bagaimana cara menampilkan penggaris di PowerPoint Online?",
+          "a": "Di PowerPoint Online dalam tampilan Edit, klik tab Tampilan lalu aktifkan tombol Penggaris bersama Garis Kisi atau Panduan. Perlu diingat penggaris PowerPoint mengukur tata letak slide virtual, bukan milimeter fisik layar."
         }
       ]
     },

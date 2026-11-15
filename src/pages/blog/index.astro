@@ -1,0 +1,314 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import HelpModal from '../../components/HelpModal.astro';
+import Footer from '../../components/Footer.astro';
+import {
+  BLOG_CATEGORIES,
+  BLOG_CATEGORY_MAP,
+  estimateReadingTimeMinutes,
+  formatEditorialDate,
+} from '../../lib/blog.ts';
+
+const allPosts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => (b.data.updatedDate ?? b.data.pubDate).getTime() - (a.data.updatedDate ?? a.data.pubDate).getTime(),
+);
+
+const siteOrigin = Astro.site ? Astro.site.origin : 'https://onlinerulerplus.com';
+const canonicalUrl = `${siteOrigin}/blog`;
+const title = 'Online Ruler Blog | Calibration, Conversions & Guides';
+const description =
+  'Measurement guides, inch-to-mm conversion charts, screen PPI calibration tutorials, and 100%-scale printable ruler tips from Online Ruler Plus.';
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${canonicalUrl}#collection`,
+    url: canonicalUrl,
+    name: title,
+    description,
+    inLanguage: 'en-US',
+    isPartOf: { '@id': `${siteOrigin}/#website` },
+    publisher: { '@id': `${siteOrigin}/#organization` },
+  },
+];
+---
+
+<BaseLayout
+  locale="en"
+  title={title}
+  description={description}
+  canonicalPath="/blog"
+  breadcrumbLabel="Blog"
+  ogImage="/og/blog/index.png"
+  ogImageAlt="Online Ruler Plus Measurement Blog covering inches, cm, mm, and screen calibration"
+  disableHreflang={true}
+  structuredData={structuredData}
+>
+  <Header
+    locale="en"
+    subNavTitle="Measurement Blog"
+    subNavCtaHref="/#ruler-tool"
+    subNavCtaLabel="Open Ruler"
+  />
+  <main id="main-content" class="flex-1">
+    <section class="apple-page-hero border-b border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="mb-4 flex items-center gap-2 type-caption text-ink-muted-80">
+          <a href="/" class="hover:text-link hover:underline">Home</a>
+          <span aria-hidden="true">/</span>
+          <span class="font-medium text-ink" aria-current="page">Blog</span>
+        </nav>
+
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div class="max-w-3xl">
+            <p class="type-kicker">Editorial Metrology & Practical Guides · {allPosts.length} Published Guides</p>
+            <h1 class="mt-2 type-hero-display text-ink">Online Ruler Guides, Conversions & Calibration</h1>
+            <p class="speakable-summary mt-3 max-w-[64ch] type-lead-airy text-ink-muted-80">
+              Evidence-based guides built on NIST, ISO/IEC 7810, and W3C display standards—covering how to read 1/16″ and metric rulers, measure without physical tools, calibrate any screen, and print at true 100% scale.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-3 shrink-0">
+            <a href="/#ruler-tool" class="apple-btn-primary">Launch Online Ruler</a>
+            <a href="/calibration-guide" class="apple-btn-secondary-pill">Calibration Guide</a>
+          </div>
+        </div>
+
+        <!-- Search & Category Filter Bar -->
+        <div class="mt-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter articles by category">
+            <button
+              type="button"
+              data-blog-filter="all"
+              aria-pressed="true"
+              class="apple-chip is-active cursor-pointer"
+            >
+              All Guides ({allPosts.length})
+            </button>
+            {
+              BLOG_CATEGORIES.map((cat) => {
+                const count = allPosts.filter((p) => p.data.category === cat.slug).length;
+                return (
+                  <button
+                    type="button"
+                    data-blog-filter={cat.slug}
+                    aria-pressed="false"
+                    class="apple-chip cursor-pointer"
+                  >
+                    {cat.shortName} ({count})
+                  </button>
+                );
+              })
+            }
+          </div>
+
+          <div class="w-full lg:w-80">
+            <label for="blog-search-input" class="sr-only">Search measurement articles</label>
+            <input
+              id="blog-search-input"
+              type="search"
+              placeholder="Search inches, cm, mm, PPI, Word…"
+              class="w-full h-[44px] rounded-full border border-hairline bg-canvas px-5 type-caption text-ink placeholder:text-ink-muted-48 focus:border-primary-focus"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category Pillars Overview -->
+    <section class="apple-tile-parchment border-b border-hairline">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="type-kicker">Topic Pillars · 5 Core Measurement Categories</p>
+          <h2 class="mt-1.5 type-display-md text-ink">Browse by Measurement Topic</h2>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          {
+            BLOG_CATEGORIES.map((cat) => {
+              const count = allPosts.filter((p) => p.data.category === cat.slug).length;
+              return (
+                <a
+                  href={`/blog/${cat.slug}`}
+                  class="apple-utility-card flex flex-col justify-between hover:border-primary-focus transition-colors"
+                >
+                  <div>
+                    <p class="type-kicker">{cat.code} · {count} Guides</p>
+                    <h3 class="mt-1.5 type-body-strong text-ink">{cat.name}</h3>
+                    <p class="mt-2 type-fine-print text-ink-muted-80 leading-relaxed">{cat.description}</p>
+                  </div>
+                  <span class="mt-4 type-caption font-semibold text-link">View category →</span>
+                </a>
+              );
+            })
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Articles Grid -->
+    <section class="apple-tile-light">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap items-baseline justify-between gap-3">
+          <div>
+            <p class="type-kicker">Published Editorial Library</p>
+            <h2 class="mt-1.5 type-display-md text-ink">Latest Measurement & Calibration Guides</h2>
+          </div>
+          <p id="blog-results-count" class="type-caption text-ink-muted-80" aria-live="polite">
+            Showing {allPosts.length} of {allPosts.length} articles
+          </p>
+        </div>
+
+        <div id="blog-article-grid" class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {
+            allPosts.map((post) => {
+              const cat = BLOG_CATEGORY_MAP[post.data.category];
+              const minutes = estimateReadingTimeMinutes(post.body);
+              const displayDate = formatEditorialDate(post.data.updatedDate ?? post.data.pubDate);
+              const searchHaystack = [
+                post.data.title,
+                post.data.description,
+                post.data.primaryKeyword,
+                ...post.data.secondaryKeywords,
+                cat.name,
+              ]
+                .join(' ')
+                .toLowerCase();
+
+              return (
+                <article
+                  data-blog-card
+                  data-category={post.data.category}
+                  data-search={searchHaystack}
+                  class="apple-utility-card flex flex-col justify-between hover:border-primary-focus transition-colors"
+                >
+                  <div>
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                      <a
+                        href={`/blog/${cat.slug}`}
+                        class="rounded-full bg-canvas-parchment px-2.5 py-0.5 font-mono text-[11px] font-semibold text-link hover:underline"
+                      >
+                        {cat.shortName}
+                      </a>
+                      <span class="font-mono text-[11px] text-ink-muted-48">
+                        {minutes} min read · {displayDate}
+                      </span>
+                    </div>
+
+                    <h3 class="mt-3 type-tagline text-ink">
+                      <a href={`/blog/${post.id}`} class="hover:text-link transition-colors">
+                        {post.data.title}
+                      </a>
+                    </h3>
+
+                    <p class="mt-2.5 type-caption text-ink-muted-80">
+                      {post.data.description}
+                    </p>
+                  </div>
+
+                  <div class="mt-5 flex items-center justify-between border-t border-hairline pt-3.5">
+                    <span class="font-mono text-[11px] text-ink-muted-48 truncate pr-2">
+                      {post.data.primaryKeyword}
+                    </span>
+                    <a
+                      href={`/blog/${post.id}`}
+                      class="shrink-0 type-caption font-semibold text-link hover:underline"
+                    >
+                      Read guide →
+                    </a>
+                  </div>
+                </article>
+              );
+            })
+          }
+        </div>
+
+        <div
+          id="blog-empty-state"
+          class="hidden mt-8 rounded-[18px] border border-hairline bg-canvas-parchment p-8 text-center"
+        >
+          <p class="type-body-strong text-ink">No matching guides found</p>
+          <p class="mt-1.5 type-caption text-ink-muted-80">
+            Try clearing your search or switching back to all categories.
+          </p>
+          <button
+            type="button"
+            id="blog-reset-filters"
+            class="mt-4 apple-btn-secondary-pill cursor-pointer"
+          >
+            Reset Filters
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <HelpModal locale="en" />
+  <Footer locale="en" />
+  <script src="../../scripts/app.ts"></script>
+  <script is:inline>
+    (() => {
+      const buttons = Array.from(document.querySelectorAll('[data-blog-filter]'));
+      const searchInput = document.getElementById('blog-search-input');
+      const cards = Array.from(document.querySelectorAll('[data-blog-card]'));
+      const countEl = document.getElementById('blog-results-count');
+      const emptyEl = document.getElementById('blog-empty-state');
+      const resetBtn = document.getElementById('blog-reset-filters');
+
+      let activeCategory = 'all';
+
+      function applyFilters() {
+        const query = (searchInput && searchInput.value ? searchInput.value : '').trim().toLowerCase();
+        let visible = 0;
+
+        for (const card of cards) {
+          const cat = card.getAttribute('data-category') || '';
+          const haystack = card.getAttribute('data-search') || '';
+          const matchesCat = activeCategory === 'all' || cat === activeCategory;
+          const matchesSearch = !query || haystack.includes(query);
+          const show = matchesCat && matchesSearch;
+          card.classList.toggle('hidden', !show);
+          if (show) visible++;
+        }
+
+        if (countEl) {
+          countEl.textContent = `Showing ${visible} of ${cards.length} articles`;
+        }
+        if (emptyEl) {
+          emptyEl.classList.toggle('hidden', visible > 0);
+        }
+      }
+
+      for (const btn of buttons) {
+        btn.addEventListener('click', () => {
+          activeCategory = btn.getAttribute('data-blog-filter') || 'all';
+          for (const b of buttons) {
+            const isSelected = b === btn;
+            b.classList.toggle('is-active', isSelected);
+            b.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
+          }
+          applyFilters();
+        });
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', applyFilters);
+      }
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          activeCategory = 'all';
+          if (searchInput) searchInput.value = '';
+          for (const b of buttons) {
+            const isAll = b.getAttribute('data-blog-filter') === 'all';
+            b.classList.toggle('is-active', isAll);
+            b.setAttribute('aria-pressed', isAll ? 'true' : 'false');
+          }
+          applyFilters();
+        });
+      }
+    })();
+  </script>
+</BaseLayout>

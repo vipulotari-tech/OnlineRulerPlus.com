@@ -1,5 +1,6 @@
 ---
 import {
+  DEFAULT_LOCALE,
   LOCALES,
   LOCALE_META,
   localizedPath,
@@ -16,6 +17,7 @@ interface Props {
 
 const { locale, currentPath = Astro.url.pathname } = Astro.props;
 const baseRoutePath = stripLocalePrefix(currentPath);
+const isEnglishOnlyRoute = baseRoutePath === '/blog' || baseRoutePath.startsWith('/blog/');
 const dict = getDict(locale);
 const currentMeta = LOCALE_META[locale];
 ---
@@ -64,7 +66,10 @@ const currentMeta = LOCALE_META[locale];
     {LOCALES.map((code) => {
       const meta = LOCALE_META[code];
       const isActive = code === locale;
-      const href = localizedPath(code, baseRoutePath);
+      const href =
+        isEnglishOnlyRoute && code !== DEFAULT_LOCALE
+          ? localizedPath(code, '/')
+          : localizedPath(code, baseRoutePath);
       return (
         <a
           href={href}

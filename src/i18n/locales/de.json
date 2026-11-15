@@ -44,7 +44,8 @@
       "screenDetector": "Bildschirm-Detektor",
       "printableRuler": "Druckbares Lineal",
       "circleRuler": "Kreis-Lehre",
-      "quadrant": "4-Quadranten-Netz"
+      "quadrant": "4-Quadranten-Netz",
+      "blog": "Blog"
     },
     "subNav": {
       "workspace": "Lineal",
@@ -87,7 +88,8 @@
     "toolCircle": "Kreis- & Ring-Lehre",
     "toolQuadrant": "4-Quadranten-Gitter",
     "toolPrintable": "1:1 Druckbares SVG-Lineal",
-    "toolDetector": "Display- & PPI-Detektor"
+    "toolDetector": "Display- & PPI-Detektor",
+    "guideBlog": "Mess-Blog & Ratgeber"
   },
   "helpModal": {
     "kicker": "Kurzübersicht",
@@ -628,14 +630,6 @@
         "a": "Online Ruler Plus greift nie auf die Kamera zu. Direktes Anlegen am kalibrierten Display vermeidet Perspektiv- und Tiefenmessfehler von Kamera-AR-Apps."
       },
       {
-        "q": "Wie blendet man in Word Online das Lineal ein?",
-        "a": "Wechsle in Word im Web in den Bearbeitungsmodus, öffne den Reiter Ansicht und aktiviere die Option Lineal."
-      },
-      {
-        "q": "Wie zeigt man in PowerPoint Online das Lineal an?",
-        "a": "Im Bearbeitungsmodus unter Ansicht das Lineal aktivieren. Beachte, dass dort Folienkoordinaten statt physischer Monitor-Millimeter angezeigt werden."
-      },
-      {
         "q": "Warum ist Kalibrierung nötig und zerstört Zoom die Genauigkeit?",
         "a": "Ohne Kalibrierung nutzen Browser pauschal 96 CSS-Pixel/Zoll. Online Ruler Plus speichert die Hardware-Dichte (devicePxPerMm) und gleicht Browser-Zoom automatisch aus."
       },
@@ -643,7 +637,8 @@
         "q": "Bleibt die Kalibrierung auf mehreren Monitoren privat gespeichert?",
         "a": "Ja, jedes Displayprofil wird ausschließlich lokal in localStorage gespeichert und niemals hochgeladen."
       }
-    ]
+    ],
+    "howLead": "Online Ruler Plus ist ein kostenloses Online-Lineal und ein kalibriertes Bildschirm-Messwerkzeug für physische Objekte in Zoll, Zentimetern, Millimetern und CSS-Pixeln direkt auf dem Display. Da Browser standardmäßig 96 CSS-Pixel pro Zoll annehmen, passt eine einmalige Kalibrierung den echten Maßstab auf Laptops, Monitoren, Tablets und Smartphones an."
   },
   "spokeShared": {
     "calibrationGuideBtn": "Kalibrierungs- & PPI-Guide",
@@ -1992,6 +1987,14 @@
         {
           "q": "Wie setze ich Kalibrierung oder Messverlauf zurück?",
           "a": "Über Zurücksetzen in Aktiver Maßstab bzw. Leeren im Messverlauf (alles lokal in localStorage)."
+        },
+        {
+          "q": "Wie blendet man in Word Online das Lineal ein?",
+          "a": "Wechsle in Word im Web in den Bearbeitungsmodus, öffne den Reiter Ansicht und aktiviere die Option Lineal."
+        },
+        {
+          "q": "Wie zeigt man in PowerPoint Online das Lineal an?",
+          "a": "Im Bearbeitungsmodus unter Ansicht das Lineal aktivieren. Beachte, dass dort Folienkoordinaten statt physischer Monitor-Millimeter angezeigt werden."
         }
       ]
     },

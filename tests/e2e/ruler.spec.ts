@@ -208,9 +208,9 @@ test.describe('Online Ruler Plus — Apple DESIGN.md & E2E Verification Suite', 
 
     await page.goto('/');
 
-    // Verify interactive FAQ accordions on homepage expand/collapse cleanly
+    // Verify interactive FAQ accordions on homepage expand/collapse cleanly (9 ruler FAQs after Office FAQ isolation)
     const faqDetails = page.locator('#faq details');
-    await expect(faqDetails).toHaveCount(11);
+    await expect(faqDetails).toHaveCount(9);
     const firstFaq = faqDetails.first();
     await expect(firstFaq).toHaveAttribute('open', '');
     await firstFaq.locator('summary').click();

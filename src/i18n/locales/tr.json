@@ -44,7 +44,8 @@
       "screenDetector": "Ekran Algılayıcı",
       "printableRuler": "Yazdırılabilir Cetvel",
       "circleRuler": "Daire Ölçer",
-      "quadrant": "4 Kadran Koordinat"
+      "quadrant": "4 Kadran Koordinat",
+      "blog": "Blog"
     },
     "subNav": {
       "workspace": "Çalışma Alanı",
@@ -87,7 +88,8 @@
     "toolCircle": "Çember & Yüzük Ölçer",
     "toolQuadrant": "4 Bölgeli Koordinat",
     "toolPrintable": "1:1 Yazdırılabilir SVG Cetvel",
-    "toolDetector": "Ekran & PPI Algılayıcı"
+    "toolDetector": "Ekran & PPI Algılayıcı",
+    "guideBlog": "Ölçüm Blogu ve Rehberler"
   },
   "helpModal": {
     "kicker": "Hızlı Başvuru",
@@ -628,14 +630,6 @@
         "a": "Online Ruler Plus kameranıza erişmez veya fotoğraf işlemez; kamera tabanlı AR uygulamaları ışık ve perspektif hatasına açıkken, kalibre edilmiş ekran camı küçük parçalarda derinlik hatasını ortadan kaldırır."
       },
       {
-        "q": "Word Online içinde cetvel nasıl açılır veya eklenir?",
-        "a": "Online Ruler Plus bağımsız bir web aracıdır. Microsoft Word Online içinde Düzenleme moduna geçin, üst şeritteki Görünüm sekmesini tıklayın ve Göster grubundan Cetvel onay kutusunu işaretleyin."
-      },
-      {
-        "q": "PowerPoint Online'da cetvel nasıl gösterilir?",
-        "a": "Microsoft PowerPoint Online'da Düzenleme görünümünde Görünüm sekmesine tıklayıp Cetvel seçeneğini etkinleştirin. PowerPoint cetveli monitör milimetresi yerine sanal slayt koordinatlarını ölçer."
-      },
-      {
         "q": "Çevrimiçi cetveller neden kalibrasyon ister ve tarayıcı yakınlaştırması doğruluğu bozar mı?",
         "a": "Tarayıcılar gizlilik nedeniyle gerçek monitör boyutunu gizleyip 96 CSS PPI kullanır, bu da %10–35 hata doğurur. Online Ruler Plus donanım yoğunluğunu (devicePxPerMm) localStorage'a kaydeder ve yakınlaştırma değişikliklerinde otomatik yeniden ölçekler."
       },
@@ -643,7 +637,8 @@
         "q": "Kalibrasyon farklı monitörlerde korunur mu ve gizli kalır mı?",
         "a": "Her manuel kalibrasyon ekran çözünürlüğü ve DPR anahtarıyla yalnızca tarayıcının localStorage alanında saklanır. Başka monitöre taşındığında doğrulama ister ve hiçbir veri sunucuya gönderilmez."
       }
-    ]
+    ],
+    "howLead": "Online Ruler Plus, ekranınız üzerinde fiziksel nesneleri inç, santimetre, milimetre ve CSS pikseli cinsinden ölçmek için kalibre edilmiş ücretsiz bir çevrimiçi cetvel aracıdır. Tarayıcılar varsayılan olarak inç başına 96 CSS pikseli kullandığından, tek seferlik kalibrasyon dizüstü bilgisayar, monitör, tablet ve telefonlarda gerçek ölçeği korur."
   },
   "spokeShared": {
     "calibrationGuideBtn": "Kalibrasyon ve PPI Rehberi",
@@ -1992,6 +1987,14 @@
         {
           "q": "Kayıtlı ekran kalibrasyonunu veya ölçüm geçmişini nasıl sıfırlarım?",
           "a": "Tüm ayarlar localStorage'dadır; Kalibrasyonu Sıfırla veya Ölçüm Geçmişi'ndeki Temizle düğmesini kullanın."
+        },
+        {
+          "q": "Word Online içinde cetvel nasıl açılır veya eklenir?",
+          "a": "Online Ruler Plus bağımsız bir web aracıdır. Microsoft Word Online içinde Düzenleme moduna geçin, üst şeritteki Görünüm sekmesini tıklayın ve Göster grubundan Cetvel onay kutusunu işaretleyin."
+        },
+        {
+          "q": "PowerPoint Online'da cetvel nasıl gösterilir?",
+          "a": "Microsoft PowerPoint Online'da Düzenleme görünümünde Görünüm sekmesine tıklayıp Cetvel seçeneğini etkinleştirin. PowerPoint cetveli monitör milimetresi yerine sanal slayt koordinatlarını ölçer."
         }
       ]
     },

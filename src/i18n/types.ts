@@ -91,6 +91,7 @@ export interface LocaleDict {
       readonly circleRuler: string;
       readonly quadrant: string;
       readonly faq: string;
+      readonly blog: string;
       readonly about: string;
       readonly contact: string;
       readonly privacy: string;
@@ -120,6 +121,7 @@ export interface LocaleDict {
     readonly guideHowTo: string;
     readonly guidePpi: string;
     readonly guideFaq: string;
+    readonly guideBlog: string;
     readonly toolGuides: string;
     readonly toolFractions: string;
     readonly toolPx: string;
@@ -374,6 +376,7 @@ export interface LocaleDict {
     readonly featureList: readonly string[];
     readonly howKicker: string;
     readonly howHeading: string;
+    readonly howLead: string;
     readonly howManualBtn: string;
     readonly howCards: readonly {
       readonly kicker: string;

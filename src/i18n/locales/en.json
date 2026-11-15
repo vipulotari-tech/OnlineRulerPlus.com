@@ -37,6 +37,7 @@
       "howToUse": "How to Use",
       "calibrationGuide": "Calibration Guide",
       "faq": "FAQ",
+      "blog": "Blog",
       "about": "About",
       "contact": "Contact",
       "privacy": "Privacy Policy",
@@ -73,6 +74,7 @@
     "guideHowTo": "How to Use Guide",
     "guidePpi": "Screen PPI Reference",
     "guideFaq": "Frequently Asked Questions",
+    "guideBlog": "Measurement Blog & Guides",
     "toolGuides": "Draggable Guide Lines (G)",
     "toolFractions": "Fractional Inch Readout",
     "toolPx": "CSS Pixel Inspector (px)",
@@ -414,60 +416,61 @@
     ],
     "howKicker": "Practical Screen Metrology · Inches, cm & mm Guide",
     "howHeading": "Online Ruler Guide: Actual-Size Inches, cm & mm",
+    "howLead": "Online Ruler Plus is a free online ruler and calibrated screen measurement tool built to measure physical objects in inches, centimeters, millimeters, and CSS pixels directly on your display. Because web browsers assume 96 CSS pixels per inch by default, calibrating once maps your real pixel density so ticks render to scale across laptops, desktop monitors, tablets, and phones—with zero downloads, zero ads, and 100% local privacy.",
     "howManualBtn": "Full User Manual",
     "howCards": [
       {
-        "kicker": "01 · Overview",
+        "kicker": "01 · How It Works",
         "heading": "What Is an Online Ruler?",
-        "body": "A free online ruler is a calibrated browser instrument that draws true-scale ticks directly on your screen glass in inches, centimeters, millimeters, and CSS pixels. Because web browsers default to 96 CSS pixels per inch regardless of monitor size, uncalibrated tools distort physical dimensions. Local calibration maps real hardware pixel pitch to 1:1 physical length with zero downloads."
+        "body": "An online ruler turns your display glass into a real online ruler calibrated to 1:1 physical scale. Rather than guessing from fixed 96 CSS pixels per inch, OnlineRulerPlus multiplies your verified display density (devicePxPerMm) by exact NIST/BIPM constants (1 inch = 25.4 mm, 1 cm = 10 mm) on an HTML5 canvas, keeping tick spacing accurate across browser zoom changes."
       },
       {
-        "kicker": "02 · Quick Steps",
-        "heading": "How to Use the Online Ruler",
-        "body": "Calibrate once below, pick your preferred unit, and hold any object flat against the workspace canvas. Start from the inset 0 line rather than the monitor bezel so raised frames never clip your edge. Click any ruler strip or stage area to drop draggable blue guide lines that automatically subtract start and end positions into a clear span readout.",
+        "kicker": "02 · Features & Steps",
+        "heading": "How to Use Our Online Ruler Tool",
+        "body": "Calibrate once below, choose your unit, and align any object at the inset 0 datum line so monitor bezels never clip the start edge. Click any strip to drop draggable ΔX/ΔY guide lines (G), toggle the cursor crosshair (C), rotate the 360° floating ruler or dual-ray protractor (P), or paste screenshots into our offline Photo / Ctrl+V ruler.",
         "linkHref": "#ruler-tool",
         "linkLabel": "Measure in workspace"
       },
       {
         "kicker": "03 · US Imperial",
-        "heading": "Measuring in Inches",
-        "body": "In [[link:/inch-ruler|Inches mode]], every inch (25.4 mm) subdivides into classic 1/2, 1/4, 1/8, and 1/16 graduations for woodworking, shipping boxes, and crafts. Tick heights reflect each reduced denominator automatically. Wide desktop and laptop displays render a continuous 12-inch online ruler span (or expand via fullscreen mode [[kbd:F]]) with decimal and fractional readouts.",
+        "heading": "Measuring in Inches (1/16″ & 12-Inch)",
+        "body": "In [[link:/inch-ruler|Inches mode]] (shortcut [[kbd:2]]), every inch (25.4 mm) divides into classic 1/2, 1/4, 1/8, 1/16, or 1/32 graduations for shipping cartons, woodworking, and crafts. Wide desktop and laptop monitors display up to a full 12-inch online ruler span—or expand via fullscreen [[kbd:F]]—with live decimal and reduced fraction readouts.",
         "linkHref": "/inch-ruler",
         "linkLabel": "Open 1/16″ Inch Ruler"
       },
       {
         "kicker": "04 · Metric Scale",
-        "heading": "Measuring in Centimeters and Millimeters",
-        "body": "Switch to [[link:/cm-ruler|cm]] for stationery, cards, and packaging (1 cm = 10 mm), or select the [[link:/mm-ruler|mm online ruler]] when checking metric screws, watch lug widths, or 3D-printed tolerances. Need both systems together? Enable Dual cm/in mode in the toolbar to inspect opposing metric and inch edges on one calibrated frame.",
+        "heading": "Measuring in Centimeters & Millimeters",
+        "body": "Switch to [[link:/cm-ruler|cm]] ([[kbd:1]]) for stationery, envelopes, and everyday parcels (1 cm = 10 mm), or choose the [[link:/mm-ruler|mm online ruler]] ([[kbd:4]]) for fine 1 mm pitch checks on M2–M10 screws, watch lug widths, coins, and 3D-printed parts. Toggle Dual cm/in, cm+px, or in+px anytime to compare metric, imperial, and CSS pixel scales side by side.",
         "linkHref": "/cm-ruler",
         "linkLabel": "Open cm & mm Rulers"
       },
       {
         "kicker": "05 · Calibration",
-        "heading": "How to Calibrate an Online Ruler",
-        "body": "Browser privacy limits prevent websites from reading exact monitor panel size automatically. To create an accurate online ruler to scale, hold a standard credit card, debit card, or driver license (ISO/IEC 7810 ID-1: 85.60 × 53.98 mm / 3.370 × 2.125 in) against the calibration box, or enter your screen’s diagonal inches at 100% browser zoom.",
+        "heading": "How to Calibrate for Accurate Scale",
+        "body": "To create an accurate online ruler to scale, match any standard bank card, debit card, or driver license (ISO/IEC 7810 ID-1: 85.60 × 53.98 mm / 3.370 × 2.125 in) against the calibration box, select a coin or A4/US Letter preset, or enter your screen diagonal in inches. Calibration persists locally per monitor so secondary displays keep independent profiles.",
         "linkHref": "#calibration",
         "linkLabel": "Calibrate with a bank card",
         "isCardOpen": true
       },
       {
-        "kicker": "06 · True 1:1 Tips",
-        "heading": "How to Get Actual-Size Measurements",
-        "body": "For reliable real online ruler readings, look straight down perpendicular to the tick mark—viewing at an angle through thick monitor glass shifts readings slightly via optical parallax. Verify calibration quickly with everyday US coins: a Quarter measures 0.955 in (24.26 mm) and a Penny is 0.75 in (19.05 mm). Save mechanical calipers for machining tolerances.",
+        "kicker": "06 · Use Cases & Limits",
+        "heading": "Actual-Size Tips & Practical Uses",
+        "body": "Use OnlineRulerPlus to size postal boxes, ring and coin diameters, hardware fasteners, UI breakpoints, or 100%-scale printable SVG rulers. Look straight down perpendicular to the glass to avoid optical parallax, verify with a US Quarter (24.26 mm / 0.955 in) or Penny (19.05 mm / 0.75 in), and keep mechanical calipers for sub-0.2 mm machining tolerances.",
         "linkHref": "/calibration-guide",
         "linkLabel": "Read calibration guide"
       },
       {
-        "kicker": "07 · Devices",
-        "heading": "Using an Online Ruler on Mobile and Desktop",
-        "body": "Desktop monitors offer wide horizontal strips for 12-inch spans, keyboard shortcuts, and independent profiles saved per monitor. On smartphones and tablets with narrow screens, switch to Portrait Card Calibration (53.98 mm short card edge) and touch-drag guide lines. Active screen size sets the single-pass limit across both form factors.",
+        "kicker": "07 · Any Device",
+        "heading": "Desktop, Laptop & Mobile Portrait Use",
+        "body": "Desktop monitors and laptops provide wide horizontal strips for 12-inch spans, Focus Mode, and single-key shortcuts. On smartphones and narrow tablets, switch to Portrait Card Calibration (53.98 mm short card edge) or our vertical edge strips and drag touch guide lines across the screen. Physical screen dimensions set the single-pass limit on all devices.",
         "linkHref": "/vertical-ruler",
         "linkLabel": "Try mobile-friendly vertical mode"
       },
       {
-        "kicker": "08 · Quick Answers",
-        "heading": "Common Measurement Questions",
-        "body": "Wondering whether smartphone screens, browser zoom, or cameras work reliably—or how to toggle built-in page rulers inside Microsoft Word Online and PowerPoint Online? Scroll below for direct answers covering phone limits, 1-inch visual checks, metric conversions, camera caveats, and document-editor ruler settings without installing extra extensions.",
+        "kicker": "08 · Why OnlineRulerPlus",
+        "heading": "Zero Ads, Full Privacy & Quick Answers",
+        "body": "Unlike ad-heavy screen rulers that shift layout while you measure on the glass, OnlineRulerPlus runs 100% client-side with zero layout jump, dark mode (D), and zero server uploads. Browse our Measurement Blog for unit conversion tables and calibration walkthroughs, or scroll below for direct answers on phones, cameras, and PPI accuracy.",
         "linkHref": "#faq",
         "linkLabel": "Jump to FAQs ↓"
       }
@@ -625,15 +628,7 @@
       },
       {
         "q": "Can I use my camera as a ruler?",
-        "a": "Online Ruler Plus does not access your camera or process photos; every measurement happens directly against your calibrated screen glass inside the browser. While dedicated mobile apps such as Apple Measure (using LiDAR on supported iPhones/iPads) or Android ARCore rulers estimate room-scale distances through a camera, camera-based measurements are sensitive to lighting, lens perspective, and edge-detection drift. For small parts under a few inches, flat screen-glass contact after calibration avoids depth estimation error."
-      },
-      {
-        "q": "How do you view or add a ruler in Word Online?",
-        "a": "Online Ruler Plus is an independent browser measurement tool, not a Microsoft Office add-in. Inside Microsoft Word for the web (Word Online), switch to Editing mode rather than Reading View, click the View tab on the top ribbon, and check the Ruler option in the Show group to turn document margin and tab-stop rulers on or off. Word for the web shows the horizontal page ruler across the top of the document in Editing view, whereas desktop Word additionally supports a vertical left margin ruler."
-      },
-      {
-        "q": "How do you show a ruler in PowerPoint Online?",
-        "a": "In Microsoft PowerPoint for the web (PowerPoint Online), open your deck in Editing view, select the View tab in the ribbon, and enable the Ruler toggle alongside Gridlines or Guides if available in your current web release. Note that slide rulers inside PowerPoint measure virtual slide coordinates (such as a 13.333 × 7.5-inch widescreen layout) rather than actual physical millimeters on your monitor glass."
+        "a": "Online Ruler Plus does not access your live camera or run AR depth estimation; live ruler measurements happen directly against your calibrated screen glass, and our offline Photo / Ctrl+V tool measures static uploaded or pasted photos from a 2-point reference object. While dedicated mobile apps such as Apple Measure (using LiDAR on supported iPhones/iPads) or Android ARCore rulers estimate room-scale distances through a camera, camera-based estimates are sensitive to lighting, lens distortion, and angle drift."
       },
       {
         "q": "Why do online rulers require calibration, and does browser zoom break accuracy?",
@@ -1992,6 +1987,14 @@
         {
           "q": "How do I reset my saved screen calibration or clear measurement history?",
           "a": "All calibration profiles, unit preferences, and saved span records live locally in your browser’s localStorage under the keys orp:calibration:v1, orp:preferences:v1, and orp:history:v1. To reset your active display’s calibration back to the automatic hardware estimate, scroll to the Calibrate Your Screen section and click the Reset Calibration button inside the Active Scale status card. To erase saved span entries, click the Clear button in the Measurement History card on the right side of the calibration section."
+        },
+        {
+          "q": "How do you view or add a ruler in Word Online?",
+          "a": "Online Ruler Plus is an independent browser measurement tool, not a Microsoft Office add-in. Inside Microsoft Word for the web (Word Online), switch to Editing mode rather than Reading View, click the View tab on the top ribbon, and select Ruler to show or hide the horizontal document ruler for margins and tab stops. Unlike desktop Word, Word for the web does not display a vertical left margin ruler."
+        },
+        {
+          "q": "How do you show a ruler in PowerPoint Online?",
+          "a": "According to Microsoft Support, the traditional desktop layout Ruler (used to measure slide margins) is not available in PowerPoint for the web (PowerPoint Online). Instead, PowerPoint for the web displays automatic red dashed Smart Guides when dragging shapes or text boxes, and provides an ink straightedge under Draw > Ruler for annotations. If you need full desktop measurement rulers and Gridlines/Guides controls, click Editing > Open in Desktop App."
         }
       ]
     },

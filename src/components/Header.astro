@@ -34,6 +34,7 @@ const navItems = [
   { base: '/how-to-use', href: localizedPath(locale, '/how-to-use'), label: dict.nav.links.howToUse },
   { base: '/calibration-guide', href: localizedPath(locale, '/calibration-guide'), label: dict.nav.links.calibrationGuide },
   { base: '/faq', href: localizedPath(locale, '/faq'), label: dict.nav.links.faq },
+  { base: '/blog', href: '/blog', label: dict.nav.links.blog },
 ];
 
 const displaySubNavTitle =
@@ -68,7 +69,10 @@ const homeHref = localizedPath(locale, '/');
       <nav aria-label={dict.nav.globalNavAria} class="apple-nav-desktop items-center gap-0.5 xl:gap-1.5 min-w-0">
         {
           navItems.map((item) => {
-            const isActive = rawBasePath === item.base;
+            const isActive =
+              item.base === '/blog'
+                ? rawBasePath === '/blog' || rawBasePath.startsWith('/blog/')
+                : rawBasePath === item.base;
             return (
               <a
                 href={item.href}
@@ -194,20 +198,26 @@ const homeHref = localizedPath(locale, '/');
         {dict.nav.homeWorkspaceLabel}
       </a>
       {
-        navItems.map((item) => (
-          <a
-            href={item.href}
-            aria-current={rawBasePath === item.base ? 'page' : undefined}
-            class:list={[
-              'py-2',
-              rawBasePath === item.base
-                ? 'text-primary-on-dark font-semibold'
-                : 'text-body-muted hover:text-on-dark',
-            ]}
-          >
-            {item.label}
-          </a>
-        ))
+        navItems.map((item) => {
+          const isActive =
+            item.base === '/blog'
+              ? rawBasePath === '/blog' || rawBasePath.startsWith('/blog/')
+              : rawBasePath === item.base;
+          return (
+            <a
+              href={item.href}
+              aria-current={isActive ? 'page' : undefined}
+              class:list={[
+                'py-2',
+                isActive
+                  ? 'text-primary-on-dark font-semibold'
+                  : 'text-body-muted hover:text-on-dark',
+              ]}
+            >
+              {item.label}
+            </a>
+          );
+        })
       }
       <a href={localizedPath(locale, '/about')} class="py-2 text-body-muted hover:text-on-dark">{dict.nav.links.about}</a>
       <a href={localizedPath(locale, '/contact')} class="py-2 text-body-muted hover:text-on-dark">{dict.nav.links.contact}</a>

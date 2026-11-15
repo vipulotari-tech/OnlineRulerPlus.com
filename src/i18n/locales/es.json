@@ -44,7 +44,8 @@
       "screenDetector": "Detector de pantalla",
       "printableRuler": "Regla imprimible",
       "circleRuler": "Calibrador circular",
-      "quadrant": "Plano 4 cuadrantes"
+      "quadrant": "Plano 4 cuadrantes",
+      "blog": "Blog"
     },
     "subNav": {
       "workspace": "Área de Trabajo",
@@ -87,7 +88,8 @@
     "toolCircle": "Medidor de Círculos y Anillos",
     "toolQuadrant": "Plano de 4 Cuadrantes",
     "toolPrintable": "Regla SVG Imprimible 1:1",
-    "toolDetector": "Detector de Pantalla y PPI"
+    "toolDetector": "Detector de Pantalla y PPI",
+    "guideBlog": "Blog y guías de medición"
   },
   "helpModal": {
     "kicker": "Referencia Rápida",
@@ -628,14 +630,6 @@
         "a": "Online Ruler Plus no accede a tu cámara ni procesa fotografías; todas las mediciones se realizan directamente sobre el cristal calibrado dentro del navegador. Las apps de cámara con AR sufren errores por perspectiva, distancia e iluminación, mientras que apoyar piezas pequeñas sobre la pantalla calibrada evita el error de profundidad."
       },
       {
-        "q": "¿Cómo ver o activar la regla en Word Online?",
-        "a": "Online Ruler Plus es una herramienta web independiente, no un complemento de Office. En Microsoft Word para la web (Word Online), cambia al modo Edición en lugar de Vista de lectura, haz clic en la pestaña Vista de la cinta superior y marca la casilla Regla en el grupo Mostrar para ver los márgenes horizontales del documento."
-      },
-      {
-        "q": "¿Cómo mostrar la regla en PowerPoint Online?",
-        "a": "En Microsoft PowerPoint para la web, abre tu presentación en vista Edición, ve a la pestaña Vista y activa Regla junto a Líneas de cuadrícula o Guías si está disponible en tu versión web. Ten en cuenta que las reglas de diapositivas miden coordenadas virtuales de la diapositiva y no milímetros físicos reales sobre tu monitor."
-      },
-      {
         "q": "¿Por qué las reglas online requieren calibración y el zoom rompe la precisión?",
         "a": "Los navegadores dibujan por defecto a 96 píxeles CSS por pulgada y ocultan el tamaño físico real del monitor por privacidad, lo que introduce errores del 10 % al 35 % sin calibrar. Online Ruler Plus guarda tu densidad hardware real (devicePxPerMm) en localStorage y detecta cambios de devicePixelRatio para reescalar las marcas automáticamente cuando cambias el zoom."
       },
@@ -643,7 +637,8 @@
         "q": "¿La calibración se mantiene entre varios monitores y es privada?",
         "a": "Cada calibración manual se guarda localmente en localStorage vinculada a la resolución, devicePixelRatio y plataforma de cada pantalla. Al mover la ventana a un monitor externo, el sistema carga o solicita su perfil específico. Nunca enviamos medidas, cámara ni datos de calibración a servidores externos."
       }
-    ]
+    ],
+    "howLead": "Online Ruler Plus es una regla online gratuita y una herramienta de medición calibrada en pantalla para medir objetos físicos en pulgadas, centímetros, milímetros y píxeles CSS directamente sobre tu pantalla. Como los navegadores asumen 96 píxeles CSS por pulgada por defecto, calibrar una vez ajusta la escala real en portátiles, monitores, tabletas y móviles sin descargas ni anuncios."
   },
   "spokeShared": {
     "calibrationGuideBtn": "Guía de Calibración y PPI",
@@ -1992,6 +1987,14 @@
         {
           "q": "¿Cómo restablezco la calibración guardada o borro el historial?",
           "a": "Pulsa Restablecer Calibración en la tarjeta Escala Activa o Borrar en el cuadro Historial de Mediciones; todos los datos viven localmente en tu navegador (localStorage)."
+        },
+        {
+          "q": "¿Cómo ver o activar la regla en Word Online?",
+          "a": "Online Ruler Plus es una herramienta web independiente, no un complemento de Office. En Microsoft Word para la web (Word Online), cambia al modo Edición en lugar de Vista de lectura, haz clic en la pestaña Vista de la cinta superior y marca la casilla Regla en el grupo Mostrar para ver los márgenes horizontales del documento."
+        },
+        {
+          "q": "¿Cómo mostrar la regla en PowerPoint Online?",
+          "a": "En Microsoft PowerPoint para la web, abre tu presentación en vista Edición, ve a la pestaña Vista y activa Regla junto a Líneas de cuadrícula o Guías si está disponible en tu versión web. Ten en cuenta que las reglas de diapositivas miden coordenadas virtuales de la diapositiva y no milímetros físicos reales sobre tu monitor."
         }
       ]
     },

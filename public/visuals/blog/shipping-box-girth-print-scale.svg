@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" fill="none" role="img" aria-label="BLOG FIG. 06 · PARCEL L×W×H &amp; 100% PRINT CHECK">
+  <defs>
+    <pattern id="bg-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ededf2" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+  <rect x="1" y="1" width="718" height="398" rx="14" fill="#fafafc" stroke="#d8d8de" stroke-width="1.5"/>
+  <rect x="12" y="12" width="696" height="376" rx="10" fill="url(#bg-grid)"/>
+  <g transform="translate(28, 24)">
+    <rect x="0" y="0" width="330" height="22" rx="11" fill="#ffffff" stroke="#d8d8de" stroke-width="1"/>
+    <circle cx="12" cy="11" r="3" fill="#0066cc"/>
+    <text x="21" y="14.5" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#5f5f63" letter-spacing="0.4">BLOG FIG. 06 · PARCEL L×W×H &amp; 100% PRINT CHECK</text>
+  </g>
+
+  <rect x="32" y="66" width="332" height="296" rx="12" fill="#ffffff" stroke="#d8d8de" stroke-width="1.5"/>
+  <text x="50" y="96" font-family="'Geist Mono', monospace" font-size="11" font-weight="700" fill="#0066cc">SHIPPING BOX DIMENSIONS</text>
+  <polygon points="104,162 214,126 296,158 186,194" fill="#e6f0fa" stroke="#0066cc" stroke-width="1.6"/>
+  <polygon points="104,162 186,194 186,274 104,242" fill="#fafafc" stroke="#1d1d1f" stroke-width="1.6"/>
+  <polygon points="186,194 296,158 296,238 186,274" fill="#f5f5f7" stroke="#1d1d1f" stroke-width="1.6"/>
+  <text x="128" y="276" font-family="'Geist Mono', monospace" font-size="10.5" font-weight="700" fill="#1d1d1f">Width (W)</text>
+  <text x="242" y="270" font-family="'Geist Mono', monospace" font-size="10.5" font-weight="700" fill="#1d1d1f">Length (L)</text>
+  <text x="304" y="204" font-family="'Geist Mono', monospace" font-size="10.5" font-weight="700" fill="#0066cc">Height (H)</text>
+  <text x="50" y="314" font-family="'Geist Mono', monospace" font-size="10.5" font-weight="700" fill="#1d1d1f">USPS Length + Girth = L + 2(W + H)</text>
+  <text x="50" y="336" font-family="'Inter', system-ui, sans-serif" font-size="11" fill="#5f5f63">Round fractions up to next whole inch/cm.</text>
+
+  <rect x="382" y="66" width="306" height="296" rx="12" fill="#ffffff" stroke="#d8d8de" stroke-width="1.5"/>
+  <text x="400" y="96" font-family="'Geist Mono', monospace" font-size="11" font-weight="700" fill="#0066cc">100% PRINT SCALE CHECK</text>
+  <text x="400" y="124" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="700" fill="#1d1d1f">Disable "Fit to Page" Scaling</text>
+  <rect x="400" y="144" width="270" height="58" rx="8" fill="#f5f5f7" stroke="#d8d8de"/>
+  <text x="414" y="168" font-family="'Geist Mono', monospace" font-size="11" fill="#8c3400">✗ Fit to Printable Area (~94% shrink)</text>
+  <text x="414" y="188" font-family="'Geist Mono', monospace" font-size="11" font-weight="700" fill="#0066cc">✓ Actual Size / Scale: 100%</text>
+
+  <rect x="400" y="220" width="270" height="66" rx="8" fill="#ffffff" stroke="#0066cc" stroke-width="1.6"/>
+  <line x1="420" y1="246" x2="650" y2="246" stroke="#1d1d1f" stroke-width="2"/>
+  <line x1="420" y1="238" x2="420" y2="254" stroke="#0066cc" stroke-width="2"/>
+  <line x1="650" y1="238" x2="650" y2="254" stroke="#0066cc" stroke-width="2"/>
+  <text x="535" y="272" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="11" font-weight="700" fill="#0066cc">85.60 mm ID-1 Card Verification Bar</text>
+  <text x="400" y="314" font-family="'Inter', system-ui, sans-serif" font-size="11" fill="#333333">Always lay a real payment card across the</text>
+  <text x="400" y="332" font-family="'Inter', system-ui, sans-serif" font-size="11" fill="#333333">printed 85.6 mm / 4 in check bar before use.</text>
+
+</svg>

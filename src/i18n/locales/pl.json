@@ -44,7 +44,8 @@
       "screenDetector": "Detektor ekranu",
       "printableRuler": "Linijka do druku",
       "circleRuler": "Miernik okręgów",
-      "quadrant": "Układ 4-ćwiartkowy"
+      "quadrant": "Układ 4-ćwiartkowy",
+      "blog": "Blog"
     },
     "subNav": {
       "workspace": "Linijka",
@@ -87,7 +88,8 @@
     "toolCircle": "Miernik Kół i Pierścionków",
     "toolQuadrant": "Siatka 4 Ćwiartek",
     "toolPrintable": "Linijka SVG do Druku 1:1",
-    "toolDetector": "Detektor Ekranu i PPI"
+    "toolDetector": "Detektor Ekranu i PPI",
+    "guideBlog": "Blog i poradniki pomiarowe"
   },
   "helpModal": {
     "kicker": "Szybka Pomoc",
@@ -628,14 +630,6 @@
         "a": "Online Ruler Plus nie korzysta z aparatu ani nie przesyła zdjęć — bezpośredni pomiar na skalibrowanej szybie ekranu unika błędów perspektywy i oświetlenia typowych dla aplikacji AR."
       },
       {
-        "q": "Jak wyświetlić lub włączyć linijkę w Word Online?",
-        "a": "Online Ruler Plus jest osobnym narzędziem w przeglądarce. W Microsoft Word dla sieci Web przełącz się na tryb Edycji, otwórz kartę Widok i zaznacz pole Linijka w grupie Pokazywanie."
-      },
-      {
-        "q": "Jak pokazać linijkę w PowerPoint Online?",
-        "a": "W PowerPoint Online w trybie Edycji otwórz kartę Widok i włącz opcję Linijka razem z Liniami siatki lub Prowadnicami (pokazuje ona współrzędne slajdu, nie fizyczne milimetry)."
-      },
-      {
         "q": "Dlaczego linijki wymagają kalibracji i czy zoom przeglądarki psuje wynik?",
         "a": "Przeglądarki ukrywają prawdziwe wymiary ekranu i rysują w 96 CSS PPI, powodując 10–35% błędu. Online Ruler Plus zapisuje fizyczną gęstość (devicePxPerMm) w localStorage i automatycznie przelicza przy zmianie zoomu."
       },
@@ -643,7 +637,8 @@
         "q": "Czy kalibracja zapisuje się dla wielu monitorów i pozostaje prywatna?",
         "a": "Tak, profile zapisywane są lokalnie w localStorage według rozdzielczości i DPR — bez wysyłania jakichkolwiek danych pomiarowych na serwery."
       }
-    ]
+    ],
+    "howLead": "Online Ruler Plus to darmowa linijka online i skalibrowane narzędzie ekranowe do mierzenia rzeczywistych przedmiotów w calach, centymetrach, milimetrach i pikselach CSS. Ponieważ przeglądarki domyślnie przyjmują 96 pikseli CSS na cal, jednorazowa kalibracja dopasowuje rzeczywistą skalę na laptopach, monitorach, tabletach i smartfonach."
   },
   "spokeShared": {
     "calibrationGuideBtn": "Poradnik Kalibracji i PPI",
@@ -1992,6 +1987,14 @@
         {
           "q": "Jak zresetować zapisaną kalibrację lub wyczyścić historię pomiarów?",
           "a": "Wszystkie dane znajdują się w localStorage; kliknij Resetuj Kalibrację lub Wyczyść w karcie Historii Pomiarów."
+        },
+        {
+          "q": "Jak wyświetlić lub włączyć linijkę w Word Online?",
+          "a": "Online Ruler Plus jest osobnym narzędziem w przeglądarce. W Microsoft Word dla sieci Web przełącz się na tryb Edycji, otwórz kartę Widok i zaznacz pole Linijka w grupie Pokazywanie."
+        },
+        {
+          "q": "Jak pokazać linijkę w PowerPoint Online?",
+          "a": "W PowerPoint Online w trybie Edycji otwórz kartę Widok i włącz opcję Linijka razem z Liniami siatki lub Prowadnicami (pokazuje ona współrzędne slajdu, nie fizyczne milimetry)."
         }
       ]
     },

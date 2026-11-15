@@ -57,9 +57,31 @@ test('Build output covers all 156 localized routes, hreflang alternates, JSON-LD
     );
   }
 
-  // Build valid route path set across all indexable + utility URLs
+  // Build valid route path set across all indexable + utility URLs + English blog routes
+  const BLOG_CATEGORY_SLUGS = [
+    'ruler-fundamentals',
+    'measuring-without-tools',
+    'unit-conversions',
+    'screen-calibration',
+    'printable-practical',
+  ];
+  const blogContentDir = path.join(projectRoot, 'src', 'content', 'blog');
+  const blogArticleSlugs = fs.existsSync(blogContentDir)
+    ? fs
+        .readdirSync(blogContentDir)
+        .filter((f) => f.endsWith('.md'))
+        .map((f) => f.replace(/\.md$/, ''))
+    : [];
+
   const validPaths = new Set();
   const routeEntries = [];
+  validPaths.add('/blog');
+  for (const cat of BLOG_CATEGORY_SLUGS) {
+    validPaths.add(`/blog/${cat}`);
+  }
+  for (const slug of blogArticleSlugs) {
+    validPaths.add(`/blog/${slug}`);
+  }
   for (const locale of LOCALES) {
     for (const slug of PAGE_SLUGS) {
       const routePath = localizedPath(locale, slug);
@@ -219,6 +241,132 @@ test('Build output covers all 156 localized routes, hreflang alternates, JSON-LD
       assert.ok(!html.includes('<header'), `Expected no header chrome in ${relFile}`);
       assert.ok(!html.includes('<footer'), `Expected no footer chrome in ${relFile}`);
       assert.ok(!sitemapXml.includes(`<loc>${canonical}</loc>`), `Expected ${canonical} excluded from sitemap`);
+    }
+  }
+});
+
+function readPngDimensions(filePath) {
+  const buf = fs.readFileSync(filePath);
+  assert.ok(buf.length > 24 && buf.toString('ascii', 1, 4) === 'PNG', `Expected valid PNG at ${filePath}`);
+  return {
+    width: buf.readUInt32BE(16),
+    height: buf.readUInt32BE(20),
+  };
+}
+
+test('Build output covers English blog index, 5 categories, 15+ articles, unique 1200x630 OG PNGs, JSON-LD & sitemap', (t) => {
+  if (!fs.existsSync(distDir)) {
+    t.skip('dist directory not yet built');
+    return;
+  }
+
+  const BLOG_CATEGORY_SLUGS = [
+    'ruler-fundamentals',
+    'measuring-without-tools',
+    'unit-conversions',
+    'screen-calibration',
+    'printable-practical',
+  ];
+  const blogContentDir = path.join(projectRoot, 'src', 'content', 'blog');
+  const blogArticleSlugs = fs
+    .readdirSync(blogContentDir)
+    .filter((f) => f.endsWith('.md'))
+    .map((f) => f.replace(/\.md$/, ''));
+
+  assert.ok(blogArticleSlugs.length >= 15, `Expected >= 15 Phase 1 articles, found ${blogArticleSlugs.length}`);
+
+  const validPaths = new Set(['/blog']);
+  for (const cat of BLOG_CATEGORY_SLUGS) validPaths.add(`/blog/${cat}`);
+  for (const slug of blogArticleSlugs) validPaths.add(`/blog/${slug}`);
+  for (const locale of LOCALES) {
+    for (const slug of PAGE_SLUGS) validPaths.add(localizedPath(locale, slug));
+    for (const utilSlug of UTILITY_SLUGS) validPaths.add(localizedPath(locale, utilSlug));
+  }
+
+  const blogRoutes = [
+    { route: '/blog', kind: 'index' },
+    ...BLOG_CATEGORY_SLUGS.map((cat) => ({ route: `/blog/${cat}`, kind: 'category' })),
+    ...blogArticleSlugs.map((slug) => ({ route: `/blog/${slug}`, kind: 'article' })),
+  ];
+
+  const sitemapXml = fs.readFileSync(path.join(distDir, 'sitemap-0.xml'), 'utf-8');
+  const seenTitles = new Set();
+  const seenDescs = new Set();
+  const seenOgImages = new Set();
+
+  for (const { route, kind } of blogRoutes) {
+    const relHtml = `${route.replace(/^\/+/, '')}/index.html`;
+    const fullHtmlPath = path.join(distDir, relHtml);
+    assert.ok(fs.existsSync(fullHtmlPath), `Expected built blog HTML ${relHtml}`);
+    const html = fs.readFileSync(fullHtmlPath, 'utf-8');
+    const canonical = `${SITE_ORIGIN}${route}`;
+
+    assert.ok(
+      html.includes(`<link rel="canonical" href="${canonical}">`),
+      `Expected self-referencing canonical ${canonical} in ${relHtml}`,
+    );
+    assert.ok(
+      html.includes(`<meta property="og:url" content="${canonical}">`),
+      `Expected matching og:url ${canonical} in ${relHtml}`,
+    );
+    assert.ok(
+      !html.includes('<link rel="alternate" hreflang='),
+      `Expected no broken hreflang alternate links on English-only route ${relHtml}`,
+    );
+    assert.ok(
+      sitemapXml.includes(`<url><loc>${canonical}</loc></url>`),
+      `Expected sitemap-0.xml to include clean <url><loc>${canonical}</loc></url> without bogus alternates`,
+    );
+
+    const titleMatch = html.match(/<title>([\s\S]*?)<\/title>/);
+    const descMatch = html.match(/<meta name="description" content="([^"]*)"/);
+    const ogImgMatch = html.match(/<meta property="og:image" content="([^"]*)"/);
+    assert.ok(titleMatch && titleMatch[1].trim().length > 10, `Expected <title> in ${relHtml}`);
+    assert.ok(descMatch && descMatch[1].trim().length >= 80, `Expected <meta name="description"> in ${relHtml}`);
+    assert.ok(ogImgMatch && ogImgMatch[1].startsWith(`${SITE_ORIGIN}/og/blog/`), `Expected unique /og/blog/*.png og:image in ${relHtml}`);
+
+    assert.ok(!seenTitles.has(titleMatch[1]), `Duplicate <title> across blog routes: ${titleMatch[1]}`);
+    assert.ok(!seenDescs.has(descMatch[1]), `Duplicate meta description across blog routes: ${descMatch[1]}`);
+    assert.ok(!seenOgImages.has(ogImgMatch[1]), `Duplicate og:image across blog routes: ${ogImgMatch[1]}`);
+    seenTitles.add(titleMatch[1]);
+    seenDescs.add(descMatch[1]);
+    seenOgImages.add(ogImgMatch[1]);
+
+    const ogRelPath = ogImgMatch[1].replace(`${SITE_ORIGIN}/`, '');
+    const ogDiskPath = path.join(distDir, ogRelPath);
+    assert.ok(fs.existsSync(ogDiskPath), `Expected OG image ${ogRelPath} in dist/`);
+    const dims = readPngDimensions(ogDiskPath);
+    assert.deepStrictEqual(dims, { width: 1200, height: 630 }, `Expected 1200x630 PNG for ${ogRelPath}`);
+
+    const ldMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+    assert.ok(ldMatch, `Expected JSON-LD script in ${relHtml}`);
+    const parsedLd = JSON.parse(ldMatch[1]);
+    assert.ok(Array.isArray(parsedLd), `Expected JSON-LD array in ${relHtml}`);
+
+    if (kind === 'article') {
+      assert.ok(parsedLd.some((n) => n['@type'] === 'Article'), `Expected Article schema in ${relHtml}`);
+      assert.ok(parsedLd.some((n) => n['@type'] === 'BreadcrumbList'), `Expected BreadcrumbList schema in ${relHtml}`);
+      assert.ok(html.includes('property="article:published_time"'), `Expected article:published_time in ${relHtml}`);
+    } else if (kind === 'category') {
+      assert.ok(parsedLd.some((n) => n['@type'] === 'CollectionPage'), `Expected CollectionPage schema in ${relHtml}`);
+      assert.ok(parsedLd.some((n) => n['@type'] === 'BreadcrumbList'), `Expected BreadcrumbList schema in ${relHtml}`);
+    } else {
+      assert.ok(parsedLd.some((n) => n['@type'] === 'CollectionPage'), `Expected CollectionPage schema in ${relHtml}`);
+    }
+
+    const hrefMatches = html.matchAll(/href="(\/[^"]*)"/g);
+    for (const m of hrefMatches) {
+      const rawHref = m[1];
+      if (
+        rawHref.startsWith('/_astro/') ||
+        rawHref.startsWith('/favicon') ||
+        rawHref === '/apple-touch-icon.png' ||
+        rawHref === '/site.webmanifest'
+      ) {
+        continue;
+      }
+      const cleanPath = rawHref.split('#')[0].split('?')[0] || '/';
+      assert.ok(validPaths.has(cleanPath), `Broken internal link ${rawHref} in ${relHtml}`);
     }
   }
 });

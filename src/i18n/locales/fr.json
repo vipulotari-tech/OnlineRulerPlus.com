@@ -44,7 +44,8 @@
       "screenDetector": "Détecteur d’écran",
       "printableRuler": "Règle imprimable",
       "circleRuler": "Jauge circulaire",
-      "quadrant": "Plan 4 quadrants"
+      "quadrant": "Plan 4 quadrants",
+      "blog": "Blog"
     },
     "subNav": {
       "workspace": "Espace Règle",
@@ -87,7 +88,8 @@
     "toolCircle": "Jauge Cercle & Bague",
     "toolQuadrant": "Plan 4 Quadrants",
     "toolPrintable": "Règle SVG Imprimable",
-    "toolDetector": "Détecteur Écran & PPI"
+    "toolDetector": "Détecteur Écran & PPI",
+    "guideBlog": "Blog et guides de mesure"
   },
   "helpModal": {
     "kicker": "Aide Rapide",
@@ -628,14 +630,6 @@
         "a": "Online Ruler Plus n’accède pas à votre caméra et ne traite aucune photo : poser de petits objets sur l’écran calibré évite les erreurs de perspective et de profondeur des applications AR."
       },
       {
-        "q": "Comment afficher la règle dans Word Online ?",
-        "a": "Dans Microsoft Word pour le web, passez en mode Modification, ouvrez l’onglet Affichage du ruban puis cochez Règle pour voir les marges horizontales du document."
-      },
-      {
-        "q": "Comment afficher la règle dans PowerPoint Online ?",
-        "a": "Dans PowerPoint pour le web en mode Modification, ouvrez l’onglet Affichage et activez Règle. Notez que celle-ci mesure la diapositive virtuelle, pas des millimètres réels sur votre moniteur."
-      },
-      {
         "q": "Pourquoi le calibrage est-il requis et le zoom fausse-t-il la mesure ?",
         "a": "Sans calibrage, le navigateur impose 96 px/pouce. Online Ruler Plus stocke votre densité matérielle (devicePxPerMm) et ajuste les graduations si vous changez le zoom du navigateur."
       },
@@ -643,7 +637,8 @@
         "q": "Le calibrage reste-t-il privé et adapté au multi-écran ?",
         "a": "Oui. Chaque profil est stocké localement dans localStorage selon la signature de l’écran, sans aucun envoi réseau."
       }
-    ]
+    ],
+    "howLead": "Online Ruler Plus est une règle en ligne gratuite et un outil de mesure d’écran calibré pour mesurer des objets réels en pouces, centimètres, millimètres et pixels CSS directement sur votre écran. Comme les navigateurs utilisent 96 pixels CSS par pouce par défaut, un seul calibrage adapte l’échelle réelle sur ordinateur portable, écran externe, tablette et smartphone."
   },
   "spokeShared": {
     "calibrationGuideBtn": "Guide Calibrage & PPI",
@@ -1992,6 +1987,14 @@
         {
           "q": "Comment réinitialiser le calibrage ou l’historique ?",
           "a": "Cliquez sur Réinitialiser dans l’encart Échelle Active ou Effacer dans l’Historique des Mesures (stockage strictement local)."
+        },
+        {
+          "q": "Comment afficher la règle dans Word Online ?",
+          "a": "Dans Microsoft Word pour le web, passez en mode Modification, ouvrez l’onglet Affichage du ruban puis cochez Règle pour voir les marges horizontales du document."
+        },
+        {
+          "q": "Comment afficher la règle dans PowerPoint Online ?",
+          "a": "Dans PowerPoint pour le web en mode Modification, ouvrez l’onglet Affichage et activez Règle. Notez que celle-ci mesure la diapositive virtuelle, pas des millimètres réels sur votre moniteur."
         }
       ]
     },

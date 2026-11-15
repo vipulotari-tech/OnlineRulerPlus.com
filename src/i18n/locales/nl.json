@@ -44,7 +44,8 @@
       "screenDetector": "Schermdetector",
       "printableRuler": "Printbare liniaal",
       "circleRuler": "Cirkelmeter",
-      "quadrant": "4-kwadrantenraster"
+      "quadrant": "4-kwadrantenraster",
+      "blog": "Blog"
     },
     "subNav": {
       "workspace": "Werkruimte",
@@ -87,7 +88,8 @@
     "toolCircle": "Cirkel- & Ringmeter",
     "toolQuadrant": "4-Kwadrantenraster",
     "toolPrintable": "1:1 Printbare SVG-liniaal",
-    "toolDetector": "Scherm- & PPI-detector"
+    "toolDetector": "Scherm- & PPI-detector",
+    "guideBlog": "Meetblog & handleidingen"
   },
   "helpModal": {
     "kicker": "Sneloverzicht",
@@ -628,14 +630,6 @@
         "a": "Online Ruler Plus gebruikt nooit uw camera en verstuurt geen foto's; alle metingen gebeuren direct vlak op het gekalibreerde schermglas zonder diepte- of perspectieffouten van camerametingen."
       },
       {
-        "q": "Hoe toon of voeg ik een liniaal toe in Word Online?",
-        "a": "Online Ruler Plus is een losse webtool en geen Office-invoegtoepassing. In Microsoft Word Online schakelt u naar Bewerken en vinkt u onder het tabblad Beeld de optie Liniaal aan."
-      },
-      {
-        "q": "Hoe zet ik de liniaal aan in PowerPoint Online?",
-        "a": "Open in PowerPoint Online de bewerkingsmodus, klik op het tabblad Beeld en schakel Liniaal samen met Rasterlijnen of Hulplijnen in. Let op: dat toont virtuele diamaten, geen fysieke millimeters."
-      },
-      {
         "q": "Waarom moet je kalibreren en verstoort browserzoom de schaal?",
         "a": "Browsers verbergen de echte schermgrootte en tekenen standaard op 96 CSS PPI, wat 10% tot 35% afwijking geeft. Online Ruler Plus slaat uw echte hardware-dichtheid (devicePxPerMm) lokaal op en schaalt automatisch mee bij zoomen."
       },
@@ -643,7 +637,8 @@
         "q": "Blijft kalibratie bewaard bij meerdere monitoren en privé?",
         "a": "Ja, profielen worden lokaal per schermresolutie en DPR bewaard in localStorage. Verplaatst u het venster naar een andere monitor, dan vraagt of laadt de tool het bijbehorende profiel zonder enige serverupload."
       }
-    ]
+    ],
+    "howLead": "Online Ruler Plus is een gratis online liniaal en gekalibreerde schermtool om fysieke objecten in inches, centimeters, millimeters en CSS-pixels direct op je display te meten. Omdat browsers standaard uitgaan van 96 CSS-pixels per inch, zorgt een eenmalige kalibratie voor de juiste schaal op laptops, monitors, tablets en telefoons."
   },
   "spokeShared": {
     "calibrationGuideBtn": "Kalibratie & PPI Gids",
@@ -1992,6 +1987,14 @@
         {
           "q": "Hoe reset ik mijn opgeslagen schermkalibratie of geschiedenis?",
           "a": "Alle gegevens staan lokaal in localStorage. Gebruik Kalibratie Resetten of Wissen bij Meetgeschiedenis."
+        },
+        {
+          "q": "Hoe toon of voeg ik een liniaal toe in Word Online?",
+          "a": "Online Ruler Plus is een losse webtool en geen Office-invoegtoepassing. In Microsoft Word Online schakelt u naar Bewerken en vinkt u onder het tabblad Beeld de optie Liniaal aan."
+        },
+        {
+          "q": "Hoe zet ik de liniaal aan in PowerPoint Online?",
+          "a": "Open in PowerPoint Online de bewerkingsmodus, klik op het tabblad Beeld en schakel Liniaal samen met Rasterlijnen of Hulplijnen in. Let op: dat toont virtuele diamaten, geen fysieke millimeters."
         }
       ]
     },

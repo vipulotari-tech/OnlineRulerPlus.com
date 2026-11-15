@@ -44,7 +44,8 @@
       "screenDetector": "Rilevatore schermo",
       "printableRuler": "Righello stampabile",
       "circleRuler": "Calibro circolare",
-      "quadrant": "Piano 4 quadranti"
+      "quadrant": "Piano 4 quadranti",
+      "blog": "Blog"
     },
     "subNav": {
       "workspace": "Righello",
@@ -87,7 +88,8 @@
     "toolCircle": "Calibro Cerchi & Anelli",
     "toolQuadrant": "Piano 4 Quadranti",
     "toolPrintable": "Righello SVG Stampabile",
-    "toolDetector": "Rilevatore Schermo & PPI"
+    "toolDetector": "Rilevatore Schermo & PPI",
+    "guideBlog": "Blog e guide di misura"
   },
   "helpModal": {
     "kicker": "Riferimento Rapido",
@@ -628,14 +630,6 @@
         "a": "Online Ruler Plus non usa la fotocamera: poggiare piccoli oggetti sullo schermo calibrato evita errori di prospettiva e profondità."
       },
       {
-        "q": "Come si mostra il righello in Word Online?",
-        "a": "In Word per il web passa alla modalità Modifica, apri Visualizza sulla barra e spunta Righello."
-      },
-      {
-        "q": "Come si attiva il righello in PowerPoint Online?",
-        "a": "In PowerPoint web in Modifica apri Visualizza e attiva Righello (misura le coordinate della diapositiva, non i mm fisici)."
-      },
-      {
         "q": "Perché serve la calibrazione e lo zoom influisce?",
         "a": "I browser usano 96 px/pollice di base. Salvando devicePxPerMm, l’app compensa automaticamente eventuali cambi di zoom."
       },
@@ -643,7 +637,8 @@
         "q": "La calibrazione resta privata e funziona su più monitor?",
         "a": "Sì, ogni profilo resta salvato esclusivamente in localStorage sul dispositivo."
       }
-    ]
+    ],
+    "howLead": "Online Ruler Plus è un righello online gratuito e uno strumento di misurazione su schermo calibrato per misurare oggetti reali in pollici, centimetri, millimetri e pixel CSS direttamente sul display. Poiché i browser assumono 96 pixel CSS per pollice, una calibrazione iniziale adatta la scala reale su laptop, monitor, tablet e smartphone."
   },
   "spokeShared": {
     "calibrationGuideBtn": "Guida Calibrazione & PPI",
@@ -1992,6 +1987,14 @@
         {
           "q": "Come azzerare calibrazione o cronologia?",
           "a": "Usa Ripristina nella scheda Scala Attiva o Svuota nella Cronologia Misure (tutto locale)."
+        },
+        {
+          "q": "Come si mostra il righello in Word Online?",
+          "a": "In Word per il web passa alla modalità Modifica, apri Visualizza sulla barra e spunta Righello."
+        },
+        {
+          "q": "Come si attiva il righello in PowerPoint Online?",
+          "a": "In PowerPoint web in Modifica apri Visualizza e attiva Righello (misura le coordinate della diapositiva, non i mm fisici)."
         }
       ]
     },
