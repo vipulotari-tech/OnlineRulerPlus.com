@@ -147,6 +147,40 @@ const TEMPLATES = [
         <div class="rounded-[18px] border border-hairline bg-white p-3 sm:p-6 shadow-sm overflow-x-auto">
           <div id="printable-svg-sheet" class="min-w-[280px]"></div>
         </div>
+
+        {locale === 'en' && (
+          <div class="print-hide grid grid-cols-1 gap-6 md:grid-cols-3 pt-2">
+            <article class="apple-utility-card">
+              <p class="type-kicker">Print Scaling</p>
+              <h2 class="mt-1 type-body-strong text-ink">Why Do Printed Rulers Shrink at &ldquo;Fit to Page&rdquo;?</h2>
+              <p class="mt-2 type-caption text-ink-muted-80">
+                Desktop browsers and PDF viewers often default to &ldquo;Fit to Printable Area,&rdquo; shrinking an A4 or US Letter page by 3% to 6% inside hardware margins. Set print scaling explicitly to <strong>100% / Actual Size</strong> before printing.
+              </p>
+            </article>
+
+            <article class="apple-utility-card">
+              <p class="type-kicker">Scale Verification</p>
+              <h2 class="mt-1 type-body-strong text-ink">How Do You Verify a Printed Paper Ruler?</h2>
+              <p class="mt-2 type-caption text-ink-muted-80">
+                Every sheet includes a built-in <strong>100.0 mm / 4.00 in</strong> verification bar. Check that span against a calibrated screen ruler or a standard ISO/IEC 7810 ID-1 bank card (85.60 mm wide). See our{' '}
+                <a href="/blog/how-to-print-actual-size-ruler-100-percent-scale" class="font-semibold text-link hover:underline">
+                  100% scale printing guide
+                </a>.
+              </p>
+            </article>
+
+            <article class="apple-utility-card">
+              <p class="type-kicker">Accuracy Limits</p>
+              <h2 class="mt-1 type-body-strong text-ink">What Limits Paper Ruler Accuracy?</h2>
+              <p class="mt-2 type-caption text-ink-muted-80">
+                Laser fuser heat, inkjet paper humidity absorption, and roller slippage can introduce ~0.2–0.5 mm drift across a full sheet. Treat paper rulers as everyday layout tools rather than{' '}
+                <a href="https://www.nist.gov/pml/dimensional-metrology" target="_blank" rel="noopener noreferrer" class="font-semibold text-link hover:underline">
+                  NIST-traceable calipers
+                </a>.
+              </p>
+            </article>
+          </div>
+        )}
       </div>
     </section>
   </main>

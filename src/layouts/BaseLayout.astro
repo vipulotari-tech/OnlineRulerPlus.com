@@ -78,7 +78,9 @@ const organizationSchema: Record<string, unknown> = {
   '@type': 'Organization',
   '@id': `${siteOrigin}/#organization`,
   name: 'Online Ruler Plus',
+  alternateName: 'OnlineRulerPlus.com',
   url: `${siteOrigin}/`,
+  publishingPrinciples: `${siteOrigin}/about`,
   logo: {
     '@type': 'ImageObject',
     url: siteLogoUrl,
@@ -101,6 +103,7 @@ const websiteSchema: Record<string, unknown> = {
   '@id': `${homeUrl}#website`,
   url: homeUrl,
   name: 'Online Ruler Plus',
+  description: dict.home.description,
   inLanguage: meta.bcp47,
   publisher: {
     '@id': `${siteOrigin}/#organization`,

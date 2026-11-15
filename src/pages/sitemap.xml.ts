@@ -86,12 +86,10 @@ export const GET: APIRoute = async ({ site }) => {
       const url = `${siteOrigin}${routePath === '/' ? '/' : routePath}`;
       const dictFile =
         locale === DEFAULT_LOCALE
-          ? 'src/i18n/dictionaries/en.ts'
-          : `src/i18n/dictionaries/${locale}.json`;
-      const enFallback =
-        locale === DEFAULT_LOCALE ? [] : ['src/i18n/dictionaries/en.json'];
-      const enJson = 'src/i18n/dictionaries/en.json';
-      const lastmod = getLastModForFiles([templateFile, dictFile, enJson, ...enFallback]);
+          ? 'src/i18n/locales/en.json'
+          : `src/i18n/locales/${locale}.json`;
+      const enJson = 'src/i18n/locales/en.json';
+      const lastmod = getLastModForFiles([templateFile, dictFile, enJson]);
 
       lines.push('  <url>');
       lines.push(`    <loc>${escapeXml(url)}</loc>`);

@@ -93,9 +93,16 @@ Users can verify ruler calibration against standardized everyday physical items:
 - `https://onlinerulerplus.com/mm-ruler` — Online Millimeter Ruler (mm) & Hardware Pitch Scale
 - `https://onlinerulerplus.com/horizontal-ruler` — Full-Width Horizontal Online Screen Ruler (Top & Bottom)
 - `https://onlinerulerplus.com/vertical-ruler` — Calibrated Vertical Online Screen Ruler (Left & Right)
-- `https://onlinerulerplus.com/how-to-use` — How to Use Online Ruler Plus (3-Step Manual & Printable Scale Guide)
+- `https://onlinerulerplus.com/photo-ruler` — Client-Side Photo & Screenshot Reference Ruler
+- `https://onlinerulerplus.com/protractor` — Calibrated 180° / 360° Online Screen Protractor
+- `https://onlinerulerplus.com/circle-ruler` — Concentric Circle, Ring, Bolt & Coin Diameter Gauge (1–150 mm)
+- `https://onlinerulerplus.com/quadrant` — 4-Quadrant Coordinate Plane & Polar Vector Grid
+- `https://onlinerulerplus.com/printable-ruler` — True-Scale Printable SVG Ruler Generator (A4 & US Letter)
+- `https://onlinerulerplus.com/screen-size-detector` — Live Screen Resolution, DPR & PPI Calculator
+- `https://onlinerulerplus.com/how-to-use` — How to Use Online Ruler Plus (3-Step Manual & Shortcuts)
 - `https://onlinerulerplus.com/calibration-guide` — Screen Calibration & PPI Measurement Guide
-- `https://onlinerulerplus.com/faq` — Frequently Asked Questions (16 Metrology & Calibration Q&As)
+- `https://onlinerulerplus.com/faq` — Frequently Asked Questions (20 Metrology & Calibration Q&As)
+- `https://onlinerulerplus.com/blog` — Editorial Measurement Blog Hub (5 Categories, 15 Guides)
 - `https://onlinerulerplus.com/about` — About Online Ruler Plus & Engineering Principles
 - `https://onlinerulerplus.com/contact` — Contact & Hardware Display Profile Submissions
 - `https://onlinerulerplus.com/privacy` — Privacy Policy (100% Client-Side LocalStorage)

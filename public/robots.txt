@@ -1,7 +1,21 @@
 # Robots.txt for OnlineRulerPlus.com
-# Allows full crawling of all public ruler tools, multilingual routes, blog guides,
-# and rendering assets (CSS, JS, fonts, images) for Search and AdSense verification.
+# Configures explicit crawler access for search engines, AI search citations,
+# model training preferences (kept independent), and ad verification crawlers.
+# Official OpenAI crawler reference: https://developers.openai.com/api/docs/bots
 
+# OpenAI ChatGPT Search indexing & citation crawler (must remain allowed for Search visibility)
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI live user-initiated web fetches in ChatGPT and Custom GPTs
+User-agent: ChatGPT-User
+Allow: /
+
+# OpenAI foundation model training crawler (configured separately from ChatGPT Search)
+User-agent: GPTBot
+Allow: /
+
+# Google Search, Images & AdSense verification
 User-agent: Googlebot
 Allow: /
 
@@ -14,6 +28,31 @@ Allow: /
 User-agent: AdsBot-Google
 Allow: /
 
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft Bing & Microsoft Copilot Search discovery
+User-agent: Bingbot
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+# Perplexity AI Search & user-triggered citations
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Applebot & Apple Intelligence crawler
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# General search crawlers — do not block rendering CSS, JS, fonts, images, or /blog
 User-agent: *
 Allow: /
 
