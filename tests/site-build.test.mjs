@@ -36,6 +36,7 @@ test('Build output covers all 156 localized routes, hreflang alternates, JSON-LD
   const staticArtifacts = [
     'robots.txt',
     '_headers',
+    '_routes.json',
     'sitemap.xml',
     '404.html',
     'llms.txt',
@@ -476,4 +477,40 @@ test('Technical SEO: single sitemap.xml, compliant robots.txt, _headers, branded
     const pathOnly = new URL(loc).pathname;
     assert.ok(visited.has(pathOnly), `Orphaned sitemap URL not reachable from internal HTML links: ${pathOnly}`);
   }
+});
+
+test('Cloudflare Pages middleware permanently redirects *.pages.dev and www to canonical apex domain', async () => {
+  const { onRequest } = await import('../functions/_middleware.js');
+  const nextSentinel = new Response('ok', { status: 200 });
+
+  for (const [inputUrl, expectedLocation, expectNoIndex] of [
+    ['https://onlinerulerplus.pages.dev/', 'https://onlinerulerplus.com/', true],
+    ['https://onlinerulerplus.pages.dev/cm-ruler?u=mm', 'https://onlinerulerplus.com/cm-ruler?u=mm', true],
+    ['https://eea1dcc0.onlinerulerplus.pages.dev/blog', 'https://onlinerulerplus.com/blog', true],
+    ['https://www.onlinerulerplus.com/inch-ruler', 'https://onlinerulerplus.com/inch-ruler', false],
+  ]) {
+    let calledNext = false;
+    const res = await onRequest({
+      request: new Request(inputUrl),
+      next: async () => {
+        calledNext = true;
+        return nextSentinel;
+      },
+    });
+    assert.strictEqual(calledNext, false, `Expected middleware to short-circuit ${inputUrl}`);
+    assert.strictEqual(res.status, 301, `Expected 301 redirect for ${inputUrl}`);
+    assert.strictEqual(res.headers.get('location'), expectedLocation);
+    assert.strictEqual(res.headers.get('x-robots-tag'), expectNoIndex ? 'noindex' : null);
+  }
+
+  let canonicalCalledNext = false;
+  const canonicalRes = await onRequest({
+    request: new Request('https://onlinerulerplus.com/cm-ruler'),
+    next: async () => {
+      canonicalCalledNext = true;
+      return nextSentinel;
+    },
+  });
+  assert.strictEqual(canonicalCalledNext, true, 'Canonical apex host must pass through to static assets');
+  assert.strictEqual(canonicalRes.status, 200);
 });
