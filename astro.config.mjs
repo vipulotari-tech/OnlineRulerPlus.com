@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 const LOCALE_MAP = {
@@ -22,6 +21,9 @@ const LOCALE_MAP = {
 export default defineConfig({
   site: 'https://onlinerulerplus.com',
   trailingSlash: 'never',
+  build: {
+    format: 'file',
+  },
   i18n: {
     defaultLocale: 'en',
     locales: Object.keys(LOCALE_MAP),
@@ -29,15 +31,6 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
-  integrations: [
-    sitemap({
-      filter: (page) => !/\/embed\/?$/.test(page),
-      i18n: {
-        defaultLocale: 'en',
-        locales: LOCALE_MAP,
-      },
-    }),
-  ],
   vite: {
     cacheDir: '.vite-cache',
     plugins: [tailwindcss()],

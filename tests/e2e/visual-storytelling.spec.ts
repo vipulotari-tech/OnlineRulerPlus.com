@@ -194,7 +194,7 @@ test.describe('Premium Visual Storytelling & Motion QA', () => {
   }) => {
     const resp = await page.goto('/non-existent-measurement-route', { waitUntil: 'networkidle' });
     expect(resp?.status()).toBe(404);
-    await expect(page.locator('h1')).toContainText('This page could not be found.');
+    await expect(page.locator('h1')).toContainText('Page Not Found');
     await expect(page.locator('a[href="/"]').first()).toBeVisible();
     const axe = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])

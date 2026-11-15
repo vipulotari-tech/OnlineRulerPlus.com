@@ -62,13 +62,13 @@ test.describe('P4 — SEO Spokes, Cross-Linking & Guide Enrichment', () => {
     expect(errors).toEqual([]);
   });
 
-  test('P4.4 sitemap-index & robots exclude /embed utility and expose all 19 indexable spokes', async ({ request }) => {
+  test('P4.4 sitemap.xml & robots exclude /embed utility and expose all 19 indexable spokes', async ({ request }) => {
     const robotsRes = await request.get('/robots.txt');
     expect(robotsRes.ok()).toBe(true);
     const robotsBody = await robotsRes.text();
-    expect(robotsBody).toContain('Sitemap:');
+    expect(robotsBody).toContain('Sitemap: https://onlinerulerplus.com/sitemap.xml');
 
-    const sitemapRes = await request.get('/sitemap-0.xml');
+    const sitemapRes = await request.get('/sitemap.xml');
     expect(sitemapRes.ok()).toBe(true);
     const sitemapXml = await sitemapRes.text();
     expect(sitemapXml).toContain('/photo-ruler');

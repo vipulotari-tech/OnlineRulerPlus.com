@@ -33,10 +33,21 @@ const structuredData = [
     url: canonicalUrl,
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Any',
+    browserRequirements: 'Requires HTML5 Canvas and JavaScript',
     inLanguage: meta.bcp47,
     isAccessibleForFree: true,
     description: page.description,
+    screenshot: `${siteOrigin}/og-image.png`,
     publisher: { '@id': `${siteOrigin}/#organization` },
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1'],
+    },
   },
 ];
 

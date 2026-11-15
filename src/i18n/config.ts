@@ -74,7 +74,8 @@ export function isLocale(value: string | undefined | null): value is Locale {
 }
 
 export function normalizeRoutePath(pathname: string): string {
-  const clean = pathname.trim().replace(/\/+$/, '');
+  let clean = pathname.trim().replace(/\/index\.html$/i, '').replace(/\.html$/i, '');
+  clean = clean.replace(/\/+$/, '');
   return clean === '' ? '/' : clean.startsWith('/') ? clean : `/${clean}`;
 }
 

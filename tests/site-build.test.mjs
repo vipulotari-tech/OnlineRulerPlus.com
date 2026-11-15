@@ -19,7 +19,7 @@ const SITE_ORIGIN = 'https://onlinerulerplus.com';
 
 function distFileForRoute(locale, slug) {
   const rel = localizedPath(locale, slug).replace(/^\/+/, '');
-  return rel ? `${rel}/index.html` : 'index.html';
+  return rel ? `${rel}.html` : 'index.html';
 }
 
 function canonicalForRoute(locale, slug) {
@@ -35,8 +35,9 @@ test('Build output covers all 156 localized routes, hreflang alternates, JSON-LD
 
   const staticArtifacts = [
     'robots.txt',
-    'sitemap-index.xml',
-    'sitemap-0.xml',
+    '_headers',
+    'sitemap.xml',
+    '404.html',
     'llms.txt',
     'llms-full.txt',
     'og-image.png',
@@ -56,6 +57,8 @@ test('Build output covers all 156 localized routes, hreflang alternates, JSON-LD
       `Expected build artifact ${rel} to exist`,
     );
   }
+  assert.ok(!fs.existsSync(path.join(distDir, 'sitemap-index.xml')), 'Competeing sitemap-index.xml must not exist');
+  assert.ok(!fs.existsSync(path.join(distDir, 'sitemap-0.xml')), 'Competing sitemap-0.xml must not exist');
 
   // Build valid route path set across all indexable + utility URLs + English blog routes
   const BLOG_CATEGORY_SLUGS = [
@@ -115,7 +118,7 @@ test('Build output covers all 156 localized routes, hreflang alternates, JSON-LD
   assert.match(indexHtml, /apple-subnav-frosted/);
   assert.match(indexHtml, /apple-btn-primary/);
 
-  const sitemapXml = fs.readFileSync(path.join(distDir, 'sitemap-0.xml'), 'utf-8');
+  const sitemapXml = fs.readFileSync(path.join(distDir, 'sitemap.xml'), 'utf-8');
 
   // Sample non-English homepages must differ in <title> and <h1> from English homepage
   const enTitleMatch = indexHtml.match(/<title>([\s\S]*?)<\/title>/);
@@ -195,7 +198,7 @@ test('Build output covers all 156 localized routes, hreflang alternates, JSON-LD
     // Sitemap entry exists
     assert.ok(
       sitemapXml.includes(`<loc>${canonical}</loc>`),
-      `Expected sitemap-0.xml to contain <loc>${canonical}</loc>`,
+      `Expected sitemap.xml to contain <loc>${canonical}</loc>`,
     );
 
     // Favicon & manifest tags present once each (no duplicates)
@@ -289,13 +292,13 @@ test('Build output covers English blog index, 5 categories, 15+ articles, unique
     ...blogArticleSlugs.map((slug) => ({ route: `/blog/${slug}`, kind: 'article' })),
   ];
 
-  const sitemapXml = fs.readFileSync(path.join(distDir, 'sitemap-0.xml'), 'utf-8');
+  const sitemapXml = fs.readFileSync(path.join(distDir, 'sitemap.xml'), 'utf-8');
   const seenTitles = new Set();
   const seenDescs = new Set();
   const seenOgImages = new Set();
 
   for (const { route, kind } of blogRoutes) {
-    const relHtml = `${route.replace(/^\/+/, '')}/index.html`;
+    const relHtml = `${route.replace(/^\/+/, '')}.html`;
     const fullHtmlPath = path.join(distDir, relHtml);
     assert.ok(fs.existsSync(fullHtmlPath), `Expected built blog HTML ${relHtml}`);
     const html = fs.readFileSync(fullHtmlPath, 'utf-8');
@@ -313,9 +316,13 @@ test('Build output covers English blog index, 5 categories, 15+ articles, unique
       !html.includes('<link rel="alternate" hreflang='),
       `Expected no broken hreflang alternate links on English-only route ${relHtml}`,
     );
-    assert.ok(
-      sitemapXml.includes(`<url><loc>${canonical}</loc></url>`),
-      `Expected sitemap-0.xml to include clean <url><loc>${canonical}</loc></url> without bogus alternates`,
+    const blogUrlBlockPattern = new RegExp(
+      `<url>\\s*<loc>${canonical.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}</loc>\\s*<lastmod>\\d{4}-\\d{2}-\\d{2}</lastmod>\\s*</url>`,
+    );
+    assert.match(
+      sitemapXml,
+      blogUrlBlockPattern,
+      `Expected sitemap.xml to include clean <url> with <lastmod> and no bogus alternates for ${canonical}`,
     );
 
     const titleMatch = html.match(/<title>([\s\S]*?)<\/title>/);
@@ -368,5 +375,90 @@ test('Build output covers English blog index, 5 categories, 15+ articles, unique
       const cleanPath = rawHref.split('#')[0].split('?')[0] || '/';
       assert.ok(validPaths.has(cleanPath), `Broken internal link ${rawHref} in ${relHtml}`);
     }
+  }
+});
+
+test('Technical SEO: single sitemap.xml, compliant robots.txt, _headers, branded 404, WebApplication offers & zero orphans', (t) => {
+  if (!fs.existsSync(distDir)) {
+    t.skip('dist directory not yet built');
+    return;
+  }
+
+  // 1. robots.txt compliance
+  const robotsTxt = fs.readFileSync(path.join(distDir, 'robots.txt'), 'utf-8');
+  assert.ok(robotsTxt.includes('User-agent: Googlebot'), 'robots.txt should explicitly allow Googlebot');
+  assert.ok(robotsTxt.includes('User-agent: Googlebot-Image'), 'robots.txt should allow Googlebot-Image');
+  assert.ok(robotsTxt.includes('User-agent: Mediapartners-Google'), 'robots.txt should allow Mediapartners-Google');
+  assert.ok(robotsTxt.includes('User-agent: AdsBot-Google'), 'robots.txt should allow AdsBot-Google');
+  assert.ok(robotsTxt.includes('Sitemap: https://onlinerulerplus.com/sitemap.xml'), 'robots.txt must reference /sitemap.xml');
+  assert.ok(!robotsTxt.includes('sitemap-index.xml'), 'robots.txt must not reference removed sitemap-index.xml');
+  assert.ok(!/^Disallow:\s*\/(_astro|assets|blog|embed)/im.test(robotsTxt), 'robots.txt must not block CSS/JS/blog/embed');
+
+  // 2. _headers security & embed framing rules
+  const headersFile = fs.readFileSync(path.join(distDir, '_headers'), 'utf-8');
+  assert.ok(headersFile.includes('X-Content-Type-Options: nosniff'), '_headers must set X-Content-Type-Options');
+  assert.ok(headersFile.includes('X-Frame-Options: SAMEORIGIN'), '_headers must set SAMEORIGIN globally');
+  assert.ok(
+    headersFile.includes('/embed\n  ! X-Frame-Options') ||
+      headersFile.includes('/embed\r\n  ! X-Frame-Options'),
+    '_headers must detach X-Frame-Options on /embed',
+  );
+
+  // 3. Branded 404.html (noindex, nofollow, no canonical, search & links)
+  const html404 = fs.readFileSync(path.join(distDir, '404.html'), 'utf-8');
+  assert.ok(html404.includes('content="noindex, nofollow"'), '404.html must include noindex, nofollow');
+  assert.ok(!html404.includes('<link rel="canonical"'), '404.html must omit canonical link');
+  assert.ok(!html404.includes('property="og:url"'), '404.html must omit og:url');
+  assert.ok(html404.includes('data-404-search'), '404.html must include search input');
+  assert.ok(html404.includes('href="/blog"'), '404.html must link to /blog');
+
+  // 4. WebApplication offers & speakable on all tool routes
+  for (const toolSlug of ['circle-ruler', 'quadrant', 'printable-ruler', 'screen-size-detector']) {
+    const html = fs.readFileSync(path.join(distDir, `${toolSlug}.html`), 'utf-8');
+    const ldMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+    assert.ok(ldMatch, `Expected JSON-LD on ${toolSlug}`);
+    const nodes = JSON.parse(ldMatch[1]);
+    const app = nodes.find((n) => n['@type'] === 'WebApplication');
+    assert.ok(app, `Expected WebApplication schema on ${toolSlug}`);
+    assert.ok(app.offers && app.offers.price === '0', `Expected free Offer schema on ${toolSlug}`);
+    assert.ok(app.browserRequirements, `Expected browserRequirements on ${toolSlug}`);
+    assert.ok(app.speakable, `Expected speakable on ${toolSlug}`);
+  }
+
+  // 5. Full internal link graph BFS from '/' reaches all 249 indexable pages (zero orphans)
+  const sitemapXml = fs.readFileSync(path.join(distDir, 'sitemap.xml'), 'utf-8');
+  const sitemapLocs = [...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  assert.strictEqual(sitemapLocs.length, 249, `Expected 249 URLs in sitemap.xml, found ${sitemapLocs.length}`);
+
+  const visited = new Set(['/']);
+  const queue = ['/'];
+  while (queue.length > 0) {
+    const route = queue.shift();
+    const rel = route === '/' ? 'index.html' : `${route.replace(/^\/+/, '')}.html`;
+    const filePath = path.join(distDir, rel);
+    if (!fs.existsSync(filePath)) continue;
+    const html = fs.readFileSync(filePath, 'utf-8');
+    for (const m of html.matchAll(/href="(\/[^"]*)"/g)) {
+      const target = m[1].split('#')[0].split('?')[0] || '/';
+      if (
+        target.startsWith('/_astro/') ||
+        target.startsWith('/favicon') ||
+        target === '/apple-touch-icon.png' ||
+        target === '/site.webmanifest' ||
+        target.endsWith('/embed') ||
+        target === '/embed'
+      ) {
+        continue;
+      }
+      if (!visited.has(target)) {
+        visited.add(target);
+        queue.push(target);
+      }
+    }
+  }
+
+  for (const loc of sitemapLocs) {
+    const pathOnly = new URL(loc).pathname;
+    assert.ok(visited.has(pathOnly), `Orphaned sitemap URL not reachable from internal HTML links: ${pathOnly}`);
   }
 });

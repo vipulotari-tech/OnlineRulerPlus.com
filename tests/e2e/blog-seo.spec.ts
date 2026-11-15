@@ -198,16 +198,16 @@ test.describe('Blog, Editorial SEO, Open Graph & FAQ Isolation', () => {
   });
 
   test('XML sitemap includes /blog, all 5 category archives, and all 15 Phase 1 articles without broken alternates', async ({ request }) => {
-    const res = await request.get('/sitemap-0.xml');
+    const res = await request.get('/sitemap.xml');
     expect(res.ok()).toBe(true);
     const xml = await res.text();
 
-    expect(xml).toContain('<url><loc>https://onlinerulerplus.com/blog</loc></url>');
+    expect(xml).toMatch(/<url>\s*<loc>https:\/\/onlinerulerplus\.com\/blog<\/loc>\s*<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>\s*<\/url>/);
     for (const category of CATEGORY_SLUGS) {
-      expect(xml).toContain(`<url><loc>https://onlinerulerplus.com/blog/${category}</loc></url>`);
+      expect(xml).toMatch(new RegExp(`<url>\\s*<loc>https://onlinerulerplus\\.com/blog/${category}</loc>\\s*<lastmod>\\d{4}-\\d{2}-\\d{2}</lastmod>\\s*</url>`));
     }
     for (const slug of ARTICLE_SLUGS) {
-      expect(xml).toContain(`<url><loc>https://onlinerulerplus.com/blog/${slug}</loc></url>`);
+      expect(xml).toMatch(new RegExp(`<url>\\s*<loc>https://onlinerulerplus\\.com/blog/${slug}</loc>\\s*<lastmod>\\d{4}-\\d{2}-\\d{2}</lastmod>\\s*</url>`));
     }
   });
 });

@@ -25,6 +25,7 @@ interface Props {
   ogImage?: string;
   ogImageAlt?: string;
   disableHreflang?: boolean;
+  omitCanonical?: boolean;
   publishedTime?: string;
   modifiedTime?: string;
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
@@ -43,6 +44,7 @@ const {
   ogImage,
   ogImageAlt: customOgImageAlt,
   disableHreflang = false,
+  omitCanonical = false,
   publishedTime,
   modifiedTime,
   structuredData,
@@ -64,7 +66,8 @@ const canonicalUrl =
 const homePath = localizedPath(locale, '/');
 const homeUrl = homePath === '/' ? `${siteOrigin}/` : `${siteOrigin}${homePath}`;
 
-const hreflangAlternates = disableHreflang ? [] : getHreflangAlternates(siteOrigin, baseRoute);
+const hreflangAlternates =
+  disableHreflang || omitCanonical ? [] : getHreflangAlternates(siteOrigin, baseRoute);
 const resolvedOgImagePath = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteOrigin}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`) : `${siteOrigin}/og-image.png`;
 const ogImageUrl = resolvedOgImagePath;
 const siteLogoUrl = `${siteOrigin}/og-image.png`;
@@ -115,7 +118,7 @@ const hasExplicitBreadcrumb = extraSchemas.some(
 );
 
 const breadcrumbSchema: Record<string, unknown> | null =
-  baseRoute !== '/' && !hasExplicitBreadcrumb
+  baseRoute !== '/' && !hasExplicitBreadcrumb && !omitCanonical
     ? {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
@@ -163,7 +166,7 @@ const skipLabel = skipHref === '#ruler-tool' ? dict.nav.skipToWorkspace : dict.n
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
-    <link rel="canonical" href={canonicalUrl} />
+    {!omitCanonical && <link rel="canonical" href={canonicalUrl} />}
     {hreflangAlternates.map((alt) => (
       <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
     ))}
@@ -177,7 +180,7 @@ const skipLabel = skipHref === '#ruler-tool' ? dict.nav.skipToWorkspace : dict.n
     <meta property="og:locale" content={meta.ogLocale} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalUrl} />
+    {!omitCanonical && <meta property="og:url" content={canonicalUrl} />}
     <meta property="og:site_name" content="Online Ruler Plus" />
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:image:type" content="image/png" />
